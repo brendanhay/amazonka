@@ -38,14 +38,14 @@ module Network.AWS.LexModels.GetBotAlias
     newGetBotAliasResponse,
 
     -- * Response Lenses
-    getBotAliasResponse_createdDate,
-    getBotAliasResponse_botName,
-    getBotAliasResponse_lastUpdatedDate,
-    getBotAliasResponse_botVersion,
-    getBotAliasResponse_name,
-    getBotAliasResponse_description,
     getBotAliasResponse_checksum,
+    getBotAliasResponse_botVersion,
+    getBotAliasResponse_botName,
+    getBotAliasResponse_createdDate,
+    getBotAliasResponse_name,
     getBotAliasResponse_conversationLogs,
+    getBotAliasResponse_lastUpdatedDate,
+    getBotAliasResponse_description,
     getBotAliasResponse_httpStatus,
   )
 where
@@ -101,14 +101,14 @@ instance Core.AWSRequest GetBotAlias where
     Response.receiveJSON
       ( \s h x ->
           GetBotAliasResponse'
-            Prelude.<$> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "botName")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<$> (x Core..?> "checksum")
             Prelude.<*> (x Core..?> "botVersion")
+            Prelude.<*> (x Core..?> "botName")
+            Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "checksum")
             Prelude.<*> (x Core..?> "conversationLogs")
+            Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,24 +141,24 @@ instance Core.ToQuery GetBotAlias where
 
 -- | /See:/ 'newGetBotAliasResponse' smart constructor.
 data GetBotAliasResponse = GetBotAliasResponse'
-  { -- | The date that the bot alias was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The name of the bot that the alias points to.
-    botName :: Prelude.Maybe Prelude.Text,
-    -- | The date that the bot alias was updated. When you create a resource, the
-    -- creation date and the last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+  { -- | Checksum of the bot alias.
+    checksum :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot that the alias points to.
     botVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bot that the alias points to.
+    botName :: Prelude.Maybe Prelude.Text,
+    -- | The date that the bot alias was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the bot alias.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A description of the bot alias.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Checksum of the bot alias.
-    checksum :: Prelude.Maybe Prelude.Text,
     -- | The settings that determine how Amazon Lex uses conversation logs for
     -- the alias.
     conversationLogs :: Prelude.Maybe ConversationLogsResponse,
+    -- | The date that the bot alias was updated. When you create a resource, the
+    -- creation date and the last updated date are the same.
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | A description of the bot alias.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,23 +172,23 @@ data GetBotAliasResponse = GetBotAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'getBotAliasResponse_createdDate' - The date that the bot alias was created.
+-- 'checksum', 'getBotAliasResponse_checksum' - Checksum of the bot alias.
+--
+-- 'botVersion', 'getBotAliasResponse_botVersion' - The version of the bot that the alias points to.
 --
 -- 'botName', 'getBotAliasResponse_botName' - The name of the bot that the alias points to.
+--
+-- 'createdDate', 'getBotAliasResponse_createdDate' - The date that the bot alias was created.
+--
+-- 'name', 'getBotAliasResponse_name' - The name of the bot alias.
+--
+-- 'conversationLogs', 'getBotAliasResponse_conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for
+-- the alias.
 --
 -- 'lastUpdatedDate', 'getBotAliasResponse_lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 --
--- 'botVersion', 'getBotAliasResponse_botVersion' - The version of the bot that the alias points to.
---
--- 'name', 'getBotAliasResponse_name' - The name of the bot alias.
---
 -- 'description', 'getBotAliasResponse_description' - A description of the bot alias.
---
--- 'checksum', 'getBotAliasResponse_checksum' - Checksum of the bot alias.
---
--- 'conversationLogs', 'getBotAliasResponse_conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for
--- the alias.
 --
 -- 'httpStatus', 'getBotAliasResponse_httpStatus' - The response's http status code.
 newGetBotAliasResponse ::
@@ -197,50 +197,50 @@ newGetBotAliasResponse ::
   GetBotAliasResponse
 newGetBotAliasResponse pHttpStatus_ =
   GetBotAliasResponse'
-    { createdDate = Prelude.Nothing,
-      botName = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
+    { checksum = Prelude.Nothing,
       botVersion = Prelude.Nothing,
+      botName = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      checksum = Prelude.Nothing,
       conversationLogs = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Checksum of the bot alias.
+getBotAliasResponse_checksum :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_checksum = Lens.lens (\GetBotAliasResponse' {checksum} -> checksum) (\s@GetBotAliasResponse' {} a -> s {checksum = a} :: GetBotAliasResponse)
+
+-- | The version of the bot that the alias points to.
+getBotAliasResponse_botVersion :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_botVersion = Lens.lens (\GetBotAliasResponse' {botVersion} -> botVersion) (\s@GetBotAliasResponse' {} a -> s {botVersion = a} :: GetBotAliasResponse)
+
+-- | The name of the bot that the alias points to.
+getBotAliasResponse_botName :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_botName = Lens.lens (\GetBotAliasResponse' {botName} -> botName) (\s@GetBotAliasResponse' {} a -> s {botName = a} :: GetBotAliasResponse)
 
 -- | The date that the bot alias was created.
 getBotAliasResponse_createdDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
 getBotAliasResponse_createdDate = Lens.lens (\GetBotAliasResponse' {createdDate} -> createdDate) (\s@GetBotAliasResponse' {} a -> s {createdDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Core._Time
 
--- | The name of the bot that the alias points to.
-getBotAliasResponse_botName :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
-getBotAliasResponse_botName = Lens.lens (\GetBotAliasResponse' {botName} -> botName) (\s@GetBotAliasResponse' {} a -> s {botName = a} :: GetBotAliasResponse)
+-- | The name of the bot alias.
+getBotAliasResponse_name :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
+getBotAliasResponse_name = Lens.lens (\GetBotAliasResponse' {name} -> name) (\s@GetBotAliasResponse' {} a -> s {name = a} :: GetBotAliasResponse)
+
+-- | The settings that determine how Amazon Lex uses conversation logs for
+-- the alias.
+getBotAliasResponse_conversationLogs :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe ConversationLogsResponse)
+getBotAliasResponse_conversationLogs = Lens.lens (\GetBotAliasResponse' {conversationLogs} -> conversationLogs) (\s@GetBotAliasResponse' {} a -> s {conversationLogs = a} :: GetBotAliasResponse)
 
 -- | The date that the bot alias was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 getBotAliasResponse_lastUpdatedDate :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
 getBotAliasResponse_lastUpdatedDate = Lens.lens (\GetBotAliasResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetBotAliasResponse' {} a -> s {lastUpdatedDate = a} :: GetBotAliasResponse) Prelude.. Lens.mapping Core._Time
 
--- | The version of the bot that the alias points to.
-getBotAliasResponse_botVersion :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
-getBotAliasResponse_botVersion = Lens.lens (\GetBotAliasResponse' {botVersion} -> botVersion) (\s@GetBotAliasResponse' {} a -> s {botVersion = a} :: GetBotAliasResponse)
-
--- | The name of the bot alias.
-getBotAliasResponse_name :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
-getBotAliasResponse_name = Lens.lens (\GetBotAliasResponse' {name} -> name) (\s@GetBotAliasResponse' {} a -> s {name = a} :: GetBotAliasResponse)
-
 -- | A description of the bot alias.
 getBotAliasResponse_description :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
 getBotAliasResponse_description = Lens.lens (\GetBotAliasResponse' {description} -> description) (\s@GetBotAliasResponse' {} a -> s {description = a} :: GetBotAliasResponse)
-
--- | Checksum of the bot alias.
-getBotAliasResponse_checksum :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe Prelude.Text)
-getBotAliasResponse_checksum = Lens.lens (\GetBotAliasResponse' {checksum} -> checksum) (\s@GetBotAliasResponse' {} a -> s {checksum = a} :: GetBotAliasResponse)
-
--- | The settings that determine how Amazon Lex uses conversation logs for
--- the alias.
-getBotAliasResponse_conversationLogs :: Lens.Lens' GetBotAliasResponse (Prelude.Maybe ConversationLogsResponse)
-getBotAliasResponse_conversationLogs = Lens.lens (\GetBotAliasResponse' {conversationLogs} -> conversationLogs) (\s@GetBotAliasResponse' {} a -> s {conversationLogs = a} :: GetBotAliasResponse)
 
 -- | The response's http status code.
 getBotAliasResponse_httpStatus :: Lens.Lens' GetBotAliasResponse Prelude.Int

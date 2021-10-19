@@ -46,8 +46,8 @@ module Network.AWS.LexModels.GetIntents
     newGetIntentsResponse,
 
     -- * Response Lenses
-    getIntentsResponse_nextToken,
     getIntentsResponse_intents,
+    getIntentsResponse_nextToken,
     getIntentsResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest GetIntents where
     Response.receiveJSON
       ( \s h x ->
           GetIntentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,12 +181,12 @@ instance Core.ToQuery GetIntents where
 
 -- | /See:/ 'newGetIntentsResponse' smart constructor.
 data GetIntentsResponse = GetIntentsResponse'
-  { -- | If the response is truncated, the response includes a pagination token
+  { -- | An array of @Intent@ objects. For more information, see PutBot.
+    intents :: Prelude.Maybe [IntentMetadata],
+    -- | If the response is truncated, the response includes a pagination token
     -- that you can specify in your next request to fetch the next page of
     -- intents.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Intent@ objects. For more information, see PutBot.
-    intents :: Prelude.Maybe [IntentMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data GetIntentsResponse = GetIntentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'intents', 'getIntentsResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
+--
 -- 'nextToken', 'getIntentsResponse_nextToken' - If the response is truncated, the response includes a pagination token
 -- that you can specify in your next request to fetch the next page of
 -- intents.
---
--- 'intents', 'getIntentsResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
 --
 -- 'httpStatus', 'getIntentsResponse_httpStatus' - The response's http status code.
 newGetIntentsResponse ::
@@ -213,20 +213,20 @@ newGetIntentsResponse ::
   GetIntentsResponse
 newGetIntentsResponse pHttpStatus_ =
   GetIntentsResponse'
-    { nextToken = Prelude.Nothing,
-      intents = Prelude.Nothing,
+    { intents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @Intent@ objects. For more information, see PutBot.
+getIntentsResponse_intents :: Lens.Lens' GetIntentsResponse (Prelude.Maybe [IntentMetadata])
+getIntentsResponse_intents = Lens.lens (\GetIntentsResponse' {intents} -> intents) (\s@GetIntentsResponse' {} a -> s {intents = a} :: GetIntentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, the response includes a pagination token
 -- that you can specify in your next request to fetch the next page of
 -- intents.
 getIntentsResponse_nextToken :: Lens.Lens' GetIntentsResponse (Prelude.Maybe Prelude.Text)
 getIntentsResponse_nextToken = Lens.lens (\GetIntentsResponse' {nextToken} -> nextToken) (\s@GetIntentsResponse' {} a -> s {nextToken = a} :: GetIntentsResponse)
-
--- | An array of @Intent@ objects. For more information, see PutBot.
-getIntentsResponse_intents :: Lens.Lens' GetIntentsResponse (Prelude.Maybe [IntentMetadata])
-getIntentsResponse_intents = Lens.lens (\GetIntentsResponse' {intents} -> intents) (\s@GetIntentsResponse' {} a -> s {intents = a} :: GetIntentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getIntentsResponse_httpStatus :: Lens.Lens' GetIntentsResponse Prelude.Int

@@ -41,13 +41,13 @@ module Network.AWS.LexModels.PutSlotType
     newPutSlotType,
 
     -- * Request Lenses
-    putSlotType_slotTypeConfigurations,
-    putSlotType_enumerationValues,
-    putSlotType_valueSelectionStrategy,
     putSlotType_parentSlotTypeSignature,
-    putSlotType_description,
-    putSlotType_createVersion,
+    putSlotType_slotTypeConfigurations,
     putSlotType_checksum,
+    putSlotType_valueSelectionStrategy,
+    putSlotType_createVersion,
+    putSlotType_description,
+    putSlotType_enumerationValues,
     putSlotType_name,
 
     -- * Destructuring the Response
@@ -55,17 +55,17 @@ module Network.AWS.LexModels.PutSlotType
     newPutSlotTypeResponse,
 
     -- * Response Lenses
-    putSlotTypeResponse_slotTypeConfigurations,
-    putSlotTypeResponse_createdDate,
-    putSlotTypeResponse_enumerationValues,
-    putSlotTypeResponse_lastUpdatedDate,
-    putSlotTypeResponse_valueSelectionStrategy,
-    putSlotTypeResponse_version,
-    putSlotTypeResponse_name,
     putSlotTypeResponse_parentSlotTypeSignature,
-    putSlotTypeResponse_description,
-    putSlotTypeResponse_createVersion,
+    putSlotTypeResponse_slotTypeConfigurations,
     putSlotTypeResponse_checksum,
+    putSlotTypeResponse_valueSelectionStrategy,
+    putSlotTypeResponse_createdDate,
+    putSlotTypeResponse_name,
+    putSlotTypeResponse_version,
+    putSlotTypeResponse_lastUpdatedDate,
+    putSlotTypeResponse_createVersion,
+    putSlotTypeResponse_description,
+    putSlotTypeResponse_enumerationValues,
     putSlotTypeResponse_httpStatus,
   )
 where
@@ -79,9 +79,45 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutSlotType' smart constructor.
 data PutSlotType = PutSlotType'
-  { -- | Configuration information that extends the parent built-in slot type.
+  { -- | The built-in slot type used as the parent of the slot type. When you
+    -- define a parent slot type, the new slot type has all of the same
+    -- configuration as the parent.
+    --
+    -- Only @AMAZON.AlphaNumeric@ is supported.
+    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information that extends the parent built-in slot type.
     -- The configuration is added to the settings for the parent slot type.
     slotTypeConfigurations :: Prelude.Maybe [SlotTypeConfiguration],
+    -- | Identifies a specific revision of the @$LATEST@ version.
+    --
+    -- When you create a new slot type, leave the @checksum@ field blank. If
+    -- you specify a checksum you get a @BadRequestException@ exception.
+    --
+    -- When you want to update a slot type, set the @checksum@ field to the
+    -- checksum of the most recent revision of the @$LATEST@ version. If you
+    -- don\'t specify the @ checksum@ field, or if the checksum does not match
+    -- the @$LATEST@ version, you get a @PreconditionFailedException@
+    -- exception.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | Determines the slot resolution strategy that Amazon Lex uses to return
+    -- slot type values. The field can be set to one of the following values:
+    --
+    -- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+    --     user value is similar to the slot value.
+    --
+    -- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+    --     return the first value in the resolution list as the slot type
+    --     value. If there is no resolution list, null is returned.
+    --
+    -- If you don\'t specify the @valueSelectionStrategy@, the default is
+    -- @ORIGINAL_VALUE@.
+    valueSelectionStrategy :: Prelude.Maybe SlotValueSelectionStrategy,
+    -- | When set to @true@ a new numbered version of the slot type is created.
+    -- This is the same as calling the @CreateSlotTypeVersion@ operation. If
+    -- you do not specify @createVersion@, the default is @false@.
+    createVersion :: Prelude.Maybe Prelude.Bool,
+    -- | A description of the slot type.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of @EnumerationValue@ objects that defines the values that the
     -- slot type can take. Each value can have a list of @synonyms@, which are
     -- additional values that help train the machine learning model about the
@@ -98,42 +134,6 @@ data PutSlotType = PutSlotType'
     -- slot value. The @valueSelectionStrategy@ field indicates the option to
     -- use.
     enumerationValues :: Prelude.Maybe [EnumerationValue],
-    -- | Determines the slot resolution strategy that Amazon Lex uses to return
-    -- slot type values. The field can be set to one of the following values:
-    --
-    -- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
-    --     user value is similar to the slot value.
-    --
-    -- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
-    --     return the first value in the resolution list as the slot type
-    --     value. If there is no resolution list, null is returned.
-    --
-    -- If you don\'t specify the @valueSelectionStrategy@, the default is
-    -- @ORIGINAL_VALUE@.
-    valueSelectionStrategy :: Prelude.Maybe SlotValueSelectionStrategy,
-    -- | The built-in slot type used as the parent of the slot type. When you
-    -- define a parent slot type, the new slot type has all of the same
-    -- configuration as the parent.
-    --
-    -- Only @AMAZON.AlphaNumeric@ is supported.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
-    -- | A description of the slot type.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | When set to @true@ a new numbered version of the slot type is created.
-    -- This is the same as calling the @CreateSlotTypeVersion@ operation. If
-    -- you do not specify @createVersion@, the default is @false@.
-    createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | Identifies a specific revision of the @$LATEST@ version.
-    --
-    -- When you create a new slot type, leave the @checksum@ field blank. If
-    -- you specify a checksum you get a @BadRequestException@ exception.
-    --
-    -- When you want to update a slot type, set the @checksum@ field to the
-    -- checksum of the most recent revision of the @$LATEST@ version. If you
-    -- don\'t specify the @ checksum@ field, or if the checksum does not match
-    -- the @$LATEST@ version, you get a @PreconditionFailedException@
-    -- exception.
-    checksum :: Prelude.Maybe Prelude.Text,
     -- | The name of the slot type. The name is /not/ case sensitive.
     --
     -- The name can\'t match a built-in slot type name, or a built-in slot type
@@ -156,8 +156,44 @@ data PutSlotType = PutSlotType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parentSlotTypeSignature', 'putSlotType_parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type. When you
+-- define a parent slot type, the new slot type has all of the same
+-- configuration as the parent.
+--
+-- Only @AMAZON.AlphaNumeric@ is supported.
+--
 -- 'slotTypeConfigurations', 'putSlotType_slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
 -- The configuration is added to the settings for the parent slot type.
+--
+-- 'checksum', 'putSlotType_checksum' - Identifies a specific revision of the @$LATEST@ version.
+--
+-- When you create a new slot type, leave the @checksum@ field blank. If
+-- you specify a checksum you get a @BadRequestException@ exception.
+--
+-- When you want to update a slot type, set the @checksum@ field to the
+-- checksum of the most recent revision of the @$LATEST@ version. If you
+-- don\'t specify the @ checksum@ field, or if the checksum does not match
+-- the @$LATEST@ version, you get a @PreconditionFailedException@
+-- exception.
+--
+-- 'valueSelectionStrategy', 'putSlotType_valueSelectionStrategy' - Determines the slot resolution strategy that Amazon Lex uses to return
+-- slot type values. The field can be set to one of the following values:
+--
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
+--
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list as the slot type
+--     value. If there is no resolution list, null is returned.
+--
+-- If you don\'t specify the @valueSelectionStrategy@, the default is
+-- @ORIGINAL_VALUE@.
+--
+-- 'createVersion', 'putSlotType_createVersion' - When set to @true@ a new numbered version of the slot type is created.
+-- This is the same as calling the @CreateSlotTypeVersion@ operation. If
+-- you do not specify @createVersion@, the default is @false@.
+--
+-- 'description', 'putSlotType_description' - A description of the slot type.
 --
 -- 'enumerationValues', 'putSlotType_enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the
 -- slot type can take. Each value can have a list of @synonyms@, which are
@@ -175,42 +211,6 @@ data PutSlotType = PutSlotType'
 -- slot value. The @valueSelectionStrategy@ field indicates the option to
 -- use.
 --
--- 'valueSelectionStrategy', 'putSlotType_valueSelectionStrategy' - Determines the slot resolution strategy that Amazon Lex uses to return
--- slot type values. The field can be set to one of the following values:
---
--- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
---     user value is similar to the slot value.
---
--- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
---     return the first value in the resolution list as the slot type
---     value. If there is no resolution list, null is returned.
---
--- If you don\'t specify the @valueSelectionStrategy@, the default is
--- @ORIGINAL_VALUE@.
---
--- 'parentSlotTypeSignature', 'putSlotType_parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type. When you
--- define a parent slot type, the new slot type has all of the same
--- configuration as the parent.
---
--- Only @AMAZON.AlphaNumeric@ is supported.
---
--- 'description', 'putSlotType_description' - A description of the slot type.
---
--- 'createVersion', 'putSlotType_createVersion' - When set to @true@ a new numbered version of the slot type is created.
--- This is the same as calling the @CreateSlotTypeVersion@ operation. If
--- you do not specify @createVersion@, the default is @false@.
---
--- 'checksum', 'putSlotType_checksum' - Identifies a specific revision of the @$LATEST@ version.
---
--- When you create a new slot type, leave the @checksum@ field blank. If
--- you specify a checksum you get a @BadRequestException@ exception.
---
--- When you want to update a slot type, set the @checksum@ field to the
--- checksum of the most recent revision of the @$LATEST@ version. If you
--- don\'t specify the @ checksum@ field, or if the checksum does not match
--- the @$LATEST@ version, you get a @PreconditionFailedException@
--- exception.
---
 -- 'name', 'putSlotType_name' - The name of the slot type. The name is /not/ case sensitive.
 --
 -- The name can\'t match a built-in slot type name, or a built-in slot type
@@ -227,21 +227,67 @@ newPutSlotType ::
   PutSlotType
 newPutSlotType pName_ =
   PutSlotType'
-    { slotTypeConfigurations =
+    { parentSlotTypeSignature =
         Prelude.Nothing,
-      enumerationValues = Prelude.Nothing,
-      valueSelectionStrategy = Prelude.Nothing,
-      parentSlotTypeSignature = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
+      slotTypeConfigurations = Prelude.Nothing,
       checksum = Prelude.Nothing,
+      valueSelectionStrategy = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
+      description = Prelude.Nothing,
+      enumerationValues = Prelude.Nothing,
       name = pName_
     }
+
+-- | The built-in slot type used as the parent of the slot type. When you
+-- define a parent slot type, the new slot type has all of the same
+-- configuration as the parent.
+--
+-- Only @AMAZON.AlphaNumeric@ is supported.
+putSlotType_parentSlotTypeSignature :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
+putSlotType_parentSlotTypeSignature = Lens.lens (\PutSlotType' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotType' {} a -> s {parentSlotTypeSignature = a} :: PutSlotType)
 
 -- | Configuration information that extends the parent built-in slot type.
 -- The configuration is added to the settings for the parent slot type.
 putSlotType_slotTypeConfigurations :: Lens.Lens' PutSlotType (Prelude.Maybe [SlotTypeConfiguration])
-putSlotType_slotTypeConfigurations = Lens.lens (\PutSlotType' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@PutSlotType' {} a -> s {slotTypeConfigurations = a} :: PutSlotType) Prelude.. Lens.mapping Lens._Coerce
+putSlotType_slotTypeConfigurations = Lens.lens (\PutSlotType' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@PutSlotType' {} a -> s {slotTypeConfigurations = a} :: PutSlotType) Prelude.. Lens.mapping Lens.coerced
+
+-- | Identifies a specific revision of the @$LATEST@ version.
+--
+-- When you create a new slot type, leave the @checksum@ field blank. If
+-- you specify a checksum you get a @BadRequestException@ exception.
+--
+-- When you want to update a slot type, set the @checksum@ field to the
+-- checksum of the most recent revision of the @$LATEST@ version. If you
+-- don\'t specify the @ checksum@ field, or if the checksum does not match
+-- the @$LATEST@ version, you get a @PreconditionFailedException@
+-- exception.
+putSlotType_checksum :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
+putSlotType_checksum = Lens.lens (\PutSlotType' {checksum} -> checksum) (\s@PutSlotType' {} a -> s {checksum = a} :: PutSlotType)
+
+-- | Determines the slot resolution strategy that Amazon Lex uses to return
+-- slot type values. The field can be set to one of the following values:
+--
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
+--
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list as the slot type
+--     value. If there is no resolution list, null is returned.
+--
+-- If you don\'t specify the @valueSelectionStrategy@, the default is
+-- @ORIGINAL_VALUE@.
+putSlotType_valueSelectionStrategy :: Lens.Lens' PutSlotType (Prelude.Maybe SlotValueSelectionStrategy)
+putSlotType_valueSelectionStrategy = Lens.lens (\PutSlotType' {valueSelectionStrategy} -> valueSelectionStrategy) (\s@PutSlotType' {} a -> s {valueSelectionStrategy = a} :: PutSlotType)
+
+-- | When set to @true@ a new numbered version of the slot type is created.
+-- This is the same as calling the @CreateSlotTypeVersion@ operation. If
+-- you do not specify @createVersion@, the default is @false@.
+putSlotType_createVersion :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Bool)
+putSlotType_createVersion = Lens.lens (\PutSlotType' {createVersion} -> createVersion) (\s@PutSlotType' {} a -> s {createVersion = a} :: PutSlotType)
+
+-- | A description of the slot type.
+putSlotType_description :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
+putSlotType_description = Lens.lens (\PutSlotType' {description} -> description) (\s@PutSlotType' {} a -> s {description = a} :: PutSlotType)
 
 -- | A list of @EnumerationValue@ objects that defines the values that the
 -- slot type can take. Each value can have a list of @synonyms@, which are
@@ -259,53 +305,7 @@ putSlotType_slotTypeConfigurations = Lens.lens (\PutSlotType' {slotTypeConfigura
 -- slot value. The @valueSelectionStrategy@ field indicates the option to
 -- use.
 putSlotType_enumerationValues :: Lens.Lens' PutSlotType (Prelude.Maybe [EnumerationValue])
-putSlotType_enumerationValues = Lens.lens (\PutSlotType' {enumerationValues} -> enumerationValues) (\s@PutSlotType' {} a -> s {enumerationValues = a} :: PutSlotType) Prelude.. Lens.mapping Lens._Coerce
-
--- | Determines the slot resolution strategy that Amazon Lex uses to return
--- slot type values. The field can be set to one of the following values:
---
--- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
---     user value is similar to the slot value.
---
--- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
---     return the first value in the resolution list as the slot type
---     value. If there is no resolution list, null is returned.
---
--- If you don\'t specify the @valueSelectionStrategy@, the default is
--- @ORIGINAL_VALUE@.
-putSlotType_valueSelectionStrategy :: Lens.Lens' PutSlotType (Prelude.Maybe SlotValueSelectionStrategy)
-putSlotType_valueSelectionStrategy = Lens.lens (\PutSlotType' {valueSelectionStrategy} -> valueSelectionStrategy) (\s@PutSlotType' {} a -> s {valueSelectionStrategy = a} :: PutSlotType)
-
--- | The built-in slot type used as the parent of the slot type. When you
--- define a parent slot type, the new slot type has all of the same
--- configuration as the parent.
---
--- Only @AMAZON.AlphaNumeric@ is supported.
-putSlotType_parentSlotTypeSignature :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
-putSlotType_parentSlotTypeSignature = Lens.lens (\PutSlotType' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotType' {} a -> s {parentSlotTypeSignature = a} :: PutSlotType)
-
--- | A description of the slot type.
-putSlotType_description :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
-putSlotType_description = Lens.lens (\PutSlotType' {description} -> description) (\s@PutSlotType' {} a -> s {description = a} :: PutSlotType)
-
--- | When set to @true@ a new numbered version of the slot type is created.
--- This is the same as calling the @CreateSlotTypeVersion@ operation. If
--- you do not specify @createVersion@, the default is @false@.
-putSlotType_createVersion :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Bool)
-putSlotType_createVersion = Lens.lens (\PutSlotType' {createVersion} -> createVersion) (\s@PutSlotType' {} a -> s {createVersion = a} :: PutSlotType)
-
--- | Identifies a specific revision of the @$LATEST@ version.
---
--- When you create a new slot type, leave the @checksum@ field blank. If
--- you specify a checksum you get a @BadRequestException@ exception.
---
--- When you want to update a slot type, set the @checksum@ field to the
--- checksum of the most recent revision of the @$LATEST@ version. If you
--- don\'t specify the @ checksum@ field, or if the checksum does not match
--- the @$LATEST@ version, you get a @PreconditionFailedException@
--- exception.
-putSlotType_checksum :: Lens.Lens' PutSlotType (Prelude.Maybe Prelude.Text)
-putSlotType_checksum = Lens.lens (\PutSlotType' {checksum} -> checksum) (\s@PutSlotType' {} a -> s {checksum = a} :: PutSlotType)
+putSlotType_enumerationValues = Lens.lens (\PutSlotType' {enumerationValues} -> enumerationValues) (\s@PutSlotType' {} a -> s {enumerationValues = a} :: PutSlotType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the slot type. The name is /not/ case sensitive.
 --
@@ -327,21 +327,21 @@ instance Core.AWSRequest PutSlotType where
     Response.receiveJSON
       ( \s h x ->
           PutSlotTypeResponse'
-            Prelude.<$> ( x Core..?> "slotTypeConfigurations"
+            Prelude.<$> (x Core..?> "parentSlotTypeSignature")
+            Prelude.<*> ( x Core..?> "slotTypeConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "checksum")
+            Prelude.<*> (x Core..?> "valueSelectionStrategy")
             Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "version")
+            Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "createVersion")
+            Prelude.<*> (x Core..?> "description")
             Prelude.<*> ( x Core..?> "enumerationValues"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "valueSelectionStrategy")
-            Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "parentSlotTypeSignature")
-            Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "createVersion")
-            Prelude.<*> (x Core..?> "checksum")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -364,17 +364,17 @@ instance Core.ToJSON PutSlotType where
   toJSON PutSlotType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("slotTypeConfigurations" Core..=)
+          [ ("parentSlotTypeSignature" Core..=)
+              Prelude.<$> parentSlotTypeSignature,
+            ("slotTypeConfigurations" Core..=)
               Prelude.<$> slotTypeConfigurations,
-            ("enumerationValues" Core..=)
-              Prelude.<$> enumerationValues,
+            ("checksum" Core..=) Prelude.<$> checksum,
             ("valueSelectionStrategy" Core..=)
               Prelude.<$> valueSelectionStrategy,
-            ("parentSlotTypeSignature" Core..=)
-              Prelude.<$> parentSlotTypeSignature,
-            ("description" Core..=) Prelude.<$> description,
             ("createVersion" Core..=) Prelude.<$> createVersion,
-            ("checksum" Core..=) Prelude.<$> checksum
+            ("description" Core..=) Prelude.<$> description,
+            ("enumerationValues" Core..=)
+              Prelude.<$> enumerationValues
           ]
       )
 
@@ -388,34 +388,34 @@ instance Core.ToQuery PutSlotType where
 
 -- | /See:/ 'newPutSlotTypeResponse' smart constructor.
 data PutSlotTypeResponse = PutSlotTypeResponse'
-  { -- | Configuration information that extends the parent built-in slot type.
+  { -- | The built-in slot type used as the parent of the slot type.
+    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information that extends the parent built-in slot type.
     slotTypeConfigurations :: Prelude.Maybe [SlotTypeConfiguration],
-    -- | The date that the slot type was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | A list of @EnumerationValue@ objects that defines the values that the
-    -- slot type can take.
-    enumerationValues :: Prelude.Maybe [EnumerationValue],
-    -- | The date that the slot type was updated. When you create a slot type,
-    -- the creation date and last update date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | Checksum of the @$LATEST@ version of the slot type.
+    checksum :: Prelude.Maybe Prelude.Text,
     -- | The slot resolution strategy that Amazon Lex uses to determine the value
     -- of the slot. For more information, see PutSlotType.
     valueSelectionStrategy :: Prelude.Maybe SlotValueSelectionStrategy,
+    -- | The date that the slot type was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the slot type.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the slot type. For a new slot type, the version is always
     -- @$LATEST@.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the slot type.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The built-in slot type used as the parent of the slot type.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
-    -- | A description of the slot type.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The date that the slot type was updated. When you create a slot type,
+    -- the creation date and last update date are the same.
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | @True@ if a new version of the slot type was created. If the
     -- @createVersion@ field was not specified in the request, the
     -- @createVersion@ field is set to false in the response.
     createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | Checksum of the @$LATEST@ version of the slot type.
-    checksum :: Prelude.Maybe Prelude.Text,
+    -- | A description of the slot type.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of @EnumerationValue@ objects that defines the values that the
+    -- slot type can take.
+    enumerationValues :: Prelude.Maybe [EnumerationValue],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -429,33 +429,33 @@ data PutSlotTypeResponse = PutSlotTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parentSlotTypeSignature', 'putSlotTypeResponse_parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type.
+--
 -- 'slotTypeConfigurations', 'putSlotTypeResponse_slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
 --
--- 'createdDate', 'putSlotTypeResponse_createdDate' - The date that the slot type was created.
---
--- 'enumerationValues', 'putSlotTypeResponse_enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the
--- slot type can take.
---
--- 'lastUpdatedDate', 'putSlotTypeResponse_lastUpdatedDate' - The date that the slot type was updated. When you create a slot type,
--- the creation date and last update date are the same.
+-- 'checksum', 'putSlotTypeResponse_checksum' - Checksum of the @$LATEST@ version of the slot type.
 --
 -- 'valueSelectionStrategy', 'putSlotTypeResponse_valueSelectionStrategy' - The slot resolution strategy that Amazon Lex uses to determine the value
 -- of the slot. For more information, see PutSlotType.
 --
--- 'version', 'putSlotTypeResponse_version' - The version of the slot type. For a new slot type, the version is always
--- @$LATEST@.
+-- 'createdDate', 'putSlotTypeResponse_createdDate' - The date that the slot type was created.
 --
 -- 'name', 'putSlotTypeResponse_name' - The name of the slot type.
 --
--- 'parentSlotTypeSignature', 'putSlotTypeResponse_parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type.
+-- 'version', 'putSlotTypeResponse_version' - The version of the slot type. For a new slot type, the version is always
+-- @$LATEST@.
 --
--- 'description', 'putSlotTypeResponse_description' - A description of the slot type.
+-- 'lastUpdatedDate', 'putSlotTypeResponse_lastUpdatedDate' - The date that the slot type was updated. When you create a slot type,
+-- the creation date and last update date are the same.
 --
 -- 'createVersion', 'putSlotTypeResponse_createVersion' - @True@ if a new version of the slot type was created. If the
 -- @createVersion@ field was not specified in the request, the
 -- @createVersion@ field is set to false in the response.
 --
--- 'checksum', 'putSlotTypeResponse_checksum' - Checksum of the @$LATEST@ version of the slot type.
+-- 'description', 'putSlotTypeResponse_description' - A description of the slot type.
+--
+-- 'enumerationValues', 'putSlotTypeResponse_enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the
+-- slot type can take.
 --
 -- 'httpStatus', 'putSlotTypeResponse_httpStatus' - The response's http status code.
 newPutSlotTypeResponse ::
@@ -464,60 +464,55 @@ newPutSlotTypeResponse ::
   PutSlotTypeResponse
 newPutSlotTypeResponse pHttpStatus_ =
   PutSlotTypeResponse'
-    { slotTypeConfigurations =
+    { parentSlotTypeSignature =
         Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      enumerationValues = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      valueSelectionStrategy = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      parentSlotTypeSignature = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
+      slotTypeConfigurations = Prelude.Nothing,
       checksum = Prelude.Nothing,
+      valueSelectionStrategy = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      version = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
+      description = Prelude.Nothing,
+      enumerationValues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | The built-in slot type used as the parent of the slot type.
+putSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
+putSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\PutSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: PutSlotTypeResponse)
+
 -- | Configuration information that extends the parent built-in slot type.
 putSlotTypeResponse_slotTypeConfigurations :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe [SlotTypeConfiguration])
-putSlotTypeResponse_slotTypeConfigurations = Lens.lens (\PutSlotTypeResponse' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@PutSlotTypeResponse' {} a -> s {slotTypeConfigurations = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Lens._Coerce
+putSlotTypeResponse_slotTypeConfigurations = Lens.lens (\PutSlotTypeResponse' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@PutSlotTypeResponse' {} a -> s {slotTypeConfigurations = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The date that the slot type was created.
-putSlotTypeResponse_createdDate :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-putSlotTypeResponse_createdDate = Lens.lens (\PutSlotTypeResponse' {createdDate} -> createdDate) (\s@PutSlotTypeResponse' {} a -> s {createdDate = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Core._Time
-
--- | A list of @EnumerationValue@ objects that defines the values that the
--- slot type can take.
-putSlotTypeResponse_enumerationValues :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe [EnumerationValue])
-putSlotTypeResponse_enumerationValues = Lens.lens (\PutSlotTypeResponse' {enumerationValues} -> enumerationValues) (\s@PutSlotTypeResponse' {} a -> s {enumerationValues = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The date that the slot type was updated. When you create a slot type,
--- the creation date and last update date are the same.
-putSlotTypeResponse_lastUpdatedDate :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-putSlotTypeResponse_lastUpdatedDate = Lens.lens (\PutSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Core._Time
+-- | Checksum of the @$LATEST@ version of the slot type.
+putSlotTypeResponse_checksum :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
+putSlotTypeResponse_checksum = Lens.lens (\PutSlotTypeResponse' {checksum} -> checksum) (\s@PutSlotTypeResponse' {} a -> s {checksum = a} :: PutSlotTypeResponse)
 
 -- | The slot resolution strategy that Amazon Lex uses to determine the value
 -- of the slot. For more information, see PutSlotType.
 putSlotTypeResponse_valueSelectionStrategy :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe SlotValueSelectionStrategy)
 putSlotTypeResponse_valueSelectionStrategy = Lens.lens (\PutSlotTypeResponse' {valueSelectionStrategy} -> valueSelectionStrategy) (\s@PutSlotTypeResponse' {} a -> s {valueSelectionStrategy = a} :: PutSlotTypeResponse)
 
--- | The version of the slot type. For a new slot type, the version is always
--- @$LATEST@.
-putSlotTypeResponse_version :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
-putSlotTypeResponse_version = Lens.lens (\PutSlotTypeResponse' {version} -> version) (\s@PutSlotTypeResponse' {} a -> s {version = a} :: PutSlotTypeResponse)
+-- | The date that the slot type was created.
+putSlotTypeResponse_createdDate :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
+putSlotTypeResponse_createdDate = Lens.lens (\PutSlotTypeResponse' {createdDate} -> createdDate) (\s@PutSlotTypeResponse' {} a -> s {createdDate = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the slot type.
 putSlotTypeResponse_name :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
 putSlotTypeResponse_name = Lens.lens (\PutSlotTypeResponse' {name} -> name) (\s@PutSlotTypeResponse' {} a -> s {name = a} :: PutSlotTypeResponse)
 
--- | The built-in slot type used as the parent of the slot type.
-putSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
-putSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\PutSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@PutSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: PutSlotTypeResponse)
+-- | The version of the slot type. For a new slot type, the version is always
+-- @$LATEST@.
+putSlotTypeResponse_version :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
+putSlotTypeResponse_version = Lens.lens (\PutSlotTypeResponse' {version} -> version) (\s@PutSlotTypeResponse' {} a -> s {version = a} :: PutSlotTypeResponse)
 
--- | A description of the slot type.
-putSlotTypeResponse_description :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
-putSlotTypeResponse_description = Lens.lens (\PutSlotTypeResponse' {description} -> description) (\s@PutSlotTypeResponse' {} a -> s {description = a} :: PutSlotTypeResponse)
+-- | The date that the slot type was updated. When you create a slot type,
+-- the creation date and last update date are the same.
+putSlotTypeResponse_lastUpdatedDate :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
+putSlotTypeResponse_lastUpdatedDate = Lens.lens (\PutSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Core._Time
 
 -- | @True@ if a new version of the slot type was created. If the
 -- @createVersion@ field was not specified in the request, the
@@ -525,9 +520,14 @@ putSlotTypeResponse_description = Lens.lens (\PutSlotTypeResponse' {description}
 putSlotTypeResponse_createVersion :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Bool)
 putSlotTypeResponse_createVersion = Lens.lens (\PutSlotTypeResponse' {createVersion} -> createVersion) (\s@PutSlotTypeResponse' {} a -> s {createVersion = a} :: PutSlotTypeResponse)
 
--- | Checksum of the @$LATEST@ version of the slot type.
-putSlotTypeResponse_checksum :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
-putSlotTypeResponse_checksum = Lens.lens (\PutSlotTypeResponse' {checksum} -> checksum) (\s@PutSlotTypeResponse' {} a -> s {checksum = a} :: PutSlotTypeResponse)
+-- | A description of the slot type.
+putSlotTypeResponse_description :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe Prelude.Text)
+putSlotTypeResponse_description = Lens.lens (\PutSlotTypeResponse' {description} -> description) (\s@PutSlotTypeResponse' {} a -> s {description = a} :: PutSlotTypeResponse)
+
+-- | A list of @EnumerationValue@ objects that defines the values that the
+-- slot type can take.
+putSlotTypeResponse_enumerationValues :: Lens.Lens' PutSlotTypeResponse (Prelude.Maybe [EnumerationValue])
+putSlotTypeResponse_enumerationValues = Lens.lens (\PutSlotTypeResponse' {enumerationValues} -> enumerationValues) (\s@PutSlotTypeResponse' {} a -> s {enumerationValues = a} :: PutSlotTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putSlotTypeResponse_httpStatus :: Lens.Lens' PutSlotTypeResponse Prelude.Int

@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data IntentMetadata = IntentMetadata'
   { -- | The date that the intent was created.
     createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the intent.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the intent.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The date that the intent was updated. When you create an intent, the
     -- creation date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
-    -- | The version of the intent.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the intent.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A description of the intent.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -51,12 +51,12 @@ data IntentMetadata = IntentMetadata'
 --
 -- 'createdDate', 'intentMetadata_createdDate' - The date that the intent was created.
 --
--- 'lastUpdatedDate', 'intentMetadata_lastUpdatedDate' - The date that the intent was updated. When you create an intent, the
--- creation date and last updated date are the same.
+-- 'name', 'intentMetadata_name' - The name of the intent.
 --
 -- 'version', 'intentMetadata_version' - The version of the intent.
 --
--- 'name', 'intentMetadata_name' - The name of the intent.
+-- 'lastUpdatedDate', 'intentMetadata_lastUpdatedDate' - The date that the intent was updated. When you create an intent, the
+-- creation date and last updated date are the same.
 --
 -- 'description', 'intentMetadata_description' - A description of the intent.
 newIntentMetadata ::
@@ -64,9 +64,9 @@ newIntentMetadata ::
 newIntentMetadata =
   IntentMetadata'
     { createdDate = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      version = Prelude.Nothing,
       name = Prelude.Nothing,
+      version = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
@@ -74,18 +74,18 @@ newIntentMetadata =
 intentMetadata_createdDate :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.UTCTime)
 intentMetadata_createdDate = Lens.lens (\IntentMetadata' {createdDate} -> createdDate) (\s@IntentMetadata' {} a -> s {createdDate = a} :: IntentMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The date that the intent was updated. When you create an intent, the
--- creation date and last updated date are the same.
-intentMetadata_lastUpdatedDate :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.UTCTime)
-intentMetadata_lastUpdatedDate = Lens.lens (\IntentMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@IntentMetadata' {} a -> s {lastUpdatedDate = a} :: IntentMetadata) Prelude.. Lens.mapping Core._Time
+-- | The name of the intent.
+intentMetadata_name :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
+intentMetadata_name = Lens.lens (\IntentMetadata' {name} -> name) (\s@IntentMetadata' {} a -> s {name = a} :: IntentMetadata)
 
 -- | The version of the intent.
 intentMetadata_version :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
 intentMetadata_version = Lens.lens (\IntentMetadata' {version} -> version) (\s@IntentMetadata' {} a -> s {version = a} :: IntentMetadata)
 
--- | The name of the intent.
-intentMetadata_name :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
-intentMetadata_name = Lens.lens (\IntentMetadata' {name} -> name) (\s@IntentMetadata' {} a -> s {name = a} :: IntentMetadata)
+-- | The date that the intent was updated. When you create an intent, the
+-- creation date and last updated date are the same.
+intentMetadata_lastUpdatedDate :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.UTCTime)
+intentMetadata_lastUpdatedDate = Lens.lens (\IntentMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@IntentMetadata' {} a -> s {lastUpdatedDate = a} :: IntentMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | A description of the intent.
 intentMetadata_description :: Lens.Lens' IntentMetadata (Prelude.Maybe Prelude.Text)
@@ -98,9 +98,9 @@ instance Core.FromJSON IntentMetadata where
       ( \x ->
           IntentMetadata'
             Prelude.<$> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "lastUpdatedDate")
             Prelude.<*> (x Core..:? "description")
       )
 

@@ -73,7 +73,7 @@ newPrompt ::
 newPrompt pMessages_ pMaxAttempts_ =
   Prompt'
     { responseCard = Prelude.Nothing,
-      messages = Lens._Coerce Lens.# pMessages_,
+      messages = Lens.coerced Lens.# pMessages_,
       maxAttempts = pMaxAttempts_
     }
 
@@ -88,7 +88,7 @@ prompt_responseCard = Lens.lens (\Prompt' {responseCard} -> responseCard) (\s@Pr
 -- type. You can specify the message string in plain text or in Speech
 -- Synthesis Markup Language (SSML).
 prompt_messages :: Lens.Lens' Prompt (Prelude.NonEmpty Message)
-prompt_messages = Lens.lens (\Prompt' {messages} -> messages) (\s@Prompt' {} a -> s {messages = a} :: Prompt) Prelude.. Lens._Coerce
+prompt_messages = Lens.lens (\Prompt' {messages} -> messages) (\s@Prompt' {} a -> s {messages = a} :: Prompt) Prelude.. Lens.coerced
 
 -- | The number of times to prompt the user for information.
 prompt_maxAttempts :: Lens.Lens' Prompt Prelude.Natural

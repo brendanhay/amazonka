@@ -37,11 +37,11 @@ module Network.AWS.LexModels.StartImport
     newStartImportResponse,
 
     -- * Response Lenses
-    startImportResponse_createdDate,
-    startImportResponse_mergeStrategy,
-    startImportResponse_importId,
     startImportResponse_resourceType,
+    startImportResponse_importId,
+    startImportResponse_createdDate,
     startImportResponse_name,
+    startImportResponse_mergeStrategy,
     startImportResponse_importStatus,
     startImportResponse_tags,
     startImportResponse_httpStatus,
@@ -145,7 +145,7 @@ newStartImport
 -- | A list of tags to add to the imported bot. You can only add tags when
 -- you import a bot, you can\'t add tags to an intent or slot type.
 startImport_tags :: Lens.Lens' StartImport (Prelude.Maybe [Tag])
-startImport_tags = Lens.lens (\StartImport' {tags} -> tags) (\s@StartImport' {} a -> s {tags = a} :: StartImport) Prelude.. Lens.mapping Lens._Coerce
+startImport_tags = Lens.lens (\StartImport' {tags} -> tags) (\s@StartImport' {} a -> s {tags = a} :: StartImport) Prelude.. Lens.mapping Lens.coerced
 
 -- | A zip archive in binary format. The archive should contain one file, a
 -- JSON file containing the resource to import. The resource should match
@@ -187,11 +187,11 @@ instance Core.AWSRequest StartImport where
     Response.receiveJSON
       ( \s h x ->
           StartImportResponse'
-            Prelude.<$> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "mergeStrategy")
+            Prelude.<$> (x Core..?> "resourceType")
             Prelude.<*> (x Core..?> "importId")
-            Prelude.<*> (x Core..?> "resourceType")
+            Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "mergeStrategy")
             Prelude.<*> (x Core..?> "importStatus")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -232,16 +232,16 @@ instance Core.ToQuery StartImport where
 
 -- | /See:/ 'newStartImportResponse' smart constructor.
 data StartImportResponse = StartImportResponse'
-  { -- | A timestamp for the date and time that the import job was requested.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The action to take when there is a merge conflict.
-    mergeStrategy :: Prelude.Maybe MergeStrategy,
+  { -- | The type of resource to import.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | The identifier for the specific import job.
     importId :: Prelude.Maybe Prelude.Text,
-    -- | The type of resource to import.
-    resourceType :: Prelude.Maybe ResourceType,
+    -- | A timestamp for the date and time that the import job was requested.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The name given to the import job.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The action to take when there is a merge conflict.
+    mergeStrategy :: Prelude.Maybe MergeStrategy,
     -- | The status of the import job. If the status is @FAILED@, you can get the
     -- reason for the failure using the @GetImport@ operation.
     importStatus :: Prelude.Maybe ImportStatus,
@@ -260,15 +260,15 @@ data StartImportResponse = StartImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'startImportResponse_createdDate' - A timestamp for the date and time that the import job was requested.
---
--- 'mergeStrategy', 'startImportResponse_mergeStrategy' - The action to take when there is a merge conflict.
+-- 'resourceType', 'startImportResponse_resourceType' - The type of resource to import.
 --
 -- 'importId', 'startImportResponse_importId' - The identifier for the specific import job.
 --
--- 'resourceType', 'startImportResponse_resourceType' - The type of resource to import.
+-- 'createdDate', 'startImportResponse_createdDate' - A timestamp for the date and time that the import job was requested.
 --
 -- 'name', 'startImportResponse_name' - The name given to the import job.
+--
+-- 'mergeStrategy', 'startImportResponse_mergeStrategy' - The action to take when there is a merge conflict.
 --
 -- 'importStatus', 'startImportResponse_importStatus' - The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure using the @GetImport@ operation.
@@ -282,35 +282,36 @@ newStartImportResponse ::
   StartImportResponse
 newStartImportResponse pHttpStatus_ =
   StartImportResponse'
-    { createdDate = Prelude.Nothing,
-      mergeStrategy = Prelude.Nothing,
+    { resourceType =
+        Prelude.Nothing,
       importId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
+      mergeStrategy = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A timestamp for the date and time that the import job was requested.
-startImportResponse_createdDate :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
-startImportResponse_createdDate = Lens.lens (\StartImportResponse' {createdDate} -> createdDate) (\s@StartImportResponse' {} a -> s {createdDate = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
-
--- | The action to take when there is a merge conflict.
-startImportResponse_mergeStrategy :: Lens.Lens' StartImportResponse (Prelude.Maybe MergeStrategy)
-startImportResponse_mergeStrategy = Lens.lens (\StartImportResponse' {mergeStrategy} -> mergeStrategy) (\s@StartImportResponse' {} a -> s {mergeStrategy = a} :: StartImportResponse)
+-- | The type of resource to import.
+startImportResponse_resourceType :: Lens.Lens' StartImportResponse (Prelude.Maybe ResourceType)
+startImportResponse_resourceType = Lens.lens (\StartImportResponse' {resourceType} -> resourceType) (\s@StartImportResponse' {} a -> s {resourceType = a} :: StartImportResponse)
 
 -- | The identifier for the specific import job.
 startImportResponse_importId :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.Text)
 startImportResponse_importId = Lens.lens (\StartImportResponse' {importId} -> importId) (\s@StartImportResponse' {} a -> s {importId = a} :: StartImportResponse)
 
--- | The type of resource to import.
-startImportResponse_resourceType :: Lens.Lens' StartImportResponse (Prelude.Maybe ResourceType)
-startImportResponse_resourceType = Lens.lens (\StartImportResponse' {resourceType} -> resourceType) (\s@StartImportResponse' {} a -> s {resourceType = a} :: StartImportResponse)
+-- | A timestamp for the date and time that the import job was requested.
+startImportResponse_createdDate :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.UTCTime)
+startImportResponse_createdDate = Lens.lens (\StartImportResponse' {createdDate} -> createdDate) (\s@StartImportResponse' {} a -> s {createdDate = a} :: StartImportResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name given to the import job.
 startImportResponse_name :: Lens.Lens' StartImportResponse (Prelude.Maybe Prelude.Text)
 startImportResponse_name = Lens.lens (\StartImportResponse' {name} -> name) (\s@StartImportResponse' {} a -> s {name = a} :: StartImportResponse)
+
+-- | The action to take when there is a merge conflict.
+startImportResponse_mergeStrategy :: Lens.Lens' StartImportResponse (Prelude.Maybe MergeStrategy)
+startImportResponse_mergeStrategy = Lens.lens (\StartImportResponse' {mergeStrategy} -> mergeStrategy) (\s@StartImportResponse' {} a -> s {mergeStrategy = a} :: StartImportResponse)
 
 -- | The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure using the @GetImport@ operation.
@@ -319,7 +320,7 @@ startImportResponse_importStatus = Lens.lens (\StartImportResponse' {importStatu
 
 -- | A list of tags added to the imported bot.
 startImportResponse_tags :: Lens.Lens' StartImportResponse (Prelude.Maybe [Tag])
-startImportResponse_tags = Lens.lens (\StartImportResponse' {tags} -> tags) (\s@StartImportResponse' {} a -> s {tags = a} :: StartImportResponse) Prelude.. Lens.mapping Lens._Coerce
+startImportResponse_tags = Lens.lens (\StartImportResponse' {tags} -> tags) (\s@StartImportResponse' {} a -> s {tags = a} :: StartImportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startImportResponse_httpStatus :: Lens.Lens' StartImportResponse Prelude.Int

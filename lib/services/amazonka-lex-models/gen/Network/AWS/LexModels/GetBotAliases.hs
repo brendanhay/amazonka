@@ -240,7 +240,7 @@ getBotAliasesResponse_nextToken = Lens.lens (\GetBotAliasesResponse' {nextToken}
 
 -- | An array of @BotAliasMetadata@ objects, each describing a bot alias.
 getBotAliasesResponse_botAliases :: Lens.Lens' GetBotAliasesResponse (Prelude.Maybe [BotAliasMetadata])
-getBotAliasesResponse_botAliases = Lens.lens (\GetBotAliasesResponse' {botAliases} -> botAliases) (\s@GetBotAliasesResponse' {} a -> s {botAliases = a} :: GetBotAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
+getBotAliasesResponse_botAliases = Lens.lens (\GetBotAliasesResponse' {botAliases} -> botAliases) (\s@GetBotAliasesResponse' {} a -> s {botAliases = a} :: GetBotAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBotAliasesResponse_httpStatus :: Lens.Lens' GetBotAliasesResponse Prelude.Int

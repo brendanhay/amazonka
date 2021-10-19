@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBotMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-  { -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The status of the bot.
+  { -- | The status of the bot.
     status :: Prelude.Maybe LexStatus,
+    -- | The date that the bot was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the bot.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the bot. For a new bot, the version is always @$LATEST@.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The date that the bot was updated. When you create a bot, the creation
     -- date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
-    -- | The version of the bot. For a new bot, the version is always @$LATEST@.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the bot.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A description of the bot.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -52,50 +52,50 @@ data BotMetadata = BotMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'botMetadata_createdDate' - The date that the bot was created.
---
 -- 'status', 'botMetadata_status' - The status of the bot.
 --
--- 'lastUpdatedDate', 'botMetadata_lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation
--- date and last updated date are the same.
+-- 'createdDate', 'botMetadata_createdDate' - The date that the bot was created.
+--
+-- 'name', 'botMetadata_name' - The name of the bot.
 --
 -- 'version', 'botMetadata_version' - The version of the bot. For a new bot, the version is always @$LATEST@.
 --
--- 'name', 'botMetadata_name' - The name of the bot.
+-- 'lastUpdatedDate', 'botMetadata_lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation
+-- date and last updated date are the same.
 --
 -- 'description', 'botMetadata_description' - A description of the bot.
 newBotMetadata ::
   BotMetadata
 newBotMetadata =
   BotMetadata'
-    { createdDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      version = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
+      version = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The date that the bot was created.
-botMetadata_createdDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
-botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the bot.
 botMetadata_status :: Lens.Lens' BotMetadata (Prelude.Maybe LexStatus)
 botMetadata_status = Lens.lens (\BotMetadata' {status} -> status) (\s@BotMetadata' {} a -> s {status = a} :: BotMetadata)
 
--- | The date that the bot was updated. When you create a bot, the creation
--- date and last updated date are the same.
-botMetadata_lastUpdatedDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
-botMetadata_lastUpdatedDate = Lens.lens (\BotMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotMetadata' {} a -> s {lastUpdatedDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
+-- | The date that the bot was created.
+botMetadata_createdDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
+botMetadata_createdDate = Lens.lens (\BotMetadata' {createdDate} -> createdDate) (\s@BotMetadata' {} a -> s {createdDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the bot.
+botMetadata_name :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
+botMetadata_name = Lens.lens (\BotMetadata' {name} -> name) (\s@BotMetadata' {} a -> s {name = a} :: BotMetadata)
 
 -- | The version of the bot. For a new bot, the version is always @$LATEST@.
 botMetadata_version :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
 botMetadata_version = Lens.lens (\BotMetadata' {version} -> version) (\s@BotMetadata' {} a -> s {version = a} :: BotMetadata)
 
--- | The name of the bot.
-botMetadata_name :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
-botMetadata_name = Lens.lens (\BotMetadata' {name} -> name) (\s@BotMetadata' {} a -> s {name = a} :: BotMetadata)
+-- | The date that the bot was updated. When you create a bot, the creation
+-- date and last updated date are the same.
+botMetadata_lastUpdatedDate :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.UTCTime)
+botMetadata_lastUpdatedDate = Lens.lens (\BotMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@BotMetadata' {} a -> s {lastUpdatedDate = a} :: BotMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | A description of the bot.
 botMetadata_description :: Lens.Lens' BotMetadata (Prelude.Maybe Prelude.Text)
@@ -107,11 +107,11 @@ instance Core.FromJSON BotMetadata where
       "BotMetadata"
       ( \x ->
           BotMetadata'
-            Prelude.<$> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "version")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "createdDate")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "lastUpdatedDate")
             Prelude.<*> (x Core..:? "description")
       )
 

@@ -43,8 +43,8 @@ module Network.AWS.LexModels.GetBotChannelAssociations
     newGetBotChannelAssociationsResponse,
 
     -- * Response Lenses
-    getBotChannelAssociationsResponse_nextToken,
     getBotChannelAssociationsResponse_botChannelAssociations,
+    getBotChannelAssociationsResponse_nextToken,
     getBotChannelAssociationsResponse_httpStatus,
   )
 where
@@ -182,10 +182,10 @@ instance Core.AWSRequest GetBotChannelAssociations where
     Response.receiveJSON
       ( \s h x ->
           GetBotChannelAssociationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "botChannelAssociations"
+            Prelude.<$> ( x Core..?> "botChannelAssociations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,14 +224,14 @@ instance Core.ToQuery GetBotChannelAssociations where
 
 -- | /See:/ 'newGetBotChannelAssociationsResponse' smart constructor.
 data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
-  { -- | A pagination token that fetches the next page of associations. If the
+  { -- | An array of objects, one for each association, that provides information
+    -- about the Amazon Lex bot and its association with the channel.
+    botChannelAssociations :: Prelude.Maybe [BotChannelAssociation],
+    -- | A pagination token that fetches the next page of associations. If the
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of associations, specify
     -- the pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects, one for each association, that provides information
-    -- about the Amazon Lex bot and its association with the channel.
-    botChannelAssociations :: Prelude.Maybe [BotChannelAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -245,13 +245,13 @@ data GetBotChannelAssociationsResponse = GetBotChannelAssociationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botChannelAssociations', 'getBotChannelAssociationsResponse_botChannelAssociations' - An array of objects, one for each association, that provides information
+-- about the Amazon Lex bot and its association with the channel.
+--
 -- 'nextToken', 'getBotChannelAssociationsResponse_nextToken' - A pagination token that fetches the next page of associations. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of associations, specify
 -- the pagination token in the next request.
---
--- 'botChannelAssociations', 'getBotChannelAssociationsResponse_botChannelAssociations' - An array of objects, one for each association, that provides information
--- about the Amazon Lex bot and its association with the channel.
 --
 -- 'httpStatus', 'getBotChannelAssociationsResponse_httpStatus' - The response's http status code.
 newGetBotChannelAssociationsResponse ::
@@ -260,11 +260,16 @@ newGetBotChannelAssociationsResponse ::
   GetBotChannelAssociationsResponse
 newGetBotChannelAssociationsResponse pHttpStatus_ =
   GetBotChannelAssociationsResponse'
-    { nextToken =
+    { botChannelAssociations =
         Prelude.Nothing,
-      botChannelAssociations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects, one for each association, that provides information
+-- about the Amazon Lex bot and its association with the channel.
+getBotChannelAssociationsResponse_botChannelAssociations :: Lens.Lens' GetBotChannelAssociationsResponse (Prelude.Maybe [BotChannelAssociation])
+getBotChannelAssociationsResponse_botChannelAssociations = Lens.lens (\GetBotChannelAssociationsResponse' {botChannelAssociations} -> botChannelAssociations) (\s@GetBotChannelAssociationsResponse' {} a -> s {botChannelAssociations = a} :: GetBotChannelAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that fetches the next page of associations. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
@@ -272,11 +277,6 @@ newGetBotChannelAssociationsResponse pHttpStatus_ =
 -- the pagination token in the next request.
 getBotChannelAssociationsResponse_nextToken :: Lens.Lens' GetBotChannelAssociationsResponse (Prelude.Maybe Prelude.Text)
 getBotChannelAssociationsResponse_nextToken = Lens.lens (\GetBotChannelAssociationsResponse' {nextToken} -> nextToken) (\s@GetBotChannelAssociationsResponse' {} a -> s {nextToken = a} :: GetBotChannelAssociationsResponse)
-
--- | An array of objects, one for each association, that provides information
--- about the Amazon Lex bot and its association with the channel.
-getBotChannelAssociationsResponse_botChannelAssociations :: Lens.Lens' GetBotChannelAssociationsResponse (Prelude.Maybe [BotChannelAssociation])
-getBotChannelAssociationsResponse_botChannelAssociations = Lens.lens (\GetBotChannelAssociationsResponse' {botChannelAssociations} -> botChannelAssociations) (\s@GetBotChannelAssociationsResponse' {} a -> s {botChannelAssociations = a} :: GetBotChannelAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getBotChannelAssociationsResponse_httpStatus :: Lens.Lens' GetBotChannelAssociationsResponse Prelude.Int

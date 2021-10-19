@@ -31,17 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSlot' smart constructor.
 data Slot = Slot'
-  { -- | A set of possible responses for the slot type used by text-based
-    -- clients. A user chooses an option from the response card, instead of
-    -- using text to reply.
-    responseCard :: Prelude.Maybe Prelude.Text,
-    -- | The type of the slot, either a custom slot type that you defined or one
+  { -- | The type of the slot, either a custom slot type that you defined or one
     -- of the built-in slot types.
     slotType :: Prelude.Maybe Prelude.Text,
     -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
     valueElicitationPrompt :: Prelude.Maybe Prompt,
-    -- | The version of the slot type.
-    slotTypeVersion :: Prelude.Maybe Prelude.Text,
+    -- | A set of possible responses for the slot type used by text-based
+    -- clients. A user chooses an option from the response card, instead of
+    -- using text to reply.
+    responseCard :: Prelude.Maybe Prelude.Text,
     -- | Directs Amazon Lex the order in which to elicit this slot value from the
     -- user. For example, if the intent has two slots with priorities 1 and 2,
     -- AWS Amazon Lex first elicits a value for the slot with priority 1.
@@ -49,18 +47,6 @@ data Slot = Slot'
     -- If multiple slots share the same priority, the order in which Amazon Lex
     -- elicits values is arbitrary.
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | If you know a specific pattern with which users might respond to an
-    -- Amazon Lex request for a slot value, you can provide those utterances to
-    -- improve accuracy. This is optional. In most cases, Amazon Lex is capable
-    -- of understanding user utterances.
-    sampleUtterances :: Prelude.Maybe [Prelude.Text],
-    -- | A description of the slot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of default values for the slot. Default values are used when
-    -- Amazon Lex hasn\'t determined a value for a slot. You can specify
-    -- default values from context variables, session attributes, and defined
-    -- values.
-    defaultValueSpec :: Prelude.Maybe SlotDefaultValueSpec,
     -- | Determines whether a slot is obfuscated in conversation logs and stored
     -- utterances. When you obfuscate a slot, the value is replaced by the slot
     -- name in curly braces ({}). For example, if the slot name is
@@ -69,6 +55,20 @@ data Slot = Slot'
     -- <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation>
     -- .
     obfuscationSetting :: Prelude.Maybe ObfuscationSetting,
+    -- | A list of default values for the slot. Default values are used when
+    -- Amazon Lex hasn\'t determined a value for a slot. You can specify
+    -- default values from context variables, session attributes, and defined
+    -- values.
+    defaultValueSpec :: Prelude.Maybe SlotDefaultValueSpec,
+    -- | The version of the slot type.
+    slotTypeVersion :: Prelude.Maybe Prelude.Text,
+    -- | If you know a specific pattern with which users might respond to an
+    -- Amazon Lex request for a slot value, you can provide those utterances to
+    -- improve accuracy. This is optional. In most cases, Amazon Lex is capable
+    -- of understanding user utterances.
+    sampleUtterances :: Prelude.Maybe [Prelude.Text],
+    -- | A description of the slot.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the slot.
     name :: Prelude.Text,
     -- | Specifies whether the slot is required or optional.
@@ -84,16 +84,14 @@ data Slot = Slot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseCard', 'slot_responseCard' - A set of possible responses for the slot type used by text-based
--- clients. A user chooses an option from the response card, instead of
--- using text to reply.
---
 -- 'slotType', 'slot_slotType' - The type of the slot, either a custom slot type that you defined or one
 -- of the built-in slot types.
 --
 -- 'valueElicitationPrompt', 'slot_valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
 --
--- 'slotTypeVersion', 'slot_slotTypeVersion' - The version of the slot type.
+-- 'responseCard', 'slot_responseCard' - A set of possible responses for the slot type used by text-based
+-- clients. A user chooses an option from the response card, instead of
+-- using text to reply.
 --
 -- 'priority', 'slot_priority' - Directs Amazon Lex the order in which to elicit this slot value from the
 -- user. For example, if the intent has two slots with priorities 1 and 2,
@@ -102,18 +100,6 @@ data Slot = Slot'
 -- If multiple slots share the same priority, the order in which Amazon Lex
 -- elicits values is arbitrary.
 --
--- 'sampleUtterances', 'slot_sampleUtterances' - If you know a specific pattern with which users might respond to an
--- Amazon Lex request for a slot value, you can provide those utterances to
--- improve accuracy. This is optional. In most cases, Amazon Lex is capable
--- of understanding user utterances.
---
--- 'description', 'slot_description' - A description of the slot.
---
--- 'defaultValueSpec', 'slot_defaultValueSpec' - A list of default values for the slot. Default values are used when
--- Amazon Lex hasn\'t determined a value for a slot. You can specify
--- default values from context variables, session attributes, and defined
--- values.
---
 -- 'obfuscationSetting', 'slot_obfuscationSetting' - Determines whether a slot is obfuscated in conversation logs and stored
 -- utterances. When you obfuscate a slot, the value is replaced by the slot
 -- name in curly braces ({}). For example, if the slot name is
@@ -121,6 +107,20 @@ data Slot = Slot'
 -- more information, see
 -- <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation>
 -- .
+--
+-- 'defaultValueSpec', 'slot_defaultValueSpec' - A list of default values for the slot. Default values are used when
+-- Amazon Lex hasn\'t determined a value for a slot. You can specify
+-- default values from context variables, session attributes, and defined
+-- values.
+--
+-- 'slotTypeVersion', 'slot_slotTypeVersion' - The version of the slot type.
+--
+-- 'sampleUtterances', 'slot_sampleUtterances' - If you know a specific pattern with which users might respond to an
+-- Amazon Lex request for a slot value, you can provide those utterances to
+-- improve accuracy. This is optional. In most cases, Amazon Lex is capable
+-- of understanding user utterances.
+--
+-- 'description', 'slot_description' - A description of the slot.
 --
 -- 'name', 'slot_name' - The name of the slot.
 --
@@ -133,24 +133,18 @@ newSlot ::
   Slot
 newSlot pName_ pSlotConstraint_ =
   Slot'
-    { responseCard = Prelude.Nothing,
-      slotType = Prelude.Nothing,
+    { slotType = Prelude.Nothing,
       valueElicitationPrompt = Prelude.Nothing,
-      slotTypeVersion = Prelude.Nothing,
+      responseCard = Prelude.Nothing,
       priority = Prelude.Nothing,
+      obfuscationSetting = Prelude.Nothing,
+      defaultValueSpec = Prelude.Nothing,
+      slotTypeVersion = Prelude.Nothing,
       sampleUtterances = Prelude.Nothing,
       description = Prelude.Nothing,
-      defaultValueSpec = Prelude.Nothing,
-      obfuscationSetting = Prelude.Nothing,
       name = pName_,
       slotConstraint = pSlotConstraint_
     }
-
--- | A set of possible responses for the slot type used by text-based
--- clients. A user chooses an option from the response card, instead of
--- using text to reply.
-slot_responseCard :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
-slot_responseCard = Lens.lens (\Slot' {responseCard} -> responseCard) (\s@Slot' {} a -> s {responseCard = a} :: Slot)
 
 -- | The type of the slot, either a custom slot type that you defined or one
 -- of the built-in slot types.
@@ -161,9 +155,11 @@ slot_slotType = Lens.lens (\Slot' {slotType} -> slotType) (\s@Slot' {} a -> s {s
 slot_valueElicitationPrompt :: Lens.Lens' Slot (Prelude.Maybe Prompt)
 slot_valueElicitationPrompt = Lens.lens (\Slot' {valueElicitationPrompt} -> valueElicitationPrompt) (\s@Slot' {} a -> s {valueElicitationPrompt = a} :: Slot)
 
--- | The version of the slot type.
-slot_slotTypeVersion :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
-slot_slotTypeVersion = Lens.lens (\Slot' {slotTypeVersion} -> slotTypeVersion) (\s@Slot' {} a -> s {slotTypeVersion = a} :: Slot)
+-- | A set of possible responses for the slot type used by text-based
+-- clients. A user chooses an option from the response card, instead of
+-- using text to reply.
+slot_responseCard :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
+slot_responseCard = Lens.lens (\Slot' {responseCard} -> responseCard) (\s@Slot' {} a -> s {responseCard = a} :: Slot)
 
 -- | Directs Amazon Lex the order in which to elicit this slot value from the
 -- user. For example, if the intent has two slots with priorities 1 and 2,
@@ -174,24 +170,6 @@ slot_slotTypeVersion = Lens.lens (\Slot' {slotTypeVersion} -> slotTypeVersion) (
 slot_priority :: Lens.Lens' Slot (Prelude.Maybe Prelude.Natural)
 slot_priority = Lens.lens (\Slot' {priority} -> priority) (\s@Slot' {} a -> s {priority = a} :: Slot)
 
--- | If you know a specific pattern with which users might respond to an
--- Amazon Lex request for a slot value, you can provide those utterances to
--- improve accuracy. This is optional. In most cases, Amazon Lex is capable
--- of understanding user utterances.
-slot_sampleUtterances :: Lens.Lens' Slot (Prelude.Maybe [Prelude.Text])
-slot_sampleUtterances = Lens.lens (\Slot' {sampleUtterances} -> sampleUtterances) (\s@Slot' {} a -> s {sampleUtterances = a} :: Slot) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description of the slot.
-slot_description :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
-slot_description = Lens.lens (\Slot' {description} -> description) (\s@Slot' {} a -> s {description = a} :: Slot)
-
--- | A list of default values for the slot. Default values are used when
--- Amazon Lex hasn\'t determined a value for a slot. You can specify
--- default values from context variables, session attributes, and defined
--- values.
-slot_defaultValueSpec :: Lens.Lens' Slot (Prelude.Maybe SlotDefaultValueSpec)
-slot_defaultValueSpec = Lens.lens (\Slot' {defaultValueSpec} -> defaultValueSpec) (\s@Slot' {} a -> s {defaultValueSpec = a} :: Slot)
-
 -- | Determines whether a slot is obfuscated in conversation logs and stored
 -- utterances. When you obfuscate a slot, the value is replaced by the slot
 -- name in curly braces ({}). For example, if the slot name is
@@ -201,6 +179,28 @@ slot_defaultValueSpec = Lens.lens (\Slot' {defaultValueSpec} -> defaultValueSpec
 -- .
 slot_obfuscationSetting :: Lens.Lens' Slot (Prelude.Maybe ObfuscationSetting)
 slot_obfuscationSetting = Lens.lens (\Slot' {obfuscationSetting} -> obfuscationSetting) (\s@Slot' {} a -> s {obfuscationSetting = a} :: Slot)
+
+-- | A list of default values for the slot. Default values are used when
+-- Amazon Lex hasn\'t determined a value for a slot. You can specify
+-- default values from context variables, session attributes, and defined
+-- values.
+slot_defaultValueSpec :: Lens.Lens' Slot (Prelude.Maybe SlotDefaultValueSpec)
+slot_defaultValueSpec = Lens.lens (\Slot' {defaultValueSpec} -> defaultValueSpec) (\s@Slot' {} a -> s {defaultValueSpec = a} :: Slot)
+
+-- | The version of the slot type.
+slot_slotTypeVersion :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
+slot_slotTypeVersion = Lens.lens (\Slot' {slotTypeVersion} -> slotTypeVersion) (\s@Slot' {} a -> s {slotTypeVersion = a} :: Slot)
+
+-- | If you know a specific pattern with which users might respond to an
+-- Amazon Lex request for a slot value, you can provide those utterances to
+-- improve accuracy. This is optional. In most cases, Amazon Lex is capable
+-- of understanding user utterances.
+slot_sampleUtterances :: Lens.Lens' Slot (Prelude.Maybe [Prelude.Text])
+slot_sampleUtterances = Lens.lens (\Slot' {sampleUtterances} -> sampleUtterances) (\s@Slot' {} a -> s {sampleUtterances = a} :: Slot) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the slot.
+slot_description :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
+slot_description = Lens.lens (\Slot' {description} -> description) (\s@Slot' {} a -> s {description = a} :: Slot)
 
 -- | The name of the slot.
 slot_name :: Lens.Lens' Slot Prelude.Text
@@ -216,17 +216,17 @@ instance Core.FromJSON Slot where
       "Slot"
       ( \x ->
           Slot'
-            Prelude.<$> (x Core..:? "responseCard")
-            Prelude.<*> (x Core..:? "slotType")
+            Prelude.<$> (x Core..:? "slotType")
             Prelude.<*> (x Core..:? "valueElicitationPrompt")
-            Prelude.<*> (x Core..:? "slotTypeVersion")
+            Prelude.<*> (x Core..:? "responseCard")
             Prelude.<*> (x Core..:? "priority")
+            Prelude.<*> (x Core..:? "obfuscationSetting")
+            Prelude.<*> (x Core..:? "defaultValueSpec")
+            Prelude.<*> (x Core..:? "slotTypeVersion")
             Prelude.<*> ( x Core..:? "sampleUtterances"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "defaultValueSpec")
-            Prelude.<*> (x Core..:? "obfuscationSetting")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "slotConstraint")
       )
@@ -239,20 +239,20 @@ instance Core.ToJSON Slot where
   toJSON Slot' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseCard" Core..=) Prelude.<$> responseCard,
-            ("slotType" Core..=) Prelude.<$> slotType,
+          [ ("slotType" Core..=) Prelude.<$> slotType,
             ("valueElicitationPrompt" Core..=)
               Prelude.<$> valueElicitationPrompt,
+            ("responseCard" Core..=) Prelude.<$> responseCard,
+            ("priority" Core..=) Prelude.<$> priority,
+            ("obfuscationSetting" Core..=)
+              Prelude.<$> obfuscationSetting,
+            ("defaultValueSpec" Core..=)
+              Prelude.<$> defaultValueSpec,
             ("slotTypeVersion" Core..=)
               Prelude.<$> slotTypeVersion,
-            ("priority" Core..=) Prelude.<$> priority,
             ("sampleUtterances" Core..=)
               Prelude.<$> sampleUtterances,
             ("description" Core..=) Prelude.<$> description,
-            ("defaultValueSpec" Core..=)
-              Prelude.<$> defaultValueSpec,
-            ("obfuscationSetting" Core..=)
-              Prelude.<$> obfuscationSetting,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("slotConstraint" Core..= slotConstraint)

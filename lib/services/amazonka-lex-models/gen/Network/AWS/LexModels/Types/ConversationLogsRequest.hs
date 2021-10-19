@@ -72,7 +72,7 @@ newConversationLogsRequest pIamRoleArn_ =
 -- | The settings for your conversation logs. You can log the conversation
 -- text, conversation audio, or both.
 conversationLogsRequest_logSettings :: Lens.Lens' ConversationLogsRequest [LogSettingsRequest]
-conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logSettings} -> logSettings) (\s@ConversationLogsRequest' {} a -> s {logSettings = a} :: ConversationLogsRequest) Prelude.. Lens._Coerce
+conversationLogsRequest_logSettings = Lens.lens (\ConversationLogsRequest' {logSettings} -> logSettings) (\s@ConversationLogsRequest' {} a -> s {logSettings = a} :: ConversationLogsRequest) Prelude.. Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of an IAM role with permission to write
 -- to your CloudWatch Logs for text logs and your S3 bucket for audio logs.

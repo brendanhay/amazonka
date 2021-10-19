@@ -67,7 +67,7 @@ conversationLogsResponse_iamRoleArn = Lens.lens (\ConversationLogsResponse' {iam
 -- | The settings for your conversation logs. You can log text, audio, or
 -- both.
 conversationLogsResponse_logSettings :: Lens.Lens' ConversationLogsResponse (Prelude.Maybe [LogSettingsResponse])
-conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {logSettings} -> logSettings) (\s@ConversationLogsResponse' {} a -> s {logSettings = a} :: ConversationLogsResponse) Prelude.. Lens.mapping Lens._Coerce
+conversationLogsResponse_logSettings = Lens.lens (\ConversationLogsResponse' {logSettings} -> logSettings) (\s@ConversationLogsResponse' {} a -> s {logSettings = a} :: ConversationLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ConversationLogsResponse where
   parseJSON =

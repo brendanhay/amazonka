@@ -69,7 +69,7 @@ builtinIntentMetadata_signature = Lens.lens (\BuiltinIntentMetadata' {signature}
 
 -- | A list of identifiers for the locales that the intent supports.
 builtinIntentMetadata_supportedLocales :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe [Locale])
-builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Prelude.. Lens.mapping Lens._Coerce
+builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON BuiltinIntentMetadata where
   parseJSON =

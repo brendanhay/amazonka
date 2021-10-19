@@ -49,8 +49,8 @@ module Network.AWS.LexModels.GetBotVersions
     newGetBotVersionsResponse,
 
     -- * Response Lenses
-    getBotVersionsResponse_nextToken,
     getBotVersionsResponse_bots,
+    getBotVersionsResponse_nextToken,
     getBotVersionsResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest GetBotVersions where
     Response.receiveJSON
       ( \s h x ->
           GetBotVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,14 +184,14 @@ instance Core.ToQuery GetBotVersions where
 
 -- | /See:/ 'newGetBotVersionsResponse' smart constructor.
 data GetBotVersionsResponse = GetBotVersionsResponse'
-  { -- | A pagination token for fetching the next page of bot versions. If the
+  { -- | An array of @BotMetadata@ objects, one for each numbered version of the
+    -- bot plus one for the @$LATEST@ version.
+    bots :: Prelude.Maybe [BotMetadata],
+    -- | A pagination token for fetching the next page of bot versions. If the
     -- response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @BotMetadata@ objects, one for each numbered version of the
-    -- bot plus one for the @$LATEST@ version.
-    bots :: Prelude.Maybe [BotMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,13 +205,13 @@ data GetBotVersionsResponse = GetBotVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bots', 'getBotVersionsResponse_bots' - An array of @BotMetadata@ objects, one for each numbered version of the
+-- bot plus one for the @$LATEST@ version.
+--
 -- 'nextToken', 'getBotVersionsResponse_nextToken' - A pagination token for fetching the next page of bot versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
---
--- 'bots', 'getBotVersionsResponse_bots' - An array of @BotMetadata@ objects, one for each numbered version of the
--- bot plus one for the @$LATEST@ version.
 --
 -- 'httpStatus', 'getBotVersionsResponse_httpStatus' - The response's http status code.
 newGetBotVersionsResponse ::
@@ -220,11 +220,15 @@ newGetBotVersionsResponse ::
   GetBotVersionsResponse
 newGetBotVersionsResponse pHttpStatus_ =
   GetBotVersionsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      bots = Prelude.Nothing,
+    { bots = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @BotMetadata@ objects, one for each numbered version of the
+-- bot plus one for the @$LATEST@ version.
+getBotVersionsResponse_bots :: Lens.Lens' GetBotVersionsResponse (Prelude.Maybe [BotMetadata])
+getBotVersionsResponse_bots = Lens.lens (\GetBotVersionsResponse' {bots} -> bots) (\s@GetBotVersionsResponse' {} a -> s {bots = a} :: GetBotVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token for fetching the next page of bot versions. If the
 -- response to this call is truncated, Amazon Lex returns a pagination
@@ -232,11 +236,6 @@ newGetBotVersionsResponse pHttpStatus_ =
 -- pagination token in the next request.
 getBotVersionsResponse_nextToken :: Lens.Lens' GetBotVersionsResponse (Prelude.Maybe Prelude.Text)
 getBotVersionsResponse_nextToken = Lens.lens (\GetBotVersionsResponse' {nextToken} -> nextToken) (\s@GetBotVersionsResponse' {} a -> s {nextToken = a} :: GetBotVersionsResponse)
-
--- | An array of @BotMetadata@ objects, one for each numbered version of the
--- bot plus one for the @$LATEST@ version.
-getBotVersionsResponse_bots :: Lens.Lens' GetBotVersionsResponse (Prelude.Maybe [BotMetadata])
-getBotVersionsResponse_bots = Lens.lens (\GetBotVersionsResponse' {bots} -> bots) (\s@GetBotVersionsResponse' {} a -> s {bots = a} :: GetBotVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getBotVersionsResponse_httpStatus :: Lens.Lens' GetBotVersionsResponse Prelude.Int

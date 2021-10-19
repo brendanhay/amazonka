@@ -17,20 +17,20 @@ module Network.AWS.Route53AutoNaming.Types
     defaultService,
 
     -- * Errors
-    _InvalidInput,
-    _TooManyTagsException,
-    _DuplicateRequest,
-    _ResourceInUse,
-    _ServiceAlreadyExists,
-    _RequestLimitExceeded,
-    _CustomHealthNotFound,
     _ResourceLimitExceeded,
-    _ResourceNotFoundException,
-    _OperationNotFound,
-    _ServiceNotFound,
-    _NamespaceNotFound,
+    _InvalidInput,
     _NamespaceAlreadyExists,
+    _NamespaceNotFound,
+    _ServiceAlreadyExists,
+    _ResourceInUse,
+    _TooManyTagsException,
+    _CustomHealthNotFound,
+    _RequestLimitExceeded,
     _InstanceNotFound,
+    _DuplicateRequest,
+    _ServiceNotFound,
+    _OperationNotFound,
+    _ResourceNotFoundException,
 
     -- * CustomHealthStatus
     CustomHealthStatus (..),
@@ -83,8 +83,8 @@ module Network.AWS.Route53AutoNaming.Types
     -- * DnsConfig
     DnsConfig (..),
     newDnsConfig,
-    dnsConfig_namespaceId,
     dnsConfig_routingPolicy,
+    dnsConfig_namespaceId,
     dnsConfig_dnsRecords,
 
     -- * DnsConfigChange
@@ -121,8 +121,8 @@ module Network.AWS.Route53AutoNaming.Types
     newHttpInstanceSummary,
     httpInstanceSummary_instanceId,
     httpInstanceSummary_namespaceName,
-    httpInstanceSummary_serviceName,
     httpInstanceSummary_attributes,
+    httpInstanceSummary_serviceName,
     httpInstanceSummary_healthStatus,
 
     -- * HttpNamespaceChange
@@ -145,21 +145,21 @@ module Network.AWS.Route53AutoNaming.Types
     -- * InstanceSummary
     InstanceSummary (..),
     newInstanceSummary,
-    instanceSummary_id,
     instanceSummary_attributes,
+    instanceSummary_id,
 
     -- * Namespace
     Namespace (..),
     newNamespace,
-    namespace_createDate,
-    namespace_creatorRequestId,
     namespace_arn,
-    namespace_id,
-    namespace_name,
-    namespace_properties,
-    namespace_description,
+    namespace_creatorRequestId,
+    namespace_createDate,
     namespace_serviceCount,
+    namespace_name,
+    namespace_id,
     namespace_type,
+    namespace_description,
+    namespace_properties,
 
     -- * NamespaceFilter
     NamespaceFilter (..),
@@ -171,32 +171,32 @@ module Network.AWS.Route53AutoNaming.Types
     -- * NamespaceProperties
     NamespaceProperties (..),
     newNamespaceProperties,
-    namespaceProperties_httpProperties,
     namespaceProperties_dnsProperties,
+    namespaceProperties_httpProperties,
 
     -- * NamespaceSummary
     NamespaceSummary (..),
     newNamespaceSummary,
-    namespaceSummary_createDate,
     namespaceSummary_arn,
-    namespaceSummary_id,
-    namespaceSummary_name,
-    namespaceSummary_properties,
-    namespaceSummary_description,
+    namespaceSummary_createDate,
     namespaceSummary_serviceCount,
+    namespaceSummary_name,
+    namespaceSummary_id,
     namespaceSummary_type,
+    namespaceSummary_description,
+    namespaceSummary_properties,
 
     -- * Operation
     Operation (..),
     newOperation,
     operation_status,
-    operation_createDate,
-    operation_id,
-    operation_targets,
-    operation_errorMessage,
-    operation_type,
-    operation_errorCode,
     operation_updateDate,
+    operation_createDate,
+    operation_targets,
+    operation_errorCode,
+    operation_id,
+    operation_type,
+    operation_errorMessage,
 
     -- * OperationFilter
     OperationFilter (..),
@@ -214,8 +214,8 @@ module Network.AWS.Route53AutoNaming.Types
     -- * PrivateDnsNamespaceChange
     PrivateDnsNamespaceChange (..),
     newPrivateDnsNamespaceChange,
-    privateDnsNamespaceChange_properties,
     privateDnsNamespaceChange_description,
+    privateDnsNamespaceChange_properties,
 
     -- * PrivateDnsNamespaceProperties
     PrivateDnsNamespaceProperties (..),
@@ -240,8 +240,8 @@ module Network.AWS.Route53AutoNaming.Types
     -- * PublicDnsNamespaceChange
     PublicDnsNamespaceChange (..),
     newPublicDnsNamespaceChange,
-    publicDnsNamespaceChange_properties,
     publicDnsNamespaceChange_description,
+    publicDnsNamespaceChange_properties,
 
     -- * PublicDnsNamespaceProperties
     PublicDnsNamespaceProperties (..),
@@ -276,9 +276,9 @@ module Network.AWS.Route53AutoNaming.Types
     -- * ServiceChange
     ServiceChange (..),
     newServiceChange,
+    serviceChange_healthCheckConfig,
     serviceChange_dnsConfig,
     serviceChange_description,
-    serviceChange_healthCheckConfig,
 
     -- * ServiceFilter
     ServiceFilter (..),
@@ -290,32 +290,32 @@ module Network.AWS.Route53AutoNaming.Types
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
-    serviceInfo_namespaceId,
-    serviceInfo_dnsConfig,
-    serviceInfo_createDate,
-    serviceInfo_creatorRequestId,
-    serviceInfo_arn,
-    serviceInfo_id,
-    serviceInfo_name,
-    serviceInfo_description,
-    serviceInfo_healthCheckCustomConfig,
-    serviceInfo_healthCheckConfig,
-    serviceInfo_type,
     serviceInfo_instanceCount,
+    serviceInfo_arn,
+    serviceInfo_healthCheckConfig,
+    serviceInfo_creatorRequestId,
+    serviceInfo_createDate,
+    serviceInfo_healthCheckCustomConfig,
+    serviceInfo_namespaceId,
+    serviceInfo_name,
+    serviceInfo_id,
+    serviceInfo_type,
+    serviceInfo_dnsConfig,
+    serviceInfo_description,
 
     -- * ServiceSummary
     ServiceSummary (..),
     newServiceSummary,
-    serviceSummary_dnsConfig,
-    serviceSummary_createDate,
-    serviceSummary_arn,
-    serviceSummary_id,
-    serviceSummary_name,
-    serviceSummary_description,
-    serviceSummary_healthCheckCustomConfig,
-    serviceSummary_healthCheckConfig,
-    serviceSummary_type,
     serviceSummary_instanceCount,
+    serviceSummary_arn,
+    serviceSummary_healthCheckConfig,
+    serviceSummary_createDate,
+    serviceSummary_healthCheckCustomConfig,
+    serviceSummary_name,
+    serviceSummary_id,
+    serviceSummary_type,
+    serviceSummary_dnsConfig,
+    serviceSummary_description,
 
     -- * Tag
     Tag (..),
@@ -408,37 +408,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -451,7 +428,38 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The resource can\'t be created because you\'ve reached the quota on the
+-- number of resources.
+_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "ResourceLimitExceeded"
 
 -- | One or more specified values aren\'t valid. For example, a required
 -- value might be missing, a numeric value might be outside the allowed
@@ -462,20 +470,27 @@ _InvalidInput =
     defaultService
     "InvalidInput"
 
--- | The list of tags on the resource is over the quota. The maximum number
--- of tags that can be applied to a resource is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
+-- | The namespace that you\'re trying to create already exists.
+_NamespaceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceAlreadyExists =
   Core._MatchServiceError
     defaultService
-    "TooManyTagsException"
+    "NamespaceAlreadyExists"
 
--- | The operation is already in progress.
-_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateRequest =
+-- | No namespace exists with the specified ID.
+_NamespaceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NamespaceNotFound =
   Core._MatchServiceError
     defaultService
-    "DuplicateRequest"
+    "NamespaceNotFound"
+
+-- | The service can\'t be created because a service with the same name
+-- already exists.
+_ServiceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "ServiceAlreadyExists"
 
 -- | The specified resource can\'t be deleted because it contains other
 -- resources. For example, you can\'t delete a service that contains any
@@ -486,13 +501,21 @@ _ResourceInUse =
     defaultService
     "ResourceInUse"
 
--- | The service can\'t be created because a service with the same name
--- already exists.
-_ServiceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceAlreadyExists =
+-- | The list of tags on the resource is over the quota. The maximum number
+-- of tags that can be applied to a resource is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "ServiceAlreadyExists"
+    "TooManyTagsException"
+
+-- | The health check for the instance that\'s specified by @ServiceId@ and
+-- @InstanceId@ isn\'t a custom health check.
+_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomHealthNotFound =
+  Core._MatchServiceError
+    defaultService
+    "CustomHealthNotFound"
 
 -- | The operation can\'t be completed because you\'ve reached the quota for
 -- the number of requests. For more information, see
@@ -504,35 +527,20 @@ _RequestLimitExceeded =
     defaultService
     "RequestLimitExceeded"
 
--- | The health check for the instance that\'s specified by @ServiceId@ and
--- @InstanceId@ isn\'t a custom health check.
-_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomHealthNotFound =
+-- | No instance exists with the specified ID, or the instance was recently
+-- registered, and information about the instance hasn\'t propagated yet.
+_InstanceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InstanceNotFound =
   Core._MatchServiceError
     defaultService
-    "CustomHealthNotFound"
+    "InstanceNotFound"
 
--- | The resource can\'t be created because you\'ve reached the quota on the
--- number of resources.
-_ResourceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceeded =
+-- | The operation is already in progress.
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
   Core._MatchServiceError
     defaultService
-    "ResourceLimitExceeded"
-
--- | The operation can\'t be completed because the resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | No operation exists with the specified ID.
-_OperationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotFound =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotFound"
+    "DuplicateRequest"
 
 -- | No service exists with the specified ID.
 _ServiceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -541,24 +549,16 @@ _ServiceNotFound =
     defaultService
     "ServiceNotFound"
 
--- | No namespace exists with the specified ID.
-_NamespaceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NamespaceNotFound =
+-- | No operation exists with the specified ID.
+_OperationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotFound =
   Core._MatchServiceError
     defaultService
-    "NamespaceNotFound"
+    "OperationNotFound"
 
--- | The namespace that you\'re trying to create already exists.
-_NamespaceAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NamespaceAlreadyExists =
+-- | The operation can\'t be completed because the resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "NamespaceAlreadyExists"
-
--- | No instance exists with the specified ID, or the instance was recently
--- registered, and information about the instance hasn\'t propagated yet.
-_InstanceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InstanceNotFound =
-  Core._MatchServiceError
-    defaultService
-    "InstanceNotFound"
+    "ResourceNotFoundException"

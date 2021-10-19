@@ -28,10 +28,10 @@ import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
 --
 -- /See:/ 'newPublicDnsNamespaceChange' smart constructor.
 data PublicDnsNamespaceChange = PublicDnsNamespaceChange'
-  { -- | Properties to be updated in the public DNS namespace.
-    properties :: Prelude.Maybe PublicDnsNamespacePropertiesChange,
-    -- | An updated description for the public DNS namespace.
-    description :: Prelude.Maybe Prelude.Text
+  { -- | An updated description for the public DNS namespace.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Properties to be updated in the public DNS namespace.
+    properties :: Prelude.Maybe PublicDnsNamespacePropertiesChange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data PublicDnsNamespaceChange = PublicDnsNamespaceChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'publicDnsNamespaceChange_properties' - Properties to be updated in the public DNS namespace.
---
 -- 'description', 'publicDnsNamespaceChange_description' - An updated description for the public DNS namespace.
+--
+-- 'properties', 'publicDnsNamespaceChange_properties' - Properties to be updated in the public DNS namespace.
 newPublicDnsNamespaceChange ::
   PublicDnsNamespaceChange
 newPublicDnsNamespaceChange =
   PublicDnsNamespaceChange'
-    { properties =
+    { description =
         Prelude.Nothing,
-      description = Prelude.Nothing
+      properties = Prelude.Nothing
     }
-
--- | Properties to be updated in the public DNS namespace.
-publicDnsNamespaceChange_properties :: Lens.Lens' PublicDnsNamespaceChange (Prelude.Maybe PublicDnsNamespacePropertiesChange)
-publicDnsNamespaceChange_properties = Lens.lens (\PublicDnsNamespaceChange' {properties} -> properties) (\s@PublicDnsNamespaceChange' {} a -> s {properties = a} :: PublicDnsNamespaceChange)
 
 -- | An updated description for the public DNS namespace.
 publicDnsNamespaceChange_description :: Lens.Lens' PublicDnsNamespaceChange (Prelude.Maybe Prelude.Text)
 publicDnsNamespaceChange_description = Lens.lens (\PublicDnsNamespaceChange' {description} -> description) (\s@PublicDnsNamespaceChange' {} a -> s {description = a} :: PublicDnsNamespaceChange)
+
+-- | Properties to be updated in the public DNS namespace.
+publicDnsNamespaceChange_properties :: Lens.Lens' PublicDnsNamespaceChange (Prelude.Maybe PublicDnsNamespacePropertiesChange)
+publicDnsNamespaceChange_properties = Lens.lens (\PublicDnsNamespaceChange' {properties} -> properties) (\s@PublicDnsNamespaceChange' {} a -> s {properties = a} :: PublicDnsNamespaceChange)
 
 instance Prelude.Hashable PublicDnsNamespaceChange
 
@@ -71,7 +71,7 @@ instance Core.ToJSON PublicDnsNamespaceChange where
   toJSON PublicDnsNamespaceChange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Properties" Core..=) Prelude.<$> properties
           ]
       )

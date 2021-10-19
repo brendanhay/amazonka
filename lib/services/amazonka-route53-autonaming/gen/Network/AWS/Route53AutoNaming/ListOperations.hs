@@ -29,9 +29,9 @@ module Network.AWS.Route53AutoNaming.ListOperations
     newListOperations,
 
     -- * Request Lenses
+    listOperations_filters,
     listOperations_nextToken,
     listOperations_maxResults,
-    listOperations_filters,
 
     -- * Destructuring the Response
     ListOperationsResponse (..),
@@ -53,7 +53,14 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { -- | For the first @ListOperations@ request, omit this value.
+  { -- | A complex type that contains specifications for the operations that you
+    -- want to list, for example, operations that you started between a
+    -- specified start date and end date.
+    --
+    -- If you specify more than one filter, an operation must match all filters
+    -- to be returned by @ListOperations@.
+    filters :: Prelude.Maybe [OperationFilter],
+    -- | For the first @ListOperations@ request, omit this value.
     --
     -- If the response contains @NextToken@, submit another @ListOperations@
     -- request to get the next group of results. Specify the value of
@@ -68,14 +75,7 @@ data ListOperations = ListOperations'
     -- | The maximum number of items that you want Cloud Map to return in the
     -- response to a @ListOperations@ request. If you don\'t specify a value
     -- for @MaxResults@, Cloud Map returns up to 100 operations.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A complex type that contains specifications for the operations that you
-    -- want to list, for example, operations that you started between a
-    -- specified start date and end date.
-    --
-    -- If you specify more than one filter, an operation must match all filters
-    -- to be returned by @ListOperations@.
-    filters :: Prelude.Maybe [OperationFilter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,6 +86,13 @@ data ListOperations = ListOperations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
+-- want to list, for example, operations that you started between a
+-- specified start date and end date.
+--
+-- If you specify more than one filter, an operation must match all filters
+-- to be returned by @ListOperations@.
 --
 -- 'nextToken', 'listOperations_nextToken' - For the first @ListOperations@ request, omit this value.
 --
@@ -102,21 +109,23 @@ data ListOperations = ListOperations'
 -- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
 -- for @MaxResults@, Cloud Map returns up to 100 operations.
---
--- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
+newListOperations ::
+  ListOperations
+newListOperations =
+  ListOperations'
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
+
+-- | A complex type that contains specifications for the operations that you
 -- want to list, for example, operations that you started between a
 -- specified start date and end date.
 --
 -- If you specify more than one filter, an operation must match all filters
 -- to be returned by @ListOperations@.
-newListOperations ::
-  ListOperations
-newListOperations =
-  ListOperations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
-    }
+listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
+listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Lens.coerced
 
 -- | For the first @ListOperations@ request, omit this value.
 --
@@ -137,15 +146,6 @@ listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken)
 -- for @MaxResults@, Cloud Map returns up to 100 operations.
 listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
 listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
-
--- | A complex type that contains specifications for the operations that you
--- want to list, for example, operations that you started between a
--- specified start date and end date.
---
--- If you specify more than one filter, an operation must match all filters
--- to be returned by @ListOperations@.
-listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
-listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListOperations where
   page rq rs
@@ -205,9 +205,9 @@ instance Core.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -286,7 +286,7 @@ listOperationsResponse_nextToken = Lens.lens (\ListOperationsResponse' {nextToke
 -- | Summary information about the operations that match the specified
 -- criteria.
 listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse (Prelude.Maybe [OperationSummary])
-listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Prelude.Int

@@ -35,8 +35,8 @@ module Network.AWS.Route53AutoNaming.CreateHttpNamespace
 
     -- * Request Lenses
     createHttpNamespace_creatorRequestId,
-    createHttpNamespace_tags,
     createHttpNamespace_description,
+    createHttpNamespace_tags,
     createHttpNamespace_name,
 
     -- * Destructuring the Response
@@ -63,12 +63,12 @@ data CreateHttpNamespace = CreateHttpNamespace'
     -- the operation twice. @CreatorRequestId@ can be any unique string (for
     -- example, a date\/time stamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | A description for the namespace.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
     -- optional value that you define. Tags keys can be up to 128 characters in
     -- length, and tag values can be up to 256 characters in length.
     tags :: Prelude.Maybe [Tag],
-    -- | A description for the namespace.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace.
     name :: Prelude.Text
   }
@@ -87,11 +87,11 @@ data CreateHttpNamespace = CreateHttpNamespace'
 -- the operation twice. @CreatorRequestId@ can be any unique string (for
 -- example, a date\/time stamp).
 --
+-- 'description', 'createHttpNamespace_description' - A description for the namespace.
+--
 -- 'tags', 'createHttpNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an
 -- optional value that you define. Tags keys can be up to 128 characters in
 -- length, and tag values can be up to 256 characters in length.
---
--- 'description', 'createHttpNamespace_description' - A description for the namespace.
 --
 -- 'name', 'createHttpNamespace_name' - The name that you want to assign to this namespace.
 newCreateHttpNamespace ::
@@ -102,8 +102,8 @@ newCreateHttpNamespace pName_ =
   CreateHttpNamespace'
     { creatorRequestId =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
@@ -114,15 +114,15 @@ newCreateHttpNamespace pName_ =
 createHttpNamespace_creatorRequestId :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
 createHttpNamespace_creatorRequestId = Lens.lens (\CreateHttpNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreateHttpNamespace' {} a -> s {creatorRequestId = a} :: CreateHttpNamespace)
 
+-- | A description for the namespace.
+createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
+createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description} -> description) (\s@CreateHttpNamespace' {} a -> s {description = a} :: CreateHttpNamespace)
+
 -- | The tags to add to the namespace. Each tag consists of a key and an
 -- optional value that you define. Tags keys can be up to 128 characters in
 -- length, and tag values can be up to 256 characters in length.
 createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe [Tag])
-createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description for the namespace.
-createHttpNamespace_description :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
-createHttpNamespace_description = Lens.lens (\CreateHttpNamespace' {description} -> description) (\s@CreateHttpNamespace' {} a -> s {description = a} :: CreateHttpNamespace)
+createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name that you want to assign to this namespace.
 createHttpNamespace_name :: Lens.Lens' CreateHttpNamespace Prelude.Text
@@ -166,8 +166,8 @@ instance Core.ToJSON CreateHttpNamespace where
       ( Prelude.catMaybes
           [ ("CreatorRequestId" Core..=)
               Prelude.<$> creatorRequestId,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

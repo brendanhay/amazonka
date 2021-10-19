@@ -241,7 +241,7 @@ listInstancesResponse_nextToken = Lens.lens (\ListInstancesResponse' {nextToken}
 -- | Summary information about the instances that are associated with the
 -- specified service.
 listInstancesResponse_instances :: Lens.Lens' ListInstancesResponse (Prelude.Maybe [InstanceSummary])
-listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+listInstancesResponse_instances = Lens.lens (\ListInstancesResponse' {instances} -> instances) (\s@ListInstancesResponse' {} a -> s {instances = a} :: ListInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstancesResponse_httpStatus :: Lens.Lens' ListInstancesResponse Prelude.Int

@@ -124,7 +124,7 @@ namespaceFilter_name = Lens.lens (\NamespaceFilter' {name} -> name) (\s@Namespac
 -- If you specify @IN@ for @Condition@, you can specify @DNS_PUBLIC@,
 -- @DNS_PRIVATE@, or both.
 namespaceFilter_values :: Lens.Lens' NamespaceFilter [Prelude.Text]
-namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Prelude.. Lens._Coerce
+namespaceFilter_values = Lens.lens (\NamespaceFilter' {values} -> values) (\s@NamespaceFilter' {} a -> s {values = a} :: NamespaceFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable NamespaceFilter
 

@@ -39,12 +39,12 @@ data HttpInstanceSummary = HttpInstanceSummary'
     -- The @HttpName@ name of the namespace. It\'s found in the
     -- @HttpProperties@ member of the @Properties@ member of the namespace.
     namespaceName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the service that you specified when you registered the
-    -- instance.
-    serviceName :: Prelude.Maybe Prelude.Text,
     -- | If you included any attributes when you registered the instance, the
     -- values of those attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of the service that you specified when you registered the
+    -- instance.
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | If you configured health checking in the service, the current health
     -- status of the service instance.
     healthStatus :: Prelude.Maybe HealthStatus
@@ -67,11 +67,11 @@ data HttpInstanceSummary = HttpInstanceSummary'
 -- The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
 --
--- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the
--- instance.
---
 -- 'attributes', 'httpInstanceSummary_attributes' - If you included any attributes when you registered the instance, the
 -- values of those attributes.
+--
+-- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the
+-- instance.
 --
 -- 'healthStatus', 'httpInstanceSummary_healthStatus' - If you configured health checking in the service, the current health
 -- status of the service instance.
@@ -81,8 +81,8 @@ newHttpInstanceSummary =
   HttpInstanceSummary'
     { instanceId = Prelude.Nothing,
       namespaceName = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
       healthStatus = Prelude.Nothing
     }
 
@@ -98,15 +98,15 @@ httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -
 httpInstanceSummary_namespaceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_namespaceName = Lens.lens (\HttpInstanceSummary' {namespaceName} -> namespaceName) (\s@HttpInstanceSummary' {} a -> s {namespaceName = a} :: HttpInstanceSummary)
 
+-- | If you included any attributes when you registered the instance, the
+-- values of those attributes.
+httpInstanceSummary_attributes :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+httpInstanceSummary_attributes = Lens.lens (\HttpInstanceSummary' {attributes} -> attributes) (\s@HttpInstanceSummary' {} a -> s {attributes = a} :: HttpInstanceSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the service that you specified when you registered the
 -- instance.
 httpInstanceSummary_serviceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_serviceName = Lens.lens (\HttpInstanceSummary' {serviceName} -> serviceName) (\s@HttpInstanceSummary' {} a -> s {serviceName = a} :: HttpInstanceSummary)
-
--- | If you included any attributes when you registered the instance, the
--- values of those attributes.
-httpInstanceSummary_attributes :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-httpInstanceSummary_attributes = Lens.lens (\HttpInstanceSummary' {attributes} -> attributes) (\s@HttpInstanceSummary' {} a -> s {attributes = a} :: HttpInstanceSummary) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you configured health checking in the service, the current health
 -- status of the service instance.
@@ -121,8 +121,8 @@ instance Core.FromJSON HttpInstanceSummary where
           HttpInstanceSummary'
             Prelude.<$> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "NamespaceName")
-            Prelude.<*> (x Core..:? "ServiceName")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ServiceName")
             Prelude.<*> (x Core..:? "HealthStatus")
       )
 

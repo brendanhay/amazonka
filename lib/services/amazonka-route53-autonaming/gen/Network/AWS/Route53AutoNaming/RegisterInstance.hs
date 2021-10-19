@@ -515,7 +515,7 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 --     size of all provided attributes (sum of all keys and values) must
 --     not exceed 5,000 characters.
 registerInstance_attributes :: Lens.Lens' RegisterInstance (Prelude.HashMap Prelude.Text Prelude.Text)
-registerInstance_attributes = Lens.lens (\RegisterInstance' {attributes} -> attributes) (\s@RegisterInstance' {} a -> s {attributes = a} :: RegisterInstance) Prelude.. Lens._Coerce
+registerInstance_attributes = Lens.lens (\RegisterInstance' {attributes} -> attributes) (\s@RegisterInstance' {} a -> s {attributes = a} :: RegisterInstance) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RegisterInstance where
   type

@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScalingPlan' smart constructor.
 data ScalingPlan = ScalingPlan'
-  { -- | A simple message about the current status of the scaling plan.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Unix time stamp when the scaling plan was created.
+  { -- | The Unix time stamp when the scaling plan was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Unix time stamp when the scaling plan entered the current status.
     statusStartTime :: Prelude.Maybe Core.POSIX,
+    -- | A simple message about the current status of the scaling plan.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the scaling plan.
     scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan.
@@ -75,11 +75,11 @@ data ScalingPlan = ScalingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'scalingPlan_statusMessage' - A simple message about the current status of the scaling plan.
---
 -- 'creationTime', 'scalingPlan_creationTime' - The Unix time stamp when the scaling plan was created.
 --
 -- 'statusStartTime', 'scalingPlan_statusStartTime' - The Unix time stamp when the scaling plan entered the current status.
+--
+-- 'statusMessage', 'scalingPlan_statusMessage' - A simple message about the current status of the scaling plan.
 --
 -- 'scalingPlanName', 'scalingPlan_scalingPlanName' - The name of the scaling plan.
 --
@@ -124,19 +124,15 @@ newScalingPlan
   pApplicationSource_
   pStatusCode_ =
     ScalingPlan'
-      { statusMessage = Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+      { creationTime = Prelude.Nothing,
         statusStartTime = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
         applicationSource = pApplicationSource_,
         scalingInstructions = Prelude.mempty,
         statusCode = pStatusCode_
       }
-
--- | A simple message about the current status of the scaling plan.
-scalingPlan_statusMessage :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.Text)
-scalingPlan_statusMessage = Lens.lens (\ScalingPlan' {statusMessage} -> statusMessage) (\s@ScalingPlan' {} a -> s {statusMessage = a} :: ScalingPlan)
 
 -- | The Unix time stamp when the scaling plan was created.
 scalingPlan_creationTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
@@ -145,6 +141,10 @@ scalingPlan_creationTime = Lens.lens (\ScalingPlan' {creationTime} -> creationTi
 -- | The Unix time stamp when the scaling plan entered the current status.
 scalingPlan_statusStartTime :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.UTCTime)
 scalingPlan_statusStartTime = Lens.lens (\ScalingPlan' {statusStartTime} -> statusStartTime) (\s@ScalingPlan' {} a -> s {statusStartTime = a} :: ScalingPlan) Prelude.. Lens.mapping Core._Time
+
+-- | A simple message about the current status of the scaling plan.
+scalingPlan_statusMessage :: Lens.Lens' ScalingPlan (Prelude.Maybe Prelude.Text)
+scalingPlan_statusMessage = Lens.lens (\ScalingPlan' {statusMessage} -> statusMessage) (\s@ScalingPlan' {} a -> s {statusMessage = a} :: ScalingPlan)
 
 -- | The name of the scaling plan.
 scalingPlan_scalingPlanName :: Lens.Lens' ScalingPlan Prelude.Text
@@ -161,7 +161,7 @@ scalingPlan_applicationSource = Lens.lens (\ScalingPlan' {applicationSource} -> 
 
 -- | The scaling instructions.
 scalingPlan_scalingInstructions :: Lens.Lens' ScalingPlan [ScalingInstruction]
-scalingPlan_scalingInstructions = Lens.lens (\ScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@ScalingPlan' {} a -> s {scalingInstructions = a} :: ScalingPlan) Prelude.. Lens._Coerce
+scalingPlan_scalingInstructions = Lens.lens (\ScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@ScalingPlan' {} a -> s {scalingInstructions = a} :: ScalingPlan) Prelude.. Lens.coerced
 
 -- | The status of the scaling plan.
 --
@@ -190,9 +190,9 @@ instance Core.FromJSON ScalingPlan where
       "ScalingPlan"
       ( \x ->
           ScalingPlan'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "StatusStartTime")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "ScalingPlanName")
             Prelude.<*> (x Core..: "ScalingPlanVersion")
             Prelude.<*> (x Core..: "ApplicationSource")

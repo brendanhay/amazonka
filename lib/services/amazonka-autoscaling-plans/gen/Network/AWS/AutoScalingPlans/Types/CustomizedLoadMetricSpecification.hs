@@ -62,14 +62,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCustomizedLoadMetricSpecification' smart constructor.
 data CustomizedLoadMetricSpecification = CustomizedLoadMetricSpecification'
-  { -- | The unit of the metric.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The dimensions of the metric.
+  { -- | The dimensions of the metric.
     --
     -- Conditional: If you published your metric with dimensions, you must
     -- specify the same dimensions in your customized load metric
     -- specification.
     dimensions :: Prelude.Maybe [MetricDimension],
+    -- | The unit of the metric.
+    unit :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric.
     metricName :: Prelude.Text,
     -- | The namespace of the metric.
@@ -87,13 +87,13 @@ data CustomizedLoadMetricSpecification = CustomizedLoadMetricSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'customizedLoadMetricSpecification_unit' - The unit of the metric.
---
 -- 'dimensions', 'customizedLoadMetricSpecification_dimensions' - The dimensions of the metric.
 --
 -- Conditional: If you published your metric with dimensions, you must
 -- specify the same dimensions in your customized load metric
 -- specification.
+--
+-- 'unit', 'customizedLoadMetricSpecification_unit' - The unit of the metric.
 --
 -- 'metricName', 'customizedLoadMetricSpecification_metricName' - The name of the metric.
 --
@@ -113,17 +113,13 @@ newCustomizedLoadMetricSpecification
   pNamespace_
   pStatistic_ =
     CustomizedLoadMetricSpecification'
-      { unit =
+      { dimensions =
           Prelude.Nothing,
-        dimensions = Prelude.Nothing,
+        unit = Prelude.Nothing,
         metricName = pMetricName_,
         namespace = pNamespace_,
         statistic = pStatistic_
       }
-
--- | The unit of the metric.
-customizedLoadMetricSpecification_unit :: Lens.Lens' CustomizedLoadMetricSpecification (Prelude.Maybe Prelude.Text)
-customizedLoadMetricSpecification_unit = Lens.lens (\CustomizedLoadMetricSpecification' {unit} -> unit) (\s@CustomizedLoadMetricSpecification' {} a -> s {unit = a} :: CustomizedLoadMetricSpecification)
 
 -- | The dimensions of the metric.
 --
@@ -131,7 +127,11 @@ customizedLoadMetricSpecification_unit = Lens.lens (\CustomizedLoadMetricSpecifi
 -- specify the same dimensions in your customized load metric
 -- specification.
 customizedLoadMetricSpecification_dimensions :: Lens.Lens' CustomizedLoadMetricSpecification (Prelude.Maybe [MetricDimension])
-customizedLoadMetricSpecification_dimensions = Lens.lens (\CustomizedLoadMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedLoadMetricSpecification' {} a -> s {dimensions = a} :: CustomizedLoadMetricSpecification) Prelude.. Lens.mapping Lens._Coerce
+customizedLoadMetricSpecification_dimensions = Lens.lens (\CustomizedLoadMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedLoadMetricSpecification' {} a -> s {dimensions = a} :: CustomizedLoadMetricSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unit of the metric.
+customizedLoadMetricSpecification_unit :: Lens.Lens' CustomizedLoadMetricSpecification (Prelude.Maybe Prelude.Text)
+customizedLoadMetricSpecification_unit = Lens.lens (\CustomizedLoadMetricSpecification' {unit} -> unit) (\s@CustomizedLoadMetricSpecification' {} a -> s {unit = a} :: CustomizedLoadMetricSpecification)
 
 -- | The name of the metric.
 customizedLoadMetricSpecification_metricName :: Lens.Lens' CustomizedLoadMetricSpecification Prelude.Text
@@ -154,8 +154,8 @@ instance
       "CustomizedLoadMetricSpecification"
       ( \x ->
           CustomizedLoadMetricSpecification'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Unit")
             Prelude.<*> (x Core..: "MetricName")
             Prelude.<*> (x Core..: "Namespace")
             Prelude.<*> (x Core..: "Statistic")
@@ -176,8 +176,8 @@ instance
   toJSON CustomizedLoadMetricSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
+          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
+            ("Unit" Core..=) Prelude.<$> unit,
             Prelude.Just ("MetricName" Core..= metricName),
             Prelude.Just ("Namespace" Core..= namespace),
             Prelude.Just ("Statistic" Core..= statistic)

@@ -17,12 +17,12 @@ module Network.AWS.AutoScalingPlans.Types
     defaultService,
 
     -- * Errors
-    _ObjectNotFoundException,
-    _InternalServiceException,
-    _InvalidNextTokenException,
     _ValidationException,
-    _LimitExceededException,
+    _InvalidNextTokenException,
     _ConcurrentUpdateException,
+    _InternalServiceException,
+    _ObjectNotFoundException,
+    _LimitExceededException,
 
     -- * ForecastDataType
     ForecastDataType (..),
@@ -69,8 +69,8 @@ module Network.AWS.AutoScalingPlans.Types
     -- * CustomizedLoadMetricSpecification
     CustomizedLoadMetricSpecification (..),
     newCustomizedLoadMetricSpecification,
-    customizedLoadMetricSpecification_unit,
     customizedLoadMetricSpecification_dimensions,
+    customizedLoadMetricSpecification_unit,
     customizedLoadMetricSpecification_metricName,
     customizedLoadMetricSpecification_namespace,
     customizedLoadMetricSpecification_statistic,
@@ -78,8 +78,8 @@ module Network.AWS.AutoScalingPlans.Types
     -- * CustomizedScalingMetricSpecification
     CustomizedScalingMetricSpecification (..),
     newCustomizedScalingMetricSpecification,
-    customizedScalingMetricSpecification_unit,
     customizedScalingMetricSpecification_dimensions,
+    customizedScalingMetricSpecification_unit,
     customizedScalingMetricSpecification_metricName,
     customizedScalingMetricSpecification_namespace,
     customizedScalingMetricSpecification_statistic,
@@ -87,8 +87,8 @@ module Network.AWS.AutoScalingPlans.Types
     -- * Datapoint
     Datapoint (..),
     newDatapoint,
-    datapoint_timestamp,
     datapoint_value,
+    datapoint_timestamp,
 
     -- * MetricDimension
     MetricDimension (..),
@@ -111,14 +111,14 @@ module Network.AWS.AutoScalingPlans.Types
     -- * ScalingInstruction
     ScalingInstruction (..),
     newScalingInstruction,
-    scalingInstruction_disableDynamicScaling,
-    scalingInstruction_predefinedLoadMetricSpecification,
-    scalingInstruction_predictiveScalingMaxCapacityBehavior,
-    scalingInstruction_customizedLoadMetricSpecification,
-    scalingInstruction_predictiveScalingMaxCapacityBuffer,
-    scalingInstruction_predictiveScalingMode,
-    scalingInstruction_scalingPolicyUpdateBehavior,
     scalingInstruction_scheduledActionBufferTime,
+    scalingInstruction_predictiveScalingMaxCapacityBuffer,
+    scalingInstruction_scalingPolicyUpdateBehavior,
+    scalingInstruction_customizedLoadMetricSpecification,
+    scalingInstruction_predictiveScalingMode,
+    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_predictiveScalingMaxCapacityBehavior,
+    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_serviceNamespace,
     scalingInstruction_resourceId,
     scalingInstruction_scalableDimension,
@@ -129,9 +129,9 @@ module Network.AWS.AutoScalingPlans.Types
     -- * ScalingPlan
     ScalingPlan (..),
     newScalingPlan,
-    scalingPlan_statusMessage,
     scalingPlan_creationTime,
     scalingPlan_statusStartTime,
+    scalingPlan_statusMessage,
     scalingPlan_scalingPlanName,
     scalingPlan_scalingPlanVersion,
     scalingPlan_applicationSource,
@@ -141,8 +141,8 @@ module Network.AWS.AutoScalingPlans.Types
     -- * ScalingPlanResource
     ScalingPlanResource (..),
     newScalingPlanResource,
-    scalingPlanResource_scalingPolicies,
     scalingPlanResource_scalingStatusMessage,
+    scalingPlanResource_scalingPolicies,
     scalingPlanResource_scalingPlanName,
     scalingPlanResource_scalingPlanVersion,
     scalingPlanResource_serviceNamespace,
@@ -160,18 +160,18 @@ module Network.AWS.AutoScalingPlans.Types
     -- * TagFilter
     TagFilter (..),
     newTagFilter,
-    tagFilter_key,
     tagFilter_values,
+    tagFilter_key,
 
     -- * TargetTrackingConfiguration
     TargetTrackingConfiguration (..),
     newTargetTrackingConfiguration,
+    targetTrackingConfiguration_estimatedInstanceWarmup,
+    targetTrackingConfiguration_predefinedScalingMetricSpecification,
+    targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_customizedScalingMetricSpecification,
-    targetTrackingConfiguration_predefinedScalingMetricSpecification,
-    targetTrackingConfiguration_estimatedInstanceWarmup,
     targetTrackingConfiguration_scaleOutCooldown,
-    targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_targetValue,
   )
 where
@@ -233,37 +233,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -276,28 +253,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified object could not be found.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotFoundException"
-
--- | The service encountered an internal error.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-
--- | The token provided is not valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
 
 -- | An exception was thrown for a validation issue. Review the parameters
 -- provided.
@@ -307,13 +286,12 @@ _ValidationException =
     defaultService
     "ValidationException"
 
--- | Your account exceeded a limit. This exception is thrown when a
--- per-account resource limit is exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The token provided is not valid.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "InvalidNextTokenException"
 
 -- | Concurrent updates caused an exception, for example, if you request an
 -- update to a scaling plan that already has a pending update.
@@ -322,3 +300,25 @@ _ConcurrentUpdateException =
   Core._MatchServiceError
     defaultService
     "ConcurrentUpdateException"
+
+-- | The service encountered an internal error.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The specified object could not be found.
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotFoundException"
+
+-- | Your account exceeded a limit. This exception is thrown when a
+-- per-account resource limit is exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"

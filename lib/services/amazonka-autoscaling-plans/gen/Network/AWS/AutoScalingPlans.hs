@@ -47,23 +47,23 @@ module Network.AWS.AutoScalingPlans
     -- * Errors
     -- $errors
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ConcurrentUpdateException
+    _ConcurrentUpdateException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
-
-    -- ** ConcurrentUpdateException
-    _ConcurrentUpdateException,
 
     -- * Waiters
     -- $waiters
@@ -71,11 +71,17 @@ module Network.AWS.AutoScalingPlans
     -- * Operations
     -- $operations
 
-    -- ** UpdateScalingPlan
-    UpdateScalingPlan (UpdateScalingPlan'),
-    newUpdateScalingPlan,
-    UpdateScalingPlanResponse (UpdateScalingPlanResponse'),
-    newUpdateScalingPlanResponse,
+    -- ** DescribeScalingPlanResources (Paginated)
+    DescribeScalingPlanResources (DescribeScalingPlanResources'),
+    newDescribeScalingPlanResources,
+    DescribeScalingPlanResourcesResponse (DescribeScalingPlanResourcesResponse'),
+    newDescribeScalingPlanResourcesResponse,
+
+    -- ** CreateScalingPlan
+    CreateScalingPlan (CreateScalingPlan'),
+    newCreateScalingPlan,
+    CreateScalingPlanResponse (CreateScalingPlanResponse'),
+    newCreateScalingPlanResponse,
 
     -- ** DeleteScalingPlan
     DeleteScalingPlan (DeleteScalingPlan'),
@@ -83,17 +89,11 @@ module Network.AWS.AutoScalingPlans
     DeleteScalingPlanResponse (DeleteScalingPlanResponse'),
     newDeleteScalingPlanResponse,
 
-    -- ** DescribeScalingPlanResources (Paginated)
-    DescribeScalingPlanResources (DescribeScalingPlanResources'),
-    newDescribeScalingPlanResources,
-    DescribeScalingPlanResourcesResponse (DescribeScalingPlanResourcesResponse'),
-    newDescribeScalingPlanResourcesResponse,
-
-    -- ** GetScalingPlanResourceForecastData
-    GetScalingPlanResourceForecastData (GetScalingPlanResourceForecastData'),
-    newGetScalingPlanResourceForecastData,
-    GetScalingPlanResourceForecastDataResponse (GetScalingPlanResourceForecastDataResponse'),
-    newGetScalingPlanResourceForecastDataResponse,
+    -- ** UpdateScalingPlan
+    UpdateScalingPlan (UpdateScalingPlan'),
+    newUpdateScalingPlan,
+    UpdateScalingPlanResponse (UpdateScalingPlanResponse'),
+    newUpdateScalingPlanResponse,
 
     -- ** DescribeScalingPlans (Paginated)
     DescribeScalingPlans (DescribeScalingPlans'),
@@ -101,11 +101,11 @@ module Network.AWS.AutoScalingPlans
     DescribeScalingPlansResponse (DescribeScalingPlansResponse'),
     newDescribeScalingPlansResponse,
 
-    -- ** CreateScalingPlan
-    CreateScalingPlan (CreateScalingPlan'),
-    newCreateScalingPlan,
-    CreateScalingPlanResponse (CreateScalingPlanResponse'),
-    newCreateScalingPlanResponse,
+    -- ** GetScalingPlanResourceForecastData
+    GetScalingPlanResourceForecastData (GetScalingPlanResourceForecastData'),
+    newGetScalingPlanResourceForecastData,
+    GetScalingPlanResourceForecastDataResponse (GetScalingPlanResourceForecastDataResponse'),
+    newGetScalingPlanResourceForecastDataResponse,
 
     -- * Types
 

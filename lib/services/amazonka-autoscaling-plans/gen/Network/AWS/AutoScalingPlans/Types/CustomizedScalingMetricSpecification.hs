@@ -49,14 +49,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCustomizedScalingMetricSpecification' smart constructor.
 data CustomizedScalingMetricSpecification = CustomizedScalingMetricSpecification'
-  { -- | The unit of the metric.
-    unit :: Prelude.Maybe Prelude.Text,
-    -- | The dimensions of the metric.
+  { -- | The dimensions of the metric.
     --
     -- Conditional: If you published your metric with dimensions, you must
     -- specify the same dimensions in your customized scaling metric
     -- specification.
     dimensions :: Prelude.Maybe [MetricDimension],
+    -- | The unit of the metric.
+    unit :: Prelude.Maybe Prelude.Text,
     -- | The name of the metric.
     metricName :: Prelude.Text,
     -- | The namespace of the metric.
@@ -74,13 +74,13 @@ data CustomizedScalingMetricSpecification = CustomizedScalingMetricSpecification
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'customizedScalingMetricSpecification_unit' - The unit of the metric.
---
 -- 'dimensions', 'customizedScalingMetricSpecification_dimensions' - The dimensions of the metric.
 --
 -- Conditional: If you published your metric with dimensions, you must
 -- specify the same dimensions in your customized scaling metric
 -- specification.
+--
+-- 'unit', 'customizedScalingMetricSpecification_unit' - The unit of the metric.
 --
 -- 'metricName', 'customizedScalingMetricSpecification_metricName' - The name of the metric.
 --
@@ -100,17 +100,13 @@ newCustomizedScalingMetricSpecification
   pNamespace_
   pStatistic_ =
     CustomizedScalingMetricSpecification'
-      { unit =
+      { dimensions =
           Prelude.Nothing,
-        dimensions = Prelude.Nothing,
+        unit = Prelude.Nothing,
         metricName = pMetricName_,
         namespace = pNamespace_,
         statistic = pStatistic_
       }
-
--- | The unit of the metric.
-customizedScalingMetricSpecification_unit :: Lens.Lens' CustomizedScalingMetricSpecification (Prelude.Maybe Prelude.Text)
-customizedScalingMetricSpecification_unit = Lens.lens (\CustomizedScalingMetricSpecification' {unit} -> unit) (\s@CustomizedScalingMetricSpecification' {} a -> s {unit = a} :: CustomizedScalingMetricSpecification)
 
 -- | The dimensions of the metric.
 --
@@ -118,7 +114,11 @@ customizedScalingMetricSpecification_unit = Lens.lens (\CustomizedScalingMetricS
 -- specify the same dimensions in your customized scaling metric
 -- specification.
 customizedScalingMetricSpecification_dimensions :: Lens.Lens' CustomizedScalingMetricSpecification (Prelude.Maybe [MetricDimension])
-customizedScalingMetricSpecification_dimensions = Lens.lens (\CustomizedScalingMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedScalingMetricSpecification' {} a -> s {dimensions = a} :: CustomizedScalingMetricSpecification) Prelude.. Lens.mapping Lens._Coerce
+customizedScalingMetricSpecification_dimensions = Lens.lens (\CustomizedScalingMetricSpecification' {dimensions} -> dimensions) (\s@CustomizedScalingMetricSpecification' {} a -> s {dimensions = a} :: CustomizedScalingMetricSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unit of the metric.
+customizedScalingMetricSpecification_unit :: Lens.Lens' CustomizedScalingMetricSpecification (Prelude.Maybe Prelude.Text)
+customizedScalingMetricSpecification_unit = Lens.lens (\CustomizedScalingMetricSpecification' {unit} -> unit) (\s@CustomizedScalingMetricSpecification' {} a -> s {unit = a} :: CustomizedScalingMetricSpecification)
 
 -- | The name of the metric.
 customizedScalingMetricSpecification_metricName :: Lens.Lens' CustomizedScalingMetricSpecification Prelude.Text
@@ -141,8 +141,8 @@ instance
       "CustomizedScalingMetricSpecification"
       ( \x ->
           CustomizedScalingMetricSpecification'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Unit")
             Prelude.<*> (x Core..: "MetricName")
             Prelude.<*> (x Core..: "Namespace")
             Prelude.<*> (x Core..: "Statistic")
@@ -163,8 +163,8 @@ instance
   toJSON CustomizedScalingMetricSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Dimensions" Core..=) Prelude.<$> dimensions,
+          [ ("Dimensions" Core..=) Prelude.<$> dimensions,
+            ("Unit" Core..=) Prelude.<$> unit,
             Prelude.Just ("MetricName" Core..= metricName),
             Prelude.Just ("Namespace" Core..= namespace),
             Prelude.Just ("Statistic" Core..= statistic)

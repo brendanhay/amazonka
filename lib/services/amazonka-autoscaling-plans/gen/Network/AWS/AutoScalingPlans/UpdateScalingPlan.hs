@@ -30,8 +30,8 @@ module Network.AWS.AutoScalingPlans.UpdateScalingPlan
     newUpdateScalingPlan,
 
     -- * Request Lenses
-    updateScalingPlan_applicationSource,
     updateScalingPlan_scalingInstructions,
+    updateScalingPlan_applicationSource,
     updateScalingPlan_scalingPlanName,
     updateScalingPlan_scalingPlanVersion,
 
@@ -53,18 +53,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateScalingPlan' smart constructor.
 data UpdateScalingPlan = UpdateScalingPlan'
-  { -- | A CloudFormation stack or set of tags.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
-    -- in the /AWS Auto Scaling API Reference/.
-    applicationSource :: Prelude.Maybe ApplicationSource,
-    -- | The scaling instructions.
+  { -- | The scaling instructions.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
     -- in the /AWS Auto Scaling API Reference/.
     scalingInstructions :: Prelude.Maybe [ScalingInstruction],
+    -- | A CloudFormation stack or set of tags.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
+    -- in the /AWS Auto Scaling API Reference/.
+    applicationSource :: Prelude.Maybe ApplicationSource,
     -- | The name of the scaling plan.
     scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan. The only valid value is @1@.
@@ -81,16 +81,16 @@ data UpdateScalingPlan = UpdateScalingPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationSource', 'updateScalingPlan_applicationSource' - A CloudFormation stack or set of tags.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
--- in the /AWS Auto Scaling API Reference/.
---
 -- 'scalingInstructions', 'updateScalingPlan_scalingInstructions' - The scaling instructions.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
+-- in the /AWS Auto Scaling API Reference/.
+--
+-- 'applicationSource', 'updateScalingPlan_applicationSource' - A CloudFormation stack or set of tags.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
 -- in the /AWS Auto Scaling API Reference/.
 --
 -- 'scalingPlanName', 'updateScalingPlan_scalingPlanName' - The name of the scaling plan.
@@ -107,12 +107,20 @@ newUpdateScalingPlan
   pScalingPlanName_
   pScalingPlanVersion_ =
     UpdateScalingPlan'
-      { applicationSource =
+      { scalingInstructions =
           Prelude.Nothing,
-        scalingInstructions = Prelude.Nothing,
+        applicationSource = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_
       }
+
+-- | The scaling instructions.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
+-- in the /AWS Auto Scaling API Reference/.
+updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe [ScalingInstruction])
+updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | A CloudFormation stack or set of tags.
 --
@@ -121,14 +129,6 @@ newUpdateScalingPlan
 -- in the /AWS Auto Scaling API Reference/.
 updateScalingPlan_applicationSource :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe ApplicationSource)
 updateScalingPlan_applicationSource = Lens.lens (\UpdateScalingPlan' {applicationSource} -> applicationSource) (\s@UpdateScalingPlan' {} a -> s {applicationSource = a} :: UpdateScalingPlan)
-
--- | The scaling instructions.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
--- in the /AWS Auto Scaling API Reference/.
-updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe [ScalingInstruction])
-updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the scaling plan.
 updateScalingPlan_scalingPlanName :: Lens.Lens' UpdateScalingPlan Prelude.Text
@@ -174,10 +174,10 @@ instance Core.ToJSON UpdateScalingPlan where
   toJSON UpdateScalingPlan' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ApplicationSource" Core..=)
-              Prelude.<$> applicationSource,
-            ("ScalingInstructions" Core..=)
+          [ ("ScalingInstructions" Core..=)
               Prelude.<$> scalingInstructions,
+            ("ApplicationSource" Core..=)
+              Prelude.<$> applicationSource,
             Prelude.Just
               ("ScalingPlanName" Core..= scalingPlanName),
             Prelude.Just

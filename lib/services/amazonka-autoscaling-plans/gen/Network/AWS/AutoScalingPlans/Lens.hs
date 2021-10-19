@@ -14,18 +14,6 @@
 module Network.AWS.AutoScalingPlans.Lens
   ( -- * Operations
 
-    -- ** UpdateScalingPlan
-    updateScalingPlan_applicationSource,
-    updateScalingPlan_scalingInstructions,
-    updateScalingPlan_scalingPlanName,
-    updateScalingPlan_scalingPlanVersion,
-    updateScalingPlanResponse_httpStatus,
-
-    -- ** DeleteScalingPlan
-    deleteScalingPlan_scalingPlanName,
-    deleteScalingPlan_scalingPlanVersion,
-    deleteScalingPlanResponse_httpStatus,
-
     -- ** DescribeScalingPlanResources
     describeScalingPlanResources_nextToken,
     describeScalingPlanResources_maxResults,
@@ -34,6 +22,35 @@ module Network.AWS.AutoScalingPlans.Lens
     describeScalingPlanResourcesResponse_nextToken,
     describeScalingPlanResourcesResponse_scalingPlanResources,
     describeScalingPlanResourcesResponse_httpStatus,
+
+    -- ** CreateScalingPlan
+    createScalingPlan_scalingPlanName,
+    createScalingPlan_applicationSource,
+    createScalingPlan_scalingInstructions,
+    createScalingPlanResponse_httpStatus,
+    createScalingPlanResponse_scalingPlanVersion,
+
+    -- ** DeleteScalingPlan
+    deleteScalingPlan_scalingPlanName,
+    deleteScalingPlan_scalingPlanVersion,
+    deleteScalingPlanResponse_httpStatus,
+
+    -- ** UpdateScalingPlan
+    updateScalingPlan_scalingInstructions,
+    updateScalingPlan_applicationSource,
+    updateScalingPlan_scalingPlanName,
+    updateScalingPlan_scalingPlanVersion,
+    updateScalingPlanResponse_httpStatus,
+
+    -- ** DescribeScalingPlans
+    describeScalingPlans_scalingPlanVersion,
+    describeScalingPlans_scalingPlanNames,
+    describeScalingPlans_nextToken,
+    describeScalingPlans_applicationSources,
+    describeScalingPlans_maxResults,
+    describeScalingPlansResponse_scalingPlans,
+    describeScalingPlansResponse_nextToken,
+    describeScalingPlansResponse_httpStatus,
 
     -- ** GetScalingPlanResourceForecastData
     getScalingPlanResourceForecastData_scalingPlanName,
@@ -47,23 +64,6 @@ module Network.AWS.AutoScalingPlans.Lens
     getScalingPlanResourceForecastDataResponse_httpStatus,
     getScalingPlanResourceForecastDataResponse_datapoints,
 
-    -- ** DescribeScalingPlans
-    describeScalingPlans_scalingPlanVersion,
-    describeScalingPlans_nextToken,
-    describeScalingPlans_maxResults,
-    describeScalingPlans_scalingPlanNames,
-    describeScalingPlans_applicationSources,
-    describeScalingPlansResponse_nextToken,
-    describeScalingPlansResponse_scalingPlans,
-    describeScalingPlansResponse_httpStatus,
-
-    -- ** CreateScalingPlan
-    createScalingPlan_scalingPlanName,
-    createScalingPlan_applicationSource,
-    createScalingPlan_scalingInstructions,
-    createScalingPlanResponse_httpStatus,
-    createScalingPlanResponse_scalingPlanVersion,
-
     -- * Types
 
     -- ** ApplicationSource
@@ -71,22 +71,22 @@ module Network.AWS.AutoScalingPlans.Lens
     applicationSource_cloudFormationStackARN,
 
     -- ** CustomizedLoadMetricSpecification
-    customizedLoadMetricSpecification_unit,
     customizedLoadMetricSpecification_dimensions,
+    customizedLoadMetricSpecification_unit,
     customizedLoadMetricSpecification_metricName,
     customizedLoadMetricSpecification_namespace,
     customizedLoadMetricSpecification_statistic,
 
     -- ** CustomizedScalingMetricSpecification
-    customizedScalingMetricSpecification_unit,
     customizedScalingMetricSpecification_dimensions,
+    customizedScalingMetricSpecification_unit,
     customizedScalingMetricSpecification_metricName,
     customizedScalingMetricSpecification_namespace,
     customizedScalingMetricSpecification_statistic,
 
     -- ** Datapoint
-    datapoint_timestamp,
     datapoint_value,
+    datapoint_timestamp,
 
     -- ** MetricDimension
     metricDimension_name,
@@ -101,14 +101,14 @@ module Network.AWS.AutoScalingPlans.Lens
     predefinedScalingMetricSpecification_predefinedScalingMetricType,
 
     -- ** ScalingInstruction
-    scalingInstruction_disableDynamicScaling,
-    scalingInstruction_predefinedLoadMetricSpecification,
-    scalingInstruction_predictiveScalingMaxCapacityBehavior,
-    scalingInstruction_customizedLoadMetricSpecification,
-    scalingInstruction_predictiveScalingMaxCapacityBuffer,
-    scalingInstruction_predictiveScalingMode,
-    scalingInstruction_scalingPolicyUpdateBehavior,
     scalingInstruction_scheduledActionBufferTime,
+    scalingInstruction_predictiveScalingMaxCapacityBuffer,
+    scalingInstruction_scalingPolicyUpdateBehavior,
+    scalingInstruction_customizedLoadMetricSpecification,
+    scalingInstruction_predictiveScalingMode,
+    scalingInstruction_disableDynamicScaling,
+    scalingInstruction_predictiveScalingMaxCapacityBehavior,
+    scalingInstruction_predefinedLoadMetricSpecification,
     scalingInstruction_serviceNamespace,
     scalingInstruction_resourceId,
     scalingInstruction_scalableDimension,
@@ -117,9 +117,9 @@ module Network.AWS.AutoScalingPlans.Lens
     scalingInstruction_targetTrackingConfigurations,
 
     -- ** ScalingPlan
-    scalingPlan_statusMessage,
     scalingPlan_creationTime,
     scalingPlan_statusStartTime,
+    scalingPlan_statusMessage,
     scalingPlan_scalingPlanName,
     scalingPlan_scalingPlanVersion,
     scalingPlan_applicationSource,
@@ -127,8 +127,8 @@ module Network.AWS.AutoScalingPlans.Lens
     scalingPlan_statusCode,
 
     -- ** ScalingPlanResource
-    scalingPlanResource_scalingPolicies,
     scalingPlanResource_scalingStatusMessage,
+    scalingPlanResource_scalingPolicies,
     scalingPlanResource_scalingPlanName,
     scalingPlanResource_scalingPlanVersion,
     scalingPlanResource_serviceNamespace,
@@ -142,16 +142,16 @@ module Network.AWS.AutoScalingPlans.Lens
     scalingPolicy_policyType,
 
     -- ** TagFilter
-    tagFilter_key,
     tagFilter_values,
+    tagFilter_key,
 
     -- ** TargetTrackingConfiguration
+    targetTrackingConfiguration_estimatedInstanceWarmup,
+    targetTrackingConfiguration_predefinedScalingMetricSpecification,
+    targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_disableScaleIn,
     targetTrackingConfiguration_customizedScalingMetricSpecification,
-    targetTrackingConfiguration_predefinedScalingMetricSpecification,
-    targetTrackingConfiguration_estimatedInstanceWarmup,
     targetTrackingConfiguration_scaleOutCooldown,
-    targetTrackingConfiguration_scaleInCooldown,
     targetTrackingConfiguration_targetValue,
   )
 where

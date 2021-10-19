@@ -30,35 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { -- | Indicates whether scale in by the target tracking scaling policy is
-    -- disabled. If the value is @true@, scale in is disabled and the target
-    -- tracking scaling policy doesn\'t remove capacity from the scalable
-    -- resource. Otherwise, scale in is enabled and the target tracking scaling
-    -- policy can remove capacity from the scalable resource.
-    --
-    -- The default value is @false@.
-    disableScaleIn :: Prelude.Maybe Prelude.Bool,
-    -- | A customized metric. You can specify either a predefined metric or a
-    -- customized metric.
-    customizedScalingMetricSpecification :: Prelude.Maybe CustomizedScalingMetricSpecification,
-    -- | A predefined metric. You can specify either a predefined metric or a
-    -- customized metric.
-    predefinedScalingMetricSpecification :: Prelude.Maybe PredefinedScalingMetricSpecification,
-    -- | The estimated time, in seconds, until a newly launched instance can
+  { -- | The estimated time, in seconds, until a newly launched instance can
     -- contribute to the CloudWatch metrics. This value is used only if the
     -- resource is an Auto Scaling group.
     estimatedInstanceWarmup :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in seconds, to wait for a previous scale-out
-    -- activity to take effect. This property is not used if the scalable
-    -- resource is an Auto Scaling group.
-    --
-    -- With the /scale-out cooldown period/, the intention is to continuously
-    -- (but not excessively) scale out. After Auto Scaling successfully scales
-    -- out using a target tracking scaling policy, it starts to calculate the
-    -- cooldown time. The scaling policy won\'t increase the desired capacity
-    -- again unless either a larger scale out is triggered or the cooldown
-    -- period ends.
-    scaleOutCooldown :: Prelude.Maybe Prelude.Int,
+    -- | A predefined metric. You can specify either a predefined metric or a
+    -- customized metric.
+    predefinedScalingMetricSpecification :: Prelude.Maybe PredefinedScalingMetricSpecification,
     -- | The amount of time, in seconds, after a scale-in activity completes
     -- before another scale-in activity can start. This property is not used if
     -- the scalable resource is an Auto Scaling group.
@@ -70,6 +48,28 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
     -- cooldown period, Auto Scaling scales out the target immediately. In this
     -- case, the scale-in cooldown period stops and doesn\'t complete.
     scaleInCooldown :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether scale in by the target tracking scaling policy is
+    -- disabled. If the value is @true@, scale in is disabled and the target
+    -- tracking scaling policy doesn\'t remove capacity from the scalable
+    -- resource. Otherwise, scale in is enabled and the target tracking scaling
+    -- policy can remove capacity from the scalable resource.
+    --
+    -- The default value is @false@.
+    disableScaleIn :: Prelude.Maybe Prelude.Bool,
+    -- | A customized metric. You can specify either a predefined metric or a
+    -- customized metric.
+    customizedScalingMetricSpecification :: Prelude.Maybe CustomizedScalingMetricSpecification,
+    -- | The amount of time, in seconds, to wait for a previous scale-out
+    -- activity to take effect. This property is not used if the scalable
+    -- resource is an Auto Scaling group.
+    --
+    -- With the /scale-out cooldown period/, the intention is to continuously
+    -- (but not excessively) scale out. After Auto Scaling successfully scales
+    -- out using a target tracking scaling policy, it starts to calculate the
+    -- cooldown time. The scaling policy won\'t increase the desired capacity
+    -- again unless either a larger scale out is triggered or the cooldown
+    -- period ends.
+    scaleOutCooldown :: Prelude.Maybe Prelude.Int,
     -- | The target value for the metric. Although this property accepts numbers
     -- of type Double, it won\'t accept values that are either too small or too
     -- large. Values must be in the range of -2^360 to 2^360.
@@ -85,34 +85,12 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disableScaleIn', 'targetTrackingConfiguration_disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is
--- disabled. If the value is @true@, scale in is disabled and the target
--- tracking scaling policy doesn\'t remove capacity from the scalable
--- resource. Otherwise, scale in is enabled and the target tracking scaling
--- policy can remove capacity from the scalable resource.
---
--- The default value is @false@.
---
--- 'customizedScalingMetricSpecification', 'targetTrackingConfiguration_customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a
--- customized metric.
---
--- 'predefinedScalingMetricSpecification', 'targetTrackingConfiguration_predefinedScalingMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
--- customized metric.
---
 -- 'estimatedInstanceWarmup', 'targetTrackingConfiguration_estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics. This value is used only if the
 -- resource is an Auto Scaling group.
 --
--- 'scaleOutCooldown', 'targetTrackingConfiguration_scaleOutCooldown' - The amount of time, in seconds, to wait for a previous scale-out
--- activity to take effect. This property is not used if the scalable
--- resource is an Auto Scaling group.
---
--- With the /scale-out cooldown period/, the intention is to continuously
--- (but not excessively) scale out. After Auto Scaling successfully scales
--- out using a target tracking scaling policy, it starts to calculate the
--- cooldown time. The scaling policy won\'t increase the desired capacity
--- again unless either a larger scale out is triggered or the cooldown
--- period ends.
+-- 'predefinedScalingMetricSpecification', 'targetTrackingConfiguration_predefinedScalingMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
 --
 -- 'scaleInCooldown', 'targetTrackingConfiguration_scaleInCooldown' - The amount of time, in seconds, after a scale-in activity completes
 -- before another scale-in activity can start. This property is not used if
@@ -125,6 +103,28 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- cooldown period, Auto Scaling scales out the target immediately. In this
 -- case, the scale-in cooldown period stops and doesn\'t complete.
 --
+-- 'disableScaleIn', 'targetTrackingConfiguration_disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is
+-- disabled. If the value is @true@, scale in is disabled and the target
+-- tracking scaling policy doesn\'t remove capacity from the scalable
+-- resource. Otherwise, scale in is enabled and the target tracking scaling
+-- policy can remove capacity from the scalable resource.
+--
+-- The default value is @false@.
+--
+-- 'customizedScalingMetricSpecification', 'targetTrackingConfiguration_customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a
+-- customized metric.
+--
+-- 'scaleOutCooldown', 'targetTrackingConfiguration_scaleOutCooldown' - The amount of time, in seconds, to wait for a previous scale-out
+-- activity to take effect. This property is not used if the scalable
+-- resource is an Auto Scaling group.
+--
+-- With the /scale-out cooldown period/, the intention is to continuously
+-- (but not excessively) scale out. After Auto Scaling successfully scales
+-- out using a target tracking scaling policy, it starts to calculate the
+-- cooldown time. The scaling policy won\'t increase the desired capacity
+-- again unless either a larger scale out is triggered or the cooldown
+-- period ends.
+--
 -- 'targetValue', 'targetTrackingConfiguration_targetValue' - The target value for the metric. Although this property accepts numbers
 -- of type Double, it won\'t accept values that are either too small or too
 -- large. Values must be in the range of -2^360 to 2^360.
@@ -134,17 +134,41 @@ newTargetTrackingConfiguration ::
   TargetTrackingConfiguration
 newTargetTrackingConfiguration pTargetValue_ =
   TargetTrackingConfiguration'
-    { disableScaleIn =
-        Prelude.Nothing,
-      customizedScalingMetricSpecification =
+    { estimatedInstanceWarmup =
         Prelude.Nothing,
       predefinedScalingMetricSpecification =
         Prelude.Nothing,
-      estimatedInstanceWarmup = Prelude.Nothing,
-      scaleOutCooldown = Prelude.Nothing,
       scaleInCooldown = Prelude.Nothing,
+      disableScaleIn = Prelude.Nothing,
+      customizedScalingMetricSpecification =
+        Prelude.Nothing,
+      scaleOutCooldown = Prelude.Nothing,
       targetValue = pTargetValue_
     }
+
+-- | The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics. This value is used only if the
+-- resource is an Auto Scaling group.
+targetTrackingConfiguration_estimatedInstanceWarmup :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
+targetTrackingConfiguration_estimatedInstanceWarmup = Lens.lens (\TargetTrackingConfiguration' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@TargetTrackingConfiguration' {} a -> s {estimatedInstanceWarmup = a} :: TargetTrackingConfiguration)
+
+-- | A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
+targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe PredefinedScalingMetricSpecification)
+targetTrackingConfiguration_predefinedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+-- before another scale-in activity can start. This property is not used if
+-- the scalable resource is an Auto Scaling group.
+--
+-- With the /scale-in cooldown period/, the intention is to scale in
+-- conservatively to protect your application’s availability, so scale-in
+-- activities are blocked until the cooldown period has expired. However,
+-- if another alarm triggers a scale-out activity during the scale-in
+-- cooldown period, Auto Scaling scales out the target immediately. In this
+-- case, the scale-in cooldown period stops and doesn\'t complete.
+targetTrackingConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
+targetTrackingConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingConfiguration' {scaleInCooldown} -> scaleInCooldown) (\s@TargetTrackingConfiguration' {} a -> s {scaleInCooldown = a} :: TargetTrackingConfiguration)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 -- disabled. If the value is @true@, scale in is disabled and the target
@@ -161,17 +185,6 @@ targetTrackingConfiguration_disableScaleIn = Lens.lens (\TargetTrackingConfigura
 targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe CustomizedScalingMetricSpecification)
 targetTrackingConfiguration_customizedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {customizedScalingMetricSpecification} -> customizedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {customizedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
 
--- | A predefined metric. You can specify either a predefined metric or a
--- customized metric.
-targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe PredefinedScalingMetricSpecification)
-targetTrackingConfiguration_predefinedScalingMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedScalingMetricSpecification} -> predefinedScalingMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
-
--- | The estimated time, in seconds, until a newly launched instance can
--- contribute to the CloudWatch metrics. This value is used only if the
--- resource is an Auto Scaling group.
-targetTrackingConfiguration_estimatedInstanceWarmup :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
-targetTrackingConfiguration_estimatedInstanceWarmup = Lens.lens (\TargetTrackingConfiguration' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@TargetTrackingConfiguration' {} a -> s {estimatedInstanceWarmup = a} :: TargetTrackingConfiguration)
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 -- activity to take effect. This property is not used if the scalable
 -- resource is an Auto Scaling group.
@@ -185,19 +198,6 @@ targetTrackingConfiguration_estimatedInstanceWarmup = Lens.lens (\TargetTracking
 targetTrackingConfiguration_scaleOutCooldown :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
 targetTrackingConfiguration_scaleOutCooldown = Lens.lens (\TargetTrackingConfiguration' {scaleOutCooldown} -> scaleOutCooldown) (\s@TargetTrackingConfiguration' {} a -> s {scaleOutCooldown = a} :: TargetTrackingConfiguration)
 
--- | The amount of time, in seconds, after a scale-in activity completes
--- before another scale-in activity can start. This property is not used if
--- the scalable resource is an Auto Scaling group.
---
--- With the /scale-in cooldown period/, the intention is to scale in
--- conservatively to protect your application’s availability, so scale-in
--- activities are blocked until the cooldown period has expired. However,
--- if another alarm triggers a scale-out activity during the scale-in
--- cooldown period, Auto Scaling scales out the target immediately. In this
--- case, the scale-in cooldown period stops and doesn\'t complete.
-targetTrackingConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Int)
-targetTrackingConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingConfiguration' {scaleInCooldown} -> scaleInCooldown) (\s@TargetTrackingConfiguration' {} a -> s {scaleInCooldown = a} :: TargetTrackingConfiguration)
-
 -- | The target value for the metric. Although this property accepts numbers
 -- of type Double, it won\'t accept values that are either too small or too
 -- large. Values must be in the range of -2^360 to 2^360.
@@ -210,12 +210,12 @@ instance Core.FromJSON TargetTrackingConfiguration where
       "TargetTrackingConfiguration"
       ( \x ->
           TargetTrackingConfiguration'
-            Prelude.<$> (x Core..:? "DisableScaleIn")
-            Prelude.<*> (x Core..:? "CustomizedScalingMetricSpecification")
+            Prelude.<$> (x Core..:? "EstimatedInstanceWarmup")
             Prelude.<*> (x Core..:? "PredefinedScalingMetricSpecification")
-            Prelude.<*> (x Core..:? "EstimatedInstanceWarmup")
-            Prelude.<*> (x Core..:? "ScaleOutCooldown")
             Prelude.<*> (x Core..:? "ScaleInCooldown")
+            Prelude.<*> (x Core..:? "DisableScaleIn")
+            Prelude.<*> (x Core..:? "CustomizedScalingMetricSpecification")
+            Prelude.<*> (x Core..:? "ScaleOutCooldown")
             Prelude.<*> (x Core..: "TargetValue")
       )
 
@@ -227,18 +227,18 @@ instance Core.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisableScaleIn" Core..=)
+          [ ("EstimatedInstanceWarmup" Core..=)
+              Prelude.<$> estimatedInstanceWarmup,
+            ("PredefinedScalingMetricSpecification" Core..=)
+              Prelude.<$> predefinedScalingMetricSpecification,
+            ("ScaleInCooldown" Core..=)
+              Prelude.<$> scaleInCooldown,
+            ("DisableScaleIn" Core..=)
               Prelude.<$> disableScaleIn,
             ("CustomizedScalingMetricSpecification" Core..=)
               Prelude.<$> customizedScalingMetricSpecification,
-            ("PredefinedScalingMetricSpecification" Core..=)
-              Prelude.<$> predefinedScalingMetricSpecification,
-            ("EstimatedInstanceWarmup" Core..=)
-              Prelude.<$> estimatedInstanceWarmup,
             ("ScaleOutCooldown" Core..=)
               Prelude.<$> scaleOutCooldown,
-            ("ScaleInCooldown" Core..=)
-              Prelude.<$> scaleInCooldown,
             Prelude.Just ("TargetValue" Core..= targetValue)
           ]
       )

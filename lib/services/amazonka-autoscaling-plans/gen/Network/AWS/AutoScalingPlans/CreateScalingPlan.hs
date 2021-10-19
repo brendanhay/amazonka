@@ -128,7 +128,7 @@ createScalingPlan_applicationSource = Lens.lens (\CreateScalingPlan' {applicatio
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
 -- in the /AWS Auto Scaling API Reference/.
 createScalingPlan_scalingInstructions :: Lens.Lens' CreateScalingPlan [ScalingInstruction]
-createScalingPlan_scalingInstructions = Lens.lens (\CreateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@CreateScalingPlan' {} a -> s {scalingInstructions = a} :: CreateScalingPlan) Prelude.. Lens._Coerce
+createScalingPlan_scalingInstructions = Lens.lens (\CreateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@CreateScalingPlan' {} a -> s {scalingInstructions = a} :: CreateScalingPlan) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateScalingPlan where
   type

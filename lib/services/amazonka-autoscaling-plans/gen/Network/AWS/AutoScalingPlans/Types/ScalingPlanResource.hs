@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScalingPlanResource' smart constructor.
 data ScalingPlanResource = ScalingPlanResource'
-  { -- | The scaling policies.
-    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
-    -- | A simple message about the current scaling status of the resource.
+  { -- | A simple message about the current scaling status of the resource.
     scalingStatusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The scaling policies.
+    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
     -- | The name of the scaling plan.
     scalingPlanName :: Prelude.Text,
     -- | The version number of the scaling plan.
@@ -117,9 +117,9 @@ data ScalingPlanResource = ScalingPlanResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scalingPolicies', 'scalingPlanResource_scalingPolicies' - The scaling policies.
---
 -- 'scalingStatusMessage', 'scalingPlanResource_scalingStatusMessage' - A simple message about the current scaling status of the resource.
+--
+-- 'scalingPolicies', 'scalingPlanResource_scalingPolicies' - The scaling policies.
 --
 -- 'scalingPlanName', 'scalingPlanResource_scalingPlanName' - The name of the scaling plan.
 --
@@ -213,9 +213,9 @@ newScalingPlanResource
   pScalableDimension_
   pScalingStatusCode_ =
     ScalingPlanResource'
-      { scalingPolicies =
+      { scalingStatusMessage =
           Prelude.Nothing,
-        scalingStatusMessage = Prelude.Nothing,
+        scalingPolicies = Prelude.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_,
         serviceNamespace = pServiceNamespace_,
@@ -224,13 +224,13 @@ newScalingPlanResource
         scalingStatusCode = pScalingStatusCode_
       }
 
--- | The scaling policies.
-scalingPlanResource_scalingPolicies :: Lens.Lens' ScalingPlanResource (Prelude.Maybe [ScalingPolicy])
-scalingPlanResource_scalingPolicies = Lens.lens (\ScalingPlanResource' {scalingPolicies} -> scalingPolicies) (\s@ScalingPlanResource' {} a -> s {scalingPolicies = a} :: ScalingPlanResource) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A simple message about the current scaling status of the resource.
 scalingPlanResource_scalingStatusMessage :: Lens.Lens' ScalingPlanResource (Prelude.Maybe Prelude.Text)
 scalingPlanResource_scalingStatusMessage = Lens.lens (\ScalingPlanResource' {scalingStatusMessage} -> scalingStatusMessage) (\s@ScalingPlanResource' {} a -> s {scalingStatusMessage = a} :: ScalingPlanResource)
+
+-- | The scaling policies.
+scalingPlanResource_scalingPolicies :: Lens.Lens' ScalingPlanResource (Prelude.Maybe [ScalingPolicy])
+scalingPlanResource_scalingPolicies = Lens.lens (\ScalingPlanResource' {scalingPolicies} -> scalingPolicies) (\s@ScalingPlanResource' {} a -> s {scalingPolicies = a} :: ScalingPlanResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the scaling plan.
 scalingPlanResource_scalingPlanName :: Lens.Lens' ScalingPlanResource Prelude.Text
@@ -321,10 +321,10 @@ instance Core.FromJSON ScalingPlanResource where
       "ScalingPlanResource"
       ( \x ->
           ScalingPlanResource'
-            Prelude.<$> ( x Core..:? "ScalingPolicies"
+            Prelude.<$> (x Core..:? "ScalingStatusMessage")
+            Prelude.<*> ( x Core..:? "ScalingPolicies"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ScalingStatusMessage")
             Prelude.<*> (x Core..: "ScalingPlanName")
             Prelude.<*> (x Core..: "ScalingPlanVersion")
             Prelude.<*> (x Core..: "ServiceNamespace")

@@ -56,7 +56,7 @@ newApplicationSource =
 
 -- | A set of tags (up to 50).
 applicationSource_tagFilters :: Lens.Lens' ApplicationSource (Prelude.Maybe [TagFilter])
-applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens._Coerce
+applicationSource_tagFilters = Lens.lens (\ApplicationSource' {tagFilters} -> tagFilters) (\s@ApplicationSource' {} a -> s {tagFilters = a} :: ApplicationSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 applicationSource_cloudFormationStackARN :: Lens.Lens' ApplicationSource (Prelude.Maybe Prelude.Text)

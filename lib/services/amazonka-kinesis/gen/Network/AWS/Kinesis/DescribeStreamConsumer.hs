@@ -36,9 +36,9 @@ module Network.AWS.Kinesis.DescribeStreamConsumer
     newDescribeStreamConsumer,
 
     -- * Request Lenses
-    describeStreamConsumer_consumerName,
-    describeStreamConsumer_streamARN,
     describeStreamConsumer_consumerARN,
+    describeStreamConsumer_streamARN,
+    describeStreamConsumer_consumerName,
 
     -- * Destructuring the Response
     DescribeStreamConsumerResponse (..),
@@ -59,15 +59,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStreamConsumer' smart constructor.
 data DescribeStreamConsumer = DescribeStreamConsumer'
-  { -- | The name that you gave to the consumer.
-    consumerName :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN returned by Kinesis Data Streams when you registered the
+    -- consumer.
+    consumerARN :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Kinesis data stream that the consumer is registered with.
     -- For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
     streamARN :: Prelude.Maybe Prelude.Text,
-    -- | The ARN returned by Kinesis Data Streams when you registered the
-    -- consumer.
-    consumerARN :: Prelude.Maybe Prelude.Text
+    -- | The name that you gave to the consumer.
+    consumerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,27 +79,28 @@ data DescribeStreamConsumer = DescribeStreamConsumer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'consumerName', 'describeStreamConsumer_consumerName' - The name that you gave to the consumer.
+-- 'consumerARN', 'describeStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the
+-- consumer.
 --
 -- 'streamARN', 'describeStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.
 -- For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 --
--- 'consumerARN', 'describeStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the
--- consumer.
+-- 'consumerName', 'describeStreamConsumer_consumerName' - The name that you gave to the consumer.
 newDescribeStreamConsumer ::
   DescribeStreamConsumer
 newDescribeStreamConsumer =
   DescribeStreamConsumer'
-    { consumerName =
+    { consumerARN =
         Prelude.Nothing,
       streamARN = Prelude.Nothing,
-      consumerARN = Prelude.Nothing
+      consumerName = Prelude.Nothing
     }
 
--- | The name that you gave to the consumer.
-describeStreamConsumer_consumerName :: Lens.Lens' DescribeStreamConsumer (Prelude.Maybe Prelude.Text)
-describeStreamConsumer_consumerName = Lens.lens (\DescribeStreamConsumer' {consumerName} -> consumerName) (\s@DescribeStreamConsumer' {} a -> s {consumerName = a} :: DescribeStreamConsumer)
+-- | The ARN returned by Kinesis Data Streams when you registered the
+-- consumer.
+describeStreamConsumer_consumerARN :: Lens.Lens' DescribeStreamConsumer (Prelude.Maybe Prelude.Text)
+describeStreamConsumer_consumerARN = Lens.lens (\DescribeStreamConsumer' {consumerARN} -> consumerARN) (\s@DescribeStreamConsumer' {} a -> s {consumerARN = a} :: DescribeStreamConsumer)
 
 -- | The ARN of the Kinesis data stream that the consumer is registered with.
 -- For more information, see
@@ -107,10 +108,9 @@ describeStreamConsumer_consumerName = Lens.lens (\DescribeStreamConsumer' {consu
 describeStreamConsumer_streamARN :: Lens.Lens' DescribeStreamConsumer (Prelude.Maybe Prelude.Text)
 describeStreamConsumer_streamARN = Lens.lens (\DescribeStreamConsumer' {streamARN} -> streamARN) (\s@DescribeStreamConsumer' {} a -> s {streamARN = a} :: DescribeStreamConsumer)
 
--- | The ARN returned by Kinesis Data Streams when you registered the
--- consumer.
-describeStreamConsumer_consumerARN :: Lens.Lens' DescribeStreamConsumer (Prelude.Maybe Prelude.Text)
-describeStreamConsumer_consumerARN = Lens.lens (\DescribeStreamConsumer' {consumerARN} -> consumerARN) (\s@DescribeStreamConsumer' {} a -> s {consumerARN = a} :: DescribeStreamConsumer)
+-- | The name that you gave to the consumer.
+describeStreamConsumer_consumerName :: Lens.Lens' DescribeStreamConsumer (Prelude.Maybe Prelude.Text)
+describeStreamConsumer_consumerName = Lens.lens (\DescribeStreamConsumer' {consumerName} -> consumerName) (\s@DescribeStreamConsumer' {} a -> s {consumerName = a} :: DescribeStreamConsumer)
 
 instance Core.AWSRequest DescribeStreamConsumer where
   type
@@ -148,9 +148,9 @@ instance Core.ToJSON DescribeStreamConsumer where
   toJSON DescribeStreamConsumer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConsumerName" Core..=) Prelude.<$> consumerName,
+          [ ("ConsumerARN" Core..=) Prelude.<$> consumerARN,
             ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("ConsumerARN" Core..=) Prelude.<$> consumerARN
+            ("ConsumerName" Core..=) Prelude.<$> consumerName
           ]
       )
 

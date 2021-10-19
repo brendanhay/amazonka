@@ -73,8 +73,8 @@ module Network.AWS.Kinesis.PutRecord
     newPutRecord,
 
     -- * Request Lenses
-    putRecord_sequenceNumberForOrdering,
     putRecord_explicitHashKey,
+    putRecord_sequenceNumberForOrdering,
     putRecord_streamName,
     putRecord_data,
     putRecord_partitionKey,
@@ -102,16 +102,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPutRecord' smart constructor.
 data PutRecord = PutRecord'
-  { -- | Guarantees strictly increasing sequence numbers, for puts from the same
+  { -- | The hash value used to explicitly determine the shard the data record is
+    -- assigned to by overriding the partition key hash.
+    explicitHashKey :: Prelude.Maybe Prelude.Text,
+    -- | Guarantees strictly increasing sequence numbers, for puts from the same
     -- client and to the same partition key. Usage: set the
     -- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
     -- record /n-1/ (as returned in the result when putting record /n-1/). If
     -- this parameter is not set, records are coarsely ordered based on arrival
     -- time.
     sequenceNumberForOrdering :: Prelude.Maybe Prelude.Text,
-    -- | The hash value used to explicitly determine the shard the data record is
-    -- assigned to by overriding the partition key hash.
-    explicitHashKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream to put the data record into.
     streamName :: Prelude.Text,
     -- | The data blob to put into the record, which is base64-encoded when the
@@ -140,15 +140,15 @@ data PutRecord = PutRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'explicitHashKey', 'putRecord_explicitHashKey' - The hash value used to explicitly determine the shard the data record is
+-- assigned to by overriding the partition key hash.
+--
 -- 'sequenceNumberForOrdering', 'putRecord_sequenceNumberForOrdering' - Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
 -- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
 -- record /n-1/ (as returned in the result when putting record /n-1/). If
 -- this parameter is not set, records are coarsely ordered based on arrival
 -- time.
---
--- 'explicitHashKey', 'putRecord_explicitHashKey' - The hash value used to explicitly determine the shard the data record is
--- assigned to by overriding the partition key hash.
 --
 -- 'streamName', 'putRecord_streamName' - The name of the stream to put the data record into.
 --
@@ -180,13 +180,17 @@ newPutRecord ::
   PutRecord
 newPutRecord pStreamName_ pData_ pPartitionKey_ =
   PutRecord'
-    { sequenceNumberForOrdering =
-        Prelude.Nothing,
-      explicitHashKey = Prelude.Nothing,
+    { explicitHashKey = Prelude.Nothing,
+      sequenceNumberForOrdering = Prelude.Nothing,
       streamName = pStreamName_,
       data' = Core._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
+
+-- | The hash value used to explicitly determine the shard the data record is
+-- assigned to by overriding the partition key hash.
+putRecord_explicitHashKey :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
+putRecord_explicitHashKey = Lens.lens (\PutRecord' {explicitHashKey} -> explicitHashKey) (\s@PutRecord' {} a -> s {explicitHashKey = a} :: PutRecord)
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
@@ -196,11 +200,6 @@ newPutRecord pStreamName_ pData_ pPartitionKey_ =
 -- time.
 putRecord_sequenceNumberForOrdering :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
 putRecord_sequenceNumberForOrdering = Lens.lens (\PutRecord' {sequenceNumberForOrdering} -> sequenceNumberForOrdering) (\s@PutRecord' {} a -> s {sequenceNumberForOrdering = a} :: PutRecord)
-
--- | The hash value used to explicitly determine the shard the data record is
--- assigned to by overriding the partition key hash.
-putRecord_explicitHashKey :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
-putRecord_explicitHashKey = Lens.lens (\PutRecord' {explicitHashKey} -> explicitHashKey) (\s@PutRecord' {} a -> s {explicitHashKey = a} :: PutRecord)
 
 -- | The name of the stream to put the data record into.
 putRecord_streamName :: Lens.Lens' PutRecord Prelude.Text
@@ -263,10 +262,10 @@ instance Core.ToJSON PutRecord where
   toJSON PutRecord' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SequenceNumberForOrdering" Core..=)
-              Prelude.<$> sequenceNumberForOrdering,
-            ("ExplicitHashKey" Core..=)
+          [ ("ExplicitHashKey" Core..=)
               Prelude.<$> explicitHashKey,
+            ("SequenceNumberForOrdering" Core..=)
+              Prelude.<$> sequenceNumberForOrdering,
             Prelude.Just ("StreamName" Core..= streamName),
             Prelude.Just ("Data" Core..= data'),
             Prelude.Just ("PartitionKey" Core..= partitionKey)

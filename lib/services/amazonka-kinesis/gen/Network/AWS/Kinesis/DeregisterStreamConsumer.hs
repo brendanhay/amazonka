@@ -36,9 +36,9 @@ module Network.AWS.Kinesis.DeregisterStreamConsumer
     newDeregisterStreamConsumer,
 
     -- * Request Lenses
-    deregisterStreamConsumer_consumerName,
-    deregisterStreamConsumer_streamARN,
     deregisterStreamConsumer_consumerARN,
+    deregisterStreamConsumer_streamARN,
+    deregisterStreamConsumer_consumerName,
 
     -- * Destructuring the Response
     DeregisterStreamConsumerResponse (..),
@@ -55,19 +55,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterStreamConsumer' smart constructor.
 data DeregisterStreamConsumer = DeregisterStreamConsumer'
-  { -- | The name that you gave to the consumer.
-    consumerName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Kinesis data stream that the consumer is registered with.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    streamARN :: Prelude.Maybe Prelude.Text,
-    -- | The ARN returned by Kinesis Data Streams when you registered the
+  { -- | The ARN returned by Kinesis Data Streams when you registered the
     -- consumer. If you don\'t know the ARN of the consumer that you want to
     -- deregister, you can use the ListStreamConsumers operation to get a list
     -- of the descriptions of all the consumers that are currently registered
     -- with a given data stream. The description of a consumer contains its
     -- ARN.
-    consumerARN :: Prelude.Maybe Prelude.Text
+    consumerARN :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Kinesis data stream that the consumer is registered with.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | The name that you gave to the consumer.
+    consumerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,37 +79,27 @@ data DeregisterStreamConsumer = DeregisterStreamConsumer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'consumerName', 'deregisterStreamConsumer_consumerName' - The name that you gave to the consumer.
---
--- 'streamARN', 'deregisterStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.
--- For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
---
 -- 'consumerARN', 'deregisterStreamConsumer_consumerARN' - The ARN returned by Kinesis Data Streams when you registered the
 -- consumer. If you don\'t know the ARN of the consumer that you want to
 -- deregister, you can use the ListStreamConsumers operation to get a list
 -- of the descriptions of all the consumers that are currently registered
 -- with a given data stream. The description of a consumer contains its
 -- ARN.
+--
+-- 'streamARN', 'deregisterStreamConsumer_streamARN' - The ARN of the Kinesis data stream that the consumer is registered with.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+--
+-- 'consumerName', 'deregisterStreamConsumer_consumerName' - The name that you gave to the consumer.
 newDeregisterStreamConsumer ::
   DeregisterStreamConsumer
 newDeregisterStreamConsumer =
   DeregisterStreamConsumer'
-    { consumerName =
+    { consumerARN =
         Prelude.Nothing,
       streamARN = Prelude.Nothing,
-      consumerARN = Prelude.Nothing
+      consumerName = Prelude.Nothing
     }
-
--- | The name that you gave to the consumer.
-deregisterStreamConsumer_consumerName :: Lens.Lens' DeregisterStreamConsumer (Prelude.Maybe Prelude.Text)
-deregisterStreamConsumer_consumerName = Lens.lens (\DeregisterStreamConsumer' {consumerName} -> consumerName) (\s@DeregisterStreamConsumer' {} a -> s {consumerName = a} :: DeregisterStreamConsumer)
-
--- | The ARN of the Kinesis data stream that the consumer is registered with.
--- For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-deregisterStreamConsumer_streamARN :: Lens.Lens' DeregisterStreamConsumer (Prelude.Maybe Prelude.Text)
-deregisterStreamConsumer_streamARN = Lens.lens (\DeregisterStreamConsumer' {streamARN} -> streamARN) (\s@DeregisterStreamConsumer' {} a -> s {streamARN = a} :: DeregisterStreamConsumer)
 
 -- | The ARN returned by Kinesis Data Streams when you registered the
 -- consumer. If you don\'t know the ARN of the consumer that you want to
@@ -119,6 +109,16 @@ deregisterStreamConsumer_streamARN = Lens.lens (\DeregisterStreamConsumer' {stre
 -- ARN.
 deregisterStreamConsumer_consumerARN :: Lens.Lens' DeregisterStreamConsumer (Prelude.Maybe Prelude.Text)
 deregisterStreamConsumer_consumerARN = Lens.lens (\DeregisterStreamConsumer' {consumerARN} -> consumerARN) (\s@DeregisterStreamConsumer' {} a -> s {consumerARN = a} :: DeregisterStreamConsumer)
+
+-- | The ARN of the Kinesis data stream that the consumer is registered with.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+deregisterStreamConsumer_streamARN :: Lens.Lens' DeregisterStreamConsumer (Prelude.Maybe Prelude.Text)
+deregisterStreamConsumer_streamARN = Lens.lens (\DeregisterStreamConsumer' {streamARN} -> streamARN) (\s@DeregisterStreamConsumer' {} a -> s {streamARN = a} :: DeregisterStreamConsumer)
+
+-- | The name that you gave to the consumer.
+deregisterStreamConsumer_consumerName :: Lens.Lens' DeregisterStreamConsumer (Prelude.Maybe Prelude.Text)
+deregisterStreamConsumer_consumerName = Lens.lens (\DeregisterStreamConsumer' {consumerName} -> consumerName) (\s@DeregisterStreamConsumer' {} a -> s {consumerName = a} :: DeregisterStreamConsumer)
 
 instance Core.AWSRequest DeregisterStreamConsumer where
   type
@@ -152,9 +152,9 @@ instance Core.ToJSON DeregisterStreamConsumer where
   toJSON DeregisterStreamConsumer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConsumerName" Core..=) Prelude.<$> consumerName,
+          [ ("ConsumerARN" Core..=) Prelude.<$> consumerARN,
             ("StreamARN" Core..=) Prelude.<$> streamARN,
-            ("ConsumerARN" Core..=) Prelude.<$> consumerARN
+            ("ConsumerName" Core..=) Prelude.<$> consumerName
           ]
       )
 

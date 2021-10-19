@@ -121,7 +121,7 @@ newEnhancedMetrics =
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Prelude.Maybe [MetricsName])
-enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Prelude.. Lens.mapping Lens._Coerce
+enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EnhancedMetrics where
   parseJSON =

@@ -37,12 +37,12 @@ module Network.AWS.Kinesis.ListShards
     newListShards,
 
     -- * Request Lenses
-    listShards_exclusiveStartShardId,
     listShards_shardFilter,
     listShards_nextToken,
-    listShards_maxResults,
+    listShards_exclusiveStartShardId,
     listShards_streamCreationTimestamp,
     listShards_streamName,
+    listShards_maxResults,
 
     -- * Destructuring the Response
     ListShardsResponse (..),
@@ -64,17 +64,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListShards' smart constructor.
 data ListShards = ListShards'
-  { -- | Specify this parameter to indicate that you want to list the shards
-    -- starting with the shard whose ID immediately follows
-    -- @ExclusiveStartShardId@.
-    --
-    -- If you don\'t specify this parameter, the default behavior is for
-    -- @ListShards@ to list the shards starting with the first one in the
-    -- stream.
-    --
-    -- You cannot specify this parameter if you specify @NextToken@.
-    exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
-    shardFilter :: Prelude.Maybe ShardFilter,
+  { shardFilter :: Prelude.Maybe ShardFilter,
     -- | When the number of shards in the data stream is greater than the default
     -- value for the @MaxResults@ parameter, or if you explicitly specify a
     -- value for @MaxResults@ that is less than the number of shards in the
@@ -97,14 +87,16 @@ data ListShards = ListShards'
     -- that value. If you specify an expired token in a call to @ListShards@,
     -- you get @ExpiredNextTokenException@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of shards to return in a single call to @ListShards@.
-    -- The minimum value you can specify for this parameter is 1, and the
-    -- maximum is 10,000, which is also the default.
+    -- | Specify this parameter to indicate that you want to list the shards
+    -- starting with the shard whose ID immediately follows
+    -- @ExclusiveStartShardId@.
     --
-    -- When the number of shards to be listed is greater than the value of
-    -- @MaxResults@, the response contains a @NextToken@ value that you can use
-    -- in a subsequent call to @ListShards@ to list the next set of shards.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- If you don\'t specify this parameter, the default behavior is for
+    -- @ListShards@ to list the shards starting with the first one in the
+    -- stream.
+    --
+    -- You cannot specify this parameter if you specify @NextToken@.
+    exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
     -- | Specify this input parameter to distinguish data streams that have the
     -- same name. For example, if you create a data stream and then delete it,
     -- and you later create another data stream with the same name, you can use
@@ -118,7 +110,15 @@ data ListShards = ListShards'
     --
     -- You cannot specify this parameter if you specify the @NextToken@
     -- parameter.
-    streamName :: Prelude.Maybe Prelude.Text
+    streamName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of shards to return in a single call to @ListShards@.
+    -- The minimum value you can specify for this parameter is 1, and the
+    -- maximum is 10,000, which is also the default.
+    --
+    -- When the number of shards to be listed is greater than the value of
+    -- @MaxResults@, the response contains a @NextToken@ value that you can use
+    -- in a subsequent call to @ListShards@ to list the next set of shards.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -129,16 +129,6 @@ data ListShards = ListShards'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'exclusiveStartShardId', 'listShards_exclusiveStartShardId' - Specify this parameter to indicate that you want to list the shards
--- starting with the shard whose ID immediately follows
--- @ExclusiveStartShardId@.
---
--- If you don\'t specify this parameter, the default behavior is for
--- @ListShards@ to list the shards starting with the first one in the
--- stream.
---
--- You cannot specify this parameter if you specify @NextToken@.
 --
 -- 'shardFilter', 'listShards_shardFilter' - Undocumented member.
 --
@@ -164,13 +154,15 @@ data ListShards = ListShards'
 -- that value. If you specify an expired token in a call to @ListShards@,
 -- you get @ExpiredNextTokenException@.
 --
--- 'maxResults', 'listShards_maxResults' - The maximum number of shards to return in a single call to @ListShards@.
--- The minimum value you can specify for this parameter is 1, and the
--- maximum is 10,000, which is also the default.
+-- 'exclusiveStartShardId', 'listShards_exclusiveStartShardId' - Specify this parameter to indicate that you want to list the shards
+-- starting with the shard whose ID immediately follows
+-- @ExclusiveStartShardId@.
 --
--- When the number of shards to be listed is greater than the value of
--- @MaxResults@, the response contains a @NextToken@ value that you can use
--- in a subsequent call to @ListShards@ to list the next set of shards.
+-- If you don\'t specify this parameter, the default behavior is for
+-- @ListShards@ to list the shards starting with the first one in the
+-- stream.
+--
+-- You cannot specify this parameter if you specify @NextToken@.
 --
 -- 'streamCreationTimestamp', 'listShards_streamCreationTimestamp' - Specify this input parameter to distinguish data streams that have the
 -- same name. For example, if you create a data stream and then delete it,
@@ -185,30 +177,25 @@ data ListShards = ListShards'
 --
 -- You cannot specify this parameter if you specify the @NextToken@
 -- parameter.
+--
+-- 'maxResults', 'listShards_maxResults' - The maximum number of shards to return in a single call to @ListShards@.
+-- The minimum value you can specify for this parameter is 1, and the
+-- maximum is 10,000, which is also the default.
+--
+-- When the number of shards to be listed is greater than the value of
+-- @MaxResults@, the response contains a @NextToken@ value that you can use
+-- in a subsequent call to @ListShards@ to list the next set of shards.
 newListShards ::
   ListShards
 newListShards =
   ListShards'
-    { exclusiveStartShardId =
-        Prelude.Nothing,
-      shardFilter = Prelude.Nothing,
+    { shardFilter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      exclusiveStartShardId = Prelude.Nothing,
       streamCreationTimestamp = Prelude.Nothing,
-      streamName = Prelude.Nothing
+      streamName = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | Specify this parameter to indicate that you want to list the shards
--- starting with the shard whose ID immediately follows
--- @ExclusiveStartShardId@.
---
--- If you don\'t specify this parameter, the default behavior is for
--- @ListShards@ to list the shards starting with the first one in the
--- stream.
---
--- You cannot specify this parameter if you specify @NextToken@.
-listShards_exclusiveStartShardId :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
-listShards_exclusiveStartShardId = Lens.lens (\ListShards' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@ListShards' {} a -> s {exclusiveStartShardId = a} :: ListShards)
 
 -- | Undocumented member.
 listShards_shardFilter :: Lens.Lens' ListShards (Prelude.Maybe ShardFilter)
@@ -238,15 +225,17 @@ listShards_shardFilter = Lens.lens (\ListShards' {shardFilter} -> shardFilter) (
 listShards_nextToken :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
 listShards_nextToken = Lens.lens (\ListShards' {nextToken} -> nextToken) (\s@ListShards' {} a -> s {nextToken = a} :: ListShards)
 
--- | The maximum number of shards to return in a single call to @ListShards@.
--- The minimum value you can specify for this parameter is 1, and the
--- maximum is 10,000, which is also the default.
+-- | Specify this parameter to indicate that you want to list the shards
+-- starting with the shard whose ID immediately follows
+-- @ExclusiveStartShardId@.
 --
--- When the number of shards to be listed is greater than the value of
--- @MaxResults@, the response contains a @NextToken@ value that you can use
--- in a subsequent call to @ListShards@ to list the next set of shards.
-listShards_maxResults :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Natural)
-listShards_maxResults = Lens.lens (\ListShards' {maxResults} -> maxResults) (\s@ListShards' {} a -> s {maxResults = a} :: ListShards)
+-- If you don\'t specify this parameter, the default behavior is for
+-- @ListShards@ to list the shards starting with the first one in the
+-- stream.
+--
+-- You cannot specify this parameter if you specify @NextToken@.
+listShards_exclusiveStartShardId :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
+listShards_exclusiveStartShardId = Lens.lens (\ListShards' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@ListShards' {} a -> s {exclusiveStartShardId = a} :: ListShards)
 
 -- | Specify this input parameter to distinguish data streams that have the
 -- same name. For example, if you create a data stream and then delete it,
@@ -265,6 +254,16 @@ listShards_streamCreationTimestamp = Lens.lens (\ListShards' {streamCreationTime
 -- parameter.
 listShards_streamName :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Text)
 listShards_streamName = Lens.lens (\ListShards' {streamName} -> streamName) (\s@ListShards' {} a -> s {streamName = a} :: ListShards)
+
+-- | The maximum number of shards to return in a single call to @ListShards@.
+-- The minimum value you can specify for this parameter is 1, and the
+-- maximum is 10,000, which is also the default.
+--
+-- When the number of shards to be listed is greater than the value of
+-- @MaxResults@, the response contains a @NextToken@ value that you can use
+-- in a subsequent call to @ListShards@ to list the next set of shards.
+listShards_maxResults :: Lens.Lens' ListShards (Prelude.Maybe Prelude.Natural)
+listShards_maxResults = Lens.lens (\ListShards' {maxResults} -> maxResults) (\s@ListShards' {} a -> s {maxResults = a} :: ListShards)
 
 instance Core.AWSPager ListShards where
   page rq rs
@@ -320,14 +319,14 @@ instance Core.ToJSON ListShards where
   toJSON ListShards' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartShardId" Core..=)
-              Prelude.<$> exclusiveStartShardId,
-            ("ShardFilter" Core..=) Prelude.<$> shardFilter,
+          [ ("ShardFilter" Core..=) Prelude.<$> shardFilter,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("ExclusiveStartShardId" Core..=)
+              Prelude.<$> exclusiveStartShardId,
             ("StreamCreationTimestamp" Core..=)
               Prelude.<$> streamCreationTimestamp,
-            ("StreamName" Core..=) Prelude.<$> streamName
+            ("StreamName" Core..=) Prelude.<$> streamName,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -426,7 +425,7 @@ listShardsResponse_nextToken = Lens.lens (\ListShardsResponse' {nextToken} -> ne
 -- and ending hash keys and the starting and ending sequence numbers for
 -- the shard.
 listShardsResponse_shards :: Lens.Lens' ListShardsResponse (Prelude.Maybe [Shard])
-listShardsResponse_shards = Lens.lens (\ListShardsResponse' {shards} -> shards) (\s@ListShardsResponse' {} a -> s {shards = a} :: ListShardsResponse) Prelude.. Lens.mapping Lens._Coerce
+listShardsResponse_shards = Lens.lens (\ListShardsResponse' {shards} -> shards) (\s@ListShardsResponse' {} a -> s {shards = a} :: ListShardsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listShardsResponse_httpStatus :: Lens.Lens' ListShardsResponse Prelude.Int

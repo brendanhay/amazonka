@@ -22,23 +22,38 @@ module Network.AWS.Kinesis
     -- * Errors
     -- $errors
 
-    -- ** KMSThrottlingException
-    _KMSThrottlingException,
-
-    -- ** ExpiredNextTokenException
-    _ExpiredNextTokenException,
-
     -- ** KMSInvalidStateException
     _KMSInvalidStateException,
 
-    -- ** KMSNotFoundException
-    _KMSNotFoundException,
+    -- ** KMSThrottlingException
+    _KMSThrottlingException,
+
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** KMSOptInRequired
     _KMSOptInRequired,
 
-    -- ** ExpiredIteratorException
-    _ExpiredIteratorException,
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** KMSAccessDeniedException
     _KMSAccessDeniedException,
@@ -48,21 +63,6 @@ module Network.AWS.Kinesis
 
     -- ** ResourceInUseException
     _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
-
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
-    -- ** KMSDisabledException
-    _KMSDisabledException,
 
     -- * Waiters
     -- $waiters
@@ -76,11 +76,11 @@ module Network.AWS.Kinesis
     -- * Operations
     -- $operations
 
-    -- ** AddTagsToStream
-    AddTagsToStream (AddTagsToStream'),
-    newAddTagsToStream,
-    AddTagsToStreamResponse (AddTagsToStreamResponse'),
-    newAddTagsToStreamResponse,
+    -- ** PutRecord
+    PutRecord (PutRecord'),
+    newPutRecord,
+    PutRecordResponse (PutRecordResponse'),
+    newPutRecordResponse,
 
     -- ** SubscribeToShard
     SubscribeToShard (SubscribeToShard'),
@@ -88,65 +88,29 @@ module Network.AWS.Kinesis
     SubscribeToShardResponse (SubscribeToShardResponse'),
     newSubscribeToShardResponse,
 
-    -- ** ListTagsForStream
-    ListTagsForStream (ListTagsForStream'),
-    newListTagsForStream,
-    ListTagsForStreamResponse (ListTagsForStreamResponse'),
-    newListTagsForStreamResponse,
+    -- ** DecreaseStreamRetentionPeriod
+    DecreaseStreamRetentionPeriod (DecreaseStreamRetentionPeriod'),
+    newDecreaseStreamRetentionPeriod,
+    DecreaseStreamRetentionPeriodResponse (DecreaseStreamRetentionPeriodResponse'),
+    newDecreaseStreamRetentionPeriodResponse,
 
-    -- ** IncreaseStreamRetentionPeriod
-    IncreaseStreamRetentionPeriod (IncreaseStreamRetentionPeriod'),
-    newIncreaseStreamRetentionPeriod,
-    IncreaseStreamRetentionPeriodResponse (IncreaseStreamRetentionPeriodResponse'),
-    newIncreaseStreamRetentionPeriodResponse,
+    -- ** MergeShards
+    MergeShards (MergeShards'),
+    newMergeShards,
+    MergeShardsResponse (MergeShardsResponse'),
+    newMergeShardsResponse,
 
-    -- ** DisableEnhancedMonitoring
-    DisableEnhancedMonitoring (DisableEnhancedMonitoring'),
-    newDisableEnhancedMonitoring,
-    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
-    newEnhancedMonitoringOutput,
+    -- ** DeregisterStreamConsumer
+    DeregisterStreamConsumer (DeregisterStreamConsumer'),
+    newDeregisterStreamConsumer,
+    DeregisterStreamConsumerResponse (DeregisterStreamConsumerResponse'),
+    newDeregisterStreamConsumerResponse,
 
-    -- ** SplitShard
-    SplitShard (SplitShard'),
-    newSplitShard,
-    SplitShardResponse (SplitShardResponse'),
-    newSplitShardResponse,
-
-    -- ** StopStreamEncryption
-    StopStreamEncryption (StopStreamEncryption'),
-    newStopStreamEncryption,
-    StopStreamEncryptionResponse (StopStreamEncryptionResponse'),
-    newStopStreamEncryptionResponse,
-
-    -- ** EnableEnhancedMonitoring
-    EnableEnhancedMonitoring (EnableEnhancedMonitoring'),
-    newEnableEnhancedMonitoring,
-    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
-    newEnhancedMonitoringOutput,
-
-    -- ** RegisterStreamConsumer
-    RegisterStreamConsumer (RegisterStreamConsumer'),
-    newRegisterStreamConsumer,
-    RegisterStreamConsumerResponse (RegisterStreamConsumerResponse'),
-    newRegisterStreamConsumerResponse,
-
-    -- ** StartStreamEncryption
-    StartStreamEncryption (StartStreamEncryption'),
-    newStartStreamEncryption,
-    StartStreamEncryptionResponse (StartStreamEncryptionResponse'),
-    newStartStreamEncryptionResponse,
-
-    -- ** DescribeLimits
-    DescribeLimits (DescribeLimits'),
-    newDescribeLimits,
-    DescribeLimitsResponse (DescribeLimitsResponse'),
-    newDescribeLimitsResponse,
-
-    -- ** ListStreamConsumers (Paginated)
-    ListStreamConsumers (ListStreamConsumers'),
-    newListStreamConsumers,
-    ListStreamConsumersResponse (ListStreamConsumersResponse'),
-    newListStreamConsumersResponse,
+    -- ** DescribeStreamSummary
+    DescribeStreamSummary (DescribeStreamSummary'),
+    newDescribeStreamSummary,
+    DescribeStreamSummaryResponse (DescribeStreamSummaryResponse'),
+    newDescribeStreamSummaryResponse,
 
     -- ** GetShardIterator
     GetShardIterator (GetShardIterator'),
@@ -160,71 +124,35 @@ module Network.AWS.Kinesis
     GetRecordsResponse (GetRecordsResponse'),
     newGetRecordsResponse,
 
-    -- ** DeleteStream
-    DeleteStream (DeleteStream'),
-    newDeleteStream,
-    DeleteStreamResponse (DeleteStreamResponse'),
-    newDeleteStreamResponse,
+    -- ** StopStreamEncryption
+    StopStreamEncryption (StopStreamEncryption'),
+    newStopStreamEncryption,
+    StopStreamEncryptionResponse (StopStreamEncryptionResponse'),
+    newStopStreamEncryptionResponse,
 
-    -- ** ListShards (Paginated)
-    ListShards (ListShards'),
-    newListShards,
-    ListShardsResponse (ListShardsResponse'),
-    newListShardsResponse,
+    -- ** EnableEnhancedMonitoring
+    EnableEnhancedMonitoring (EnableEnhancedMonitoring'),
+    newEnableEnhancedMonitoring,
+    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
+    newEnhancedMonitoringOutput,
 
-    -- ** RemoveTagsFromStream
-    RemoveTagsFromStream (RemoveTagsFromStream'),
-    newRemoveTagsFromStream,
-    RemoveTagsFromStreamResponse (RemoveTagsFromStreamResponse'),
-    newRemoveTagsFromStreamResponse,
+    -- ** DescribeLimits
+    DescribeLimits (DescribeLimits'),
+    newDescribeLimits,
+    DescribeLimitsResponse (DescribeLimitsResponse'),
+    newDescribeLimitsResponse,
 
-    -- ** DescribeStreamSummary
-    DescribeStreamSummary (DescribeStreamSummary'),
-    newDescribeStreamSummary,
-    DescribeStreamSummaryResponse (DescribeStreamSummaryResponse'),
-    newDescribeStreamSummaryResponse,
+    -- ** RegisterStreamConsumer
+    RegisterStreamConsumer (RegisterStreamConsumer'),
+    newRegisterStreamConsumer,
+    RegisterStreamConsumerResponse (RegisterStreamConsumerResponse'),
+    newRegisterStreamConsumerResponse,
 
-    -- ** DeregisterStreamConsumer
-    DeregisterStreamConsumer (DeregisterStreamConsumer'),
-    newDeregisterStreamConsumer,
-    DeregisterStreamConsumerResponse (DeregisterStreamConsumerResponse'),
-    newDeregisterStreamConsumerResponse,
-
-    -- ** DecreaseStreamRetentionPeriod
-    DecreaseStreamRetentionPeriod (DecreaseStreamRetentionPeriod'),
-    newDecreaseStreamRetentionPeriod,
-    DecreaseStreamRetentionPeriodResponse (DecreaseStreamRetentionPeriodResponse'),
-    newDecreaseStreamRetentionPeriodResponse,
-
-    -- ** PutRecords
-    PutRecords (PutRecords'),
-    newPutRecords,
-    PutRecordsResponse (PutRecordsResponse'),
-    newPutRecordsResponse,
-
-    -- ** MergeShards
-    MergeShards (MergeShards'),
-    newMergeShards,
-    MergeShardsResponse (MergeShardsResponse'),
-    newMergeShardsResponse,
-
-    -- ** DescribeStreamConsumer
-    DescribeStreamConsumer (DescribeStreamConsumer'),
-    newDescribeStreamConsumer,
-    DescribeStreamConsumerResponse (DescribeStreamConsumerResponse'),
-    newDescribeStreamConsumerResponse,
-
-    -- ** PutRecord
-    PutRecord (PutRecord'),
-    newPutRecord,
-    PutRecordResponse (PutRecordResponse'),
-    newPutRecordResponse,
-
-    -- ** DescribeStream (Paginated)
-    DescribeStream (DescribeStream'),
-    newDescribeStream,
-    DescribeStreamResponse (DescribeStreamResponse'),
-    newDescribeStreamResponse,
+    -- ** DisableEnhancedMonitoring
+    DisableEnhancedMonitoring (DisableEnhancedMonitoring'),
+    newDisableEnhancedMonitoring,
+    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
+    newEnhancedMonitoringOutput,
 
     -- ** UpdateShardCount
     UpdateShardCount (UpdateShardCount'),
@@ -232,17 +160,89 @@ module Network.AWS.Kinesis
     UpdateShardCountResponse (UpdateShardCountResponse'),
     newUpdateShardCountResponse,
 
-    -- ** CreateStream
-    CreateStream (CreateStream'),
-    newCreateStream,
-    CreateStreamResponse (CreateStreamResponse'),
-    newCreateStreamResponse,
+    -- ** ListTagsForStream
+    ListTagsForStream (ListTagsForStream'),
+    newListTagsForStream,
+    ListTagsForStreamResponse (ListTagsForStreamResponse'),
+    newListTagsForStreamResponse,
+
+    -- ** DescribeStreamConsumer
+    DescribeStreamConsumer (DescribeStreamConsumer'),
+    newDescribeStreamConsumer,
+    DescribeStreamConsumerResponse (DescribeStreamConsumerResponse'),
+    newDescribeStreamConsumerResponse,
+
+    -- ** AddTagsToStream
+    AddTagsToStream (AddTagsToStream'),
+    newAddTagsToStream,
+    AddTagsToStreamResponse (AddTagsToStreamResponse'),
+    newAddTagsToStreamResponse,
+
+    -- ** PutRecords
+    PutRecords (PutRecords'),
+    newPutRecords,
+    PutRecordsResponse (PutRecordsResponse'),
+    newPutRecordsResponse,
+
+    -- ** ListShards (Paginated)
+    ListShards (ListShards'),
+    newListShards,
+    ListShardsResponse (ListShardsResponse'),
+    newListShardsResponse,
+
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
+
+    -- ** RemoveTagsFromStream
+    RemoveTagsFromStream (RemoveTagsFromStream'),
+    newRemoveTagsFromStream,
+    RemoveTagsFromStreamResponse (RemoveTagsFromStreamResponse'),
+    newRemoveTagsFromStreamResponse,
 
     -- ** ListStreams (Paginated)
     ListStreams (ListStreams'),
     newListStreams,
     ListStreamsResponse (ListStreamsResponse'),
     newListStreamsResponse,
+
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
+
+    -- ** StartStreamEncryption
+    StartStreamEncryption (StartStreamEncryption'),
+    newStartStreamEncryption,
+    StartStreamEncryptionResponse (StartStreamEncryptionResponse'),
+    newStartStreamEncryptionResponse,
+
+    -- ** ListStreamConsumers (Paginated)
+    ListStreamConsumers (ListStreamConsumers'),
+    newListStreamConsumers,
+    ListStreamConsumersResponse (ListStreamConsumersResponse'),
+    newListStreamConsumersResponse,
+
+    -- ** SplitShard
+    SplitShard (SplitShard'),
+    newSplitShard,
+    SplitShardResponse (SplitShardResponse'),
+    newSplitShardResponse,
+
+    -- ** IncreaseStreamRetentionPeriod
+    IncreaseStreamRetentionPeriod (IncreaseStreamRetentionPeriod'),
+    newIncreaseStreamRetentionPeriod,
+    IncreaseStreamRetentionPeriodResponse (IncreaseStreamRetentionPeriodResponse'),
+    newIncreaseStreamRetentionPeriodResponse,
+
+    -- ** DescribeStream (Paginated)
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
 
     -- * Types
 

@@ -14,9 +14,16 @@
 module Network.AWS.Kinesis.Lens
   ( -- * Operations
 
-    -- ** AddTagsToStream
-    addTagsToStream_streamName,
-    addTagsToStream_tags,
+    -- ** PutRecord
+    putRecord_explicitHashKey,
+    putRecord_sequenceNumberForOrdering,
+    putRecord_streamName,
+    putRecord_data,
+    putRecord_partitionKey,
+    putRecordResponse_encryptionType,
+    putRecordResponse_httpStatus,
+    putRecordResponse_shardId,
+    putRecordResponse_sequenceNumber,
 
     -- ** SubscribeToShard
     subscribeToShard_consumerARN,
@@ -25,66 +32,24 @@ module Network.AWS.Kinesis.Lens
     subscribeToShardResponse_httpStatus,
     subscribeToShardResponse_eventStream,
 
-    -- ** ListTagsForStream
-    listTagsForStream_exclusiveStartTagKey,
-    listTagsForStream_limit,
-    listTagsForStream_streamName,
-    listTagsForStreamResponse_httpStatus,
-    listTagsForStreamResponse_tags,
-    listTagsForStreamResponse_hasMoreTags,
+    -- ** DecreaseStreamRetentionPeriod
+    decreaseStreamRetentionPeriod_streamName,
+    decreaseStreamRetentionPeriod_retentionPeriodHours,
 
-    -- ** IncreaseStreamRetentionPeriod
-    increaseStreamRetentionPeriod_streamName,
-    increaseStreamRetentionPeriod_retentionPeriodHours,
+    -- ** MergeShards
+    mergeShards_streamName,
+    mergeShards_shardToMerge,
+    mergeShards_adjacentShardToMerge,
 
-    -- ** DisableEnhancedMonitoring
-    disableEnhancedMonitoring_streamName,
-    disableEnhancedMonitoring_shardLevelMetrics,
-    enhancedMonitoringOutput_currentShardLevelMetrics,
-    enhancedMonitoringOutput_streamName,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
+    -- ** DeregisterStreamConsumer
+    deregisterStreamConsumer_consumerARN,
+    deregisterStreamConsumer_streamARN,
+    deregisterStreamConsumer_consumerName,
 
-    -- ** SplitShard
-    splitShard_streamName,
-    splitShard_shardToSplit,
-    splitShard_newStartingHashKey,
-
-    -- ** StopStreamEncryption
-    stopStreamEncryption_streamName,
-    stopStreamEncryption_encryptionType,
-    stopStreamEncryption_keyId,
-
-    -- ** EnableEnhancedMonitoring
-    enableEnhancedMonitoring_streamName,
-    enableEnhancedMonitoring_shardLevelMetrics,
-    enhancedMonitoringOutput_currentShardLevelMetrics,
-    enhancedMonitoringOutput_streamName,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
-
-    -- ** RegisterStreamConsumer
-    registerStreamConsumer_streamARN,
-    registerStreamConsumer_consumerName,
-    registerStreamConsumerResponse_httpStatus,
-    registerStreamConsumerResponse_consumer,
-
-    -- ** StartStreamEncryption
-    startStreamEncryption_streamName,
-    startStreamEncryption_encryptionType,
-    startStreamEncryption_keyId,
-
-    -- ** DescribeLimits
-    describeLimitsResponse_httpStatus,
-    describeLimitsResponse_shardLimit,
-    describeLimitsResponse_openShardCount,
-
-    -- ** ListStreamConsumers
-    listStreamConsumers_nextToken,
-    listStreamConsumers_maxResults,
-    listStreamConsumers_streamCreationTimestamp,
-    listStreamConsumers_streamARN,
-    listStreamConsumersResponse_nextToken,
-    listStreamConsumersResponse_consumers,
-    listStreamConsumersResponse_httpStatus,
+    -- ** DescribeStreamSummary
+    describeStreamSummary_streamName,
+    describeStreamSummaryResponse_httpStatus,
+    describeStreamSummaryResponse_streamDescriptionSummary,
 
     -- ** GetShardIterator
     getShardIterator_startingSequenceNumber,
@@ -98,44 +63,69 @@ module Network.AWS.Kinesis.Lens
     -- ** GetRecords
     getRecords_limit,
     getRecords_shardIterator,
-    getRecordsResponse_millisBehindLatest,
     getRecordsResponse_nextShardIterator,
+    getRecordsResponse_millisBehindLatest,
     getRecordsResponse_childShards,
     getRecordsResponse_httpStatus,
     getRecordsResponse_records,
 
-    -- ** DeleteStream
-    deleteStream_enforceConsumerDeletion,
-    deleteStream_streamName,
+    -- ** StopStreamEncryption
+    stopStreamEncryption_streamName,
+    stopStreamEncryption_encryptionType,
+    stopStreamEncryption_keyId,
 
-    -- ** ListShards
-    listShards_exclusiveStartShardId,
-    listShards_shardFilter,
-    listShards_nextToken,
-    listShards_maxResults,
-    listShards_streamCreationTimestamp,
-    listShards_streamName,
-    listShardsResponse_nextToken,
-    listShardsResponse_shards,
-    listShardsResponse_httpStatus,
+    -- ** EnableEnhancedMonitoring
+    enableEnhancedMonitoring_streamName,
+    enableEnhancedMonitoring_shardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_streamName,
 
-    -- ** RemoveTagsFromStream
-    removeTagsFromStream_streamName,
-    removeTagsFromStream_tagKeys,
+    -- ** DescribeLimits
+    describeLimitsResponse_httpStatus,
+    describeLimitsResponse_shardLimit,
+    describeLimitsResponse_openShardCount,
 
-    -- ** DescribeStreamSummary
-    describeStreamSummary_streamName,
-    describeStreamSummaryResponse_httpStatus,
-    describeStreamSummaryResponse_streamDescriptionSummary,
+    -- ** RegisterStreamConsumer
+    registerStreamConsumer_streamARN,
+    registerStreamConsumer_consumerName,
+    registerStreamConsumerResponse_httpStatus,
+    registerStreamConsumerResponse_consumer,
 
-    -- ** DeregisterStreamConsumer
-    deregisterStreamConsumer_consumerName,
-    deregisterStreamConsumer_streamARN,
-    deregisterStreamConsumer_consumerARN,
+    -- ** DisableEnhancedMonitoring
+    disableEnhancedMonitoring_streamName,
+    disableEnhancedMonitoring_shardLevelMetrics,
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
+    enhancedMonitoringOutput_currentShardLevelMetrics,
+    enhancedMonitoringOutput_streamName,
 
-    -- ** DecreaseStreamRetentionPeriod
-    decreaseStreamRetentionPeriod_streamName,
-    decreaseStreamRetentionPeriod_retentionPeriodHours,
+    -- ** UpdateShardCount
+    updateShardCount_streamName,
+    updateShardCount_targetShardCount,
+    updateShardCount_scalingType,
+    updateShardCountResponse_targetShardCount,
+    updateShardCountResponse_streamName,
+    updateShardCountResponse_currentShardCount,
+    updateShardCountResponse_httpStatus,
+
+    -- ** ListTagsForStream
+    listTagsForStream_limit,
+    listTagsForStream_exclusiveStartTagKey,
+    listTagsForStream_streamName,
+    listTagsForStreamResponse_httpStatus,
+    listTagsForStreamResponse_tags,
+    listTagsForStreamResponse_hasMoreTags,
+
+    -- ** DescribeStreamConsumer
+    describeStreamConsumer_consumerARN,
+    describeStreamConsumer_streamARN,
+    describeStreamConsumer_consumerName,
+    describeStreamConsumerResponse_httpStatus,
+    describeStreamConsumerResponse_consumerDescription,
+
+    -- ** AddTagsToStream
+    addTagsToStream_streamName,
+    addTagsToStream_tags,
 
     -- ** PutRecords
     putRecords_records,
@@ -145,28 +135,58 @@ module Network.AWS.Kinesis.Lens
     putRecordsResponse_httpStatus,
     putRecordsResponse_records,
 
-    -- ** MergeShards
-    mergeShards_streamName,
-    mergeShards_shardToMerge,
-    mergeShards_adjacentShardToMerge,
+    -- ** ListShards
+    listShards_shardFilter,
+    listShards_nextToken,
+    listShards_exclusiveStartShardId,
+    listShards_streamCreationTimestamp,
+    listShards_streamName,
+    listShards_maxResults,
+    listShardsResponse_nextToken,
+    listShardsResponse_shards,
+    listShardsResponse_httpStatus,
 
-    -- ** DescribeStreamConsumer
-    describeStreamConsumer_consumerName,
-    describeStreamConsumer_streamARN,
-    describeStreamConsumer_consumerARN,
-    describeStreamConsumerResponse_httpStatus,
-    describeStreamConsumerResponse_consumerDescription,
+    -- ** DeleteStream
+    deleteStream_enforceConsumerDeletion,
+    deleteStream_streamName,
 
-    -- ** PutRecord
-    putRecord_sequenceNumberForOrdering,
-    putRecord_explicitHashKey,
-    putRecord_streamName,
-    putRecord_data,
-    putRecord_partitionKey,
-    putRecordResponse_encryptionType,
-    putRecordResponse_httpStatus,
-    putRecordResponse_shardId,
-    putRecordResponse_sequenceNumber,
+    -- ** RemoveTagsFromStream
+    removeTagsFromStream_streamName,
+    removeTagsFromStream_tagKeys,
+
+    -- ** ListStreams
+    listStreams_limit,
+    listStreams_exclusiveStartStreamName,
+    listStreamsResponse_httpStatus,
+    listStreamsResponse_streamNames,
+    listStreamsResponse_hasMoreStreams,
+
+    -- ** CreateStream
+    createStream_streamName,
+    createStream_shardCount,
+
+    -- ** StartStreamEncryption
+    startStreamEncryption_streamName,
+    startStreamEncryption_encryptionType,
+    startStreamEncryption_keyId,
+
+    -- ** ListStreamConsumers
+    listStreamConsumers_nextToken,
+    listStreamConsumers_streamCreationTimestamp,
+    listStreamConsumers_maxResults,
+    listStreamConsumers_streamARN,
+    listStreamConsumersResponse_nextToken,
+    listStreamConsumersResponse_consumers,
+    listStreamConsumersResponse_httpStatus,
+
+    -- ** SplitShard
+    splitShard_streamName,
+    splitShard_shardToSplit,
+    splitShard_newStartingHashKey,
+
+    -- ** IncreaseStreamRetentionPeriod
+    increaseStreamRetentionPeriod_streamName,
+    increaseStreamRetentionPeriod_retentionPeriodHours,
 
     -- ** DescribeStream
     describeStream_exclusiveStartShardId,
@@ -174,26 +194,6 @@ module Network.AWS.Kinesis.Lens
     describeStream_streamName,
     describeStreamResponse_httpStatus,
     describeStreamResponse_streamDescription,
-
-    -- ** UpdateShardCount
-    updateShardCount_streamName,
-    updateShardCount_targetShardCount,
-    updateShardCount_scalingType,
-    updateShardCountResponse_targetShardCount,
-    updateShardCountResponse_currentShardCount,
-    updateShardCountResponse_streamName,
-    updateShardCountResponse_httpStatus,
-
-    -- ** CreateStream
-    createStream_streamName,
-    createStream_shardCount,
-
-    -- ** ListStreams
-    listStreams_exclusiveStartStreamName,
-    listStreams_limit,
-    listStreamsResponse_httpStatus,
-    listStreamsResponse_streamNames,
-    listStreamsResponse_hasMoreStreams,
 
     -- * Types
 
@@ -219,9 +219,9 @@ module Network.AWS.Kinesis.Lens
     enhancedMetrics_shardLevelMetrics,
 
     -- ** EnhancedMonitoringOutput
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
 
     -- ** HashKeyRange
     hashKeyRange_startingHashKey,
@@ -234,9 +234,9 @@ module Network.AWS.Kinesis.Lens
 
     -- ** PutRecordsResultEntry
     putRecordsResultEntry_sequenceNumber,
-    putRecordsResultEntry_shardId,
-    putRecordsResultEntry_errorMessage,
     putRecordsResultEntry_errorCode,
+    putRecordsResultEntry_errorMessage,
+    putRecordsResultEntry_shardId,
 
     -- ** Record
     record_encryptionType,
@@ -257,8 +257,8 @@ module Network.AWS.Kinesis.Lens
     shard_sequenceNumberRange,
 
     -- ** ShardFilter
-    shardFilter_shardId,
     shardFilter_timestamp,
+    shardFilter_shardId,
     shardFilter_type,
 
     -- ** StartingPosition
@@ -280,8 +280,8 @@ module Network.AWS.Kinesis.Lens
 
     -- ** StreamDescriptionSummary
     streamDescriptionSummary_encryptionType,
-    streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_keyId,
+    streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_streamName,
     streamDescriptionSummary_streamARN,
     streamDescriptionSummary_streamStatus,

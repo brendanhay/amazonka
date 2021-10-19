@@ -81,7 +81,7 @@ newRemoveTagsFromStream ::
 newRemoveTagsFromStream pStreamName_ pTagKeys_ =
   RemoveTagsFromStream'
     { streamName = pStreamName_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The name of the stream.
@@ -90,7 +90,7 @@ removeTagsFromStream_streamName = Lens.lens (\RemoveTagsFromStream' {streamName}
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
 removeTagsFromStream_tagKeys :: Lens.Lens' RemoveTagsFromStream (Prelude.NonEmpty Prelude.Text)
-removeTagsFromStream_tagKeys = Lens.lens (\RemoveTagsFromStream' {tagKeys} -> tagKeys) (\s@RemoveTagsFromStream' {} a -> s {tagKeys = a} :: RemoveTagsFromStream) Prelude.. Lens._Coerce
+removeTagsFromStream_tagKeys = Lens.lens (\RemoveTagsFromStream' {tagKeys} -> tagKeys) (\s@RemoveTagsFromStream' {} a -> s {tagKeys = a} :: RemoveTagsFromStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTagsFromStream where
   type

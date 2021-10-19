@@ -88,11 +88,11 @@ newSubscribeToShardEvent
 
 -- | Undocumented member.
 subscribeToShardEvent_childShards :: Lens.Lens' SubscribeToShardEvent (Prelude.Maybe [ChildShard])
-subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Prelude.. Lens.mapping Lens._Coerce
+subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 subscribeToShardEvent_records :: Lens.Lens' SubscribeToShardEvent [Record]
-subscribeToShardEvent_records = Lens.lens (\SubscribeToShardEvent' {records} -> records) (\s@SubscribeToShardEvent' {} a -> s {records = a} :: SubscribeToShardEvent) Prelude.. Lens._Coerce
+subscribeToShardEvent_records = Lens.lens (\SubscribeToShardEvent' {records} -> records) (\s@SubscribeToShardEvent' {} a -> s {records = a} :: SubscribeToShardEvent) Prelude.. Lens.coerced
 
 -- | Use this as @SequenceNumber@ in the next call to SubscribeToShard, with
 -- @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or

@@ -46,8 +46,8 @@ module Network.AWS.Kinesis.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_exclusiveStartStreamName,
     listStreams_limit,
+    listStreams_exclusiveStartStreamName,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
@@ -71,10 +71,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | The name of the stream to start the list with.
-    exclusiveStartStreamName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of streams to list.
-    limit :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of streams to list.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the stream to start the list with.
+    exclusiveStartStreamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,25 +86,24 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exclusiveStartStreamName', 'listStreams_exclusiveStartStreamName' - The name of the stream to start the list with.
---
 -- 'limit', 'listStreams_limit' - The maximum number of streams to list.
+--
+-- 'exclusiveStartStreamName', 'listStreams_exclusiveStartStreamName' - The name of the stream to start the list with.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { exclusiveStartStreamName =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      exclusiveStartStreamName = Prelude.Nothing
     }
-
--- | The name of the stream to start the list with.
-listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
-listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartStreamName} -> exclusiveStartStreamName) (\s@ListStreams' {} a -> s {exclusiveStartStreamName = a} :: ListStreams)
 
 -- | The maximum number of streams to list.
 listStreams_limit :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_limit = Lens.lens (\ListStreams' {limit} -> limit) (\s@ListStreams' {} a -> s {limit = a} :: ListStreams)
+
+-- | The name of the stream to start the list with.
+listStreams_exclusiveStartStreamName :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_exclusiveStartStreamName = Lens.lens (\ListStreams' {exclusiveStartStreamName} -> exclusiveStartStreamName) (\s@ListStreams' {} a -> s {exclusiveStartStreamName = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
@@ -158,9 +157,9 @@ instance Core.ToJSON ListStreams where
   toJSON ListStreams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartStreamName" Core..=)
-              Prelude.<$> exclusiveStartStreamName,
-            ("Limit" Core..=) Prelude.<$> limit
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("ExclusiveStartStreamName" Core..=)
+              Prelude.<$> exclusiveStartStreamName
           ]
       )
 
@@ -218,7 +217,7 @@ listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
 listStreamsResponse_streamNames :: Lens.Lens' ListStreamsResponse [Prelude.Text]
-listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames} -> streamNames) (\s@ListStreamsResponse' {} a -> s {streamNames = a} :: ListStreamsResponse) Prelude.. Lens._Coerce
+listStreamsResponse_streamNames = Lens.lens (\ListStreamsResponse' {streamNames} -> streamNames) (\s@ListStreamsResponse' {} a -> s {streamNames = a} :: ListStreamsResponse) Prelude.. Lens.coerced
 
 -- | If set to @true@, there are more streams available to list.
 listStreamsResponse_hasMoreStreams :: Lens.Lens' ListStreamsResponse Prelude.Bool

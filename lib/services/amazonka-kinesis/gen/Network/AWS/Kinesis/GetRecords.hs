@@ -96,8 +96,8 @@ module Network.AWS.Kinesis.GetRecords
     newGetRecordsResponse,
 
     -- * Response Lenses
-    getRecordsResponse_millisBehindLatest,
     getRecordsResponse_nextShardIterator,
+    getRecordsResponse_millisBehindLatest,
     getRecordsResponse_childShards,
     getRecordsResponse_httpStatus,
     getRecordsResponse_records,
@@ -170,8 +170,8 @@ instance Core.AWSRequest GetRecords where
     Response.receiveJSON
       ( \s h x ->
           GetRecordsResponse'
-            Prelude.<$> (x Core..?> "MillisBehindLatest")
-            Prelude.<*> (x Core..?> "NextShardIterator")
+            Prelude.<$> (x Core..?> "NextShardIterator")
+            Prelude.<*> (x Core..?> "MillisBehindLatest")
             Prelude.<*> (x Core..?> "ChildShards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
@@ -216,15 +216,15 @@ instance Core.ToQuery GetRecords where
 --
 -- /See:/ 'newGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { -- | The number of milliseconds the GetRecords response is from the tip of
+  { -- | The next position in the shard from which to start sequentially reading
+    -- data records. If set to @null@, the shard has been closed and the
+    -- requested iterator does not return any more data.
+    nextShardIterator :: Prelude.Maybe Prelude.Text,
+    -- | The number of milliseconds the GetRecords response is from the tip of
     -- the stream, indicating how far behind current time the consumer is. A
     -- value of zero indicates that record processing is caught up, and there
     -- are no new records to process at this moment.
     millisBehindLatest :: Prelude.Maybe Prelude.Natural,
-    -- | The next position in the shard from which to start sequentially reading
-    -- data records. If set to @null@, the shard has been closed and the
-    -- requested iterator does not return any more data.
-    nextShardIterator :: Prelude.Maybe Prelude.Text,
     childShards :: Prelude.Maybe [ChildShard],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -241,14 +241,14 @@ data GetRecordsResponse = GetRecordsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextShardIterator', 'getRecordsResponse_nextShardIterator' - The next position in the shard from which to start sequentially reading
+-- data records. If set to @null@, the shard has been closed and the
+-- requested iterator does not return any more data.
+--
 -- 'millisBehindLatest', 'getRecordsResponse_millisBehindLatest' - The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
 -- value of zero indicates that record processing is caught up, and there
 -- are no new records to process at this moment.
---
--- 'nextShardIterator', 'getRecordsResponse_nextShardIterator' - The next position in the shard from which to start sequentially reading
--- data records. If set to @null@, the shard has been closed and the
--- requested iterator does not return any more data.
 --
 -- 'childShards', 'getRecordsResponse_childShards' - Undocumented member.
 --
@@ -261,13 +261,19 @@ newGetRecordsResponse ::
   GetRecordsResponse
 newGetRecordsResponse pHttpStatus_ =
   GetRecordsResponse'
-    { millisBehindLatest =
+    { nextShardIterator =
         Prelude.Nothing,
-      nextShardIterator = Prelude.Nothing,
+      millisBehindLatest = Prelude.Nothing,
       childShards = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       records = Prelude.mempty
     }
+
+-- | The next position in the shard from which to start sequentially reading
+-- data records. If set to @null@, the shard has been closed and the
+-- requested iterator does not return any more data.
+getRecordsResponse_nextShardIterator :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Text)
+getRecordsResponse_nextShardIterator = Lens.lens (\GetRecordsResponse' {nextShardIterator} -> nextShardIterator) (\s@GetRecordsResponse' {} a -> s {nextShardIterator = a} :: GetRecordsResponse)
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
@@ -276,15 +282,9 @@ newGetRecordsResponse pHttpStatus_ =
 getRecordsResponse_millisBehindLatest :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Natural)
 getRecordsResponse_millisBehindLatest = Lens.lens (\GetRecordsResponse' {millisBehindLatest} -> millisBehindLatest) (\s@GetRecordsResponse' {} a -> s {millisBehindLatest = a} :: GetRecordsResponse)
 
--- | The next position in the shard from which to start sequentially reading
--- data records. If set to @null@, the shard has been closed and the
--- requested iterator does not return any more data.
-getRecordsResponse_nextShardIterator :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Text)
-getRecordsResponse_nextShardIterator = Lens.lens (\GetRecordsResponse' {nextShardIterator} -> nextShardIterator) (\s@GetRecordsResponse' {} a -> s {nextShardIterator = a} :: GetRecordsResponse)
-
 -- | Undocumented member.
 getRecordsResponse_childShards :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [ChildShard])
-getRecordsResponse_childShards = Lens.lens (\GetRecordsResponse' {childShards} -> childShards) (\s@GetRecordsResponse' {} a -> s {childShards = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRecordsResponse_childShards = Lens.lens (\GetRecordsResponse' {childShards} -> childShards) (\s@GetRecordsResponse' {} a -> s {childShards = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecordsResponse_httpStatus :: Lens.Lens' GetRecordsResponse Prelude.Int
@@ -292,6 +292,6 @@ getRecordsResponse_httpStatus = Lens.lens (\GetRecordsResponse' {httpStatus} -> 
 
 -- | The data records retrieved from the shard.
 getRecordsResponse_records :: Lens.Lens' GetRecordsResponse [Record]
-getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens._Coerce
+getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetRecordsResponse

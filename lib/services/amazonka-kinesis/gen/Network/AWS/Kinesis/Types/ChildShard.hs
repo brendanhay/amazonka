@@ -64,7 +64,7 @@ childShard_shardId = Lens.lens (\ChildShard' {shardId} -> shardId) (\s@ChildShar
 
 -- | Undocumented member.
 childShard_parentShards :: Lens.Lens' ChildShard [Prelude.Text]
-childShard_parentShards = Lens.lens (\ChildShard' {parentShards} -> parentShards) (\s@ChildShard' {} a -> s {parentShards = a} :: ChildShard) Prelude.. Lens._Coerce
+childShard_parentShards = Lens.lens (\ChildShard' {parentShards} -> parentShards) (\s@ChildShard' {} a -> s {parentShards = a} :: ChildShard) Prelude.. Lens.coerced
 
 -- | Undocumented member.
 childShard_hashKeyRange :: Lens.Lens' ChildShard HashKeyRange

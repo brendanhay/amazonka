@@ -20,29 +20,29 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- ** InvalidMediaFrameException
     _InvalidMediaFrameException,
 
-    -- ** ClientLimitExceededException
-    _ClientLimitExceededException,
-
-    -- ** InvalidCodecPrivateDataException
-    _InvalidCodecPrivateDataException,
-
     -- ** NoDataRetentionException
     _NoDataRetentionException,
 
-    -- ** UnsupportedStreamMediaTypeException
-    _UnsupportedStreamMediaTypeException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** MissingCodecPrivateDataException
-    _MissingCodecPrivateDataException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** NotAuthorizedException
     _NotAuthorizedException,
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
+
+    -- ** UnsupportedStreamMediaTypeException
+    _UnsupportedStreamMediaTypeException,
+
+    -- ** InvalidCodecPrivateDataException
+    _InvalidCodecPrivateDataException,
+
+    -- ** MissingCodecPrivateDataException
+    _MissingCodecPrivateDataException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -50,17 +50,11 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- * Operations
     -- $operations
 
-    -- ** ListFragments (Paginated)
-    ListFragments (ListFragments'),
-    newListFragments,
-    ListFragmentsResponse (ListFragmentsResponse'),
-    newListFragmentsResponse,
-
-    -- ** GetMediaForFragmentList
-    GetMediaForFragmentList (GetMediaForFragmentList'),
-    newGetMediaForFragmentList,
-    GetMediaForFragmentListResponse (GetMediaForFragmentListResponse'),
-    newGetMediaForFragmentListResponse,
+    -- ** GetHLSStreamingSessionURL
+    GetHLSStreamingSessionURL (GetHLSStreamingSessionURL'),
+    newGetHLSStreamingSessionURL,
+    GetHLSStreamingSessionURLResponse (GetHLSStreamingSessionURLResponse'),
+    newGetHLSStreamingSessionURLResponse,
 
     -- ** GetClip
     GetClip (GetClip'),
@@ -68,17 +62,23 @@ module Network.AWS.KinesisVideoArchivedMedia
     GetClipResponse (GetClipResponse'),
     newGetClipResponse,
 
+    -- ** GetMediaForFragmentList
+    GetMediaForFragmentList (GetMediaForFragmentList'),
+    newGetMediaForFragmentList,
+    GetMediaForFragmentListResponse (GetMediaForFragmentListResponse'),
+    newGetMediaForFragmentListResponse,
+
+    -- ** ListFragments (Paginated)
+    ListFragments (ListFragments'),
+    newListFragments,
+    ListFragmentsResponse (ListFragmentsResponse'),
+    newListFragmentsResponse,
+
     -- ** GetDASHStreamingSessionURL
     GetDASHStreamingSessionURL (GetDASHStreamingSessionURL'),
     newGetDASHStreamingSessionURL,
     GetDASHStreamingSessionURLResponse (GetDASHStreamingSessionURLResponse'),
     newGetDASHStreamingSessionURLResponse,
-
-    -- ** GetHLSStreamingSessionURL
-    GetHLSStreamingSessionURL (GetHLSStreamingSessionURL'),
-    newGetHLSStreamingSessionURL,
-    GetHLSStreamingSessionURLResponse (GetHLSStreamingSessionURLResponse'),
-    newGetHLSStreamingSessionURLResponse,
 
     -- * Types
 

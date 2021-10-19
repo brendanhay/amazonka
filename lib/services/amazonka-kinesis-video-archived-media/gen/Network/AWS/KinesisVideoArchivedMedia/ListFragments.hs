@@ -61,11 +61,11 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
     newListFragments,
 
     -- * Request Lenses
-    listFragments_nextToken,
-    listFragments_maxResults,
-    listFragments_streamARN,
-    listFragments_streamName,
     listFragments_fragmentSelector,
+    listFragments_streamARN,
+    listFragments_nextToken,
+    listFragments_streamName,
+    listFragments_maxResults,
 
     -- * Destructuring the Response
     ListFragmentsResponse (..),
@@ -87,24 +87,24 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFragments' smart constructor.
 data ListFragments = ListFragments'
-  { -- | A token to specify where to start paginating. This is the
-    -- ListFragmentsOutput$NextToken from a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of fragments to return. If the total number of
-    -- fragments available is more than the value specified in @max-results@,
-    -- then a ListFragmentsOutput$NextToken is provided in the output that you
-    -- can use to resume pagination.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | Describes the timestamp range and timestamp origin for the range of
+    -- fragments to return.
+    fragmentSelector :: Prelude.Maybe FragmentSelector,
     -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
     -- fragment list. Specify either this parameter or the @StreamName@
     -- parameter.
     streamARN :: Prelude.Maybe Prelude.Text,
+    -- | A token to specify where to start paginating. This is the
+    -- ListFragmentsOutput$NextToken from a previously truncated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream from which to retrieve a fragment list. Specify
     -- either this parameter or the @StreamARN@ parameter.
     streamName :: Prelude.Maybe Prelude.Text,
-    -- | Describes the timestamp range and timestamp origin for the range of
-    -- fragments to return.
-    fragmentSelector :: Prelude.Maybe FragmentSelector
+    -- | The total number of fragments to return. If the total number of
+    -- fragments available is more than the value specified in @max-results@,
+    -- then a ListFragmentsOutput$NextToken is provided in the output that you
+    -- can use to resume pagination.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,45 +116,38 @@ data ListFragments = ListFragments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFragments_nextToken' - A token to specify where to start paginating. This is the
--- ListFragmentsOutput$NextToken from a previously truncated response.
---
--- 'maxResults', 'listFragments_maxResults' - The total number of fragments to return. If the total number of
--- fragments available is more than the value specified in @max-results@,
--- then a ListFragmentsOutput$NextToken is provided in the output that you
--- can use to resume pagination.
+-- 'fragmentSelector', 'listFragments_fragmentSelector' - Describes the timestamp range and timestamp origin for the range of
+-- fragments to return.
 --
 -- 'streamARN', 'listFragments_streamARN' - The Amazon Resource Name (ARN) of the stream from which to retrieve a
 -- fragment list. Specify either this parameter or the @StreamName@
 -- parameter.
 --
+-- 'nextToken', 'listFragments_nextToken' - A token to specify where to start paginating. This is the
+-- ListFragmentsOutput$NextToken from a previously truncated response.
+--
 -- 'streamName', 'listFragments_streamName' - The name of the stream from which to retrieve a fragment list. Specify
 -- either this parameter or the @StreamARN@ parameter.
 --
--- 'fragmentSelector', 'listFragments_fragmentSelector' - Describes the timestamp range and timestamp origin for the range of
--- fragments to return.
+-- 'maxResults', 'listFragments_maxResults' - The total number of fragments to return. If the total number of
+-- fragments available is more than the value specified in @max-results@,
+-- then a ListFragmentsOutput$NextToken is provided in the output that you
+-- can use to resume pagination.
 newListFragments ::
   ListFragments
 newListFragments =
   ListFragments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { fragmentSelector = Prelude.Nothing,
       streamARN = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       streamName = Prelude.Nothing,
-      fragmentSelector = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
 
--- | A token to specify where to start paginating. This is the
--- ListFragmentsOutput$NextToken from a previously truncated response.
-listFragments_nextToken :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
-listFragments_nextToken = Lens.lens (\ListFragments' {nextToken} -> nextToken) (\s@ListFragments' {} a -> s {nextToken = a} :: ListFragments)
-
--- | The total number of fragments to return. If the total number of
--- fragments available is more than the value specified in @max-results@,
--- then a ListFragmentsOutput$NextToken is provided in the output that you
--- can use to resume pagination.
-listFragments_maxResults :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Natural)
-listFragments_maxResults = Lens.lens (\ListFragments' {maxResults} -> maxResults) (\s@ListFragments' {} a -> s {maxResults = a} :: ListFragments)
+-- | Describes the timestamp range and timestamp origin for the range of
+-- fragments to return.
+listFragments_fragmentSelector :: Lens.Lens' ListFragments (Prelude.Maybe FragmentSelector)
+listFragments_fragmentSelector = Lens.lens (\ListFragments' {fragmentSelector} -> fragmentSelector) (\s@ListFragments' {} a -> s {fragmentSelector = a} :: ListFragments)
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
 -- fragment list. Specify either this parameter or the @StreamName@
@@ -162,15 +155,22 @@ listFragments_maxResults = Lens.lens (\ListFragments' {maxResults} -> maxResults
 listFragments_streamARN :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
 listFragments_streamARN = Lens.lens (\ListFragments' {streamARN} -> streamARN) (\s@ListFragments' {} a -> s {streamARN = a} :: ListFragments)
 
+-- | A token to specify where to start paginating. This is the
+-- ListFragmentsOutput$NextToken from a previously truncated response.
+listFragments_nextToken :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
+listFragments_nextToken = Lens.lens (\ListFragments' {nextToken} -> nextToken) (\s@ListFragments' {} a -> s {nextToken = a} :: ListFragments)
+
 -- | The name of the stream from which to retrieve a fragment list. Specify
 -- either this parameter or the @StreamARN@ parameter.
 listFragments_streamName :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
 listFragments_streamName = Lens.lens (\ListFragments' {streamName} -> streamName) (\s@ListFragments' {} a -> s {streamName = a} :: ListFragments)
 
--- | Describes the timestamp range and timestamp origin for the range of
--- fragments to return.
-listFragments_fragmentSelector :: Lens.Lens' ListFragments (Prelude.Maybe FragmentSelector)
-listFragments_fragmentSelector = Lens.lens (\ListFragments' {fragmentSelector} -> fragmentSelector) (\s@ListFragments' {} a -> s {fragmentSelector = a} :: ListFragments)
+-- | The total number of fragments to return. If the total number of
+-- fragments available is more than the value specified in @max-results@,
+-- then a ListFragmentsOutput$NextToken is provided in the output that you
+-- can use to resume pagination.
+listFragments_maxResults :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Natural)
+listFragments_maxResults = Lens.lens (\ListFragments' {maxResults} -> maxResults) (\s@ListFragments' {} a -> s {maxResults = a} :: ListFragments)
 
 instance Core.AWSPager ListFragments where
   page rq rs
@@ -216,12 +216,12 @@ instance Core.ToJSON ListFragments where
   toJSON ListFragments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("FragmentSelector" Core..=)
+              Prelude.<$> fragmentSelector,
             ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("StreamName" Core..=) Prelude.<$> streamName,
-            ("FragmentSelector" Core..=)
-              Prelude.<$> fragmentSelector
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -281,7 +281,7 @@ listFragmentsResponse_nextToken = Lens.lens (\ListFragmentsResponse' {nextToken}
 -- | A list of archived Fragment objects from the stream that meet the
 -- selector criteria. Results are in no specific order, even across pages.
 listFragmentsResponse_fragments :: Lens.Lens' ListFragmentsResponse (Prelude.Maybe [Fragment])
-listFragmentsResponse_fragments = Lens.lens (\ListFragmentsResponse' {fragments} -> fragments) (\s@ListFragmentsResponse' {} a -> s {fragments = a} :: ListFragmentsResponse) Prelude.. Lens.mapping Lens._Coerce
+listFragmentsResponse_fragments = Lens.lens (\ListFragmentsResponse' {fragments} -> fragments) (\s@ListFragmentsResponse' {} a -> s {fragments = a} :: ListFragmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFragmentsResponse_httpStatus :: Lens.Lens' ListFragmentsResponse Prelude.Int

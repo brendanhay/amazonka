@@ -23,23 +23,23 @@ module Network.AWS.MQ
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -47,11 +47,11 @@ module Network.AWS.MQ
     -- * Operations
     -- $operations
 
-    -- ** DescribeBrokerInstanceOptions
-    DescribeBrokerInstanceOptions (DescribeBrokerInstanceOptions'),
-    newDescribeBrokerInstanceOptions,
-    DescribeBrokerInstanceOptionsResponse (DescribeBrokerInstanceOptionsResponse'),
-    newDescribeBrokerInstanceOptionsResponse,
+    -- ** CreateConfiguration
+    CreateConfiguration (CreateConfiguration'),
+    newCreateConfiguration,
+    CreateConfigurationResponse (CreateConfigurationResponse'),
+    newCreateConfigurationResponse,
 
     -- ** CreateBroker
     CreateBroker (CreateBroker'),
@@ -59,53 +59,11 @@ module Network.AWS.MQ
     CreateBrokerResponse (CreateBrokerResponse'),
     newCreateBrokerResponse,
 
-    -- ** ListConfigurations
-    ListConfigurations (ListConfigurations'),
-    newListConfigurations,
-    ListConfigurationsResponse (ListConfigurationsResponse'),
-    newListConfigurationsResponse,
-
-    -- ** UpdateConfiguration
-    UpdateConfiguration (UpdateConfiguration'),
-    newUpdateConfiguration,
-    UpdateConfigurationResponse (UpdateConfigurationResponse'),
-    newUpdateConfigurationResponse,
-
-    -- ** DescribeBroker
-    DescribeBroker (DescribeBroker'),
-    newDescribeBroker,
-    DescribeBrokerResponse (DescribeBrokerResponse'),
-    newDescribeBrokerResponse,
-
-    -- ** DescribeBrokerEngineTypes
-    DescribeBrokerEngineTypes (DescribeBrokerEngineTypes'),
-    newDescribeBrokerEngineTypes,
-    DescribeBrokerEngineTypesResponse (DescribeBrokerEngineTypesResponse'),
-    newDescribeBrokerEngineTypesResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** CreateUser
-    CreateUser (CreateUser'),
-    newCreateUser,
-    CreateUserResponse (CreateUserResponse'),
-    newCreateUserResponse,
-
-    -- ** ListBrokers (Paginated)
-    ListBrokers (ListBrokers'),
-    newListBrokers,
-    ListBrokersResponse (ListBrokersResponse'),
-    newListBrokersResponse,
-
-    -- ** RebootBroker
-    RebootBroker (RebootBroker'),
-    newRebootBroker,
-    RebootBrokerResponse (RebootBrokerResponse'),
-    newRebootBrokerResponse,
+    -- ** DeleteBroker
+    DeleteBroker (DeleteBroker'),
+    newDeleteBroker,
+    DeleteBrokerResponse (DeleteBrokerResponse'),
+    newDeleteBrokerResponse,
 
     -- ** UpdateBroker
     UpdateBroker (UpdateBroker'),
@@ -113,11 +71,11 @@ module Network.AWS.MQ
     UpdateBrokerResponse (UpdateBrokerResponse'),
     newUpdateBrokerResponse,
 
-    -- ** DeleteBroker
-    DeleteBroker (DeleteBroker'),
-    newDeleteBroker,
-    DeleteBrokerResponse (DeleteBrokerResponse'),
-    newDeleteBrokerResponse,
+    -- ** RebootBroker
+    RebootBroker (RebootBroker'),
+    newRebootBroker,
+    RebootBrokerResponse (RebootBrokerResponse'),
+    newRebootBrokerResponse,
 
     -- ** ListConfigurationRevisions
     ListConfigurationRevisions (ListConfigurationRevisions'),
@@ -125,35 +83,11 @@ module Network.AWS.MQ
     ListConfigurationRevisionsResponse (ListConfigurationRevisionsResponse'),
     newListConfigurationRevisionsResponse,
 
-    -- ** CreateConfiguration
-    CreateConfiguration (CreateConfiguration'),
-    newCreateConfiguration,
-    CreateConfigurationResponse (CreateConfigurationResponse'),
-    newCreateConfigurationResponse,
-
-    -- ** DescribeUser
-    DescribeUser (DescribeUser'),
-    newDescribeUser,
-    DescribeUserResponse (DescribeUserResponse'),
-    newDescribeUserResponse,
-
-    -- ** DescribeConfigurationRevision
-    DescribeConfigurationRevision (DescribeConfigurationRevision'),
-    newDescribeConfigurationRevision,
-    DescribeConfigurationRevisionResponse (DescribeConfigurationRevisionResponse'),
-    newDescribeConfigurationRevisionResponse,
-
-    -- ** ListTags
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** UpdateUser
-    UpdateUser (UpdateUser'),
-    newUpdateUser,
-    UpdateUserResponse (UpdateUserResponse'),
-    newUpdateUserResponse,
+    -- ** CreateTags
+    CreateTags (CreateTags'),
+    newCreateTags,
+    CreateTagsResponse (CreateTagsResponse'),
+    newCreateTagsResponse,
 
     -- ** ListUsers
     ListUsers (ListUsers'),
@@ -161,11 +95,41 @@ module Network.AWS.MQ
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** ListConfigurations
+    ListConfigurations (ListConfigurations'),
+    newListConfigurations,
+    ListConfigurationsResponse (ListConfigurationsResponse'),
+    newListConfigurationsResponse,
+
+    -- ** DescribeUser
+    DescribeUser (DescribeUser'),
+    newDescribeUser,
+    DescribeUserResponse (DescribeUserResponse'),
+    newDescribeUserResponse,
+
+    -- ** DescribeBrokerInstanceOptions
+    DescribeBrokerInstanceOptions (DescribeBrokerInstanceOptions'),
+    newDescribeBrokerInstanceOptions,
+    DescribeBrokerInstanceOptionsResponse (DescribeBrokerInstanceOptionsResponse'),
+    newDescribeBrokerInstanceOptionsResponse,
+
+    -- ** ListBrokers (Paginated)
+    ListBrokers (ListBrokers'),
+    newListBrokers,
+    ListBrokersResponse (ListBrokersResponse'),
+    newListBrokersResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
     -- ** DescribeConfiguration
     DescribeConfiguration (DescribeConfiguration'),
@@ -173,11 +137,47 @@ module Network.AWS.MQ
     DescribeConfigurationResponse (DescribeConfigurationResponse'),
     newDescribeConfigurationResponse,
 
-    -- ** CreateTags
-    CreateTags (CreateTags'),
-    newCreateTags,
-    CreateTagsResponse (CreateTagsResponse'),
-    newCreateTagsResponse,
+    -- ** UpdateUser
+    UpdateUser (UpdateUser'),
+    newUpdateUser,
+    UpdateUserResponse (UpdateUserResponse'),
+    newUpdateUserResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
+
+    -- ** ListTags
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** DescribeBrokerEngineTypes
+    DescribeBrokerEngineTypes (DescribeBrokerEngineTypes'),
+    newDescribeBrokerEngineTypes,
+    DescribeBrokerEngineTypesResponse (DescribeBrokerEngineTypesResponse'),
+    newDescribeBrokerEngineTypesResponse,
+
+    -- ** DescribeConfigurationRevision
+    DescribeConfigurationRevision (DescribeConfigurationRevision'),
+    newDescribeConfigurationRevision,
+    DescribeConfigurationRevisionResponse (DescribeConfigurationRevisionResponse'),
+    newDescribeConfigurationRevisionResponse,
+
+    -- ** DescribeBroker
+    DescribeBroker (DescribeBroker'),
+    newDescribeBroker,
+    DescribeBrokerResponse (DescribeBrokerResponse'),
+    newDescribeBrokerResponse,
+
+    -- ** UpdateConfiguration
+    UpdateConfiguration (UpdateConfiguration'),
+    newUpdateConfiguration,
+    UpdateConfigurationResponse (UpdateConfigurationResponse'),
+    newUpdateConfigurationResponse,
 
     -- * Types
 

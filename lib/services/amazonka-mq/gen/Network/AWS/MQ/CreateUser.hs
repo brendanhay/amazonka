@@ -119,7 +119,7 @@ newCreateUser pUsername_ pBrokerId_ pPassword_ =
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 createUser_groups :: Lens.Lens' CreateUser (Prelude.Maybe [Prelude.Text])
-createUser_groups = Lens.lens (\CreateUser' {groups} -> groups) (\s@CreateUser' {} a -> s {groups = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
+createUser_groups = Lens.lens (\CreateUser' {groups} -> groups) (\s@CreateUser' {} a -> s {groups = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables access to the ActiveMQ Web Console for the ActiveMQ user.
 createUser_consoleAccess :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)

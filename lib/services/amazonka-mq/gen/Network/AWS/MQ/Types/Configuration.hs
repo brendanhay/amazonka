@@ -137,7 +137,7 @@ newConfiguration
 
 -- | The list of all tags associated with this configuration.
 configuration_tags :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configuration_tags = Lens.lens (\Configuration' {tags} -> tags) (\s@Configuration' {} a -> s {tags = a} :: Configuration) Prelude.. Lens.mapping Lens._Coerce
+configuration_tags = Lens.lens (\Configuration' {tags} -> tags) (\s@Configuration' {} a -> s {tags = a} :: Configuration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Required. The description of the configuration.
 configuration_description :: Lens.Lens' Configuration Prelude.Text

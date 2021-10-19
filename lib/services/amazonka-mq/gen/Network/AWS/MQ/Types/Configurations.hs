@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Configurations = Configurations'
   { -- | The broker\'s pending configuration.
     pending :: Prelude.Maybe ConfigurationId,
-    -- | The broker\'s current configuration.
-    current :: Prelude.Maybe ConfigurationId,
     -- | The history of configurations applied to the broker.
-    history :: Prelude.Maybe [ConfigurationId]
+    history :: Prelude.Maybe [ConfigurationId],
+    -- | The broker\'s current configuration.
+    current :: Prelude.Maybe ConfigurationId
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data Configurations = Configurations'
 --
 -- 'pending', 'configurations_pending' - The broker\'s pending configuration.
 --
--- 'current', 'configurations_current' - The broker\'s current configuration.
---
 -- 'history', 'configurations_history' - The history of configurations applied to the broker.
+--
+-- 'current', 'configurations_current' - The broker\'s current configuration.
 newConfigurations ::
   Configurations
 newConfigurations =
   Configurations'
     { pending = Prelude.Nothing,
-      current = Prelude.Nothing,
-      history = Prelude.Nothing
+      history = Prelude.Nothing,
+      current = Prelude.Nothing
     }
 
 -- | The broker\'s pending configuration.
 configurations_pending :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
 configurations_pending = Lens.lens (\Configurations' {pending} -> pending) (\s@Configurations' {} a -> s {pending = a} :: Configurations)
 
+-- | The history of configurations applied to the broker.
+configurations_history :: Lens.Lens' Configurations (Prelude.Maybe [ConfigurationId])
+configurations_history = Lens.lens (\Configurations' {history} -> history) (\s@Configurations' {} a -> s {history = a} :: Configurations) Prelude.. Lens.mapping Lens.coerced
+
 -- | The broker\'s current configuration.
 configurations_current :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
 configurations_current = Lens.lens (\Configurations' {current} -> current) (\s@Configurations' {} a -> s {current = a} :: Configurations)
-
--- | The history of configurations applied to the broker.
-configurations_history :: Lens.Lens' Configurations (Prelude.Maybe [ConfigurationId])
-configurations_history = Lens.lens (\Configurations' {history} -> history) (\s@Configurations' {} a -> s {history = a} :: Configurations) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON Configurations where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON Configurations where
       ( \x ->
           Configurations'
             Prelude.<$> (x Core..:? "pending")
-            Prelude.<*> (x Core..:? "current")
             Prelude.<*> (x Core..:? "history" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "current")
       )
 
 instance Prelude.Hashable Configurations

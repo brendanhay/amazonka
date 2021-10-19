@@ -66,17 +66,17 @@ module Network.AWS.MQ.CreateBroker
     newCreateBroker,
 
     -- * Request Lenses
-    createBroker_encryptionOptions,
-    createBroker_ldapServerMetadata,
-    createBroker_storageType,
-    createBroker_authenticationStrategy,
-    createBroker_configuration,
-    createBroker_creatorRequestId,
-    createBroker_subnetIds,
     createBroker_securityGroups,
-    createBroker_logs,
+    createBroker_subnetIds,
+    createBroker_creatorRequestId,
+    createBroker_authenticationStrategy,
+    createBroker_ldapServerMetadata,
     createBroker_maintenanceWindowStartTime,
+    createBroker_logs,
+    createBroker_encryptionOptions,
+    createBroker_configuration,
     createBroker_tags,
+    createBroker_storageType,
     createBroker_engineVersion,
     createBroker_hostInstanceType,
     createBroker_autoMinorVersionUpgrade,
@@ -108,24 +108,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateBroker' smart constructor.
 data CreateBroker = CreateBroker'
-  { -- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
-    encryptionOptions :: Prelude.Maybe EncryptionOptions,
-    -- | Optional. The metadata of the LDAP server used to authenticate and
-    -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
-    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataInput,
-    -- | The broker\'s storage type.
-    storageType :: Prelude.Maybe BrokerStorageType,
-    -- | Optional. The authentication strategy used to secure the broker. The
-    -- default is SIMPLE.
-    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
-    -- | A list of information about the configuration.
-    configuration :: Prelude.Maybe ConfigurationId,
-    -- | The unique ID that the requester receives for the created broker. Amazon
-    -- MQ passes your ID with the API action. Note: We recommend using a
-    -- Universally Unique Identifier (UUID) for the creatorRequestId. You may
-    -- omit the creatorRequestId if your application doesn\'t require
-    -- idempotency.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
+  { -- | The list of rules (1 minimum, 125 maximum) that authorize connections to
+    -- brokers.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The list of groups that define which subnets and IP ranges the broker
     -- can use from different Availability Zones. If you specify more than one
     -- subnet, the subnets must be in different Availability Zones. Amazon MQ
@@ -143,15 +128,30 @@ data CreateBroker = CreateBroker'
     -- belong must be owned by your AWS account. Amazon MQ will not be able to
     -- create VPC endpoints in VPCs that are not owned by your AWS account.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The list of rules (1 minimum, 125 maximum) that authorize connections to
-    -- brokers.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | Enables Amazon CloudWatch logging for brokers.
-    logs :: Prelude.Maybe Logs,
+    -- | The unique ID that the requester receives for the created broker. Amazon
+    -- MQ passes your ID with the API action. Note: We recommend using a
+    -- Universally Unique Identifier (UUID) for the creatorRequestId. You may
+    -- omit the creatorRequestId if your application doesn\'t require
+    -- idempotency.
+    creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The authentication strategy used to secure the broker. The
+    -- default is SIMPLE.
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+    -- | Optional. The metadata of the LDAP server used to authenticate and
+    -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
+    ldapServerMetadata :: Prelude.Maybe LdapServerMetadataInput,
     -- | The parameters that determine the WeeklyStartTime.
     maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
+    -- | Enables Amazon CloudWatch logging for brokers.
+    logs :: Prelude.Maybe Logs,
+    -- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+    encryptionOptions :: Prelude.Maybe EncryptionOptions,
+    -- | A list of information about the configuration.
+    configuration :: Prelude.Maybe ConfigurationId,
     -- | Create tags when creating the broker.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The broker\'s storage type.
+    storageType :: Prelude.Maybe BrokerStorageType,
     -- | Required. The broker engine\'s version. For a list of supported engine
     -- versions, see
     -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
@@ -199,23 +199,8 @@ data CreateBroker = CreateBroker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionOptions', 'createBroker_encryptionOptions' - Encryption options for the broker. Does not apply to RabbitMQ brokers.
---
--- 'ldapServerMetadata', 'createBroker_ldapServerMetadata' - Optional. The metadata of the LDAP server used to authenticate and
--- authorize connections to the broker. Does not apply to RabbitMQ brokers.
---
--- 'storageType', 'createBroker_storageType' - The broker\'s storage type.
---
--- 'authenticationStrategy', 'createBroker_authenticationStrategy' - Optional. The authentication strategy used to secure the broker. The
--- default is SIMPLE.
---
--- 'configuration', 'createBroker_configuration' - A list of information about the configuration.
---
--- 'creatorRequestId', 'createBroker_creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon
--- MQ passes your ID with the API action. Note: We recommend using a
--- Universally Unique Identifier (UUID) for the creatorRequestId. You may
--- omit the creatorRequestId if your application doesn\'t require
--- idempotency.
+-- 'securityGroups', 'createBroker_securityGroups' - The list of rules (1 minimum, 125 maximum) that authorize connections to
+-- brokers.
 --
 -- 'subnetIds', 'createBroker_subnetIds' - The list of groups that define which subnets and IP ranges the broker
 -- can use from different Availability Zones. If you specify more than one
@@ -234,14 +219,29 @@ data CreateBroker = CreateBroker'
 -- belong must be owned by your AWS account. Amazon MQ will not be able to
 -- create VPC endpoints in VPCs that are not owned by your AWS account.
 --
--- 'securityGroups', 'createBroker_securityGroups' - The list of rules (1 minimum, 125 maximum) that authorize connections to
--- brokers.
+-- 'creatorRequestId', 'createBroker_creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon
+-- MQ passes your ID with the API action. Note: We recommend using a
+-- Universally Unique Identifier (UUID) for the creatorRequestId. You may
+-- omit the creatorRequestId if your application doesn\'t require
+-- idempotency.
 --
--- 'logs', 'createBroker_logs' - Enables Amazon CloudWatch logging for brokers.
+-- 'authenticationStrategy', 'createBroker_authenticationStrategy' - Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
+--
+-- 'ldapServerMetadata', 'createBroker_ldapServerMetadata' - Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
 --
 -- 'maintenanceWindowStartTime', 'createBroker_maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 --
+-- 'logs', 'createBroker_logs' - Enables Amazon CloudWatch logging for brokers.
+--
+-- 'encryptionOptions', 'createBroker_encryptionOptions' - Encryption options for the broker. Does not apply to RabbitMQ brokers.
+--
+-- 'configuration', 'createBroker_configuration' - A list of information about the configuration.
+--
 -- 'tags', 'createBroker_tags' - Create tags when creating the broker.
+--
+-- 'storageType', 'createBroker_storageType' - The broker\'s storage type.
 --
 -- 'engineVersion', 'createBroker_engineVersion' - Required. The broker engine\'s version. For a list of supported engine
 -- versions, see
@@ -303,17 +303,17 @@ newCreateBroker
   pEngineType_
   pPubliclyAccessible_ =
     CreateBroker'
-      { encryptionOptions = Prelude.Nothing,
-        ldapServerMetadata = Prelude.Nothing,
-        storageType = Prelude.Nothing,
-        authenticationStrategy = Prelude.Nothing,
-        configuration = Prelude.Nothing,
-        creatorRequestId = Prelude.Nothing,
+      { securityGroups = Prelude.Nothing,
         subnetIds = Prelude.Nothing,
-        securityGroups = Prelude.Nothing,
-        logs = Prelude.Nothing,
+        creatorRequestId = Prelude.Nothing,
+        authenticationStrategy = Prelude.Nothing,
+        ldapServerMetadata = Prelude.Nothing,
         maintenanceWindowStartTime = Prelude.Nothing,
+        logs = Prelude.Nothing,
+        encryptionOptions = Prelude.Nothing,
+        configuration = Prelude.Nothing,
         tags = Prelude.Nothing,
+        storageType = Prelude.Nothing,
         engineVersion = pEngineVersion_,
         hostInstanceType = pHostInstanceType_,
         autoMinorVersionUpgrade = pAutoMinorVersionUpgrade_,
@@ -324,35 +324,10 @@ newCreateBroker
         publiclyAccessible = pPubliclyAccessible_
       }
 
--- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
-createBroker_encryptionOptions :: Lens.Lens' CreateBroker (Prelude.Maybe EncryptionOptions)
-createBroker_encryptionOptions = Lens.lens (\CreateBroker' {encryptionOptions} -> encryptionOptions) (\s@CreateBroker' {} a -> s {encryptionOptions = a} :: CreateBroker)
-
--- | Optional. The metadata of the LDAP server used to authenticate and
--- authorize connections to the broker. Does not apply to RabbitMQ brokers.
-createBroker_ldapServerMetadata :: Lens.Lens' CreateBroker (Prelude.Maybe LdapServerMetadataInput)
-createBroker_ldapServerMetadata = Lens.lens (\CreateBroker' {ldapServerMetadata} -> ldapServerMetadata) (\s@CreateBroker' {} a -> s {ldapServerMetadata = a} :: CreateBroker)
-
--- | The broker\'s storage type.
-createBroker_storageType :: Lens.Lens' CreateBroker (Prelude.Maybe BrokerStorageType)
-createBroker_storageType = Lens.lens (\CreateBroker' {storageType} -> storageType) (\s@CreateBroker' {} a -> s {storageType = a} :: CreateBroker)
-
--- | Optional. The authentication strategy used to secure the broker. The
--- default is SIMPLE.
-createBroker_authenticationStrategy :: Lens.Lens' CreateBroker (Prelude.Maybe AuthenticationStrategy)
-createBroker_authenticationStrategy = Lens.lens (\CreateBroker' {authenticationStrategy} -> authenticationStrategy) (\s@CreateBroker' {} a -> s {authenticationStrategy = a} :: CreateBroker)
-
--- | A list of information about the configuration.
-createBroker_configuration :: Lens.Lens' CreateBroker (Prelude.Maybe ConfigurationId)
-createBroker_configuration = Lens.lens (\CreateBroker' {configuration} -> configuration) (\s@CreateBroker' {} a -> s {configuration = a} :: CreateBroker)
-
--- | The unique ID that the requester receives for the created broker. Amazon
--- MQ passes your ID with the API action. Note: We recommend using a
--- Universally Unique Identifier (UUID) for the creatorRequestId. You may
--- omit the creatorRequestId if your application doesn\'t require
--- idempotency.
-createBroker_creatorRequestId :: Lens.Lens' CreateBroker (Prelude.Maybe Prelude.Text)
-createBroker_creatorRequestId = Lens.lens (\CreateBroker' {creatorRequestId} -> creatorRequestId) (\s@CreateBroker' {} a -> s {creatorRequestId = a} :: CreateBroker)
+-- | The list of rules (1 minimum, 125 maximum) that authorize connections to
+-- brokers.
+createBroker_securityGroups :: Lens.Lens' CreateBroker (Prelude.Maybe [Prelude.Text])
+createBroker_securityGroups = Lens.lens (\CreateBroker' {securityGroups} -> securityGroups) (\s@CreateBroker' {} a -> s {securityGroups = a} :: CreateBroker) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of groups that define which subnets and IP ranges the broker
 -- can use from different Availability Zones. If you specify more than one
@@ -371,24 +346,49 @@ createBroker_creatorRequestId = Lens.lens (\CreateBroker' {creatorRequestId} -> 
 -- belong must be owned by your AWS account. Amazon MQ will not be able to
 -- create VPC endpoints in VPCs that are not owned by your AWS account.
 createBroker_subnetIds :: Lens.Lens' CreateBroker (Prelude.Maybe [Prelude.Text])
-createBroker_subnetIds = Lens.lens (\CreateBroker' {subnetIds} -> subnetIds) (\s@CreateBroker' {} a -> s {subnetIds = a} :: CreateBroker) Prelude.. Lens.mapping Lens._Coerce
+createBroker_subnetIds = Lens.lens (\CreateBroker' {subnetIds} -> subnetIds) (\s@CreateBroker' {} a -> s {subnetIds = a} :: CreateBroker) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of rules (1 minimum, 125 maximum) that authorize connections to
--- brokers.
-createBroker_securityGroups :: Lens.Lens' CreateBroker (Prelude.Maybe [Prelude.Text])
-createBroker_securityGroups = Lens.lens (\CreateBroker' {securityGroups} -> securityGroups) (\s@CreateBroker' {} a -> s {securityGroups = a} :: CreateBroker) Prelude.. Lens.mapping Lens._Coerce
+-- | The unique ID that the requester receives for the created broker. Amazon
+-- MQ passes your ID with the API action. Note: We recommend using a
+-- Universally Unique Identifier (UUID) for the creatorRequestId. You may
+-- omit the creatorRequestId if your application doesn\'t require
+-- idempotency.
+createBroker_creatorRequestId :: Lens.Lens' CreateBroker (Prelude.Maybe Prelude.Text)
+createBroker_creatorRequestId = Lens.lens (\CreateBroker' {creatorRequestId} -> creatorRequestId) (\s@CreateBroker' {} a -> s {creatorRequestId = a} :: CreateBroker)
 
--- | Enables Amazon CloudWatch logging for brokers.
-createBroker_logs :: Lens.Lens' CreateBroker (Prelude.Maybe Logs)
-createBroker_logs = Lens.lens (\CreateBroker' {logs} -> logs) (\s@CreateBroker' {} a -> s {logs = a} :: CreateBroker)
+-- | Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
+createBroker_authenticationStrategy :: Lens.Lens' CreateBroker (Prelude.Maybe AuthenticationStrategy)
+createBroker_authenticationStrategy = Lens.lens (\CreateBroker' {authenticationStrategy} -> authenticationStrategy) (\s@CreateBroker' {} a -> s {authenticationStrategy = a} :: CreateBroker)
+
+-- | Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
+createBroker_ldapServerMetadata :: Lens.Lens' CreateBroker (Prelude.Maybe LdapServerMetadataInput)
+createBroker_ldapServerMetadata = Lens.lens (\CreateBroker' {ldapServerMetadata} -> ldapServerMetadata) (\s@CreateBroker' {} a -> s {ldapServerMetadata = a} :: CreateBroker)
 
 -- | The parameters that determine the WeeklyStartTime.
 createBroker_maintenanceWindowStartTime :: Lens.Lens' CreateBroker (Prelude.Maybe WeeklyStartTime)
 createBroker_maintenanceWindowStartTime = Lens.lens (\CreateBroker' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@CreateBroker' {} a -> s {maintenanceWindowStartTime = a} :: CreateBroker)
 
+-- | Enables Amazon CloudWatch logging for brokers.
+createBroker_logs :: Lens.Lens' CreateBroker (Prelude.Maybe Logs)
+createBroker_logs = Lens.lens (\CreateBroker' {logs} -> logs) (\s@CreateBroker' {} a -> s {logs = a} :: CreateBroker)
+
+-- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+createBroker_encryptionOptions :: Lens.Lens' CreateBroker (Prelude.Maybe EncryptionOptions)
+createBroker_encryptionOptions = Lens.lens (\CreateBroker' {encryptionOptions} -> encryptionOptions) (\s@CreateBroker' {} a -> s {encryptionOptions = a} :: CreateBroker)
+
+-- | A list of information about the configuration.
+createBroker_configuration :: Lens.Lens' CreateBroker (Prelude.Maybe ConfigurationId)
+createBroker_configuration = Lens.lens (\CreateBroker' {configuration} -> configuration) (\s@CreateBroker' {} a -> s {configuration = a} :: CreateBroker)
+
 -- | Create tags when creating the broker.
 createBroker_tags :: Lens.Lens' CreateBroker (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createBroker_tags = Lens.lens (\CreateBroker' {tags} -> tags) (\s@CreateBroker' {} a -> s {tags = a} :: CreateBroker) Prelude.. Lens.mapping Lens._Coerce
+createBroker_tags = Lens.lens (\CreateBroker' {tags} -> tags) (\s@CreateBroker' {} a -> s {tags = a} :: CreateBroker) Prelude.. Lens.mapping Lens.coerced
+
+-- | The broker\'s storage type.
+createBroker_storageType :: Lens.Lens' CreateBroker (Prelude.Maybe BrokerStorageType)
+createBroker_storageType = Lens.lens (\CreateBroker' {storageType} -> storageType) (\s@CreateBroker' {} a -> s {storageType = a} :: CreateBroker)
 
 -- | Required. The broker engine\'s version. For a list of supported engine
 -- versions, see
@@ -419,7 +419,7 @@ createBroker_autoMinorVersionUpgrade = Lens.lens (\CreateBroker' {autoMinorVersi
 -- provisioned. All subsequent broker users are created by making RabbitMQ
 -- API calls directly to brokers or via the RabbitMQ web console.
 createBroker_users :: Lens.Lens' CreateBroker [User]
-createBroker_users = Lens.lens (\CreateBroker' {users} -> users) (\s@CreateBroker' {} a -> s {users = a} :: CreateBroker) Prelude.. Lens._Coerce
+createBroker_users = Lens.lens (\CreateBroker' {users} -> users) (\s@CreateBroker' {} a -> s {users = a} :: CreateBroker) Prelude.. Lens.coerced
 
 -- | Required. The broker\'s name. This value must be unique in your AWS
 -- account, 1-50 characters long, must contain only letters, numbers,
@@ -473,23 +473,23 @@ instance Core.ToJSON CreateBroker where
   toJSON CreateBroker' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encryptionOptions" Core..=)
-              Prelude.<$> encryptionOptions,
-            ("ldapServerMetadata" Core..=)
-              Prelude.<$> ldapServerMetadata,
-            ("storageType" Core..=) Prelude.<$> storageType,
-            ("authenticationStrategy" Core..=)
-              Prelude.<$> authenticationStrategy,
-            ("configuration" Core..=) Prelude.<$> configuration,
+          [ ("securityGroups" Core..=)
+              Prelude.<$> securityGroups,
+            ("subnetIds" Core..=) Prelude.<$> subnetIds,
             ("creatorRequestId" Core..=)
               Prelude.<$> creatorRequestId,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
-            ("securityGroups" Core..=)
-              Prelude.<$> securityGroups,
-            ("logs" Core..=) Prelude.<$> logs,
+            ("authenticationStrategy" Core..=)
+              Prelude.<$> authenticationStrategy,
+            ("ldapServerMetadata" Core..=)
+              Prelude.<$> ldapServerMetadata,
             ("maintenanceWindowStartTime" Core..=)
               Prelude.<$> maintenanceWindowStartTime,
+            ("logs" Core..=) Prelude.<$> logs,
+            ("encryptionOptions" Core..=)
+              Prelude.<$> encryptionOptions,
+            ("configuration" Core..=) Prelude.<$> configuration,
             ("tags" Core..=) Prelude.<$> tags,
+            ("storageType" Core..=) Prelude.<$> storageType,
             Prelude.Just ("engineVersion" Core..= engineVersion),
             Prelude.Just
               ("hostInstanceType" Core..= hostInstanceType),

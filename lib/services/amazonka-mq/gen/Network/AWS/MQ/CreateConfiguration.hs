@@ -39,12 +39,12 @@ module Network.AWS.MQ.CreateConfiguration
     newCreateConfigurationResponse,
 
     -- * Response Lenses
-    createConfigurationResponse_authenticationStrategy,
-    createConfigurationResponse_latestRevision,
     createConfigurationResponse_arn,
-    createConfigurationResponse_id,
-    createConfigurationResponse_name,
+    createConfigurationResponse_latestRevision,
     createConfigurationResponse_created,
+    createConfigurationResponse_authenticationStrategy,
+    createConfigurationResponse_name,
+    createConfigurationResponse_id,
     createConfigurationResponse_httpStatus,
   )
 where
@@ -131,7 +131,7 @@ createConfiguration_authenticationStrategy = Lens.lens (\CreateConfiguration' {a
 
 -- | Create tags when creating the configuration.
 createConfiguration_tags :: Lens.Lens' CreateConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createConfiguration_tags = Lens.lens (\CreateConfiguration' {tags} -> tags) (\s@CreateConfiguration' {} a -> s {tags = a} :: CreateConfiguration) Prelude.. Lens.mapping Lens._Coerce
+createConfiguration_tags = Lens.lens (\CreateConfiguration' {tags} -> tags) (\s@CreateConfiguration' {} a -> s {tags = a} :: CreateConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Required. The broker engine\'s version. For a list of supported engine
 -- versions, see
@@ -159,12 +159,12 @@ instance Core.AWSRequest CreateConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateConfigurationResponse'
-            Prelude.<$> (x Core..?> "authenticationStrategy")
+            Prelude.<$> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "latestRevision")
-            Prelude.<*> (x Core..?> "arn")
-            Prelude.<*> (x Core..?> "id")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "created")
+            Prelude.<*> (x Core..?> "authenticationStrategy")
+            Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,21 +204,21 @@ instance Core.ToQuery CreateConfiguration where
 
 -- | /See:/ 'newCreateConfigurationResponse' smart constructor.
 data CreateConfigurationResponse = CreateConfigurationResponse'
-  { -- | Optional. The authentication strategy associated with the configuration.
-    -- The default is SIMPLE.
-    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+  { -- | Required. The Amazon Resource Name (ARN) of the configuration.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The latest revision of the configuration.
     latestRevision :: Prelude.Maybe ConfigurationRevision,
-    -- | Required. The Amazon Resource Name (ARN) of the configuration.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | Required. The date and time of the configuration.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | Optional. The authentication strategy associated with the configuration.
+    -- The default is SIMPLE.
+    authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | Required. The name of the configuration. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Core.POSIX,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,20 +232,20 @@ data CreateConfigurationResponse = CreateConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.
--- The default is SIMPLE.
+-- 'arn', 'createConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.
 --
 -- 'latestRevision', 'createConfigurationResponse_latestRevision' - The latest revision of the configuration.
 --
--- 'arn', 'createConfigurationResponse_arn' - Required. The Amazon Resource Name (ARN) of the configuration.
+-- 'created', 'createConfigurationResponse_created' - Required. The date and time of the configuration.
 --
--- 'id', 'createConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.
+-- 'authenticationStrategy', 'createConfigurationResponse_authenticationStrategy' - Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
 --
 -- 'name', 'createConfigurationResponse_name' - Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
 --
--- 'created', 'createConfigurationResponse_created' - Required. The date and time of the configuration.
+-- 'id', 'createConfigurationResponse_id' - Required. The unique ID that Amazon MQ generates for the configuration.
 --
 -- 'httpStatus', 'createConfigurationResponse_httpStatus' - The response's http status code.
 newCreateConfigurationResponse ::
@@ -254,32 +254,31 @@ newCreateConfigurationResponse ::
   CreateConfigurationResponse
 newCreateConfigurationResponse pHttpStatus_ =
   CreateConfigurationResponse'
-    { authenticationStrategy =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
       latestRevision = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
       created = Prelude.Nothing,
+      authenticationStrategy = Prelude.Nothing,
+      name = Prelude.Nothing,
+      id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Optional. The authentication strategy associated with the configuration.
--- The default is SIMPLE.
-createConfigurationResponse_authenticationStrategy :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe AuthenticationStrategy)
-createConfigurationResponse_authenticationStrategy = Lens.lens (\CreateConfigurationResponse' {authenticationStrategy} -> authenticationStrategy) (\s@CreateConfigurationResponse' {} a -> s {authenticationStrategy = a} :: CreateConfigurationResponse)
-
--- | The latest revision of the configuration.
-createConfigurationResponse_latestRevision :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
-createConfigurationResponse_latestRevision = Lens.lens (\CreateConfigurationResponse' {latestRevision} -> latestRevision) (\s@CreateConfigurationResponse' {} a -> s {latestRevision = a} :: CreateConfigurationResponse)
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
 createConfigurationResponse_arn :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
 createConfigurationResponse_arn = Lens.lens (\CreateConfigurationResponse' {arn} -> arn) (\s@CreateConfigurationResponse' {} a -> s {arn = a} :: CreateConfigurationResponse)
 
--- | Required. The unique ID that Amazon MQ generates for the configuration.
-createConfigurationResponse_id :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
-createConfigurationResponse_id = Lens.lens (\CreateConfigurationResponse' {id} -> id) (\s@CreateConfigurationResponse' {} a -> s {id = a} :: CreateConfigurationResponse)
+-- | The latest revision of the configuration.
+createConfigurationResponse_latestRevision :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
+createConfigurationResponse_latestRevision = Lens.lens (\CreateConfigurationResponse' {latestRevision} -> latestRevision) (\s@CreateConfigurationResponse' {} a -> s {latestRevision = a} :: CreateConfigurationResponse)
+
+-- | Required. The date and time of the configuration.
+createConfigurationResponse_created :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+createConfigurationResponse_created = Lens.lens (\CreateConfigurationResponse' {created} -> created) (\s@CreateConfigurationResponse' {} a -> s {created = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Optional. The authentication strategy associated with the configuration.
+-- The default is SIMPLE.
+createConfigurationResponse_authenticationStrategy :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe AuthenticationStrategy)
+createConfigurationResponse_authenticationStrategy = Lens.lens (\CreateConfigurationResponse' {authenticationStrategy} -> authenticationStrategy) (\s@CreateConfigurationResponse' {} a -> s {authenticationStrategy = a} :: CreateConfigurationResponse)
 
 -- | Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -287,9 +286,9 @@ createConfigurationResponse_id = Lens.lens (\CreateConfigurationResponse' {id} -
 createConfigurationResponse_name :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
 createConfigurationResponse_name = Lens.lens (\CreateConfigurationResponse' {name} -> name) (\s@CreateConfigurationResponse' {} a -> s {name = a} :: CreateConfigurationResponse)
 
--- | Required. The date and time of the configuration.
-createConfigurationResponse_created :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createConfigurationResponse_created = Lens.lens (\CreateConfigurationResponse' {created} -> created) (\s@CreateConfigurationResponse' {} a -> s {created = a} :: CreateConfigurationResponse) Prelude.. Lens.mapping Core._Time
+-- | Required. The unique ID that Amazon MQ generates for the configuration.
+createConfigurationResponse_id :: Lens.Lens' CreateConfigurationResponse (Prelude.Maybe Prelude.Text)
+createConfigurationResponse_id = Lens.lens (\CreateConfigurationResponse' {id} -> id) (\s@CreateConfigurationResponse' {} a -> s {id = a} :: CreateConfigurationResponse)
 
 -- | The response's http status code.
 createConfigurationResponse_httpStatus :: Lens.Lens' CreateConfigurationResponse Prelude.Int

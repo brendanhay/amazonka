@@ -75,7 +75,7 @@ newDeleteTags pResourceArn_ =
 
 -- | An array of tag keys to delete
 deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
 deleteTags_resourceArn :: Lens.Lens' DeleteTags Prelude.Text

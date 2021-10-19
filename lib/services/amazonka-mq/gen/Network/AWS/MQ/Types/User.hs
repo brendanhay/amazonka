@@ -117,7 +117,7 @@ newUser pUsername_ pPassword_ =
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long. Does not apply to RabbitMQ brokers.
 user_groups :: Lens.Lens' User (Prelude.Maybe [Prelude.Text])
-user_groups = Lens.lens (\User' {groups} -> groups) (\s@User' {} a -> s {groups = a} :: User) Prelude.. Lens.mapping Lens._Coerce
+user_groups = Lens.lens (\User' {groups} -> groups) (\s@User' {} a -> s {groups = a} :: User) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does
 -- not apply to RabbitMQ brokers.

@@ -73,7 +73,7 @@ newUserPendingChanges pPendingChange_ =
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 userPendingChanges_groups :: Lens.Lens' UserPendingChanges (Prelude.Maybe [Prelude.Text])
-userPendingChanges_groups = Lens.lens (\UserPendingChanges' {groups} -> groups) (\s@UserPendingChanges' {} a -> s {groups = a} :: UserPendingChanges) Prelude.. Lens.mapping Lens._Coerce
+userPendingChanges_groups = Lens.lens (\UserPendingChanges' {groups} -> groups) (\s@UserPendingChanges' {} a -> s {groups = a} :: UserPendingChanges) Prelude.. Lens.mapping Lens.coerced
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 userPendingChanges_consoleAccess :: Lens.Lens' UserPendingChanges (Prelude.Maybe Prelude.Bool)

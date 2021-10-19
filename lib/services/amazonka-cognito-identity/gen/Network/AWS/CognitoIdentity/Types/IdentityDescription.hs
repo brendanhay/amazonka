@@ -31,10 +31,10 @@ data IdentityDescription = IdentityDescription'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | Date on which the identity was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
     -- | The provider names.
-    logins :: Prelude.Maybe [Prelude.Text]
+    logins :: Prelude.Maybe [Prelude.Text],
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,9 +50,9 @@ data IdentityDescription = IdentityDescription'
 --
 -- 'creationDate', 'identityDescription_creationDate' - Date on which the identity was created.
 --
--- 'identityId', 'identityDescription_identityId' - A unique identifier in the format REGION:GUID.
---
 -- 'logins', 'identityDescription_logins' - The provider names.
+--
+-- 'identityId', 'identityDescription_identityId' - A unique identifier in the format REGION:GUID.
 newIdentityDescription ::
   IdentityDescription
 newIdentityDescription =
@@ -60,8 +60,8 @@ newIdentityDescription =
     { lastModifiedDate =
         Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      identityId = Prelude.Nothing,
-      logins = Prelude.Nothing
+      logins = Prelude.Nothing,
+      identityId = Prelude.Nothing
     }
 
 -- | Date on which the identity was last modified.
@@ -72,13 +72,13 @@ identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastMod
 identityDescription_creationDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
 identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Prelude.. Lens.mapping Core._Time
 
+-- | The provider names.
+identityDescription_logins :: Lens.Lens' IdentityDescription (Prelude.Maybe [Prelude.Text])
+identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Prelude.. Lens.mapping Lens.coerced
+
 -- | A unique identifier in the format REGION:GUID.
 identityDescription_identityId :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.Text)
 identityDescription_identityId = Lens.lens (\IdentityDescription' {identityId} -> identityId) (\s@IdentityDescription' {} a -> s {identityId = a} :: IdentityDescription)
-
--- | The provider names.
-identityDescription_logins :: Lens.Lens' IdentityDescription (Prelude.Maybe [Prelude.Text])
-identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON IdentityDescription where
   parseJSON =
@@ -88,8 +88,8 @@ instance Core.FromJSON IdentityDescription where
           IdentityDescription'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "IdentityId")
             Prelude.<*> (x Core..:? "Logins" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "IdentityId")
       )
 
 instance Prelude.Hashable IdentityDescription

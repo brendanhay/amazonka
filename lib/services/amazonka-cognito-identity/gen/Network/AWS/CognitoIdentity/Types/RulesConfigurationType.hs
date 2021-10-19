@@ -53,14 +53,14 @@ newRulesConfigurationType ::
 newRulesConfigurationType pRules_ =
   RulesConfigurationType'
     { rules =
-        Lens._Coerce Lens.# pRules_
+        Lens.coerced Lens.# pRules_
     }
 
 -- | An array of rules. You can specify up to 25 rules per identity provider.
 --
 -- Rules are evaluated in order. The first one to match specifies the role.
 rulesConfigurationType_rules :: Lens.Lens' RulesConfigurationType (Prelude.NonEmpty MappingRule)
-rulesConfigurationType_rules = Lens.lens (\RulesConfigurationType' {rules} -> rules) (\s@RulesConfigurationType' {} a -> s {rules = a} :: RulesConfigurationType) Prelude.. Lens._Coerce
+rulesConfigurationType_rules = Lens.lens (\RulesConfigurationType' {rules} -> rules) (\s@RulesConfigurationType' {} a -> s {rules = a} :: RulesConfigurationType) Prelude.. Lens.coerced
 
 instance Core.FromJSON RulesConfigurationType where
   parseJSON =

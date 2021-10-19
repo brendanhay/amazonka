@@ -139,7 +139,7 @@ getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -
 --
 -- -   Digits: @www.digits.com@
 getId_logins :: Lens.Lens' GetId (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Prelude.. Lens.mapping Lens._Coerce
+getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identity pool ID in the format REGION:GUID.
 getId_identityPoolId :: Lens.Lens' GetId Prelude.Text

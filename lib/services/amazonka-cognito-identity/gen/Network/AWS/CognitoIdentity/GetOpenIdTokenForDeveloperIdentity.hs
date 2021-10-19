@@ -54,8 +54,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     newGetOpenIdTokenForDeveloperIdentityResponse,
 
     -- * Response Lenses
-    getOpenIdTokenForDeveloperIdentityResponse_identityId,
     getOpenIdTokenForDeveloperIdentityResponse_token,
+    getOpenIdTokenForDeveloperIdentityResponse_identityId,
     getOpenIdTokenForDeveloperIdentityResponse_httpStatus,
   )
 where
@@ -173,7 +173,7 @@ getOpenIdTokenForDeveloperIdentity_tokenDuration = Lens.lens (\GetOpenIdTokenFor
 
 -- | Use this operation to configure attribute mappings for custom providers.
 getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Lens._Coerce
+getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier in the format REGION:GUID.
 getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
@@ -194,7 +194,7 @@ getOpenIdTokenForDeveloperIdentity_identityPoolId = Lens.lens (\GetOpenIdTokenFo
 -- that uniquely identifies a user. When you create an identity pool, you
 -- can specify the supported logins.
 getOpenIdTokenForDeveloperIdentity_logins :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.HashMap Prelude.Text Prelude.Text)
-getOpenIdTokenForDeveloperIdentity_logins = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {logins} -> logins) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {logins = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens._Coerce
+getOpenIdTokenForDeveloperIdentity_logins = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {logins} -> logins) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {logins = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -208,8 +208,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenForDeveloperIdentityResponse'
-            Prelude.<$> (x Core..?> "IdentityId")
-              Prelude.<*> (x Core..?> "Token")
+            Prelude.<$> (x Core..?> "Token")
+              Prelude.<*> (x Core..?> "IdentityId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -272,10 +272,10 @@ instance
 --
 -- /See:/ 'newGetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
-  { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
-    -- | An OpenID token.
+  { -- | An OpenID token.
     token :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -289,9 +289,9 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityId', 'getOpenIdTokenForDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.
---
 -- 'token', 'getOpenIdTokenForDeveloperIdentityResponse_token' - An OpenID token.
+--
+-- 'identityId', 'getOpenIdTokenForDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.
 --
 -- 'httpStatus', 'getOpenIdTokenForDeveloperIdentityResponse_httpStatus' - The response's http status code.
 newGetOpenIdTokenForDeveloperIdentityResponse ::
@@ -301,19 +301,19 @@ newGetOpenIdTokenForDeveloperIdentityResponse ::
 newGetOpenIdTokenForDeveloperIdentityResponse
   pHttpStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
-      { identityId =
+      { token =
           Prelude.Nothing,
-        token = Prelude.Nothing,
+        identityId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | A unique identifier in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
-getOpenIdTokenForDeveloperIdentityResponse_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | An OpenID token.
 getOpenIdTokenForDeveloperIdentityResponse_token :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
 getOpenIdTokenForDeveloperIdentityResponse_token = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {token} -> token) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {token = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
+
+-- | A unique identifier in the format REGION:GUID.
+getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentityResponse_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | The response's http status code.
 getOpenIdTokenForDeveloperIdentityResponse_httpStatus :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse Prelude.Int

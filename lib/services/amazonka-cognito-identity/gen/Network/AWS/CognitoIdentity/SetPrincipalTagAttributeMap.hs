@@ -102,7 +102,7 @@ newSetPrincipalTagAttributeMap
 
 -- | You can use this operation to add principal tags.
 setPrincipalTagAttributeMap_principalTags :: Lens.Lens' SetPrincipalTagAttributeMap (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-setPrincipalTagAttributeMap_principalTags = Lens.lens (\SetPrincipalTagAttributeMap' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMap' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMap) Prelude.. Lens.mapping Lens._Coerce
+setPrincipalTagAttributeMap_principalTags = Lens.lens (\SetPrincipalTagAttributeMap' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMap' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMap) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this operation to use default (username and clientID)
 -- attribute mappings.
@@ -237,7 +237,7 @@ setPrincipalTagAttributeMapResponse_identityProviderName = Lens.lens (\SetPrinci
 -- @PrincipalTags@operation enables you to reference user attributes in
 -- your IAM permissions policy.
 setPrincipalTagAttributeMapResponse_principalTags :: Lens.Lens' SetPrincipalTagAttributeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-setPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\SetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens._Coerce
+setPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\SetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@SetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: SetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this operation to select default (username and clientID)
 -- attribute mappings.

@@ -36,8 +36,8 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     newGetIdentityPoolRolesResponse,
 
     -- * Response Lenses
-    getIdentityPoolRolesResponse_identityPoolId,
     getIdentityPoolRolesResponse_roles,
+    getIdentityPoolRolesResponse_identityPoolId,
     getIdentityPoolRolesResponse_roleMappings,
     getIdentityPoolRolesResponse_httpStatus,
   )
@@ -91,8 +91,8 @@ instance Core.AWSRequest GetIdentityPoolRoles where
     Response.receiveJSON
       ( \s h x ->
           GetIdentityPoolRolesResponse'
-            Prelude.<$> (x Core..?> "IdentityPoolId")
-            Prelude.<*> (x Core..?> "Roles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Roles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "IdentityPoolId")
             Prelude.<*> (x Core..?> "RoleMappings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -135,11 +135,11 @@ instance Core.ToQuery GetIdentityPoolRoles where
 --
 -- /See:/ 'newGetIdentityPoolRolesResponse' smart constructor.
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-  { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The map of roles associated with this pool. Currently only authenticated
+  { -- | The map of roles associated with this pool. Currently only authenticated
     -- and unauthenticated roles are supported.
     roles :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
     -- | How users for a specific identity provider are to mapped to roles. This
     -- is a String-to-RoleMapping object map. The string identifies the
     -- identity provider, for example, \"graph.facebook.com\" or
@@ -158,10 +158,10 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityPoolId', 'getIdentityPoolRolesResponse_identityPoolId' - An identity pool ID in the format REGION:GUID.
---
 -- 'roles', 'getIdentityPoolRolesResponse_roles' - The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
+--
+-- 'identityPoolId', 'getIdentityPoolRolesResponse_identityPoolId' - An identity pool ID in the format REGION:GUID.
 --
 -- 'roleMappings', 'getIdentityPoolRolesResponse_roleMappings' - How users for a specific identity provider are to mapped to roles. This
 -- is a String-to-RoleMapping object map. The string identifies the
@@ -175,28 +175,28 @@ newGetIdentityPoolRolesResponse ::
   GetIdentityPoolRolesResponse
 newGetIdentityPoolRolesResponse pHttpStatus_ =
   GetIdentityPoolRolesResponse'
-    { identityPoolId =
+    { roles =
         Prelude.Nothing,
-      roles = Prelude.Nothing,
+      identityPoolId = Prelude.Nothing,
       roleMappings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An identity pool ID in the format REGION:GUID.
-getIdentityPoolRolesResponse_identityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe Prelude.Text)
-getIdentityPoolRolesResponse_identityPoolId = Lens.lens (\GetIdentityPoolRolesResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRolesResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolRolesResponse)
-
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
 getIdentityPoolRolesResponse_roles :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getIdentityPoolRolesResponse_roles = Lens.lens (\GetIdentityPoolRolesResponse' {roles} -> roles) (\s@GetIdentityPoolRolesResponse' {} a -> s {roles = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens._Coerce
+getIdentityPoolRolesResponse_roles = Lens.lens (\GetIdentityPoolRolesResponse' {roles} -> roles) (\s@GetIdentityPoolRolesResponse' {} a -> s {roles = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An identity pool ID in the format REGION:GUID.
+getIdentityPoolRolesResponse_identityPoolId :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe Prelude.Text)
+getIdentityPoolRolesResponse_identityPoolId = Lens.lens (\GetIdentityPoolRolesResponse' {identityPoolId} -> identityPoolId) (\s@GetIdentityPoolRolesResponse' {} a -> s {identityPoolId = a} :: GetIdentityPoolRolesResponse)
 
 -- | How users for a specific identity provider are to mapped to roles. This
 -- is a String-to-RoleMapping object map. The string identifies the
 -- identity provider, for example, \"graph.facebook.com\" or
 -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
 getIdentityPoolRolesResponse_roleMappings :: Lens.Lens' GetIdentityPoolRolesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping))
-getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResponse' {roleMappings} -> roleMappings) (\s@GetIdentityPoolRolesResponse' {} a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens._Coerce
+getIdentityPoolRolesResponse_roleMappings = Lens.lens (\GetIdentityPoolRolesResponse' {roleMappings} -> roleMappings) (\s@GetIdentityPoolRolesResponse' {} a -> s {roleMappings = a} :: GetIdentityPoolRolesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getIdentityPoolRolesResponse_httpStatus :: Lens.Lens' GetIdentityPoolRolesResponse Prelude.Int

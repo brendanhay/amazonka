@@ -30,7 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRoleMapping' smart constructor.
 data RoleMapping = RoleMapping'
-  { -- | If you specify Token or Rules as the @Type@, @AmbiguousRoleResolution@
+  { -- | The rules to be used for mapping users to roles.
+    --
+    -- If you specify Rules as the role mapping type, @RulesConfiguration@ is
+    -- required.
+    rulesConfiguration :: Prelude.Maybe RulesConfigurationType,
+    -- | If you specify Token or Rules as the @Type@, @AmbiguousRoleResolution@
     -- is required.
     --
     -- Specifies the action to be taken if either no rules match the claim
@@ -38,11 +43,6 @@ data RoleMapping = RoleMapping'
     -- claim and there are multiple @cognito:roles@ matches for the @Token@
     -- type.
     ambiguousRoleResolution :: Prelude.Maybe AmbiguousRoleResolutionType,
-    -- | The rules to be used for mapping users to roles.
-    --
-    -- If you specify Rules as the role mapping type, @RulesConfiguration@ is
-    -- required.
-    rulesConfiguration :: Prelude.Maybe RulesConfigurationType,
     -- | The role mapping type. Token will use @cognito:roles@ and
     -- @cognito:preferred_role@ claims from the Cognito identity provider token
     -- to map groups to roles. Rules will attempt to match claims from the
@@ -59,6 +59,11 @@ data RoleMapping = RoleMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rulesConfiguration', 'roleMapping_rulesConfiguration' - The rules to be used for mapping users to roles.
+--
+-- If you specify Rules as the role mapping type, @RulesConfiguration@ is
+-- required.
+--
 -- 'ambiguousRoleResolution', 'roleMapping_ambiguousRoleResolution' - If you specify Token or Rules as the @Type@, @AmbiguousRoleResolution@
 -- is required.
 --
@@ -66,11 +71,6 @@ data RoleMapping = RoleMapping'
 -- value for the @Rules@ type, or there is no @cognito:preferred_role@
 -- claim and there are multiple @cognito:roles@ matches for the @Token@
 -- type.
---
--- 'rulesConfiguration', 'roleMapping_rulesConfiguration' - The rules to be used for mapping users to roles.
---
--- If you specify Rules as the role mapping type, @RulesConfiguration@ is
--- required.
 --
 -- 'type'', 'roleMapping_type' - The role mapping type. Token will use @cognito:roles@ and
 -- @cognito:preferred_role@ claims from the Cognito identity provider token
@@ -82,11 +82,17 @@ newRoleMapping ::
   RoleMapping
 newRoleMapping pType_ =
   RoleMapping'
-    { ambiguousRoleResolution =
-        Prelude.Nothing,
-      rulesConfiguration = Prelude.Nothing,
+    { rulesConfiguration = Prelude.Nothing,
+      ambiguousRoleResolution = Prelude.Nothing,
       type' = pType_
     }
+
+-- | The rules to be used for mapping users to roles.
+--
+-- If you specify Rules as the role mapping type, @RulesConfiguration@ is
+-- required.
+roleMapping_rulesConfiguration :: Lens.Lens' RoleMapping (Prelude.Maybe RulesConfigurationType)
+roleMapping_rulesConfiguration = Lens.lens (\RoleMapping' {rulesConfiguration} -> rulesConfiguration) (\s@RoleMapping' {} a -> s {rulesConfiguration = a} :: RoleMapping)
 
 -- | If you specify Token or Rules as the @Type@, @AmbiguousRoleResolution@
 -- is required.
@@ -97,13 +103,6 @@ newRoleMapping pType_ =
 -- type.
 roleMapping_ambiguousRoleResolution :: Lens.Lens' RoleMapping (Prelude.Maybe AmbiguousRoleResolutionType)
 roleMapping_ambiguousRoleResolution = Lens.lens (\RoleMapping' {ambiguousRoleResolution} -> ambiguousRoleResolution) (\s@RoleMapping' {} a -> s {ambiguousRoleResolution = a} :: RoleMapping)
-
--- | The rules to be used for mapping users to roles.
---
--- If you specify Rules as the role mapping type, @RulesConfiguration@ is
--- required.
-roleMapping_rulesConfiguration :: Lens.Lens' RoleMapping (Prelude.Maybe RulesConfigurationType)
-roleMapping_rulesConfiguration = Lens.lens (\RoleMapping' {rulesConfiguration} -> rulesConfiguration) (\s@RoleMapping' {} a -> s {rulesConfiguration = a} :: RoleMapping)
 
 -- | The role mapping type. Token will use @cognito:roles@ and
 -- @cognito:preferred_role@ claims from the Cognito identity provider token
@@ -118,8 +117,8 @@ instance Core.FromJSON RoleMapping where
       "RoleMapping"
       ( \x ->
           RoleMapping'
-            Prelude.<$> (x Core..:? "AmbiguousRoleResolution")
-            Prelude.<*> (x Core..:? "RulesConfiguration")
+            Prelude.<$> (x Core..:? "RulesConfiguration")
+            Prelude.<*> (x Core..:? "AmbiguousRoleResolution")
             Prelude.<*> (x Core..: "Type")
       )
 
@@ -131,10 +130,10 @@ instance Core.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AmbiguousRoleResolution" Core..=)
-              Prelude.<$> ambiguousRoleResolution,
-            ("RulesConfiguration" Core..=)
+          [ ("RulesConfiguration" Core..=)
               Prelude.<$> rulesConfiguration,
+            ("AmbiguousRoleResolution" Core..=)
+              Prelude.<$> ambiguousRoleResolution,
             Prelude.Just ("Type" Core..= type')
           ]
       )

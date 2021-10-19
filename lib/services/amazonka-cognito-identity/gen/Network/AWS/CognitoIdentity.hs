@@ -39,26 +39,29 @@ module Network.AWS.CognitoIdentity
     -- * Errors
     -- $errors
 
-    -- ** ResourceConflictException
-    _ResourceConflictException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** ExternalServiceException
-    _ExternalServiceException,
+    -- ** InvalidIdentityPoolConfigurationException
+    _InvalidIdentityPoolConfigurationException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** InvalidIdentityPoolConfigurationException
-    _InvalidIdentityPoolConfigurationException,
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ExternalServiceException
+    _ExternalServiceException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
 
     -- ** DeveloperUserAlreadyRegisteredException
     _DeveloperUserAlreadyRegisteredException,
@@ -66,11 +69,8 @@ module Network.AWS.CognitoIdentity
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -78,11 +78,11 @@ module Network.AWS.CognitoIdentity
     -- * Operations
     -- $operations
 
-    -- ** DescribeIdentityPool
-    DescribeIdentityPool (DescribeIdentityPool'),
-    newDescribeIdentityPool,
-    IdentityPool (IdentityPool'),
-    newIdentityPool,
+    -- ** GetOpenIdToken
+    GetOpenIdToken (GetOpenIdToken'),
+    newGetOpenIdToken,
+    GetOpenIdTokenResponse (GetOpenIdTokenResponse'),
+    newGetOpenIdTokenResponse,
 
     -- ** GetOpenIdTokenForDeveloperIdentity
     GetOpenIdTokenForDeveloperIdentity (GetOpenIdTokenForDeveloperIdentity'),
@@ -90,119 +90,11 @@ module Network.AWS.CognitoIdentity
     GetOpenIdTokenForDeveloperIdentityResponse (GetOpenIdTokenForDeveloperIdentityResponse'),
     newGetOpenIdTokenForDeveloperIdentityResponse,
 
-    -- ** GetOpenIdToken
-    GetOpenIdToken (GetOpenIdToken'),
-    newGetOpenIdToken,
-    GetOpenIdTokenResponse (GetOpenIdTokenResponse'),
-    newGetOpenIdTokenResponse,
-
-    -- ** DeleteIdentities
-    DeleteIdentities (DeleteIdentities'),
-    newDeleteIdentities,
-    DeleteIdentitiesResponse (DeleteIdentitiesResponse'),
-    newDeleteIdentitiesResponse,
-
-    -- ** GetPrincipalTagAttributeMap
-    GetPrincipalTagAttributeMap (GetPrincipalTagAttributeMap'),
-    newGetPrincipalTagAttributeMap,
-    GetPrincipalTagAttributeMapResponse (GetPrincipalTagAttributeMapResponse'),
-    newGetPrincipalTagAttributeMapResponse,
-
-    -- ** CreateIdentityPool
-    CreateIdentityPool (CreateIdentityPool'),
-    newCreateIdentityPool,
+    -- ** DescribeIdentityPool
+    DescribeIdentityPool (DescribeIdentityPool'),
+    newDescribeIdentityPool,
     IdentityPool (IdentityPool'),
     newIdentityPool,
-
-    -- ** MergeDeveloperIdentities
-    MergeDeveloperIdentities (MergeDeveloperIdentities'),
-    newMergeDeveloperIdentities,
-    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
-    newMergeDeveloperIdentitiesResponse,
-
-    -- ** UpdateIdentityPool
-    UpdateIdentityPool (UpdateIdentityPool'),
-    newUpdateIdentityPool,
-    IdentityPool (IdentityPool'),
-    newIdentityPool,
-
-    -- ** GetIdentityPoolRoles
-    GetIdentityPoolRoles (GetIdentityPoolRoles'),
-    newGetIdentityPoolRoles,
-    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
-    newGetIdentityPoolRolesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeleteIdentityPool
-    DeleteIdentityPool (DeleteIdentityPool'),
-    newDeleteIdentityPool,
-    DeleteIdentityPoolResponse (DeleteIdentityPoolResponse'),
-    newDeleteIdentityPoolResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** UnlinkIdentity
-    UnlinkIdentity (UnlinkIdentity'),
-    newUnlinkIdentity,
-    UnlinkIdentityResponse (UnlinkIdentityResponse'),
-    newUnlinkIdentityResponse,
-
-    -- ** LookupDeveloperIdentity
-    LookupDeveloperIdentity (LookupDeveloperIdentity'),
-    newLookupDeveloperIdentity,
-    LookupDeveloperIdentityResponse (LookupDeveloperIdentityResponse'),
-    newLookupDeveloperIdentityResponse,
-
-    -- ** SetIdentityPoolRoles
-    SetIdentityPoolRoles (SetIdentityPoolRoles'),
-    newSetIdentityPoolRoles,
-    SetIdentityPoolRolesResponse (SetIdentityPoolRolesResponse'),
-    newSetIdentityPoolRolesResponse,
-
-    -- ** ListIdentityPools (Paginated)
-    ListIdentityPools (ListIdentityPools'),
-    newListIdentityPools,
-    ListIdentityPoolsResponse (ListIdentityPoolsResponse'),
-    newListIdentityPoolsResponse,
-
-    -- ** GetId
-    GetId (GetId'),
-    newGetId,
-    GetIdResponse (GetIdResponse'),
-    newGetIdResponse,
-
-    -- ** DescribeIdentity
-    DescribeIdentity (DescribeIdentity'),
-    newDescribeIdentity,
-    IdentityDescription (IdentityDescription'),
-    newIdentityDescription,
-
-    -- ** GetCredentialsForIdentity
-    GetCredentialsForIdentity (GetCredentialsForIdentity'),
-    newGetCredentialsForIdentity,
-    GetCredentialsForIdentityResponse (GetCredentialsForIdentityResponse'),
-    newGetCredentialsForIdentityResponse,
-
-    -- ** UnlinkDeveloperIdentity
-    UnlinkDeveloperIdentity (UnlinkDeveloperIdentity'),
-    newUnlinkDeveloperIdentity,
-    UnlinkDeveloperIdentityResponse (UnlinkDeveloperIdentityResponse'),
-    newUnlinkDeveloperIdentityResponse,
-
-    -- ** ListIdentities
-    ListIdentities (ListIdentities'),
-    newListIdentities,
-    ListIdentitiesResponse (ListIdentitiesResponse'),
-    newListIdentitiesResponse,
 
     -- ** SetPrincipalTagAttributeMap
     SetPrincipalTagAttributeMap (SetPrincipalTagAttributeMap'),
@@ -215,6 +107,114 @@ module Network.AWS.CognitoIdentity
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** GetId
+    GetId (GetId'),
+    newGetId,
+    GetIdResponse (GetIdResponse'),
+    newGetIdResponse,
+
+    -- ** DeleteIdentityPool
+    DeleteIdentityPool (DeleteIdentityPool'),
+    newDeleteIdentityPool,
+    DeleteIdentityPoolResponse (DeleteIdentityPoolResponse'),
+    newDeleteIdentityPoolResponse,
+
+    -- ** UpdateIdentityPool
+    UpdateIdentityPool (UpdateIdentityPool'),
+    newUpdateIdentityPool,
+    IdentityPool (IdentityPool'),
+    newIdentityPool,
+
+    -- ** UnlinkDeveloperIdentity
+    UnlinkDeveloperIdentity (UnlinkDeveloperIdentity'),
+    newUnlinkDeveloperIdentity,
+    UnlinkDeveloperIdentityResponse (UnlinkDeveloperIdentityResponse'),
+    newUnlinkDeveloperIdentityResponse,
+
+    -- ** GetIdentityPoolRoles
+    GetIdentityPoolRoles (GetIdentityPoolRoles'),
+    newGetIdentityPoolRoles,
+    GetIdentityPoolRolesResponse (GetIdentityPoolRolesResponse'),
+    newGetIdentityPoolRolesResponse,
+
+    -- ** ListIdentityPools (Paginated)
+    ListIdentityPools (ListIdentityPools'),
+    newListIdentityPools,
+    ListIdentityPoolsResponse (ListIdentityPoolsResponse'),
+    newListIdentityPoolsResponse,
+
+    -- ** GetCredentialsForIdentity
+    GetCredentialsForIdentity (GetCredentialsForIdentity'),
+    newGetCredentialsForIdentity,
+    GetCredentialsForIdentityResponse (GetCredentialsForIdentityResponse'),
+    newGetCredentialsForIdentityResponse,
+
+    -- ** GetPrincipalTagAttributeMap
+    GetPrincipalTagAttributeMap (GetPrincipalTagAttributeMap'),
+    newGetPrincipalTagAttributeMap,
+    GetPrincipalTagAttributeMapResponse (GetPrincipalTagAttributeMapResponse'),
+    newGetPrincipalTagAttributeMapResponse,
+
+    -- ** DeleteIdentities
+    DeleteIdentities (DeleteIdentities'),
+    newDeleteIdentities,
+    DeleteIdentitiesResponse (DeleteIdentitiesResponse'),
+    newDeleteIdentitiesResponse,
+
+    -- ** SetIdentityPoolRoles
+    SetIdentityPoolRoles (SetIdentityPoolRoles'),
+    newSetIdentityPoolRoles,
+    SetIdentityPoolRolesResponse (SetIdentityPoolRolesResponse'),
+    newSetIdentityPoolRolesResponse,
+
+    -- ** ListIdentities
+    ListIdentities (ListIdentities'),
+    newListIdentities,
+    ListIdentitiesResponse (ListIdentitiesResponse'),
+    newListIdentitiesResponse,
+
+    -- ** LookupDeveloperIdentity
+    LookupDeveloperIdentity (LookupDeveloperIdentity'),
+    newLookupDeveloperIdentity,
+    LookupDeveloperIdentityResponse (LookupDeveloperIdentityResponse'),
+    newLookupDeveloperIdentityResponse,
+
+    -- ** UnlinkIdentity
+    UnlinkIdentity (UnlinkIdentity'),
+    newUnlinkIdentity,
+    UnlinkIdentityResponse (UnlinkIdentityResponse'),
+    newUnlinkIdentityResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeIdentity
+    DescribeIdentity (DescribeIdentity'),
+    newDescribeIdentity,
+    IdentityDescription (IdentityDescription'),
+    newIdentityDescription,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateIdentityPool
+    CreateIdentityPool (CreateIdentityPool'),
+    newCreateIdentityPool,
+    IdentityPool (IdentityPool'),
+    newIdentityPool,
+
+    -- ** MergeDeveloperIdentities
+    MergeDeveloperIdentities (MergeDeveloperIdentities'),
+    newMergeDeveloperIdentities,
+    MergeDeveloperIdentitiesResponse (MergeDeveloperIdentitiesResponse'),
+    newMergeDeveloperIdentitiesResponse,
 
     -- * Types
 

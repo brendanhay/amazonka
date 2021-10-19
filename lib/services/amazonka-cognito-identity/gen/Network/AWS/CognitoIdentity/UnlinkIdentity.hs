@@ -94,11 +94,11 @@ unlinkIdentity_identityId = Lens.lens (\UnlinkIdentity' {identityId} -> identity
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 unlinkIdentity_logins :: Lens.Lens' UnlinkIdentity (Prelude.HashMap Prelude.Text Prelude.Text)
-unlinkIdentity_logins = Lens.lens (\UnlinkIdentity' {logins} -> logins) (\s@UnlinkIdentity' {} a -> s {logins = a} :: UnlinkIdentity) Prelude.. Lens._Coerce
+unlinkIdentity_logins = Lens.lens (\UnlinkIdentity' {logins} -> logins) (\s@UnlinkIdentity' {} a -> s {logins = a} :: UnlinkIdentity) Prelude.. Lens.coerced
 
 -- | Provider names to unlink from this identity.
 unlinkIdentity_loginsToRemove :: Lens.Lens' UnlinkIdentity [Prelude.Text]
-unlinkIdentity_loginsToRemove = Lens.lens (\UnlinkIdentity' {loginsToRemove} -> loginsToRemove) (\s@UnlinkIdentity' {} a -> s {loginsToRemove = a} :: UnlinkIdentity) Prelude.. Lens._Coerce
+unlinkIdentity_loginsToRemove = Lens.lens (\UnlinkIdentity' {loginsToRemove} -> loginsToRemove) (\s@UnlinkIdentity' {} a -> s {loginsToRemove = a} :: UnlinkIdentity) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UnlinkIdentity where
   type

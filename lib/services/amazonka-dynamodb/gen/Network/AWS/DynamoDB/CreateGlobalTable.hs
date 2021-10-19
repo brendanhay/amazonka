@@ -129,7 +129,7 @@ createGlobalTable_globalTableName = Lens.lens (\CreateGlobalTable' {globalTableN
 
 -- | The Regions where the global table needs to be created.
 createGlobalTable_replicationGroup :: Lens.Lens' CreateGlobalTable [Replica]
-createGlobalTable_replicationGroup = Lens.lens (\CreateGlobalTable' {replicationGroup} -> replicationGroup) (\s@CreateGlobalTable' {} a -> s {replicationGroup = a} :: CreateGlobalTable) Prelude.. Lens._Coerce
+createGlobalTable_replicationGroup = Lens.lens (\CreateGlobalTable' {replicationGroup} -> replicationGroup) (\s@CreateGlobalTable' {} a -> s {replicationGroup = a} :: CreateGlobalTable) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateGlobalTable where
   type

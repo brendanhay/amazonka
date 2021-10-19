@@ -211,7 +211,7 @@ listGlobalTablesResponse_lastEvaluatedGlobalTableName = Lens.lens (\ListGlobalTa
 
 -- | List of global table names.
 listGlobalTablesResponse_globalTables :: Lens.Lens' ListGlobalTablesResponse (Prelude.Maybe [GlobalTable])
-listGlobalTablesResponse_globalTables = Lens.lens (\ListGlobalTablesResponse' {globalTables} -> globalTables) (\s@ListGlobalTablesResponse' {} a -> s {globalTables = a} :: ListGlobalTablesResponse) Prelude.. Lens.mapping Lens._Coerce
+listGlobalTablesResponse_globalTables = Lens.lens (\ListGlobalTablesResponse' {globalTables} -> globalTables) (\s@ListGlobalTablesResponse' {} a -> s {globalTables = a} :: ListGlobalTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGlobalTablesResponse_httpStatus :: Lens.Lens' ListGlobalTablesResponse Prelude.Int

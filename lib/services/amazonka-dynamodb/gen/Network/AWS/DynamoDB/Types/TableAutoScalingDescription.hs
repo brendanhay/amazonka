@@ -29,11 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTableAutoScalingDescription' smart constructor.
 data TableAutoScalingDescription = TableAutoScalingDescription'
-  { -- | The name of the table.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | Represents replicas of the global table.
-    replicas :: Prelude.Maybe [ReplicaAutoScalingDescription],
-    -- | The current state of the table:
+  { -- | The current state of the table:
     --
     -- -   @CREATING@ - The table is being created.
     --
@@ -42,7 +38,11 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
     -- -   @DELETING@ - The table is being deleted.
     --
     -- -   @ACTIVE@ - The table is ready for use.
-    tableStatus :: Prelude.Maybe TableStatus
+    tableStatus :: Prelude.Maybe TableStatus,
+    -- | Represents replicas of the global table.
+    replicas :: Prelude.Maybe [ReplicaAutoScalingDescription],
+    -- | The name of the table.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,10 +54,6 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.
---
--- 'replicas', 'tableAutoScalingDescription_replicas' - Represents replicas of the global table.
---
 -- 'tableStatus', 'tableAutoScalingDescription_tableStatus' - The current state of the table:
 --
 -- -   @CREATING@ - The table is being created.
@@ -67,23 +63,19 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
 -- -   @DELETING@ - The table is being deleted.
 --
 -- -   @ACTIVE@ - The table is ready for use.
+--
+-- 'replicas', 'tableAutoScalingDescription_replicas' - Represents replicas of the global table.
+--
+-- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.
 newTableAutoScalingDescription ::
   TableAutoScalingDescription
 newTableAutoScalingDescription =
   TableAutoScalingDescription'
-    { tableName =
+    { tableStatus =
         Prelude.Nothing,
       replicas = Prelude.Nothing,
-      tableStatus = Prelude.Nothing
+      tableName = Prelude.Nothing
     }
-
--- | The name of the table.
-tableAutoScalingDescription_tableName :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe Prelude.Text)
-tableAutoScalingDescription_tableName = Lens.lens (\TableAutoScalingDescription' {tableName} -> tableName) (\s@TableAutoScalingDescription' {} a -> s {tableName = a} :: TableAutoScalingDescription)
-
--- | Represents replicas of the global table.
-tableAutoScalingDescription_replicas :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe [ReplicaAutoScalingDescription])
-tableAutoScalingDescription_replicas = Lens.lens (\TableAutoScalingDescription' {replicas} -> replicas) (\s@TableAutoScalingDescription' {} a -> s {replicas = a} :: TableAutoScalingDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The current state of the table:
 --
@@ -97,15 +89,23 @@ tableAutoScalingDescription_replicas = Lens.lens (\TableAutoScalingDescription' 
 tableAutoScalingDescription_tableStatus :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe TableStatus)
 tableAutoScalingDescription_tableStatus = Lens.lens (\TableAutoScalingDescription' {tableStatus} -> tableStatus) (\s@TableAutoScalingDescription' {} a -> s {tableStatus = a} :: TableAutoScalingDescription)
 
+-- | Represents replicas of the global table.
+tableAutoScalingDescription_replicas :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe [ReplicaAutoScalingDescription])
+tableAutoScalingDescription_replicas = Lens.lens (\TableAutoScalingDescription' {replicas} -> replicas) (\s@TableAutoScalingDescription' {} a -> s {replicas = a} :: TableAutoScalingDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the table.
+tableAutoScalingDescription_tableName :: Lens.Lens' TableAutoScalingDescription (Prelude.Maybe Prelude.Text)
+tableAutoScalingDescription_tableName = Lens.lens (\TableAutoScalingDescription' {tableName} -> tableName) (\s@TableAutoScalingDescription' {} a -> s {tableName = a} :: TableAutoScalingDescription)
+
 instance Core.FromJSON TableAutoScalingDescription where
   parseJSON =
     Core.withObject
       "TableAutoScalingDescription"
       ( \x ->
           TableAutoScalingDescription'
-            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<$> (x Core..:? "TableStatus")
             Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TableStatus")
+            Prelude.<*> (x Core..:? "TableName")
       )
 
 instance Prelude.Hashable TableAutoScalingDescription

@@ -43,10 +43,10 @@ import qualified Network.AWS.Prelude as Prelude
 data ReplicationGroupUpdate = ReplicationGroupUpdate'
   { -- | The parameters required for creating a replica for the table.
     create :: Prelude.Maybe CreateReplicationGroupMemberAction,
-    -- | The parameters required for updating a replica for the table.
-    update :: Prelude.Maybe UpdateReplicationGroupMemberAction,
     -- | The parameters required for deleting a replica for the table.
-    delete' :: Prelude.Maybe DeleteReplicationGroupMemberAction
+    delete' :: Prelude.Maybe DeleteReplicationGroupMemberAction,
+    -- | The parameters required for updating a replica for the table.
+    update :: Prelude.Maybe UpdateReplicationGroupMemberAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,29 +60,29 @@ data ReplicationGroupUpdate = ReplicationGroupUpdate'
 --
 -- 'create', 'replicationGroupUpdate_create' - The parameters required for creating a replica for the table.
 --
--- 'update', 'replicationGroupUpdate_update' - The parameters required for updating a replica for the table.
---
 -- 'delete'', 'replicationGroupUpdate_delete' - The parameters required for deleting a replica for the table.
+--
+-- 'update', 'replicationGroupUpdate_update' - The parameters required for updating a replica for the table.
 newReplicationGroupUpdate ::
   ReplicationGroupUpdate
 newReplicationGroupUpdate =
   ReplicationGroupUpdate'
     { create = Prelude.Nothing,
-      update = Prelude.Nothing,
-      delete' = Prelude.Nothing
+      delete' = Prelude.Nothing,
+      update = Prelude.Nothing
     }
 
 -- | The parameters required for creating a replica for the table.
 replicationGroupUpdate_create :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe CreateReplicationGroupMemberAction)
 replicationGroupUpdate_create = Lens.lens (\ReplicationGroupUpdate' {create} -> create) (\s@ReplicationGroupUpdate' {} a -> s {create = a} :: ReplicationGroupUpdate)
 
--- | The parameters required for updating a replica for the table.
-replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
-replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
-
 -- | The parameters required for deleting a replica for the table.
 replicationGroupUpdate_delete :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe DeleteReplicationGroupMemberAction)
 replicationGroupUpdate_delete = Lens.lens (\ReplicationGroupUpdate' {delete'} -> delete') (\s@ReplicationGroupUpdate' {} a -> s {delete' = a} :: ReplicationGroupUpdate)
+
+-- | The parameters required for updating a replica for the table.
+replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
+replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
 
 instance Prelude.Hashable ReplicationGroupUpdate
 
@@ -93,7 +93,7 @@ instance Core.ToJSON ReplicationGroupUpdate where
     Core.object
       ( Prelude.catMaybes
           [ ("Create" Core..=) Prelude.<$> create,
-            ("Update" Core..=) Prelude.<$> update,
-            ("Delete" Core..=) Prelude.<$> delete'
+            ("Delete" Core..=) Prelude.<$> delete',
+            ("Update" Core..=) Prelude.<$> update
           ]
       )

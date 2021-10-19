@@ -60,7 +60,7 @@ globalTable_globalTableName = Lens.lens (\GlobalTable' {globalTableName} -> glob
 
 -- | The Regions where the global table has replicas.
 globalTable_replicationGroup :: Lens.Lens' GlobalTable (Prelude.Maybe [Replica])
-globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> replicationGroup) (\s@GlobalTable' {} a -> s {replicationGroup = a} :: GlobalTable) Prelude.. Lens.mapping Lens._Coerce
+globalTable_replicationGroup = Lens.lens (\GlobalTable' {replicationGroup} -> replicationGroup) (\s@GlobalTable' {} a -> s {replicationGroup = a} :: GlobalTable) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON GlobalTable where
   parseJSON =

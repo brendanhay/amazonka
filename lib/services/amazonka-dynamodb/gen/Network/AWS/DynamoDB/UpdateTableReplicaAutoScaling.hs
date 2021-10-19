@@ -31,9 +31,9 @@ module Network.AWS.DynamoDB.UpdateTableReplicaAutoScaling
     newUpdateTableReplicaAutoScaling,
 
     -- * Request Lenses
+    updateTableReplicaAutoScaling_replicaUpdates,
     updateTableReplicaAutoScaling_provisionedWriteCapacityAutoScalingUpdate,
     updateTableReplicaAutoScaling_globalSecondaryIndexUpdates,
-    updateTableReplicaAutoScaling_replicaUpdates,
     updateTableReplicaAutoScaling_tableName,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTableReplicaAutoScaling' smart constructor.
 data UpdateTableReplicaAutoScaling = UpdateTableReplicaAutoScaling'
-  { provisionedWriteCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
+  { -- | Represents the auto scaling settings of replicas of the table that will
+    -- be modified.
+    replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicaAutoScalingUpdate),
+    provisionedWriteCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
     -- | Represents the auto scaling settings of the global secondary indexes of
     -- the replica to be updated.
     globalSecondaryIndexUpdates :: Prelude.Maybe (Prelude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate),
-    -- | Represents the auto scaling settings of replicas of the table that will
-    -- be modified.
-    replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicaAutoScalingUpdate),
     -- | The name of the global table to be updated.
     tableName :: Prelude.Text
   }
@@ -75,13 +75,13 @@ data UpdateTableReplicaAutoScaling = UpdateTableReplicaAutoScaling'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicaUpdates', 'updateTableReplicaAutoScaling_replicaUpdates' - Represents the auto scaling settings of replicas of the table that will
+-- be modified.
+--
 -- 'provisionedWriteCapacityAutoScalingUpdate', 'updateTableReplicaAutoScaling_provisionedWriteCapacityAutoScalingUpdate' - Undocumented member.
 --
 -- 'globalSecondaryIndexUpdates', 'updateTableReplicaAutoScaling_globalSecondaryIndexUpdates' - Represents the auto scaling settings of the global secondary indexes of
 -- the replica to be updated.
---
--- 'replicaUpdates', 'updateTableReplicaAutoScaling_replicaUpdates' - Represents the auto scaling settings of replicas of the table that will
--- be modified.
 --
 -- 'tableName', 'updateTableReplicaAutoScaling_tableName' - The name of the global table to be updated.
 newUpdateTableReplicaAutoScaling ::
@@ -90,13 +90,19 @@ newUpdateTableReplicaAutoScaling ::
   UpdateTableReplicaAutoScaling
 newUpdateTableReplicaAutoScaling pTableName_ =
   UpdateTableReplicaAutoScaling'
-    { provisionedWriteCapacityAutoScalingUpdate =
+    { replicaUpdates =
+        Prelude.Nothing,
+      provisionedWriteCapacityAutoScalingUpdate =
         Prelude.Nothing,
       globalSecondaryIndexUpdates =
         Prelude.Nothing,
-      replicaUpdates = Prelude.Nothing,
       tableName = pTableName_
     }
+
+-- | Represents the auto scaling settings of replicas of the table that will
+-- be modified.
+updateTableReplicaAutoScaling_replicaUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Prelude.Maybe (Prelude.NonEmpty ReplicaAutoScalingUpdate))
+updateTableReplicaAutoScaling_replicaUpdates = Lens.lens (\UpdateTableReplicaAutoScaling' {replicaUpdates} -> replicaUpdates) (\s@UpdateTableReplicaAutoScaling' {} a -> s {replicaUpdates = a} :: UpdateTableReplicaAutoScaling) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateTableReplicaAutoScaling_provisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' UpdateTableReplicaAutoScaling (Prelude.Maybe AutoScalingSettingsUpdate)
@@ -105,12 +111,7 @@ updateTableReplicaAutoScaling_provisionedWriteCapacityAutoScalingUpdate = Lens.l
 -- | Represents the auto scaling settings of the global secondary indexes of
 -- the replica to be updated.
 updateTableReplicaAutoScaling_globalSecondaryIndexUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Prelude.Maybe (Prelude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate))
-updateTableReplicaAutoScaling_globalSecondaryIndexUpdates = Lens.lens (\UpdateTableReplicaAutoScaling' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTableReplicaAutoScaling' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTableReplicaAutoScaling) Prelude.. Lens.mapping Lens._Coerce
-
--- | Represents the auto scaling settings of replicas of the table that will
--- be modified.
-updateTableReplicaAutoScaling_replicaUpdates :: Lens.Lens' UpdateTableReplicaAutoScaling (Prelude.Maybe (Prelude.NonEmpty ReplicaAutoScalingUpdate))
-updateTableReplicaAutoScaling_replicaUpdates = Lens.lens (\UpdateTableReplicaAutoScaling' {replicaUpdates} -> replicaUpdates) (\s@UpdateTableReplicaAutoScaling' {} a -> s {replicaUpdates = a} :: UpdateTableReplicaAutoScaling) Prelude.. Lens.mapping Lens._Coerce
+updateTableReplicaAutoScaling_globalSecondaryIndexUpdates = Lens.lens (\UpdateTableReplicaAutoScaling' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTableReplicaAutoScaling' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTableReplicaAutoScaling) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the global table to be updated.
 updateTableReplicaAutoScaling_tableName :: Lens.Lens' UpdateTableReplicaAutoScaling Prelude.Text
@@ -157,14 +158,12 @@ instance Core.ToJSON UpdateTableReplicaAutoScaling where
   toJSON UpdateTableReplicaAutoScaling' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ( "ProvisionedWriteCapacityAutoScalingUpdate"
-                Core..=
-            )
+          [ ("ReplicaUpdates" Core..=)
+              Prelude.<$> replicaUpdates,
+            ("ProvisionedWriteCapacityAutoScalingUpdate" Core..=)
               Prelude.<$> provisionedWriteCapacityAutoScalingUpdate,
             ("GlobalSecondaryIndexUpdates" Core..=)
               Prelude.<$> globalSecondaryIndexUpdates,
-            ("ReplicaUpdates" Core..=)
-              Prelude.<$> replicaUpdates,
             Prelude.Just ("TableName" Core..= tableName)
           ]
       )

@@ -68,7 +68,7 @@ batchStatementRequest_consistentRead = Lens.lens (\BatchStatementRequest' {consi
 
 -- | The parameters associated with a PartiQL statement in the batch request.
 batchStatementRequest_parameters :: Lens.Lens' BatchStatementRequest (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
-batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameters} -> parameters) (\s@BatchStatementRequest' {} a -> s {parameters = a} :: BatchStatementRequest) Prelude.. Lens.mapping Lens._Coerce
+batchStatementRequest_parameters = Lens.lens (\BatchStatementRequest' {parameters} -> parameters) (\s@BatchStatementRequest' {} a -> s {parameters = a} :: BatchStatementRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A valid PartiQL statement.
 batchStatementRequest_statement :: Lens.Lens' BatchStatementRequest Prelude.Text

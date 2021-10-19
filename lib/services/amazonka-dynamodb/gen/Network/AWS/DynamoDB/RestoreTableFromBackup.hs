@@ -46,9 +46,9 @@ module Network.AWS.DynamoDB.RestoreTableFromBackup
     newRestoreTableFromBackup,
 
     -- * Request Lenses
-    restoreTableFromBackup_provisionedThroughputOverride,
-    restoreTableFromBackup_globalSecondaryIndexOverride,
     restoreTableFromBackup_billingModeOverride,
+    restoreTableFromBackup_globalSecondaryIndexOverride,
+    restoreTableFromBackup_provisionedThroughputOverride,
     restoreTableFromBackup_sSESpecificationOverride,
     restoreTableFromBackup_localSecondaryIndexOverride,
     restoreTableFromBackup_targetTableName,
@@ -73,14 +73,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRestoreTableFromBackup' smart constructor.
 data RestoreTableFromBackup = RestoreTableFromBackup'
-  { -- | Provisioned throughput settings for the restored table.
-    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
+  { -- | The billing mode of the restored table.
+    billingModeOverride :: Prelude.Maybe BillingMode,
     -- | List of global secondary indexes for the restored table. The indexes
     -- provided should match existing secondary indexes. You can choose to
     -- exclude some or all of the indexes at the time of restore.
     globalSecondaryIndexOverride :: Prelude.Maybe [GlobalSecondaryIndex],
-    -- | The billing mode of the restored table.
-    billingModeOverride :: Prelude.Maybe BillingMode,
+    -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
     -- | The new server-side encryption settings for the restored table.
     sSESpecificationOverride :: Prelude.Maybe SSESpecification,
     -- | List of local secondary indexes for the restored table. The indexes
@@ -102,13 +102,13 @@ data RestoreTableFromBackup = RestoreTableFromBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+-- 'billingModeOverride', 'restoreTableFromBackup_billingModeOverride' - The billing mode of the restored table.
 --
 -- 'globalSecondaryIndexOverride', 'restoreTableFromBackup_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
 --
--- 'billingModeOverride', 'restoreTableFromBackup_billingModeOverride' - The billing mode of the restored table.
+-- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
 --
 -- 'sSESpecificationOverride', 'restoreTableFromBackup_sSESpecificationOverride' - The new server-side encryption settings for the restored table.
 --
@@ -129,29 +129,29 @@ newRestoreTableFromBackup
   pTargetTableName_
   pBackupArn_ =
     RestoreTableFromBackup'
-      { provisionedThroughputOverride =
+      { billingModeOverride =
           Prelude.Nothing,
         globalSecondaryIndexOverride = Prelude.Nothing,
-        billingModeOverride = Prelude.Nothing,
+        provisionedThroughputOverride = Prelude.Nothing,
         sSESpecificationOverride = Prelude.Nothing,
         localSecondaryIndexOverride = Prelude.Nothing,
         targetTableName = pTargetTableName_,
         backupArn = pBackupArn_
       }
 
--- | Provisioned throughput settings for the restored table.
-restoreTableFromBackup_provisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe ProvisionedThroughput)
-restoreTableFromBackup_provisionedThroughputOverride = Lens.lens (\RestoreTableFromBackup' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableFromBackup' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
+-- | The billing mode of the restored table.
+restoreTableFromBackup_billingModeOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe BillingMode)
+restoreTableFromBackup_billingModeOverride = Lens.lens (\RestoreTableFromBackup' {billingModeOverride} -> billingModeOverride) (\s@RestoreTableFromBackup' {} a -> s {billingModeOverride = a} :: RestoreTableFromBackup)
 
 -- | List of global secondary indexes for the restored table. The indexes
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
 restoreTableFromBackup_globalSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [GlobalSecondaryIndex])
-restoreTableFromBackup_globalSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens._Coerce
+restoreTableFromBackup_globalSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens.coerced
 
--- | The billing mode of the restored table.
-restoreTableFromBackup_billingModeOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe BillingMode)
-restoreTableFromBackup_billingModeOverride = Lens.lens (\RestoreTableFromBackup' {billingModeOverride} -> billingModeOverride) (\s@RestoreTableFromBackup' {} a -> s {billingModeOverride = a} :: RestoreTableFromBackup)
+-- | Provisioned throughput settings for the restored table.
+restoreTableFromBackup_provisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe ProvisionedThroughput)
+restoreTableFromBackup_provisionedThroughputOverride = Lens.lens (\RestoreTableFromBackup' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableFromBackup' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
 
 -- | The new server-side encryption settings for the restored table.
 restoreTableFromBackup_sSESpecificationOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe SSESpecification)
@@ -161,7 +161,7 @@ restoreTableFromBackup_sSESpecificationOverride = Lens.lens (\RestoreTableFromBa
 -- provided should match existing secondary indexes. You can choose to
 -- exclude some or all of the indexes at the time of restore.
 restoreTableFromBackup_localSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [LocalSecondaryIndex])
-restoreTableFromBackup_localSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens._Coerce
+restoreTableFromBackup_localSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new table to which the backup must be restored.
 restoreTableFromBackup_targetTableName :: Lens.Lens' RestoreTableFromBackup Prelude.Text
@@ -207,12 +207,12 @@ instance Core.ToJSON RestoreTableFromBackup where
   toJSON RestoreTableFromBackup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Core..=)
-              Prelude.<$> provisionedThroughputOverride,
+          [ ("BillingModeOverride" Core..=)
+              Prelude.<$> billingModeOverride,
             ("GlobalSecondaryIndexOverride" Core..=)
               Prelude.<$> globalSecondaryIndexOverride,
-            ("BillingModeOverride" Core..=)
-              Prelude.<$> billingModeOverride,
+            ("ProvisionedThroughputOverride" Core..=)
+              Prelude.<$> provisionedThroughputOverride,
             ("SSESpecificationOverride" Core..=)
               Prelude.<$> sSESpecificationOverride,
             ("LocalSecondaryIndexOverride" Core..=)

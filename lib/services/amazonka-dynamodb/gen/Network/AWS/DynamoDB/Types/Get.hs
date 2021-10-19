@@ -90,12 +90,12 @@ get_projectionExpression = Lens.lens (\Get' {projectionExpression} -> projection
 -- | One or more substitution tokens for attribute names in the
 -- ProjectionExpression parameter.
 get_expressionAttributeNames :: Lens.Lens' Get (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-get_expressionAttributeNames = Lens.lens (\Get' {expressionAttributeNames} -> expressionAttributeNames) (\s@Get' {} a -> s {expressionAttributeNames = a} :: Get) Prelude.. Lens.mapping Lens._Coerce
+get_expressionAttributeNames = Lens.lens (\Get' {expressionAttributeNames} -> expressionAttributeNames) (\s@Get' {} a -> s {expressionAttributeNames = a} :: Get) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of attribute names to @AttributeValue@ objects that specifies the
 -- primary key of the item to retrieve.
 get_key :: Lens.Lens' Get (Prelude.HashMap Prelude.Text AttributeValue)
-get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Prelude.. Lens._Coerce
+get_key = Lens.lens (\Get' {key} -> key) (\s@Get' {} a -> s {key = a} :: Get) Prelude.. Lens.coerced
 
 -- | The name of the table from which to retrieve the specified item.
 get_tableName :: Lens.Lens' Get Prelude.Text

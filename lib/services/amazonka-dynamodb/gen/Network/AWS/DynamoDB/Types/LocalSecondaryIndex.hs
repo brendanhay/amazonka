@@ -101,7 +101,7 @@ newLocalSecondaryIndex
   pProjection_ =
     LocalSecondaryIndex'
       { indexName = pIndexName_,
-        keySchema = Lens._Coerce Lens.# pKeySchema_,
+        keySchema = Lens.coerced Lens.# pKeySchema_,
         projection = pProjection_
       }
 
@@ -127,7 +127,7 @@ localSecondaryIndex_indexName = Lens.lens (\LocalSecondaryIndex' {indexName} -> 
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
 localSecondaryIndex_keySchema :: Lens.Lens' LocalSecondaryIndex (Prelude.NonEmpty KeySchemaElement)
-localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> keySchema) (\s@LocalSecondaryIndex' {} a -> s {keySchema = a} :: LocalSecondaryIndex) Prelude.. Lens._Coerce
+localSecondaryIndex_keySchema = Lens.lens (\LocalSecondaryIndex' {keySchema} -> keySchema) (\s@LocalSecondaryIndex' {} a -> s {keySchema = a} :: LocalSecondaryIndex) Prelude.. Lens.coerced
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the local secondary index. These are in addition to the primary key

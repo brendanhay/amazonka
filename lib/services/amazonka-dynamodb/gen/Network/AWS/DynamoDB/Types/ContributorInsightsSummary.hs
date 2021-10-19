@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContributorInsightsSummary' smart constructor.
 data ContributorInsightsSummary = ContributorInsightsSummary'
-  { -- | Name of the table associated with the summary.
+  { -- | Describes the current status for contributor insights for the given
+    -- table and index, if applicable.
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
+    -- | Name of the table associated with the summary.
     tableName :: Prelude.Maybe Prelude.Text,
     -- | Name of the index associated with the summary, if any.
-    indexName :: Prelude.Maybe Prelude.Text,
-    -- | Describes the current status for contributor insights for the given
-    -- table and index, if applicable.
-    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus
+    indexName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,26 @@ data ContributorInsightsSummary = ContributorInsightsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contributorInsightsStatus', 'contributorInsightsSummary_contributorInsightsStatus' - Describes the current status for contributor insights for the given
+-- table and index, if applicable.
+--
 -- 'tableName', 'contributorInsightsSummary_tableName' - Name of the table associated with the summary.
 --
 -- 'indexName', 'contributorInsightsSummary_indexName' - Name of the index associated with the summary, if any.
---
--- 'contributorInsightsStatus', 'contributorInsightsSummary_contributorInsightsStatus' - Describes the current status for contributor insights for the given
--- table and index, if applicable.
 newContributorInsightsSummary ::
   ContributorInsightsSummary
 newContributorInsightsSummary =
   ContributorInsightsSummary'
-    { tableName =
+    { contributorInsightsStatus =
         Prelude.Nothing,
-      indexName = Prelude.Nothing,
-      contributorInsightsStatus = Prelude.Nothing
+      tableName = Prelude.Nothing,
+      indexName = Prelude.Nothing
     }
+
+-- | Describes the current status for contributor insights for the given
+-- table and index, if applicable.
+contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe ContributorInsightsStatus)
+contributorInsightsSummary_contributorInsightsStatus = Lens.lens (\ContributorInsightsSummary' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@ContributorInsightsSummary' {} a -> s {contributorInsightsStatus = a} :: ContributorInsightsSummary)
 
 -- | Name of the table associated with the summary.
 contributorInsightsSummary_tableName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
@@ -70,20 +75,15 @@ contributorInsightsSummary_tableName = Lens.lens (\ContributorInsightsSummary' {
 contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
 contributorInsightsSummary_indexName = Lens.lens (\ContributorInsightsSummary' {indexName} -> indexName) (\s@ContributorInsightsSummary' {} a -> s {indexName = a} :: ContributorInsightsSummary)
 
--- | Describes the current status for contributor insights for the given
--- table and index, if applicable.
-contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe ContributorInsightsStatus)
-contributorInsightsSummary_contributorInsightsStatus = Lens.lens (\ContributorInsightsSummary' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@ContributorInsightsSummary' {} a -> s {contributorInsightsStatus = a} :: ContributorInsightsSummary)
-
 instance Core.FromJSON ContributorInsightsSummary where
   parseJSON =
     Core.withObject
       "ContributorInsightsSummary"
       ( \x ->
           ContributorInsightsSummary'
-            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<$> (x Core..:? "ContributorInsightsStatus")
+            Prelude.<*> (x Core..:? "TableName")
             Prelude.<*> (x Core..:? "IndexName")
-            Prelude.<*> (x Core..:? "ContributorInsightsStatus")
       )
 
 instance Prelude.Hashable ContributorInsightsSummary

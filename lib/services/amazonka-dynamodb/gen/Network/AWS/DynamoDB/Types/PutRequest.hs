@@ -63,7 +63,7 @@ newPutRequest = PutRequest' {item = Prelude.mempty}
 -- that are part of an index key schema for the table, their types must
 -- match the index key schema.
 putRequest_item :: Lens.Lens' PutRequest (Prelude.HashMap Prelude.Text AttributeValue)
-putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Prelude.. Lens._Coerce
+putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Prelude.. Lens.coerced
 
 instance Core.FromJSON PutRequest where
   parseJSON =

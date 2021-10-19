@@ -38,20 +38,20 @@ module Network.AWS.DynamoDB.ListBackups
     newListBackups,
 
     -- * Request Lenses
-    listBackups_tableName,
-    listBackups_backupType,
-    listBackups_timeRangeLowerBound,
-    listBackups_exclusiveStartBackupArn,
-    listBackups_limit,
     listBackups_timeRangeUpperBound,
+    listBackups_timeRangeLowerBound,
+    listBackups_limit,
+    listBackups_exclusiveStartBackupArn,
+    listBackups_backupType,
+    listBackups_tableName,
 
     -- * Destructuring the Response
     ListBackupsResponse (..),
     newListBackupsResponse,
 
     -- * Response Lenses
-    listBackupsResponse_lastEvaluatedBackupArn,
     listBackupsResponse_backupSummaries,
+    listBackupsResponse_lastEvaluatedBackupArn,
     listBackupsResponse_httpStatus,
   )
 where
@@ -65,8 +65,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBackups' smart constructor.
 data ListBackups = ListBackups'
-  { -- | The backups from the table specified by @TableName@ are listed.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | Only backups created before this time are listed. @TimeRangeUpperBound@
+    -- is exclusive.
+    timeRangeUpperBound :: Prelude.Maybe Core.POSIX,
+    -- | Only backups created after this time are listed. @TimeRangeLowerBound@
+    -- is inclusive.
+    timeRangeLowerBound :: Prelude.Maybe Core.POSIX,
+    -- | Maximum number of backups to return at once.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
+    -- last evaluated when the current page of results was returned, inclusive
+    -- of the current page of results. This value may be specified as the
+    -- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
+    -- fetch the next page of results.
+    exclusiveStartBackupArn :: Prelude.Maybe Prelude.Text,
     -- | The backups from the table specified by @BackupType@ are listed.
     --
     -- Where @BackupType@ can be:
@@ -77,20 +89,8 @@ data ListBackups = ListBackups'
     --
     -- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).
     backupType :: Prelude.Maybe BackupTypeFilter,
-    -- | Only backups created after this time are listed. @TimeRangeLowerBound@
-    -- is inclusive.
-    timeRangeLowerBound :: Prelude.Maybe Core.POSIX,
-    -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
-    -- last evaluated when the current page of results was returned, inclusive
-    -- of the current page of results. This value may be specified as the
-    -- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
-    -- fetch the next page of results.
-    exclusiveStartBackupArn :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of backups to return at once.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | Only backups created before this time are listed. @TimeRangeUpperBound@
-    -- is exclusive.
-    timeRangeUpperBound :: Prelude.Maybe Core.POSIX
+    -- | The backups from the table specified by @TableName@ are listed.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,7 +102,19 @@ data ListBackups = ListBackups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'listBackups_tableName' - The backups from the table specified by @TableName@ are listed.
+-- 'timeRangeUpperBound', 'listBackups_timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@
+-- is exclusive.
+--
+-- 'timeRangeLowerBound', 'listBackups_timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@
+-- is inclusive.
+--
+-- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.
+--
+-- 'exclusiveStartBackupArn', 'listBackups_exclusiveStartBackupArn' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
+-- last evaluated when the current page of results was returned, inclusive
+-- of the current page of results. This value may be specified as the
+-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
+-- fetch the next page of results.
 --
 -- 'backupType', 'listBackups_backupType' - The backups from the table specified by @BackupType@ are listed.
 --
@@ -114,34 +126,40 @@ data ListBackups = ListBackups'
 --
 -- -   @ALL@ - All types of on-demand backups (USER and SYSTEM).
 --
--- 'timeRangeLowerBound', 'listBackups_timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@
--- is inclusive.
---
--- 'exclusiveStartBackupArn', 'listBackups_exclusiveStartBackupArn' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
--- last evaluated when the current page of results was returned, inclusive
--- of the current page of results. This value may be specified as the
--- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
--- fetch the next page of results.
---
--- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.
---
--- 'timeRangeUpperBound', 'listBackups_timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@
--- is exclusive.
+-- 'tableName', 'listBackups_tableName' - The backups from the table specified by @TableName@ are listed.
 newListBackups ::
   ListBackups
 newListBackups =
   ListBackups'
-    { tableName = Prelude.Nothing,
-      backupType = Prelude.Nothing,
+    { timeRangeUpperBound = Prelude.Nothing,
       timeRangeLowerBound = Prelude.Nothing,
-      exclusiveStartBackupArn = Prelude.Nothing,
       limit = Prelude.Nothing,
-      timeRangeUpperBound = Prelude.Nothing
+      exclusiveStartBackupArn = Prelude.Nothing,
+      backupType = Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
 
--- | The backups from the table specified by @TableName@ are listed.
-listBackups_tableName :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Text)
-listBackups_tableName = Lens.lens (\ListBackups' {tableName} -> tableName) (\s@ListBackups' {} a -> s {tableName = a} :: ListBackups)
+-- | Only backups created before this time are listed. @TimeRangeUpperBound@
+-- is exclusive.
+listBackups_timeRangeUpperBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
+listBackups_timeRangeUpperBound = Lens.lens (\ListBackups' {timeRangeUpperBound} -> timeRangeUpperBound) (\s@ListBackups' {} a -> s {timeRangeUpperBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
+
+-- | Only backups created after this time are listed. @TimeRangeLowerBound@
+-- is inclusive.
+listBackups_timeRangeLowerBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
+listBackups_timeRangeLowerBound = Lens.lens (\ListBackups' {timeRangeLowerBound} -> timeRangeLowerBound) (\s@ListBackups' {} a -> s {timeRangeLowerBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
+
+-- | Maximum number of backups to return at once.
+listBackups_limit :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Natural)
+listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' {} a -> s {limit = a} :: ListBackups)
+
+-- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
+-- last evaluated when the current page of results was returned, inclusive
+-- of the current page of results. This value may be specified as the
+-- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
+-- fetch the next page of results.
+listBackups_exclusiveStartBackupArn :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Text)
+listBackups_exclusiveStartBackupArn = Lens.lens (\ListBackups' {exclusiveStartBackupArn} -> exclusiveStartBackupArn) (\s@ListBackups' {} a -> s {exclusiveStartBackupArn = a} :: ListBackups)
 
 -- | The backups from the table specified by @BackupType@ are listed.
 --
@@ -155,27 +173,9 @@ listBackups_tableName = Lens.lens (\ListBackups' {tableName} -> tableName) (\s@L
 listBackups_backupType :: Lens.Lens' ListBackups (Prelude.Maybe BackupTypeFilter)
 listBackups_backupType = Lens.lens (\ListBackups' {backupType} -> backupType) (\s@ListBackups' {} a -> s {backupType = a} :: ListBackups)
 
--- | Only backups created after this time are listed. @TimeRangeLowerBound@
--- is inclusive.
-listBackups_timeRangeLowerBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
-listBackups_timeRangeLowerBound = Lens.lens (\ListBackups' {timeRangeLowerBound} -> timeRangeLowerBound) (\s@ListBackups' {} a -> s {timeRangeLowerBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
-
--- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
--- last evaluated when the current page of results was returned, inclusive
--- of the current page of results. This value may be specified as the
--- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
--- fetch the next page of results.
-listBackups_exclusiveStartBackupArn :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Text)
-listBackups_exclusiveStartBackupArn = Lens.lens (\ListBackups' {exclusiveStartBackupArn} -> exclusiveStartBackupArn) (\s@ListBackups' {} a -> s {exclusiveStartBackupArn = a} :: ListBackups)
-
--- | Maximum number of backups to return at once.
-listBackups_limit :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Natural)
-listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' {} a -> s {limit = a} :: ListBackups)
-
--- | Only backups created before this time are listed. @TimeRangeUpperBound@
--- is exclusive.
-listBackups_timeRangeUpperBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
-listBackups_timeRangeUpperBound = Lens.lens (\ListBackups' {timeRangeUpperBound} -> timeRangeUpperBound) (\s@ListBackups' {} a -> s {timeRangeUpperBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
+-- | The backups from the table specified by @TableName@ are listed.
+listBackups_tableName :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Text)
+listBackups_tableName = Lens.lens (\ListBackups' {tableName} -> tableName) (\s@ListBackups' {} a -> s {tableName = a} :: ListBackups)
 
 instance Core.AWSPager ListBackups where
   page rq rs
@@ -206,10 +206,10 @@ instance Core.AWSRequest ListBackups where
     Response.receiveJSON
       ( \s h x ->
           ListBackupsResponse'
-            Prelude.<$> (x Core..?> "LastEvaluatedBackupArn")
-            Prelude.<*> ( x Core..?> "BackupSummaries"
+            Prelude.<$> ( x Core..?> "BackupSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "LastEvaluatedBackupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -236,15 +236,15 @@ instance Core.ToJSON ListBackups where
   toJSON ListBackups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TableName" Core..=) Prelude.<$> tableName,
-            ("BackupType" Core..=) Prelude.<$> backupType,
+          [ ("TimeRangeUpperBound" Core..=)
+              Prelude.<$> timeRangeUpperBound,
             ("TimeRangeLowerBound" Core..=)
               Prelude.<$> timeRangeLowerBound,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("ExclusiveStartBackupArn" Core..=)
               Prelude.<$> exclusiveStartBackupArn,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("TimeRangeUpperBound" Core..=)
-              Prelude.<$> timeRangeUpperBound
+            ("BackupType" Core..=) Prelude.<$> backupType,
+            ("TableName" Core..=) Prelude.<$> tableName
           ]
       )
 
@@ -256,7 +256,9 @@ instance Core.ToQuery ListBackups where
 
 -- | /See:/ 'newListBackupsResponse' smart constructor.
 data ListBackupsResponse = ListBackupsResponse'
-  { -- | The ARN of the backup last evaluated when the current page of results
+  { -- | List of @BackupSummary@ objects.
+    backupSummaries :: Prelude.Maybe [BackupSummary],
+    -- | The ARN of the backup last evaluated when the current page of results
     -- was returned, inclusive of the current page of results. This value may
     -- be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@
     -- operation in order to fetch the next page of results.
@@ -269,8 +271,6 @@ data ListBackupsResponse = ListBackupsResponse'
     -- have been returned if and only if no value for @LastEvaluatedBackupArn@
     -- is returned.
     lastEvaluatedBackupArn :: Prelude.Maybe Prelude.Text,
-    -- | List of @BackupSummary@ objects.
-    backupSummaries :: Prelude.Maybe [BackupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -283,6 +283,8 @@ data ListBackupsResponse = ListBackupsResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'backupSummaries', 'listBackupsResponse_backupSummaries' - List of @BackupSummary@ objects.
 --
 -- 'lastEvaluatedBackupArn', 'listBackupsResponse_lastEvaluatedBackupArn' - The ARN of the backup last evaluated when the current page of results
 -- was returned, inclusive of the current page of results. This value may
@@ -297,8 +299,6 @@ data ListBackupsResponse = ListBackupsResponse'
 -- have been returned if and only if no value for @LastEvaluatedBackupArn@
 -- is returned.
 --
--- 'backupSummaries', 'listBackupsResponse_backupSummaries' - List of @BackupSummary@ objects.
---
 -- 'httpStatus', 'listBackupsResponse_httpStatus' - The response's http status code.
 newListBackupsResponse ::
   -- | 'httpStatus'
@@ -306,11 +306,15 @@ newListBackupsResponse ::
   ListBackupsResponse
 newListBackupsResponse pHttpStatus_ =
   ListBackupsResponse'
-    { lastEvaluatedBackupArn =
+    { backupSummaries =
         Prelude.Nothing,
-      backupSummaries = Prelude.Nothing,
+      lastEvaluatedBackupArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of @BackupSummary@ objects.
+listBackupsResponse_backupSummaries :: Lens.Lens' ListBackupsResponse (Prelude.Maybe [BackupSummary])
+listBackupsResponse_backupSummaries = Lens.lens (\ListBackupsResponse' {backupSummaries} -> backupSummaries) (\s@ListBackupsResponse' {} a -> s {backupSummaries = a} :: ListBackupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the backup last evaluated when the current page of results
 -- was returned, inclusive of the current page of results. This value may
@@ -326,10 +330,6 @@ newListBackupsResponse pHttpStatus_ =
 -- is returned.
 listBackupsResponse_lastEvaluatedBackupArn :: Lens.Lens' ListBackupsResponse (Prelude.Maybe Prelude.Text)
 listBackupsResponse_lastEvaluatedBackupArn = Lens.lens (\ListBackupsResponse' {lastEvaluatedBackupArn} -> lastEvaluatedBackupArn) (\s@ListBackupsResponse' {} a -> s {lastEvaluatedBackupArn = a} :: ListBackupsResponse)
-
--- | List of @BackupSummary@ objects.
-listBackupsResponse_backupSummaries :: Lens.Lens' ListBackupsResponse (Prelude.Maybe [BackupSummary])
-listBackupsResponse_backupSummaries = Lens.lens (\ListBackupsResponse' {backupSummaries} -> backupSummaries) (\s@ListBackupsResponse' {} a -> s {backupSummaries = a} :: ListBackupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBackupsResponse_httpStatus :: Lens.Lens' ListBackupsResponse Prelude.Int

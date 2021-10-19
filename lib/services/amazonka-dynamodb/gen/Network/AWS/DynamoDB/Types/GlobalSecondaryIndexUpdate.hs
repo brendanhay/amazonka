@@ -51,11 +51,11 @@ data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
     --
     -- -   @ProvisionedThroughput @
     create :: Prelude.Maybe CreateGlobalSecondaryIndexAction,
+    -- | The name of an existing global secondary index to be removed.
+    delete' :: Prelude.Maybe DeleteGlobalSecondaryIndexAction,
     -- | The name of an existing global secondary index, along with new
     -- provisioned throughput settings to be applied to that index.
-    update :: Prelude.Maybe UpdateGlobalSecondaryIndexAction,
-    -- | The name of an existing global secondary index to be removed.
-    delete' :: Prelude.Maybe DeleteGlobalSecondaryIndexAction
+    update :: Prelude.Maybe UpdateGlobalSecondaryIndexAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,18 +80,18 @@ data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
 --
 -- -   @ProvisionedThroughput @
 --
+-- 'delete'', 'globalSecondaryIndexUpdate_delete' - The name of an existing global secondary index to be removed.
+--
 -- 'update', 'globalSecondaryIndexUpdate_update' - The name of an existing global secondary index, along with new
 -- provisioned throughput settings to be applied to that index.
---
--- 'delete'', 'globalSecondaryIndexUpdate_delete' - The name of an existing global secondary index to be removed.
 newGlobalSecondaryIndexUpdate ::
   GlobalSecondaryIndexUpdate
 newGlobalSecondaryIndexUpdate =
   GlobalSecondaryIndexUpdate'
     { create =
         Prelude.Nothing,
-      update = Prelude.Nothing,
-      delete' = Prelude.Nothing
+      delete' = Prelude.Nothing,
+      update = Prelude.Nothing
     }
 
 -- | The parameters required for creating a global secondary index on an
@@ -109,14 +109,14 @@ newGlobalSecondaryIndexUpdate =
 globalSecondaryIndexUpdate_create :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe CreateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_create = Lens.lens (\GlobalSecondaryIndexUpdate' {create} -> create) (\s@GlobalSecondaryIndexUpdate' {} a -> s {create = a} :: GlobalSecondaryIndexUpdate)
 
+-- | The name of an existing global secondary index to be removed.
+globalSecondaryIndexUpdate_delete :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe DeleteGlobalSecondaryIndexAction)
+globalSecondaryIndexUpdate_delete = Lens.lens (\GlobalSecondaryIndexUpdate' {delete'} -> delete') (\s@GlobalSecondaryIndexUpdate' {} a -> s {delete' = a} :: GlobalSecondaryIndexUpdate)
+
 -- | The name of an existing global secondary index, along with new
 -- provisioned throughput settings to be applied to that index.
 globalSecondaryIndexUpdate_update :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe UpdateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_update = Lens.lens (\GlobalSecondaryIndexUpdate' {update} -> update) (\s@GlobalSecondaryIndexUpdate' {} a -> s {update = a} :: GlobalSecondaryIndexUpdate)
-
--- | The name of an existing global secondary index to be removed.
-globalSecondaryIndexUpdate_delete :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe DeleteGlobalSecondaryIndexAction)
-globalSecondaryIndexUpdate_delete = Lens.lens (\GlobalSecondaryIndexUpdate' {delete'} -> delete') (\s@GlobalSecondaryIndexUpdate' {} a -> s {delete' = a} :: GlobalSecondaryIndexUpdate)
 
 instance Prelude.Hashable GlobalSecondaryIndexUpdate
 
@@ -127,7 +127,7 @@ instance Core.ToJSON GlobalSecondaryIndexUpdate where
     Core.object
       ( Prelude.catMaybes
           [ ("Create" Core..=) Prelude.<$> create,
-            ("Update" Core..=) Prelude.<$> update,
-            ("Delete" Core..=) Prelude.<$> delete'
+            ("Delete" Core..=) Prelude.<$> delete',
+            ("Update" Core..=) Prelude.<$> update
           ]
       )

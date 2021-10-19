@@ -27,17 +27,17 @@ module Network.AWS.DynamoDB.ListExports
     newListExports,
 
     -- * Request Lenses
+    listExports_tableArn,
     listExports_nextToken,
     listExports_maxResults,
-    listExports_tableArn,
 
     -- * Destructuring the Response
     ListExportsResponse (..),
     newListExportsResponse,
 
     -- * Response Lenses
-    listExportsResponse_nextToken,
     listExportsResponse_exportSummaries,
+    listExportsResponse_nextToken,
     listExportsResponse_httpStatus,
   )
 where
@@ -51,14 +51,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListExports' smart constructor.
 data ListExports = ListExports'
-  { -- | An optional string that, if supplied, must be copied from the output of
+  { -- | The Amazon Resource Name (ARN) associated with the exported table.
+    tableArn :: Prelude.Maybe Prelude.Text,
+    -- | An optional string that, if supplied, must be copied from the output of
     -- a previous call to @ListExports@. When provided in this manner, the API
     -- fetches the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) associated with the exported table.
-    tableArn :: Prelude.Maybe Prelude.Text
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,21 +70,25 @@ data ListExports = ListExports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tableArn', 'listExports_tableArn' - The Amazon Resource Name (ARN) associated with the exported table.
+--
 -- 'nextToken', 'listExports_nextToken' - An optional string that, if supplied, must be copied from the output of
 -- a previous call to @ListExports@. When provided in this manner, the API
 -- fetches the next page of results.
 --
 -- 'maxResults', 'listExports_maxResults' - Maximum number of results to return per page.
---
--- 'tableArn', 'listExports_tableArn' - The Amazon Resource Name (ARN) associated with the exported table.
 newListExports ::
   ListExports
 newListExports =
   ListExports'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tableArn = Prelude.Nothing
+    { tableArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) associated with the exported table.
+listExports_tableArn :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Text)
+listExports_tableArn = Lens.lens (\ListExports' {tableArn} -> tableArn) (\s@ListExports' {} a -> s {tableArn = a} :: ListExports)
 
 -- | An optional string that, if supplied, must be copied from the output of
 -- a previous call to @ListExports@. When provided in this manner, the API
@@ -96,10 +100,6 @@ listExports_nextToken = Lens.lens (\ListExports' {nextToken} -> nextToken) (\s@L
 listExports_maxResults :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Natural)
 listExports_maxResults = Lens.lens (\ListExports' {maxResults} -> maxResults) (\s@ListExports' {} a -> s {maxResults = a} :: ListExports)
 
--- | The Amazon Resource Name (ARN) associated with the exported table.
-listExports_tableArn :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Text)
-listExports_tableArn = Lens.lens (\ListExports' {tableArn} -> tableArn) (\s@ListExports' {} a -> s {tableArn = a} :: ListExports)
-
 instance Core.AWSRequest ListExports where
   type AWSResponse ListExports = ListExportsResponse
   request = Request.postJSON defaultService
@@ -107,10 +107,10 @@ instance Core.AWSRequest ListExports where
     Response.receiveJSON
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ExportSummaries"
+            Prelude.<$> ( x Core..?> "ExportSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -137,9 +137,9 @@ instance Core.ToJSON ListExports where
   toJSON ListExports' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("TableArn" Core..=) Prelude.<$> tableArn
+          [ ("TableArn" Core..=) Prelude.<$> tableArn,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -151,12 +151,12 @@ instance Core.ToQuery ListExports where
 
 -- | /See:/ 'newListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { -- | If this value is returned, there are additional results to be displayed.
+  { -- | A list of @ExportSummary@ objects.
+    exportSummaries :: Prelude.Maybe [ExportSummary],
+    -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
     -- value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ExportSummary@ objects.
-    exportSummaries :: Prelude.Maybe [ExportSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,11 +170,11 @@ data ListExportsResponse = ListExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'exportSummaries', 'listExportsResponse_exportSummaries' - A list of @ExportSummary@ objects.
+--
 -- 'nextToken', 'listExportsResponse_nextToken' - If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
 -- value.
---
--- 'exportSummaries', 'listExportsResponse_exportSummaries' - A list of @ExportSummary@ objects.
 --
 -- 'httpStatus', 'listExportsResponse_httpStatus' - The response's http status code.
 newListExportsResponse ::
@@ -183,20 +183,21 @@ newListExportsResponse ::
   ListExportsResponse
 newListExportsResponse pHttpStatus_ =
   ListExportsResponse'
-    { nextToken = Prelude.Nothing,
-      exportSummaries = Prelude.Nothing,
+    { exportSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @ExportSummary@ objects.
+listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Prelude.Maybe [ExportSummary])
+listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
 -- value.
 listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Prelude.Maybe Prelude.Text)
 listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> nextToken) (\s@ListExportsResponse' {} a -> s {nextToken = a} :: ListExportsResponse)
-
--- | A list of @ExportSummary@ objects.
-listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Prelude.Maybe [ExportSummary])
-listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int

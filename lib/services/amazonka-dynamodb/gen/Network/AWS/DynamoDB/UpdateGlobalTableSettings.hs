@@ -27,11 +27,11 @@ module Network.AWS.DynamoDB.UpdateGlobalTableSettings
     newUpdateGlobalTableSettings,
 
     -- * Request Lenses
-    updateGlobalTableSettings_replicaSettingsUpdate,
-    updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits,
     updateGlobalTableSettings_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
-    updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate,
     updateGlobalTableSettings_globalTableBillingMode,
+    updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits,
+    updateGlobalTableSettings_replicaSettingsUpdate,
+    updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate,
     updateGlobalTableSettings_globalTableName,
 
     -- * Destructuring the Response
@@ -54,18 +54,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGlobalTableSettings' smart constructor.
 data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
-  { -- | Represents the settings for a global table in a Region that will be
-    -- modified.
-    replicaSettingsUpdate :: Prelude.Maybe (Prelude.NonEmpty ReplicaSettingsUpdate),
-    -- | The maximum number of writes consumed per second before DynamoDB returns
-    -- a @ThrottlingException.@
-    globalTableProvisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
-    -- | Auto scaling settings for managing provisioned write capacity for the
+  { -- | Auto scaling settings for managing provisioned write capacity for the
     -- global table.
     globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: Prelude.Maybe AutoScalingSettingsUpdate,
-    -- | Represents the settings of a global secondary index for a global table
-    -- that will be modified.
-    globalTableGlobalSecondaryIndexSettingsUpdate :: Prelude.Maybe (Prelude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate),
     -- | The billing mode of the global table. If @GlobalTableBillingMode@ is not
     -- specified, the global table defaults to @PROVISIONED@ capacity billing
     -- mode.
@@ -78,6 +69,15 @@ data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
     --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
     globalTableBillingMode :: Prelude.Maybe BillingMode,
+    -- | The maximum number of writes consumed per second before DynamoDB returns
+    -- a @ThrottlingException.@
+    globalTableProvisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
+    -- | Represents the settings for a global table in a Region that will be
+    -- modified.
+    replicaSettingsUpdate :: Prelude.Maybe (Prelude.NonEmpty ReplicaSettingsUpdate),
+    -- | Represents the settings of a global secondary index for a global table
+    -- that will be modified.
+    globalTableGlobalSecondaryIndexSettingsUpdate :: Prelude.Maybe (Prelude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate),
     -- | The name of the global table
     globalTableName :: Prelude.Text
   }
@@ -91,17 +91,8 @@ data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaSettingsUpdate', 'updateGlobalTableSettings_replicaSettingsUpdate' - Represents the settings for a global table in a Region that will be
--- modified.
---
--- 'globalTableProvisionedWriteCapacityUnits', 'updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException.@
---
 -- 'globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate', 'updateGlobalTableSettings_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing provisioned write capacity for the
 -- global table.
---
--- 'globalTableGlobalSecondaryIndexSettingsUpdate', 'updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table
--- that will be modified.
 --
 -- 'globalTableBillingMode', 'updateGlobalTableSettings_globalTableBillingMode' - The billing mode of the global table. If @GlobalTableBillingMode@ is not
 -- specified, the global table defaults to @PROVISIONED@ capacity billing
@@ -115,6 +106,15 @@ data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
 --
+-- 'globalTableProvisionedWriteCapacityUnits', 'updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException.@
+--
+-- 'replicaSettingsUpdate', 'updateGlobalTableSettings_replicaSettingsUpdate' - Represents the settings for a global table in a Region that will be
+-- modified.
+--
+-- 'globalTableGlobalSecondaryIndexSettingsUpdate', 'updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table
+-- that will be modified.
+--
 -- 'globalTableName', 'updateGlobalTableSettings_globalTableName' - The name of the global table
 newUpdateGlobalTableSettings ::
   -- | 'globalTableName'
@@ -122,37 +122,21 @@ newUpdateGlobalTableSettings ::
   UpdateGlobalTableSettings
 newUpdateGlobalTableSettings pGlobalTableName_ =
   UpdateGlobalTableSettings'
-    { replicaSettingsUpdate =
-        Prelude.Nothing,
-      globalTableProvisionedWriteCapacityUnits =
-        Prelude.Nothing,
-      globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate =
-        Prelude.Nothing,
-      globalTableGlobalSecondaryIndexSettingsUpdate =
+    { globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate =
         Prelude.Nothing,
       globalTableBillingMode = Prelude.Nothing,
+      globalTableProvisionedWriteCapacityUnits =
+        Prelude.Nothing,
+      replicaSettingsUpdate = Prelude.Nothing,
+      globalTableGlobalSecondaryIndexSettingsUpdate =
+        Prelude.Nothing,
       globalTableName = pGlobalTableName_
     }
-
--- | Represents the settings for a global table in a Region that will be
--- modified.
-updateGlobalTableSettings_replicaSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe (Prelude.NonEmpty ReplicaSettingsUpdate))
-updateGlobalTableSettings_replicaSettingsUpdate = Lens.lens (\UpdateGlobalTableSettings' {replicaSettingsUpdate} -> replicaSettingsUpdate) (\s@UpdateGlobalTableSettings' {} a -> s {replicaSettingsUpdate = a} :: UpdateGlobalTableSettings) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException.@
-updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe Prelude.Natural)
-updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits = Lens.lens (\UpdateGlobalTableSettings' {globalTableProvisionedWriteCapacityUnits} -> globalTableProvisionedWriteCapacityUnits) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableProvisionedWriteCapacityUnits = a} :: UpdateGlobalTableSettings)
 
 -- | Auto scaling settings for managing provisioned write capacity for the
 -- global table.
 updateGlobalTableSettings_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe AutoScalingSettingsUpdate)
 updateGlobalTableSettings_globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = Lens.lens (\UpdateGlobalTableSettings' {globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate} -> globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = a} :: UpdateGlobalTableSettings)
-
--- | Represents the settings of a global secondary index for a global table
--- that will be modified.
-updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe (Prelude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate))
-updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate = Lens.lens (\UpdateGlobalTableSettings' {globalTableGlobalSecondaryIndexSettingsUpdate} -> globalTableGlobalSecondaryIndexSettingsUpdate) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableGlobalSecondaryIndexSettingsUpdate = a} :: UpdateGlobalTableSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The billing mode of the global table. If @GlobalTableBillingMode@ is not
 -- specified, the global table defaults to @PROVISIONED@ capacity billing
@@ -167,6 +151,21 @@ updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate = Lens.l
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
 updateGlobalTableSettings_globalTableBillingMode :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe BillingMode)
 updateGlobalTableSettings_globalTableBillingMode = Lens.lens (\UpdateGlobalTableSettings' {globalTableBillingMode} -> globalTableBillingMode) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableBillingMode = a} :: UpdateGlobalTableSettings)
+
+-- | The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException.@
+updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe Prelude.Natural)
+updateGlobalTableSettings_globalTableProvisionedWriteCapacityUnits = Lens.lens (\UpdateGlobalTableSettings' {globalTableProvisionedWriteCapacityUnits} -> globalTableProvisionedWriteCapacityUnits) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableProvisionedWriteCapacityUnits = a} :: UpdateGlobalTableSettings)
+
+-- | Represents the settings for a global table in a Region that will be
+-- modified.
+updateGlobalTableSettings_replicaSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe (Prelude.NonEmpty ReplicaSettingsUpdate))
+updateGlobalTableSettings_replicaSettingsUpdate = Lens.lens (\UpdateGlobalTableSettings' {replicaSettingsUpdate} -> replicaSettingsUpdate) (\s@UpdateGlobalTableSettings' {} a -> s {replicaSettingsUpdate = a} :: UpdateGlobalTableSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Represents the settings of a global secondary index for a global table
+-- that will be modified.
+updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Prelude.Maybe (Prelude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate))
+updateGlobalTableSettings_globalTableGlobalSecondaryIndexSettingsUpdate = Lens.lens (\UpdateGlobalTableSettings' {globalTableGlobalSecondaryIndexSettingsUpdate} -> globalTableGlobalSecondaryIndexSettingsUpdate) (\s@UpdateGlobalTableSettings' {} a -> s {globalTableGlobalSecondaryIndexSettingsUpdate = a} :: UpdateGlobalTableSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the global table
 updateGlobalTableSettings_globalTableName :: Lens.Lens' UpdateGlobalTableSettings Prelude.Text
@@ -211,20 +210,20 @@ instance Core.ToJSON UpdateGlobalTableSettings where
   toJSON UpdateGlobalTableSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplicaSettingsUpdate" Core..=)
-              Prelude.<$> replicaSettingsUpdate,
-            ("GlobalTableProvisionedWriteCapacityUnits" Core..=)
-              Prelude.<$> globalTableProvisionedWriteCapacityUnits,
-            ( "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
+          [ ( "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
                 Core..=
             )
               Prelude.<$> globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
+            ("GlobalTableBillingMode" Core..=)
+              Prelude.<$> globalTableBillingMode,
+            ("GlobalTableProvisionedWriteCapacityUnits" Core..=)
+              Prelude.<$> globalTableProvisionedWriteCapacityUnits,
+            ("ReplicaSettingsUpdate" Core..=)
+              Prelude.<$> replicaSettingsUpdate,
             ( "GlobalTableGlobalSecondaryIndexSettingsUpdate"
                 Core..=
             )
               Prelude.<$> globalTableGlobalSecondaryIndexSettingsUpdate,
-            ("GlobalTableBillingMode" Core..=)
-              Prelude.<$> globalTableBillingMode,
             Prelude.Just
               ("GlobalTableName" Core..= globalTableName)
           ]
@@ -274,7 +273,7 @@ newUpdateGlobalTableSettingsResponse pHttpStatus_ =
 
 -- | The Region-specific settings for the global table.
 updateGlobalTableSettingsResponse_replicaSettings :: Lens.Lens' UpdateGlobalTableSettingsResponse (Prelude.Maybe [ReplicaSettingsDescription])
-updateGlobalTableSettingsResponse_replicaSettings = Lens.lens (\UpdateGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@UpdateGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: UpdateGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+updateGlobalTableSettingsResponse_replicaSettings = Lens.lens (\UpdateGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@UpdateGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: UpdateGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the global table.
 updateGlobalTableSettingsResponse_globalTableName :: Lens.Lens' UpdateGlobalTableSettingsResponse (Prelude.Maybe Prelude.Text)

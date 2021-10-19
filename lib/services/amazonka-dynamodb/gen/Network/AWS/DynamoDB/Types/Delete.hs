@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDelete' smart constructor.
 data Delete = Delete'
-  { -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+  { -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
-    -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional delete to
     -- succeed.
     conditionExpression :: Prelude.Maybe Prelude.Text,
@@ -56,13 +56,13 @@ data Delete = Delete'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'returnValuesOnConditionCheckFailure', 'delete_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
--- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
--- the valid values are: NONE and ALL_OLD.
+-- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
 -- 'expressionAttributeValues', 'delete_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
--- 'expressionAttributeNames', 'delete_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+-- 'returnValuesOnConditionCheckFailure', 'delete_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+-- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
+-- the valid values are: NONE and ALL_OLD.
 --
 -- 'conditionExpression', 'delete_conditionExpression' - A condition that must be satisfied in order for a conditional delete to
 -- succeed.
@@ -77,28 +77,28 @@ newDelete ::
   Delete
 newDelete pTableName_ =
   Delete'
-    { returnValuesOnConditionCheckFailure =
-        Prelude.Nothing,
+    { expressionAttributeNames = Prelude.Nothing,
       expressionAttributeValues = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
+      returnValuesOnConditionCheckFailure =
+        Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       key = Prelude.mempty,
       tableName = pTableName_
     }
+
+-- | One or more substitution tokens for attribute names in an expression.
+delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more values that can be substituted in an expression.
+delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
 delete_returnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 delete_returnValuesOnConditionCheckFailure = Lens.lens (\Delete' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Delete' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Delete)
-
--- | One or more values that can be substituted in an expression.
-delete_expressionAttributeValues :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-delete_expressionAttributeValues = Lens.lens (\Delete' {expressionAttributeValues} -> expressionAttributeValues) (\s@Delete' {} a -> s {expressionAttributeValues = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more substitution tokens for attribute names in an expression.
-delete_expressionAttributeNames :: Lens.Lens' Delete (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-delete_expressionAttributeNames = Lens.lens (\Delete' {expressionAttributeNames} -> expressionAttributeNames) (\s@Delete' {} a -> s {expressionAttributeNames = a} :: Delete) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A condition that must be satisfied in order for a conditional delete to
 -- succeed.
@@ -108,7 +108,7 @@ delete_conditionExpression = Lens.lens (\Delete' {conditionExpression} -> condit
 -- | The primary key of the item to be deleted. Each element consists of an
 -- attribute name and a value for that attribute.
 delete_key :: Lens.Lens' Delete (Prelude.HashMap Prelude.Text AttributeValue)
-delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :: Delete) Prelude.. Lens._Coerce
+delete_key = Lens.lens (\Delete' {key} -> key) (\s@Delete' {} a -> s {key = a} :: Delete) Prelude.. Lens.coerced
 
 -- | Name of the table in which the item to be deleted resides.
 delete_tableName :: Lens.Lens' Delete Prelude.Text
@@ -122,12 +122,12 @@ instance Core.ToJSON Delete where
   toJSON Delete' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReturnValuesOnConditionCheckFailure" Core..=)
-              Prelude.<$> returnValuesOnConditionCheckFailure,
+          [ ("ExpressionAttributeNames" Core..=)
+              Prelude.<$> expressionAttributeNames,
             ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
-            ("ExpressionAttributeNames" Core..=)
-              Prelude.<$> expressionAttributeNames,
+            ("ReturnValuesOnConditionCheckFailure" Core..=)
+              Prelude.<$> returnValuesOnConditionCheckFailure,
             ("ConditionExpression" Core..=)
               Prelude.<$> conditionExpression,
             Prelude.Just ("Key" Core..= key),

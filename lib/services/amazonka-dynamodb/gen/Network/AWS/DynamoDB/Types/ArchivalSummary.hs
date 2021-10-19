@@ -27,12 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArchivalSummary' smart constructor.
 data ArchivalSummary = ArchivalSummary'
-  { -- | The Amazon Resource Name (ARN) of the backup the table was archived to,
-    -- when applicable in the archival reason. If you wish to restore this
-    -- backup to the same table name, you will need to delete the original
-    -- table.
-    archivalBackupArn :: Prelude.Maybe Prelude.Text,
-    -- | The reason DynamoDB archived the table. Currently, the only possible
+  { -- | The reason DynamoDB archived the table. Currently, the only possible
     -- value is:
     --
     -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due
@@ -41,7 +36,12 @@ data ArchivalSummary = ArchivalSummary'
     archivalReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time when table archival was initiated by DynamoDB, in UNIX
     -- epoch time format.
-    archivalDateTime :: Prelude.Maybe Core.POSIX
+    archivalDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the backup the table was archived to,
+    -- when applicable in the archival reason. If you wish to restore this
+    -- backup to the same table name, you will need to delete the original
+    -- table.
+    archivalBackupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,11 +53,6 @@ data ArchivalSummary = ArchivalSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'archivalBackupArn', 'archivalSummary_archivalBackupArn' - The Amazon Resource Name (ARN) of the backup the table was archived to,
--- when applicable in the archival reason. If you wish to restore this
--- backup to the same table name, you will need to delete the original
--- table.
---
 -- 'archivalReason', 'archivalSummary_archivalReason' - The reason DynamoDB archived the table. Currently, the only possible
 -- value is:
 --
@@ -67,22 +62,19 @@ data ArchivalSummary = ArchivalSummary'
 --
 -- 'archivalDateTime', 'archivalSummary_archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX
 -- epoch time format.
+--
+-- 'archivalBackupArn', 'archivalSummary_archivalBackupArn' - The Amazon Resource Name (ARN) of the backup the table was archived to,
+-- when applicable in the archival reason. If you wish to restore this
+-- backup to the same table name, you will need to delete the original
+-- table.
 newArchivalSummary ::
   ArchivalSummary
 newArchivalSummary =
   ArchivalSummary'
-    { archivalBackupArn =
-        Prelude.Nothing,
-      archivalReason = Prelude.Nothing,
-      archivalDateTime = Prelude.Nothing
+    { archivalReason = Prelude.Nothing,
+      archivalDateTime = Prelude.Nothing,
+      archivalBackupArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the backup the table was archived to,
--- when applicable in the archival reason. If you wish to restore this
--- backup to the same table name, you will need to delete the original
--- table.
-archivalSummary_archivalBackupArn :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
-archivalSummary_archivalBackupArn = Lens.lens (\ArchivalSummary' {archivalBackupArn} -> archivalBackupArn) (\s@ArchivalSummary' {} a -> s {archivalBackupArn = a} :: ArchivalSummary)
 
 -- | The reason DynamoDB archived the table. Currently, the only possible
 -- value is:
@@ -98,15 +90,22 @@ archivalSummary_archivalReason = Lens.lens (\ArchivalSummary' {archivalReason} -
 archivalSummary_archivalDateTime :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.UTCTime)
 archivalSummary_archivalDateTime = Lens.lens (\ArchivalSummary' {archivalDateTime} -> archivalDateTime) (\s@ArchivalSummary' {} a -> s {archivalDateTime = a} :: ArchivalSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN) of the backup the table was archived to,
+-- when applicable in the archival reason. If you wish to restore this
+-- backup to the same table name, you will need to delete the original
+-- table.
+archivalSummary_archivalBackupArn :: Lens.Lens' ArchivalSummary (Prelude.Maybe Prelude.Text)
+archivalSummary_archivalBackupArn = Lens.lens (\ArchivalSummary' {archivalBackupArn} -> archivalBackupArn) (\s@ArchivalSummary' {} a -> s {archivalBackupArn = a} :: ArchivalSummary)
+
 instance Core.FromJSON ArchivalSummary where
   parseJSON =
     Core.withObject
       "ArchivalSummary"
       ( \x ->
           ArchivalSummary'
-            Prelude.<$> (x Core..:? "ArchivalBackupArn")
-            Prelude.<*> (x Core..:? "ArchivalReason")
+            Prelude.<$> (x Core..:? "ArchivalReason")
             Prelude.<*> (x Core..:? "ArchivalDateTime")
+            Prelude.<*> (x Core..:? "ArchivalBackupArn")
       )
 
 instance Prelude.Hashable ArchivalSummary

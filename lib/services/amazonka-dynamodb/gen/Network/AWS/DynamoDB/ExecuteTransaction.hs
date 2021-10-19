@@ -79,7 +79,7 @@ newExecuteTransaction pTransactStatements_ =
     { clientRequestToken =
         Prelude.Nothing,
       transactStatements =
-        Lens._Coerce Lens.# pTransactStatements_
+        Lens.coerced Lens.# pTransactStatements_
     }
 
 -- | Set this value to get remaining results, if @NextToken@ was returned in
@@ -89,7 +89,7 @@ executeTransaction_clientRequestToken = Lens.lens (\ExecuteTransaction' {clientR
 
 -- | The list of PartiQL statements representing the transaction to run.
 executeTransaction_transactStatements :: Lens.Lens' ExecuteTransaction (Prelude.NonEmpty ParameterizedStatement)
-executeTransaction_transactStatements = Lens.lens (\ExecuteTransaction' {transactStatements} -> transactStatements) (\s@ExecuteTransaction' {} a -> s {transactStatements = a} :: ExecuteTransaction) Prelude.. Lens._Coerce
+executeTransaction_transactStatements = Lens.lens (\ExecuteTransaction' {transactStatements} -> transactStatements) (\s@ExecuteTransaction' {} a -> s {transactStatements = a} :: ExecuteTransaction) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ExecuteTransaction where
   type
@@ -173,7 +173,7 @@ newExecuteTransactionResponse pHttpStatus_ =
 
 -- | The response to a PartiQL transaction.
 executeTransactionResponse_responses :: Lens.Lens' ExecuteTransactionResponse (Prelude.Maybe (Prelude.NonEmpty ItemResponse))
-executeTransactionResponse_responses = Lens.lens (\ExecuteTransactionResponse' {responses} -> responses) (\s@ExecuteTransactionResponse' {} a -> s {responses = a} :: ExecuteTransactionResponse) Prelude.. Lens.mapping Lens._Coerce
+executeTransactionResponse_responses = Lens.lens (\ExecuteTransactionResponse' {responses} -> responses) (\s@ExecuteTransactionResponse' {} a -> s {responses = a} :: ExecuteTransactionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 executeTransactionResponse_httpStatus :: Lens.Lens' ExecuteTransactionResponse Prelude.Int

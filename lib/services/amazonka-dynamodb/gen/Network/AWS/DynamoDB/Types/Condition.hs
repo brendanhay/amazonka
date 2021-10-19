@@ -408,7 +408,7 @@ newCondition pComparisonOperator_ =
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
 condition_attributeValueList :: Lens.Lens' Condition (Prelude.Maybe [AttributeValue])
-condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> attributeValueList) (\s@Condition' {} a -> s {attributeValueList = a} :: Condition) Prelude.. Lens.mapping Lens._Coerce
+condition_attributeValueList = Lens.lens (\Condition' {attributeValueList} -> attributeValueList) (\s@Condition' {} a -> s {attributeValueList = a} :: Condition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc.

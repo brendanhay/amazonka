@@ -72,7 +72,7 @@ replicaAutoScalingUpdate_replicaProvisionedReadCapacityAutoScalingUpdate = Lens.
 -- | Represents the auto scaling settings of global secondary indexes that
 -- will be modified.
 replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Prelude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate])
-replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\ReplicaAutoScalingUpdate' {replicaGlobalSecondaryIndexUpdates} -> replicaGlobalSecondaryIndexUpdates) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate) Prelude.. Lens.mapping Lens._Coerce
+replicaAutoScalingUpdate_replicaGlobalSecondaryIndexUpdates = Lens.lens (\ReplicaAutoScalingUpdate' {replicaGlobalSecondaryIndexUpdates} -> replicaGlobalSecondaryIndexUpdates) (\s@ReplicaAutoScalingUpdate' {} a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Region where the replica exists.
 replicaAutoScalingUpdate_regionName :: Lens.Lens' ReplicaAutoScalingUpdate Prelude.Text

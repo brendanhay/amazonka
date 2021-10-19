@@ -58,7 +58,7 @@ newDeleteRequest =
 -- must be specified, and their data types must match those of the table\'s
 -- key schema.
 deleteRequest_key :: Lens.Lens' DeleteRequest (Prelude.HashMap Prelude.Text AttributeValue)
-deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Prelude.. Lens._Coerce
+deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Prelude.. Lens.coerced
 
 instance Core.FromJSON DeleteRequest where
   parseJSON =

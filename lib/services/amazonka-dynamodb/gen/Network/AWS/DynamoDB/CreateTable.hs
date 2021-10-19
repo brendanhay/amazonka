@@ -44,13 +44,13 @@ module Network.AWS.DynamoDB.CreateTable
     newCreateTable,
 
     -- * Request Lenses
-    createTable_localSecondaryIndexes,
-    createTable_globalSecondaryIndexes,
-    createTable_streamSpecification,
+    createTable_provisionedThroughput,
     createTable_sSESpecification,
+    createTable_globalSecondaryIndexes,
+    createTable_localSecondaryIndexes,
     createTable_billingMode,
     createTable_tags,
-    createTable_provisionedThroughput,
+    createTable_streamSpecification,
     createTable_attributeDefinitions,
     createTable_tableName,
     createTable_keySchema,
@@ -76,44 +76,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { -- | One or more local secondary indexes (the maximum is 5) to be created on
-    -- the table. Each index is scoped to a given partition key value. There is
-    -- a 10 GB size limit per partition key value; otherwise, the size of a
-    -- local secondary index is unconstrained.
+  { -- | Represents the provisioned throughput settings for a specified table or
+    -- index. The settings can be modified using the @UpdateTable@ operation.
     --
-    -- Each local secondary index in the array includes the following:
+    -- If you set BillingMode as @PROVISIONED@, you must specify this property.
+    -- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
+    -- property.
     --
-    -- -   @IndexName@ - The name of the local secondary index. Must be unique
-    --     only for this table.
-    --
-    -- -   @KeySchema@ - Specifies the key schema for the local secondary
-    --     index. The key schema must begin with the same partition key as the
-    --     table.
-    --
-    -- -   @Projection@ - Specifies attributes that are copied (projected) from
-    --     the table into the index. These are in addition to the primary key
-    --     attributes and index key attributes, which are automatically
-    --     projected. Each attribute specification is composed of:
-    --
-    --     -   @ProjectionType@ - One of the following:
-    --
-    --         -   @KEYS_ONLY@ - Only the index and primary keys are projected
-    --             into the index.
-    --
-    --         -   @INCLUDE@ - Only the specified table attributes are
-    --             projected into the index. The list of projected attributes
-    --             is in @NonKeyAttributes@.
-    --
-    --         -   @ALL@ - All of the table attributes are projected into the
-    --             index.
-    --
-    --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
-    --         names that are projected into the secondary index. The total
-    --         count of attributes provided in @NonKeyAttributes@, summed
-    --         across all of the secondary indexes, must not exceed 100. If you
-    --         project the same attribute into two different indexes, this
-    --         counts as two distinct attributes when determining the total.
-    localSecondaryIndexes :: Prelude.Maybe [LocalSecondaryIndex],
+    -- For current minimum and maximum provisioned throughput values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- | Represents the settings used to enable server-side encryption.
+    sSESpecification :: Prelude.Maybe SSESpecification,
     -- | One or more global secondary indexes (the maximum is 20) to be created
     -- on the table. Each global secondary index in the array includes the
     -- following:
@@ -152,6 +127,58 @@ data CreateTable = CreateTable'
     --     the global secondary index, consisting of read and write capacity
     --     units.
     globalSecondaryIndexes :: Prelude.Maybe [GlobalSecondaryIndex],
+    -- | One or more local secondary indexes (the maximum is 5) to be created on
+    -- the table. Each index is scoped to a given partition key value. There is
+    -- a 10 GB size limit per partition key value; otherwise, the size of a
+    -- local secondary index is unconstrained.
+    --
+    -- Each local secondary index in the array includes the following:
+    --
+    -- -   @IndexName@ - The name of the local secondary index. Must be unique
+    --     only for this table.
+    --
+    -- -   @KeySchema@ - Specifies the key schema for the local secondary
+    --     index. The key schema must begin with the same partition key as the
+    --     table.
+    --
+    -- -   @Projection@ - Specifies attributes that are copied (projected) from
+    --     the table into the index. These are in addition to the primary key
+    --     attributes and index key attributes, which are automatically
+    --     projected. Each attribute specification is composed of:
+    --
+    --     -   @ProjectionType@ - One of the following:
+    --
+    --         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+    --             into the index.
+    --
+    --         -   @INCLUDE@ - Only the specified table attributes are
+    --             projected into the index. The list of projected attributes
+    --             is in @NonKeyAttributes@.
+    --
+    --         -   @ALL@ - All of the table attributes are projected into the
+    --             index.
+    --
+    --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
+    --         names that are projected into the secondary index. The total
+    --         count of attributes provided in @NonKeyAttributes@, summed
+    --         across all of the secondary indexes, must not exceed 100. If you
+    --         project the same attribute into two different indexes, this
+    --         counts as two distinct attributes when determining the total.
+    localSecondaryIndexes :: Prelude.Maybe [LocalSecondaryIndex],
+    -- | Controls how you are charged for read and write throughput and how you
+    -- manage capacity. This setting can be changed later.
+    --
+    -- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
+    --     workloads. @PROVISIONED@ sets the billing mode to
+    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
+    --
+    -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
+    --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
+    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
+    billingMode :: Prelude.Maybe BillingMode,
+    -- | A list of key-value pairs to label the table. For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
+    tags :: Prelude.Maybe [Tag],
     -- | The settings for DynamoDB Streams on the table. These settings consist
     -- of:
     --
@@ -174,33 +201,6 @@ data CreateTable = CreateTable'
     --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
     --         the item are written to the stream.
     streamSpecification :: Prelude.Maybe StreamSpecification,
-    -- | Represents the settings used to enable server-side encryption.
-    sSESpecification :: Prelude.Maybe SSESpecification,
-    -- | Controls how you are charged for read and write throughput and how you
-    -- manage capacity. This setting can be changed later.
-    --
-    -- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
-    --     workloads. @PROVISIONED@ sets the billing mode to
-    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
-    --
-    -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
-    --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
-    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-    billingMode :: Prelude.Maybe BillingMode,
-    -- | A list of key-value pairs to label the table. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
-    tags :: Prelude.Maybe [Tag],
-    -- | Represents the provisioned throughput settings for a specified table or
-    -- index. The settings can be modified using the @UpdateTable@ operation.
-    --
-    -- If you set BillingMode as @PROVISIONED@, you must specify this property.
-    -- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
-    -- property.
-    --
-    -- For current minimum and maximum provisioned throughput values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | An array of attributes that describe the key schema for the table and
     -- indexes.
     attributeDefinitions :: [AttributeDefinition],
@@ -255,43 +255,18 @@ data CreateTable = CreateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localSecondaryIndexes', 'createTable_localSecondaryIndexes' - One or more local secondary indexes (the maximum is 5) to be created on
--- the table. Each index is scoped to a given partition key value. There is
--- a 10 GB size limit per partition key value; otherwise, the size of a
--- local secondary index is unconstrained.
+-- 'provisionedThroughput', 'createTable_provisionedThroughput' - Represents the provisioned throughput settings for a specified table or
+-- index. The settings can be modified using the @UpdateTable@ operation.
 --
--- Each local secondary index in the array includes the following:
+-- If you set BillingMode as @PROVISIONED@, you must specify this property.
+-- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
+-- property.
 --
--- -   @IndexName@ - The name of the local secondary index. Must be unique
---     only for this table.
+-- For current minimum and maximum provisioned throughput values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- -   @KeySchema@ - Specifies the key schema for the local secondary
---     index. The key schema must begin with the same partition key as the
---     table.
---
--- -   @Projection@ - Specifies attributes that are copied (projected) from
---     the table into the index. These are in addition to the primary key
---     attributes and index key attributes, which are automatically
---     projected. Each attribute specification is composed of:
---
---     -   @ProjectionType@ - One of the following:
---
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
---             into the index.
---
---         -   @INCLUDE@ - Only the specified table attributes are
---             projected into the index. The list of projected attributes
---             is in @NonKeyAttributes@.
---
---         -   @ALL@ - All of the table attributes are projected into the
---             index.
---
---     -   @NonKeyAttributes@ - A list of one or more non-key attribute
---         names that are projected into the secondary index. The total
---         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 100. If you
---         project the same attribute into two different indexes, this
---         counts as two distinct attributes when determining the total.
+-- 'sSESpecification', 'createTable_sSESpecification' - Represents the settings used to enable server-side encryption.
 --
 -- 'globalSecondaryIndexes', 'createTable_globalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -331,6 +306,58 @@ data CreateTable = CreateTable'
 --     the global secondary index, consisting of read and write capacity
 --     units.
 --
+-- 'localSecondaryIndexes', 'createTable_localSecondaryIndexes' - One or more local secondary indexes (the maximum is 5) to be created on
+-- the table. Each index is scoped to a given partition key value. There is
+-- a 10 GB size limit per partition key value; otherwise, the size of a
+-- local secondary index is unconstrained.
+--
+-- Each local secondary index in the array includes the following:
+--
+-- -   @IndexName@ - The name of the local secondary index. Must be unique
+--     only for this table.
+--
+-- -   @KeySchema@ - Specifies the key schema for the local secondary
+--     index. The key schema must begin with the same partition key as the
+--     table.
+--
+-- -   @Projection@ - Specifies attributes that are copied (projected) from
+--     the table into the index. These are in addition to the primary key
+--     attributes and index key attributes, which are automatically
+--     projected. Each attribute specification is composed of:
+--
+--     -   @ProjectionType@ - One of the following:
+--
+--         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--             into the index.
+--
+--         -   @INCLUDE@ - Only the specified table attributes are
+--             projected into the index. The list of projected attributes
+--             is in @NonKeyAttributes@.
+--
+--         -   @ALL@ - All of the table attributes are projected into the
+--             index.
+--
+--     -   @NonKeyAttributes@ - A list of one or more non-key attribute
+--         names that are projected into the secondary index. The total
+--         count of attributes provided in @NonKeyAttributes@, summed
+--         across all of the secondary indexes, must not exceed 100. If you
+--         project the same attribute into two different indexes, this
+--         counts as two distinct attributes when determining the total.
+--
+-- 'billingMode', 'createTable_billingMode' - Controls how you are charged for read and write throughput and how you
+-- manage capacity. This setting can be changed later.
+--
+-- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
+--     workloads. @PROVISIONED@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
+--
+-- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
+--     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
+--
+-- 'tags', 'createTable_tags' - A list of key-value pairs to label the table. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
+--
 -- 'streamSpecification', 'createTable_streamSpecification' - The settings for DynamoDB Streams on the table. These settings consist
 -- of:
 --
@@ -352,33 +379,6 @@ data CreateTable = CreateTable'
 --
 --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
 --         the item are written to the stream.
---
--- 'sSESpecification', 'createTable_sSESpecification' - Represents the settings used to enable server-side encryption.
---
--- 'billingMode', 'createTable_billingMode' - Controls how you are charged for read and write throughput and how you
--- manage capacity. This setting can be changed later.
---
--- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
---     workloads. @PROVISIONED@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
---
--- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
---     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
---
--- 'tags', 'createTable_tags' - A list of key-value pairs to label the table. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
---
--- 'provisionedThroughput', 'createTable_provisionedThroughput' - Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the @UpdateTable@ operation.
---
--- If you set BillingMode as @PROVISIONED@, you must specify this property.
--- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
--- property.
---
--- For current minimum and maximum provisioned throughput values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
--- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'attributeDefinitions', 'createTable_attributeDefinitions' - An array of attributes that describe the key schema for the table and
 -- indexes.
@@ -430,58 +430,35 @@ newCreateTable ::
   CreateTable
 newCreateTable pTableName_ pKeySchema_ =
   CreateTable'
-    { localSecondaryIndexes =
+    { provisionedThroughput =
         Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing,
-      streamSpecification = Prelude.Nothing,
       sSESpecification = Prelude.Nothing,
+      globalSecondaryIndexes = Prelude.Nothing,
+      localSecondaryIndexes = Prelude.Nothing,
       billingMode = Prelude.Nothing,
       tags = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
+      streamSpecification = Prelude.Nothing,
       attributeDefinitions = Prelude.mempty,
       tableName = pTableName_,
-      keySchema = Lens._Coerce Lens.# pKeySchema_
+      keySchema = Lens.coerced Lens.# pKeySchema_
     }
 
--- | One or more local secondary indexes (the maximum is 5) to be created on
--- the table. Each index is scoped to a given partition key value. There is
--- a 10 GB size limit per partition key value; otherwise, the size of a
--- local secondary index is unconstrained.
+-- | Represents the provisioned throughput settings for a specified table or
+-- index. The settings can be modified using the @UpdateTable@ operation.
 --
--- Each local secondary index in the array includes the following:
+-- If you set BillingMode as @PROVISIONED@, you must specify this property.
+-- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
+-- property.
 --
--- -   @IndexName@ - The name of the local secondary index. Must be unique
---     only for this table.
---
--- -   @KeySchema@ - Specifies the key schema for the local secondary
---     index. The key schema must begin with the same partition key as the
---     table.
---
--- -   @Projection@ - Specifies attributes that are copied (projected) from
---     the table into the index. These are in addition to the primary key
---     attributes and index key attributes, which are automatically
---     projected. Each attribute specification is composed of:
---
---     -   @ProjectionType@ - One of the following:
---
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
---             into the index.
---
---         -   @INCLUDE@ - Only the specified table attributes are
---             projected into the index. The list of projected attributes
---             is in @NonKeyAttributes@.
---
---         -   @ALL@ - All of the table attributes are projected into the
---             index.
---
---     -   @NonKeyAttributes@ - A list of one or more non-key attribute
---         names that are projected into the secondary index. The total
---         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 100. If you
---         project the same attribute into two different indexes, this
---         counts as two distinct attributes when determining the total.
-createTable_localSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [LocalSecondaryIndex])
-createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@CreateTable' {} a -> s {localSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
+-- For current minimum and maximum provisioned throughput values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+-- in the /Amazon DynamoDB Developer Guide/.
+createTable_provisionedThroughput :: Lens.Lens' CreateTable (Prelude.Maybe ProvisionedThroughput)
+createTable_provisionedThroughput = Lens.lens (\CreateTable' {provisionedThroughput} -> provisionedThroughput) (\s@CreateTable' {} a -> s {provisionedThroughput = a} :: CreateTable)
+
+-- | Represents the settings used to enable server-side encryption.
+createTable_sSESpecification :: Lens.Lens' CreateTable (Prelude.Maybe SSESpecification)
+createTable_sSESpecification = Lens.lens (\CreateTable' {sSESpecification} -> sSESpecification) (\s@CreateTable' {} a -> s {sSESpecification = a} :: CreateTable)
 
 -- | One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -521,7 +498,65 @@ createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryInde
 --     the global secondary index, consisting of read and write capacity
 --     units.
 createTable_globalSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [GlobalSecondaryIndex])
-createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateTable' {} a -> s {globalSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
+createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateTable' {} a -> s {globalSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more local secondary indexes (the maximum is 5) to be created on
+-- the table. Each index is scoped to a given partition key value. There is
+-- a 10 GB size limit per partition key value; otherwise, the size of a
+-- local secondary index is unconstrained.
+--
+-- Each local secondary index in the array includes the following:
+--
+-- -   @IndexName@ - The name of the local secondary index. Must be unique
+--     only for this table.
+--
+-- -   @KeySchema@ - Specifies the key schema for the local secondary
+--     index. The key schema must begin with the same partition key as the
+--     table.
+--
+-- -   @Projection@ - Specifies attributes that are copied (projected) from
+--     the table into the index. These are in addition to the primary key
+--     attributes and index key attributes, which are automatically
+--     projected. Each attribute specification is composed of:
+--
+--     -   @ProjectionType@ - One of the following:
+--
+--         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--             into the index.
+--
+--         -   @INCLUDE@ - Only the specified table attributes are
+--             projected into the index. The list of projected attributes
+--             is in @NonKeyAttributes@.
+--
+--         -   @ALL@ - All of the table attributes are projected into the
+--             index.
+--
+--     -   @NonKeyAttributes@ - A list of one or more non-key attribute
+--         names that are projected into the secondary index. The total
+--         count of attributes provided in @NonKeyAttributes@, summed
+--         across all of the secondary indexes, must not exceed 100. If you
+--         project the same attribute into two different indexes, this
+--         counts as two distinct attributes when determining the total.
+createTable_localSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [LocalSecondaryIndex])
+createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@CreateTable' {} a -> s {localSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | Controls how you are charged for read and write throughput and how you
+-- manage capacity. This setting can be changed later.
+--
+-- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
+--     workloads. @PROVISIONED@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
+--
+-- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
+--     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
+createTable_billingMode :: Lens.Lens' CreateTable (Prelude.Maybe BillingMode)
+createTable_billingMode = Lens.lens (\CreateTable' {billingMode} -> billingMode) (\s@CreateTable' {} a -> s {billingMode = a} :: CreateTable)
+
+-- | A list of key-value pairs to label the table. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
+createTable_tags :: Lens.Lens' CreateTable (Prelude.Maybe [Tag])
+createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} a -> s {tags = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The settings for DynamoDB Streams on the table. These settings consist
 -- of:
@@ -547,45 +582,10 @@ createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIn
 createTable_streamSpecification :: Lens.Lens' CreateTable (Prelude.Maybe StreamSpecification)
 createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification} -> streamSpecification) (\s@CreateTable' {} a -> s {streamSpecification = a} :: CreateTable)
 
--- | Represents the settings used to enable server-side encryption.
-createTable_sSESpecification :: Lens.Lens' CreateTable (Prelude.Maybe SSESpecification)
-createTable_sSESpecification = Lens.lens (\CreateTable' {sSESpecification} -> sSESpecification) (\s@CreateTable' {} a -> s {sSESpecification = a} :: CreateTable)
-
--- | Controls how you are charged for read and write throughput and how you
--- manage capacity. This setting can be changed later.
---
--- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
---     workloads. @PROVISIONED@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
---
--- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
---     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-createTable_billingMode :: Lens.Lens' CreateTable (Prelude.Maybe BillingMode)
-createTable_billingMode = Lens.lens (\CreateTable' {billingMode} -> billingMode) (\s@CreateTable' {} a -> s {billingMode = a} :: CreateTable)
-
--- | A list of key-value pairs to label the table. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
-createTable_tags :: Lens.Lens' CreateTable (Prelude.Maybe [Tag])
-createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} a -> s {tags = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
-
--- | Represents the provisioned throughput settings for a specified table or
--- index. The settings can be modified using the @UpdateTable@ operation.
---
--- If you set BillingMode as @PROVISIONED@, you must specify this property.
--- If you set BillingMode as @PAY_PER_REQUEST@, you cannot specify this
--- property.
---
--- For current minimum and maximum provisioned throughput values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
--- in the /Amazon DynamoDB Developer Guide/.
-createTable_provisionedThroughput :: Lens.Lens' CreateTable (Prelude.Maybe ProvisionedThroughput)
-createTable_provisionedThroughput = Lens.lens (\CreateTable' {provisionedThroughput} -> provisionedThroughput) (\s@CreateTable' {} a -> s {provisionedThroughput = a} :: CreateTable)
-
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 createTable_attributeDefinitions :: Lens.Lens' CreateTable [AttributeDefinition]
-createTable_attributeDefinitions = Lens.lens (\CreateTable' {attributeDefinitions} -> attributeDefinitions) (\s@CreateTable' {} a -> s {attributeDefinitions = a} :: CreateTable) Prelude.. Lens._Coerce
+createTable_attributeDefinitions = Lens.lens (\CreateTable' {attributeDefinitions} -> attributeDefinitions) (\s@CreateTable' {} a -> s {attributeDefinitions = a} :: CreateTable) Prelude.. Lens.coerced
 
 -- | The name of the table to create.
 createTable_tableName :: Lens.Lens' CreateTable Prelude.Text
@@ -629,7 +629,7 @@ createTable_tableName = Lens.lens (\CreateTable' {tableName} -> tableName) (\s@C
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables>
 -- in the /Amazon DynamoDB Developer Guide/.
 createTable_keySchema :: Lens.Lens' CreateTable (Prelude.NonEmpty KeySchemaElement)
-createTable_keySchema = Lens.lens (\CreateTable' {keySchema} -> keySchema) (\s@CreateTable' {} a -> s {keySchema = a} :: CreateTable) Prelude.. Lens._Coerce
+createTable_keySchema = Lens.lens (\CreateTable' {keySchema} -> keySchema) (\s@CreateTable' {} a -> s {keySchema = a} :: CreateTable) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateTable where
   type AWSResponse CreateTable = CreateTableResponse
@@ -665,18 +665,18 @@ instance Core.ToJSON CreateTable where
   toJSON CreateTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LocalSecondaryIndexes" Core..=)
-              Prelude.<$> localSecondaryIndexes,
-            ("GlobalSecondaryIndexes" Core..=)
-              Prelude.<$> globalSecondaryIndexes,
-            ("StreamSpecification" Core..=)
-              Prelude.<$> streamSpecification,
+          [ ("ProvisionedThroughput" Core..=)
+              Prelude.<$> provisionedThroughput,
             ("SSESpecification" Core..=)
               Prelude.<$> sSESpecification,
+            ("GlobalSecondaryIndexes" Core..=)
+              Prelude.<$> globalSecondaryIndexes,
+            ("LocalSecondaryIndexes" Core..=)
+              Prelude.<$> localSecondaryIndexes,
             ("BillingMode" Core..=) Prelude.<$> billingMode,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("ProvisionedThroughput" Core..=)
-              Prelude.<$> provisionedThroughput,
+            ("StreamSpecification" Core..=)
+              Prelude.<$> streamSpecification,
             Prelude.Just
               ( "AttributeDefinitions"
                   Core..= attributeDefinitions

@@ -88,7 +88,7 @@ newCreateGlobalSecondaryIndexAction
           Prelude.Nothing,
         indexName = pIndexName_,
         keySchema =
-          Lens._Coerce Lens.# pKeySchema_,
+          Lens.coerced Lens.# pKeySchema_,
         projection = pProjection_
       }
 
@@ -107,7 +107,7 @@ createGlobalSecondaryIndexAction_indexName = Lens.lens (\CreateGlobalSecondaryIn
 
 -- | The key schema for the global secondary index.
 createGlobalSecondaryIndexAction_keySchema :: Lens.Lens' CreateGlobalSecondaryIndexAction (Prelude.NonEmpty KeySchemaElement)
-createGlobalSecondaryIndexAction_keySchema = Lens.lens (\CreateGlobalSecondaryIndexAction' {keySchema} -> keySchema) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {keySchema = a} :: CreateGlobalSecondaryIndexAction) Prelude.. Lens._Coerce
+createGlobalSecondaryIndexAction_keySchema = Lens.lens (\CreateGlobalSecondaryIndexAction' {keySchema} -> keySchema) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {keySchema = a} :: CreateGlobalSecondaryIndexAction) Prelude.. Lens.coerced
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key

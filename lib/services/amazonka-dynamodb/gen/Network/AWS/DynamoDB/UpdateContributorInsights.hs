@@ -37,9 +37,9 @@ module Network.AWS.DynamoDB.UpdateContributorInsights
     newUpdateContributorInsightsResponse,
 
     -- * Response Lenses
+    updateContributorInsightsResponse_contributorInsightsStatus,
     updateContributorInsightsResponse_tableName,
     updateContributorInsightsResponse_indexName,
-    updateContributorInsightsResponse_contributorInsightsStatus,
     updateContributorInsightsResponse_httpStatus,
   )
 where
@@ -113,9 +113,9 @@ instance Core.AWSRequest UpdateContributorInsights where
     Response.receiveJSON
       ( \s h x ->
           UpdateContributorInsightsResponse'
-            Prelude.<$> (x Core..?> "TableName")
+            Prelude.<$> (x Core..?> "ContributorInsightsStatus")
+            Prelude.<*> (x Core..?> "TableName")
             Prelude.<*> (x Core..?> "IndexName")
-            Prelude.<*> (x Core..?> "ContributorInsightsStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,12 +159,12 @@ instance Core.ToQuery UpdateContributorInsights where
 
 -- | /See:/ 'newUpdateContributorInsightsResponse' smart constructor.
 data UpdateContributorInsightsResponse = UpdateContributorInsightsResponse'
-  { -- | The name of the table.
+  { -- | The status of contributor insights
+    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
+    -- | The name of the table.
     tableName :: Prelude.Maybe Prelude.Text,
     -- | The name of the global secondary index, if applicable.
     indexName :: Prelude.Maybe Prelude.Text,
-    -- | The status of contributor insights
-    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,11 +178,11 @@ data UpdateContributorInsightsResponse = UpdateContributorInsightsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contributorInsightsStatus', 'updateContributorInsightsResponse_contributorInsightsStatus' - The status of contributor insights
+--
 -- 'tableName', 'updateContributorInsightsResponse_tableName' - The name of the table.
 --
 -- 'indexName', 'updateContributorInsightsResponse_indexName' - The name of the global secondary index, if applicable.
---
--- 'contributorInsightsStatus', 'updateContributorInsightsResponse_contributorInsightsStatus' - The status of contributor insights
 --
 -- 'httpStatus', 'updateContributorInsightsResponse_httpStatus' - The response's http status code.
 newUpdateContributorInsightsResponse ::
@@ -191,13 +191,16 @@ newUpdateContributorInsightsResponse ::
   UpdateContributorInsightsResponse
 newUpdateContributorInsightsResponse pHttpStatus_ =
   UpdateContributorInsightsResponse'
-    { tableName =
+    { contributorInsightsStatus =
         Prelude.Nothing,
+      tableName = Prelude.Nothing,
       indexName = Prelude.Nothing,
-      contributorInsightsStatus =
-        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The status of contributor insights
+updateContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
+updateContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\UpdateContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@UpdateContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: UpdateContributorInsightsResponse)
 
 -- | The name of the table.
 updateContributorInsightsResponse_tableName :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe Prelude.Text)
@@ -206,10 +209,6 @@ updateContributorInsightsResponse_tableName = Lens.lens (\UpdateContributorInsig
 -- | The name of the global secondary index, if applicable.
 updateContributorInsightsResponse_indexName :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 updateContributorInsightsResponse_indexName = Lens.lens (\UpdateContributorInsightsResponse' {indexName} -> indexName) (\s@UpdateContributorInsightsResponse' {} a -> s {indexName = a} :: UpdateContributorInsightsResponse)
-
--- | The status of contributor insights
-updateContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' UpdateContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
-updateContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\UpdateContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@UpdateContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: UpdateContributorInsightsResponse)
 
 -- | The response's http status code.
 updateContributorInsightsResponse_httpStatus :: Lens.Lens' UpdateContributorInsightsResponse Prelude.Int

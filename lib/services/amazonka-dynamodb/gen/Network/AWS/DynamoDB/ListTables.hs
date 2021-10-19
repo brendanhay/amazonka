@@ -242,7 +242,7 @@ listTablesResponse_lastEvaluatedTableName = Lens.lens (\ListTablesResponse' {las
 -- value as the @ExclusiveStartTableName@ parameter in a subsequent
 -- @ListTables@ request and obtain the next page of results.
 listTablesResponse_tableNames :: Lens.Lens' ListTablesResponse (Prelude.Maybe [Prelude.Text])
-listTablesResponse_tableNames = Lens.lens (\ListTablesResponse' {tableNames} -> tableNames) (\s@ListTablesResponse' {} a -> s {tableNames = a} :: ListTablesResponse) Prelude.. Lens.mapping Lens._Coerce
+listTablesResponse_tableNames = Lens.lens (\ListTablesResponse' {tableNames} -> tableNames) (\s@ListTablesResponse' {} a -> s {tableNames = a} :: ListTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTablesResponse_httpStatus :: Lens.Lens' ListTablesResponse Prelude.Int

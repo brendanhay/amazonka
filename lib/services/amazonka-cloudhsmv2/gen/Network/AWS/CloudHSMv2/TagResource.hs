@@ -86,7 +86,7 @@ tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\
 
 -- | A list of one or more tags.
 tagResource_tagList :: Lens.Lens' TagResource [Tag]
-tagResource_tagList = Lens.lens (\TagResource' {tagList} -> tagList) (\s@TagResource' {} a -> s {tagList = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tagList = Lens.lens (\TagResource' {tagList} -> tagList) (\s@TagResource' {} a -> s {tagList = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

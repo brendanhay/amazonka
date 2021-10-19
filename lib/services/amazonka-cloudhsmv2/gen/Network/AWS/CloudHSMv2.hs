@@ -24,17 +24,17 @@ module Network.AWS.CloudHSMv2
     -- ** CloudHsmInternalFailureException
     _CloudHsmInternalFailureException,
 
-    -- ** CloudHsmResourceNotFoundException
-    _CloudHsmResourceNotFoundException,
-
-    -- ** CloudHsmAccessDeniedException
-    _CloudHsmAccessDeniedException,
+    -- ** CloudHsmServiceException
+    _CloudHsmServiceException,
 
     -- ** CloudHsmInvalidRequestException
     _CloudHsmInvalidRequestException,
 
-    -- ** CloudHsmServiceException
-    _CloudHsmServiceException,
+    -- ** CloudHsmAccessDeniedException
+    _CloudHsmAccessDeniedException,
+
+    -- ** CloudHsmResourceNotFoundException
+    _CloudHsmResourceNotFoundException,
 
     -- ** CloudHsmTagException
     _CloudHsmTagException,
@@ -45,83 +45,17 @@ module Network.AWS.CloudHSMv2
     -- * Operations
     -- $operations
 
-    -- ** DeleteHsm
-    DeleteHsm (DeleteHsm'),
-    newDeleteHsm,
-    DeleteHsmResponse (DeleteHsmResponse'),
-    newDeleteHsmResponse,
-
-    -- ** DeleteBackup
-    DeleteBackup (DeleteBackup'),
-    newDeleteBackup,
-    DeleteBackupResponse (DeleteBackupResponse'),
-    newDeleteBackupResponse,
-
     -- ** DescribeClusters (Paginated)
     DescribeClusters (DescribeClusters'),
     newDescribeClusters,
     DescribeClustersResponse (DescribeClustersResponse'),
     newDescribeClustersResponse,
 
-    -- ** RestoreBackup
-    RestoreBackup (RestoreBackup'),
-    newRestoreBackup,
-    RestoreBackupResponse (RestoreBackupResponse'),
-    newRestoreBackupResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CopyBackupToRegion
-    CopyBackupToRegion (CopyBackupToRegion'),
-    newCopyBackupToRegion,
-    CopyBackupToRegionResponse (CopyBackupToRegionResponse'),
-    newCopyBackupToRegionResponse,
-
-    -- ** ModifyCluster
-    ModifyCluster (ModifyCluster'),
-    newModifyCluster,
-    ModifyClusterResponse (ModifyClusterResponse'),
-    newModifyClusterResponse,
-
-    -- ** ModifyBackupAttributes
-    ModifyBackupAttributes (ModifyBackupAttributes'),
-    newModifyBackupAttributes,
-    ModifyBackupAttributesResponse (ModifyBackupAttributesResponse'),
-    newModifyBackupAttributesResponse,
-
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** DescribeBackups (Paginated)
-    DescribeBackups (DescribeBackups'),
-    newDescribeBackups,
-    DescribeBackupsResponse (DescribeBackupsResponse'),
-    newDescribeBackupsResponse,
+    -- ** DeleteBackup
+    DeleteBackup (DeleteBackup'),
+    newDeleteBackup,
+    DeleteBackupResponse (DeleteBackupResponse'),
+    newDeleteBackupResponse,
 
     -- ** InitializeCluster
     InitializeCluster (InitializeCluster'),
@@ -134,6 +68,72 @@ module Network.AWS.CloudHSMv2
     newCreateHsm,
     CreateHsmResponse (CreateHsmResponse'),
     newCreateHsmResponse,
+
+    -- ** DescribeBackups (Paginated)
+    DescribeBackups (DescribeBackups'),
+    newDescribeBackups,
+    DescribeBackupsResponse (DescribeBackupsResponse'),
+    newDescribeBackupsResponse,
+
+    -- ** CopyBackupToRegion
+    CopyBackupToRegion (CopyBackupToRegion'),
+    newCopyBackupToRegion,
+    CopyBackupToRegionResponse (CopyBackupToRegionResponse'),
+    newCopyBackupToRegionResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** RestoreBackup
+    RestoreBackup (RestoreBackup'),
+    newRestoreBackup,
+    RestoreBackupResponse (RestoreBackupResponse'),
+    newRestoreBackupResponse,
+
+    -- ** DeleteHsm
+    DeleteHsm (DeleteHsm'),
+    newDeleteHsm,
+    DeleteHsmResponse (DeleteHsmResponse'),
+    newDeleteHsmResponse,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** ModifyBackupAttributes
+    ModifyBackupAttributes (ModifyBackupAttributes'),
+    newModifyBackupAttributes,
+    ModifyBackupAttributesResponse (ModifyBackupAttributesResponse'),
+    newModifyBackupAttributesResponse,
 
     -- * Types
 

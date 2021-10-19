@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDestinationBackup' smart constructor.
 data DestinationBackup = DestinationBackup'
-  { -- | The identifier (ID) of the source backup from which the new backup was
-    -- copied.
-    sourceBackup :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when both the source backup was created.
-    createTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The identifier (ID) of the cluster containing the source backup from
+  { -- | The identifier (ID) of the cluster containing the source backup from
     -- which the new backup was copied.
     sourceCluster :: Prelude.Maybe Prelude.Text,
     -- | The AWS region that contains the source backup from which the new backup
     -- was copied.
-    sourceRegion :: Prelude.Maybe Prelude.Text
+    sourceRegion :: Prelude.Maybe Prelude.Text,
+    -- | The identifier (ID) of the source backup from which the new backup was
+    -- copied.
+    sourceBackup :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when both the source backup was created.
+    createTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,34 +50,25 @@ data DestinationBackup = DestinationBackup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceBackup', 'destinationBackup_sourceBackup' - The identifier (ID) of the source backup from which the new backup was
--- copied.
---
--- 'createTimestamp', 'destinationBackup_createTimestamp' - The date and time when both the source backup was created.
---
 -- 'sourceCluster', 'destinationBackup_sourceCluster' - The identifier (ID) of the cluster containing the source backup from
 -- which the new backup was copied.
 --
 -- 'sourceRegion', 'destinationBackup_sourceRegion' - The AWS region that contains the source backup from which the new backup
 -- was copied.
+--
+-- 'sourceBackup', 'destinationBackup_sourceBackup' - The identifier (ID) of the source backup from which the new backup was
+-- copied.
+--
+-- 'createTimestamp', 'destinationBackup_createTimestamp' - The date and time when both the source backup was created.
 newDestinationBackup ::
   DestinationBackup
 newDestinationBackup =
   DestinationBackup'
-    { sourceBackup = Prelude.Nothing,
-      createTimestamp = Prelude.Nothing,
-      sourceCluster = Prelude.Nothing,
-      sourceRegion = Prelude.Nothing
+    { sourceCluster = Prelude.Nothing,
+      sourceRegion = Prelude.Nothing,
+      sourceBackup = Prelude.Nothing,
+      createTimestamp = Prelude.Nothing
     }
-
--- | The identifier (ID) of the source backup from which the new backup was
--- copied.
-destinationBackup_sourceBackup :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
-destinationBackup_sourceBackup = Lens.lens (\DestinationBackup' {sourceBackup} -> sourceBackup) (\s@DestinationBackup' {} a -> s {sourceBackup = a} :: DestinationBackup)
-
--- | The date and time when both the source backup was created.
-destinationBackup_createTimestamp :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.UTCTime)
-destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier (ID) of the cluster containing the source backup from
 -- which the new backup was copied.
@@ -89,16 +80,25 @@ destinationBackup_sourceCluster = Lens.lens (\DestinationBackup' {sourceCluster}
 destinationBackup_sourceRegion :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
 destinationBackup_sourceRegion = Lens.lens (\DestinationBackup' {sourceRegion} -> sourceRegion) (\s@DestinationBackup' {} a -> s {sourceRegion = a} :: DestinationBackup)
 
+-- | The identifier (ID) of the source backup from which the new backup was
+-- copied.
+destinationBackup_sourceBackup :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.Text)
+destinationBackup_sourceBackup = Lens.lens (\DestinationBackup' {sourceBackup} -> sourceBackup) (\s@DestinationBackup' {} a -> s {sourceBackup = a} :: DestinationBackup)
+
+-- | The date and time when both the source backup was created.
+destinationBackup_createTimestamp :: Lens.Lens' DestinationBackup (Prelude.Maybe Prelude.UTCTime)
+destinationBackup_createTimestamp = Lens.lens (\DestinationBackup' {createTimestamp} -> createTimestamp) (\s@DestinationBackup' {} a -> s {createTimestamp = a} :: DestinationBackup) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON DestinationBackup where
   parseJSON =
     Core.withObject
       "DestinationBackup"
       ( \x ->
           DestinationBackup'
-            Prelude.<$> (x Core..:? "SourceBackup")
-            Prelude.<*> (x Core..:? "CreateTimestamp")
-            Prelude.<*> (x Core..:? "SourceCluster")
+            Prelude.<$> (x Core..:? "SourceCluster")
             Prelude.<*> (x Core..:? "SourceRegion")
+            Prelude.<*> (x Core..:? "SourceBackup")
+            Prelude.<*> (x Core..:? "CreateTimestamp")
       )
 
 instance Prelude.Hashable DestinationBackup

@@ -30,9 +30,9 @@ module Network.AWS.CloudHSMv2.DeleteHsm
     newDeleteHsm,
 
     -- * Request Lenses
-    deleteHsm_eniIp,
     deleteHsm_eniId,
     deleteHsm_hsmId,
+    deleteHsm_eniIp,
     deleteHsm_clusterId,
 
     -- * Destructuring the Response
@@ -54,14 +54,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteHsm' smart constructor.
 data DeleteHsm = DeleteHsm'
-  { -- | The IP address of the elastic network interface (ENI) of the HSM that
-    -- you are deleting.
-    eniIp :: Prelude.Maybe Prelude.Text,
-    -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
+  { -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
     -- that you are deleting.
     eniId :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the HSM that you are deleting.
     hsmId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address of the elastic network interface (ENI) of the HSM that
+    -- you are deleting.
+    eniIp :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the cluster that contains the HSM that you are
     -- deleting.
     clusterId :: Prelude.Text
@@ -76,13 +76,13 @@ data DeleteHsm = DeleteHsm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eniIp', 'deleteHsm_eniIp' - The IP address of the elastic network interface (ENI) of the HSM that
--- you are deleting.
---
 -- 'eniId', 'deleteHsm_eniId' - The identifier (ID) of the elastic network interface (ENI) of the HSM
 -- that you are deleting.
 --
 -- 'hsmId', 'deleteHsm_hsmId' - The identifier (ID) of the HSM that you are deleting.
+--
+-- 'eniIp', 'deleteHsm_eniIp' - The IP address of the elastic network interface (ENI) of the HSM that
+-- you are deleting.
 --
 -- 'clusterId', 'deleteHsm_clusterId' - The identifier (ID) of the cluster that contains the HSM that you are
 -- deleting.
@@ -92,16 +92,11 @@ newDeleteHsm ::
   DeleteHsm
 newDeleteHsm pClusterId_ =
   DeleteHsm'
-    { eniIp = Prelude.Nothing,
-      eniId = Prelude.Nothing,
+    { eniId = Prelude.Nothing,
       hsmId = Prelude.Nothing,
+      eniIp = Prelude.Nothing,
       clusterId = pClusterId_
     }
-
--- | The IP address of the elastic network interface (ENI) of the HSM that
--- you are deleting.
-deleteHsm_eniIp :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
-deleteHsm_eniIp = Lens.lens (\DeleteHsm' {eniIp} -> eniIp) (\s@DeleteHsm' {} a -> s {eniIp = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
 -- that you are deleting.
@@ -111,6 +106,11 @@ deleteHsm_eniId = Lens.lens (\DeleteHsm' {eniId} -> eniId) (\s@DeleteHsm' {} a -
 -- | The identifier (ID) of the HSM that you are deleting.
 deleteHsm_hsmId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
 deleteHsm_hsmId = Lens.lens (\DeleteHsm' {hsmId} -> hsmId) (\s@DeleteHsm' {} a -> s {hsmId = a} :: DeleteHsm)
+
+-- | The IP address of the elastic network interface (ENI) of the HSM that
+-- you are deleting.
+deleteHsm_eniIp :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_eniIp = Lens.lens (\DeleteHsm' {eniIp} -> eniIp) (\s@DeleteHsm' {} a -> s {eniIp = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are
 -- deleting.
@@ -149,9 +149,9 @@ instance Core.ToJSON DeleteHsm where
   toJSON DeleteHsm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EniIp" Core..=) Prelude.<$> eniIp,
-            ("EniId" Core..=) Prelude.<$> eniId,
+          [ ("EniId" Core..=) Prelude.<$> eniId,
             ("HsmId" Core..=) Prelude.<$> hsmId,
+            ("EniIp" Core..=) Prelude.<$> eniIp,
             Prelude.Just ("ClusterId" Core..= clusterId)
           ]
       )

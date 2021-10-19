@@ -96,7 +96,7 @@ newCopyBackupToRegion pDestinationRegion_ pBackupId_ =
 -- do not specify tags, the service copies tags from the source backup to
 -- the destination backup.
 copyBackupToRegion_tagList :: Lens.Lens' CopyBackupToRegion (Prelude.Maybe [Tag])
-copyBackupToRegion_tagList = Lens.lens (\CopyBackupToRegion' {tagList} -> tagList) (\s@CopyBackupToRegion' {} a -> s {tagList = a} :: CopyBackupToRegion) Prelude.. Lens.mapping Lens._Coerce
+copyBackupToRegion_tagList = Lens.lens (\CopyBackupToRegion' {tagList} -> tagList) (\s@CopyBackupToRegion' {} a -> s {tagList = a} :: CopyBackupToRegion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The AWS region that will contain your copied CloudHSM cluster backup.
 copyBackupToRegion_destinationRegion :: Lens.Lens' CopyBackupToRegion Prelude.Text

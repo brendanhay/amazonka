@@ -18,10 +18,10 @@ module Network.AWS.CloudHSMv2.Types
 
     -- * Errors
     _CloudHsmInternalFailureException,
-    _CloudHsmResourceNotFoundException,
-    _CloudHsmAccessDeniedException,
-    _CloudHsmInvalidRequestException,
     _CloudHsmServiceException,
+    _CloudHsmInvalidRequestException,
+    _CloudHsmAccessDeniedException,
+    _CloudHsmResourceNotFoundException,
     _CloudHsmTagException,
 
     -- * BackupPolicy
@@ -42,16 +42,16 @@ module Network.AWS.CloudHSMv2.Types
     -- * Backup
     Backup (..),
     newBackup,
-    backup_clusterId,
-    backup_backupState,
-    backup_sourceBackup,
-    backup_copyTimestamp,
-    backup_neverExpires,
-    backup_createTimestamp,
     backup_deleteTimestamp,
     backup_sourceCluster,
-    backup_tagList,
+    backup_neverExpires,
     backup_sourceRegion,
+    backup_tagList,
+    backup_sourceBackup,
+    backup_clusterId,
+    backup_createTimestamp,
+    backup_copyTimestamp,
+    backup_backupState,
     backup_backupId,
 
     -- * BackupRetentionPolicy
@@ -63,49 +63,49 @@ module Network.AWS.CloudHSMv2.Types
     -- * Certificates
     Certificates (..),
     newCertificates,
-    certificates_awsHardwareCertificate,
-    certificates_hsmCertificate,
-    certificates_clusterCsr,
-    certificates_clusterCertificate,
     certificates_manufacturerHardwareCertificate,
+    certificates_clusterCsr,
+    certificates_hsmCertificate,
+    certificates_clusterCertificate,
+    certificates_awsHardwareCertificate,
 
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_clusterId,
-    cluster_stateMessage,
-    cluster_backupPolicy,
-    cluster_createTimestamp,
-    cluster_subnetMapping,
-    cluster_state,
     cluster_preCoPassword,
-    cluster_securityGroup,
-    cluster_certificates,
-    cluster_sourceBackupId,
-    cluster_hsmType,
-    cluster_tagList,
-    cluster_vpcId,
-    cluster_hsms,
+    cluster_stateMessage,
+    cluster_state,
+    cluster_subnetMapping,
     cluster_backupRetentionPolicy,
+    cluster_hsms,
+    cluster_vpcId,
+    cluster_tagList,
+    cluster_sourceBackupId,
+    cluster_certificates,
+    cluster_securityGroup,
+    cluster_clusterId,
+    cluster_createTimestamp,
+    cluster_backupPolicy,
+    cluster_hsmType,
 
     -- * DestinationBackup
     DestinationBackup (..),
     newDestinationBackup,
-    destinationBackup_sourceBackup,
-    destinationBackup_createTimestamp,
     destinationBackup_sourceCluster,
     destinationBackup_sourceRegion,
+    destinationBackup_sourceBackup,
+    destinationBackup_createTimestamp,
 
     -- * Hsm
     Hsm (..),
     newHsm,
-    hsm_clusterId,
     hsm_stateMessage,
-    hsm_eniIp,
-    hsm_eniId,
-    hsm_availabilityZone,
     hsm_state,
+    hsm_eniId,
     hsm_subnetId,
+    hsm_availabilityZone,
+    hsm_clusterId,
+    hsm_eniIp,
     hsm_hsmId,
 
     -- * Tag
@@ -159,37 +159,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -202,6 +179,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request was rejected because of an AWS CloudHSM internal failure.
@@ -212,13 +212,19 @@ _CloudHsmInternalFailureException =
     defaultService
     "CloudHsmInternalFailureException"
 
--- | The request was rejected because it refers to a resource that cannot be
--- found.
-_CloudHsmResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudHsmResourceNotFoundException =
+-- | The request was rejected because an error occurred.
+_CloudHsmServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmServiceException =
   Core._MatchServiceError
     defaultService
-    "CloudHsmResourceNotFoundException"
+    "CloudHsmServiceException"
+
+-- | The request was rejected because it is not a valid request.
+_CloudHsmInvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmInvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "CloudHsmInvalidRequestException"
 
 -- | The request was rejected because the requester does not have permission
 -- to perform the requested operation.
@@ -228,19 +234,13 @@ _CloudHsmAccessDeniedException =
     defaultService
     "CloudHsmAccessDeniedException"
 
--- | The request was rejected because it is not a valid request.
-_CloudHsmInvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudHsmInvalidRequestException =
+-- | The request was rejected because it refers to a resource that cannot be
+-- found.
+_CloudHsmResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CloudHsmResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "CloudHsmInvalidRequestException"
-
--- | The request was rejected because an error occurred.
-_CloudHsmServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CloudHsmServiceException =
-  Core._MatchServiceError
-    defaultService
-    "CloudHsmServiceException"
+    "CloudHsmResourceNotFoundException"
 
 -- | The request was rejected because of a tagging failure. Verify the tag
 -- conditions in all applicable policies, and then retry the request.

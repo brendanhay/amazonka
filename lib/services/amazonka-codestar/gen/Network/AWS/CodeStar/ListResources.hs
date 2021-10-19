@@ -38,8 +38,8 @@ module Network.AWS.CodeStar.ListResources
     newListResourcesResponse,
 
     -- * Response Lenses
-    listResourcesResponse_nextToken,
     listResourcesResponse_resources,
+    listResourcesResponse_nextToken,
     listResourcesResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListResources where
     Response.receiveJSON
       ( \s h x ->
           ListResourcesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "resources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,11 +174,11 @@ instance Core.ToQuery ListResources where
 
 -- | /See:/ 'newListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { -- | The continuation token to use when requesting the next set of results,
+  { -- | An array of resources associated with the project.
+    resources :: Prelude.Maybe [Resource],
+    -- | The continuation token to use when requesting the next set of results,
     -- if there are more results to be returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of resources associated with the project.
-    resources :: Prelude.Maybe [Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,10 +192,10 @@ data ListResourcesResponse = ListResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resources', 'listResourcesResponse_resources' - An array of resources associated with the project.
+--
 -- 'nextToken', 'listResourcesResponse_nextToken' - The continuation token to use when requesting the next set of results,
 -- if there are more results to be returned.
---
--- 'resources', 'listResourcesResponse_resources' - An array of resources associated with the project.
 --
 -- 'httpStatus', 'listResourcesResponse_httpStatus' - The response's http status code.
 newListResourcesResponse ::
@@ -204,19 +204,19 @@ newListResourcesResponse ::
   ListResourcesResponse
 newListResourcesResponse pHttpStatus_ =
   ListResourcesResponse'
-    { nextToken = Prelude.Nothing,
-      resources = Prelude.Nothing,
+    { resources = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of resources associated with the project.
+listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
+listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The continuation token to use when requesting the next set of results,
 -- if there are more results to be returned.
 listResourcesResponse_nextToken :: Lens.Lens' ListResourcesResponse (Prelude.Maybe Prelude.Text)
 listResourcesResponse_nextToken = Lens.lens (\ListResourcesResponse' {nextToken} -> nextToken) (\s@ListResourcesResponse' {} a -> s {nextToken = a} :: ListResourcesResponse)
-
--- | An array of resources associated with the project.
-listResourcesResponse_resources :: Lens.Lens' ListResourcesResponse (Prelude.Maybe [Resource])
-listResourcesResponse_resources = Lens.lens (\ListResourcesResponse' {resources} -> resources) (\s@ListResourcesResponse' {} a -> s {resources = a} :: ListResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens.Lens' ListResourcesResponse Prelude.Int

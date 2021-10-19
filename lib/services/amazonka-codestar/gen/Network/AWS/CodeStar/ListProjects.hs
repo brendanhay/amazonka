@@ -203,6 +203,6 @@ listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus}
 
 -- | A list of projects.
 listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse [ProjectSummary]
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens._Coerce
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListProjectsResponse

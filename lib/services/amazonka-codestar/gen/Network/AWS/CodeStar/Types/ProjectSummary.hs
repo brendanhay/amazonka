@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
-  { -- | The ID of the project.
-    projectId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the project.
+    projectArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the project.
+    projectId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProjectSummary = ProjectSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectId', 'projectSummary_projectId' - The ID of the project.
---
 -- 'projectArn', 'projectSummary_projectArn' - The Amazon Resource Name (ARN) of the project.
+--
+-- 'projectId', 'projectSummary_projectId' - The ID of the project.
 newProjectSummary ::
   ProjectSummary
 newProjectSummary =
   ProjectSummary'
-    { projectId = Prelude.Nothing,
-      projectArn = Prelude.Nothing
+    { projectArn = Prelude.Nothing,
+      projectId = Prelude.Nothing
     }
-
--- | The ID of the project.
-projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
-projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectSummary_projectArn :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
 projectSummary_projectArn = Lens.lens (\ProjectSummary' {projectArn} -> projectArn) (\s@ProjectSummary' {} a -> s {projectArn = a} :: ProjectSummary)
+
+-- | The ID of the project.
+projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 instance Core.FromJSON ProjectSummary where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON ProjectSummary where
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Core..:? "projectId")
-            Prelude.<*> (x Core..:? "projectArn")
+            Prelude.<$> (x Core..:? "projectArn")
+            Prelude.<*> (x Core..:? "projectId")
       )
 
 instance Prelude.Hashable ProjectSummary

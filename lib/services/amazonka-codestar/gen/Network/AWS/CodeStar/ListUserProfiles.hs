@@ -206,6 +206,6 @@ listUserProfilesResponse_httpStatus = Lens.lens (\ListUserProfilesResponse' {htt
 
 -- | All the user profiles configured in AWS CodeStar for an AWS account.
 listUserProfilesResponse_userProfiles :: Lens.Lens' ListUserProfilesResponse [UserProfileSummary]
-listUserProfilesResponse_userProfiles = Lens.lens (\ListUserProfilesResponse' {userProfiles} -> userProfiles) (\s@ListUserProfilesResponse' {} a -> s {userProfiles = a} :: ListUserProfilesResponse) Prelude.. Lens._Coerce
+listUserProfilesResponse_userProfiles = Lens.lens (\ListUserProfilesResponse' {userProfiles} -> userProfiles) (\s@ListUserProfilesResponse' {} a -> s {userProfiles = a} :: ListUserProfilesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListUserProfilesResponse

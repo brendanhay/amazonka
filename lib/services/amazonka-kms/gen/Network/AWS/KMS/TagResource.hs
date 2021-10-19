@@ -189,7 +189,7 @@ tagResource_keyId = Lens.lens (\TagResource' {keyId} -> keyId) (\s@TagResource' 
 -- you specify an existing tag key with a different tag value, KMS replaces
 -- the current tag value with the specified one.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

@@ -127,9 +127,9 @@ module Network.AWS.KMS.ReEncrypt
 
     -- * Request Lenses
     reEncrypt_destinationEncryptionContext,
-    reEncrypt_grantTokens,
-    reEncrypt_sourceEncryptionContext,
     reEncrypt_sourceKeyId,
+    reEncrypt_sourceEncryptionContext,
+    reEncrypt_grantTokens,
     reEncrypt_destinationEncryptionAlgorithm,
     reEncrypt_sourceEncryptionAlgorithm,
     reEncrypt_ciphertextBlob,
@@ -141,10 +141,10 @@ module Network.AWS.KMS.ReEncrypt
 
     -- * Response Lenses
     reEncryptResponse_sourceKeyId,
-    reEncryptResponse_destinationEncryptionAlgorithm,
-    reEncryptResponse_ciphertextBlob,
-    reEncryptResponse_sourceEncryptionAlgorithm,
     reEncryptResponse_keyId,
+    reEncryptResponse_destinationEncryptionAlgorithm,
+    reEncryptResponse_sourceEncryptionAlgorithm,
+    reEncryptResponse_ciphertextBlob,
     reEncryptResponse_httpStatus,
   )
 where
@@ -175,30 +175,6 @@ data ReEncrypt = ReEncrypt'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /Key Management Service Developer Guide/.
     destinationEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of grant tokens.
-    --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the encryption context to use to decrypt the ciphertext. Enter
-    -- the same encryption context that was used to encrypt the ciphertext.
-    --
-    -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represents additional authenticated data. When you use an
-    -- encryption context to encrypt data, you must specify the same (an exact
-    -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric KMS key,
-    -- but it is highly recommended.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
-    -- in the /Key Management Service Developer Guide/.
-    sourceEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the KMS key that KMS will use to decrypt the ciphertext before
     -- it is re-encrypted. Enter a key ID of the KMS key that was used to
     -- encrypt the ciphertext.
@@ -228,6 +204,30 @@ data ReEncrypt = ReEncrypt'
     -- To get the key ID and key ARN for a KMS key, use ListKeys or
     -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     sourceKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the encryption context to use to decrypt the ciphertext. Enter
+    -- the same encryption context that was used to encrypt the ciphertext.
+    --
+    -- An /encryption context/ is a collection of non-secret key-value pairs
+    -- that represents additional authenticated data. When you use an
+    -- encryption context to encrypt data, you must specify the same (an exact
+    -- case-sensitive match) encryption context to decrypt the data. An
+    -- encryption context is optional when encrypting with a symmetric KMS key,
+    -- but it is highly recommended.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- in the /Key Management Service Developer Guide/.
+    sourceEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the encryption algorithm that KMS will use to reecrypt the
     -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
     -- represents the encryption algorithm used for symmetric KMS keys.
@@ -300,30 +300,6 @@ data ReEncrypt = ReEncrypt'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'grantTokens', 'reEncrypt_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
---
--- 'sourceEncryptionContext', 'reEncrypt_sourceEncryptionContext' - Specifies the encryption context to use to decrypt the ciphertext. Enter
--- the same encryption context that was used to encrypt the ciphertext.
---
--- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
--- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /Key Management Service Developer Guide/.
---
 -- 'sourceKeyId', 'reEncrypt_sourceKeyId' - Specifies the KMS key that KMS will use to decrypt the ciphertext before
 -- it is re-encrypted. Enter a key ID of the KMS key that was used to
 -- encrypt the ciphertext.
@@ -352,6 +328,30 @@ data ReEncrypt = ReEncrypt'
 --
 -- To get the key ID and key ARN for a KMS key, use ListKeys or
 -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
+--
+-- 'sourceEncryptionContext', 'reEncrypt_sourceEncryptionContext' - Specifies the encryption context to use to decrypt the ciphertext. Enter
+-- the same encryption context that was used to encrypt the ciphertext.
+--
+-- An /encryption context/ is a collection of non-secret key-value pairs
+-- that represents additional authenticated data. When you use an
+-- encryption context to encrypt data, you must specify the same (an exact
+-- case-sensitive match) encryption context to decrypt the data. An
+-- encryption context is optional when encrypting with a symmetric KMS key,
+-- but it is highly recommended.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the /Key Management Service Developer Guide/.
+--
+-- 'grantTokens', 'reEncrypt_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'destinationEncryptionAlgorithm', 'reEncrypt_destinationEncryptionAlgorithm' - Specifies the encryption algorithm that KMS will use to reecrypt the
 -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
@@ -410,9 +410,9 @@ newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
   ReEncrypt'
     { destinationEncryptionContext =
         Prelude.Nothing,
-      grantTokens = Prelude.Nothing,
-      sourceEncryptionContext = Prelude.Nothing,
       sourceKeyId = Prelude.Nothing,
+      sourceEncryptionContext = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       destinationEncryptionAlgorithm = Prelude.Nothing,
       sourceEncryptionAlgorithm = Prelude.Nothing,
       ciphertextBlob =
@@ -437,35 +437,7 @@ newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 reEncrypt_destinationEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-reEncrypt_destinationEncryptionContext = Lens.lens (\ReEncrypt' {destinationEncryptionContext} -> destinationEncryptionContext) (\s@ReEncrypt' {} a -> s {destinationEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-reEncrypt_grantTokens :: Lens.Lens' ReEncrypt (Prelude.Maybe [Prelude.Text])
-reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s@ReEncrypt' {} a -> s {grantTokens = a} :: ReEncrypt) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the encryption context to use to decrypt the ciphertext. Enter
--- the same encryption context that was used to encrypt the ciphertext.
---
--- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
--- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
---
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
--- in the /Key Management Service Developer Guide/.
-reEncrypt_sourceEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionContext} -> sourceEncryptionContext) (\s@ReEncrypt' {} a -> s {sourceEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens._Coerce
+reEncrypt_destinationEncryptionContext = Lens.lens (\ReEncrypt' {destinationEncryptionContext} -> destinationEncryptionContext) (\s@ReEncrypt' {} a -> s {destinationEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the KMS key that KMS will use to decrypt the ciphertext before
 -- it is re-encrypted. Enter a key ID of the KMS key that was used to
@@ -497,6 +469,34 @@ reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionCont
 -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 reEncrypt_sourceKeyId :: Lens.Lens' ReEncrypt (Prelude.Maybe Prelude.Text)
 reEncrypt_sourceKeyId = Lens.lens (\ReEncrypt' {sourceKeyId} -> sourceKeyId) (\s@ReEncrypt' {} a -> s {sourceKeyId = a} :: ReEncrypt)
+
+-- | Specifies the encryption context to use to decrypt the ciphertext. Enter
+-- the same encryption context that was used to encrypt the ciphertext.
+--
+-- An /encryption context/ is a collection of non-secret key-value pairs
+-- that represents additional authenticated data. When you use an
+-- encryption context to encrypt data, you must specify the same (an exact
+-- case-sensitive match) encryption context to decrypt the data. An
+-- encryption context is optional when encrypting with a symmetric KMS key,
+-- but it is highly recommended.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the /Key Management Service Developer Guide/.
+reEncrypt_sourceEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionContext} -> sourceEncryptionContext) (\s@ReEncrypt' {} a -> s {sourceEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+reEncrypt_grantTokens :: Lens.Lens' ReEncrypt (Prelude.Maybe [Prelude.Text])
+reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s@ReEncrypt' {} a -> s {grantTokens = a} :: ReEncrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the encryption algorithm that KMS will use to reecrypt the
 -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
@@ -562,10 +562,10 @@ instance Core.AWSRequest ReEncrypt where
       ( \s h x ->
           ReEncryptResponse'
             Prelude.<$> (x Core..?> "SourceKeyId")
-            Prelude.<*> (x Core..?> "DestinationEncryptionAlgorithm")
-            Prelude.<*> (x Core..?> "CiphertextBlob")
-            Prelude.<*> (x Core..?> "SourceEncryptionAlgorithm")
             Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<*> (x Core..?> "DestinationEncryptionAlgorithm")
+            Prelude.<*> (x Core..?> "SourceEncryptionAlgorithm")
+            Prelude.<*> (x Core..?> "CiphertextBlob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -592,10 +592,10 @@ instance Core.ToJSON ReEncrypt where
       ( Prelude.catMaybes
           [ ("DestinationEncryptionContext" Core..=)
               Prelude.<$> destinationEncryptionContext,
-            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
+            ("SourceKeyId" Core..=) Prelude.<$> sourceKeyId,
             ("SourceEncryptionContext" Core..=)
               Prelude.<$> sourceEncryptionContext,
-            ("SourceKeyId" Core..=) Prelude.<$> sourceKeyId,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             ("DestinationEncryptionAlgorithm" Core..=)
               Prelude.<$> destinationEncryptionAlgorithm,
             ("SourceEncryptionAlgorithm" Core..=)
@@ -617,19 +617,19 @@ instance Core.ToQuery ReEncrypt where
 data ReEncryptResponse = ReEncryptResponse'
   { -- | Unique identifier of the KMS key used to originally encrypt the data.
     sourceKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The encryption algorithm that was used to reencrypt the data.
-    destinationEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
-    -- | The reencrypted data. When you use the HTTP API or the Amazon Web
-    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
-    -- Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Core.Base64,
-    -- | The encryption algorithm that was used to decrypt the ciphertext before
-    -- it was reencrypted.
-    sourceEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that was used to reencrypt the data.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | The encryption algorithm that was used to reencrypt the data.
+    destinationEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    -- | The encryption algorithm that was used to decrypt the ciphertext before
+    -- it was reencrypted.
+    sourceEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
+    -- | The reencrypted data. When you use the HTTP API or the Amazon Web
+    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
+    -- Base64-encoded.
+    ciphertextBlob :: Prelude.Maybe Core.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -645,7 +645,14 @@ data ReEncryptResponse = ReEncryptResponse'
 --
 -- 'sourceKeyId', 'reEncryptResponse_sourceKeyId' - Unique identifier of the KMS key used to originally encrypt the data.
 --
+-- 'keyId', 'reEncryptResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that was used to reencrypt the data.
+--
 -- 'destinationEncryptionAlgorithm', 'reEncryptResponse_destinationEncryptionAlgorithm' - The encryption algorithm that was used to reencrypt the data.
+--
+-- 'sourceEncryptionAlgorithm', 'reEncryptResponse_sourceEncryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext before
+-- it was reencrypted.
 --
 -- 'ciphertextBlob', 'reEncryptResponse_ciphertextBlob' - The reencrypted data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -655,13 +662,6 @@ data ReEncryptResponse = ReEncryptResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'sourceEncryptionAlgorithm', 'reEncryptResponse_sourceEncryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext before
--- it was reencrypted.
---
--- 'keyId', 'reEncryptResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that was used to reencrypt the data.
---
 -- 'httpStatus', 'reEncryptResponse_httpStatus' - The response's http status code.
 newReEncryptResponse ::
   -- | 'httpStatus'
@@ -670,10 +670,10 @@ newReEncryptResponse ::
 newReEncryptResponse pHttpStatus_ =
   ReEncryptResponse'
     { sourceKeyId = Prelude.Nothing,
-      destinationEncryptionAlgorithm = Prelude.Nothing,
-      ciphertextBlob = Prelude.Nothing,
-      sourceEncryptionAlgorithm = Prelude.Nothing,
       keyId = Prelude.Nothing,
+      destinationEncryptionAlgorithm = Prelude.Nothing,
+      sourceEncryptionAlgorithm = Prelude.Nothing,
+      ciphertextBlob = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -681,9 +681,20 @@ newReEncryptResponse pHttpStatus_ =
 reEncryptResponse_sourceKeyId :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.Text)
 reEncryptResponse_sourceKeyId = Lens.lens (\ReEncryptResponse' {sourceKeyId} -> sourceKeyId) (\s@ReEncryptResponse' {} a -> s {sourceKeyId = a} :: ReEncryptResponse)
 
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that was used to reencrypt the data.
+reEncryptResponse_keyId :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.Text)
+reEncryptResponse_keyId = Lens.lens (\ReEncryptResponse' {keyId} -> keyId) (\s@ReEncryptResponse' {} a -> s {keyId = a} :: ReEncryptResponse)
+
 -- | The encryption algorithm that was used to reencrypt the data.
 reEncryptResponse_destinationEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
 reEncryptResponse_destinationEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {destinationEncryptionAlgorithm} -> destinationEncryptionAlgorithm) (\s@ReEncryptResponse' {} a -> s {destinationEncryptionAlgorithm = a} :: ReEncryptResponse)
+
+-- | The encryption algorithm that was used to decrypt the ciphertext before
+-- it was reencrypted.
+reEncryptResponse_sourceEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
+reEncryptResponse_sourceEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {sourceEncryptionAlgorithm} -> sourceEncryptionAlgorithm) (\s@ReEncryptResponse' {} a -> s {sourceEncryptionAlgorithm = a} :: ReEncryptResponse)
 
 -- | The reencrypted data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -694,17 +705,6 @@ reEncryptResponse_destinationEncryptionAlgorithm = Lens.lens (\ReEncryptResponse
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 reEncryptResponse_ciphertextBlob :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.ByteString)
 reEncryptResponse_ciphertextBlob = Lens.lens (\ReEncryptResponse' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncryptResponse' {} a -> s {ciphertextBlob = a} :: ReEncryptResponse) Prelude.. Lens.mapping Core._Base64
-
--- | The encryption algorithm that was used to decrypt the ciphertext before
--- it was reencrypted.
-reEncryptResponse_sourceEncryptionAlgorithm :: Lens.Lens' ReEncryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
-reEncryptResponse_sourceEncryptionAlgorithm = Lens.lens (\ReEncryptResponse' {sourceEncryptionAlgorithm} -> sourceEncryptionAlgorithm) (\s@ReEncryptResponse' {} a -> s {sourceEncryptionAlgorithm = a} :: ReEncryptResponse)
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that was used to reencrypt the data.
-reEncryptResponse_keyId :: Lens.Lens' ReEncryptResponse (Prelude.Maybe Prelude.Text)
-reEncryptResponse_keyId = Lens.lens (\ReEncryptResponse' {keyId} -> keyId) (\s@ReEncryptResponse' {} a -> s {keyId = a} :: ReEncryptResponse)
 
 -- | The response's http status code.
 reEncryptResponse_httpStatus :: Lens.Lens' ReEncryptResponse Prelude.Int

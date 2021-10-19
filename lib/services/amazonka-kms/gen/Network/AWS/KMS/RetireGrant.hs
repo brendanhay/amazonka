@@ -63,9 +63,9 @@ module Network.AWS.KMS.RetireGrant
     newRetireGrant,
 
     -- * Request Lenses
-    retireGrant_grantToken,
-    retireGrant_grantId,
     retireGrant_keyId,
+    retireGrant_grantId,
+    retireGrant_grantToken,
 
     -- * Destructuring the Response
     RetireGrantResponse (..),
@@ -82,7 +82,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRetireGrant' smart constructor.
 data RetireGrant = RetireGrant'
-  { -- | Identifies the grant to be retired. You can use a grant token to
+  { -- | The key ARN KMS key associated with the grant. To find the key ARN, use
+    -- the ListKeys operation.
+    --
+    -- For example:
+    -- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the grant to retire. To get the grant ID, use CreateGrant,
+    -- ListGrants, or ListRetirableGrants.
+    --
+    -- -   Grant ID Example -
+    --     0123456789012345678901234567890123456789012345678901234567890123
+    grantId :: Prelude.Maybe Prelude.Text,
+    -- | Identifies the grant to be retired. You can use a grant token to
     -- identify a new grant even before it has achieved eventual consistency.
     --
     -- Only the CreateGrant operation returns a grant token. For details, see
@@ -90,19 +102,7 @@ data RetireGrant = RetireGrant'
     -- and
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency>
     -- in the /Key Management Service Developer Guide/.
-    grantToken :: Prelude.Maybe Prelude.Text,
-    -- | Identifies the grant to retire. To get the grant ID, use CreateGrant,
-    -- ListGrants, or ListRetirableGrants.
-    --
-    -- -   Grant ID Example -
-    --     0123456789012345678901234567890123456789012345678901234567890123
-    grantId :: Prelude.Maybe Prelude.Text,
-    -- | The key ARN KMS key associated with the grant. To find the key ARN, use
-    -- the ListKeys operation.
-    --
-    -- For example:
-    -- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
-    keyId :: Prelude.Maybe Prelude.Text
+    grantToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,6 +114,18 @@ data RetireGrant = RetireGrant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'retireGrant_keyId' - The key ARN KMS key associated with the grant. To find the key ARN, use
+-- the ListKeys operation.
+--
+-- For example:
+-- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- 'grantId', 'retireGrant_grantId' - Identifies the grant to retire. To get the grant ID, use CreateGrant,
+-- ListGrants, or ListRetirableGrants.
+--
+-- -   Grant ID Example -
+--     0123456789012345678901234567890123456789012345678901234567890123
+--
 -- 'grantToken', 'retireGrant_grantToken' - Identifies the grant to be retired. You can use a grant token to
 -- identify a new grant even before it has achieved eventual consistency.
 --
@@ -122,26 +134,30 @@ data RetireGrant = RetireGrant'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency Eventual consistency>
 -- in the /Key Management Service Developer Guide/.
---
--- 'grantId', 'retireGrant_grantId' - Identifies the grant to retire. To get the grant ID, use CreateGrant,
--- ListGrants, or ListRetirableGrants.
---
--- -   Grant ID Example -
---     0123456789012345678901234567890123456789012345678901234567890123
---
--- 'keyId', 'retireGrant_keyId' - The key ARN KMS key associated with the grant. To find the key ARN, use
--- the ListKeys operation.
---
--- For example:
--- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 newRetireGrant ::
   RetireGrant
 newRetireGrant =
   RetireGrant'
-    { grantToken = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
       grantId = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      grantToken = Prelude.Nothing
     }
+
+-- | The key ARN KMS key associated with the grant. To find the key ARN, use
+-- the ListKeys operation.
+--
+-- For example:
+-- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+retireGrant_keyId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
+retireGrant_keyId = Lens.lens (\RetireGrant' {keyId} -> keyId) (\s@RetireGrant' {} a -> s {keyId = a} :: RetireGrant)
+
+-- | Identifies the grant to retire. To get the grant ID, use CreateGrant,
+-- ListGrants, or ListRetirableGrants.
+--
+-- -   Grant ID Example -
+--     0123456789012345678901234567890123456789012345678901234567890123
+retireGrant_grantId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
+retireGrant_grantId = Lens.lens (\RetireGrant' {grantId} -> grantId) (\s@RetireGrant' {} a -> s {grantId = a} :: RetireGrant)
 
 -- | Identifies the grant to be retired. You can use a grant token to
 -- identify a new grant even before it has achieved eventual consistency.
@@ -153,22 +169,6 @@ newRetireGrant =
 -- in the /Key Management Service Developer Guide/.
 retireGrant_grantToken :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
 retireGrant_grantToken = Lens.lens (\RetireGrant' {grantToken} -> grantToken) (\s@RetireGrant' {} a -> s {grantToken = a} :: RetireGrant)
-
--- | Identifies the grant to retire. To get the grant ID, use CreateGrant,
--- ListGrants, or ListRetirableGrants.
---
--- -   Grant ID Example -
---     0123456789012345678901234567890123456789012345678901234567890123
-retireGrant_grantId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
-retireGrant_grantId = Lens.lens (\RetireGrant' {grantId} -> grantId) (\s@RetireGrant' {} a -> s {grantId = a} :: RetireGrant)
-
--- | The key ARN KMS key associated with the grant. To find the key ARN, use
--- the ListKeys operation.
---
--- For example:
--- @arn:aws:kms:us-east-2:444455556666:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
-retireGrant_keyId :: Lens.Lens' RetireGrant (Prelude.Maybe Prelude.Text)
-retireGrant_keyId = Lens.lens (\RetireGrant' {keyId} -> keyId) (\s@RetireGrant' {} a -> s {keyId = a} :: RetireGrant)
 
 instance Core.AWSRequest RetireGrant where
   type AWSResponse RetireGrant = RetireGrantResponse
@@ -196,9 +196,9 @@ instance Core.ToJSON RetireGrant where
   toJSON RetireGrant' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantToken" Core..=) Prelude.<$> grantToken,
+          [ ("KeyId" Core..=) Prelude.<$> keyId,
             ("GrantId" Core..=) Prelude.<$> grantId,
-            ("KeyId" Core..=) Prelude.<$> keyId
+            ("GrantToken" Core..=) Prelude.<$> grantToken
           ]
       )
 

@@ -99,8 +99,8 @@ module Network.AWS.KMS.GenerateDataKeyPair
     newGenerateDataKeyPair,
 
     -- * Request Lenses
-    generateDataKeyPair_grantTokens,
     generateDataKeyPair_encryptionContext,
+    generateDataKeyPair_grantTokens,
     generateDataKeyPair_keyId,
     generateDataKeyPair_keyPairSpec,
 
@@ -109,11 +109,11 @@ module Network.AWS.KMS.GenerateDataKeyPair
     newGenerateDataKeyPairResponse,
 
     -- * Response Lenses
+    generateDataKeyPairResponse_keyId,
     generateDataKeyPairResponse_publicKey,
+    generateDataKeyPairResponse_privateKeyPlaintext,
     generateDataKeyPairResponse_keyPairSpec,
     generateDataKeyPairResponse_privateKeyCiphertextBlob,
-    generateDataKeyPairResponse_privateKeyPlaintext,
-    generateDataKeyPairResponse_keyId,
     generateDataKeyPairResponse_httpStatus,
   )
 where
@@ -127,17 +127,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGenerateDataKeyPair' smart constructor.
 data GenerateDataKeyPair = GenerateDataKeyPair'
-  { -- | A list of grant tokens.
-    --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the encryption context that will be used when encrypting the
+  { -- | Specifies the encryption context that will be used when encrypting the
     -- private key in the data key pair.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
@@ -151,6 +141,16 @@ data GenerateDataKeyPair = GenerateDataKeyPair'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the symmetric KMS key that encrypts the private key in the
     -- data key pair. You cannot specify an asymmetric KMS key or a KMS key in
     -- a custom key store. To get the type and origin of your KMS key, use the
@@ -193,16 +193,6 @@ data GenerateDataKeyPair = GenerateDataKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantTokens', 'generateDataKeyPair_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
---
 -- 'encryptionContext', 'generateDataKeyPair_encryptionContext' - Specifies the encryption context that will be used when encrypting the
 -- private key in the data key pair.
 --
@@ -215,6 +205,16 @@ data GenerateDataKeyPair = GenerateDataKeyPair'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- in the /Key Management Service Developer Guide/.
+--
+-- 'grantTokens', 'generateDataKeyPair_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'generateDataKeyPair_keyId' - Specifies the symmetric KMS key that encrypts the private key in the
@@ -255,23 +255,12 @@ newGenerateDataKeyPair ::
   GenerateDataKeyPair
 newGenerateDataKeyPair pKeyId_ pKeyPairSpec_ =
   GenerateDataKeyPair'
-    { grantTokens = Prelude.Nothing,
-      encryptionContext = Prelude.Nothing,
+    { encryptionContext =
+        Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       keyPairSpec = pKeyPairSpec_
     }
-
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-generateDataKeyPair_grantTokens :: Lens.Lens' GenerateDataKeyPair (Prelude.Maybe [Prelude.Text])
-generateDataKeyPair_grantTokens = Lens.lens (\GenerateDataKeyPair' {grantTokens} -> grantTokens) (\s@GenerateDataKeyPair' {} a -> s {grantTokens = a} :: GenerateDataKeyPair) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- private key in the data key pair.
@@ -287,7 +276,19 @@ generateDataKeyPair_grantTokens = Lens.lens (\GenerateDataKeyPair' {grantTokens}
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 generateDataKeyPair_encryptionContext :: Lens.Lens' GenerateDataKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateDataKeyPair_encryptionContext = Lens.lens (\GenerateDataKeyPair' {encryptionContext} -> encryptionContext) (\s@GenerateDataKeyPair' {} a -> s {encryptionContext = a} :: GenerateDataKeyPair) Prelude.. Lens.mapping Lens._Coerce
+generateDataKeyPair_encryptionContext = Lens.lens (\GenerateDataKeyPair' {encryptionContext} -> encryptionContext) (\s@GenerateDataKeyPair' {} a -> s {encryptionContext = a} :: GenerateDataKeyPair) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+generateDataKeyPair_grantTokens :: Lens.Lens' GenerateDataKeyPair (Prelude.Maybe [Prelude.Text])
+generateDataKeyPair_grantTokens = Lens.lens (\GenerateDataKeyPair' {grantTokens} -> grantTokens) (\s@GenerateDataKeyPair' {} a -> s {grantTokens = a} :: GenerateDataKeyPair) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the symmetric KMS key that encrypts the private key in the
 -- data key pair. You cannot specify an asymmetric KMS key or a KMS key in
@@ -333,11 +334,11 @@ instance Core.AWSRequest GenerateDataKeyPair where
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyPairResponse'
-            Prelude.<$> (x Core..?> "PublicKey")
+            Prelude.<$> (x Core..?> "KeyId")
+            Prelude.<*> (x Core..?> "PublicKey")
+            Prelude.<*> (x Core..?> "PrivateKeyPlaintext")
             Prelude.<*> (x Core..?> "KeyPairSpec")
             Prelude.<*> (x Core..?> "PrivateKeyCiphertextBlob")
-            Prelude.<*> (x Core..?> "PrivateKeyPlaintext")
-            Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -364,9 +365,9 @@ instance Core.ToJSON GenerateDataKeyPair where
   toJSON GenerateDataKeyPair' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("EncryptionContext" Core..=)
+          [ ("EncryptionContext" Core..=)
               Prelude.<$> encryptionContext,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Core..= keyId),
             Prelude.Just ("KeyPairSpec" Core..= keyPairSpec)
           ]
@@ -380,22 +381,22 @@ instance Core.ToQuery GenerateDataKeyPair where
 
 -- | /See:/ 'newGenerateDataKeyPairResponse' smart constructor.
 data GenerateDataKeyPairResponse = GenerateDataKeyPairResponse'
-  { -- | The public key (in plaintext).
+  { -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+    -- of the KMS key that encrypted the private key.
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The public key (in plaintext).
     publicKey :: Prelude.Maybe Core.Base64,
+    -- | The plaintext copy of the private key. When you use the HTTP API or the
+    -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+    -- not Base64-encoded.
+    privateKeyPlaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | The type of data key pair that was generated.
     keyPairSpec :: Prelude.Maybe DataKeyPairSpec,
     -- | The encrypted copy of the private key. When you use the HTTP API or the
     -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
     -- not Base64-encoded.
     privateKeyCiphertextBlob :: Prelude.Maybe Core.Base64,
-    -- | The plaintext copy of the private key. When you use the HTTP API or the
-    -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
-    -- not Base64-encoded.
-    privateKeyPlaintext :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the KMS key that encrypted the private key.
-    keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -409,7 +410,19 @@ data GenerateDataKeyPairResponse = GenerateDataKeyPairResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'generateDataKeyPairResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that encrypted the private key.
+--
 -- 'publicKey', 'generateDataKeyPairResponse_publicKey' - The public key (in plaintext).--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'privateKeyPlaintext', 'generateDataKeyPairResponse_privateKeyPlaintext' - The plaintext copy of the private key. When you use the HTTP API or the
+-- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+-- not Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -425,18 +438,6 @@ data GenerateDataKeyPairResponse = GenerateDataKeyPairResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'privateKeyPlaintext', 'generateDataKeyPairResponse_privateKeyPlaintext' - The plaintext copy of the private key. When you use the HTTP API or the
--- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
--- not Base64-encoded.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'keyId', 'generateDataKeyPairResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that encrypted the private key.
---
 -- 'httpStatus', 'generateDataKeyPairResponse_httpStatus' - The response's http status code.
 newGenerateDataKeyPairResponse ::
   -- | 'httpStatus'
@@ -444,14 +445,20 @@ newGenerateDataKeyPairResponse ::
   GenerateDataKeyPairResponse
 newGenerateDataKeyPairResponse pHttpStatus_ =
   GenerateDataKeyPairResponse'
-    { publicKey =
+    { keyId =
         Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      privateKeyPlaintext = Prelude.Nothing,
       keyPairSpec = Prelude.Nothing,
       privateKeyCiphertextBlob = Prelude.Nothing,
-      privateKeyPlaintext = Prelude.Nothing,
-      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that encrypted the private key.
+generateDataKeyPairResponse_keyId :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.Text)
+generateDataKeyPairResponse_keyId = Lens.lens (\GenerateDataKeyPairResponse' {keyId} -> keyId) (\s@GenerateDataKeyPairResponse' {} a -> s {keyId = a} :: GenerateDataKeyPairResponse)
 
 -- | The public key (in plaintext).--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -460,6 +467,16 @@ newGenerateDataKeyPairResponse pHttpStatus_ =
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyPairResponse_publicKey :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.ByteString)
 generateDataKeyPairResponse_publicKey = Lens.lens (\GenerateDataKeyPairResponse' {publicKey} -> publicKey) (\s@GenerateDataKeyPairResponse' {} a -> s {publicKey = a} :: GenerateDataKeyPairResponse) Prelude.. Lens.mapping Core._Base64
+
+-- | The plaintext copy of the private key. When you use the HTTP API or the
+-- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
+-- not Base64-encoded.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+generateDataKeyPairResponse_privateKeyPlaintext :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.ByteString)
+generateDataKeyPairResponse_privateKeyPlaintext = Lens.lens (\GenerateDataKeyPairResponse' {privateKeyPlaintext} -> privateKeyPlaintext) (\s@GenerateDataKeyPairResponse' {} a -> s {privateKeyPlaintext = a} :: GenerateDataKeyPairResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | The type of data key pair that was generated.
 generateDataKeyPairResponse_keyPairSpec :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe DataKeyPairSpec)
@@ -474,22 +491,6 @@ generateDataKeyPairResponse_keyPairSpec = Lens.lens (\GenerateDataKeyPairRespons
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyPairResponse_privateKeyCiphertextBlob :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.ByteString)
 generateDataKeyPairResponse_privateKeyCiphertextBlob = Lens.lens (\GenerateDataKeyPairResponse' {privateKeyCiphertextBlob} -> privateKeyCiphertextBlob) (\s@GenerateDataKeyPairResponse' {} a -> s {privateKeyCiphertextBlob = a} :: GenerateDataKeyPairResponse) Prelude.. Lens.mapping Core._Base64
-
--- | The plaintext copy of the private key. When you use the HTTP API or the
--- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
--- not Base64-encoded.--
--- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- -- The underlying isomorphism will encode to Base64 representation during
--- -- serialisation, and decode from Base64 representation during deserialisation.
--- -- This 'Lens' accepts and returns only raw unencoded data.
-generateDataKeyPairResponse_privateKeyPlaintext :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.ByteString)
-generateDataKeyPairResponse_privateKeyPlaintext = Lens.lens (\GenerateDataKeyPairResponse' {privateKeyPlaintext} -> privateKeyPlaintext) (\s@GenerateDataKeyPairResponse' {} a -> s {privateKeyPlaintext = a} :: GenerateDataKeyPairResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that encrypted the private key.
-generateDataKeyPairResponse_keyId :: Lens.Lens' GenerateDataKeyPairResponse (Prelude.Maybe Prelude.Text)
-generateDataKeyPairResponse_keyId = Lens.lens (\GenerateDataKeyPairResponse' {keyId} -> keyId) (\s@GenerateDataKeyPairResponse' {} a -> s {keyId = a} :: GenerateDataKeyPairResponse)
 
 -- | The response's http status code.
 generateDataKeyPairResponse_httpStatus :: Lens.Lens' GenerateDataKeyPairResponse Prelude.Int

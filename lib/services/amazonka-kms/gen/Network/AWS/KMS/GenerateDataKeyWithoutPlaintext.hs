@@ -91,10 +91,10 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     newGenerateDataKeyWithoutPlaintext,
 
     -- * Request Lenses
-    generateDataKeyWithoutPlaintext_grantTokens,
-    generateDataKeyWithoutPlaintext_numberOfBytes,
-    generateDataKeyWithoutPlaintext_encryptionContext,
     generateDataKeyWithoutPlaintext_keySpec,
+    generateDataKeyWithoutPlaintext_encryptionContext,
+    generateDataKeyWithoutPlaintext_numberOfBytes,
+    generateDataKeyWithoutPlaintext_grantTokens,
     generateDataKeyWithoutPlaintext_keyId,
 
     -- * Destructuring the Response
@@ -102,8 +102,8 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     newGenerateDataKeyWithoutPlaintextResponse,
 
     -- * Response Lenses
-    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
     generateDataKeyWithoutPlaintextResponse_keyId,
+    generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
     generateDataKeyWithoutPlaintextResponse_httpStatus,
   )
 where
@@ -117,21 +117,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGenerateDataKeyWithoutPlaintext' smart constructor.
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-  { -- | A list of grant tokens.
-    --
-    -- Use a grant token when your permission to call this operation comes from
-    -- a new grant that has not yet achieved /eventual consistency/. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
-    -- and
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
-    -- in the /Key Management Service Developer Guide/.
-    grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | The length of the data key in bytes. For example, use the value 64 to
-    -- generate a 512-bit data key (64 bytes is 512 bits). For common key
-    -- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
-    -- the @KeySpec@ field instead of this one.
-    numberOfBytes :: Prelude.Maybe Prelude.Natural,
+  { -- | The length of the data key. Use @AES_128@ to generate a 128-bit
+    -- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+    keySpec :: Prelude.Maybe DataKeySpec,
     -- | Specifies the encryption context that will be used when encrypting the
     -- data key.
     --
@@ -146,9 +134,21 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The length of the data key. Use @AES_128@ to generate a 128-bit
-    -- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
-    keySpec :: Prelude.Maybe DataKeySpec,
+    -- | The length of the data key in bytes. For example, use the value 64 to
+    -- generate a 512-bit data key (64 bytes is 512 bits). For common key
+    -- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
+    -- the @KeySpec@ field instead of this one.
+    numberOfBytes :: Prelude.Maybe Prelude.Natural,
+    -- | A list of grant tokens.
+    --
+    -- Use a grant token when your permission to call this operation comes from
+    -- a new grant that has not yet achieved /eventual consistency/. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+    -- and
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+    -- in the /Key Management Service Developer Guide/.
+    grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the symmetric KMS key that encrypts the data key.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
@@ -181,20 +181,8 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantTokens', 'generateDataKeyWithoutPlaintext_grantTokens' - A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
---
--- 'numberOfBytes', 'generateDataKeyWithoutPlaintext_numberOfBytes' - The length of the data key in bytes. For example, use the value 64 to
--- generate a 512-bit data key (64 bytes is 512 bits). For common key
--- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
--- the @KeySpec@ field instead of this one.
+-- 'keySpec', 'generateDataKeyWithoutPlaintext_keySpec' - The length of the data key. Use @AES_128@ to generate a 128-bit
+-- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
 --
 -- 'encryptionContext', 'generateDataKeyWithoutPlaintext_encryptionContext' - Specifies the encryption context that will be used when encrypting the
 -- data key.
@@ -210,8 +198,20 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'keySpec', 'generateDataKeyWithoutPlaintext_keySpec' - The length of the data key. Use @AES_128@ to generate a 128-bit
--- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+-- 'numberOfBytes', 'generateDataKeyWithoutPlaintext_numberOfBytes' - The length of the data key in bytes. For example, use the value 64 to
+-- generate a 512-bit data key (64 bytes is 512 bits). For common key
+-- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
+-- the @KeySpec@ field instead of this one.
+--
+-- 'grantTokens', 'generateDataKeyWithoutPlaintext_grantTokens' - A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
 --
 -- 'keyId', 'generateDataKeyWithoutPlaintext_keyId' - The identifier of the symmetric KMS key that encrypts the data key.
 --
@@ -239,32 +239,18 @@ newGenerateDataKeyWithoutPlaintext ::
   GenerateDataKeyWithoutPlaintext
 newGenerateDataKeyWithoutPlaintext pKeyId_ =
   GenerateDataKeyWithoutPlaintext'
-    { grantTokens =
+    { keySpec =
         Prelude.Nothing,
-      numberOfBytes = Prelude.Nothing,
       encryptionContext = Prelude.Nothing,
-      keySpec = Prelude.Nothing,
+      numberOfBytes = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keyId = pKeyId_
     }
 
--- | A list of grant tokens.
---
--- Use a grant token when your permission to call this operation comes from
--- a new grant that has not yet achieved /eventual consistency/. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
--- and
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
--- in the /Key Management Service Developer Guide/.
-generateDataKeyWithoutPlaintext_grantTokens :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe [Prelude.Text])
-generateDataKeyWithoutPlaintext_grantTokens = Lens.lens (\GenerateDataKeyWithoutPlaintext' {grantTokens} -> grantTokens) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {grantTokens = a} :: GenerateDataKeyWithoutPlaintext) Prelude.. Lens.mapping Lens._Coerce
-
--- | The length of the data key in bytes. For example, use the value 64 to
--- generate a 512-bit data key (64 bytes is 512 bits). For common key
--- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
--- the @KeySpec@ field instead of this one.
-generateDataKeyWithoutPlaintext_numberOfBytes :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe Prelude.Natural)
-generateDataKeyWithoutPlaintext_numberOfBytes = Lens.lens (\GenerateDataKeyWithoutPlaintext' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {numberOfBytes = a} :: GenerateDataKeyWithoutPlaintext)
+-- | The length of the data key. Use @AES_128@ to generate a 128-bit
+-- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
+generateDataKeyWithoutPlaintext_keySpec :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe DataKeySpec)
+generateDataKeyWithoutPlaintext_keySpec = Lens.lens (\GenerateDataKeyWithoutPlaintext' {keySpec} -> keySpec) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {keySpec = a} :: GenerateDataKeyWithoutPlaintext)
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- data key.
@@ -280,12 +266,26 @@ generateDataKeyWithoutPlaintext_numberOfBytes = Lens.lens (\GenerateDataKeyWitho
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 generateDataKeyWithoutPlaintext_encryptionContext :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateDataKeyWithoutPlaintext_encryptionContext = Lens.lens (\GenerateDataKeyWithoutPlaintext' {encryptionContext} -> encryptionContext) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {encryptionContext = a} :: GenerateDataKeyWithoutPlaintext) Prelude.. Lens.mapping Lens._Coerce
+generateDataKeyWithoutPlaintext_encryptionContext = Lens.lens (\GenerateDataKeyWithoutPlaintext' {encryptionContext} -> encryptionContext) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {encryptionContext = a} :: GenerateDataKeyWithoutPlaintext) Prelude.. Lens.mapping Lens.coerced
 
--- | The length of the data key. Use @AES_128@ to generate a 128-bit
--- symmetric key, or @AES_256@ to generate a 256-bit symmetric key.
-generateDataKeyWithoutPlaintext_keySpec :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe DataKeySpec)
-generateDataKeyWithoutPlaintext_keySpec = Lens.lens (\GenerateDataKeyWithoutPlaintext' {keySpec} -> keySpec) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {keySpec = a} :: GenerateDataKeyWithoutPlaintext)
+-- | The length of the data key in bytes. For example, use the value 64 to
+-- generate a 512-bit data key (64 bytes is 512 bits). For common key
+-- lengths (128-bit and 256-bit symmetric keys), we recommend that you use
+-- the @KeySpec@ field instead of this one.
+generateDataKeyWithoutPlaintext_numberOfBytes :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe Prelude.Natural)
+generateDataKeyWithoutPlaintext_numberOfBytes = Lens.lens (\GenerateDataKeyWithoutPlaintext' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {numberOfBytes = a} :: GenerateDataKeyWithoutPlaintext)
+
+-- | A list of grant tokens.
+--
+-- Use a grant token when your permission to call this operation comes from
+-- a new grant that has not yet achieved /eventual consistency/. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token>
+-- and
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
+-- in the /Key Management Service Developer Guide/.
+generateDataKeyWithoutPlaintext_grantTokens :: Lens.Lens' GenerateDataKeyWithoutPlaintext (Prelude.Maybe [Prelude.Text])
+generateDataKeyWithoutPlaintext_grantTokens = Lens.lens (\GenerateDataKeyWithoutPlaintext' {grantTokens} -> grantTokens) (\s@GenerateDataKeyWithoutPlaintext' {} a -> s {grantTokens = a} :: GenerateDataKeyWithoutPlaintext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the symmetric KMS key that encrypts the data key.
 --
@@ -322,8 +322,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyWithoutPlaintextResponse'
-            Prelude.<$> (x Core..?> "CiphertextBlob")
-            Prelude.<*> (x Core..?> "KeyId")
+            Prelude.<$> (x Core..?> "KeyId")
+            Prelude.<*> (x Core..?> "CiphertextBlob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -357,11 +357,11 @@ instance Core.ToJSON GenerateDataKeyWithoutPlaintext where
   toJSON GenerateDataKeyWithoutPlaintext' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
+          [ ("KeySpec" Core..=) Prelude.<$> keySpec,
             ("EncryptionContext" Core..=)
               Prelude.<$> encryptionContext,
-            ("KeySpec" Core..=) Prelude.<$> keySpec,
+            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
@@ -374,14 +374,14 @@ instance Core.ToQuery GenerateDataKeyWithoutPlaintext where
 
 -- | /See:/ 'newGenerateDataKeyWithoutPlaintextResponse' smart constructor.
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
-  { -- | The encrypted data key. When you use the HTTP API or the Amazon Web
-    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
-    -- Base64-encoded.
-    ciphertextBlob :: Prelude.Maybe Core.Base64,
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key that encrypted the data key.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | The encrypted data key. When you use the HTTP API or the Amazon Web
+    -- Services CLI, the value is Base64-encoded. Otherwise, it is not
+    -- Base64-encoded.
+    ciphertextBlob :: Prelude.Maybe Core.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -395,6 +395,10 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyId', 'generateDataKeyWithoutPlaintextResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that encrypted the data key.
+--
 -- 'ciphertextBlob', 'generateDataKeyWithoutPlaintextResponse_ciphertextBlob' - The encrypted data key. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
 -- Base64-encoded.--
@@ -402,10 +406,6 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'keyId', 'generateDataKeyWithoutPlaintextResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that encrypted the data key.
 --
 -- 'httpStatus', 'generateDataKeyWithoutPlaintextResponse_httpStatus' - The response's http status code.
 newGenerateDataKeyWithoutPlaintextResponse ::
@@ -415,11 +415,17 @@ newGenerateDataKeyWithoutPlaintextResponse ::
 newGenerateDataKeyWithoutPlaintextResponse
   pHttpStatus_ =
     GenerateDataKeyWithoutPlaintextResponse'
-      { ciphertextBlob =
+      { keyId =
           Prelude.Nothing,
-        keyId = Prelude.Nothing,
+        ciphertextBlob = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key that encrypted the data key.
+generateDataKeyWithoutPlaintextResponse_keyId :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Prelude.Maybe Prelude.Text)
+generateDataKeyWithoutPlaintextResponse_keyId = Lens.lens (\GenerateDataKeyWithoutPlaintextResponse' {keyId} -> keyId) (\s@GenerateDataKeyWithoutPlaintextResponse' {} a -> s {keyId = a} :: GenerateDataKeyWithoutPlaintextResponse)
 
 -- | The encrypted data key. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
@@ -430,12 +436,6 @@ newGenerateDataKeyWithoutPlaintextResponse
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 generateDataKeyWithoutPlaintextResponse_ciphertextBlob :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Prelude.Maybe Prelude.ByteString)
 generateDataKeyWithoutPlaintextResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyWithoutPlaintextResponse' {ciphertextBlob} -> ciphertextBlob) (\s@GenerateDataKeyWithoutPlaintextResponse' {} a -> s {ciphertextBlob = a} :: GenerateDataKeyWithoutPlaintextResponse) Prelude.. Lens.mapping Core._Base64
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key that encrypted the data key.
-generateDataKeyWithoutPlaintextResponse_keyId :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse (Prelude.Maybe Prelude.Text)
-generateDataKeyWithoutPlaintextResponse_keyId = Lens.lens (\GenerateDataKeyWithoutPlaintextResponse' {keyId} -> keyId) (\s@GenerateDataKeyWithoutPlaintextResponse' {} a -> s {keyId = a} :: GenerateDataKeyWithoutPlaintextResponse)
 
 -- | The response's http status code.
 generateDataKeyWithoutPlaintextResponse_httpStatus :: Lens.Lens' GenerateDataKeyWithoutPlaintextResponse Prelude.Int

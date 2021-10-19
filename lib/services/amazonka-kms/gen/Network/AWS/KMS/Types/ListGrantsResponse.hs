@@ -26,16 +26,16 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newListGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
-  { -- | When @Truncated@ is true, this element is present and contains the value
-    -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of grants.
-    grants :: Prelude.Maybe [GrantListEntry],
-    -- | A flag that indicates whether there are more items in the list. When
+  { -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Prelude.Maybe Prelude.Bool
+    truncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of grants.
+    grants :: Prelude.Maybe [GrantListEntry],
+    -- | When @Truncated@ is true, this element is present and contains the value
+    -- to use for the @Marker@ parameter in a subsequent request.
+    nextMarker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,32 +47,23 @@ data ListGrantsResponse = ListGrantsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listGrantsResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
---
--- 'grants', 'listGrantsResponse_grants' - A list of grants.
---
 -- 'truncated', 'listGrantsResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
+--
+-- 'grants', 'listGrantsResponse_grants' - A list of grants.
+--
+-- 'nextMarker', 'listGrantsResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
 newListGrantsResponse ::
   ListGrantsResponse
 newListGrantsResponse =
   ListGrantsResponse'
-    { nextMarker = Prelude.Nothing,
+    { truncated = Prelude.Nothing,
       grants = Prelude.Nothing,
-      truncated = Prelude.Nothing
+      nextMarker = Prelude.Nothing
     }
-
--- | When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
-listGrantsResponse_nextMarker :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Text)
-listGrantsResponse_nextMarker = Lens.lens (\ListGrantsResponse' {nextMarker} -> nextMarker) (\s@ListGrantsResponse' {} a -> s {nextMarker = a} :: ListGrantsResponse)
-
--- | A list of grants.
-listGrantsResponse_grants :: Lens.Lens' ListGrantsResponse (Prelude.Maybe [GrantListEntry])
-listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) (\s@ListGrantsResponse' {} a -> s {grants = a} :: ListGrantsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -81,15 +72,24 @@ listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) 
 listGrantsResponse_truncated :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Bool)
 listGrantsResponse_truncated = Lens.lens (\ListGrantsResponse' {truncated} -> truncated) (\s@ListGrantsResponse' {} a -> s {truncated = a} :: ListGrantsResponse)
 
+-- | A list of grants.
+listGrantsResponse_grants :: Lens.Lens' ListGrantsResponse (Prelude.Maybe [GrantListEntry])
+listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) (\s@ListGrantsResponse' {} a -> s {grants = a} :: ListGrantsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
+listGrantsResponse_nextMarker :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Text)
+listGrantsResponse_nextMarker = Lens.lens (\ListGrantsResponse' {nextMarker} -> nextMarker) (\s@ListGrantsResponse' {} a -> s {nextMarker = a} :: ListGrantsResponse)
+
 instance Core.FromJSON ListGrantsResponse where
   parseJSON =
     Core.withObject
       "ListGrantsResponse"
       ( \x ->
           ListGrantsResponse'
-            Prelude.<$> (x Core..:? "NextMarker")
+            Prelude.<$> (x Core..:? "Truncated")
             Prelude.<*> (x Core..:? "Grants" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Truncated")
+            Prelude.<*> (x Core..:? "NextMarker")
       )
 
 instance Prelude.Hashable ListGrantsResponse

@@ -79,8 +79,8 @@ module Network.AWS.KMS.Sign
     newSign,
 
     -- * Request Lenses
-    sign_grantTokens,
     sign_messageType,
+    sign_grantTokens,
     sign_keyId,
     sign_message,
     sign_signingAlgorithm,
@@ -106,7 +106,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSign' smart constructor.
 data Sign = Sign'
-  { -- | A list of grant tokens.
+  { -- | Tells KMS whether the value of the @Message@ parameter is a message or
+    -- message digest. The default value, RAW, indicates a message. To indicate
+    -- a message digest, enter @DIGEST@.
+    messageType :: Prelude.Maybe MessageType,
+    -- | A list of grant tokens.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -116,10 +120,6 @@ data Sign = Sign'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
-    messageType :: Prelude.Maybe MessageType,
     -- | Identifies an asymmetric KMS key. KMS uses the private key in the
     -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
     -- key must be @SIGN_VERIFY@. To find the @KeyUsage@ of a KMS key, use the
@@ -166,6 +166,10 @@ data Sign = Sign'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+--
 -- 'grantTokens', 'sign_grantTokens' - A list of grant tokens.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -175,10 +179,6 @@ data Sign = Sign'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
---
--- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
 --
 -- 'keyId', 'sign_keyId' - Identifies an asymmetric KMS key. KMS uses the private key in the
 -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -228,14 +228,20 @@ newSign ::
   Sign
 newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
   Sign'
-    { grantTokens = Prelude.Nothing,
-      messageType = Prelude.Nothing,
+    { messageType = Prelude.Nothing,
+      grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       message =
         Core._Sensitive Prelude.. Core._Base64
           Lens.# pMessage_,
       signingAlgorithm = pSigningAlgorithm_
     }
+
+-- | Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
+sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
 
 -- | A list of grant tokens.
 --
@@ -247,13 +253,7 @@ newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 sign_grantTokens :: Lens.Lens' Sign (Prelude.Maybe [Prelude.Text])
-sign_grantTokens = Lens.lens (\Sign' {grantTokens} -> grantTokens) (\s@Sign' {} a -> s {grantTokens = a} :: Sign) Prelude.. Lens.mapping Lens._Coerce
-
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
-sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
-sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
+sign_grantTokens = Lens.lens (\Sign' {grantTokens} -> grantTokens) (\s@Sign' {} a -> s {grantTokens = a} :: Sign) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies an asymmetric KMS key. KMS uses the private key in the
 -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -334,8 +334,8 @@ instance Core.ToJSON Sign where
   toJSON Sign' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("MessageType" Core..=) Prelude.<$> messageType,
+          [ ("MessageType" Core..=) Prelude.<$> messageType,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Core..= keyId),
             Prelude.Just ("Message" Core..= message),
             Prelude.Just

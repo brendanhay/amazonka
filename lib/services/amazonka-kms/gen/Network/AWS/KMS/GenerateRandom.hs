@@ -46,8 +46,8 @@ module Network.AWS.KMS.GenerateRandom
     newGenerateRandom,
 
     -- * Request Lenses
-    generateRandom_customKeyStoreId,
     generateRandom_numberOfBytes,
+    generateRandom_customKeyStoreId,
 
     -- * Destructuring the Response
     GenerateRandomResponse (..),
@@ -68,14 +68,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGenerateRandom' smart constructor.
 data GenerateRandom = GenerateRandom'
-  { -- | Generates the random byte string in the CloudHSM cluster that is
+  { -- | The length of the byte string.
+    numberOfBytes :: Prelude.Maybe Prelude.Natural,
+    -- | Generates the random byte string in the CloudHSM cluster that is
     -- associated with the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
     -- To find the ID of a custom key store, use the DescribeCustomKeyStores
     -- operation.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
-    -- | The length of the byte string.
-    numberOfBytes :: Prelude.Maybe Prelude.Natural
+    customKeyStoreId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,20 +87,24 @@ data GenerateRandom = GenerateRandom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the byte string.
+--
 -- 'customKeyStoreId', 'generateRandom_customKeyStoreId' - Generates the random byte string in the CloudHSM cluster that is
 -- associated with the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
 -- To find the ID of a custom key store, use the DescribeCustomKeyStores
 -- operation.
---
--- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the byte string.
 newGenerateRandom ::
   GenerateRandom
 newGenerateRandom =
   GenerateRandom'
-    { customKeyStoreId = Prelude.Nothing,
-      numberOfBytes = Prelude.Nothing
+    { numberOfBytes = Prelude.Nothing,
+      customKeyStoreId = Prelude.Nothing
     }
+
+-- | The length of the byte string.
+generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
+generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 
 -- | Generates the random byte string in the CloudHSM cluster that is
 -- associated with the specified
@@ -109,10 +113,6 @@ newGenerateRandom =
 -- operation.
 generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Text)
 generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId} -> customKeyStoreId) (\s@GenerateRandom' {} a -> s {customKeyStoreId = a} :: GenerateRandom)
-
--- | The length of the byte string.
-generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
-generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 
 instance Core.AWSRequest GenerateRandom where
   type
@@ -150,9 +150,9 @@ instance Core.ToJSON GenerateRandom where
   toJSON GenerateRandom' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CustomKeyStoreId" Core..=)
-              Prelude.<$> customKeyStoreId,
-            ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes
+          [ ("NumberOfBytes" Core..=) Prelude.<$> numberOfBytes,
+            ("CustomKeyStoreId" Core..=)
+              Prelude.<$> customKeyStoreId
           ]
       )
 

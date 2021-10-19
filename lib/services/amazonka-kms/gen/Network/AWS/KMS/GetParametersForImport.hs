@@ -76,10 +76,10 @@ module Network.AWS.KMS.GetParametersForImport
     newGetParametersForImportResponse,
 
     -- * Response Lenses
-    getParametersForImportResponse_parametersValidTo,
-    getParametersForImportResponse_publicKey,
-    getParametersForImportResponse_importToken,
     getParametersForImportResponse_keyId,
+    getParametersForImportResponse_publicKey,
+    getParametersForImportResponse_parametersValidTo,
+    getParametersForImportResponse_importToken,
     getParametersForImportResponse_httpStatus,
   )
 where
@@ -205,10 +205,10 @@ instance Core.AWSRequest GetParametersForImport where
     Response.receiveJSON
       ( \s h x ->
           GetParametersForImportResponse'
-            Prelude.<$> (x Core..?> "ParametersValidTo")
+            Prelude.<$> (x Core..?> "KeyId")
             Prelude.<*> (x Core..?> "PublicKey")
+            Prelude.<*> (x Core..?> "ParametersValidTo")
             Prelude.<*> (x Core..?> "ImportToken")
-            Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -251,21 +251,21 @@ instance Core.ToQuery GetParametersForImport where
 
 -- | /See:/ 'newGetParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
-  { -- | The time at which the import token and public key are no longer valid.
-    -- After this time, you cannot use them to make an ImportKeyMaterial
-    -- request and you must send another @GetParametersForImport@ request to
-    -- get new ones.
-    parametersValidTo :: Prelude.Maybe Core.POSIX,
-    -- | The public key to use to encrypt the key material before importing it
-    -- with ImportKeyMaterial.
-    publicKey :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The import token to send in a subsequent ImportKeyMaterial request.
-    importToken :: Prelude.Maybe Core.Base64,
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
     -- the same KMS key specified in the @GetParametersForImport@ request.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | The public key to use to encrypt the key material before importing it
+    -- with ImportKeyMaterial.
+    publicKey :: Prelude.Maybe (Core.Sensitive Core.Base64),
+    -- | The time at which the import token and public key are no longer valid.
+    -- After this time, you cannot use them to make an ImportKeyMaterial
+    -- request and you must send another @GetParametersForImport@ request to
+    -- get new ones.
+    parametersValidTo :: Prelude.Maybe Core.POSIX,
+    -- | The import token to send in a subsequent ImportKeyMaterial request.
+    importToken :: Prelude.Maybe Core.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,10 +279,10 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parametersValidTo', 'getParametersForImportResponse_parametersValidTo' - The time at which the import token and public key are no longer valid.
--- After this time, you cannot use them to make an ImportKeyMaterial
--- request and you must send another @GetParametersForImport@ request to
--- get new ones.
+-- 'keyId', 'getParametersForImportResponse_keyId' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
+-- the same KMS key specified in the @GetParametersForImport@ request.
 --
 -- 'publicKey', 'getParametersForImportResponse_publicKey' - The public key to use to encrypt the key material before importing it
 -- with ImportKeyMaterial.--
@@ -291,16 +291,16 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'parametersValidTo', 'getParametersForImportResponse_parametersValidTo' - The time at which the import token and public key are no longer valid.
+-- After this time, you cannot use them to make an ImportKeyMaterial
+-- request and you must send another @GetParametersForImport@ request to
+-- get new ones.
+--
 -- 'importToken', 'getParametersForImportResponse_importToken' - The import token to send in a subsequent ImportKeyMaterial request.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'keyId', 'getParametersForImportResponse_keyId' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
--- the same KMS key specified in the @GetParametersForImport@ request.
 --
 -- 'httpStatus', 'getParametersForImportResponse_httpStatus' - The response's http status code.
 newGetParametersForImportResponse ::
@@ -309,20 +309,20 @@ newGetParametersForImportResponse ::
   GetParametersForImportResponse
 newGetParametersForImportResponse pHttpStatus_ =
   GetParametersForImportResponse'
-    { parametersValidTo =
+    { keyId =
         Prelude.Nothing,
       publicKey = Prelude.Nothing,
+      parametersValidTo = Prelude.Nothing,
       importToken = Prelude.Nothing,
-      keyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The time at which the import token and public key are no longer valid.
--- After this time, you cannot use them to make an ImportKeyMaterial
--- request and you must send another @GetParametersForImport@ request to
--- get new ones.
-getParametersForImportResponse_parametersValidTo :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.UTCTime)
-getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
+-- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
+-- the same KMS key specified in the @GetParametersForImport@ request.
+getParametersForImportResponse_keyId :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.Text)
+getParametersForImportResponse_keyId = Lens.lens (\GetParametersForImportResponse' {keyId} -> keyId) (\s@GetParametersForImportResponse' {} a -> s {keyId = a} :: GetParametersForImportResponse)
 
 -- | The public key to use to encrypt the key material before importing it
 -- with ImportKeyMaterial.--
@@ -333,6 +333,13 @@ getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForI
 getParametersForImportResponse_publicKey :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
 getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportResponse' {publicKey} -> publicKey) (\s@GetParametersForImportResponse' {} a -> s {publicKey = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
+-- | The time at which the import token and public key are no longer valid.
+-- After this time, you cannot use them to make an ImportKeyMaterial
+-- request and you must send another @GetParametersForImport@ request to
+-- get new ones.
+getParametersForImportResponse_parametersValidTo :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.UTCTime)
+getParametersForImportResponse_parametersValidTo = Lens.lens (\GetParametersForImportResponse' {parametersValidTo} -> parametersValidTo) (\s@GetParametersForImportResponse' {} a -> s {parametersValidTo = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The import token to send in a subsequent ImportKeyMaterial request.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -340,13 +347,6 @@ getParametersForImportResponse_publicKey = Lens.lens (\GetParametersForImportRes
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getParametersForImportResponse_importToken :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.ByteString)
 getParametersForImportResponse_importToken = Lens.lens (\GetParametersForImportResponse' {importToken} -> importToken) (\s@GetParametersForImportResponse' {} a -> s {importToken = a} :: GetParametersForImportResponse) Prelude.. Lens.mapping Core._Base64
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the KMS key to use in a subsequent ImportKeyMaterial request. This is
--- the same KMS key specified in the @GetParametersForImport@ request.
-getParametersForImportResponse_keyId :: Lens.Lens' GetParametersForImportResponse (Prelude.Maybe Prelude.Text)
-getParametersForImportResponse_keyId = Lens.lens (\GetParametersForImportResponse' {keyId} -> keyId) (\s@GetParametersForImportResponse' {} a -> s {keyId = a} :: GetParametersForImportResponse)
 
 -- | The response's http status code.
 getParametersForImportResponse_httpStatus :: Lens.Lens' GetParametersForImportResponse Prelude.Int

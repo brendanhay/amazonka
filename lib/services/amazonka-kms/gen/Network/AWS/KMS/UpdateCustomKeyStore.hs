@@ -30,13 +30,14 @@
 -- ConnectCustomKeyStore. To find the connection state of a custom key
 -- store, use the DescribeCustomKeyStores operation.
 --
--- Use the parameters of @UpdateCustomKeyStore@ to edit your keystore
+-- The @CustomKeyStoreId@ parameter is required in all commands. Use the
+-- other parameters of @UpdateCustomKeyStore@ to edit your key store
 -- settings.
 --
--- -   Use the __NewCustomKeyStoreName__ parameter to change the friendly
+-- -   Use the @NewCustomKeyStoreName@ parameter to change the friendly
 --     name of the custom key store to the value that you specify.
 --
--- -   Use the __KeyStorePassword__ parameter tell KMS the current password
+-- -   Use the @KeyStorePassword@ parameter tell KMS the current password
 --     of the
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU)>
 --     in the associated CloudHSM cluster. You can use this parameter to
@@ -45,7 +46,7 @@
 --     the @kmsuser@ password has changed. This value does not change the
 --     password in the CloudHSM cluster.
 --
--- -   Use the __CloudHsmClusterId__ parameter to associate the custom key
+-- -   Use the @CloudHsmClusterId@ parameter to associate the custom key
 --     store with a different, but related, CloudHSM cluster. You can use
 --     this parameter to repair a custom key store if its CloudHSM cluster
 --     becomes corrupted or is deleted, or when you need to create or
@@ -83,8 +84,8 @@ module Network.AWS.KMS.UpdateCustomKeyStore
 
     -- * Request Lenses
     updateCustomKeyStore_keyStorePassword,
-    updateCustomKeyStore_newCustomKeyStoreName,
     updateCustomKeyStore_cloudHsmClusterId,
+    updateCustomKeyStore_newCustomKeyStoreName,
     updateCustomKeyStore_customKeyStoreId,
 
     -- * Destructuring the Response
@@ -112,10 +113,6 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- user (CU). It does not set or change the password of any users in the
     -- CloudHSM cluster.
     keyStorePassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Changes the friendly name of the custom key store to the value that you
-    -- specify. The custom key store name must be unique in the Amazon Web
-    -- Services account.
-    newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
     -- | Associates the custom key store with a related CloudHSM cluster.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom
@@ -129,6 +126,10 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
     -- operation.
     cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
+    -- | Changes the friendly name of the custom key store to the value that you
+    -- specify. The custom key store name must be unique in the Amazon Web
+    -- Services account.
+    newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
     -- | Identifies the custom key store that you want to update. Enter the ID of
     -- the custom key store. To find the ID of a custom key store, use the
     -- DescribeCustomKeyStores operation.
@@ -151,10 +152,6 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- user (CU). It does not set or change the password of any users in the
 -- CloudHSM cluster.
 --
--- 'newCustomKeyStoreName'', 'updateCustomKeyStore_newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the Amazon Web
--- Services account.
---
 -- 'cloudHsmClusterId', 'updateCustomKeyStore_cloudHsmClusterId' - Associates the custom key store with a related CloudHSM cluster.
 --
 -- Enter the cluster ID of the cluster that you used to create the custom
@@ -168,6 +165,10 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
 --
+-- 'newCustomKeyStoreName'', 'updateCustomKeyStore_newCustomKeyStoreName' - Changes the friendly name of the custom key store to the value that you
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
+--
 -- 'customKeyStoreId', 'updateCustomKeyStore_customKeyStoreId' - Identifies the custom key store that you want to update. Enter the ID of
 -- the custom key store. To find the ID of a custom key store, use the
 -- DescribeCustomKeyStores operation.
@@ -179,8 +180,8 @@ newUpdateCustomKeyStore pCustomKeyStoreId_ =
   UpdateCustomKeyStore'
     { keyStorePassword =
         Prelude.Nothing,
-      newCustomKeyStoreName' = Prelude.Nothing,
       cloudHsmClusterId = Prelude.Nothing,
+      newCustomKeyStoreName' = Prelude.Nothing,
       customKeyStoreId = pCustomKeyStoreId_
     }
 
@@ -192,12 +193,6 @@ newUpdateCustomKeyStore pCustomKeyStoreId_ =
 -- CloudHSM cluster.
 updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
 updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Core._Sensitive
-
--- | Changes the friendly name of the custom key store to the value that you
--- specify. The custom key store name must be unique in the Amazon Web
--- Services account.
-updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
-updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
 
 -- | Associates the custom key store with a related CloudHSM cluster.
 --
@@ -213,6 +208,12 @@ updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {
 -- operation.
 updateCustomKeyStore_cloudHsmClusterId :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
 updateCustomKeyStore_cloudHsmClusterId = Lens.lens (\UpdateCustomKeyStore' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@UpdateCustomKeyStore' {} a -> s {cloudHsmClusterId = a} :: UpdateCustomKeyStore)
+
+-- | Changes the friendly name of the custom key store to the value that you
+-- specify. The custom key store name must be unique in the Amazon Web
+-- Services account.
+updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
 
 -- | Identifies the custom key store that you want to update. Enter the ID of
 -- the custom key store. To find the ID of a custom key store, use the
@@ -257,10 +258,10 @@ instance Core.ToJSON UpdateCustomKeyStore where
       ( Prelude.catMaybes
           [ ("KeyStorePassword" Core..=)
               Prelude.<$> keyStorePassword,
-            ("NewCustomKeyStoreName" Core..=)
-              Prelude.<$> newCustomKeyStoreName',
             ("CloudHsmClusterId" Core..=)
               Prelude.<$> cloudHsmClusterId,
+            ("NewCustomKeyStoreName" Core..=)
+              Prelude.<$> newCustomKeyStoreName',
             Prelude.Just
               ("CustomKeyStoreId" Core..= customKeyStoreId)
           ]

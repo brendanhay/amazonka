@@ -69,8 +69,8 @@ module Network.AWS.KMS.Verify
     newVerify,
 
     -- * Request Lenses
-    verify_grantTokens,
     verify_messageType,
+    verify_grantTokens,
     verify_keyId,
     verify_message,
     verify_signature,
@@ -97,7 +97,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newVerify' smart constructor.
 data Verify = Verify'
-  { -- | A list of grant tokens.
+  { -- | Tells KMS whether the value of the @Message@ parameter is a message or
+    -- message digest. The default value, RAW, indicates a message. To indicate
+    -- a message digest, enter @DIGEST@.
+    --
+    -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+    -- a message digest. If you use the @DIGEST@ value with a raw message, the
+    -- security of the verification operation can be compromised.
+    messageType :: Prelude.Maybe MessageType,
+    -- | A list of grant tokens.
     --
     -- Use a grant token when your permission to call this operation comes from
     -- a new grant that has not yet achieved /eventual consistency/. For more
@@ -107,14 +115,6 @@ data Verify = Verify'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
-    --
-    -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
-    -- a message digest. If you use the @DIGEST@ value with a raw message, the
-    -- security of the verification operation can be compromised.
-    messageType :: Prelude.Maybe MessageType,
     -- | Identifies the asymmetric KMS key that will be used to verify the
     -- signature. This must be the same KMS key that was used to generate the
     -- signature. If you specify a different KMS key, the signature
@@ -163,6 +163,14 @@ data Verify = Verify'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with a raw message, the
+-- security of the verification operation can be compromised.
+--
 -- 'grantTokens', 'verify_grantTokens' - A list of grant tokens.
 --
 -- Use a grant token when your permission to call this operation comes from
@@ -172,14 +180,6 @@ data Verify = Verify'
 -- and
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
---
--- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
---
--- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
 --
 -- 'keyId', 'verify_keyId' - Identifies the asymmetric KMS key that will be used to verify the
 -- signature. This must be the same KMS key that was used to generate the
@@ -241,8 +241,8 @@ newVerify
   pSignature_
   pSigningAlgorithm_ =
     Verify'
-      { grantTokens = Prelude.Nothing,
-        messageType = Prelude.Nothing,
+      { messageType = Prelude.Nothing,
+        grantTokens = Prelude.Nothing,
         keyId = pKeyId_,
         message =
           Core._Sensitive Prelude.. Core._Base64
@@ -250,6 +250,16 @@ newVerify
         signature = Core._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
       }
+
+-- | Tells KMS whether the value of the @Message@ parameter is a message or
+-- message digest. The default value, RAW, indicates a message. To indicate
+-- a message digest, enter @DIGEST@.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with a raw message, the
+-- security of the verification operation can be compromised.
+verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
+verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
 
 -- | A list of grant tokens.
 --
@@ -261,17 +271,7 @@ newVerify
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 verify_grantTokens :: Lens.Lens' Verify (Prelude.Maybe [Prelude.Text])
-verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Prelude.. Lens.mapping Lens._Coerce
-
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
---
--- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
-verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
-verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
+verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the asymmetric KMS key that will be used to verify the
 -- signature. This must be the same KMS key that was used to generate the
@@ -360,8 +360,8 @@ instance Core.ToJSON Verify where
   toJSON Verify' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrantTokens" Core..=) Prelude.<$> grantTokens,
-            ("MessageType" Core..=) Prelude.<$> messageType,
+          [ ("MessageType" Core..=) Prelude.<$> messageType,
+            ("GrantTokens" Core..=) Prelude.<$> grantTokens,
             Prelude.Just ("KeyId" Core..= keyId),
             Prelude.Just ("Message" Core..= message),
             Prelude.Just ("Signature" Core..= signature),

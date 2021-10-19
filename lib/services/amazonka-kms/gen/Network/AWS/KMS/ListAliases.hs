@@ -67,18 +67,18 @@ module Network.AWS.KMS.ListAliases
     newListAliases,
 
     -- * Request Lenses
-    listAliases_limit,
-    listAliases_marker,
     listAliases_keyId,
+    listAliases_marker,
+    listAliases_limit,
 
     -- * Destructuring the Response
     ListAliasesResponse (..),
     newListAliasesResponse,
 
     -- * Response Lenses
-    listAliasesResponse_nextMarker,
-    listAliasesResponse_aliases,
     listAliasesResponse_truncated,
+    listAliasesResponse_aliases,
+    listAliasesResponse_nextMarker,
     listAliasesResponse_httpStatus,
   )
 where
@@ -92,18 +92,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, KMS does not return more than the specified
-    -- number of items, but it might return fewer.
-    --
-    -- This value is optional. If you include a value, it must be between 1 and
-    -- 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter in a subsequent request after you receive a response
-    -- with truncated results. Set it to the value of @NextMarker@ from the
-    -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Lists only aliases that are associated with the specified KMS key. Enter
+  { -- | Lists only aliases that are associated with the specified KMS key. Enter
     -- a KMS key in your Amazon Web Services account.
     --
     -- This parameter is optional. If you omit it, @ListAliases@ returns all
@@ -120,7 +109,18 @@ data ListAliases = ListAliases'
     --
     -- To get the key ID and key ARN for a KMS key, use ListKeys or
     -- DescribeKey.
-    keyId :: Prelude.Maybe Prelude.Text
+    keyId :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify the maximum number of items to return.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and
+    -- 100, inclusive. If you do not include a value, it defaults to 50.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,17 +131,6 @@ data ListAliases = ListAliases'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'limit', 'listAliases_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, KMS does not return more than the specified
--- number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and
--- 100, inclusive. If you do not include a value, it defaults to 50.
---
--- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
 --
 -- 'keyId', 'listAliases_keyId' - Lists only aliases that are associated with the specified KMS key. Enter
 -- a KMS key in your Amazon Web Services account.
@@ -160,29 +149,25 @@ data ListAliases = ListAliases'
 --
 -- To get the key ID and key ARN for a KMS key, use ListKeys or
 -- DescribeKey.
-newListAliases ::
-  ListAliases
-newListAliases =
-  ListAliases'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      keyId = Prelude.Nothing
-    }
-
--- | Use this parameter to specify the maximum number of items to return.
+--
+-- 'marker', 'listAliases_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+--
+-- 'limit', 'listAliases_limit' - Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
 -- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
-listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
-listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
-
--- | Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
+newListAliases ::
+  ListAliases
+newListAliases =
+  ListAliases'
+    { keyId = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      limit = Prelude.Nothing
+    }
 
 -- | Lists only aliases that are associated with the specified KMS key. Enter
 -- a KMS key in your Amazon Web Services account.
@@ -203,6 +188,21 @@ listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliase
 -- DescribeKey.
 listAliases_keyId :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_keyId = Lens.lens (\ListAliases' {keyId} -> keyId) (\s@ListAliases' {} a -> s {keyId = a} :: ListAliases)
+
+-- | Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
+
+-- | Use this parameter to specify the maximum number of items to return.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 100, inclusive. If you do not include a value, it defaults to 50.
+listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
 instance Core.AWSPager ListAliases where
   page rq rs
@@ -230,9 +230,9 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<$> (x Core..?> "Truncated")
             Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -257,9 +257,9 @@ instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
+          [ ("KeyId" Core..=) Prelude.<$> keyId,
             ("Marker" Core..=) Prelude.<$> marker,
-            ("KeyId" Core..=) Prelude.<$> keyId
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -271,16 +271,16 @@ instance Core.ToQuery ListAliases where
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | When @Truncated@ is true, this element is present and contains the value
-    -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of aliases.
-    aliases :: Prelude.Maybe [AliasListEntry],
-    -- | A flag that indicates whether there are more items in the list. When
+  { -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
     truncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of aliases.
+    aliases :: Prelude.Maybe [AliasListEntry],
+    -- | When @Truncated@ is true, this element is present and contains the value
+    -- to use for the @Marker@ parameter in a subsequent request.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -294,15 +294,15 @@ data ListAliasesResponse = ListAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listAliasesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
---
--- 'aliases', 'listAliasesResponse_aliases' - A list of aliases.
---
 -- 'truncated', 'listAliasesResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
+--
+-- 'aliases', 'listAliasesResponse_aliases' - A list of aliases.
+--
+-- 'nextMarker', 'listAliasesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
 --
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
@@ -311,20 +311,11 @@ newListAliasesResponse ::
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextMarker = Prelude.Nothing,
+    { truncated = Prelude.Nothing,
       aliases = Prelude.Nothing,
-      truncated = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
-listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
-listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
-
--- | A list of aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasListEntry])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -332,6 +323,15 @@ listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> alia
 -- @Marker@ parameter in a subsequent request.
 listAliasesResponse_truncated :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Bool)
 listAliasesResponse_truncated = Lens.lens (\ListAliasesResponse' {truncated} -> truncated) (\s@ListAliasesResponse' {} a -> s {truncated = a} :: ListAliasesResponse)
+
+-- | A list of aliases.
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasListEntry])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
+listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
+listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
 
 -- | The response's http status code.
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int

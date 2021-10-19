@@ -100,7 +100,7 @@ attachLoadBalancers_autoScalingGroupName = Lens.lens (\AttachLoadBalancers' {aut
 -- | The names of the load balancers. You can specify up to 10 load
 -- balancers.
 attachLoadBalancers_loadBalancerNames :: Lens.Lens' AttachLoadBalancers [Prelude.Text]
-attachLoadBalancers_loadBalancerNames = Lens.lens (\AttachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@AttachLoadBalancers' {} a -> s {loadBalancerNames = a} :: AttachLoadBalancers) Prelude.. Lens._Coerce
+attachLoadBalancers_loadBalancerNames = Lens.lens (\AttachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@AttachLoadBalancers' {} a -> s {loadBalancerNames = a} :: AttachLoadBalancers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AttachLoadBalancers where
   type

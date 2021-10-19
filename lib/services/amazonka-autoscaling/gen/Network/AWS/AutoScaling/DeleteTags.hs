@@ -64,7 +64,7 @@ newDeleteTags = DeleteTags' {tags = Prelude.mempty}
 
 -- | One or more tags.
 deleteTags_tags :: Lens.Lens' DeleteTags [Tag]
-deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse

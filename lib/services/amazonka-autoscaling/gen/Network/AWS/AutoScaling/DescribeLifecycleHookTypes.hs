@@ -135,7 +135,7 @@ newDescribeLifecycleHookTypesResponse pHttpStatus_ =
 
 -- | The lifecycle hook types.
 describeLifecycleHookTypesResponse_lifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Prelude.Maybe [Prelude.Text])
-describeLifecycleHookTypesResponse_lifecycleHookTypes = Lens.lens (\DescribeLifecycleHookTypesResponse' {lifecycleHookTypes} -> lifecycleHookTypes) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLifecycleHookTypesResponse_lifecycleHookTypes = Lens.lens (\DescribeLifecycleHookTypesResponse' {lifecycleHookTypes} -> lifecycleHookTypes) (\s@DescribeLifecycleHookTypesResponse' {} a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLifecycleHookTypesResponse_httpStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Prelude.Int

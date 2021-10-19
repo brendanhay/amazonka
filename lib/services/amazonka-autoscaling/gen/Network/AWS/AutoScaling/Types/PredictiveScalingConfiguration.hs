@@ -31,7 +31,35 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPredictiveScalingConfiguration' smart constructor.
 data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
-  { -- | Defines the behavior that should be applied if the forecast capacity
+  { -- | The amount of time, in seconds, by which the instance launch time can be
+    -- advanced. For example, the forecast says to add capacity at 10:00 AM,
+    -- and you choose to pre-launch instances by 5 minutes. In that case, the
+    -- instances will be launched at 9:55 AM. The intention is to give
+    -- resources time to be provisioned. It can take a few minutes to launch an
+    -- EC2 instance. The actual amount of time required depends on several
+    -- factors, such as the size of the instance and whether there are startup
+    -- scripts to complete.
+    --
+    -- The value must be less than the forecast interval duration of 3600
+    -- seconds (60 minutes). Defaults to 300 seconds if not specified.
+    schedulingBufferTime :: Prelude.Maybe Prelude.Natural,
+    -- | The size of the capacity buffer to use when the forecast capacity is
+    -- close to or exceeds the maximum capacity. The value is specified as a
+    -- percentage relative to the forecast capacity. For example, if the buffer
+    -- is 10, this means a 10 percent buffer, such that if the forecast
+    -- capacity is 50, and the maximum capacity is 40, then the effective
+    -- maximum capacity is 55.
+    --
+    -- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+    -- maximum capacity to equal but not exceed forecast capacity.
+    --
+    -- Required if the @MaxCapacityBreachBehavior@ property is set to
+    -- @IncreaseMaxCapacity@, and cannot be used otherwise.
+    maxCapacityBuffer :: Prelude.Maybe Prelude.Natural,
+    -- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
+    -- specified.
+    mode :: Prelude.Maybe PredictiveScalingMode,
+    -- | Defines the behavior that should be applied if the forecast capacity
     -- approaches or exceeds the maximum capacity of the Auto Scaling group.
     -- Defaults to @HonorMaxCapacity@ if not specified.
     --
@@ -47,34 +75,6 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
     --     determined by the forecasted capacity and the value for
     --     @MaxCapacityBuffer@.
     maxCapacityBreachBehavior :: Prelude.Maybe PredictiveScalingMaxCapacityBreachBehavior,
-    -- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
-    -- specified.
-    mode :: Prelude.Maybe PredictiveScalingMode,
-    -- | The size of the capacity buffer to use when the forecast capacity is
-    -- close to or exceeds the maximum capacity. The value is specified as a
-    -- percentage relative to the forecast capacity. For example, if the buffer
-    -- is 10, this means a 10 percent buffer, such that if the forecast
-    -- capacity is 50, and the maximum capacity is 40, then the effective
-    -- maximum capacity is 55.
-    --
-    -- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
-    -- maximum capacity to equal but not exceed forecast capacity.
-    --
-    -- Required if the @MaxCapacityBreachBehavior@ property is set to
-    -- @IncreaseMaxCapacity@, and cannot be used otherwise.
-    maxCapacityBuffer :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time, in seconds, by which the instance launch time can be
-    -- advanced. For example, the forecast says to add capacity at 10:00 AM,
-    -- and you choose to pre-launch instances by 5 minutes. In that case, the
-    -- instances will be launched at 9:55 AM. The intention is to give
-    -- resources time to be provisioned. It can take a few minutes to launch an
-    -- EC2 instance. The actual amount of time required depends on several
-    -- factors, such as the size of the instance and whether there are startup
-    -- scripts to complete.
-    --
-    -- The value must be less than the forecast interval duration of 3600
-    -- seconds (60 minutes). Defaults to 300 seconds if not specified.
-    schedulingBufferTime :: Prelude.Maybe Prelude.Natural,
     -- | This structure includes the metrics and target utilization to use for
     -- predictive scaling.
     --
@@ -94,6 +94,34 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'schedulingBufferTime', 'predictiveScalingConfiguration_schedulingBufferTime' - The amount of time, in seconds, by which the instance launch time can be
+-- advanced. For example, the forecast says to add capacity at 10:00 AM,
+-- and you choose to pre-launch instances by 5 minutes. In that case, the
+-- instances will be launched at 9:55 AM. The intention is to give
+-- resources time to be provisioned. It can take a few minutes to launch an
+-- EC2 instance. The actual amount of time required depends on several
+-- factors, such as the size of the instance and whether there are startup
+-- scripts to complete.
+--
+-- The value must be less than the forecast interval duration of 3600
+-- seconds (60 minutes). Defaults to 300 seconds if not specified.
+--
+-- 'maxCapacityBuffer', 'predictiveScalingConfiguration_maxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+-- maximum capacity to equal but not exceed forecast capacity.
+--
+-- Required if the @MaxCapacityBreachBehavior@ property is set to
+-- @IncreaseMaxCapacity@, and cannot be used otherwise.
+--
+-- 'mode', 'predictiveScalingConfiguration_mode' - The predictive scaling mode. Defaults to @ForecastOnly@ if not
+-- specified.
+--
 -- 'maxCapacityBreachBehavior', 'predictiveScalingConfiguration_maxCapacityBreachBehavior' - Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity of the Auto Scaling group.
 -- Defaults to @HonorMaxCapacity@ if not specified.
@@ -110,34 +138,6 @@ data PredictiveScalingConfiguration = PredictiveScalingConfiguration'
 --     determined by the forecasted capacity and the value for
 --     @MaxCapacityBuffer@.
 --
--- 'mode', 'predictiveScalingConfiguration_mode' - The predictive scaling mode. Defaults to @ForecastOnly@ if not
--- specified.
---
--- 'maxCapacityBuffer', 'predictiveScalingConfiguration_maxCapacityBuffer' - The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
--- maximum capacity to equal but not exceed forecast capacity.
---
--- Required if the @MaxCapacityBreachBehavior@ property is set to
--- @IncreaseMaxCapacity@, and cannot be used otherwise.
---
--- 'schedulingBufferTime', 'predictiveScalingConfiguration_schedulingBufferTime' - The amount of time, in seconds, by which the instance launch time can be
--- advanced. For example, the forecast says to add capacity at 10:00 AM,
--- and you choose to pre-launch instances by 5 minutes. In that case, the
--- instances will be launched at 9:55 AM. The intention is to give
--- resources time to be provisioned. It can take a few minutes to launch an
--- EC2 instance. The actual amount of time required depends on several
--- factors, such as the size of the instance and whether there are startup
--- scripts to complete.
---
--- The value must be less than the forecast interval duration of 3600
--- seconds (60 minutes). Defaults to 300 seconds if not specified.
---
 -- 'metricSpecifications', 'predictiveScalingConfiguration_metricSpecifications' - This structure includes the metrics and target utilization to use for
 -- predictive scaling.
 --
@@ -149,13 +149,47 @@ newPredictiveScalingConfiguration ::
   PredictiveScalingConfiguration
 newPredictiveScalingConfiguration =
   PredictiveScalingConfiguration'
-    { maxCapacityBreachBehavior =
+    { schedulingBufferTime =
         Prelude.Nothing,
-      mode = Prelude.Nothing,
       maxCapacityBuffer = Prelude.Nothing,
-      schedulingBufferTime = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      maxCapacityBreachBehavior = Prelude.Nothing,
       metricSpecifications = Prelude.mempty
     }
+
+-- | The amount of time, in seconds, by which the instance launch time can be
+-- advanced. For example, the forecast says to add capacity at 10:00 AM,
+-- and you choose to pre-launch instances by 5 minutes. In that case, the
+-- instances will be launched at 9:55 AM. The intention is to give
+-- resources time to be provisioned. It can take a few minutes to launch an
+-- EC2 instance. The actual amount of time required depends on several
+-- factors, such as the size of the instance and whether there are startup
+-- scripts to complete.
+--
+-- The value must be less than the forecast interval duration of 3600
+-- seconds (60 minutes). Defaults to 300 seconds if not specified.
+predictiveScalingConfiguration_schedulingBufferTime :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
+predictiveScalingConfiguration_schedulingBufferTime = Lens.lens (\PredictiveScalingConfiguration' {schedulingBufferTime} -> schedulingBufferTime) (\s@PredictiveScalingConfiguration' {} a -> s {schedulingBufferTime = a} :: PredictiveScalingConfiguration)
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+-- close to or exceeds the maximum capacity. The value is specified as a
+-- percentage relative to the forecast capacity. For example, if the buffer
+-- is 10, this means a 10 percent buffer, such that if the forecast
+-- capacity is 50, and the maximum capacity is 40, then the effective
+-- maximum capacity is 55.
+--
+-- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
+-- maximum capacity to equal but not exceed forecast capacity.
+--
+-- Required if the @MaxCapacityBreachBehavior@ property is set to
+-- @IncreaseMaxCapacity@, and cannot be used otherwise.
+predictiveScalingConfiguration_maxCapacityBuffer :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
+predictiveScalingConfiguration_maxCapacityBuffer = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBuffer} -> maxCapacityBuffer) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBuffer = a} :: PredictiveScalingConfiguration)
+
+-- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
+-- specified.
+predictiveScalingConfiguration_mode :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe PredictiveScalingMode)
+predictiveScalingConfiguration_mode = Lens.lens (\PredictiveScalingConfiguration' {mode} -> mode) (\s@PredictiveScalingConfiguration' {} a -> s {mode = a} :: PredictiveScalingConfiguration)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 -- approaches or exceeds the maximum capacity of the Auto Scaling group.
@@ -175,40 +209,6 @@ newPredictiveScalingConfiguration =
 predictiveScalingConfiguration_maxCapacityBreachBehavior :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe PredictiveScalingMaxCapacityBreachBehavior)
 predictiveScalingConfiguration_maxCapacityBreachBehavior = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBreachBehavior} -> maxCapacityBreachBehavior) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBreachBehavior = a} :: PredictiveScalingConfiguration)
 
--- | The predictive scaling mode. Defaults to @ForecastOnly@ if not
--- specified.
-predictiveScalingConfiguration_mode :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe PredictiveScalingMode)
-predictiveScalingConfiguration_mode = Lens.lens (\PredictiveScalingConfiguration' {mode} -> mode) (\s@PredictiveScalingConfiguration' {} a -> s {mode = a} :: PredictiveScalingConfiguration)
-
--- | The size of the capacity buffer to use when the forecast capacity is
--- close to or exceeds the maximum capacity. The value is specified as a
--- percentage relative to the forecast capacity. For example, if the buffer
--- is 10, this means a 10 percent buffer, such that if the forecast
--- capacity is 50, and the maximum capacity is 40, then the effective
--- maximum capacity is 55.
---
--- If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the
--- maximum capacity to equal but not exceed forecast capacity.
---
--- Required if the @MaxCapacityBreachBehavior@ property is set to
--- @IncreaseMaxCapacity@, and cannot be used otherwise.
-predictiveScalingConfiguration_maxCapacityBuffer :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
-predictiveScalingConfiguration_maxCapacityBuffer = Lens.lens (\PredictiveScalingConfiguration' {maxCapacityBuffer} -> maxCapacityBuffer) (\s@PredictiveScalingConfiguration' {} a -> s {maxCapacityBuffer = a} :: PredictiveScalingConfiguration)
-
--- | The amount of time, in seconds, by which the instance launch time can be
--- advanced. For example, the forecast says to add capacity at 10:00 AM,
--- and you choose to pre-launch instances by 5 minutes. In that case, the
--- instances will be launched at 9:55 AM. The intention is to give
--- resources time to be provisioned. It can take a few minutes to launch an
--- EC2 instance. The actual amount of time required depends on several
--- factors, such as the size of the instance and whether there are startup
--- scripts to complete.
---
--- The value must be less than the forecast interval duration of 3600
--- seconds (60 minutes). Defaults to 300 seconds if not specified.
-predictiveScalingConfiguration_schedulingBufferTime :: Lens.Lens' PredictiveScalingConfiguration (Prelude.Maybe Prelude.Natural)
-predictiveScalingConfiguration_schedulingBufferTime = Lens.lens (\PredictiveScalingConfiguration' {schedulingBufferTime} -> schedulingBufferTime) (\s@PredictiveScalingConfiguration' {} a -> s {schedulingBufferTime = a} :: PredictiveScalingConfiguration)
-
 -- | This structure includes the metrics and target utilization to use for
 -- predictive scaling.
 --
@@ -217,15 +217,15 @@ predictiveScalingConfiguration_schedulingBufferTime = Lens.lens (\PredictiveScal
 -- metric pair, or a target value and one scaling metric and one load
 -- metric.
 predictiveScalingConfiguration_metricSpecifications :: Lens.Lens' PredictiveScalingConfiguration [PredictiveScalingMetricSpecification]
-predictiveScalingConfiguration_metricSpecifications = Lens.lens (\PredictiveScalingConfiguration' {metricSpecifications} -> metricSpecifications) (\s@PredictiveScalingConfiguration' {} a -> s {metricSpecifications = a} :: PredictiveScalingConfiguration) Prelude.. Lens._Coerce
+predictiveScalingConfiguration_metricSpecifications = Lens.lens (\PredictiveScalingConfiguration' {metricSpecifications} -> metricSpecifications) (\s@PredictiveScalingConfiguration' {} a -> s {metricSpecifications = a} :: PredictiveScalingConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML PredictiveScalingConfiguration where
   parseXML x =
     PredictiveScalingConfiguration'
-      Prelude.<$> (x Core..@? "MaxCapacityBreachBehavior")
-      Prelude.<*> (x Core..@? "Mode")
+      Prelude.<$> (x Core..@? "SchedulingBufferTime")
       Prelude.<*> (x Core..@? "MaxCapacityBuffer")
-      Prelude.<*> (x Core..@? "SchedulingBufferTime")
+      Prelude.<*> (x Core..@? "Mode")
+      Prelude.<*> (x Core..@? "MaxCapacityBreachBehavior")
       Prelude.<*> ( x Core..@? "MetricSpecifications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.parseXMLList "member"
@@ -242,11 +242,11 @@ instance
 instance Core.ToQuery PredictiveScalingConfiguration where
   toQuery PredictiveScalingConfiguration' {..} =
     Prelude.mconcat
-      [ "MaxCapacityBreachBehavior"
-          Core.=: maxCapacityBreachBehavior,
-        "Mode" Core.=: mode,
+      [ "SchedulingBufferTime" Core.=: schedulingBufferTime,
         "MaxCapacityBuffer" Core.=: maxCapacityBuffer,
-        "SchedulingBufferTime" Core.=: schedulingBufferTime,
+        "Mode" Core.=: mode,
+        "MaxCapacityBreachBehavior"
+          Core.=: maxCapacityBreachBehavior,
         "MetricSpecifications"
           Core.=: Core.toQueryList "member" metricSpecifications
       ]

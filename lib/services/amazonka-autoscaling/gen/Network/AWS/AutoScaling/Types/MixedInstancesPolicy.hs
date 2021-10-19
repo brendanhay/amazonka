@@ -34,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMixedInstancesPolicy' smart constructor.
 data MixedInstancesPolicy = MixedInstancesPolicy'
-  { -- | Specifies the instances distribution. If not provided, the value for
-    -- each property in @InstancesDistribution@ uses a default value.
-    instancesDistribution :: Prelude.Maybe InstancesDistribution,
-    -- | Specifies the launch template to use and the instance types (overrides)
+  { -- | Specifies the launch template to use and the instance types (overrides)
     -- that are used to provision EC2 instances to fulfill On-Demand and Spot
     -- capacities. Required when creating a mixed instances policy.
-    launchTemplate :: Prelude.Maybe LaunchTemplate
+    launchTemplate :: Prelude.Maybe LaunchTemplate,
+    -- | Specifies the instances distribution. If not provided, the value for
+    -- each property in @InstancesDistribution@ uses a default value.
+    instancesDistribution :: Prelude.Maybe InstancesDistribution
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,25 +52,20 @@ data MixedInstancesPolicy = MixedInstancesPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - Specifies the instances distribution. If not provided, the value for
--- each property in @InstancesDistribution@ uses a default value.
---
 -- 'launchTemplate', 'mixedInstancesPolicy_launchTemplate' - Specifies the launch template to use and the instance types (overrides)
 -- that are used to provision EC2 instances to fulfill On-Demand and Spot
 -- capacities. Required when creating a mixed instances policy.
+--
+-- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - Specifies the instances distribution. If not provided, the value for
+-- each property in @InstancesDistribution@ uses a default value.
 newMixedInstancesPolicy ::
   MixedInstancesPolicy
 newMixedInstancesPolicy =
   MixedInstancesPolicy'
-    { instancesDistribution =
+    { launchTemplate =
         Prelude.Nothing,
-      launchTemplate = Prelude.Nothing
+      instancesDistribution = Prelude.Nothing
     }
-
--- | Specifies the instances distribution. If not provided, the value for
--- each property in @InstancesDistribution@ uses a default value.
-mixedInstancesPolicy_instancesDistribution :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe InstancesDistribution)
-mixedInstancesPolicy_instancesDistribution = Lens.lens (\MixedInstancesPolicy' {instancesDistribution} -> instancesDistribution) (\s@MixedInstancesPolicy' {} a -> s {instancesDistribution = a} :: MixedInstancesPolicy)
 
 -- | Specifies the launch template to use and the instance types (overrides)
 -- that are used to provision EC2 instances to fulfill On-Demand and Spot
@@ -78,11 +73,16 @@ mixedInstancesPolicy_instancesDistribution = Lens.lens (\MixedInstancesPolicy' {
 mixedInstancesPolicy_launchTemplate :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe LaunchTemplate)
 mixedInstancesPolicy_launchTemplate = Lens.lens (\MixedInstancesPolicy' {launchTemplate} -> launchTemplate) (\s@MixedInstancesPolicy' {} a -> s {launchTemplate = a} :: MixedInstancesPolicy)
 
+-- | Specifies the instances distribution. If not provided, the value for
+-- each property in @InstancesDistribution@ uses a default value.
+mixedInstancesPolicy_instancesDistribution :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe InstancesDistribution)
+mixedInstancesPolicy_instancesDistribution = Lens.lens (\MixedInstancesPolicy' {instancesDistribution} -> instancesDistribution) (\s@MixedInstancesPolicy' {} a -> s {instancesDistribution = a} :: MixedInstancesPolicy)
+
 instance Core.FromXML MixedInstancesPolicy where
   parseXML x =
     MixedInstancesPolicy'
-      Prelude.<$> (x Core..@? "InstancesDistribution")
-      Prelude.<*> (x Core..@? "LaunchTemplate")
+      Prelude.<$> (x Core..@? "LaunchTemplate")
+      Prelude.<*> (x Core..@? "InstancesDistribution")
 
 instance Prelude.Hashable MixedInstancesPolicy
 
@@ -91,7 +91,7 @@ instance Prelude.NFData MixedInstancesPolicy
 instance Core.ToQuery MixedInstancesPolicy where
   toQuery MixedInstancesPolicy' {..} =
     Prelude.mconcat
-      [ "InstancesDistribution"
-          Core.=: instancesDistribution,
-        "LaunchTemplate" Core.=: launchTemplate
+      [ "LaunchTemplate" Core.=: launchTemplate,
+        "InstancesDistribution"
+          Core.=: instancesDistribution
       ]

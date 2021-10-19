@@ -43,10 +43,10 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
 
     -- * Request Lenses
     describeScalingActivities_nextToken,
-    describeScalingActivities_activityIds,
-    describeScalingActivities_includeDeletedGroups,
-    describeScalingActivities_maxRecords,
     describeScalingActivities_autoScalingGroupName,
+    describeScalingActivities_maxRecords,
+    describeScalingActivities_includeDeletedGroups,
+    describeScalingActivities_activityIds,
 
     -- * Destructuring the Response
     DescribeScalingActivitiesResponse (..),
@@ -71,21 +71,21 @@ data DescribeScalingActivities = DescribeScalingActivities'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call. The default value
+    -- is @100@ and the maximum value is @100@.
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether to include scaling activity from deleted Auto Scaling
+    -- groups.
+    includeDeletedGroups :: Prelude.Maybe Prelude.Bool,
     -- | The activity IDs of the desired scaling activities. If you omit this
     -- parameter, all activities for the past six weeks are described. If
     -- unknown activities are requested, they are ignored with no error. If you
     -- specify an Auto Scaling group, the results are limited to that group.
     --
     -- Array Members: Maximum number of 50 IDs.
-    activityIds :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether to include scaling activity from deleted Auto Scaling
-    -- groups.
-    includeDeletedGroups :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of items to return with this call. The default value
-    -- is @100@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text
+    activityIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,36 +100,50 @@ data DescribeScalingActivities = DescribeScalingActivities'
 -- 'nextToken', 'describeScalingActivities_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
+-- 'autoScalingGroupName', 'describeScalingActivities_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'maxRecords', 'describeScalingActivities_maxRecords' - The maximum number of items to return with this call. The default value
+-- is @100@ and the maximum value is @100@.
+--
+-- 'includeDeletedGroups', 'describeScalingActivities_includeDeletedGroups' - Indicates whether to include scaling activity from deleted Auto Scaling
+-- groups.
+--
 -- 'activityIds', 'describeScalingActivities_activityIds' - The activity IDs of the desired scaling activities. If you omit this
 -- parameter, all activities for the past six weeks are described. If
 -- unknown activities are requested, they are ignored with no error. If you
 -- specify an Auto Scaling group, the results are limited to that group.
 --
 -- Array Members: Maximum number of 50 IDs.
---
--- 'includeDeletedGroups', 'describeScalingActivities_includeDeletedGroups' - Indicates whether to include scaling activity from deleted Auto Scaling
--- groups.
---
--- 'maxRecords', 'describeScalingActivities_maxRecords' - The maximum number of items to return with this call. The default value
--- is @100@ and the maximum value is @100@.
---
--- 'autoScalingGroupName', 'describeScalingActivities_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeScalingActivities ::
   DescribeScalingActivities
 newDescribeScalingActivities =
   DescribeScalingActivities'
     { nextToken =
         Prelude.Nothing,
-      activityIds = Prelude.Nothing,
-      includeDeletedGroups = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing
+      includeDeletedGroups = Prelude.Nothing,
+      activityIds = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
 describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {nextToken} -> nextToken) (\s@DescribeScalingActivities' {} a -> s {nextToken = a} :: DescribeScalingActivities)
+
+-- | The name of the Auto Scaling group.
+describeScalingActivities_autoScalingGroupName :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_autoScalingGroupName = Lens.lens (\DescribeScalingActivities' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScalingActivities' {} a -> s {autoScalingGroupName = a} :: DescribeScalingActivities)
+
+-- | The maximum number of items to return with this call. The default value
+-- is @100@ and the maximum value is @100@.
+describeScalingActivities_maxRecords :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
+describeScalingActivities_maxRecords = Lens.lens (\DescribeScalingActivities' {maxRecords} -> maxRecords) (\s@DescribeScalingActivities' {} a -> s {maxRecords = a} :: DescribeScalingActivities)
+
+-- | Indicates whether to include scaling activity from deleted Auto Scaling
+-- groups.
+describeScalingActivities_includeDeletedGroups :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Bool)
+describeScalingActivities_includeDeletedGroups = Lens.lens (\DescribeScalingActivities' {includeDeletedGroups} -> includeDeletedGroups) (\s@DescribeScalingActivities' {} a -> s {includeDeletedGroups = a} :: DescribeScalingActivities)
 
 -- | The activity IDs of the desired scaling activities. If you omit this
 -- parameter, all activities for the past six weeks are described. If
@@ -138,21 +152,7 @@ describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {ne
 --
 -- Array Members: Maximum number of 50 IDs.
 describeScalingActivities_activityIds :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe [Prelude.Text])
-describeScalingActivities_activityIds = Lens.lens (\DescribeScalingActivities' {activityIds} -> activityIds) (\s@DescribeScalingActivities' {} a -> s {activityIds = a} :: DescribeScalingActivities) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates whether to include scaling activity from deleted Auto Scaling
--- groups.
-describeScalingActivities_includeDeletedGroups :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Bool)
-describeScalingActivities_includeDeletedGroups = Lens.lens (\DescribeScalingActivities' {includeDeletedGroups} -> includeDeletedGroups) (\s@DescribeScalingActivities' {} a -> s {includeDeletedGroups = a} :: DescribeScalingActivities)
-
--- | The maximum number of items to return with this call. The default value
--- is @100@ and the maximum value is @100@.
-describeScalingActivities_maxRecords :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
-describeScalingActivities_maxRecords = Lens.lens (\DescribeScalingActivities' {maxRecords} -> maxRecords) (\s@DescribeScalingActivities' {} a -> s {maxRecords = a} :: DescribeScalingActivities)
-
--- | The name of the Auto Scaling group.
-describeScalingActivities_autoScalingGroupName :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
-describeScalingActivities_autoScalingGroupName = Lens.lens (\DescribeScalingActivities' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScalingActivities' {} a -> s {autoScalingGroupName = a} :: DescribeScalingActivities)
+describeScalingActivities_activityIds = Lens.lens (\DescribeScalingActivities' {activityIds} -> activityIds) (\s@DescribeScalingActivities' {} a -> s {activityIds = a} :: DescribeScalingActivities) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeScalingActivities where
   page rq rs
@@ -210,12 +210,12 @@ instance Core.ToQuery DescribeScalingActivities where
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "MaxRecords" Core.=: maxRecords,
+        "IncludeDeletedGroups" Core.=: includeDeletedGroups,
         "ActivityIds"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> activityIds),
-        "IncludeDeletedGroups" Core.=: includeDeletedGroups,
-        "MaxRecords" Core.=: maxRecords,
-        "AutoScalingGroupName" Core.=: autoScalingGroupName
+            (Core.toQueryList "member" Prelude.<$> activityIds)
       ]
 
 -- | /See:/ 'newDescribeScalingActivitiesResponse' smart constructor.
@@ -276,7 +276,7 @@ describeScalingActivitiesResponse_httpStatus = Lens.lens (\DescribeScalingActivi
 -- | The scaling activities. Activities are sorted by start time. Activities
 -- still in progress are described first.
 describeScalingActivitiesResponse_activities :: Lens.Lens' DescribeScalingActivitiesResponse [Activity]
-describeScalingActivitiesResponse_activities = Lens.lens (\DescribeScalingActivitiesResponse' {activities} -> activities) (\s@DescribeScalingActivitiesResponse' {} a -> s {activities = a} :: DescribeScalingActivitiesResponse) Prelude.. Lens._Coerce
+describeScalingActivitiesResponse_activities = Lens.lens (\DescribeScalingActivitiesResponse' {activities} -> activities) (\s@DescribeScalingActivitiesResponse' {} a -> s {activities = a} :: DescribeScalingActivitiesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

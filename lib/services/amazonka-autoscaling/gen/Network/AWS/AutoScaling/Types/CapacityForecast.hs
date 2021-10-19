@@ -57,11 +57,11 @@ newCapacityForecast =
 
 -- | The time stamps for the data points, in UTC format.
 capacityForecast_timestamps :: Lens.Lens' CapacityForecast [Prelude.UTCTime]
-capacityForecast_timestamps = Lens.lens (\CapacityForecast' {timestamps} -> timestamps) (\s@CapacityForecast' {} a -> s {timestamps = a} :: CapacityForecast) Prelude.. Lens._Coerce
+capacityForecast_timestamps = Lens.lens (\CapacityForecast' {timestamps} -> timestamps) (\s@CapacityForecast' {} a -> s {timestamps = a} :: CapacityForecast) Prelude.. Lens.coerced
 
 -- | The values of the data points.
 capacityForecast_values :: Lens.Lens' CapacityForecast [Prelude.Double]
-capacityForecast_values = Lens.lens (\CapacityForecast' {values} -> values) (\s@CapacityForecast' {} a -> s {values = a} :: CapacityForecast) Prelude.. Lens._Coerce
+capacityForecast_values = Lens.lens (\CapacityForecast' {values} -> values) (\s@CapacityForecast' {} a -> s {values = a} :: CapacityForecast) Prelude.. Lens.coerced
 
 instance Core.FromXML CapacityForecast where
   parseXML x =

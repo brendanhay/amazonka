@@ -38,13 +38,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
-  { -- | The launch template to use.
-    launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | Any properties that you specify override the same properties in the
+  { -- | Any properties that you specify override the same properties in the
     -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
     -- instance type specified in the launch template when it launches an
     -- instance.
-    overrides :: Prelude.Maybe [LaunchTemplateOverrides]
+    overrides :: Prelude.Maybe [LaunchTemplateOverrides],
+    -- | The launch template to use.
+    launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,39 +56,38 @@ data LaunchTemplate = LaunchTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateSpecification', 'launchTemplate_launchTemplateSpecification' - The launch template to use.
---
 -- 'overrides', 'launchTemplate_overrides' - Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
 -- instance type specified in the launch template when it launches an
 -- instance.
+--
+-- 'launchTemplateSpecification', 'launchTemplate_launchTemplateSpecification' - The launch template to use.
 newLaunchTemplate ::
   LaunchTemplate
 newLaunchTemplate =
   LaunchTemplate'
-    { launchTemplateSpecification =
-        Prelude.Nothing,
-      overrides = Prelude.Nothing
+    { overrides = Prelude.Nothing,
+      launchTemplateSpecification = Prelude.Nothing
     }
-
--- | The launch template to use.
-launchTemplate_launchTemplateSpecification :: Lens.Lens' LaunchTemplate (Prelude.Maybe LaunchTemplateSpecification)
-launchTemplate_launchTemplateSpecification = Lens.lens (\LaunchTemplate' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplate' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplate)
 
 -- | Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
 -- instance type specified in the launch template when it launches an
 -- instance.
 launchTemplate_overrides :: Lens.Lens' LaunchTemplate (Prelude.Maybe [LaunchTemplateOverrides])
-launchTemplate_overrides = Lens.lens (\LaunchTemplate' {overrides} -> overrides) (\s@LaunchTemplate' {} a -> s {overrides = a} :: LaunchTemplate) Prelude.. Lens.mapping Lens._Coerce
+launchTemplate_overrides = Lens.lens (\LaunchTemplate' {overrides} -> overrides) (\s@LaunchTemplate' {} a -> s {overrides = a} :: LaunchTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The launch template to use.
+launchTemplate_launchTemplateSpecification :: Lens.Lens' LaunchTemplate (Prelude.Maybe LaunchTemplateSpecification)
+launchTemplate_launchTemplateSpecification = Lens.lens (\LaunchTemplate' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplate' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplate)
 
 instance Core.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
-      Prelude.<$> (x Core..@? "LaunchTemplateSpecification")
-      Prelude.<*> ( x Core..@? "Overrides" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "Overrides" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "LaunchTemplateSpecification")
 
 instance Prelude.Hashable LaunchTemplate
 
@@ -97,9 +96,9 @@ instance Prelude.NFData LaunchTemplate
 instance Core.ToQuery LaunchTemplate where
   toQuery LaunchTemplate' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateSpecification"
-          Core.=: launchTemplateSpecification,
-        "Overrides"
+      [ "Overrides"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> overrides)
+            (Core.toQueryList "member" Prelude.<$> overrides),
+        "LaunchTemplateSpecification"
+          Core.=: launchTemplateSpecification
       ]

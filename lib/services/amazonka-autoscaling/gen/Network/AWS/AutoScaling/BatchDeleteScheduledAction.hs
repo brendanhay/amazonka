@@ -88,7 +88,7 @@ batchDeleteScheduledAction_autoScalingGroupName = Lens.lens (\BatchDeleteSchedul
 -- | The names of the scheduled actions to delete. The maximum number allowed
 -- is 50.
 batchDeleteScheduledAction_scheduledActionNames :: Lens.Lens' BatchDeleteScheduledAction [Prelude.Text]
-batchDeleteScheduledAction_scheduledActionNames = Lens.lens (\BatchDeleteScheduledAction' {scheduledActionNames} -> scheduledActionNames) (\s@BatchDeleteScheduledAction' {} a -> s {scheduledActionNames = a} :: BatchDeleteScheduledAction) Prelude.. Lens._Coerce
+batchDeleteScheduledAction_scheduledActionNames = Lens.lens (\BatchDeleteScheduledAction' {scheduledActionNames} -> scheduledActionNames) (\s@BatchDeleteScheduledAction' {} a -> s {scheduledActionNames = a} :: BatchDeleteScheduledAction) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteScheduledAction where
   type
@@ -165,7 +165,7 @@ newBatchDeleteScheduledActionResponse pHttpStatus_ =
 -- | The names of the scheduled actions that could not be deleted, including
 -- an error message.
 batchDeleteScheduledActionResponse_failedScheduledActions :: Lens.Lens' BatchDeleteScheduledActionResponse (Prelude.Maybe [FailedScheduledUpdateGroupActionRequest])
-batchDeleteScheduledActionResponse_failedScheduledActions = Lens.lens (\BatchDeleteScheduledActionResponse' {failedScheduledActions} -> failedScheduledActions) (\s@BatchDeleteScheduledActionResponse' {} a -> s {failedScheduledActions = a} :: BatchDeleteScheduledActionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteScheduledActionResponse_failedScheduledActions = Lens.lens (\BatchDeleteScheduledActionResponse' {failedScheduledActions} -> failedScheduledActions) (\s@BatchDeleteScheduledActionResponse' {} a -> s {failedScheduledActions = a} :: BatchDeleteScheduledActionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteScheduledActionResponse_httpStatus :: Lens.Lens' BatchDeleteScheduledActionResponse Prelude.Int

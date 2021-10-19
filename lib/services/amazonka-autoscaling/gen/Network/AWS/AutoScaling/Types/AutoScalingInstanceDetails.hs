@@ -28,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-  { -- | The instance type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The launch template for the instance.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | The launch configuration used to launch the instance. This value is not
-    -- available if you attached the instance to the Auto Scaling group.
-    launchConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | The number of capacity units contributed by the instance based on its
+  { -- | The number of capacity units contributed by the instance based on its
     -- instance type.
     --
     -- Valid Range: Minimum value of 1. Maximum value of 999.
     weightedCapacity :: Prelude.Maybe Prelude.Text,
+    -- | The instance type of the EC2 instance.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The launch configuration used to launch the instance. This value is not
+    -- available if you attached the instance to the Auto Scaling group.
+    launchConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The launch template for the instance.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the Auto Scaling group for the instance.
@@ -78,17 +78,17 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'autoScalingInstanceDetails_instanceType' - The instance type of the EC2 instance.
---
--- 'launchTemplate', 'autoScalingInstanceDetails_launchTemplate' - The launch template for the instance.
---
--- 'launchConfigurationName', 'autoScalingInstanceDetails_launchConfigurationName' - The launch configuration used to launch the instance. This value is not
--- available if you attached the instance to the Auto Scaling group.
---
 -- 'weightedCapacity', 'autoScalingInstanceDetails_weightedCapacity' - The number of capacity units contributed by the instance based on its
 -- instance type.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 999.
+--
+-- 'instanceType', 'autoScalingInstanceDetails_instanceType' - The instance type of the EC2 instance.
+--
+-- 'launchConfigurationName', 'autoScalingInstanceDetails_launchConfigurationName' - The launch configuration used to launch the instance. This value is not
+-- available if you attached the instance to the Auto Scaling group.
+--
+-- 'launchTemplate', 'autoScalingInstanceDetails_launchTemplate' - The launch template for the instance.
 --
 -- 'instanceId', 'autoScalingInstanceDetails_instanceId' - The ID of the instance.
 --
@@ -138,11 +138,11 @@ newAutoScalingInstanceDetails
   pHealthStatus_
   pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
-      { instanceType =
+      { weightedCapacity =
           Prelude.Nothing,
-        launchTemplate = Prelude.Nothing,
+        instanceType = Prelude.Nothing,
         launchConfigurationName = Prelude.Nothing,
-        weightedCapacity = Prelude.Nothing,
+        launchTemplate = Prelude.Nothing,
         instanceId = pInstanceId_,
         autoScalingGroupName = pAutoScalingGroupName_,
         availabilityZone = pAvailabilityZone_,
@@ -151,25 +151,25 @@ newAutoScalingInstanceDetails
         protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
--- | The instance type of the EC2 instance.
-autoScalingInstanceDetails_instanceType :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
-autoScalingInstanceDetails_instanceType = Lens.lens (\AutoScalingInstanceDetails' {instanceType} -> instanceType) (\s@AutoScalingInstanceDetails' {} a -> s {instanceType = a} :: AutoScalingInstanceDetails)
-
--- | The launch template for the instance.
-autoScalingInstanceDetails_launchTemplate :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe LaunchTemplateSpecification)
-autoScalingInstanceDetails_launchTemplate = Lens.lens (\AutoScalingInstanceDetails' {launchTemplate} -> launchTemplate) (\s@AutoScalingInstanceDetails' {} a -> s {launchTemplate = a} :: AutoScalingInstanceDetails)
-
--- | The launch configuration used to launch the instance. This value is not
--- available if you attached the instance to the Auto Scaling group.
-autoScalingInstanceDetails_launchConfigurationName :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
-autoScalingInstanceDetails_launchConfigurationName = Lens.lens (\AutoScalingInstanceDetails' {launchConfigurationName} -> launchConfigurationName) (\s@AutoScalingInstanceDetails' {} a -> s {launchConfigurationName = a} :: AutoScalingInstanceDetails)
-
 -- | The number of capacity units contributed by the instance based on its
 -- instance type.
 --
 -- Valid Range: Minimum value of 1. Maximum value of 999.
 autoScalingInstanceDetails_weightedCapacity :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
 autoScalingInstanceDetails_weightedCapacity = Lens.lens (\AutoScalingInstanceDetails' {weightedCapacity} -> weightedCapacity) (\s@AutoScalingInstanceDetails' {} a -> s {weightedCapacity = a} :: AutoScalingInstanceDetails)
+
+-- | The instance type of the EC2 instance.
+autoScalingInstanceDetails_instanceType :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
+autoScalingInstanceDetails_instanceType = Lens.lens (\AutoScalingInstanceDetails' {instanceType} -> instanceType) (\s@AutoScalingInstanceDetails' {} a -> s {instanceType = a} :: AutoScalingInstanceDetails)
+
+-- | The launch configuration used to launch the instance. This value is not
+-- available if you attached the instance to the Auto Scaling group.
+autoScalingInstanceDetails_launchConfigurationName :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe Prelude.Text)
+autoScalingInstanceDetails_launchConfigurationName = Lens.lens (\AutoScalingInstanceDetails' {launchConfigurationName} -> launchConfigurationName) (\s@AutoScalingInstanceDetails' {} a -> s {launchConfigurationName = a} :: AutoScalingInstanceDetails)
+
+-- | The launch template for the instance.
+autoScalingInstanceDetails_launchTemplate :: Lens.Lens' AutoScalingInstanceDetails (Prelude.Maybe LaunchTemplateSpecification)
+autoScalingInstanceDetails_launchTemplate = Lens.lens (\AutoScalingInstanceDetails' {launchTemplate} -> launchTemplate) (\s@AutoScalingInstanceDetails' {} a -> s {launchTemplate = a} :: AutoScalingInstanceDetails)
 
 -- | The ID of the instance.
 autoScalingInstanceDetails_instanceId :: Lens.Lens' AutoScalingInstanceDetails Prelude.Text
@@ -213,10 +213,10 @@ autoScalingInstanceDetails_protectedFromScaleIn = Lens.lens (\AutoScalingInstanc
 instance Core.FromXML AutoScalingInstanceDetails where
   parseXML x =
     AutoScalingInstanceDetails'
-      Prelude.<$> (x Core..@? "InstanceType")
-      Prelude.<*> (x Core..@? "LaunchTemplate")
+      Prelude.<$> (x Core..@? "WeightedCapacity")
+      Prelude.<*> (x Core..@? "InstanceType")
       Prelude.<*> (x Core..@? "LaunchConfigurationName")
-      Prelude.<*> (x Core..@? "WeightedCapacity")
+      Prelude.<*> (x Core..@? "LaunchTemplate")
       Prelude.<*> (x Core..@ "InstanceId")
       Prelude.<*> (x Core..@ "AutoScalingGroupName")
       Prelude.<*> (x Core..@ "AvailabilityZone")

@@ -30,8 +30,8 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     newDescribeLaunchConfigurations,
 
     -- * Request Lenses
-    describeLaunchConfigurations_nextToken,
     describeLaunchConfigurations_launchConfigurationNames,
+    describeLaunchConfigurations_nextToken,
     describeLaunchConfigurations_maxRecords,
 
     -- * Destructuring the Response
@@ -54,14 +54,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The launch configuration names. If you omit this parameter, all launch
+  { -- | The launch configuration names. If you omit this parameter, all launch
     -- configurations are described.
     --
     -- Array Members: Maximum number of 50 items.
     launchConfigurationNames :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int
@@ -76,13 +76,13 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLaunchConfigurations_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'launchConfigurationNames', 'describeLaunchConfigurations_launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch
 -- configurations are described.
 --
 -- Array Members: Maximum number of 50 items.
+--
+-- 'nextToken', 'describeLaunchConfigurations_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'maxRecords', 'describeLaunchConfigurations_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -90,23 +90,23 @@ newDescribeLaunchConfigurations ::
   DescribeLaunchConfigurations
 newDescribeLaunchConfigurations =
   DescribeLaunchConfigurations'
-    { nextToken =
+    { launchConfigurationNames =
         Prelude.Nothing,
-      launchConfigurationNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeLaunchConfigurations_nextToken :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe Prelude.Text)
-describeLaunchConfigurations_nextToken = Lens.lens (\DescribeLaunchConfigurations' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurations' {} a -> s {nextToken = a} :: DescribeLaunchConfigurations)
 
 -- | The launch configuration names. If you omit this parameter, all launch
 -- configurations are described.
 --
 -- Array Members: Maximum number of 50 items.
 describeLaunchConfigurations_launchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe [Prelude.Text])
-describeLaunchConfigurations_launchConfigurationNames = Lens.lens (\DescribeLaunchConfigurations' {launchConfigurationNames} -> launchConfigurationNames) (\s@DescribeLaunchConfigurations' {} a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations) Prelude.. Lens.mapping Lens._Coerce
+describeLaunchConfigurations_launchConfigurationNames = Lens.lens (\DescribeLaunchConfigurations' {launchConfigurationNames} -> launchConfigurationNames) (\s@DescribeLaunchConfigurations' {} a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeLaunchConfigurations_nextToken :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe Prelude.Text)
+describeLaunchConfigurations_nextToken = Lens.lens (\DescribeLaunchConfigurations' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurations' {} a -> s {nextToken = a} :: DescribeLaunchConfigurations)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -173,12 +173,12 @@ instance Core.ToQuery DescribeLaunchConfigurations where
                   ),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         "LaunchConfigurationNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> launchConfigurationNames
             ),
+        "NextToken" Core.=: nextToken,
         "MaxRecords" Core.=: maxRecords
       ]
 
@@ -237,7 +237,7 @@ describeLaunchConfigurationsResponse_httpStatus = Lens.lens (\DescribeLaunchConf
 
 -- | The launch configurations.
 describeLaunchConfigurationsResponse_launchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-describeLaunchConfigurationsResponse_launchConfigurations = Lens.lens (\DescribeLaunchConfigurationsResponse' {launchConfigurations} -> launchConfigurations) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse) Prelude.. Lens._Coerce
+describeLaunchConfigurationsResponse_launchConfigurations = Lens.lens (\DescribeLaunchConfigurationsResponse' {launchConfigurations} -> launchConfigurations) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

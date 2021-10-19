@@ -28,50 +28,26 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEbs' smart constructor.
 data Ebs = Ebs'
-  { -- | Specifies whether the volume should be encrypted. Encrypted EBS volumes
-    -- can only be attached to instances that support Amazon EBS encryption.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported Instance Types>.
-    -- If your AMI uses encrypted volumes, you can also only launch it on
-    -- supported instance types.
-    --
-    -- If you are creating a volume from a snapshot, you cannot specify an
-    -- encryption value. Volumes that are created from encrypted snapshots are
-    -- automatically encrypted, and volumes that are created from unencrypted
-    -- snapshots are automatically unencrypted. By default, encrypted snapshots
-    -- use the Amazon Web Services managed CMK that is used for EBS encryption,
-    -- but you can specify a custom CMK when you create the snapshot. The
-    -- ability to encrypt a snapshot during copying also allows you to apply a
-    -- new CMK to an already-encrypted snapshot. Volumes restored from the
-    -- resulting copy are only accessible using the new CMK.
-    --
-    -- Enabling
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default encryption by default>
-    -- results in all EBS volumes being encrypted with the Amazon Web Services
-    -- managed CMK or a customer managed CMK, whether or not the snapshot was
-    -- encrypted.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html Using Encryption with EBS-Backed AMIs>
-    -- in the /Amazon EC2 User Guide for Linux Instances/ and
-    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html Required CMK key policy for use with encrypted volumes>
-    -- in the /Amazon EC2 Auto Scaling User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The throughput (MiBps) to provision for a @gp3@ volume.
-    throughput :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether the volume is deleted on instance termination. For
+  { -- | Indicates whether the volume is deleted on instance termination. For
     -- Amazon EC2 Auto Scaling, the default value is @true@.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The snapshot ID of the volume to use.
+    -- | The throughput (MiBps) to provision for a @gp3@ volume.
+    throughput :: Prelude.Maybe Prelude.Natural,
+    -- | The volume size, in GiBs. The following are the supported volumes sizes
+    -- for each volume type:
     --
-    -- You must specify either a @VolumeSize@ or a @SnapshotId@.
-    snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The volume type. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    -- -   @gp2@ and @gp3@: 1-16,384
     --
-    -- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
-    volumeType :: Prelude.Maybe Prelude.Text,
+    -- -   @io1@: 4-16,384
+    --
+    -- -   @st1@ and @sc1@: 125-16,384
+    --
+    -- -   @standard@: 1-1,024
+    --
+    -- You must specify either a @SnapshotId@ or a @VolumeSize@. If you specify
+    -- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
+    -- greater than the size of the snapshot.
+    volumeSize :: Prelude.Maybe Prelude.Natural,
     -- | The number of input\/output (I\/O) operations per second (IOPS) to
     -- provision for the volume. For @gp3@ and @io1@ volumes, this represents
     -- the number of IOPS that are provisioned for the volume. For @gp2@
@@ -92,21 +68,36 @@ data Ebs = Ebs'
     -- only when the volume type is @io1@. (Not used with @standard@, @gp2@,
     -- @st1@, or @sc1@ volumes.)
     iops :: Prelude.Maybe Prelude.Natural,
-    -- | The volume size, in GiBs. The following are the supported volumes sizes
-    -- for each volume type:
+    -- | Specifies whether the volume should be encrypted. Encrypted EBS volumes
+    -- can only be attached to instances that support Amazon EBS encryption.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
+    -- If your AMI uses encrypted volumes, you can also only launch it on
+    -- supported instance types.
     --
-    -- -   @gp2@ and @gp3@: 1-16,384
+    -- If you are creating a volume from a snapshot, you cannot create an
+    -- unencrypted volume from an encrypted snapshot. Also, you cannot specify
+    -- a KMS key ID when using a launch configuration.
     --
-    -- -   @io1@: 4-16,384
+    -- If you enable encryption by default, the EBS volumes that you create are
+    -- always encrypted, either using the Amazon Web Services managed KMS key
+    -- or a customer-managed KMS key, regardless of whether the snapshot was
+    -- encrypted.
     --
-    -- -   @st1@ and @sc1@: 125-16,384
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The volume type. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
     --
-    -- -   @standard@: 1-1,024
+    -- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+    volumeType :: Prelude.Maybe Prelude.Text,
+    -- | The snapshot ID of the volume to use.
     --
-    -- You must specify either a @SnapshotId@ or a @VolumeSize@. If you specify
-    -- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
-    -- greater than the size of the snapshot.
-    volumeSize :: Prelude.Maybe Prelude.Natural
+    -- You must specify either a @VolumeSize@ or a @SnapshotId@.
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,49 +109,25 @@ data Ebs = Ebs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encrypted', 'ebs_encrypted' - Specifies whether the volume should be encrypted. Encrypted EBS volumes
--- can only be attached to instances that support Amazon EBS encryption.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported Instance Types>.
--- If your AMI uses encrypted volumes, you can also only launch it on
--- supported instance types.
---
--- If you are creating a volume from a snapshot, you cannot specify an
--- encryption value. Volumes that are created from encrypted snapshots are
--- automatically encrypted, and volumes that are created from unencrypted
--- snapshots are automatically unencrypted. By default, encrypted snapshots
--- use the Amazon Web Services managed CMK that is used for EBS encryption,
--- but you can specify a custom CMK when you create the snapshot. The
--- ability to encrypt a snapshot during copying also allows you to apply a
--- new CMK to an already-encrypted snapshot. Volumes restored from the
--- resulting copy are only accessible using the new CMK.
---
--- Enabling
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default encryption by default>
--- results in all EBS volumes being encrypted with the Amazon Web Services
--- managed CMK or a customer managed CMK, whether or not the snapshot was
--- encrypted.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html Using Encryption with EBS-Backed AMIs>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html Required CMK key policy for use with encrypted volumes>
--- in the /Amazon EC2 Auto Scaling User Guide/.
---
--- 'throughput', 'ebs_throughput' - The throughput (MiBps) to provision for a @gp3@ volume.
---
 -- 'deleteOnTermination', 'ebs_deleteOnTermination' - Indicates whether the volume is deleted on instance termination. For
 -- Amazon EC2 Auto Scaling, the default value is @true@.
 --
--- 'snapshotId', 'ebs_snapshotId' - The snapshot ID of the volume to use.
+-- 'throughput', 'ebs_throughput' - The throughput (MiBps) to provision for a @gp3@ volume.
 --
--- You must specify either a @VolumeSize@ or a @SnapshotId@.
+-- 'volumeSize', 'ebs_volumeSize' - The volume size, in GiBs. The following are the supported volumes sizes
+-- for each volume type:
 --
--- 'volumeType', 'ebs_volumeType' - The volume type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
--- in the /Amazon EC2 User Guide for Linux Instances/.
+-- -   @gp2@ and @gp3@: 1-16,384
 --
--- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+-- -   @io1@: 4-16,384
+--
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
+--
+-- You must specify either a @SnapshotId@ or a @VolumeSize@. If you specify
+-- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
+-- greater than the size of the snapshot.
 --
 -- 'iops', 'ebs_iops' - The number of input\/output (I\/O) operations per second (IOPS) to
 -- provision for the volume. For @gp3@ and @io1@ volumes, this represents
@@ -182,7 +149,58 @@ data Ebs = Ebs'
 -- only when the volume type is @io1@. (Not used with @standard@, @gp2@,
 -- @st1@, or @sc1@ volumes.)
 --
--- 'volumeSize', 'ebs_volumeSize' - The volume size, in GiBs. The following are the supported volumes sizes
+-- 'encrypted', 'ebs_encrypted' - Specifies whether the volume should be encrypted. Encrypted EBS volumes
+-- can only be attached to instances that support Amazon EBS encryption.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
+-- If your AMI uses encrypted volumes, you can also only launch it on
+-- supported instance types.
+--
+-- If you are creating a volume from a snapshot, you cannot create an
+-- unencrypted volume from an encrypted snapshot. Also, you cannot specify
+-- a KMS key ID when using a launch configuration.
+--
+-- If you enable encryption by default, the EBS volumes that you create are
+-- always encrypted, either using the Amazon Web Services managed KMS key
+-- or a customer-managed KMS key, regardless of whether the snapshot was
+-- encrypted.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- 'volumeType', 'ebs_volumeType' - The volume type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+--
+-- 'snapshotId', 'ebs_snapshotId' - The snapshot ID of the volume to use.
+--
+-- You must specify either a @VolumeSize@ or a @SnapshotId@.
+newEbs ::
+  Ebs
+newEbs =
+  Ebs'
+    { deleteOnTermination = Prelude.Nothing,
+      throughput = Prelude.Nothing,
+      volumeSize = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      snapshotId = Prelude.Nothing
+    }
+
+-- | Indicates whether the volume is deleted on instance termination. For
+-- Amazon EC2 Auto Scaling, the default value is @true@.
+ebs_deleteOnTermination :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
+ebs_deleteOnTermination = Lens.lens (\Ebs' {deleteOnTermination} -> deleteOnTermination) (\s@Ebs' {} a -> s {deleteOnTermination = a} :: Ebs)
+
+-- | The throughput (MiBps) to provision for a @gp3@ volume.
+ebs_throughput :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
+ebs_throughput = Lens.lens (\Ebs' {throughput} -> throughput) (\s@Ebs' {} a -> s {throughput = a} :: Ebs)
+
+-- | The volume size, in GiBs. The following are the supported volumes sizes
 -- for each volume type:
 --
 -- -   @gp2@ and @gp3@: 1-16,384
@@ -196,72 +214,8 @@ data Ebs = Ebs'
 -- You must specify either a @SnapshotId@ or a @VolumeSize@. If you specify
 -- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
 -- greater than the size of the snapshot.
-newEbs ::
-  Ebs
-newEbs =
-  Ebs'
-    { encrypted = Prelude.Nothing,
-      throughput = Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      iops = Prelude.Nothing,
-      volumeSize = Prelude.Nothing
-    }
-
--- | Specifies whether the volume should be encrypted. Encrypted EBS volumes
--- can only be attached to instances that support Amazon EBS encryption.
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported Instance Types>.
--- If your AMI uses encrypted volumes, you can also only launch it on
--- supported instance types.
---
--- If you are creating a volume from a snapshot, you cannot specify an
--- encryption value. Volumes that are created from encrypted snapshots are
--- automatically encrypted, and volumes that are created from unencrypted
--- snapshots are automatically unencrypted. By default, encrypted snapshots
--- use the Amazon Web Services managed CMK that is used for EBS encryption,
--- but you can specify a custom CMK when you create the snapshot. The
--- ability to encrypt a snapshot during copying also allows you to apply a
--- new CMK to an already-encrypted snapshot. Volumes restored from the
--- resulting copy are only accessible using the new CMK.
---
--- Enabling
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default encryption by default>
--- results in all EBS volumes being encrypted with the Amazon Web Services
--- managed CMK or a customer managed CMK, whether or not the snapshot was
--- encrypted.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html Using Encryption with EBS-Backed AMIs>
--- in the /Amazon EC2 User Guide for Linux Instances/ and
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/key-policy-requirements-EBS-encryption.html Required CMK key policy for use with encrypted volumes>
--- in the /Amazon EC2 Auto Scaling User Guide/.
-ebs_encrypted :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
-ebs_encrypted = Lens.lens (\Ebs' {encrypted} -> encrypted) (\s@Ebs' {} a -> s {encrypted = a} :: Ebs)
-
--- | The throughput (MiBps) to provision for a @gp3@ volume.
-ebs_throughput :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
-ebs_throughput = Lens.lens (\Ebs' {throughput} -> throughput) (\s@Ebs' {} a -> s {throughput = a} :: Ebs)
-
--- | Indicates whether the volume is deleted on instance termination. For
--- Amazon EC2 Auto Scaling, the default value is @true@.
-ebs_deleteOnTermination :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
-ebs_deleteOnTermination = Lens.lens (\Ebs' {deleteOnTermination} -> deleteOnTermination) (\s@Ebs' {} a -> s {deleteOnTermination = a} :: Ebs)
-
--- | The snapshot ID of the volume to use.
---
--- You must specify either a @VolumeSize@ or a @SnapshotId@.
-ebs_snapshotId :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
-ebs_snapshotId = Lens.lens (\Ebs' {snapshotId} -> snapshotId) (\s@Ebs' {} a -> s {snapshotId = a} :: Ebs)
-
--- | The volume type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
-ebs_volumeType :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
-ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s {volumeType = a} :: Ebs)
+ebs_volumeSize :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
+ebs_volumeSize = Lens.lens (\Ebs' {volumeSize} -> volumeSize) (\s@Ebs' {} a -> s {volumeSize = a} :: Ebs)
 
 -- | The number of input\/output (I\/O) operations per second (IOPS) to
 -- provision for the volume. For @gp3@ and @io1@ volumes, this represents
@@ -285,33 +239,52 @@ ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s
 ebs_iops :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
 ebs_iops = Lens.lens (\Ebs' {iops} -> iops) (\s@Ebs' {} a -> s {iops = a} :: Ebs)
 
--- | The volume size, in GiBs. The following are the supported volumes sizes
--- for each volume type:
+-- | Specifies whether the volume should be encrypted. Encrypted EBS volumes
+-- can only be attached to instances that support Amazon EBS encryption.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
+-- If your AMI uses encrypted volumes, you can also only launch it on
+-- supported instance types.
 --
--- -   @gp2@ and @gp3@: 1-16,384
+-- If you are creating a volume from a snapshot, you cannot create an
+-- unencrypted volume from an encrypted snapshot. Also, you cannot specify
+-- a KMS key ID when using a launch configuration.
 --
--- -   @io1@: 4-16,384
+-- If you enable encryption by default, the EBS volumes that you create are
+-- always encrypted, either using the Amazon Web Services managed KMS key
+-- or a customer-managed KMS key, regardless of whether the snapshot was
+-- encrypted.
 --
--- -   @st1@ and @sc1@: 125-16,384
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption Using Amazon Web Services KMS keys to encrypt Amazon EBS volumes>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+ebs_encrypted :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Bool)
+ebs_encrypted = Lens.lens (\Ebs' {encrypted} -> encrypted) (\s@Ebs' {} a -> s {encrypted = a} :: Ebs)
+
+-- | The volume type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 --
--- -   @standard@: 1-1,024
+-- Valid Values: @standard@ | @io1@ | @gp2@ | @st1@ | @sc1@ | @gp3@
+ebs_volumeType :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
+ebs_volumeType = Lens.lens (\Ebs' {volumeType} -> volumeType) (\s@Ebs' {} a -> s {volumeType = a} :: Ebs)
+
+-- | The snapshot ID of the volume to use.
 --
--- You must specify either a @SnapshotId@ or a @VolumeSize@. If you specify
--- both @SnapshotId@ and @VolumeSize@, the volume size must be equal or
--- greater than the size of the snapshot.
-ebs_volumeSize :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Natural)
-ebs_volumeSize = Lens.lens (\Ebs' {volumeSize} -> volumeSize) (\s@Ebs' {} a -> s {volumeSize = a} :: Ebs)
+-- You must specify either a @VolumeSize@ or a @SnapshotId@.
+ebs_snapshotId :: Lens.Lens' Ebs (Prelude.Maybe Prelude.Text)
+ebs_snapshotId = Lens.lens (\Ebs' {snapshotId} -> snapshotId) (\s@Ebs' {} a -> s {snapshotId = a} :: Ebs)
 
 instance Core.FromXML Ebs where
   parseXML x =
     Ebs'
-      Prelude.<$> (x Core..@? "Encrypted")
+      Prelude.<$> (x Core..@? "DeleteOnTermination")
       Prelude.<*> (x Core..@? "Throughput")
-      Prelude.<*> (x Core..@? "DeleteOnTermination")
-      Prelude.<*> (x Core..@? "SnapshotId")
-      Prelude.<*> (x Core..@? "VolumeType")
-      Prelude.<*> (x Core..@? "Iops")
       Prelude.<*> (x Core..@? "VolumeSize")
+      Prelude.<*> (x Core..@? "Iops")
+      Prelude.<*> (x Core..@? "Encrypted")
+      Prelude.<*> (x Core..@? "VolumeType")
+      Prelude.<*> (x Core..@? "SnapshotId")
 
 instance Prelude.Hashable Ebs
 
@@ -320,11 +293,11 @@ instance Prelude.NFData Ebs
 instance Core.ToQuery Ebs where
   toQuery Ebs' {..} =
     Prelude.mconcat
-      [ "Encrypted" Core.=: encrypted,
+      [ "DeleteOnTermination" Core.=: deleteOnTermination,
         "Throughput" Core.=: throughput,
-        "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
+        "VolumeSize" Core.=: volumeSize,
         "Iops" Core.=: iops,
-        "VolumeSize" Core.=: volumeSize
+        "Encrypted" Core.=: encrypted,
+        "VolumeType" Core.=: volumeType,
+        "SnapshotId" Core.=: snapshotId
       ]

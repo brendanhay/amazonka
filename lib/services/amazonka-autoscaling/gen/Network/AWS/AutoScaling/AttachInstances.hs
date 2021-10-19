@@ -89,7 +89,7 @@ newAttachInstances pAutoScalingGroupName_ =
 
 -- | The IDs of the instances. You can specify up to 20 instances.
 attachInstances_instanceIds :: Lens.Lens' AttachInstances (Prelude.Maybe [Prelude.Text])
-attachInstances_instanceIds = Lens.lens (\AttachInstances' {instanceIds} -> instanceIds) (\s@AttachInstances' {} a -> s {instanceIds = a} :: AttachInstances) Prelude.. Lens.mapping Lens._Coerce
+attachInstances_instanceIds = Lens.lens (\AttachInstances' {instanceIds} -> instanceIds) (\s@AttachInstances' {} a -> s {instanceIds = a} :: AttachInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 attachInstances_autoScalingGroupName :: Lens.Lens' AttachInstances Prelude.Text

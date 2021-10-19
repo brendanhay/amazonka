@@ -131,7 +131,7 @@ newDescribeScalingProcessTypesResponse pHttpStatus_ =
 
 -- | The names of the process types.
 describeScalingProcessTypesResponse_processes :: Lens.Lens' DescribeScalingProcessTypesResponse (Prelude.Maybe [ProcessType])
-describeScalingProcessTypesResponse_processes = Lens.lens (\DescribeScalingProcessTypesResponse' {processes} -> processes) (\s@DescribeScalingProcessTypesResponse' {} a -> s {processes = a} :: DescribeScalingProcessTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeScalingProcessTypesResponse_processes = Lens.lens (\DescribeScalingProcessTypesResponse' {processes} -> processes) (\s@DescribeScalingProcessTypesResponse' {} a -> s {processes = a} :: DescribeScalingProcessTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeScalingProcessTypesResponse_httpStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Prelude.Int

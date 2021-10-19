@@ -88,7 +88,7 @@ detachLoadBalancerTargetGroups_autoScalingGroupName = Lens.lens (\DetachLoadBala
 -- | The Amazon Resource Names (ARN) of the target groups. You can specify up
 -- to 10 target groups.
 detachLoadBalancerTargetGroups_targetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Prelude.Text]
-detachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\DetachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@DetachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups) Prelude.. Lens._Coerce
+detachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\DetachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@DetachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

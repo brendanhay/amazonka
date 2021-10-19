@@ -28,11 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { -- | Parameters used to automatically set up EBS volumes when an instance is
-    -- launched.
+  { -- | The name of the virtual device (for example, @ephemeral0@).
     --
     -- You can specify either @VirtualName@ or @Ebs@, but not both.
-    ebs :: Prelude.Maybe Ebs,
+    virtualName :: Prelude.Maybe Prelude.Text,
     -- | Setting this value to @true@ suppresses the specified device included in
     -- the block device mapping of the AMI.
     --
@@ -42,10 +41,11 @@ data BlockDeviceMapping = BlockDeviceMapping'
     --
     -- If you specify @NoDevice@, you cannot specify @Ebs@.
     noDevice :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the virtual device (for example, @ephemeral0@).
+    -- | Parameters used to automatically set up EBS volumes when an instance is
+    -- launched.
     --
     -- You can specify either @VirtualName@ or @Ebs@, but not both.
-    virtualName :: Prelude.Maybe Prelude.Text,
+    ebs :: Prelude.Maybe Ebs,
     -- | The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
     -- or @xvdh@). For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances>
@@ -62,8 +62,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'blockDeviceMapping_ebs' - Parameters used to automatically set up EBS volumes when an instance is
--- launched.
+-- 'virtualName', 'blockDeviceMapping_virtualName' - The name of the virtual device (for example, @ephemeral0@).
 --
 -- You can specify either @VirtualName@ or @Ebs@, but not both.
 --
@@ -76,7 +75,8 @@ data BlockDeviceMapping = BlockDeviceMapping'
 --
 -- If you specify @NoDevice@, you cannot specify @Ebs@.
 --
--- 'virtualName', 'blockDeviceMapping_virtualName' - The name of the virtual device (for example, @ephemeral0@).
+-- 'ebs', 'blockDeviceMapping_ebs' - Parameters used to automatically set up EBS volumes when an instance is
+-- launched.
 --
 -- You can specify either @VirtualName@ or @Ebs@, but not both.
 --
@@ -90,18 +90,17 @@ newBlockDeviceMapping ::
   BlockDeviceMapping
 newBlockDeviceMapping pDeviceName_ =
   BlockDeviceMapping'
-    { ebs = Prelude.Nothing,
+    { virtualName = Prelude.Nothing,
       noDevice = Prelude.Nothing,
-      virtualName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       deviceName = pDeviceName_
     }
 
--- | Parameters used to automatically set up EBS volumes when an instance is
--- launched.
+-- | The name of the virtual device (for example, @ephemeral0@).
 --
 -- You can specify either @VirtualName@ or @Ebs@, but not both.
-blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Ebs)
-blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
+blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
+blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
 -- | Setting this value to @true@ suppresses the specified device included in
 -- the block device mapping of the AMI.
@@ -114,11 +113,12 @@ blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@Block
 blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Bool)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 
--- | The name of the virtual device (for example, @ephemeral0@).
+-- | Parameters used to automatically set up EBS volumes when an instance is
+-- launched.
 --
 -- You can specify either @VirtualName@ or @Ebs@, but not both.
-blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
-blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
+blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Ebs)
+blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
 -- or @xvdh@). For more information, see
@@ -130,9 +130,9 @@ blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> 
 instance Core.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      Prelude.<$> (x Core..@? "Ebs")
+      Prelude.<$> (x Core..@? "VirtualName")
       Prelude.<*> (x Core..@? "NoDevice")
-      Prelude.<*> (x Core..@? "VirtualName")
+      Prelude.<*> (x Core..@? "Ebs")
       Prelude.<*> (x Core..@ "DeviceName")
 
 instance Prelude.Hashable BlockDeviceMapping
@@ -142,8 +142,8 @@ instance Prelude.NFData BlockDeviceMapping
 instance Core.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
     Prelude.mconcat
-      [ "Ebs" Core.=: ebs,
+      [ "VirtualName" Core.=: virtualName,
         "NoDevice" Core.=: noDevice,
-        "VirtualName" Core.=: virtualName,
+        "Ebs" Core.=: ebs,
         "DeviceName" Core.=: deviceName
       ]

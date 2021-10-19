@@ -197,7 +197,7 @@ describeWarmPoolResponse_nextToken = Lens.lens (\DescribeWarmPoolResponse' {next
 
 -- | The instances that are currently in the warm pool.
 describeWarmPoolResponse_instances :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe [Instance])
-describeWarmPoolResponse_instances = Lens.lens (\DescribeWarmPoolResponse' {instances} -> instances) (\s@DescribeWarmPoolResponse' {} a -> s {instances = a} :: DescribeWarmPoolResponse) Prelude.. Lens.mapping Lens._Coerce
+describeWarmPoolResponse_instances = Lens.lens (\DescribeWarmPoolResponse' {instances} -> instances) (\s@DescribeWarmPoolResponse' {} a -> s {instances = a} :: DescribeWarmPoolResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The warm pool configuration details.
 describeWarmPoolResponse_warmPoolConfiguration :: Lens.Lens' DescribeWarmPoolResponse (Prelude.Maybe WarmPoolConfiguration)

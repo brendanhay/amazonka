@@ -96,7 +96,7 @@ detachLoadBalancers_autoScalingGroupName = Lens.lens (\DetachLoadBalancers' {aut
 -- | The names of the load balancers. You can specify up to 10 load
 -- balancers.
 detachLoadBalancers_loadBalancerNames :: Lens.Lens' DetachLoadBalancers [Prelude.Text]
-detachLoadBalancers_loadBalancerNames = Lens.lens (\DetachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@DetachLoadBalancers' {} a -> s {loadBalancerNames = a} :: DetachLoadBalancers) Prelude.. Lens._Coerce
+detachLoadBalancers_loadBalancerNames = Lens.lens (\DetachLoadBalancers' {loadBalancerNames} -> loadBalancerNames) (\s@DetachLoadBalancers' {} a -> s {loadBalancerNames = a} :: DetachLoadBalancers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DetachLoadBalancers where
   type

@@ -108,7 +108,7 @@ newDetachInstances
 
 -- | The IDs of the instances. You can specify up to 20 instances.
 detachInstances_instanceIds :: Lens.Lens' DetachInstances (Prelude.Maybe [Prelude.Text])
-detachInstances_instanceIds = Lens.lens (\DetachInstances' {instanceIds} -> instanceIds) (\s@DetachInstances' {} a -> s {instanceIds = a} :: DetachInstances) Prelude.. Lens.mapping Lens._Coerce
+detachInstances_instanceIds = Lens.lens (\DetachInstances' {instanceIds} -> instanceIds) (\s@DetachInstances' {} a -> s {instanceIds = a} :: DetachInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 detachInstances_autoScalingGroupName :: Lens.Lens' DetachInstances Prelude.Text
@@ -196,7 +196,7 @@ newDetachInstancesResponse pHttpStatus_ =
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
 detachInstancesResponse_activities :: Lens.Lens' DetachInstancesResponse (Prelude.Maybe [Activity])
-detachInstancesResponse_activities = Lens.lens (\DetachInstancesResponse' {activities} -> activities) (\s@DetachInstancesResponse' {} a -> s {activities = a} :: DetachInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+detachInstancesResponse_activities = Lens.lens (\DetachInstancesResponse' {activities} -> activities) (\s@DetachInstancesResponse' {} a -> s {activities = a} :: DetachInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detachInstancesResponse_httpStatus :: Lens.Lens' DetachInstancesResponse Prelude.Int

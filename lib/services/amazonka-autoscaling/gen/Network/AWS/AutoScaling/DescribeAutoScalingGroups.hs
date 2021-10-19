@@ -23,7 +23,13 @@
 -- Gets information about the Auto Scaling groups in the account and
 -- Region.
 --
--- This operation returns information about instances in Auto Scaling
+-- If you specify Auto Scaling group names, the output includes information
+-- for only the specified Auto Scaling groups. If you specify filters, the
+-- output includes information for only those Auto Scaling groups that meet
+-- the filter criteria. If you do not specify group names or filters, the
+-- output includes information for all Auto Scaling groups.
+--
+-- This operation also returns information about instances in Auto Scaling
 -- groups. To retrieve information about the instances in a warm pool, you
 -- must call the DescribeWarmPool API.
 --
@@ -34,8 +40,9 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     newDescribeAutoScalingGroups,
 
     -- * Request Lenses
-    describeAutoScalingGroups_nextToken,
+    describeAutoScalingGroups_filters,
     describeAutoScalingGroups_autoScalingGroupNames,
+    describeAutoScalingGroups_nextToken,
     describeAutoScalingGroups_maxRecords,
 
     -- * Destructuring the Response
@@ -58,15 +65,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAutoScalingGroups' smart constructor.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | One or more filters to limit the results based on specific tags.
+    filters :: Prelude.Maybe [Filter],
     -- | The names of the Auto Scaling groups. By default, you can only specify
     -- up to 50 names. You can optionally increase this limit using the
     -- @MaxRecords@ parameter.
     --
     -- If you omit this parameter, all Auto Scaling groups are described.
     autoScalingGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int
@@ -81,8 +90,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAutoScalingGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
+-- 'filters', 'describeAutoScalingGroups_filters' - One or more filters to limit the results based on specific tags.
 --
 -- 'autoScalingGroupNames', 'describeAutoScalingGroups_autoScalingGroupNames' - The names of the Auto Scaling groups. By default, you can only specify
 -- up to 50 names. You can optionally increase this limit using the
@@ -90,22 +98,25 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 --
 -- If you omit this parameter, all Auto Scaling groups are described.
 --
+-- 'nextToken', 'describeAutoScalingGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
 -- 'maxRecords', 'describeAutoScalingGroups_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
 newDescribeAutoScalingGroups ::
   DescribeAutoScalingGroups
 newDescribeAutoScalingGroups =
   DescribeAutoScalingGroups'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
       autoScalingGroupNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
 
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeAutoScalingGroups_nextToken :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe Prelude.Text)
-describeAutoScalingGroups_nextToken = Lens.lens (\DescribeAutoScalingGroups' {nextToken} -> nextToken) (\s@DescribeAutoScalingGroups' {} a -> s {nextToken = a} :: DescribeAutoScalingGroups)
+-- | One or more filters to limit the results based on specific tags.
+describeAutoScalingGroups_filters :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe [Filter])
+describeAutoScalingGroups_filters = Lens.lens (\DescribeAutoScalingGroups' {filters} -> filters) (\s@DescribeAutoScalingGroups' {} a -> s {filters = a} :: DescribeAutoScalingGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The names of the Auto Scaling groups. By default, you can only specify
 -- up to 50 names. You can optionally increase this limit using the
@@ -113,7 +124,12 @@ describeAutoScalingGroups_nextToken = Lens.lens (\DescribeAutoScalingGroups' {ne
 --
 -- If you omit this parameter, all Auto Scaling groups are described.
 describeAutoScalingGroups_autoScalingGroupNames :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe [Prelude.Text])
-describeAutoScalingGroups_autoScalingGroupNames = Lens.lens (\DescribeAutoScalingGroups' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeAutoScalingGroups' {} a -> s {autoScalingGroupNames = a} :: DescribeAutoScalingGroups) Prelude.. Lens.mapping Lens._Coerce
+describeAutoScalingGroups_autoScalingGroupNames = Lens.lens (\DescribeAutoScalingGroups' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeAutoScalingGroups' {} a -> s {autoScalingGroupNames = a} :: DescribeAutoScalingGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeAutoScalingGroups_nextToken :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe Prelude.Text)
+describeAutoScalingGroups_nextToken = Lens.lens (\DescribeAutoScalingGroups' {nextToken} -> nextToken) (\s@DescribeAutoScalingGroups' {} a -> s {nextToken = a} :: DescribeAutoScalingGroups)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -176,12 +192,15 @@ instance Core.ToQuery DescribeAutoScalingGroups where
           Core.=: ("DescribeAutoScalingGroups" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+        "Filters"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> filters),
         "AutoScalingGroupNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> autoScalingGroupNames
             ),
+        "NextToken" Core.=: nextToken,
         "MaxRecords" Core.=: maxRecords
       ]
 
@@ -240,7 +259,7 @@ describeAutoScalingGroupsResponse_httpStatus = Lens.lens (\DescribeAutoScalingGr
 
 -- | The groups.
 describeAutoScalingGroupsResponse_autoScalingGroups :: Lens.Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-describeAutoScalingGroupsResponse_autoScalingGroups = Lens.lens (\DescribeAutoScalingGroupsResponse' {autoScalingGroups} -> autoScalingGroups) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {autoScalingGroups = a} :: DescribeAutoScalingGroupsResponse) Prelude.. Lens._Coerce
+describeAutoScalingGroupsResponse_autoScalingGroups = Lens.lens (\DescribeAutoScalingGroupsResponse' {autoScalingGroups} -> autoScalingGroups) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {autoScalingGroups = a} :: DescribeAutoScalingGroupsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

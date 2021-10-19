@@ -33,14 +33,17 @@ module Network.AWS.AutoScaling
     -- ** InstanceRefreshInProgressFault
     _InstanceRefreshInProgressFault,
 
-    -- ** ResourceInUseFault
-    _ResourceInUseFault,
-
     -- ** AlreadyExistsFault
     _AlreadyExistsFault,
 
     -- ** LimitExceededFault
     _LimitExceededFault,
+
+    -- ** ResourceInUseFault
+    _ResourceInUseFault,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
 
     -- ** ScalingActivityInProgressFault
     _ScalingActivityInProgressFault,
@@ -48,14 +51,11 @@ module Network.AWS.AutoScaling
     -- ** ResourceContentionFault
     _ResourceContentionFault,
 
-    -- ** ActiveInstanceRefreshNotFoundFault
-    _ActiveInstanceRefreshNotFoundFault,
-
     -- ** ServiceLinkedRoleFailure
     _ServiceLinkedRoleFailure,
 
-    -- ** InvalidNextToken
-    _InvalidNextToken,
+    -- ** ActiveInstanceRefreshNotFoundFault
+    _ActiveInstanceRefreshNotFoundFault,
 
     -- * Waiters
     -- $waiters
@@ -63,53 +63,23 @@ module Network.AWS.AutoScaling
     -- * Operations
     -- $operations
 
-    -- ** ExecutePolicy
-    ExecutePolicy (ExecutePolicy'),
-    newExecutePolicy,
-    ExecutePolicyResponse (ExecutePolicyResponse'),
-    newExecutePolicyResponse,
+    -- ** PutWarmPool
+    PutWarmPool (PutWarmPool'),
+    newPutWarmPool,
+    PutWarmPoolResponse (PutWarmPoolResponse'),
+    newPutWarmPoolResponse,
 
-    -- ** SuspendProcesses
-    SuspendProcesses (SuspendProcesses'),
-    newSuspendProcesses,
-    SuspendProcessesResponse (SuspendProcessesResponse'),
-    newSuspendProcessesResponse,
+    -- ** DescribeMetricCollectionTypes
+    DescribeMetricCollectionTypes (DescribeMetricCollectionTypes'),
+    newDescribeMetricCollectionTypes,
+    DescribeMetricCollectionTypesResponse (DescribeMetricCollectionTypesResponse'),
+    newDescribeMetricCollectionTypesResponse,
 
-    -- ** DescribeInstanceRefreshes
-    DescribeInstanceRefreshes (DescribeInstanceRefreshes'),
-    newDescribeInstanceRefreshes,
-    DescribeInstanceRefreshesResponse (DescribeInstanceRefreshesResponse'),
-    newDescribeInstanceRefreshesResponse,
-
-    -- ** EnterStandby
-    EnterStandby (EnterStandby'),
-    newEnterStandby,
-    EnterStandbyResponse (EnterStandbyResponse'),
-    newEnterStandbyResponse,
-
-    -- ** DeleteLifecycleHook
-    DeleteLifecycleHook (DeleteLifecycleHook'),
-    newDeleteLifecycleHook,
-    DeleteLifecycleHookResponse (DeleteLifecycleHookResponse'),
-    newDeleteLifecycleHookResponse,
-
-    -- ** AttachLoadBalancerTargetGroups
-    AttachLoadBalancerTargetGroups (AttachLoadBalancerTargetGroups'),
-    newAttachLoadBalancerTargetGroups,
-    AttachLoadBalancerTargetGroupsResponse (AttachLoadBalancerTargetGroupsResponse'),
-    newAttachLoadBalancerTargetGroupsResponse,
-
-    -- ** StartInstanceRefresh
-    StartInstanceRefresh (StartInstanceRefresh'),
-    newStartInstanceRefresh,
-    StartInstanceRefreshResponse (StartInstanceRefreshResponse'),
-    newStartInstanceRefreshResponse,
-
-    -- ** ResumeProcesses
-    ResumeProcesses (ResumeProcesses'),
-    newResumeProcesses,
-    ResumeProcessesResponse (ResumeProcessesResponse'),
-    newResumeProcessesResponse,
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
 
     -- ** PutNotificationConfiguration
     PutNotificationConfiguration (PutNotificationConfiguration'),
@@ -123,6 +93,12 @@ module Network.AWS.AutoScaling
     DescribeTagsResponse (DescribeTagsResponse'),
     newDescribeTagsResponse,
 
+    -- ** DeleteNotificationConfiguration
+    DeleteNotificationConfiguration (DeleteNotificationConfiguration'),
+    newDeleteNotificationConfiguration,
+    DeleteNotificationConfigurationResponse (DeleteNotificationConfigurationResponse'),
+    newDeleteNotificationConfigurationResponse,
+
     -- ** DeleteWarmPool
     DeleteWarmPool (DeleteWarmPool'),
     newDeleteWarmPool,
@@ -135,125 +111,35 @@ module Network.AWS.AutoScaling
     PutScalingPolicyResponse (PutScalingPolicyResponse'),
     newPutScalingPolicyResponse,
 
-    -- ** CreateOrUpdateTags
-    CreateOrUpdateTags (CreateOrUpdateTags'),
-    newCreateOrUpdateTags,
-    CreateOrUpdateTagsResponse (CreateOrUpdateTagsResponse'),
-    newCreateOrUpdateTagsResponse,
+    -- ** StartInstanceRefresh
+    StartInstanceRefresh (StartInstanceRefresh'),
+    newStartInstanceRefresh,
+    StartInstanceRefreshResponse (StartInstanceRefreshResponse'),
+    newStartInstanceRefreshResponse,
 
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
+    -- ** AttachLoadBalancerTargetGroups
+    AttachLoadBalancerTargetGroups (AttachLoadBalancerTargetGroups'),
+    newAttachLoadBalancerTargetGroups,
+    AttachLoadBalancerTargetGroupsResponse (AttachLoadBalancerTargetGroupsResponse'),
+    newAttachLoadBalancerTargetGroupsResponse,
 
-    -- ** CreateLaunchConfiguration
-    CreateLaunchConfiguration (CreateLaunchConfiguration'),
-    newCreateLaunchConfiguration,
-    CreateLaunchConfigurationResponse (CreateLaunchConfigurationResponse'),
-    newCreateLaunchConfigurationResponse,
+    -- ** DeleteLaunchConfiguration
+    DeleteLaunchConfiguration (DeleteLaunchConfiguration'),
+    newDeleteLaunchConfiguration,
+    DeleteLaunchConfigurationResponse (DeleteLaunchConfigurationResponse'),
+    newDeleteLaunchConfigurationResponse,
 
-    -- ** DescribeAutoScalingNotificationTypes
-    DescribeAutoScalingNotificationTypes (DescribeAutoScalingNotificationTypes'),
-    newDescribeAutoScalingNotificationTypes,
-    DescribeAutoScalingNotificationTypesResponse (DescribeAutoScalingNotificationTypesResponse'),
-    newDescribeAutoScalingNotificationTypesResponse,
+    -- ** EnterStandby
+    EnterStandby (EnterStandby'),
+    newEnterStandby,
+    EnterStandbyResponse (EnterStandbyResponse'),
+    newEnterStandbyResponse,
 
-    -- ** DescribeScheduledActions (Paginated)
-    DescribeScheduledActions (DescribeScheduledActions'),
-    newDescribeScheduledActions,
-    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
-    newDescribeScheduledActionsResponse,
-
-    -- ** DescribeAdjustmentTypes
-    DescribeAdjustmentTypes (DescribeAdjustmentTypes'),
-    newDescribeAdjustmentTypes,
-    DescribeAdjustmentTypesResponse (DescribeAdjustmentTypesResponse'),
-    newDescribeAdjustmentTypesResponse,
-
-    -- ** DetachLoadBalancers
-    DetachLoadBalancers (DetachLoadBalancers'),
-    newDetachLoadBalancers,
-    DetachLoadBalancersResponse (DetachLoadBalancersResponse'),
-    newDetachLoadBalancersResponse,
-
-    -- ** DeleteScheduledAction
-    DeleteScheduledAction (DeleteScheduledAction'),
-    newDeleteScheduledAction,
-    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
-    newDeleteScheduledActionResponse,
-
-    -- ** DescribeScalingActivities (Paginated)
-    DescribeScalingActivities (DescribeScalingActivities'),
-    newDescribeScalingActivities,
-    DescribeScalingActivitiesResponse (DescribeScalingActivitiesResponse'),
-    newDescribeScalingActivitiesResponse,
-
-    -- ** DescribeLifecycleHooks
-    DescribeLifecycleHooks (DescribeLifecycleHooks'),
-    newDescribeLifecycleHooks,
-    DescribeLifecycleHooksResponse (DescribeLifecycleHooksResponse'),
-    newDescribeLifecycleHooksResponse,
-
-    -- ** PutScheduledUpdateGroupAction
-    PutScheduledUpdateGroupAction (PutScheduledUpdateGroupAction'),
-    newPutScheduledUpdateGroupAction,
-    PutScheduledUpdateGroupActionResponse (PutScheduledUpdateGroupActionResponse'),
-    newPutScheduledUpdateGroupActionResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** DetachLoadBalancerTargetGroups
-    DetachLoadBalancerTargetGroups (DetachLoadBalancerTargetGroups'),
-    newDetachLoadBalancerTargetGroups,
-    DetachLoadBalancerTargetGroupsResponse (DetachLoadBalancerTargetGroupsResponse'),
-    newDetachLoadBalancerTargetGroupsResponse,
-
-    -- ** DescribeWarmPool
-    DescribeWarmPool (DescribeWarmPool'),
-    newDescribeWarmPool,
-    DescribeWarmPoolResponse (DescribeWarmPoolResponse'),
-    newDescribeWarmPoolResponse,
-
-    -- ** SetInstanceProtection
-    SetInstanceProtection (SetInstanceProtection'),
-    newSetInstanceProtection,
-    SetInstanceProtectionResponse (SetInstanceProtectionResponse'),
-    newSetInstanceProtectionResponse,
-
-    -- ** DetachInstances
-    DetachInstances (DetachInstances'),
-    newDetachInstances,
-    DetachInstancesResponse (DetachInstancesResponse'),
-    newDetachInstancesResponse,
-
-    -- ** TerminateInstanceInAutoScalingGroup
-    TerminateInstanceInAutoScalingGroup (TerminateInstanceInAutoScalingGroup'),
-    newTerminateInstanceInAutoScalingGroup,
-    TerminateInstanceInAutoScalingGroupResponse (TerminateInstanceInAutoScalingGroupResponse'),
-    newTerminateInstanceInAutoScalingGroupResponse,
-
-    -- ** AttachLoadBalancers
-    AttachLoadBalancers (AttachLoadBalancers'),
-    newAttachLoadBalancers,
-    AttachLoadBalancersResponse (AttachLoadBalancersResponse'),
-    newAttachLoadBalancersResponse,
-
-    -- ** DescribeAccountLimits
-    DescribeAccountLimits (DescribeAccountLimits'),
-    newDescribeAccountLimits,
-    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
-    newDescribeAccountLimitsResponse,
-
-    -- ** DescribeTerminationPolicyTypes
-    DescribeTerminationPolicyTypes (DescribeTerminationPolicyTypes'),
-    newDescribeTerminationPolicyTypes,
-    DescribeTerminationPolicyTypesResponse (DescribeTerminationPolicyTypesResponse'),
-    newDescribeTerminationPolicyTypesResponse,
+    -- ** SuspendProcesses
+    SuspendProcesses (SuspendProcesses'),
+    newSuspendProcesses,
+    SuspendProcessesResponse (SuspendProcessesResponse'),
+    newSuspendProcessesResponse,
 
     -- ** SetInstanceHealth
     SetInstanceHealth (SetInstanceHealth'),
@@ -267,131 +153,23 @@ module Network.AWS.AutoScaling
     ExitStandbyResponse (ExitStandbyResponse'),
     newExitStandbyResponse,
 
-    -- ** GetPredictiveScalingForecast
-    GetPredictiveScalingForecast (GetPredictiveScalingForecast'),
-    newGetPredictiveScalingForecast,
-    GetPredictiveScalingForecastResponse (GetPredictiveScalingForecastResponse'),
-    newGetPredictiveScalingForecastResponse,
+    -- ** DescribeTerminationPolicyTypes
+    DescribeTerminationPolicyTypes (DescribeTerminationPolicyTypes'),
+    newDescribeTerminationPolicyTypes,
+    DescribeTerminationPolicyTypesResponse (DescribeTerminationPolicyTypesResponse'),
+    newDescribeTerminationPolicyTypesResponse,
 
-    -- ** PutWarmPool
-    PutWarmPool (PutWarmPool'),
-    newPutWarmPool,
-    PutWarmPoolResponse (PutWarmPoolResponse'),
-    newPutWarmPoolResponse,
+    -- ** CancelInstanceRefresh
+    CancelInstanceRefresh (CancelInstanceRefresh'),
+    newCancelInstanceRefresh,
+    CancelInstanceRefreshResponse (CancelInstanceRefreshResponse'),
+    newCancelInstanceRefreshResponse,
 
-    -- ** DeleteNotificationConfiguration
-    DeleteNotificationConfiguration (DeleteNotificationConfiguration'),
-    newDeleteNotificationConfiguration,
-    DeleteNotificationConfigurationResponse (DeleteNotificationConfigurationResponse'),
-    newDeleteNotificationConfigurationResponse,
-
-    -- ** PutLifecycleHook
-    PutLifecycleHook (PutLifecycleHook'),
-    newPutLifecycleHook,
-    PutLifecycleHookResponse (PutLifecycleHookResponse'),
-    newPutLifecycleHookResponse,
-
-    -- ** BatchPutScheduledUpdateGroupAction
-    BatchPutScheduledUpdateGroupAction (BatchPutScheduledUpdateGroupAction'),
-    newBatchPutScheduledUpdateGroupAction,
-    BatchPutScheduledUpdateGroupActionResponse (BatchPutScheduledUpdateGroupActionResponse'),
-    newBatchPutScheduledUpdateGroupActionResponse,
-
-    -- ** DescribeMetricCollectionTypes
-    DescribeMetricCollectionTypes (DescribeMetricCollectionTypes'),
-    newDescribeMetricCollectionTypes,
-    DescribeMetricCollectionTypesResponse (DescribeMetricCollectionTypesResponse'),
-    newDescribeMetricCollectionTypesResponse,
-
-    -- ** DeleteLaunchConfiguration
-    DeleteLaunchConfiguration (DeleteLaunchConfiguration'),
-    newDeleteLaunchConfiguration,
-    DeleteLaunchConfigurationResponse (DeleteLaunchConfigurationResponse'),
-    newDeleteLaunchConfigurationResponse,
-
-    -- ** UpdateAutoScalingGroup
-    UpdateAutoScalingGroup (UpdateAutoScalingGroup'),
-    newUpdateAutoScalingGroup,
-    UpdateAutoScalingGroupResponse (UpdateAutoScalingGroupResponse'),
-    newUpdateAutoScalingGroupResponse,
-
-    -- ** DeleteAutoScalingGroup
-    DeleteAutoScalingGroup (DeleteAutoScalingGroup'),
-    newDeleteAutoScalingGroup,
-    DeleteAutoScalingGroupResponse (DeleteAutoScalingGroupResponse'),
-    newDeleteAutoScalingGroupResponse,
-
-    -- ** DescribeLoadBalancers (Paginated)
-    DescribeLoadBalancers (DescribeLoadBalancers'),
-    newDescribeLoadBalancers,
-    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
-    newDescribeLoadBalancersResponse,
-
-    -- ** CreateAutoScalingGroup
-    CreateAutoScalingGroup (CreateAutoScalingGroup'),
-    newCreateAutoScalingGroup,
-    CreateAutoScalingGroupResponse (CreateAutoScalingGroupResponse'),
-    newCreateAutoScalingGroupResponse,
-
-    -- ** AttachInstances
-    AttachInstances (AttachInstances'),
-    newAttachInstances,
-    AttachInstancesResponse (AttachInstancesResponse'),
-    newAttachInstancesResponse,
-
-    -- ** CompleteLifecycleAction
-    CompleteLifecycleAction (CompleteLifecycleAction'),
-    newCompleteLifecycleAction,
-    CompleteLifecycleActionResponse (CompleteLifecycleActionResponse'),
-    newCompleteLifecycleActionResponse,
-
-    -- ** SetDesiredCapacity
-    SetDesiredCapacity (SetDesiredCapacity'),
-    newSetDesiredCapacity,
-    SetDesiredCapacityResponse (SetDesiredCapacityResponse'),
-    newSetDesiredCapacityResponse,
-
-    -- ** DescribeLifecycleHookTypes
-    DescribeLifecycleHookTypes (DescribeLifecycleHookTypes'),
-    newDescribeLifecycleHookTypes,
-    DescribeLifecycleHookTypesResponse (DescribeLifecycleHookTypesResponse'),
-    newDescribeLifecycleHookTypesResponse,
-
-    -- ** DescribeNotificationConfigurations (Paginated)
-    DescribeNotificationConfigurations (DescribeNotificationConfigurations'),
-    newDescribeNotificationConfigurations,
-    DescribeNotificationConfigurationsResponse (DescribeNotificationConfigurationsResponse'),
-    newDescribeNotificationConfigurationsResponse,
-
-    -- ** DescribePolicies (Paginated)
-    DescribePolicies (DescribePolicies'),
-    newDescribePolicies,
-    DescribePoliciesResponse (DescribePoliciesResponse'),
-    newDescribePoliciesResponse,
-
-    -- ** DescribeLaunchConfigurations (Paginated)
-    DescribeLaunchConfigurations (DescribeLaunchConfigurations'),
-    newDescribeLaunchConfigurations,
-    DescribeLaunchConfigurationsResponse (DescribeLaunchConfigurationsResponse'),
-    newDescribeLaunchConfigurationsResponse,
-
-    -- ** DescribeAutoScalingGroups (Paginated)
-    DescribeAutoScalingGroups (DescribeAutoScalingGroups'),
-    newDescribeAutoScalingGroups,
-    DescribeAutoScalingGroupsResponse (DescribeAutoScalingGroupsResponse'),
-    newDescribeAutoScalingGroupsResponse,
-
-    -- ** EnableMetricsCollection
-    EnableMetricsCollection (EnableMetricsCollection'),
-    newEnableMetricsCollection,
-    EnableMetricsCollectionResponse (EnableMetricsCollectionResponse'),
-    newEnableMetricsCollectionResponse,
-
-    -- ** DescribeScalingProcessTypes
-    DescribeScalingProcessTypes (DescribeScalingProcessTypes'),
-    newDescribeScalingProcessTypes,
-    DescribeScalingProcessTypesResponse (DescribeScalingProcessTypesResponse'),
-    newDescribeScalingProcessTypesResponse,
+    -- ** DescribeAutoScalingInstances (Paginated)
+    DescribeAutoScalingInstances (DescribeAutoScalingInstances'),
+    newDescribeAutoScalingInstances,
+    DescribeAutoScalingInstancesResponse (DescribeAutoScalingInstancesResponse'),
+    newDescribeAutoScalingInstancesResponse,
 
     -- ** RecordLifecycleActionHeartbeat
     RecordLifecycleActionHeartbeat (RecordLifecycleActionHeartbeat'),
@@ -405,17 +183,173 @@ module Network.AWS.AutoScaling
     DisableMetricsCollectionResponse (DisableMetricsCollectionResponse'),
     newDisableMetricsCollectionResponse,
 
-    -- ** DescribeAutoScalingInstances (Paginated)
-    DescribeAutoScalingInstances (DescribeAutoScalingInstances'),
-    newDescribeAutoScalingInstances,
-    DescribeAutoScalingInstancesResponse (DescribeAutoScalingInstancesResponse'),
-    newDescribeAutoScalingInstancesResponse,
+    -- ** DetachInstances
+    DetachInstances (DetachInstances'),
+    newDetachInstances,
+    DetachInstancesResponse (DetachInstancesResponse'),
+    newDetachInstancesResponse,
 
-    -- ** CancelInstanceRefresh
-    CancelInstanceRefresh (CancelInstanceRefresh'),
-    newCancelInstanceRefresh,
-    CancelInstanceRefreshResponse (CancelInstanceRefreshResponse'),
-    newCancelInstanceRefreshResponse,
+    -- ** EnableMetricsCollection
+    EnableMetricsCollection (EnableMetricsCollection'),
+    newEnableMetricsCollection,
+    EnableMetricsCollectionResponse (EnableMetricsCollectionResponse'),
+    newEnableMetricsCollectionResponse,
+
+    -- ** DescribeScalingProcessTypes
+    DescribeScalingProcessTypes (DescribeScalingProcessTypes'),
+    newDescribeScalingProcessTypes,
+    DescribeScalingProcessTypesResponse (DescribeScalingProcessTypesResponse'),
+    newDescribeScalingProcessTypesResponse,
+
+    -- ** DescribeWarmPool
+    DescribeWarmPool (DescribeWarmPool'),
+    newDescribeWarmPool,
+    DescribeWarmPoolResponse (DescribeWarmPoolResponse'),
+    newDescribeWarmPoolResponse,
+
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** DetachLoadBalancerTargetGroups
+    DetachLoadBalancerTargetGroups (DetachLoadBalancerTargetGroups'),
+    newDetachLoadBalancerTargetGroups,
+    DetachLoadBalancerTargetGroupsResponse (DetachLoadBalancerTargetGroupsResponse'),
+    newDetachLoadBalancerTargetGroupsResponse,
+
+    -- ** DescribeLifecycleHooks
+    DescribeLifecycleHooks (DescribeLifecycleHooks'),
+    newDescribeLifecycleHooks,
+    DescribeLifecycleHooksResponse (DescribeLifecycleHooksResponse'),
+    newDescribeLifecycleHooksResponse,
+
+    -- ** DescribeAutoScalingGroups (Paginated)
+    DescribeAutoScalingGroups (DescribeAutoScalingGroups'),
+    newDescribeAutoScalingGroups,
+    DescribeAutoScalingGroupsResponse (DescribeAutoScalingGroupsResponse'),
+    newDescribeAutoScalingGroupsResponse,
+
+    -- ** DeleteScheduledAction
+    DeleteScheduledAction (DeleteScheduledAction'),
+    newDeleteScheduledAction,
+    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
+    newDeleteScheduledActionResponse,
+
+    -- ** SetDesiredCapacity
+    SetDesiredCapacity (SetDesiredCapacity'),
+    newSetDesiredCapacity,
+    SetDesiredCapacityResponse (SetDesiredCapacityResponse'),
+    newSetDesiredCapacityResponse,
+
+    -- ** DetachLoadBalancers
+    DetachLoadBalancers (DetachLoadBalancers'),
+    newDetachLoadBalancers,
+    DetachLoadBalancersResponse (DetachLoadBalancersResponse'),
+    newDetachLoadBalancersResponse,
+
+    -- ** DescribeAutoScalingNotificationTypes
+    DescribeAutoScalingNotificationTypes (DescribeAutoScalingNotificationTypes'),
+    newDescribeAutoScalingNotificationTypes,
+    DescribeAutoScalingNotificationTypesResponse (DescribeAutoScalingNotificationTypesResponse'),
+    newDescribeAutoScalingNotificationTypesResponse,
+
+    -- ** DescribeScheduledActions (Paginated)
+    DescribeScheduledActions (DescribeScheduledActions'),
+    newDescribeScheduledActions,
+    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
+    newDescribeScheduledActionsResponse,
+
+    -- ** CreateOrUpdateTags
+    CreateOrUpdateTags (CreateOrUpdateTags'),
+    newCreateOrUpdateTags,
+    CreateOrUpdateTagsResponse (CreateOrUpdateTagsResponse'),
+    newCreateOrUpdateTagsResponse,
+
+    -- ** CompleteLifecycleAction
+    CompleteLifecycleAction (CompleteLifecycleAction'),
+    newCompleteLifecycleAction,
+    CompleteLifecycleActionResponse (CompleteLifecycleActionResponse'),
+    newCompleteLifecycleActionResponse,
+
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
+
+    -- ** AttachInstances
+    AttachInstances (AttachInstances'),
+    newAttachInstances,
+    AttachInstancesResponse (AttachInstancesResponse'),
+    newAttachInstancesResponse,
+
+    -- ** UpdateAutoScalingGroup
+    UpdateAutoScalingGroup (UpdateAutoScalingGroup'),
+    newUpdateAutoScalingGroup,
+    UpdateAutoScalingGroupResponse (UpdateAutoScalingGroupResponse'),
+    newUpdateAutoScalingGroupResponse,
+
+    -- ** DeleteAutoScalingGroup
+    DeleteAutoScalingGroup (DeleteAutoScalingGroup'),
+    newDeleteAutoScalingGroup,
+    DeleteAutoScalingGroupResponse (DeleteAutoScalingGroupResponse'),
+    newDeleteAutoScalingGroupResponse,
+
+    -- ** PutLifecycleHook
+    PutLifecycleHook (PutLifecycleHook'),
+    newPutLifecycleHook,
+    PutLifecycleHookResponse (PutLifecycleHookResponse'),
+    newPutLifecycleHookResponse,
+
+    -- ** BatchPutScheduledUpdateGroupAction
+    BatchPutScheduledUpdateGroupAction (BatchPutScheduledUpdateGroupAction'),
+    newBatchPutScheduledUpdateGroupAction,
+    BatchPutScheduledUpdateGroupActionResponse (BatchPutScheduledUpdateGroupActionResponse'),
+    newBatchPutScheduledUpdateGroupActionResponse,
+
+    -- ** DeleteLifecycleHook
+    DeleteLifecycleHook (DeleteLifecycleHook'),
+    newDeleteLifecycleHook,
+    DeleteLifecycleHookResponse (DeleteLifecycleHookResponse'),
+    newDeleteLifecycleHookResponse,
+
+    -- ** ResumeProcesses
+    ResumeProcesses (ResumeProcesses'),
+    newResumeProcesses,
+    ResumeProcessesResponse (ResumeProcessesResponse'),
+    newResumeProcessesResponse,
+
+    -- ** ExecutePolicy
+    ExecutePolicy (ExecutePolicy'),
+    newExecutePolicy,
+    ExecutePolicyResponse (ExecutePolicyResponse'),
+    newExecutePolicyResponse,
+
+    -- ** GetPredictiveScalingForecast
+    GetPredictiveScalingForecast (GetPredictiveScalingForecast'),
+    newGetPredictiveScalingForecast,
+    GetPredictiveScalingForecastResponse (GetPredictiveScalingForecastResponse'),
+    newGetPredictiveScalingForecastResponse,
+
+    -- ** DescribeInstanceRefreshes
+    DescribeInstanceRefreshes (DescribeInstanceRefreshes'),
+    newDescribeInstanceRefreshes,
+    DescribeInstanceRefreshesResponse (DescribeInstanceRefreshesResponse'),
+    newDescribeInstanceRefreshesResponse,
+
+    -- ** DescribeAccountLimits
+    DescribeAccountLimits (DescribeAccountLimits'),
+    newDescribeAccountLimits,
+    DescribeAccountLimitsResponse (DescribeAccountLimitsResponse'),
+    newDescribeAccountLimitsResponse,
+
+    -- ** AttachLoadBalancers
+    AttachLoadBalancers (AttachLoadBalancers'),
+    newAttachLoadBalancers,
+    AttachLoadBalancersResponse (AttachLoadBalancersResponse'),
+    newAttachLoadBalancersResponse,
 
     -- ** BatchDeleteScheduledAction
     BatchDeleteScheduledAction (BatchDeleteScheduledAction'),
@@ -423,11 +357,77 @@ module Network.AWS.AutoScaling
     BatchDeleteScheduledActionResponse (BatchDeleteScheduledActionResponse'),
     newBatchDeleteScheduledActionResponse,
 
+    -- ** TerminateInstanceInAutoScalingGroup
+    TerminateInstanceInAutoScalingGroup (TerminateInstanceInAutoScalingGroup'),
+    newTerminateInstanceInAutoScalingGroup,
+    TerminateInstanceInAutoScalingGroupResponse (TerminateInstanceInAutoScalingGroupResponse'),
+    newTerminateInstanceInAutoScalingGroupResponse,
+
     -- ** DescribeLoadBalancerTargetGroups (Paginated)
     DescribeLoadBalancerTargetGroups (DescribeLoadBalancerTargetGroups'),
     newDescribeLoadBalancerTargetGroups,
     DescribeLoadBalancerTargetGroupsResponse (DescribeLoadBalancerTargetGroupsResponse'),
     newDescribeLoadBalancerTargetGroupsResponse,
+
+    -- ** PutScheduledUpdateGroupAction
+    PutScheduledUpdateGroupAction (PutScheduledUpdateGroupAction'),
+    newPutScheduledUpdateGroupAction,
+    PutScheduledUpdateGroupActionResponse (PutScheduledUpdateGroupActionResponse'),
+    newPutScheduledUpdateGroupActionResponse,
+
+    -- ** SetInstanceProtection
+    SetInstanceProtection (SetInstanceProtection'),
+    newSetInstanceProtection,
+    SetInstanceProtectionResponse (SetInstanceProtectionResponse'),
+    newSetInstanceProtectionResponse,
+
+    -- ** DescribePolicies (Paginated)
+    DescribePolicies (DescribePolicies'),
+    newDescribePolicies,
+    DescribePoliciesResponse (DescribePoliciesResponse'),
+    newDescribePoliciesResponse,
+
+    -- ** DescribeLaunchConfigurations (Paginated)
+    DescribeLaunchConfigurations (DescribeLaunchConfigurations'),
+    newDescribeLaunchConfigurations,
+    DescribeLaunchConfigurationsResponse (DescribeLaunchConfigurationsResponse'),
+    newDescribeLaunchConfigurationsResponse,
+
+    -- ** DescribeScalingActivities (Paginated)
+    DescribeScalingActivities (DescribeScalingActivities'),
+    newDescribeScalingActivities,
+    DescribeScalingActivitiesResponse (DescribeScalingActivitiesResponse'),
+    newDescribeScalingActivitiesResponse,
+
+    -- ** DescribeNotificationConfigurations (Paginated)
+    DescribeNotificationConfigurations (DescribeNotificationConfigurations'),
+    newDescribeNotificationConfigurations,
+    DescribeNotificationConfigurationsResponse (DescribeNotificationConfigurationsResponse'),
+    newDescribeNotificationConfigurationsResponse,
+
+    -- ** DescribeLifecycleHookTypes
+    DescribeLifecycleHookTypes (DescribeLifecycleHookTypes'),
+    newDescribeLifecycleHookTypes,
+    DescribeLifecycleHookTypesResponse (DescribeLifecycleHookTypesResponse'),
+    newDescribeLifecycleHookTypesResponse,
+
+    -- ** DescribeAdjustmentTypes
+    DescribeAdjustmentTypes (DescribeAdjustmentTypes'),
+    newDescribeAdjustmentTypes,
+    DescribeAdjustmentTypesResponse (DescribeAdjustmentTypesResponse'),
+    newDescribeAdjustmentTypesResponse,
+
+    -- ** CreateAutoScalingGroup
+    CreateAutoScalingGroup (CreateAutoScalingGroup'),
+    newCreateAutoScalingGroup,
+    CreateAutoScalingGroupResponse (CreateAutoScalingGroupResponse'),
+    newCreateAutoScalingGroupResponse,
+
+    -- ** CreateLaunchConfiguration
+    CreateLaunchConfiguration (CreateLaunchConfiguration'),
+    newCreateLaunchConfiguration,
+    CreateLaunchConfigurationResponse (CreateLaunchConfigurationResponse'),
+    newCreateLaunchConfigurationResponse,
 
     -- * Types
 

@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceRefreshLivePoolProgress' smart constructor.
 data InstanceRefreshLivePoolProgress = InstanceRefreshLivePoolProgress'
-  { -- | The percentage of instances in the Auto Scaling group that have been
+  { -- | The number of instances remaining to update.
+    instancesToUpdate :: Prelude.Maybe Prelude.Natural,
+    -- | The percentage of instances in the Auto Scaling group that have been
     -- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks
     -- the instance\'s health status and warm-up time. When the instance\'s
     -- health status changes to healthy and the specified warm-up time passes,
     -- the instance is considered updated and is added to the percentage
     -- complete.
-    percentageComplete :: Prelude.Maybe Prelude.Natural,
-    -- | The number of instances remaining to update.
-    instancesToUpdate :: Prelude.Maybe Prelude.Natural
+    percentageComplete :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,26 @@ data InstanceRefreshLivePoolProgress = InstanceRefreshLivePoolProgress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instancesToUpdate', 'instanceRefreshLivePoolProgress_instancesToUpdate' - The number of instances remaining to update.
+--
 -- 'percentageComplete', 'instanceRefreshLivePoolProgress_percentageComplete' - The percentage of instances in the Auto Scaling group that have been
 -- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks
 -- the instance\'s health status and warm-up time. When the instance\'s
 -- health status changes to healthy and the specified warm-up time passes,
 -- the instance is considered updated and is added to the percentage
 -- complete.
---
--- 'instancesToUpdate', 'instanceRefreshLivePoolProgress_instancesToUpdate' - The number of instances remaining to update.
 newInstanceRefreshLivePoolProgress ::
   InstanceRefreshLivePoolProgress
 newInstanceRefreshLivePoolProgress =
   InstanceRefreshLivePoolProgress'
-    { percentageComplete =
+    { instancesToUpdate =
         Prelude.Nothing,
-      instancesToUpdate = Prelude.Nothing
+      percentageComplete = Prelude.Nothing
     }
+
+-- | The number of instances remaining to update.
+instanceRefreshLivePoolProgress_instancesToUpdate :: Lens.Lens' InstanceRefreshLivePoolProgress (Prelude.Maybe Prelude.Natural)
+instanceRefreshLivePoolProgress_instancesToUpdate = Lens.lens (\InstanceRefreshLivePoolProgress' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefreshLivePoolProgress' {} a -> s {instancesToUpdate = a} :: InstanceRefreshLivePoolProgress)
 
 -- | The percentage of instances in the Auto Scaling group that have been
 -- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks
@@ -74,15 +78,11 @@ newInstanceRefreshLivePoolProgress =
 instanceRefreshLivePoolProgress_percentageComplete :: Lens.Lens' InstanceRefreshLivePoolProgress (Prelude.Maybe Prelude.Natural)
 instanceRefreshLivePoolProgress_percentageComplete = Lens.lens (\InstanceRefreshLivePoolProgress' {percentageComplete} -> percentageComplete) (\s@InstanceRefreshLivePoolProgress' {} a -> s {percentageComplete = a} :: InstanceRefreshLivePoolProgress)
 
--- | The number of instances remaining to update.
-instanceRefreshLivePoolProgress_instancesToUpdate :: Lens.Lens' InstanceRefreshLivePoolProgress (Prelude.Maybe Prelude.Natural)
-instanceRefreshLivePoolProgress_instancesToUpdate = Lens.lens (\InstanceRefreshLivePoolProgress' {instancesToUpdate} -> instancesToUpdate) (\s@InstanceRefreshLivePoolProgress' {} a -> s {instancesToUpdate = a} :: InstanceRefreshLivePoolProgress)
-
 instance Core.FromXML InstanceRefreshLivePoolProgress where
   parseXML x =
     InstanceRefreshLivePoolProgress'
-      Prelude.<$> (x Core..@? "PercentageComplete")
-      Prelude.<*> (x Core..@? "InstancesToUpdate")
+      Prelude.<$> (x Core..@? "InstancesToUpdate")
+      Prelude.<*> (x Core..@? "PercentageComplete")
 
 instance
   Prelude.Hashable

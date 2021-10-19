@@ -31,59 +31,47 @@ module Network.AWS.EKS
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ClientException
-    _ClientException,
+    -- ** ServerException
+    _ServerException,
 
     -- ** UnsupportedAvailabilityZoneException
     _UnsupportedAvailabilityZoneException,
 
-    -- ** ServerException
-    _ServerException,
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ClientException
+    _ClientException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** FargateProfileDeleted
-    newFargateProfileDeleted,
-
-    -- ** ClusterActive
-    newClusterActive,
-
-    -- ** NodegroupActive
-    newNodegroupActive,
+    -- ** AddonActive
+    newAddonActive,
 
     -- ** NodegroupDeleted
     newNodegroupDeleted,
-
-    -- ** ClusterDeleted
-    newClusterDeleted,
-
-    -- ** AddonActive
-    newAddonActive,
 
     -- ** FargateProfileActive
     newFargateProfileActive,
@@ -91,146 +79,20 @@ module Network.AWS.EKS
     -- ** AddonDeleted
     newAddonDeleted,
 
+    -- ** ClusterActive
+    newClusterActive,
+
+    -- ** FargateProfileDeleted
+    newFargateProfileDeleted,
+
+    -- ** ClusterDeleted
+    newClusterDeleted,
+
+    -- ** NodegroupActive
+    newNodegroupActive,
+
     -- * Operations
     -- $operations
-
-    -- ** DescribeUpdate
-    DescribeUpdate (DescribeUpdate'),
-    newDescribeUpdate,
-    DescribeUpdateResponse (DescribeUpdateResponse'),
-    newDescribeUpdateResponse,
-
-    -- ** DescribeFargateProfile
-    DescribeFargateProfile (DescribeFargateProfile'),
-    newDescribeFargateProfile,
-    DescribeFargateProfileResponse (DescribeFargateProfileResponse'),
-    newDescribeFargateProfileResponse,
-
-    -- ** DescribeAddonVersions (Paginated)
-    DescribeAddonVersions (DescribeAddonVersions'),
-    newDescribeAddonVersions,
-    DescribeAddonVersionsResponse (DescribeAddonVersionsResponse'),
-    newDescribeAddonVersionsResponse,
-
-    -- ** ListIdentityProviderConfigs (Paginated)
-    ListIdentityProviderConfigs (ListIdentityProviderConfigs'),
-    newListIdentityProviderConfigs,
-    ListIdentityProviderConfigsResponse (ListIdentityProviderConfigsResponse'),
-    newListIdentityProviderConfigsResponse,
-
-    -- ** ListAddons (Paginated)
-    ListAddons (ListAddons'),
-    newListAddons,
-    ListAddonsResponse (ListAddonsResponse'),
-    newListAddonsResponse,
-
-    -- ** AssociateIdentityProviderConfig
-    AssociateIdentityProviderConfig (AssociateIdentityProviderConfig'),
-    newAssociateIdentityProviderConfig,
-    AssociateIdentityProviderConfigResponse (AssociateIdentityProviderConfigResponse'),
-    newAssociateIdentityProviderConfigResponse,
-
-    -- ** UpdateClusterVersion
-    UpdateClusterVersion (UpdateClusterVersion'),
-    newUpdateClusterVersion,
-    UpdateClusterVersionResponse (UpdateClusterVersionResponse'),
-    newUpdateClusterVersionResponse,
-
-    -- ** DeleteAddon
-    DeleteAddon (DeleteAddon'),
-    newDeleteAddon,
-    DeleteAddonResponse (DeleteAddonResponse'),
-    newDeleteAddonResponse,
-
-    -- ** AssociateEncryptionConfig
-    AssociateEncryptionConfig (AssociateEncryptionConfig'),
-    newAssociateEncryptionConfig,
-    AssociateEncryptionConfigResponse (AssociateEncryptionConfigResponse'),
-    newAssociateEncryptionConfigResponse,
-
-    -- ** UpdateAddon
-    UpdateAddon (UpdateAddon'),
-    newUpdateAddon,
-    UpdateAddonResponse (UpdateAddonResponse'),
-    newUpdateAddonResponse,
-
-    -- ** ListNodegroups (Paginated)
-    ListNodegroups (ListNodegroups'),
-    newListNodegroups,
-    ListNodegroupsResponse (ListNodegroupsResponse'),
-    newListNodegroupsResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
-
-    -- ** RegisterCluster
-    RegisterCluster (RegisterCluster'),
-    newRegisterCluster,
-    RegisterClusterResponse (RegisterClusterResponse'),
-    newRegisterClusterResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateNodegroup
-    CreateNodegroup (CreateNodegroup'),
-    newCreateNodegroup,
-    CreateNodegroupResponse (CreateNodegroupResponse'),
-    newCreateNodegroupResponse,
-
-    -- ** DescribeIdentityProviderConfig
-    DescribeIdentityProviderConfig (DescribeIdentityProviderConfig'),
-    newDescribeIdentityProviderConfig,
-    DescribeIdentityProviderConfigResponse (DescribeIdentityProviderConfigResponse'),
-    newDescribeIdentityProviderConfigResponse,
-
-    -- ** DeleteFargateProfile
-    DeleteFargateProfile (DeleteFargateProfile'),
-    newDeleteFargateProfile,
-    DeleteFargateProfileResponse (DeleteFargateProfileResponse'),
-    newDeleteFargateProfileResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListFargateProfiles (Paginated)
-    ListFargateProfiles (ListFargateProfiles'),
-    newListFargateProfiles,
-    ListFargateProfilesResponse (ListFargateProfilesResponse'),
-    newListFargateProfilesResponse,
-
-    -- ** ListUpdates (Paginated)
-    ListUpdates (ListUpdates'),
-    newListUpdates,
-    ListUpdatesResponse (ListUpdatesResponse'),
-    newListUpdatesResponse,
-
-    -- ** DisassociateIdentityProviderConfig
-    DisassociateIdentityProviderConfig (DisassociateIdentityProviderConfig'),
-    newDisassociateIdentityProviderConfig,
-    DisassociateIdentityProviderConfigResponse (DisassociateIdentityProviderConfigResponse'),
-    newDisassociateIdentityProviderConfigResponse,
-
-    -- ** DescribeCluster
-    DescribeCluster (DescribeCluster'),
-    newDescribeCluster,
-    DescribeClusterResponse (DescribeClusterResponse'),
-    newDescribeClusterResponse,
-
-    -- ** UpdateNodegroupVersion
-    UpdateNodegroupVersion (UpdateNodegroupVersion'),
-    newUpdateNodegroupVersion,
-    UpdateNodegroupVersionResponse (UpdateNodegroupVersionResponse'),
-    newUpdateNodegroupVersionResponse,
 
     -- ** CreateAddon
     CreateAddon (CreateAddon'),
@@ -238,47 +100,35 @@ module Network.AWS.EKS
     CreateAddonResponse (CreateAddonResponse'),
     newCreateAddonResponse,
 
+    -- ** DescribeFargateProfile
+    DescribeFargateProfile (DescribeFargateProfile'),
+    newDescribeFargateProfile,
+    DescribeFargateProfileResponse (DescribeFargateProfileResponse'),
+    newDescribeFargateProfileResponse,
+
+    -- ** DescribeUpdate
+    DescribeUpdate (DescribeUpdate'),
+    newDescribeUpdate,
+    DescribeUpdateResponse (DescribeUpdateResponse'),
+    newDescribeUpdateResponse,
+
     -- ** UpdateNodegroupConfig
     UpdateNodegroupConfig (UpdateNodegroupConfig'),
     newUpdateNodegroupConfig,
     UpdateNodegroupConfigResponse (UpdateNodegroupConfigResponse'),
     newUpdateNodegroupConfigResponse,
 
-    -- ** UpdateClusterConfig
-    UpdateClusterConfig (UpdateClusterConfig'),
-    newUpdateClusterConfig,
-    UpdateClusterConfigResponse (UpdateClusterConfigResponse'),
-    newUpdateClusterConfigResponse,
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
 
-    -- ** DeleteNodegroup
-    DeleteNodegroup (DeleteNodegroup'),
-    newDeleteNodegroup,
-    DeleteNodegroupResponse (DeleteNodegroupResponse'),
-    newDeleteNodegroupResponse,
-
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** CreateFargateProfile
-    CreateFargateProfile (CreateFargateProfile'),
-    newCreateFargateProfile,
-    CreateFargateProfileResponse (CreateFargateProfileResponse'),
-    newCreateFargateProfileResponse,
-
-    -- ** DescribeAddon
-    DescribeAddon (DescribeAddon'),
-    newDescribeAddon,
-    DescribeAddonResponse (DescribeAddonResponse'),
-    newDescribeAddonResponse,
+    -- ** DeregisterCluster
+    DeregisterCluster (DeregisterCluster'),
+    newDeregisterCluster,
+    DeregisterClusterResponse (DeregisterClusterResponse'),
+    newDeregisterClusterResponse,
 
     -- ** DescribeNodegroup
     DescribeNodegroup (DescribeNodegroup'),
@@ -292,11 +142,161 @@ module Network.AWS.EKS
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** DeregisterCluster
-    DeregisterCluster (DeregisterCluster'),
-    newDeregisterCluster,
-    DeregisterClusterResponse (DeregisterClusterResponse'),
-    newDeregisterClusterResponse,
+    -- ** CreateFargateProfile
+    CreateFargateProfile (CreateFargateProfile'),
+    newCreateFargateProfile,
+    CreateFargateProfileResponse (CreateFargateProfileResponse'),
+    newCreateFargateProfileResponse,
+
+    -- ** DescribeIdentityProviderConfig
+    DescribeIdentityProviderConfig (DescribeIdentityProviderConfig'),
+    newDescribeIdentityProviderConfig,
+    DescribeIdentityProviderConfigResponse (DescribeIdentityProviderConfigResponse'),
+    newDescribeIdentityProviderConfigResponse,
+
+    -- ** DeleteFargateProfile
+    DeleteFargateProfile (DeleteFargateProfile'),
+    newDeleteFargateProfile,
+    DeleteFargateProfileResponse (DeleteFargateProfileResponse'),
+    newDeleteFargateProfileResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** UpdateClusterConfig
+    UpdateClusterConfig (UpdateClusterConfig'),
+    newUpdateClusterConfig,
+    UpdateClusterConfigResponse (UpdateClusterConfigResponse'),
+    newUpdateClusterConfigResponse,
+
+    -- ** ListAddons (Paginated)
+    ListAddons (ListAddons'),
+    newListAddons,
+    ListAddonsResponse (ListAddonsResponse'),
+    newListAddonsResponse,
+
+    -- ** UpdateClusterVersion
+    UpdateClusterVersion (UpdateClusterVersion'),
+    newUpdateClusterVersion,
+    UpdateClusterVersionResponse (UpdateClusterVersionResponse'),
+    newUpdateClusterVersionResponse,
+
+    -- ** DescribeAddonVersions (Paginated)
+    DescribeAddonVersions (DescribeAddonVersions'),
+    newDescribeAddonVersions,
+    DescribeAddonVersionsResponse (DescribeAddonVersionsResponse'),
+    newDescribeAddonVersionsResponse,
+
+    -- ** UpdateNodegroupVersion
+    UpdateNodegroupVersion (UpdateNodegroupVersion'),
+    newUpdateNodegroupVersion,
+    UpdateNodegroupVersionResponse (UpdateNodegroupVersionResponse'),
+    newUpdateNodegroupVersionResponse,
+
+    -- ** ListIdentityProviderConfigs (Paginated)
+    ListIdentityProviderConfigs (ListIdentityProviderConfigs'),
+    newListIdentityProviderConfigs,
+    ListIdentityProviderConfigsResponse (ListIdentityProviderConfigsResponse'),
+    newListIdentityProviderConfigsResponse,
+
+    -- ** DisassociateIdentityProviderConfig
+    DisassociateIdentityProviderConfig (DisassociateIdentityProviderConfig'),
+    newDisassociateIdentityProviderConfig,
+    DisassociateIdentityProviderConfigResponse (DisassociateIdentityProviderConfigResponse'),
+    newDisassociateIdentityProviderConfigResponse,
+
+    -- ** DescribeAddon
+    DescribeAddon (DescribeAddon'),
+    newDescribeAddon,
+    DescribeAddonResponse (DescribeAddonResponse'),
+    newDescribeAddonResponse,
+
+    -- ** ListUpdates (Paginated)
+    ListUpdates (ListUpdates'),
+    newListUpdates,
+    ListUpdatesResponse (ListUpdatesResponse'),
+    newListUpdatesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** ListFargateProfiles (Paginated)
+    ListFargateProfiles (ListFargateProfiles'),
+    newListFargateProfiles,
+    ListFargateProfilesResponse (ListFargateProfilesResponse'),
+    newListFargateProfilesResponse,
+
+    -- ** RegisterCluster
+    RegisterCluster (RegisterCluster'),
+    newRegisterCluster,
+    RegisterClusterResponse (RegisterClusterResponse'),
+    newRegisterClusterResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateNodegroup
+    CreateNodegroup (CreateNodegroup'),
+    newCreateNodegroup,
+    CreateNodegroupResponse (CreateNodegroupResponse'),
+    newCreateNodegroupResponse,
+
+    -- ** ListNodegroups (Paginated)
+    ListNodegroups (ListNodegroups'),
+    newListNodegroups,
+    ListNodegroupsResponse (ListNodegroupsResponse'),
+    newListNodegroupsResponse,
+
+    -- ** DeleteNodegroup
+    DeleteNodegroup (DeleteNodegroup'),
+    newDeleteNodegroup,
+    DeleteNodegroupResponse (DeleteNodegroupResponse'),
+    newDeleteNodegroupResponse,
+
+    -- ** AssociateEncryptionConfig
+    AssociateEncryptionConfig (AssociateEncryptionConfig'),
+    newAssociateEncryptionConfig,
+    AssociateEncryptionConfigResponse (AssociateEncryptionConfigResponse'),
+    newAssociateEncryptionConfigResponse,
+
+    -- ** AssociateIdentityProviderConfig
+    AssociateIdentityProviderConfig (AssociateIdentityProviderConfig'),
+    newAssociateIdentityProviderConfig,
+    AssociateIdentityProviderConfigResponse (AssociateIdentityProviderConfigResponse'),
+    newAssociateIdentityProviderConfigResponse,
+
+    -- ** DeleteAddon
+    DeleteAddon (DeleteAddon'),
+    newDeleteAddon,
+    DeleteAddonResponse (DeleteAddonResponse'),
+    newDeleteAddonResponse,
+
+    -- ** UpdateAddon
+    UpdateAddon (UpdateAddon'),
+    newUpdateAddon,
+    UpdateAddonResponse (UpdateAddonResponse'),
+    newUpdateAddonResponse,
 
     -- * Types
 

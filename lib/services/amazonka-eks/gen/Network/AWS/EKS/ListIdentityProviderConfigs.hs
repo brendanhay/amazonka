@@ -38,8 +38,8 @@ module Network.AWS.EKS.ListIdentityProviderConfigs
     newListIdentityProviderConfigsResponse,
 
     -- * Response Lenses
-    listIdentityProviderConfigsResponse_nextToken,
     listIdentityProviderConfigsResponse_identityProviderConfigs,
+    listIdentityProviderConfigsResponse_nextToken,
     listIdentityProviderConfigsResponse_httpStatus,
   )
 where
@@ -166,10 +166,10 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityProviderConfigsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "identityProviderConfigs"
+            Prelude.<$> ( x Core..?> "identityProviderConfigs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,14 +205,14 @@ instance Core.ToQuery ListIdentityProviderConfigs where
 
 -- | /See:/ 'newListIdentityProviderConfigsResponse' smart constructor.
 data ListIdentityProviderConfigsResponse = ListIdentityProviderConfigsResponse'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | The identity provider configurations for the cluster.
+    identityProviderConfigs :: Prelude.Maybe [IdentityProviderConfig],
+    -- | The @nextToken@ value returned from a previous paginated
     -- @ListIdentityProviderConfigsResponse@ where @maxResults@ was used and
     -- the results exceeded the value of that parameter. Pagination continues
     -- from the end of the previous results that returned the @nextToken@
     -- value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identity provider configurations for the cluster.
-    identityProviderConfigs :: Prelude.Maybe [IdentityProviderConfig],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,13 +226,13 @@ data ListIdentityProviderConfigsResponse = ListIdentityProviderConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityProviderConfigs', 'listIdentityProviderConfigsResponse_identityProviderConfigs' - The identity provider configurations for the cluster.
+--
 -- 'nextToken', 'listIdentityProviderConfigsResponse_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @ListIdentityProviderConfigsResponse@ where @maxResults@ was used and
 -- the results exceeded the value of that parameter. Pagination continues
 -- from the end of the previous results that returned the @nextToken@
 -- value.
---
--- 'identityProviderConfigs', 'listIdentityProviderConfigsResponse_identityProviderConfigs' - The identity provider configurations for the cluster.
 --
 -- 'httpStatus', 'listIdentityProviderConfigsResponse_httpStatus' - The response's http status code.
 newListIdentityProviderConfigsResponse ::
@@ -241,12 +241,15 @@ newListIdentityProviderConfigsResponse ::
   ListIdentityProviderConfigsResponse
 newListIdentityProviderConfigsResponse pHttpStatus_ =
   ListIdentityProviderConfigsResponse'
-    { nextToken =
+    { identityProviderConfigs =
         Prelude.Nothing,
-      identityProviderConfigs =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identity provider configurations for the cluster.
+listIdentityProviderConfigsResponse_identityProviderConfigs :: Lens.Lens' ListIdentityProviderConfigsResponse (Prelude.Maybe [IdentityProviderConfig])
+listIdentityProviderConfigsResponse_identityProviderConfigs = Lens.lens (\ListIdentityProviderConfigsResponse' {identityProviderConfigs} -> identityProviderConfigs) (\s@ListIdentityProviderConfigsResponse' {} a -> s {identityProviderConfigs = a} :: ListIdentityProviderConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListIdentityProviderConfigsResponse@ where @maxResults@ was used and
@@ -255,10 +258,6 @@ newListIdentityProviderConfigsResponse pHttpStatus_ =
 -- value.
 listIdentityProviderConfigsResponse_nextToken :: Lens.Lens' ListIdentityProviderConfigsResponse (Prelude.Maybe Prelude.Text)
 listIdentityProviderConfigsResponse_nextToken = Lens.lens (\ListIdentityProviderConfigsResponse' {nextToken} -> nextToken) (\s@ListIdentityProviderConfigsResponse' {} a -> s {nextToken = a} :: ListIdentityProviderConfigsResponse)
-
--- | The identity provider configurations for the cluster.
-listIdentityProviderConfigsResponse_identityProviderConfigs :: Lens.Lens' ListIdentityProviderConfigsResponse (Prelude.Maybe [IdentityProviderConfig])
-listIdentityProviderConfigsResponse_identityProviderConfigs = Lens.lens (\ListIdentityProviderConfigsResponse' {identityProviderConfigs} -> identityProviderConfigs) (\s@ListIdentityProviderConfigsResponse' {} a -> s {identityProviderConfigs = a} :: ListIdentityProviderConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listIdentityProviderConfigsResponse_httpStatus :: Lens.Lens' ListIdentityProviderConfigsResponse Prelude.Int

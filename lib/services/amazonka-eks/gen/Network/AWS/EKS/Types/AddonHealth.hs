@@ -49,7 +49,7 @@ newAddonHealth =
 
 -- | An object that represents the add-on\'s health issues.
 addonHealth_issues :: Lens.Lens' AddonHealth (Prelude.Maybe [AddonIssue])
-addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Lens._Coerce
+addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AddonHealth where
   parseJSON =

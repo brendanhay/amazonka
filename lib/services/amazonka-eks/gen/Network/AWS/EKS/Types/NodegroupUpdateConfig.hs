@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNodegroupUpdateConfig' smart constructor.
 data NodegroupUpdateConfig = NodegroupUpdateConfig'
-  { -- | The maximum percentage of nodes unavailable during a version update.
-    -- This percentage of nodes will be updated in parallel, up to 100 nodes at
-    -- once. This value or @maxUnavailable@ is required to have a value.
-    maxUnavailablePercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of nodes unavailable at once during a version update.
+  { -- | The maximum number of nodes unavailable at once during a version update.
     -- Nodes will be updated in parallel. This value or
     -- @maxUnavailablePercentage@ is required to have a value.The maximum
     -- number is 100.
-    maxUnavailable :: Prelude.Maybe Prelude.Natural
+    maxUnavailable :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum percentage of nodes unavailable during a version update.
+    -- This percentage of nodes will be updated in parallel, up to 100 nodes at
+    -- once. This value or @maxUnavailable@ is required to have a value.
+    maxUnavailablePercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,22 @@ data NodegroupUpdateConfig = NodegroupUpdateConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxUnavailablePercentage', 'nodegroupUpdateConfig_maxUnavailablePercentage' - The maximum percentage of nodes unavailable during a version update.
--- This percentage of nodes will be updated in parallel, up to 100 nodes at
--- once. This value or @maxUnavailable@ is required to have a value.
---
 -- 'maxUnavailable', 'nodegroupUpdateConfig_maxUnavailable' - The maximum number of nodes unavailable at once during a version update.
 -- Nodes will be updated in parallel. This value or
 -- @maxUnavailablePercentage@ is required to have a value.The maximum
 -- number is 100.
+--
+-- 'maxUnavailablePercentage', 'nodegroupUpdateConfig_maxUnavailablePercentage' - The maximum percentage of nodes unavailable during a version update.
+-- This percentage of nodes will be updated in parallel, up to 100 nodes at
+-- once. This value or @maxUnavailable@ is required to have a value.
 newNodegroupUpdateConfig ::
   NodegroupUpdateConfig
 newNodegroupUpdateConfig =
   NodegroupUpdateConfig'
-    { maxUnavailablePercentage =
+    { maxUnavailable =
         Prelude.Nothing,
-      maxUnavailable = Prelude.Nothing
+      maxUnavailablePercentage = Prelude.Nothing
     }
-
--- | The maximum percentage of nodes unavailable during a version update.
--- This percentage of nodes will be updated in parallel, up to 100 nodes at
--- once. This value or @maxUnavailable@ is required to have a value.
-nodegroupUpdateConfig_maxUnavailablePercentage :: Lens.Lens' NodegroupUpdateConfig (Prelude.Maybe Prelude.Natural)
-nodegroupUpdateConfig_maxUnavailablePercentage = Lens.lens (\NodegroupUpdateConfig' {maxUnavailablePercentage} -> maxUnavailablePercentage) (\s@NodegroupUpdateConfig' {} a -> s {maxUnavailablePercentage = a} :: NodegroupUpdateConfig)
 
 -- | The maximum number of nodes unavailable at once during a version update.
 -- Nodes will be updated in parallel. This value or
@@ -77,14 +71,20 @@ nodegroupUpdateConfig_maxUnavailablePercentage = Lens.lens (\NodegroupUpdateConf
 nodegroupUpdateConfig_maxUnavailable :: Lens.Lens' NodegroupUpdateConfig (Prelude.Maybe Prelude.Natural)
 nodegroupUpdateConfig_maxUnavailable = Lens.lens (\NodegroupUpdateConfig' {maxUnavailable} -> maxUnavailable) (\s@NodegroupUpdateConfig' {} a -> s {maxUnavailable = a} :: NodegroupUpdateConfig)
 
+-- | The maximum percentage of nodes unavailable during a version update.
+-- This percentage of nodes will be updated in parallel, up to 100 nodes at
+-- once. This value or @maxUnavailable@ is required to have a value.
+nodegroupUpdateConfig_maxUnavailablePercentage :: Lens.Lens' NodegroupUpdateConfig (Prelude.Maybe Prelude.Natural)
+nodegroupUpdateConfig_maxUnavailablePercentage = Lens.lens (\NodegroupUpdateConfig' {maxUnavailablePercentage} -> maxUnavailablePercentage) (\s@NodegroupUpdateConfig' {} a -> s {maxUnavailablePercentage = a} :: NodegroupUpdateConfig)
+
 instance Core.FromJSON NodegroupUpdateConfig where
   parseJSON =
     Core.withObject
       "NodegroupUpdateConfig"
       ( \x ->
           NodegroupUpdateConfig'
-            Prelude.<$> (x Core..:? "maxUnavailablePercentage")
-            Prelude.<*> (x Core..:? "maxUnavailable")
+            Prelude.<$> (x Core..:? "maxUnavailable")
+            Prelude.<*> (x Core..:? "maxUnavailablePercentage")
       )
 
 instance Prelude.Hashable NodegroupUpdateConfig
@@ -95,9 +95,9 @@ instance Core.ToJSON NodegroupUpdateConfig where
   toJSON NodegroupUpdateConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxUnavailablePercentage" Core..=)
-              Prelude.<$> maxUnavailablePercentage,
-            ("maxUnavailable" Core..=)
-              Prelude.<$> maxUnavailable
+          [ ("maxUnavailable" Core..=)
+              Prelude.<$> maxUnavailable,
+            ("maxUnavailablePercentage" Core..=)
+              Prelude.<$> maxUnavailablePercentage
           ]
       )

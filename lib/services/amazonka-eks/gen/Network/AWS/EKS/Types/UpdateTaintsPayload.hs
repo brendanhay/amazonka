@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpdateTaintsPayload' smart constructor.
 data UpdateTaintsPayload = UpdateTaintsPayload'
-  { -- | Kubernetes taints to be removed.
-    removeTaints :: Prelude.Maybe [Taint],
-    -- | Kubernetes taints to be added or updated.
-    addOrUpdateTaints :: Prelude.Maybe [Taint]
+  { -- | Kubernetes taints to be added or updated.
+    addOrUpdateTaints :: Prelude.Maybe [Taint],
+    -- | Kubernetes taints to be removed.
+    removeTaints :: Prelude.Maybe [Taint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data UpdateTaintsPayload = UpdateTaintsPayload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to be removed.
---
 -- 'addOrUpdateTaints', 'updateTaintsPayload_addOrUpdateTaints' - Kubernetes taints to be added or updated.
+--
+-- 'removeTaints', 'updateTaintsPayload_removeTaints' - Kubernetes taints to be removed.
 newUpdateTaintsPayload ::
   UpdateTaintsPayload
 newUpdateTaintsPayload =
   UpdateTaintsPayload'
-    { removeTaints =
+    { addOrUpdateTaints =
         Prelude.Nothing,
-      addOrUpdateTaints = Prelude.Nothing
+      removeTaints = Prelude.Nothing
     }
-
--- | Kubernetes taints to be removed.
-updateTaintsPayload_removeTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
-updateTaintsPayload_removeTaints = Lens.lens (\UpdateTaintsPayload' {removeTaints} -> removeTaints) (\s@UpdateTaintsPayload' {} a -> s {removeTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Kubernetes taints to be added or updated.
 updateTaintsPayload_addOrUpdateTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
-updateTaintsPayload_addOrUpdateTaints = Lens.lens (\UpdateTaintsPayload' {addOrUpdateTaints} -> addOrUpdateTaints) (\s@UpdateTaintsPayload' {} a -> s {addOrUpdateTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens._Coerce
+updateTaintsPayload_addOrUpdateTaints = Lens.lens (\UpdateTaintsPayload' {addOrUpdateTaints} -> addOrUpdateTaints) (\s@UpdateTaintsPayload' {} a -> s {addOrUpdateTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens.coerced
+
+-- | Kubernetes taints to be removed.
+updateTaintsPayload_removeTaints :: Lens.Lens' UpdateTaintsPayload (Prelude.Maybe [Taint])
+updateTaintsPayload_removeTaints = Lens.lens (\UpdateTaintsPayload' {removeTaints} -> removeTaints) (\s@UpdateTaintsPayload' {} a -> s {removeTaints = a} :: UpdateTaintsPayload) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable UpdateTaintsPayload
 
@@ -71,8 +71,8 @@ instance Core.ToJSON UpdateTaintsPayload where
   toJSON UpdateTaintsPayload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("removeTaints" Core..=) Prelude.<$> removeTaints,
-            ("addOrUpdateTaints" Core..=)
-              Prelude.<$> addOrUpdateTaints
+          [ ("addOrUpdateTaints" Core..=)
+              Prelude.<$> addOrUpdateTaints,
+            ("removeTaints" Core..=) Prelude.<$> removeTaints
           ]
       )

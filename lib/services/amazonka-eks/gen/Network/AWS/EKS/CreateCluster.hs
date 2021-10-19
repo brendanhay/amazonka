@@ -55,11 +55,11 @@ module Network.AWS.EKS.CreateCluster
 
     -- * Request Lenses
     createCluster_kubernetesNetworkConfig,
-    createCluster_logging,
-    createCluster_encryptionConfig,
     createCluster_version,
-    createCluster_tags,
+    createCluster_encryptionConfig,
     createCluster_clientRequestToken,
+    createCluster_logging,
+    createCluster_tags,
     createCluster_name,
     createCluster_roleArn,
     createCluster_resourcesVpcConfig,
@@ -85,6 +85,14 @@ import qualified Network.AWS.Response as Response
 data CreateCluster = CreateCluster'
   { -- | The Kubernetes network configuration for the cluster.
     kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigRequest,
+    -- | The desired Kubernetes version for your cluster. If you don\'t specify a
+    -- value here, the latest version available in Amazon EKS is used.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The encryption configuration for the cluster.
+    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -95,18 +103,10 @@ data CreateCluster = CreateCluster'
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
-    -- | The encryption configuration for the cluster.
-    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
-    -- | The desired Kubernetes version for your cluster. If you don\'t specify a
-    -- value here, the latest version available in Amazon EKS is used.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The metadata to apply to the cluster to assist with categorization and
     -- organization. Each tag consists of a key and an optional value, both of
     -- which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The unique name to give to your cluster.
     name :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
@@ -138,6 +138,14 @@ data CreateCluster = CreateCluster'
 --
 -- 'kubernetesNetworkConfig', 'createCluster_kubernetesNetworkConfig' - The Kubernetes network configuration for the cluster.
 --
+-- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
+-- value here, the latest version available in Amazon EKS is used.
+--
+-- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
+--
+-- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
 -- 'logging', 'createCluster_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -148,17 +156,9 @@ data CreateCluster = CreateCluster'
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
--- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
---
--- 'version', 'createCluster_version' - The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
---
 -- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
 -- organization. Each tag consists of a key and an optional value, both of
 -- which you define.
---
--- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
 --
 -- 'name', 'createCluster_name' - The unique name to give to your cluster.
 --
@@ -192,11 +192,11 @@ newCreateCluster
     CreateCluster'
       { kubernetesNetworkConfig =
           Prelude.Nothing,
-        logging = Prelude.Nothing,
-        encryptionConfig = Prelude.Nothing,
         version = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        encryptionConfig = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
+        logging = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         roleArn = pRoleArn_,
         resourcesVpcConfig = pResourcesVpcConfig_
@@ -205,6 +205,20 @@ newCreateCluster
 -- | The Kubernetes network configuration for the cluster.
 createCluster_kubernetesNetworkConfig :: Lens.Lens' CreateCluster (Prelude.Maybe KubernetesNetworkConfigRequest)
 createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@CreateCluster' {} a -> s {kubernetesNetworkConfig = a} :: CreateCluster)
+
+-- | The desired Kubernetes version for your cluster. If you don\'t specify a
+-- value here, the latest version available in Amazon EKS is used.
+createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
+
+-- | The encryption configuration for the cluster.
+createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
+createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToken} -> clientRequestToken) (\s@CreateCluster' {} a -> s {clientRequestToken = a} :: CreateCluster)
 
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
@@ -218,25 +232,11 @@ createCluster_kubernetesNetworkConfig = Lens.lens (\CreateCluster' {kubernetesNe
 createCluster_logging :: Lens.Lens' CreateCluster (Prelude.Maybe Logging)
 createCluster_logging = Lens.lens (\CreateCluster' {logging} -> logging) (\s@CreateCluster' {} a -> s {logging = a} :: CreateCluster)
 
--- | The encryption configuration for the cluster.
-createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [EncryptionConfig])
-createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The desired Kubernetes version for your cluster. If you don\'t specify a
--- value here, the latest version available in Amazon EKS is used.
-createCluster_version :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_version = Lens.lens (\CreateCluster' {version} -> version) (\s@CreateCluster' {} a -> s {version = a} :: CreateCluster)
-
 -- | The metadata to apply to the cluster to assist with categorization and
 -- organization. Each tag consists of a key and an optional value, both of
 -- which you define.
 createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createCluster_clientRequestToken :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
-createCluster_clientRequestToken = Lens.lens (\CreateCluster' {clientRequestToken} -> clientRequestToken) (\s@CreateCluster' {} a -> s {clientRequestToken = a} :: CreateCluster)
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name to give to your cluster.
 createCluster_name :: Lens.Lens' CreateCluster Prelude.Text
@@ -296,13 +296,13 @@ instance Core.ToJSON CreateCluster where
       ( Prelude.catMaybes
           [ ("kubernetesNetworkConfig" Core..=)
               Prelude.<$> kubernetesNetworkConfig,
-            ("logging" Core..=) Prelude.<$> logging,
+            ("version" Core..=) Prelude.<$> version,
             ("encryptionConfig" Core..=)
               Prelude.<$> encryptionConfig,
-            ("version" Core..=) Prelude.<$> version,
-            ("tags" Core..=) Prelude.<$> tags,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("logging" Core..=) Prelude.<$> logging,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("roleArn" Core..= roleArn),
             Prelude.Just

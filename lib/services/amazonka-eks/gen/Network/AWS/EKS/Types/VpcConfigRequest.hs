@@ -43,19 +43,6 @@ data VpcConfigRequest = VpcConfigRequest'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
     -- in the //Amazon EKS User Guide// .
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Set this value to @false@ to disable public access to your cluster\'s
-    -- Kubernetes API server endpoint. If you disable public access, your
-    -- cluster\'s Kubernetes API server can only receive requests from within
-    -- the cluster VPC. The default value for this parameter is @true@, which
-    -- enables public access for your Kubernetes API server. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
-    -- in the //Amazon EKS User Guide// .
-    endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
-    -- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
-    -- cross-account elastic network interfaces in these subnets to allow
-    -- communication between your nodes and the Kubernetes control plane.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Set this value to @true@ to enable private access for your cluster\'s
     -- Kubernetes API server endpoint. If you enable private access, Kubernetes
     -- API requests from within your cluster\'s VPC use the private VPC
@@ -75,7 +62,20 @@ data VpcConfigRequest = VpcConfigRequest'
     -- that you specify the necessary CIDR blocks. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
     -- in the //Amazon EKS User Guide// .
-    publicAccessCidrs :: Prelude.Maybe [Prelude.Text]
+    publicAccessCidrs :: Prelude.Maybe [Prelude.Text],
+    -- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
+    -- cross-account elastic network interfaces in these subnets to allow
+    -- communication between your nodes and the Kubernetes control plane.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | Set this value to @false@ to disable public access to your cluster\'s
+    -- Kubernetes API server endpoint. If you disable public access, your
+    -- cluster\'s Kubernetes API server can only receive requests from within
+    -- the cluster VPC. The default value for this parameter is @true@, which
+    -- enables public access for your Kubernetes API server. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
+    -- in the //Amazon EKS User Guide// .
+    endpointPublicAccess :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,19 +102,6 @@ data VpcConfigRequest = VpcConfigRequest'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
 -- in the //Amazon EKS User Guide// .
 --
--- 'endpointPublicAccess', 'vpcConfigRequest_endpointPublicAccess' - Set this value to @false@ to disable public access to your cluster\'s
--- Kubernetes API server endpoint. If you disable public access, your
--- cluster\'s Kubernetes API server can only receive requests from within
--- the cluster VPC. The default value for this parameter is @true@, which
--- enables public access for your Kubernetes API server. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
--- in the //Amazon EKS User Guide// .
---
--- 'subnetIds', 'vpcConfigRequest_subnetIds' - Specify subnets for your Amazon EKS nodes. Amazon EKS creates
--- cross-account elastic network interfaces in these subnets to allow
--- communication between your nodes and the Kubernetes control plane.
---
 -- 'endpointPrivateAccess', 'vpcConfigRequest_endpointPrivateAccess' - Set this value to @true@ to enable private access for your cluster\'s
 -- Kubernetes API server endpoint. If you enable private access, Kubernetes
 -- API requests from within your cluster\'s VPC use the private VPC
@@ -134,16 +121,29 @@ data VpcConfigRequest = VpcConfigRequest'
 -- that you specify the necessary CIDR blocks. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
+--
+-- 'subnetIds', 'vpcConfigRequest_subnetIds' - Specify subnets for your Amazon EKS nodes. Amazon EKS creates
+-- cross-account elastic network interfaces in these subnets to allow
+-- communication between your nodes and the Kubernetes control plane.
+--
+-- 'endpointPublicAccess', 'vpcConfigRequest_endpointPublicAccess' - Set this value to @false@ to disable public access to your cluster\'s
+-- Kubernetes API server endpoint. If you disable public access, your
+-- cluster\'s Kubernetes API server can only receive requests from within
+-- the cluster VPC. The default value for this parameter is @true@, which
+-- enables public access for your Kubernetes API server. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
+-- in the //Amazon EKS User Guide// .
 newVpcConfigRequest ::
   VpcConfigRequest
 newVpcConfigRequest =
   VpcConfigRequest'
     { securityGroupIds =
         Prelude.Nothing,
-      endpointPublicAccess = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
       endpointPrivateAccess = Prelude.Nothing,
-      publicAccessCidrs = Prelude.Nothing
+      publicAccessCidrs = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      endpointPublicAccess = Prelude.Nothing
     }
 
 -- | Specify one or more security groups for the cross-account elastic
@@ -161,24 +161,7 @@ newVpcConfigRequest =
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Amazon EKS security group considerations>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_securityGroupIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
-vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigRequest' {} a -> s {securityGroupIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | Set this value to @false@ to disable public access to your cluster\'s
--- Kubernetes API server endpoint. If you disable public access, your
--- cluster\'s Kubernetes API server can only receive requests from within
--- the cluster VPC. The default value for this parameter is @true@, which
--- enables public access for your Kubernetes API server. For more
--- information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
--- in the //Amazon EKS User Guide// .
-vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
-vpcConfigRequest_endpointPublicAccess = Lens.lens (\VpcConfigRequest' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigRequest' {} a -> s {endpointPublicAccess = a} :: VpcConfigRequest)
-
--- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
--- cross-account elastic network interfaces in these subnets to allow
--- communication between your nodes and the Kubernetes control plane.
-vpcConfigRequest_subnetIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
-vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnetIds) (\s@VpcConfigRequest' {} a -> s {subnetIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
+vpcConfigRequest_securityGroupIds = Lens.lens (\VpcConfigRequest' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigRequest' {} a -> s {securityGroupIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set this value to @true@ to enable private access for your cluster\'s
 -- Kubernetes API server endpoint. If you enable private access, Kubernetes
@@ -202,7 +185,24 @@ vpcConfigRequest_endpointPrivateAccess = Lens.lens (\VpcConfigRequest' {endpoint
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 vpcConfigRequest_publicAccessCidrs :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
-vpcConfigRequest_publicAccessCidrs = Lens.lens (\VpcConfigRequest' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigRequest' {} a -> s {publicAccessCidrs = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens._Coerce
+vpcConfigRequest_publicAccessCidrs = Lens.lens (\VpcConfigRequest' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigRequest' {} a -> s {publicAccessCidrs = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify subnets for your Amazon EKS nodes. Amazon EKS creates
+-- cross-account elastic network interfaces in these subnets to allow
+-- communication between your nodes and the Kubernetes control plane.
+vpcConfigRequest_subnetIds :: Lens.Lens' VpcConfigRequest (Prelude.Maybe [Prelude.Text])
+vpcConfigRequest_subnetIds = Lens.lens (\VpcConfigRequest' {subnetIds} -> subnetIds) (\s@VpcConfigRequest' {} a -> s {subnetIds = a} :: VpcConfigRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | Set this value to @false@ to disable public access to your cluster\'s
+-- Kubernetes API server endpoint. If you disable public access, your
+-- cluster\'s Kubernetes API server can only receive requests from within
+-- the cluster VPC. The default value for this parameter is @true@, which
+-- enables public access for your Kubernetes API server. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
+-- in the //Amazon EKS User Guide// .
+vpcConfigRequest_endpointPublicAccess :: Lens.Lens' VpcConfigRequest (Prelude.Maybe Prelude.Bool)
+vpcConfigRequest_endpointPublicAccess = Lens.lens (\VpcConfigRequest' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigRequest' {} a -> s {endpointPublicAccess = a} :: VpcConfigRequest)
 
 instance Prelude.Hashable VpcConfigRequest
 
@@ -214,12 +214,12 @@ instance Core.ToJSON VpcConfigRequest where
       ( Prelude.catMaybes
           [ ("securityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
-            ("endpointPublicAccess" Core..=)
-              Prelude.<$> endpointPublicAccess,
-            ("subnetIds" Core..=) Prelude.<$> subnetIds,
             ("endpointPrivateAccess" Core..=)
               Prelude.<$> endpointPrivateAccess,
             ("publicAccessCidrs" Core..=)
-              Prelude.<$> publicAccessCidrs
+              Prelude.<$> publicAccessCidrs,
+            ("subnetIds" Core..=) Prelude.<$> subnetIds,
+            ("endpointPublicAccess" Core..=)
+              Prelude.<$> endpointPublicAccess
           ]
       )

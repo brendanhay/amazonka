@@ -33,16 +33,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Update = Update'
   { -- | The current status of the update.
     status :: Prelude.Maybe UpdateStatus,
-    -- | A UUID that is used to track the update.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the update was created.
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | A key-value map that contains the parameters associated with the update.
     params :: Prelude.Maybe [UpdateParam],
-    -- | Any errors associated with a @Failed@ update.
-    errors :: Prelude.Maybe [ErrorDetail],
+    -- | A UUID that is used to track the update.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The type of the update.
-    type' :: Prelude.Maybe UpdateType
+    type' :: Prelude.Maybe UpdateType,
+    -- | Any errors associated with a @Failed@ update.
+    errors :: Prelude.Maybe [ErrorDetail]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,34 +56,30 @@ data Update = Update'
 --
 -- 'status', 'update_status' - The current status of the update.
 --
--- 'id', 'update_id' - A UUID that is used to track the update.
---
 -- 'createdAt', 'update_createdAt' - The Unix epoch timestamp in seconds for when the update was created.
 --
 -- 'params', 'update_params' - A key-value map that contains the parameters associated with the update.
 --
--- 'errors', 'update_errors' - Any errors associated with a @Failed@ update.
+-- 'id', 'update_id' - A UUID that is used to track the update.
 --
 -- 'type'', 'update_type' - The type of the update.
+--
+-- 'errors', 'update_errors' - Any errors associated with a @Failed@ update.
 newUpdate ::
   Update
 newUpdate =
   Update'
     { status = Prelude.Nothing,
-      id = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       params = Prelude.Nothing,
-      errors = Prelude.Nothing,
-      type' = Prelude.Nothing
+      id = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      errors = Prelude.Nothing
     }
 
 -- | The current status of the update.
 update_status :: Lens.Lens' Update (Prelude.Maybe UpdateStatus)
 update_status = Lens.lens (\Update' {status} -> status) (\s@Update' {} a -> s {status = a} :: Update)
-
--- | A UUID that is used to track the update.
-update_id :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
-update_id = Lens.lens (\Update' {id} -> id) (\s@Update' {} a -> s {id = a} :: Update)
 
 -- | The Unix epoch timestamp in seconds for when the update was created.
 update_createdAt :: Lens.Lens' Update (Prelude.Maybe Prelude.UTCTime)
@@ -91,15 +87,19 @@ update_createdAt = Lens.lens (\Update' {createdAt} -> createdAt) (\s@Update' {} 
 
 -- | A key-value map that contains the parameters associated with the update.
 update_params :: Lens.Lens' Update (Prelude.Maybe [UpdateParam])
-update_params = Lens.lens (\Update' {params} -> params) (\s@Update' {} a -> s {params = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
+update_params = Lens.lens (\Update' {params} -> params) (\s@Update' {} a -> s {params = a} :: Update) Prelude.. Lens.mapping Lens.coerced
 
--- | Any errors associated with a @Failed@ update.
-update_errors :: Lens.Lens' Update (Prelude.Maybe [ErrorDetail])
-update_errors = Lens.lens (\Update' {errors} -> errors) (\s@Update' {} a -> s {errors = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
+-- | A UUID that is used to track the update.
+update_id :: Lens.Lens' Update (Prelude.Maybe Prelude.Text)
+update_id = Lens.lens (\Update' {id} -> id) (\s@Update' {} a -> s {id = a} :: Update)
 
 -- | The type of the update.
 update_type :: Lens.Lens' Update (Prelude.Maybe UpdateType)
 update_type = Lens.lens (\Update' {type'} -> type') (\s@Update' {} a -> s {type' = a} :: Update)
+
+-- | Any errors associated with a @Failed@ update.
+update_errors :: Lens.Lens' Update (Prelude.Maybe [ErrorDetail])
+update_errors = Lens.lens (\Update' {errors} -> errors) (\s@Update' {} a -> s {errors = a} :: Update) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Update where
   parseJSON =
@@ -108,11 +108,11 @@ instance Core.FromJSON Update where
       ( \x ->
           Update'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "params" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "errors" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Update

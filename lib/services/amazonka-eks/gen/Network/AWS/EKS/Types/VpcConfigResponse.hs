@@ -31,19 +31,6 @@ data VpcConfigResponse = VpcConfigResponse'
     -- interfaces that are used to allow communication between your nodes and
     -- the Kubernetes control plane.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter indicates whether the Amazon EKS public API server
-    -- endpoint is enabled. If the Amazon EKS public API server endpoint is
-    -- disabled, your cluster\'s Kubernetes API server can only receive
-    -- requests that originate from within the cluster VPC.
-    endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
-    -- | The subnets associated with your cluster.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The cluster security group that was created by Amazon EKS for the
-    -- cluster. Managed node groups use this security group for
-    -- control-plane-to-data-plane communication.
-    clusterSecurityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The VPC associated with your cluster.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | This parameter indicates whether the Amazon EKS private API server
     -- endpoint is enabled. If the Amazon EKS private API server endpoint is
     -- enabled, Kubernetes API requests that originate from within your
@@ -63,7 +50,20 @@ data VpcConfigResponse = VpcConfigResponse'
     -- necessary CIDR blocks are listed. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
     -- in the //Amazon EKS User Guide// .
-    publicAccessCidrs :: Prelude.Maybe [Prelude.Text]
+    publicAccessCidrs :: Prelude.Maybe [Prelude.Text],
+    -- | The subnets associated with your cluster.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The VPC associated with your cluster.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The cluster security group that was created by Amazon EKS for the
+    -- cluster. Managed node groups use this security group for
+    -- control-plane-to-data-plane communication.
+    clusterSecurityGroupId :: Prelude.Maybe Prelude.Text,
+    -- | This parameter indicates whether the Amazon EKS public API server
+    -- endpoint is enabled. If the Amazon EKS public API server endpoint is
+    -- disabled, your cluster\'s Kubernetes API server can only receive
+    -- requests that originate from within the cluster VPC.
+    endpointPublicAccess :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,19 +78,6 @@ data VpcConfigResponse = VpcConfigResponse'
 -- 'securityGroupIds', 'vpcConfigResponse_securityGroupIds' - The security groups associated with the cross-account elastic network
 -- interfaces that are used to allow communication between your nodes and
 -- the Kubernetes control plane.
---
--- 'endpointPublicAccess', 'vpcConfigResponse_endpointPublicAccess' - This parameter indicates whether the Amazon EKS public API server
--- endpoint is enabled. If the Amazon EKS public API server endpoint is
--- disabled, your cluster\'s Kubernetes API server can only receive
--- requests that originate from within the cluster VPC.
---
--- 'subnetIds', 'vpcConfigResponse_subnetIds' - The subnets associated with your cluster.
---
--- 'clusterSecurityGroupId', 'vpcConfigResponse_clusterSecurityGroupId' - The cluster security group that was created by Amazon EKS for the
--- cluster. Managed node groups use this security group for
--- control-plane-to-data-plane communication.
---
--- 'vpcId', 'vpcConfigResponse_vpcId' - The VPC associated with your cluster.
 --
 -- 'endpointPrivateAccess', 'vpcConfigResponse_endpointPrivateAccess' - This parameter indicates whether the Amazon EKS private API server
 -- endpoint is enabled. If the Amazon EKS private API server endpoint is
@@ -111,46 +98,38 @@ data VpcConfigResponse = VpcConfigResponse'
 -- necessary CIDR blocks are listed. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
+--
+-- 'subnetIds', 'vpcConfigResponse_subnetIds' - The subnets associated with your cluster.
+--
+-- 'vpcId', 'vpcConfigResponse_vpcId' - The VPC associated with your cluster.
+--
+-- 'clusterSecurityGroupId', 'vpcConfigResponse_clusterSecurityGroupId' - The cluster security group that was created by Amazon EKS for the
+-- cluster. Managed node groups use this security group for
+-- control-plane-to-data-plane communication.
+--
+-- 'endpointPublicAccess', 'vpcConfigResponse_endpointPublicAccess' - This parameter indicates whether the Amazon EKS public API server
+-- endpoint is enabled. If the Amazon EKS public API server endpoint is
+-- disabled, your cluster\'s Kubernetes API server can only receive
+-- requests that originate from within the cluster VPC.
 newVpcConfigResponse ::
   VpcConfigResponse
 newVpcConfigResponse =
   VpcConfigResponse'
     { securityGroupIds =
         Prelude.Nothing,
-      endpointPublicAccess = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      clusterSecurityGroupId = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       endpointPrivateAccess = Prelude.Nothing,
-      publicAccessCidrs = Prelude.Nothing
+      publicAccessCidrs = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      clusterSecurityGroupId = Prelude.Nothing,
+      endpointPublicAccess = Prelude.Nothing
     }
 
 -- | The security groups associated with the cross-account elastic network
 -- interfaces that are used to allow communication between your nodes and
 -- the Kubernetes control plane.
 vpcConfigResponse_securityGroupIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | This parameter indicates whether the Amazon EKS public API server
--- endpoint is enabled. If the Amazon EKS public API server endpoint is
--- disabled, your cluster\'s Kubernetes API server can only receive
--- requests that originate from within the cluster VPC.
-vpcConfigResponse_endpointPublicAccess :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Bool)
-vpcConfigResponse_endpointPublicAccess = Lens.lens (\VpcConfigResponse' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigResponse' {} a -> s {endpointPublicAccess = a} :: VpcConfigResponse)
-
--- | The subnets associated with your cluster.
-vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The cluster security group that was created by Amazon EKS for the
--- cluster. Managed node groups use this security group for
--- control-plane-to-data-plane communication.
-vpcConfigResponse_clusterSecurityGroupId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
-vpcConfigResponse_clusterSecurityGroupId = Lens.lens (\VpcConfigResponse' {clusterSecurityGroupId} -> clusterSecurityGroupId) (\s@VpcConfigResponse' {} a -> s {clusterSecurityGroupId = a} :: VpcConfigResponse)
-
--- | The VPC associated with your cluster.
-vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
-vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@VpcConfigResponse' {} a -> s {vpcId = a} :: VpcConfigResponse)
+vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter indicates whether the Amazon EKS private API server
 -- endpoint is enabled. If the Amazon EKS private API server endpoint is
@@ -174,7 +153,28 @@ vpcConfigResponse_endpointPrivateAccess = Lens.lens (\VpcConfigResponse' {endpoi
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 vpcConfigResponse_publicAccessCidrs :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_publicAccessCidrs = Lens.lens (\VpcConfigResponse' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigResponse' {} a -> s {publicAccessCidrs = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens._Coerce
+vpcConfigResponse_publicAccessCidrs = Lens.lens (\VpcConfigResponse' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigResponse' {} a -> s {publicAccessCidrs = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The subnets associated with your cluster.
+vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
+vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC associated with your cluster.
+vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
+vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@VpcConfigResponse' {} a -> s {vpcId = a} :: VpcConfigResponse)
+
+-- | The cluster security group that was created by Amazon EKS for the
+-- cluster. Managed node groups use this security group for
+-- control-plane-to-data-plane communication.
+vpcConfigResponse_clusterSecurityGroupId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
+vpcConfigResponse_clusterSecurityGroupId = Lens.lens (\VpcConfigResponse' {clusterSecurityGroupId} -> clusterSecurityGroupId) (\s@VpcConfigResponse' {} a -> s {clusterSecurityGroupId = a} :: VpcConfigResponse)
+
+-- | This parameter indicates whether the Amazon EKS public API server
+-- endpoint is enabled. If the Amazon EKS public API server endpoint is
+-- disabled, your cluster\'s Kubernetes API server can only receive
+-- requests that originate from within the cluster VPC.
+vpcConfigResponse_endpointPublicAccess :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Bool)
+vpcConfigResponse_endpointPublicAccess = Lens.lens (\VpcConfigResponse' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigResponse' {} a -> s {endpointPublicAccess = a} :: VpcConfigResponse)
 
 instance Core.FromJSON VpcConfigResponse where
   parseJSON =
@@ -185,14 +185,14 @@ instance Core.FromJSON VpcConfigResponse where
             Prelude.<$> ( x Core..:? "securityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "endpointPublicAccess")
-            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "clusterSecurityGroupId")
-            Prelude.<*> (x Core..:? "vpcId")
             Prelude.<*> (x Core..:? "endpointPrivateAccess")
             Prelude.<*> ( x Core..:? "publicAccessCidrs"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "subnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "vpcId")
+            Prelude.<*> (x Core..:? "clusterSecurityGroupId")
+            Prelude.<*> (x Core..:? "endpointPublicAccess")
       )
 
 instance Prelude.Hashable VpcConfigResponse

@@ -105,7 +105,7 @@ associateEncryptionConfig_clusterName = Lens.lens (\AssociateEncryptionConfig' {
 
 -- | The configuration you are using for encryption.
 associateEncryptionConfig_encryptionConfig :: Lens.Lens' AssociateEncryptionConfig [EncryptionConfig]
-associateEncryptionConfig_encryptionConfig = Lens.lens (\AssociateEncryptionConfig' {encryptionConfig} -> encryptionConfig) (\s@AssociateEncryptionConfig' {} a -> s {encryptionConfig = a} :: AssociateEncryptionConfig) Prelude.. Lens._Coerce
+associateEncryptionConfig_encryptionConfig = Lens.lens (\AssociateEncryptionConfig' {encryptionConfig} -> encryptionConfig) (\s@AssociateEncryptionConfig' {} a -> s {encryptionConfig = a} :: AssociateEncryptionConfig) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AssociateEncryptionConfig where
   type

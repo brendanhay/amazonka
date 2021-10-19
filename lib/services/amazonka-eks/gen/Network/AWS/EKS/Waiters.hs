@@ -25,154 +25,6 @@ import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Polls 'Network.AWS.EKS.DescribeFargateProfile' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newFargateProfileDeleted :: Core.Wait DescribeFargateProfile
-newFargateProfileDeleted =
-  Core.Wait
-    { Core._waitName = "FargateProfileDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "DELETE_FAILED"
-            Core.AcceptFailure
-            ( describeFargateProfileResponse_fargateProfile
-                Prelude.. Lens._Just
-                Prelude.. fargateProfile_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newClusterActive :: Core.Wait DescribeCluster
-newClusterActive =
-  Core.Wait
-    { Core._waitName = "ClusterActive",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "DELETING"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "FAILED"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "ACTIVE"
-            Core.AcceptSuccess
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 80 failed checks.
-newNodegroupActive :: Core.Wait DescribeNodegroup
-newNodegroupActive =
-  Core.Wait
-    { Core._waitName = "NodegroupActive",
-      Core._waitAttempts = 80,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "CREATE_FAILED"
-            Core.AcceptFailure
-            ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "ACTIVE"
-            Core.AcceptSuccess
-            ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newNodegroupDeleted :: Core.Wait DescribeNodegroup
-newNodegroupDeleted =
-  Core.Wait
-    { Core._waitName = "NodegroupDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "DELETE_FAILED"
-            Core.AcceptFailure
-            ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
--- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newClusterDeleted :: Core.Wait DescribeCluster
-newClusterDeleted =
-  Core.Wait
-    { Core._waitName = "ClusterDeleted",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "ACTIVE"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATING"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "PENDING"
-            Core.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess
-        ]
-    }
-
 -- | Polls 'Network.AWS.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newAddonActive :: Core.Wait DescribeAddon
 newAddonActive =
@@ -205,6 +57,29 @@ newAddonActive =
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
+        ]
+    }
+
+-- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newNodegroupDeleted :: Core.Wait DescribeNodegroup
+newNodegroupDeleted =
+  Core.Wait
+    { Core._waitName = "NodegroupDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeNodegroupResponse_nodegroup
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
         ]
     }
 
@@ -256,5 +131,130 @@ newAddonDeleted =
           Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newClusterActive :: Core.Wait DescribeCluster
+newClusterActive =
+  Core.Wait
+    { Core._waitName = "ClusterActive",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "DELETING"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "FAILED"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "ACTIVE"
+            Core.AcceptSuccess
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.EKS.DescribeFargateProfile' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newFargateProfileDeleted :: Core.Wait DescribeFargateProfile
+newFargateProfileDeleted =
+  Core.Wait
+    { Core._waitName = "FargateProfileDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeFargateProfileResponse_fargateProfile
+                Prelude.. Lens._Just
+                Prelude.. fargateProfile_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newClusterDeleted :: Core.Wait DescribeCluster
+newClusterDeleted =
+  Core.Wait
+    { Core._waitName = "ClusterDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "ACTIVE"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATING"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "PENDING"
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Prelude.. Lens._Just
+                Prelude.. cluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 80 failed checks.
+newNodegroupActive :: Core.Wait DescribeNodegroup
+newNodegroupActive =
+  Core.Wait
+    { Core._waitName = "NodegroupActive",
+      Core._waitAttempts = 80,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeNodegroupResponse_nodegroup
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "ACTIVE"
+            Core.AcceptSuccess
+            ( describeNodegroupResponse_nodegroup
+                Prelude.. Lens._Just
+                Prelude.. nodegroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
         ]
     }

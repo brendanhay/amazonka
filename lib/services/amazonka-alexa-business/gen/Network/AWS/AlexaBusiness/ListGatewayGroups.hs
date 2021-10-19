@@ -36,8 +36,8 @@ module Network.AWS.AlexaBusiness.ListGatewayGroups
     newListGatewayGroupsResponse,
 
     -- * Response Lenses
-    listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_gatewayGroups,
+    listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest ListGatewayGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGatewayGroupsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "GatewayGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "GatewayGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,11 +141,11 @@ instance Core.ToQuery ListGatewayGroups where
 
 -- | /See:/ 'newListGatewayGroupsResponse' smart constructor.
 data ListGatewayGroupsResponse = ListGatewayGroupsResponse'
-  { -- | The token used to paginate though multiple pages of gateway group
+  { -- | The gateway groups in the list.
+    gatewayGroups :: Prelude.Maybe [GatewayGroupSummary],
+    -- | The token used to paginate though multiple pages of gateway group
     -- summaries.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The gateway groups in the list.
-    gatewayGroups :: Prelude.Maybe [GatewayGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,10 +159,10 @@ data ListGatewayGroupsResponse = ListGatewayGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.
+--
 -- 'nextToken', 'listGatewayGroupsResponse_nextToken' - The token used to paginate though multiple pages of gateway group
 -- summaries.
---
--- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.
 --
 -- 'httpStatus', 'listGatewayGroupsResponse_httpStatus' - The response's http status code.
 newListGatewayGroupsResponse ::
@@ -171,20 +171,20 @@ newListGatewayGroupsResponse ::
   ListGatewayGroupsResponse
 newListGatewayGroupsResponse pHttpStatus_ =
   ListGatewayGroupsResponse'
-    { nextToken =
+    { gatewayGroups =
         Prelude.Nothing,
-      gatewayGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The gateway groups in the list.
+listGatewayGroupsResponse_gatewayGroups :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe [GatewayGroupSummary])
+listGatewayGroupsResponse_gatewayGroups = Lens.lens (\ListGatewayGroupsResponse' {gatewayGroups} -> gatewayGroups) (\s@ListGatewayGroupsResponse' {} a -> s {gatewayGroups = a} :: ListGatewayGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to paginate though multiple pages of gateway group
 -- summaries.
 listGatewayGroupsResponse_nextToken :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe Prelude.Text)
 listGatewayGroupsResponse_nextToken = Lens.lens (\ListGatewayGroupsResponse' {nextToken} -> nextToken) (\s@ListGatewayGroupsResponse' {} a -> s {nextToken = a} :: ListGatewayGroupsResponse)
-
--- | The gateway groups in the list.
-listGatewayGroupsResponse_gatewayGroups :: Lens.Lens' ListGatewayGroupsResponse (Prelude.Maybe [GatewayGroupSummary])
-listGatewayGroupsResponse_gatewayGroups = Lens.lens (\ListGatewayGroupsResponse' {gatewayGroups} -> gatewayGroups) (\s@ListGatewayGroupsResponse' {} a -> s {gatewayGroups = a} :: ListGatewayGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listGatewayGroupsResponse_httpStatus :: Lens.Lens' ListGatewayGroupsResponse Prelude.Int

@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpdateInstantBooking' smart constructor.
 data UpdateInstantBooking = UpdateInstantBooking'
-  { -- | Duration between 15 and 240 minutes at increments of 15 that determines
+  { -- | Whether instant booking is enabled or not.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Duration between 15 and 240 minutes at increments of 15 that determines
     -- how long to book an available room when a meeting is started with Alexa.
-    durationInMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Whether instant booking is enabled or not.
-    enabled :: Prelude.Maybe Prelude.Bool
+    durationInMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,26 @@ data UpdateInstantBooking = UpdateInstantBooking'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'updateInstantBooking_enabled' - Whether instant booking is enabled or not.
+--
 -- 'durationInMinutes', 'updateInstantBooking_durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines
 -- how long to book an available room when a meeting is started with Alexa.
---
--- 'enabled', 'updateInstantBooking_enabled' - Whether instant booking is enabled or not.
 newUpdateInstantBooking ::
   UpdateInstantBooking
 newUpdateInstantBooking =
   UpdateInstantBooking'
-    { durationInMinutes =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      durationInMinutes = Prelude.Nothing
     }
+
+-- | Whether instant booking is enabled or not.
+updateInstantBooking_enabled :: Lens.Lens' UpdateInstantBooking (Prelude.Maybe Prelude.Bool)
+updateInstantBooking_enabled = Lens.lens (\UpdateInstantBooking' {enabled} -> enabled) (\s@UpdateInstantBooking' {} a -> s {enabled = a} :: UpdateInstantBooking)
 
 -- | Duration between 15 and 240 minutes at increments of 15 that determines
 -- how long to book an available room when a meeting is started with Alexa.
 updateInstantBooking_durationInMinutes :: Lens.Lens' UpdateInstantBooking (Prelude.Maybe Prelude.Int)
 updateInstantBooking_durationInMinutes = Lens.lens (\UpdateInstantBooking' {durationInMinutes} -> durationInMinutes) (\s@UpdateInstantBooking' {} a -> s {durationInMinutes = a} :: UpdateInstantBooking)
-
--- | Whether instant booking is enabled or not.
-updateInstantBooking_enabled :: Lens.Lens' UpdateInstantBooking (Prelude.Maybe Prelude.Bool)
-updateInstantBooking_enabled = Lens.lens (\UpdateInstantBooking' {enabled} -> enabled) (\s@UpdateInstantBooking' {} a -> s {enabled = a} :: UpdateInstantBooking)
 
 instance Prelude.Hashable UpdateInstantBooking
 
@@ -75,8 +74,8 @@ instance Core.ToJSON UpdateInstantBooking where
   toJSON UpdateInstantBooking' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DurationInMinutes" Core..=)
-              Prelude.<$> durationInMinutes,
-            ("Enabled" Core..=) Prelude.<$> enabled
+          [ ("Enabled" Core..=) Prelude.<$> enabled,
+            ("DurationInMinutes" Core..=)
+              Prelude.<$> durationInMinutes
           ]
       )

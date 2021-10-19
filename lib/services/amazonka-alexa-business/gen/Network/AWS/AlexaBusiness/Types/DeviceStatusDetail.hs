@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceStatusDetail' smart constructor.
 data DeviceStatusDetail = DeviceStatusDetail'
-  { -- | The device status detail code.
-    code :: Prelude.Maybe DeviceStatusDetailCode,
-    -- | The list of available features on the device.
-    feature :: Prelude.Maybe Feature
+  { -- | The list of available features on the device.
+    feature :: Prelude.Maybe Feature,
+    -- | The device status detail code.
+    code :: Prelude.Maybe DeviceStatusDetailCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data DeviceStatusDetail = DeviceStatusDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'deviceStatusDetail_code' - The device status detail code.
---
 -- 'feature', 'deviceStatusDetail_feature' - The list of available features on the device.
+--
+-- 'code', 'deviceStatusDetail_code' - The device status detail code.
 newDeviceStatusDetail ::
   DeviceStatusDetail
 newDeviceStatusDetail =
   DeviceStatusDetail'
-    { code = Prelude.Nothing,
-      feature = Prelude.Nothing
+    { feature = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The device status detail code.
-deviceStatusDetail_code :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe DeviceStatusDetailCode)
-deviceStatusDetail_code = Lens.lens (\DeviceStatusDetail' {code} -> code) (\s@DeviceStatusDetail' {} a -> s {code = a} :: DeviceStatusDetail)
 
 -- | The list of available features on the device.
 deviceStatusDetail_feature :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe Feature)
 deviceStatusDetail_feature = Lens.lens (\DeviceStatusDetail' {feature} -> feature) (\s@DeviceStatusDetail' {} a -> s {feature = a} :: DeviceStatusDetail)
+
+-- | The device status detail code.
+deviceStatusDetail_code :: Lens.Lens' DeviceStatusDetail (Prelude.Maybe DeviceStatusDetailCode)
+deviceStatusDetail_code = Lens.lens (\DeviceStatusDetail' {code} -> code) (\s@DeviceStatusDetail' {} a -> s {code = a} :: DeviceStatusDetail)
 
 instance Core.FromJSON DeviceStatusDetail where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON DeviceStatusDetail where
       "DeviceStatusDetail"
       ( \x ->
           DeviceStatusDetail'
-            Prelude.<$> (x Core..:? "Code")
-            Prelude.<*> (x Core..:? "Feature")
+            Prelude.<$> (x Core..:? "Feature")
+            Prelude.<*> (x Core..:? "Code")
       )
 
 instance Prelude.Hashable DeviceStatusDetail

@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data SmartHomeAppliance = SmartHomeAppliance'
   { -- | The friendly name of the smart home appliance.
     friendlyName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the smart home appliance.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the manufacturer of the smart home appliance.
-    manufacturerName :: Prelude.Maybe Prelude.Text
+    manufacturerName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the smart home appliance.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data SmartHomeAppliance = SmartHomeAppliance'
 --
 -- 'friendlyName', 'smartHomeAppliance_friendlyName' - The friendly name of the smart home appliance.
 --
--- 'description', 'smartHomeAppliance_description' - The description of the smart home appliance.
---
 -- 'manufacturerName', 'smartHomeAppliance_manufacturerName' - The name of the manufacturer of the smart home appliance.
+--
+-- 'description', 'smartHomeAppliance_description' - The description of the smart home appliance.
 newSmartHomeAppliance ::
   SmartHomeAppliance
 newSmartHomeAppliance =
   SmartHomeAppliance'
     { friendlyName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      manufacturerName = Prelude.Nothing
+      manufacturerName = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The friendly name of the smart home appliance.
 smartHomeAppliance_friendlyName :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
 smartHomeAppliance_friendlyName = Lens.lens (\SmartHomeAppliance' {friendlyName} -> friendlyName) (\s@SmartHomeAppliance' {} a -> s {friendlyName = a} :: SmartHomeAppliance)
 
--- | The description of the smart home appliance.
-smartHomeAppliance_description :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
-smartHomeAppliance_description = Lens.lens (\SmartHomeAppliance' {description} -> description) (\s@SmartHomeAppliance' {} a -> s {description = a} :: SmartHomeAppliance)
-
 -- | The name of the manufacturer of the smart home appliance.
 smartHomeAppliance_manufacturerName :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
 smartHomeAppliance_manufacturerName = Lens.lens (\SmartHomeAppliance' {manufacturerName} -> manufacturerName) (\s@SmartHomeAppliance' {} a -> s {manufacturerName = a} :: SmartHomeAppliance)
+
+-- | The description of the smart home appliance.
+smartHomeAppliance_description :: Lens.Lens' SmartHomeAppliance (Prelude.Maybe Prelude.Text)
+smartHomeAppliance_description = Lens.lens (\SmartHomeAppliance' {description} -> description) (\s@SmartHomeAppliance' {} a -> s {description = a} :: SmartHomeAppliance)
 
 instance Core.FromJSON SmartHomeAppliance where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON SmartHomeAppliance where
       ( \x ->
           SmartHomeAppliance'
             Prelude.<$> (x Core..:? "FriendlyName")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ManufacturerName")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable SmartHomeAppliance

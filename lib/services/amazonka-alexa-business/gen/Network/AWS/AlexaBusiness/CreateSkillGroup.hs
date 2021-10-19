@@ -27,9 +27,9 @@ module Network.AWS.AlexaBusiness.CreateSkillGroup
     newCreateSkillGroup,
 
     -- * Request Lenses
-    createSkillGroup_tags,
-    createSkillGroup_description,
     createSkillGroup_clientRequestToken,
+    createSkillGroup_description,
+    createSkillGroup_tags,
     createSkillGroup_skillGroupName,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSkillGroup' smart constructor.
 data CreateSkillGroup = CreateSkillGroup'
-  { -- | The tags for the skill group.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description for the skill group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A unique, user-specified identifier for this request that ensures
+  { -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The description for the skill group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the skill group.
+    tags :: Prelude.Maybe [Tag],
     -- | The name for the skill group.
     skillGroupName :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data CreateSkillGroup = CreateSkillGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createSkillGroup_tags' - The tags for the skill group.
+-- 'clientRequestToken', 'createSkillGroup_clientRequestToken' - A unique, user-specified identifier for this request that ensures
+-- idempotency.
 --
 -- 'description', 'createSkillGroup_description' - The description for the skill group.
 --
--- 'clientRequestToken', 'createSkillGroup_clientRequestToken' - A unique, user-specified identifier for this request that ensures
--- idempotency.
+-- 'tags', 'createSkillGroup_tags' - The tags for the skill group.
 --
 -- 'skillGroupName', 'createSkillGroup_skillGroupName' - The name for the skill group.
 newCreateSkillGroup ::
@@ -85,24 +85,25 @@ newCreateSkillGroup ::
   CreateSkillGroup
 newCreateSkillGroup pSkillGroupName_ =
   CreateSkillGroup'
-    { tags = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       skillGroupName = pSkillGroupName_
     }
-
--- | The tags for the skill group.
-createSkillGroup_tags :: Lens.Lens' CreateSkillGroup (Prelude.Maybe [Tag])
-createSkillGroup_tags = Lens.lens (\CreateSkillGroup' {tags} -> tags) (\s@CreateSkillGroup' {} a -> s {tags = a} :: CreateSkillGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description for the skill group.
-createSkillGroup_description :: Lens.Lens' CreateSkillGroup (Prelude.Maybe Prelude.Text)
-createSkillGroup_description = Lens.lens (\CreateSkillGroup' {description} -> description) (\s@CreateSkillGroup' {} a -> s {description = a} :: CreateSkillGroup)
 
 -- | A unique, user-specified identifier for this request that ensures
 -- idempotency.
 createSkillGroup_clientRequestToken :: Lens.Lens' CreateSkillGroup (Prelude.Maybe Prelude.Text)
 createSkillGroup_clientRequestToken = Lens.lens (\CreateSkillGroup' {clientRequestToken} -> clientRequestToken) (\s@CreateSkillGroup' {} a -> s {clientRequestToken = a} :: CreateSkillGroup)
+
+-- | The description for the skill group.
+createSkillGroup_description :: Lens.Lens' CreateSkillGroup (Prelude.Maybe Prelude.Text)
+createSkillGroup_description = Lens.lens (\CreateSkillGroup' {description} -> description) (\s@CreateSkillGroup' {} a -> s {description = a} :: CreateSkillGroup)
+
+-- | The tags for the skill group.
+createSkillGroup_tags :: Lens.Lens' CreateSkillGroup (Prelude.Maybe [Tag])
+createSkillGroup_tags = Lens.lens (\CreateSkillGroup' {tags} -> tags) (\s@CreateSkillGroup' {} a -> s {tags = a} :: CreateSkillGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the skill group.
 createSkillGroup_skillGroupName :: Lens.Lens' CreateSkillGroup Prelude.Text
@@ -144,10 +145,10 @@ instance Core.ToJSON CreateSkillGroup where
   toJSON CreateSkillGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("SkillGroupName" Core..= skillGroupName)
           ]

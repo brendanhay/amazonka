@@ -27,9 +27,9 @@ module Network.AWS.AlexaBusiness.UpdateSkillGroup
     newUpdateSkillGroup,
 
     -- * Request Lenses
-    updateSkillGroup_skillGroupName,
-    updateSkillGroup_description,
     updateSkillGroup_skillGroupArn,
+    updateSkillGroup_description,
+    updateSkillGroup_skillGroupName,
 
     -- * Destructuring the Response
     UpdateSkillGroupResponse (..),
@@ -49,12 +49,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSkillGroup' smart constructor.
 data UpdateSkillGroup = UpdateSkillGroup'
-  { -- | The updated name for the skill group.
-    skillGroupName :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN of the skill group to update.
+    skillGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The updated description for the skill group.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the skill group to update.
-    skillGroupArn :: Prelude.Maybe Prelude.Text
+    -- | The updated name for the skill group.
+    skillGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,31 +66,31 @@ data UpdateSkillGroup = UpdateSkillGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skillGroupName', 'updateSkillGroup_skillGroupName' - The updated name for the skill group.
+-- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.
 --
 -- 'description', 'updateSkillGroup_description' - The updated description for the skill group.
 --
--- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.
+-- 'skillGroupName', 'updateSkillGroup_skillGroupName' - The updated name for the skill group.
 newUpdateSkillGroup ::
   UpdateSkillGroup
 newUpdateSkillGroup =
   UpdateSkillGroup'
-    { skillGroupName = Prelude.Nothing,
+    { skillGroupArn = Prelude.Nothing,
       description = Prelude.Nothing,
-      skillGroupArn = Prelude.Nothing
+      skillGroupName = Prelude.Nothing
     }
 
--- | The updated name for the skill group.
-updateSkillGroup_skillGroupName :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
-updateSkillGroup_skillGroupName = Lens.lens (\UpdateSkillGroup' {skillGroupName} -> skillGroupName) (\s@UpdateSkillGroup' {} a -> s {skillGroupName = a} :: UpdateSkillGroup)
+-- | The ARN of the skill group to update.
+updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
+updateSkillGroup_skillGroupArn = Lens.lens (\UpdateSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@UpdateSkillGroup' {} a -> s {skillGroupArn = a} :: UpdateSkillGroup)
 
 -- | The updated description for the skill group.
 updateSkillGroup_description :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
 updateSkillGroup_description = Lens.lens (\UpdateSkillGroup' {description} -> description) (\s@UpdateSkillGroup' {} a -> s {description = a} :: UpdateSkillGroup)
 
--- | The ARN of the skill group to update.
-updateSkillGroup_skillGroupArn :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
-updateSkillGroup_skillGroupArn = Lens.lens (\UpdateSkillGroup' {skillGroupArn} -> skillGroupArn) (\s@UpdateSkillGroup' {} a -> s {skillGroupArn = a} :: UpdateSkillGroup)
+-- | The updated name for the skill group.
+updateSkillGroup_skillGroupName :: Lens.Lens' UpdateSkillGroup (Prelude.Maybe Prelude.Text)
+updateSkillGroup_skillGroupName = Lens.lens (\UpdateSkillGroup' {skillGroupName} -> skillGroupName) (\s@UpdateSkillGroup' {} a -> s {skillGroupName = a} :: UpdateSkillGroup)
 
 instance Core.AWSRequest UpdateSkillGroup where
   type
@@ -127,10 +127,10 @@ instance Core.ToJSON UpdateSkillGroup where
   toJSON UpdateSkillGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SkillGroupName" Core..=)
-              Prelude.<$> skillGroupName,
+          [ ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
             ("Description" Core..=) Prelude.<$> description,
-            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn
+            ("SkillGroupName" Core..=)
+              Prelude.<$> skillGroupName
           ]
       )
 

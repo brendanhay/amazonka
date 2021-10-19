@@ -27,20 +27,20 @@ module Network.AWS.AlexaBusiness.UpdateProfile
     newUpdateProfile,
 
     -- * Request Lenses
-    updateProfile_profileName,
-    updateProfile_isDefault,
-    updateProfile_address,
-    updateProfile_locale,
-    updateProfile_temperatureUnit,
-    updateProfile_pSTNEnabled,
     updateProfile_setupModeDisabled,
-    updateProfile_maxVolumeLimit,
-    updateProfile_wakeWord,
-    updateProfile_profileArn,
-    updateProfile_meetingRoomConfiguration,
-    updateProfile_timezone,
-    updateProfile_dataRetentionOptIn,
+    updateProfile_pSTNEnabled,
     updateProfile_distanceUnit,
+    updateProfile_locale,
+    updateProfile_address,
+    updateProfile_profileArn,
+    updateProfile_wakeWord,
+    updateProfile_meetingRoomConfiguration,
+    updateProfile_profileName,
+    updateProfile_temperatureUnit,
+    updateProfile_dataRetentionOptIn,
+    updateProfile_timezone,
+    updateProfile_maxVolumeLimit,
+    updateProfile_isDefault,
 
     -- * Destructuring the Response
     UpdateProfileResponse (..),
@@ -60,36 +60,36 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateProfile' smart constructor.
 data UpdateProfile = UpdateProfile'
-  { -- | The updated name for the room profile.
-    profileName :: Prelude.Maybe Prelude.Text,
-    -- | Sets the profile as default if selected. If this is missing, no update
-    -- is done to the default status.
-    isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The updated address for the room profile.
-    address :: Prelude.Maybe Prelude.Text,
+  { -- | Whether the setup mode of the profile is enabled.
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the PSTN setting of the room profile is enabled.
+    pSTNEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The updated distance unit for the room profile.
+    distanceUnit :: Prelude.Maybe DistanceUnit,
     -- | The updated locale for the room profile. (This is currently only
     -- available to a limited preview audience.)
     locale :: Prelude.Maybe Prelude.Text,
-    -- | The updated temperature unit for the room profile.
-    temperatureUnit :: Prelude.Maybe TemperatureUnit,
-    -- | Whether the PSTN setting of the room profile is enabled.
-    pSTNEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether the setup mode of the profile is enabled.
-    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
-    -- | The updated maximum volume limit for the room profile.
-    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
-    -- | The updated wake word for the room profile.
-    wakeWord :: Prelude.Maybe WakeWord,
+    -- | The updated address for the room profile.
+    address :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the room profile to update. Required.
     profileArn :: Prelude.Maybe Prelude.Text,
+    -- | The updated wake word for the room profile.
+    wakeWord :: Prelude.Maybe WakeWord,
     -- | The updated meeting room settings of a room profile.
     meetingRoomConfiguration :: Prelude.Maybe UpdateMeetingRoomConfiguration,
-    -- | The updated timezone for the room profile.
-    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The updated name for the room profile.
+    profileName :: Prelude.Maybe Prelude.Text,
+    -- | The updated temperature unit for the room profile.
+    temperatureUnit :: Prelude.Maybe TemperatureUnit,
     -- | Whether data retention of the profile is enabled.
     dataRetentionOptIn :: Prelude.Maybe Prelude.Bool,
-    -- | The updated distance unit for the room profile.
-    distanceUnit :: Prelude.Maybe DistanceUnit
+    -- | The updated timezone for the room profile.
+    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The updated maximum volume limit for the room profile.
+    maxVolumeLimit :: Prelude.Maybe Prelude.Int,
+    -- | Sets the profile as default if selected. If this is missing, no update
+    -- is done to the default status.
+    isDefault :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,112 +101,112 @@ data UpdateProfile = UpdateProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profileName', 'updateProfile_profileName' - The updated name for the room profile.
+-- 'setupModeDisabled', 'updateProfile_setupModeDisabled' - Whether the setup mode of the profile is enabled.
 --
--- 'isDefault', 'updateProfile_isDefault' - Sets the profile as default if selected. If this is missing, no update
--- is done to the default status.
+-- 'pSTNEnabled', 'updateProfile_pSTNEnabled' - Whether the PSTN setting of the room profile is enabled.
 --
--- 'address', 'updateProfile_address' - The updated address for the room profile.
+-- 'distanceUnit', 'updateProfile_distanceUnit' - The updated distance unit for the room profile.
 --
 -- 'locale', 'updateProfile_locale' - The updated locale for the room profile. (This is currently only
 -- available to a limited preview audience.)
 --
--- 'temperatureUnit', 'updateProfile_temperatureUnit' - The updated temperature unit for the room profile.
---
--- 'pSTNEnabled', 'updateProfile_pSTNEnabled' - Whether the PSTN setting of the room profile is enabled.
---
--- 'setupModeDisabled', 'updateProfile_setupModeDisabled' - Whether the setup mode of the profile is enabled.
---
--- 'maxVolumeLimit', 'updateProfile_maxVolumeLimit' - The updated maximum volume limit for the room profile.
---
--- 'wakeWord', 'updateProfile_wakeWord' - The updated wake word for the room profile.
+-- 'address', 'updateProfile_address' - The updated address for the room profile.
 --
 -- 'profileArn', 'updateProfile_profileArn' - The ARN of the room profile to update. Required.
 --
+-- 'wakeWord', 'updateProfile_wakeWord' - The updated wake word for the room profile.
+--
 -- 'meetingRoomConfiguration', 'updateProfile_meetingRoomConfiguration' - The updated meeting room settings of a room profile.
 --
--- 'timezone', 'updateProfile_timezone' - The updated timezone for the room profile.
+-- 'profileName', 'updateProfile_profileName' - The updated name for the room profile.
+--
+-- 'temperatureUnit', 'updateProfile_temperatureUnit' - The updated temperature unit for the room profile.
 --
 -- 'dataRetentionOptIn', 'updateProfile_dataRetentionOptIn' - Whether data retention of the profile is enabled.
 --
--- 'distanceUnit', 'updateProfile_distanceUnit' - The updated distance unit for the room profile.
+-- 'timezone', 'updateProfile_timezone' - The updated timezone for the room profile.
+--
+-- 'maxVolumeLimit', 'updateProfile_maxVolumeLimit' - The updated maximum volume limit for the room profile.
+--
+-- 'isDefault', 'updateProfile_isDefault' - Sets the profile as default if selected. If this is missing, no update
+-- is done to the default status.
 newUpdateProfile ::
   UpdateProfile
 newUpdateProfile =
   UpdateProfile'
-    { profileName = Prelude.Nothing,
-      isDefault = Prelude.Nothing,
-      address = Prelude.Nothing,
-      locale = Prelude.Nothing,
-      temperatureUnit = Prelude.Nothing,
+    { setupModeDisabled = Prelude.Nothing,
       pSTNEnabled = Prelude.Nothing,
-      setupModeDisabled = Prelude.Nothing,
-      maxVolumeLimit = Prelude.Nothing,
-      wakeWord = Prelude.Nothing,
+      distanceUnit = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      address = Prelude.Nothing,
       profileArn = Prelude.Nothing,
+      wakeWord = Prelude.Nothing,
       meetingRoomConfiguration = Prelude.Nothing,
-      timezone = Prelude.Nothing,
+      profileName = Prelude.Nothing,
+      temperatureUnit = Prelude.Nothing,
       dataRetentionOptIn = Prelude.Nothing,
-      distanceUnit = Prelude.Nothing
+      timezone = Prelude.Nothing,
+      maxVolumeLimit = Prelude.Nothing,
+      isDefault = Prelude.Nothing
     }
 
--- | The updated name for the room profile.
-updateProfile_profileName :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
-updateProfile_profileName = Lens.lens (\UpdateProfile' {profileName} -> profileName) (\s@UpdateProfile' {} a -> s {profileName = a} :: UpdateProfile)
+-- | Whether the setup mode of the profile is enabled.
+updateProfile_setupModeDisabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
+updateProfile_setupModeDisabled = Lens.lens (\UpdateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@UpdateProfile' {} a -> s {setupModeDisabled = a} :: UpdateProfile)
 
--- | Sets the profile as default if selected. If this is missing, no update
--- is done to the default status.
-updateProfile_isDefault :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
-updateProfile_isDefault = Lens.lens (\UpdateProfile' {isDefault} -> isDefault) (\s@UpdateProfile' {} a -> s {isDefault = a} :: UpdateProfile)
+-- | Whether the PSTN setting of the room profile is enabled.
+updateProfile_pSTNEnabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
+updateProfile_pSTNEnabled = Lens.lens (\UpdateProfile' {pSTNEnabled} -> pSTNEnabled) (\s@UpdateProfile' {} a -> s {pSTNEnabled = a} :: UpdateProfile)
 
--- | The updated address for the room profile.
-updateProfile_address :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
-updateProfile_address = Lens.lens (\UpdateProfile' {address} -> address) (\s@UpdateProfile' {} a -> s {address = a} :: UpdateProfile)
+-- | The updated distance unit for the room profile.
+updateProfile_distanceUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe DistanceUnit)
+updateProfile_distanceUnit = Lens.lens (\UpdateProfile' {distanceUnit} -> distanceUnit) (\s@UpdateProfile' {} a -> s {distanceUnit = a} :: UpdateProfile)
 
 -- | The updated locale for the room profile. (This is currently only
 -- available to a limited preview audience.)
 updateProfile_locale :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_locale = Lens.lens (\UpdateProfile' {locale} -> locale) (\s@UpdateProfile' {} a -> s {locale = a} :: UpdateProfile)
 
--- | The updated temperature unit for the room profile.
-updateProfile_temperatureUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe TemperatureUnit)
-updateProfile_temperatureUnit = Lens.lens (\UpdateProfile' {temperatureUnit} -> temperatureUnit) (\s@UpdateProfile' {} a -> s {temperatureUnit = a} :: UpdateProfile)
-
--- | Whether the PSTN setting of the room profile is enabled.
-updateProfile_pSTNEnabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
-updateProfile_pSTNEnabled = Lens.lens (\UpdateProfile' {pSTNEnabled} -> pSTNEnabled) (\s@UpdateProfile' {} a -> s {pSTNEnabled = a} :: UpdateProfile)
-
--- | Whether the setup mode of the profile is enabled.
-updateProfile_setupModeDisabled :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
-updateProfile_setupModeDisabled = Lens.lens (\UpdateProfile' {setupModeDisabled} -> setupModeDisabled) (\s@UpdateProfile' {} a -> s {setupModeDisabled = a} :: UpdateProfile)
-
--- | The updated maximum volume limit for the room profile.
-updateProfile_maxVolumeLimit :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Int)
-updateProfile_maxVolumeLimit = Lens.lens (\UpdateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@UpdateProfile' {} a -> s {maxVolumeLimit = a} :: UpdateProfile)
-
--- | The updated wake word for the room profile.
-updateProfile_wakeWord :: Lens.Lens' UpdateProfile (Prelude.Maybe WakeWord)
-updateProfile_wakeWord = Lens.lens (\UpdateProfile' {wakeWord} -> wakeWord) (\s@UpdateProfile' {} a -> s {wakeWord = a} :: UpdateProfile)
+-- | The updated address for the room profile.
+updateProfile_address :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_address = Lens.lens (\UpdateProfile' {address} -> address) (\s@UpdateProfile' {} a -> s {address = a} :: UpdateProfile)
 
 -- | The ARN of the room profile to update. Required.
 updateProfile_profileArn :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_profileArn = Lens.lens (\UpdateProfile' {profileArn} -> profileArn) (\s@UpdateProfile' {} a -> s {profileArn = a} :: UpdateProfile)
 
+-- | The updated wake word for the room profile.
+updateProfile_wakeWord :: Lens.Lens' UpdateProfile (Prelude.Maybe WakeWord)
+updateProfile_wakeWord = Lens.lens (\UpdateProfile' {wakeWord} -> wakeWord) (\s@UpdateProfile' {} a -> s {wakeWord = a} :: UpdateProfile)
+
 -- | The updated meeting room settings of a room profile.
 updateProfile_meetingRoomConfiguration :: Lens.Lens' UpdateProfile (Prelude.Maybe UpdateMeetingRoomConfiguration)
 updateProfile_meetingRoomConfiguration = Lens.lens (\UpdateProfile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@UpdateProfile' {} a -> s {meetingRoomConfiguration = a} :: UpdateProfile)
 
--- | The updated timezone for the room profile.
-updateProfile_timezone :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
-updateProfile_timezone = Lens.lens (\UpdateProfile' {timezone} -> timezone) (\s@UpdateProfile' {} a -> s {timezone = a} :: UpdateProfile)
+-- | The updated name for the room profile.
+updateProfile_profileName :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_profileName = Lens.lens (\UpdateProfile' {profileName} -> profileName) (\s@UpdateProfile' {} a -> s {profileName = a} :: UpdateProfile)
+
+-- | The updated temperature unit for the room profile.
+updateProfile_temperatureUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe TemperatureUnit)
+updateProfile_temperatureUnit = Lens.lens (\UpdateProfile' {temperatureUnit} -> temperatureUnit) (\s@UpdateProfile' {} a -> s {temperatureUnit = a} :: UpdateProfile)
 
 -- | Whether data retention of the profile is enabled.
 updateProfile_dataRetentionOptIn :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
 updateProfile_dataRetentionOptIn = Lens.lens (\UpdateProfile' {dataRetentionOptIn} -> dataRetentionOptIn) (\s@UpdateProfile' {} a -> s {dataRetentionOptIn = a} :: UpdateProfile)
 
--- | The updated distance unit for the room profile.
-updateProfile_distanceUnit :: Lens.Lens' UpdateProfile (Prelude.Maybe DistanceUnit)
-updateProfile_distanceUnit = Lens.lens (\UpdateProfile' {distanceUnit} -> distanceUnit) (\s@UpdateProfile' {} a -> s {distanceUnit = a} :: UpdateProfile)
+-- | The updated timezone for the room profile.
+updateProfile_timezone :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_timezone = Lens.lens (\UpdateProfile' {timezone} -> timezone) (\s@UpdateProfile' {} a -> s {timezone = a} :: UpdateProfile)
+
+-- | The updated maximum volume limit for the room profile.
+updateProfile_maxVolumeLimit :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Int)
+updateProfile_maxVolumeLimit = Lens.lens (\UpdateProfile' {maxVolumeLimit} -> maxVolumeLimit) (\s@UpdateProfile' {} a -> s {maxVolumeLimit = a} :: UpdateProfile)
+
+-- | Sets the profile as default if selected. If this is missing, no update
+-- is done to the default status.
+updateProfile_isDefault :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Bool)
+updateProfile_isDefault = Lens.lens (\UpdateProfile' {isDefault} -> isDefault) (\s@UpdateProfile' {} a -> s {isDefault = a} :: UpdateProfile)
 
 instance Core.AWSRequest UpdateProfile where
   type
@@ -243,25 +243,25 @@ instance Core.ToJSON UpdateProfile where
   toJSON UpdateProfile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProfileName" Core..=) Prelude.<$> profileName,
-            ("IsDefault" Core..=) Prelude.<$> isDefault,
-            ("Address" Core..=) Prelude.<$> address,
-            ("Locale" Core..=) Prelude.<$> locale,
-            ("TemperatureUnit" Core..=)
-              Prelude.<$> temperatureUnit,
-            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
-            ("SetupModeDisabled" Core..=)
+          [ ("SetupModeDisabled" Core..=)
               Prelude.<$> setupModeDisabled,
-            ("MaxVolumeLimit" Core..=)
-              Prelude.<$> maxVolumeLimit,
-            ("WakeWord" Core..=) Prelude.<$> wakeWord,
+            ("PSTNEnabled" Core..=) Prelude.<$> pSTNEnabled,
+            ("DistanceUnit" Core..=) Prelude.<$> distanceUnit,
+            ("Locale" Core..=) Prelude.<$> locale,
+            ("Address" Core..=) Prelude.<$> address,
             ("ProfileArn" Core..=) Prelude.<$> profileArn,
+            ("WakeWord" Core..=) Prelude.<$> wakeWord,
             ("MeetingRoomConfiguration" Core..=)
               Prelude.<$> meetingRoomConfiguration,
-            ("Timezone" Core..=) Prelude.<$> timezone,
+            ("ProfileName" Core..=) Prelude.<$> profileName,
+            ("TemperatureUnit" Core..=)
+              Prelude.<$> temperatureUnit,
             ("DataRetentionOptIn" Core..=)
               Prelude.<$> dataRetentionOptIn,
-            ("DistanceUnit" Core..=) Prelude.<$> distanceUnit
+            ("Timezone" Core..=) Prelude.<$> timezone,
+            ("MaxVolumeLimit" Core..=)
+              Prelude.<$> maxVolumeLimit,
+            ("IsDefault" Core..=) Prelude.<$> isDefault
           ]
       )
 

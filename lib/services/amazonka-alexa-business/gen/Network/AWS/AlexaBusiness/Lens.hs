@@ -14,149 +14,142 @@
 module Network.AWS.AlexaBusiness.Lens
   ( -- * Operations
 
-    -- ** StartDeviceSync
-    startDeviceSync_deviceArn,
-    startDeviceSync_roomArn,
-    startDeviceSync_features,
-    startDeviceSyncResponse_httpStatus,
+    -- ** SearchUsers
+    searchUsers_filters,
+    searchUsers_sortCriteria,
+    searchUsers_nextToken,
+    searchUsers_maxResults,
+    searchUsersResponse_users,
+    searchUsersResponse_nextToken,
+    searchUsersResponse_totalCount,
+    searchUsersResponse_httpStatus,
 
-    -- ** CreateProfile
-    createProfile_locale,
-    createProfile_pSTNEnabled,
-    createProfile_setupModeDisabled,
-    createProfile_maxVolumeLimit,
-    createProfile_tags,
-    createProfile_meetingRoomConfiguration,
-    createProfile_clientRequestToken,
-    createProfile_dataRetentionOptIn,
-    createProfile_profileName,
-    createProfile_timezone,
-    createProfile_address,
-    createProfile_distanceUnit,
-    createProfile_temperatureUnit,
-    createProfile_wakeWord,
-    createProfileResponse_profileArn,
-    createProfileResponse_httpStatus,
-
-    -- ** DeleteBusinessReportSchedule
-    deleteBusinessReportSchedule_scheduleArn,
-    deleteBusinessReportScheduleResponse_httpStatus,
-
-    -- ** ListBusinessReportSchedules
-    listBusinessReportSchedules_nextToken,
-    listBusinessReportSchedules_maxResults,
-    listBusinessReportSchedulesResponse_nextToken,
-    listBusinessReportSchedulesResponse_businessReportSchedules,
-    listBusinessReportSchedulesResponse_httpStatus,
+    -- ** PutConferencePreference
+    putConferencePreference_conferencePreference,
+    putConferencePreferenceResponse_httpStatus,
 
     -- ** UpdateNetworkProfile
-    updateNetworkProfile_certificateAuthorityArn,
-    updateNetworkProfile_trustAnchors,
-    updateNetworkProfile_currentPassword,
     updateNetworkProfile_networkProfileName,
-    updateNetworkProfile_description,
+    updateNetworkProfile_currentPassword,
     updateNetworkProfile_nextPassword,
+    updateNetworkProfile_description,
+    updateNetworkProfile_trustAnchors,
+    updateNetworkProfile_certificateAuthorityArn,
     updateNetworkProfile_networkProfileArn,
     updateNetworkProfileResponse_httpStatus,
-
-    -- ** DeleteDeviceUsageData
-    deleteDeviceUsageData_deviceArn,
-    deleteDeviceUsageData_deviceUsageType,
-    deleteDeviceUsageDataResponse_httpStatus,
 
     -- ** DeleteNetworkProfile
     deleteNetworkProfile_networkProfileArn,
     deleteNetworkProfileResponse_httpStatus,
 
-    -- ** CreateContact
-    createContact_phoneNumber,
-    createContact_phoneNumbers,
-    createContact_tags,
-    createContact_clientRequestToken,
-    createContact_lastName,
-    createContact_displayName,
-    createContact_sipAddresses,
-    createContact_firstName,
-    createContactResponse_contactArn,
-    createContactResponse_httpStatus,
-
     -- ** UpdateBusinessReportSchedule
-    updateBusinessReportSchedule_format,
     updateBusinessReportSchedule_s3KeyPrefix,
+    updateBusinessReportSchedule_format,
     updateBusinessReportSchedule_recurrence,
-    updateBusinessReportSchedule_s3BucketName,
     updateBusinessReportSchedule_scheduleName,
+    updateBusinessReportSchedule_s3BucketName,
     updateBusinessReportSchedule_scheduleArn,
     updateBusinessReportScheduleResponse_httpStatus,
 
-    -- ** AssociateContactWithAddressBook
-    associateContactWithAddressBook_contactArn,
-    associateContactWithAddressBook_addressBookArn,
-    associateContactWithAddressBookResponse_httpStatus,
+    -- ** DeleteBusinessReportSchedule
+    deleteBusinessReportSchedule_scheduleArn,
+    deleteBusinessReportScheduleResponse_httpStatus,
 
-    -- ** ListSkillsStoreCategories
-    listSkillsStoreCategories_nextToken,
-    listSkillsStoreCategories_maxResults,
-    listSkillsStoreCategoriesResponse_nextToken,
-    listSkillsStoreCategoriesResponse_categoryList,
-    listSkillsStoreCategoriesResponse_httpStatus,
+    -- ** AssociateSkillGroupWithRoom
+    associateSkillGroupWithRoom_skillGroupArn,
+    associateSkillGroupWithRoom_roomArn,
+    associateSkillGroupWithRoomResponse_httpStatus,
 
-    -- ** GetConferenceProvider
-    getConferenceProvider_conferenceProviderArn,
-    getConferenceProviderResponse_conferenceProvider,
-    getConferenceProviderResponse_httpStatus,
+    -- ** ListSmartHomeAppliances
+    listSmartHomeAppliances_nextToken,
+    listSmartHomeAppliances_maxResults,
+    listSmartHomeAppliances_roomArn,
+    listSmartHomeAppliancesResponse_smartHomeAppliances,
+    listSmartHomeAppliancesResponse_nextToken,
+    listSmartHomeAppliancesResponse_httpStatus,
 
-    -- ** GetAddressBook
-    getAddressBook_addressBookArn,
-    getAddressBookResponse_addressBook,
-    getAddressBookResponse_httpStatus,
+    -- ** DeleteProfile
+    deleteProfile_profileArn,
+    deleteProfileResponse_httpStatus,
 
-    -- ** CreateBusinessReportSchedule
-    createBusinessReportSchedule_s3KeyPrefix,
-    createBusinessReportSchedule_recurrence,
-    createBusinessReportSchedule_tags,
-    createBusinessReportSchedule_s3BucketName,
-    createBusinessReportSchedule_clientRequestToken,
-    createBusinessReportSchedule_scheduleName,
-    createBusinessReportSchedule_format,
-    createBusinessReportSchedule_contentRange,
-    createBusinessReportScheduleResponse_scheduleArn,
-    createBusinessReportScheduleResponse_httpStatus,
+    -- ** UpdateProfile
+    updateProfile_setupModeDisabled,
+    updateProfile_pSTNEnabled,
+    updateProfile_distanceUnit,
+    updateProfile_locale,
+    updateProfile_address,
+    updateProfile_profileArn,
+    updateProfile_wakeWord,
+    updateProfile_meetingRoomConfiguration,
+    updateProfile_profileName,
+    updateProfile_temperatureUnit,
+    updateProfile_dataRetentionOptIn,
+    updateProfile_timezone,
+    updateProfile_maxVolumeLimit,
+    updateProfile_isDefault,
+    updateProfileResponse_httpStatus,
 
-    -- ** GetGatewayGroup
-    getGatewayGroup_gatewayGroupArn,
-    getGatewayGroupResponse_gatewayGroup,
-    getGatewayGroupResponse_httpStatus,
+    -- ** SearchRooms
+    searchRooms_filters,
+    searchRooms_sortCriteria,
+    searchRooms_nextToken,
+    searchRooms_maxResults,
+    searchRoomsResponse_rooms,
+    searchRoomsResponse_nextToken,
+    searchRoomsResponse_totalCount,
+    searchRoomsResponse_httpStatus,
 
-    -- ** GetRoom
-    getRoom_roomArn,
-    getRoomResponse_room,
-    getRoomResponse_httpStatus,
+    -- ** AssociateSkillWithUsers
+    associateSkillWithUsers_skillId,
+    associateSkillWithUsersResponse_httpStatus,
 
-    -- ** CreateNetworkProfile
-    createNetworkProfile_certificateAuthorityArn,
-    createNetworkProfile_trustAnchors,
-    createNetworkProfile_currentPassword,
-    createNetworkProfile_eapMethod,
-    createNetworkProfile_tags,
-    createNetworkProfile_description,
-    createNetworkProfile_nextPassword,
-    createNetworkProfile_networkProfileName,
-    createNetworkProfile_ssid,
-    createNetworkProfile_securityType,
-    createNetworkProfile_clientRequestToken,
-    createNetworkProfileResponse_networkProfileArn,
-    createNetworkProfileResponse_httpStatus,
+    -- ** RegisterAVSDevice
+    registerAVSDevice_roomArn,
+    registerAVSDevice_deviceSerialNumber,
+    registerAVSDevice_tags,
+    registerAVSDevice_clientId,
+    registerAVSDevice_userCode,
+    registerAVSDevice_productId,
+    registerAVSDevice_amazonId,
+    registerAVSDeviceResponse_deviceArn,
+    registerAVSDeviceResponse_httpStatus,
 
-    -- ** SearchProfiles
-    searchProfiles_nextToken,
-    searchProfiles_sortCriteria,
-    searchProfiles_maxResults,
-    searchProfiles_filters,
-    searchProfilesResponse_nextToken,
-    searchProfilesResponse_profiles,
-    searchProfilesResponse_totalCount,
-    searchProfilesResponse_httpStatus,
+    -- ** ForgetSmartHomeAppliances
+    forgetSmartHomeAppliances_roomArn,
+    forgetSmartHomeAppliancesResponse_httpStatus,
+
+    -- ** PutInvitationConfiguration
+    putInvitationConfiguration_contactEmail,
+    putInvitationConfiguration_privateSkillIds,
+    putInvitationConfiguration_organizationName,
+    putInvitationConfigurationResponse_httpStatus,
+
+    -- ** DisassociateContactFromAddressBook
+    disassociateContactFromAddressBook_contactArn,
+    disassociateContactFromAddressBook_addressBookArn,
+    disassociateContactFromAddressBookResponse_httpStatus,
+
+    -- ** GetNetworkProfile
+    getNetworkProfile_networkProfileArn,
+    getNetworkProfileResponse_networkProfile,
+    getNetworkProfileResponse_httpStatus,
+
+    -- ** GetConferencePreference
+    getConferencePreferenceResponse_preference,
+    getConferencePreferenceResponse_httpStatus,
+
+    -- ** DisassociateSkillFromSkillGroup
+    disassociateSkillFromSkillGroup_skillGroupArn,
+    disassociateSkillFromSkillGroup_skillId,
+    disassociateSkillFromSkillGroupResponse_httpStatus,
+
+    -- ** CreateAddressBook
+    createAddressBook_clientRequestToken,
+    createAddressBook_description,
+    createAddressBook_tags,
+    createAddressBook_name,
+    createAddressBookResponse_addressBookArn,
+    createAddressBookResponse_httpStatus,
 
     -- ** DeleteAddressBook
     deleteAddressBook_addressBookArn,
@@ -168,231 +161,86 @@ module Network.AWS.AlexaBusiness.Lens
     updateAddressBook_addressBookArn,
     updateAddressBookResponse_httpStatus,
 
-    -- ** DeleteRoomSkillParameter
-    deleteRoomSkillParameter_roomArn,
-    deleteRoomSkillParameter_skillId,
-    deleteRoomSkillParameter_parameterKey,
-    deleteRoomSkillParameterResponse_httpStatus,
+    -- ** DeleteGatewayGroup
+    deleteGatewayGroup_gatewayGroupArn,
+    deleteGatewayGroupResponse_httpStatus,
+
+    -- ** UpdateGatewayGroup
+    updateGatewayGroup_name,
+    updateGatewayGroup_description,
+    updateGatewayGroup_gatewayGroupArn,
+    updateGatewayGroupResponse_httpStatus,
+
+    -- ** UpdateRoom
+    updateRoom_profileArn,
+    updateRoom_providerCalendarId,
+    updateRoom_roomArn,
+    updateRoom_roomName,
+    updateRoom_description,
+    updateRoomResponse_httpStatus,
+
+    -- ** DeleteRoom
+    deleteRoom_roomArn,
+    deleteRoomResponse_httpStatus,
 
     -- ** GetDevice
     getDevice_deviceArn,
     getDeviceResponse_device,
     getDeviceResponse_httpStatus,
 
+    -- ** GetGateway
+    getGateway_gatewayArn,
+    getGatewayResponse_gateway,
+    getGatewayResponse_httpStatus,
+
     -- ** ListSkillsStoreSkillsByCategory
     listSkillsStoreSkillsByCategory_nextToken,
     listSkillsStoreSkillsByCategory_maxResults,
     listSkillsStoreSkillsByCategory_categoryId,
-    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
     listSkillsStoreSkillsByCategoryResponse_nextToken,
+    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
     listSkillsStoreSkillsByCategoryResponse_httpStatus,
 
-    -- ** PutSkillAuthorization
-    putSkillAuthorization_roomArn,
-    putSkillAuthorization_authorizationResult,
-    putSkillAuthorization_skillId,
-    putSkillAuthorizationResponse_httpStatus,
+    -- ** DeleteConferenceProvider
+    deleteConferenceProvider_conferenceProviderArn,
+    deleteConferenceProviderResponse_httpStatus,
 
-    -- ** DisassociateContactFromAddressBook
-    disassociateContactFromAddressBook_contactArn,
-    disassociateContactFromAddressBook_addressBookArn,
-    disassociateContactFromAddressBookResponse_httpStatus,
+    -- ** UpdateConferenceProvider
+    updateConferenceProvider_pSTNDialIn,
+    updateConferenceProvider_iPDialIn,
+    updateConferenceProvider_conferenceProviderArn,
+    updateConferenceProvider_conferenceProviderType,
+    updateConferenceProvider_meetingSetting,
+    updateConferenceProviderResponse_httpStatus,
 
-    -- ** AssociateDeviceWithNetworkProfile
-    associateDeviceWithNetworkProfile_deviceArn,
-    associateDeviceWithNetworkProfile_networkProfileArn,
-    associateDeviceWithNetworkProfileResponse_httpStatus,
+    -- ** GetContact
+    getContact_contactArn,
+    getContactResponse_contact,
+    getContactResponse_httpStatus,
 
-    -- ** SearchSkillGroups
-    searchSkillGroups_nextToken,
-    searchSkillGroups_sortCriteria,
-    searchSkillGroups_maxResults,
-    searchSkillGroups_filters,
-    searchSkillGroupsResponse_nextToken,
-    searchSkillGroupsResponse_totalCount,
-    searchSkillGroupsResponse_skillGroups,
-    searchSkillGroupsResponse_httpStatus,
+    -- ** ApproveSkill
+    approveSkill_skillId,
+    approveSkillResponse_httpStatus,
 
-    -- ** ResolveRoom
-    resolveRoom_userId,
-    resolveRoom_skillId,
-    resolveRoomResponse_roomSkillParameters,
-    resolveRoomResponse_roomArn,
-    resolveRoomResponse_roomName,
-    resolveRoomResponse_httpStatus,
+    -- ** CreateNetworkProfile
+    createNetworkProfile_currentPassword,
+    createNetworkProfile_nextPassword,
+    createNetworkProfile_eapMethod,
+    createNetworkProfile_description,
+    createNetworkProfile_trustAnchors,
+    createNetworkProfile_certificateAuthorityArn,
+    createNetworkProfile_tags,
+    createNetworkProfile_networkProfileName,
+    createNetworkProfile_ssid,
+    createNetworkProfile_securityType,
+    createNetworkProfile_clientRequestToken,
+    createNetworkProfileResponse_networkProfileArn,
+    createNetworkProfileResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_arn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** SearchNetworkProfiles
-    searchNetworkProfiles_nextToken,
-    searchNetworkProfiles_sortCriteria,
-    searchNetworkProfiles_maxResults,
-    searchNetworkProfiles_filters,
-    searchNetworkProfilesResponse_nextToken,
-    searchNetworkProfilesResponse_networkProfiles,
-    searchNetworkProfilesResponse_totalCount,
-    searchNetworkProfilesResponse_httpStatus,
-
-    -- ** PutInvitationConfiguration
-    putInvitationConfiguration_contactEmail,
-    putInvitationConfiguration_privateSkillIds,
-    putInvitationConfiguration_organizationName,
-    putInvitationConfigurationResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_arn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** GetSkillGroup
-    getSkillGroup_skillGroupArn,
-    getSkillGroupResponse_skillGroup,
-    getSkillGroupResponse_httpStatus,
-
-    -- ** SendInvitation
-    sendInvitation_userArn,
-    sendInvitationResponse_httpStatus,
-
-    -- ** ListDeviceEvents
-    listDeviceEvents_eventType,
-    listDeviceEvents_nextToken,
-    listDeviceEvents_maxResults,
-    listDeviceEvents_deviceArn,
-    listDeviceEventsResponse_nextToken,
-    listDeviceEventsResponse_deviceEvents,
-    listDeviceEventsResponse_httpStatus,
-
-    -- ** RegisterAVSDevice
-    registerAVSDevice_roomArn,
-    registerAVSDevice_tags,
-    registerAVSDevice_deviceSerialNumber,
-    registerAVSDevice_clientId,
-    registerAVSDevice_userCode,
-    registerAVSDevice_productId,
-    registerAVSDevice_amazonId,
-    registerAVSDeviceResponse_deviceArn,
-    registerAVSDeviceResponse_httpStatus,
-
-    -- ** GetProfile
-    getProfile_profileArn,
-    getProfileResponse_profile,
-    getProfileResponse_httpStatus,
-
-    -- ** SearchContacts
-    searchContacts_nextToken,
-    searchContacts_sortCriteria,
-    searchContacts_maxResults,
-    searchContacts_filters,
-    searchContactsResponse_nextToken,
-    searchContactsResponse_totalCount,
-    searchContactsResponse_contacts,
-    searchContactsResponse_httpStatus,
-
-    -- ** DisassociateSkillGroupFromRoom
-    disassociateSkillGroupFromRoom_roomArn,
-    disassociateSkillGroupFromRoom_skillGroupArn,
-    disassociateSkillGroupFromRoomResponse_httpStatus,
-
-    -- ** AssociateSkillWithUsers
-    associateSkillWithUsers_skillId,
-    associateSkillWithUsersResponse_httpStatus,
-
-    -- ** CreateUser
-    createUser_email,
-    createUser_tags,
-    createUser_clientRequestToken,
-    createUser_lastName,
-    createUser_firstName,
-    createUser_userId,
-    createUserResponse_userArn,
-    createUserResponse_httpStatus,
-
-    -- ** ForgetSmartHomeAppliances
-    forgetSmartHomeAppliances_roomArn,
-    forgetSmartHomeAppliancesResponse_httpStatus,
-
-    -- ** SendAnnouncement
-    sendAnnouncement_timeToLiveInSeconds,
-    sendAnnouncement_roomFilters,
-    sendAnnouncement_content,
-    sendAnnouncement_clientRequestToken,
-    sendAnnouncementResponse_announcementArn,
-    sendAnnouncementResponse_httpStatus,
-
-    -- ** AssociateSkillGroupWithRoom
-    associateSkillGroupWithRoom_roomArn,
-    associateSkillGroupWithRoom_skillGroupArn,
-    associateSkillGroupWithRoomResponse_httpStatus,
-
-    -- ** GetInvitationConfiguration
-    getInvitationConfigurationResponse_organizationName,
-    getInvitationConfigurationResponse_contactEmail,
-    getInvitationConfigurationResponse_privateSkillIds,
-    getInvitationConfigurationResponse_httpStatus,
-
-    -- ** DisassociateSkillFromUsers
-    disassociateSkillFromUsers_skillId,
-    disassociateSkillFromUsersResponse_httpStatus,
-
-    -- ** UpdateSkillGroup
-    updateSkillGroup_skillGroupName,
-    updateSkillGroup_description,
-    updateSkillGroup_skillGroupArn,
-    updateSkillGroupResponse_httpStatus,
-
-    -- ** DeleteSkillGroup
-    deleteSkillGroup_skillGroupArn,
-    deleteSkillGroupResponse_httpStatus,
-
-    -- ** SearchUsers
-    searchUsers_nextToken,
-    searchUsers_sortCriteria,
-    searchUsers_maxResults,
-    searchUsers_filters,
-    searchUsersResponse_nextToken,
-    searchUsersResponse_totalCount,
-    searchUsersResponse_users,
-    searchUsersResponse_httpStatus,
-
-    -- ** PutConferencePreference
-    putConferencePreference_conferencePreference,
-    putConferencePreferenceResponse_httpStatus,
-
-    -- ** UpdateContact
-    updateContact_phoneNumber,
-    updateContact_phoneNumbers,
-    updateContact_lastName,
-    updateContact_firstName,
-    updateContact_displayName,
-    updateContact_sipAddresses,
-    updateContact_contactArn,
-    updateContactResponse_httpStatus,
-
-    -- ** StartSmartHomeApplianceDiscovery
-    startSmartHomeApplianceDiscovery_roomArn,
-    startSmartHomeApplianceDiscoveryResponse_httpStatus,
-
-    -- ** DeleteContact
-    deleteContact_contactArn,
-    deleteContactResponse_httpStatus,
-
-    -- ** RevokeInvitation
-    revokeInvitation_userArn,
-    revokeInvitation_enrollmentId,
-    revokeInvitationResponse_httpStatus,
-
-    -- ** AssociateSkillWithSkillGroup
-    associateSkillWithSkillGroup_skillGroupArn,
-    associateSkillWithSkillGroup_skillId,
-    associateSkillWithSkillGroupResponse_httpStatus,
-
-    -- ** UpdateDevice
-    updateDevice_deviceArn,
-    updateDevice_deviceName,
-    updateDeviceResponse_httpStatus,
+    -- ** AssociateDeviceWithRoom
+    associateDeviceWithRoom_deviceArn,
+    associateDeviceWithRoom_roomArn,
+    associateDeviceWithRoomResponse_httpStatus,
 
     -- ** GetRoomSkillParameter
     getRoomSkillParameter_roomArn,
@@ -403,99 +251,243 @@ module Network.AWS.AlexaBusiness.Lens
 
     -- ** UpdateGateway
     updateGateway_name,
-    updateGateway_description,
     updateGateway_softwareVersion,
+    updateGateway_description,
     updateGateway_gatewayArn,
     updateGatewayResponse_httpStatus,
 
-    -- ** AssociateDeviceWithRoom
-    associateDeviceWithRoom_deviceArn,
-    associateDeviceWithRoom_roomArn,
-    associateDeviceWithRoomResponse_httpStatus,
+    -- ** CreateBusinessReportSchedule
+    createBusinessReportSchedule_s3KeyPrefix,
+    createBusinessReportSchedule_recurrence,
+    createBusinessReportSchedule_scheduleName,
+    createBusinessReportSchedule_clientRequestToken,
+    createBusinessReportSchedule_s3BucketName,
+    createBusinessReportSchedule_tags,
+    createBusinessReportSchedule_format,
+    createBusinessReportSchedule_contentRange,
+    createBusinessReportScheduleResponse_scheduleArn,
+    createBusinessReportScheduleResponse_httpStatus,
 
-    -- ** ListGateways
-    listGateways_nextToken,
-    listGateways_maxResults,
-    listGateways_gatewayGroupArn,
-    listGatewaysResponse_nextToken,
-    listGatewaysResponse_gateways,
-    listGatewaysResponse_httpStatus,
+    -- ** DeleteContact
+    deleteContact_contactArn,
+    deleteContactResponse_httpStatus,
 
-    -- ** DeleteDevice
-    deleteDevice_deviceArn,
-    deleteDeviceResponse_httpStatus,
+    -- ** UpdateContact
+    updateContact_lastName,
+    updateContact_phoneNumbers,
+    updateContact_phoneNumber,
+    updateContact_sipAddresses,
+    updateContact_firstName,
+    updateContact_displayName,
+    updateContact_contactArn,
+    updateContactResponse_httpStatus,
 
-    -- ** UpdateRoom
-    updateRoom_roomArn,
-    updateRoom_profileArn,
-    updateRoom_description,
-    updateRoom_providerCalendarId,
-    updateRoom_roomName,
-    updateRoomResponse_httpStatus,
+    -- ** GetAddressBook
+    getAddressBook_addressBookArn,
+    getAddressBookResponse_addressBook,
+    getAddressBookResponse_httpStatus,
 
-    -- ** ListGatewayGroups
-    listGatewayGroups_nextToken,
-    listGatewayGroups_maxResults,
-    listGatewayGroupsResponse_nextToken,
-    listGatewayGroupsResponse_gatewayGroups,
-    listGatewayGroupsResponse_httpStatus,
+    -- ** ListBusinessReportSchedules
+    listBusinessReportSchedules_nextToken,
+    listBusinessReportSchedules_maxResults,
+    listBusinessReportSchedulesResponse_businessReportSchedules,
+    listBusinessReportSchedulesResponse_nextToken,
+    listBusinessReportSchedulesResponse_httpStatus,
 
-    -- ** GetContact
-    getContact_contactArn,
-    getContactResponse_contact,
-    getContactResponse_httpStatus,
+    -- ** DeleteDeviceUsageData
+    deleteDeviceUsageData_deviceArn,
+    deleteDeviceUsageData_deviceUsageType,
+    deleteDeviceUsageDataResponse_httpStatus,
 
-    -- ** RejectSkill
-    rejectSkill_skillId,
-    rejectSkillResponse_httpStatus,
+    -- ** CreateContact
+    createContact_lastName,
+    createContact_phoneNumbers,
+    createContact_phoneNumber,
+    createContact_sipAddresses,
+    createContact_displayName,
+    createContact_clientRequestToken,
+    createContact_tags,
+    createContact_firstName,
+    createContactResponse_contactArn,
+    createContactResponse_httpStatus,
 
-    -- ** ListConferenceProviders
-    listConferenceProviders_nextToken,
-    listConferenceProviders_maxResults,
-    listConferenceProvidersResponse_nextToken,
-    listConferenceProvidersResponse_conferenceProviders,
-    listConferenceProvidersResponse_httpStatus,
+    -- ** CreateProfile
+    createProfile_setupModeDisabled,
+    createProfile_pSTNEnabled,
+    createProfile_locale,
+    createProfile_meetingRoomConfiguration,
+    createProfile_dataRetentionOptIn,
+    createProfile_clientRequestToken,
+    createProfile_maxVolumeLimit,
+    createProfile_tags,
+    createProfile_profileName,
+    createProfile_timezone,
+    createProfile_address,
+    createProfile_distanceUnit,
+    createProfile_temperatureUnit,
+    createProfile_wakeWord,
+    createProfileResponse_profileArn,
+    createProfileResponse_httpStatus,
 
-    -- ** UpdateConferenceProvider
-    updateConferenceProvider_iPDialIn,
-    updateConferenceProvider_pSTNDialIn,
-    updateConferenceProvider_conferenceProviderArn,
-    updateConferenceProvider_conferenceProviderType,
-    updateConferenceProvider_meetingSetting,
-    updateConferenceProviderResponse_httpStatus,
+    -- ** DeleteSkillGroup
+    deleteSkillGroup_skillGroupArn,
+    deleteSkillGroupResponse_httpStatus,
 
-    -- ** DeleteRoom
-    deleteRoom_roomArn,
-    deleteRoomResponse_httpStatus,
+    -- ** UpdateSkillGroup
+    updateSkillGroup_skillGroupArn,
+    updateSkillGroup_description,
+    updateSkillGroup_skillGroupName,
+    updateSkillGroupResponse_httpStatus,
 
-    -- ** ApproveSkill
-    approveSkill_skillId,
-    approveSkillResponse_httpStatus,
+    -- ** StartDeviceSync
+    startDeviceSync_deviceArn,
+    startDeviceSync_roomArn,
+    startDeviceSync_features,
+    startDeviceSyncResponse_httpStatus,
 
-    -- ** DeleteGatewayGroup
-    deleteGatewayGroup_gatewayGroupArn,
-    deleteGatewayGroupResponse_httpStatus,
+    -- ** GetInvitationConfiguration
+    getInvitationConfigurationResponse_contactEmail,
+    getInvitationConfigurationResponse_organizationName,
+    getInvitationConfigurationResponse_privateSkillIds,
+    getInvitationConfigurationResponse_httpStatus,
 
-    -- ** DeleteConferenceProvider
-    deleteConferenceProvider_conferenceProviderArn,
-    deleteConferenceProviderResponse_httpStatus,
+    -- ** DisassociateSkillFromUsers
+    disassociateSkillFromUsers_skillId,
+    disassociateSkillFromUsersResponse_httpStatus,
 
-    -- ** GetGateway
-    getGateway_gatewayArn,
-    getGatewayResponse_gateway,
-    getGatewayResponse_httpStatus,
+    -- ** SearchAddressBooks
+    searchAddressBooks_filters,
+    searchAddressBooks_sortCriteria,
+    searchAddressBooks_nextToken,
+    searchAddressBooks_maxResults,
+    searchAddressBooksResponse_nextToken,
+    searchAddressBooksResponse_addressBooks,
+    searchAddressBooksResponse_totalCount,
+    searchAddressBooksResponse_httpStatus,
 
-    -- ** PutRoomSkillParameter
-    putRoomSkillParameter_roomArn,
-    putRoomSkillParameter_skillId,
-    putRoomSkillParameter_roomSkillParameter,
-    putRoomSkillParameterResponse_httpStatus,
+    -- ** CreateSkillGroup
+    createSkillGroup_clientRequestToken,
+    createSkillGroup_description,
+    createSkillGroup_tags,
+    createSkillGroup_skillGroupName,
+    createSkillGroupResponse_skillGroupArn,
+    createSkillGroupResponse_httpStatus,
 
-    -- ** UpdateGatewayGroup
-    updateGatewayGroup_name,
-    updateGatewayGroup_description,
-    updateGatewayGroup_gatewayGroupArn,
-    updateGatewayGroupResponse_httpStatus,
+    -- ** GetProfile
+    getProfile_profileArn,
+    getProfileResponse_profile,
+    getProfileResponse_httpStatus,
+
+    -- ** DisassociateSkillGroupFromRoom
+    disassociateSkillGroupFromRoom_skillGroupArn,
+    disassociateSkillGroupFromRoom_roomArn,
+    disassociateSkillGroupFromRoomResponse_httpStatus,
+
+    -- ** SendInvitation
+    sendInvitation_userArn,
+    sendInvitationResponse_httpStatus,
+
+    -- ** ListDeviceEvents
+    listDeviceEvents_nextToken,
+    listDeviceEvents_eventType,
+    listDeviceEvents_maxResults,
+    listDeviceEvents_deviceArn,
+    listDeviceEventsResponse_nextToken,
+    listDeviceEventsResponse_deviceEvents,
+    listDeviceEventsResponse_httpStatus,
+
+    -- ** CreateUser
+    createUser_email,
+    createUser_lastName,
+    createUser_firstName,
+    createUser_clientRequestToken,
+    createUser_tags,
+    createUser_userId,
+    createUserResponse_userArn,
+    createUserResponse_httpStatus,
+
+    -- ** SearchDevices
+    searchDevices_filters,
+    searchDevices_sortCriteria,
+    searchDevices_nextToken,
+    searchDevices_maxResults,
+    searchDevicesResponse_nextToken,
+    searchDevicesResponse_devices,
+    searchDevicesResponse_totalCount,
+    searchDevicesResponse_httpStatus,
+
+    -- ** SearchContacts
+    searchContacts_filters,
+    searchContacts_sortCriteria,
+    searchContacts_nextToken,
+    searchContacts_maxResults,
+    searchContactsResponse_nextToken,
+    searchContactsResponse_contacts,
+    searchContactsResponse_totalCount,
+    searchContactsResponse_httpStatus,
+
+    -- ** SendAnnouncement
+    sendAnnouncement_timeToLiveInSeconds,
+    sendAnnouncement_roomFilters,
+    sendAnnouncement_content,
+    sendAnnouncement_clientRequestToken,
+    sendAnnouncementResponse_announcementArn,
+    sendAnnouncementResponse_httpStatus,
+
+    -- ** DeleteUser
+    deleteUser_userArn,
+    deleteUser_enrollmentId,
+    deleteUserResponse_httpStatus,
+
+    -- ** SearchNetworkProfiles
+    searchNetworkProfiles_filters,
+    searchNetworkProfiles_sortCriteria,
+    searchNetworkProfiles_nextToken,
+    searchNetworkProfiles_maxResults,
+    searchNetworkProfilesResponse_networkProfiles,
+    searchNetworkProfilesResponse_nextToken,
+    searchNetworkProfilesResponse_totalCount,
+    searchNetworkProfilesResponse_httpStatus,
+
+    -- ** GetSkillGroup
+    getSkillGroup_skillGroupArn,
+    getSkillGroupResponse_skillGroup,
+    getSkillGroupResponse_httpStatus,
+
+    -- ** ListSkills
+    listSkills_skillGroupArn,
+    listSkills_skillType,
+    listSkills_nextToken,
+    listSkills_enablementType,
+    listSkills_maxResults,
+    listSkillsResponse_nextToken,
+    listSkillsResponse_skillSummaries,
+    listSkillsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_arn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** DisassociateDeviceFromRoom
+    disassociateDeviceFromRoom_deviceArn,
+    disassociateDeviceFromRoomResponse_httpStatus,
+
+    -- ** SearchSkillGroups
+    searchSkillGroups_filters,
+    searchSkillGroups_sortCriteria,
+    searchSkillGroups_nextToken,
+    searchSkillGroups_maxResults,
+    searchSkillGroupsResponse_nextToken,
+    searchSkillGroupsResponse_skillGroups,
+    searchSkillGroupsResponse_totalCount,
+    searchSkillGroupsResponse_httpStatus,
+
+    -- ** PutSkillAuthorization
+    putSkillAuthorization_roomArn,
+    putSkillAuthorization_authorizationResult,
+    putSkillAuthorization_skillId,
+    putSkillAuthorizationResponse_httpStatus,
 
     -- ** ListTags
     listTags_nextToken,
@@ -510,142 +502,150 @@ module Network.AWS.AlexaBusiness.Lens
     deleteSkillAuthorization_skillId,
     deleteSkillAuthorizationResponse_httpStatus,
 
-    -- ** CreateGatewayGroup
-    createGatewayGroup_tags,
-    createGatewayGroup_description,
-    createGatewayGroup_name,
-    createGatewayGroup_clientRequestToken,
-    createGatewayGroupResponse_gatewayGroupArn,
-    createGatewayGroupResponse_httpStatus,
+    -- ** AssociateDeviceWithNetworkProfile
+    associateDeviceWithNetworkProfile_deviceArn,
+    associateDeviceWithNetworkProfile_networkProfileArn,
+    associateDeviceWithNetworkProfileResponse_httpStatus,
 
-    -- ** GetNetworkProfile
-    getNetworkProfile_networkProfileArn,
-    getNetworkProfileResponse_networkProfile,
-    getNetworkProfileResponse_httpStatus,
-
-    -- ** DisassociateDeviceFromRoom
-    disassociateDeviceFromRoom_deviceArn,
-    disassociateDeviceFromRoomResponse_httpStatus,
-
-    -- ** GetConferencePreference
-    getConferencePreferenceResponse_preference,
-    getConferencePreferenceResponse_httpStatus,
-
-    -- ** CreateRoom
-    createRoom_tags,
-    createRoom_profileArn,
-    createRoom_description,
-    createRoom_providerCalendarId,
-    createRoom_clientRequestToken,
-    createRoom_roomName,
-    createRoomResponse_roomArn,
-    createRoomResponse_httpStatus,
-
-    -- ** CreateAddressBook
-    createAddressBook_tags,
-    createAddressBook_description,
-    createAddressBook_clientRequestToken,
-    createAddressBook_name,
-    createAddressBookResponse_addressBookArn,
-    createAddressBookResponse_httpStatus,
-
-    -- ** DisassociateSkillFromSkillGroup
-    disassociateSkillFromSkillGroup_skillGroupArn,
-    disassociateSkillFromSkillGroup_skillId,
-    disassociateSkillFromSkillGroupResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_arn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** CreateConferenceProvider
-    createConferenceProvider_iPDialIn,
-    createConferenceProvider_tags,
     createConferenceProvider_pSTNDialIn,
     createConferenceProvider_clientRequestToken,
+    createConferenceProvider_iPDialIn,
+    createConferenceProvider_tags,
     createConferenceProvider_conferenceProviderName,
     createConferenceProvider_conferenceProviderType,
     createConferenceProvider_meetingSetting,
     createConferenceProviderResponse_conferenceProviderArn,
     createConferenceProviderResponse_httpStatus,
 
-    -- ** ListSkills
-    listSkills_nextToken,
-    listSkills_maxResults,
-    listSkills_skillType,
-    listSkills_skillGroupArn,
-    listSkills_enablementType,
-    listSkillsResponse_nextToken,
-    listSkillsResponse_skillSummaries,
-    listSkillsResponse_httpStatus,
+    -- ** ResolveRoom
+    resolveRoom_userId,
+    resolveRoom_skillId,
+    resolveRoomResponse_roomSkillParameters,
+    resolveRoomResponse_roomArn,
+    resolveRoomResponse_roomName,
+    resolveRoomResponse_httpStatus,
 
-    -- ** DeleteUser
-    deleteUser_userArn,
-    deleteUser_enrollmentId,
-    deleteUserResponse_httpStatus,
+    -- ** CreateGatewayGroup
+    createGatewayGroup_description,
+    createGatewayGroup_tags,
+    createGatewayGroup_name,
+    createGatewayGroup_clientRequestToken,
+    createGatewayGroupResponse_gatewayGroupArn,
+    createGatewayGroupResponse_httpStatus,
 
-    -- ** SearchDevices
-    searchDevices_nextToken,
-    searchDevices_sortCriteria,
-    searchDevices_maxResults,
-    searchDevices_filters,
-    searchDevicesResponse_nextToken,
-    searchDevicesResponse_devices,
-    searchDevicesResponse_totalCount,
-    searchDevicesResponse_httpStatus,
+    -- ** CreateRoom
+    createRoom_profileArn,
+    createRoom_providerCalendarId,
+    createRoom_clientRequestToken,
+    createRoom_description,
+    createRoom_tags,
+    createRoom_roomName,
+    createRoomResponse_roomArn,
+    createRoomResponse_httpStatus,
 
-    -- ** SearchRooms
-    searchRooms_nextToken,
-    searchRooms_sortCriteria,
-    searchRooms_maxResults,
-    searchRooms_filters,
-    searchRoomsResponse_nextToken,
-    searchRoomsResponse_rooms,
-    searchRoomsResponse_totalCount,
-    searchRoomsResponse_httpStatus,
+    -- ** DeleteRoomSkillParameter
+    deleteRoomSkillParameter_roomArn,
+    deleteRoomSkillParameter_skillId,
+    deleteRoomSkillParameter_parameterKey,
+    deleteRoomSkillParameterResponse_httpStatus,
 
-    -- ** CreateSkillGroup
-    createSkillGroup_tags,
-    createSkillGroup_description,
-    createSkillGroup_clientRequestToken,
-    createSkillGroup_skillGroupName,
-    createSkillGroupResponse_skillGroupArn,
-    createSkillGroupResponse_httpStatus,
+    -- ** ListGatewayGroups
+    listGatewayGroups_nextToken,
+    listGatewayGroups_maxResults,
+    listGatewayGroupsResponse_gatewayGroups,
+    listGatewayGroupsResponse_nextToken,
+    listGatewayGroupsResponse_httpStatus,
 
-    -- ** DeleteProfile
-    deleteProfile_profileArn,
-    deleteProfileResponse_httpStatus,
+    -- ** PutRoomSkillParameter
+    putRoomSkillParameter_roomArn,
+    putRoomSkillParameter_skillId,
+    putRoomSkillParameter_roomSkillParameter,
+    putRoomSkillParameterResponse_httpStatus,
 
-    -- ** ListSmartHomeAppliances
-    listSmartHomeAppliances_nextToken,
-    listSmartHomeAppliances_maxResults,
-    listSmartHomeAppliances_roomArn,
-    listSmartHomeAppliancesResponse_nextToken,
-    listSmartHomeAppliancesResponse_smartHomeAppliances,
-    listSmartHomeAppliancesResponse_httpStatus,
+    -- ** SearchProfiles
+    searchProfiles_filters,
+    searchProfiles_sortCriteria,
+    searchProfiles_nextToken,
+    searchProfiles_maxResults,
+    searchProfilesResponse_profiles,
+    searchProfilesResponse_nextToken,
+    searchProfilesResponse_totalCount,
+    searchProfilesResponse_httpStatus,
 
-    -- ** SearchAddressBooks
-    searchAddressBooks_nextToken,
-    searchAddressBooks_sortCriteria,
-    searchAddressBooks_maxResults,
-    searchAddressBooks_filters,
-    searchAddressBooksResponse_nextToken,
-    searchAddressBooksResponse_addressBooks,
-    searchAddressBooksResponse_totalCount,
-    searchAddressBooksResponse_httpStatus,
+    -- ** RejectSkill
+    rejectSkill_skillId,
+    rejectSkillResponse_httpStatus,
 
-    -- ** UpdateProfile
-    updateProfile_profileName,
-    updateProfile_isDefault,
-    updateProfile_address,
-    updateProfile_locale,
-    updateProfile_temperatureUnit,
-    updateProfile_pSTNEnabled,
-    updateProfile_setupModeDisabled,
-    updateProfile_maxVolumeLimit,
-    updateProfile_wakeWord,
-    updateProfile_profileArn,
-    updateProfile_meetingRoomConfiguration,
-    updateProfile_timezone,
-    updateProfile_dataRetentionOptIn,
-    updateProfile_distanceUnit,
-    updateProfileResponse_httpStatus,
+    -- ** ListConferenceProviders
+    listConferenceProviders_nextToken,
+    listConferenceProviders_maxResults,
+    listConferenceProvidersResponse_conferenceProviders,
+    listConferenceProvidersResponse_nextToken,
+    listConferenceProvidersResponse_httpStatus,
+
+    -- ** RevokeInvitation
+    revokeInvitation_enrollmentId,
+    revokeInvitation_userArn,
+    revokeInvitationResponse_httpStatus,
+
+    -- ** ListGateways
+    listGateways_nextToken,
+    listGateways_gatewayGroupArn,
+    listGateways_maxResults,
+    listGatewaysResponse_nextToken,
+    listGatewaysResponse_gateways,
+    listGatewaysResponse_httpStatus,
+
+    -- ** DeleteDevice
+    deleteDevice_deviceArn,
+    deleteDeviceResponse_httpStatus,
+
+    -- ** UpdateDevice
+    updateDevice_deviceArn,
+    updateDevice_deviceName,
+    updateDeviceResponse_httpStatus,
+
+    -- ** AssociateSkillWithSkillGroup
+    associateSkillWithSkillGroup_skillGroupArn,
+    associateSkillWithSkillGroup_skillId,
+    associateSkillWithSkillGroupResponse_httpStatus,
+
+    -- ** GetConferenceProvider
+    getConferenceProvider_conferenceProviderArn,
+    getConferenceProviderResponse_conferenceProvider,
+    getConferenceProviderResponse_httpStatus,
+
+    -- ** GetRoom
+    getRoom_roomArn,
+    getRoomResponse_room,
+    getRoomResponse_httpStatus,
+
+    -- ** GetGatewayGroup
+    getGatewayGroup_gatewayGroupArn,
+    getGatewayGroupResponse_gatewayGroup,
+    getGatewayGroupResponse_httpStatus,
+
+    -- ** ListSkillsStoreCategories
+    listSkillsStoreCategories_nextToken,
+    listSkillsStoreCategories_maxResults,
+    listSkillsStoreCategoriesResponse_categoryList,
+    listSkillsStoreCategoriesResponse_nextToken,
+    listSkillsStoreCategoriesResponse_httpStatus,
+
+    -- ** StartSmartHomeApplianceDiscovery
+    startSmartHomeApplianceDiscovery_roomArn,
+    startSmartHomeApplianceDiscoveryResponse_httpStatus,
+
+    -- ** AssociateContactWithAddressBook
+    associateContactWithAddressBook_contactArn,
+    associateContactWithAddressBook_addressBookArn,
+    associateContactWithAddressBookResponse_httpStatus,
 
     -- * Types
 
@@ -664,10 +664,10 @@ module Network.AWS.AlexaBusiness.Lens
     audio_location,
 
     -- ** BusinessReport
-    businessReport_downloadUrl,
     businessReport_status,
-    businessReport_deliveryTime,
     businessReport_failureCode,
+    businessReport_deliveryTime,
+    businessReport_downloadUrl,
     businessReport_s3Location,
 
     -- ** BusinessReportContentRange
@@ -677,56 +677,56 @@ module Network.AWS.AlexaBusiness.Lens
     businessReportRecurrence_startDate,
 
     -- ** BusinessReportS3Location
-    businessReportS3Location_bucketName,
     businessReportS3Location_path,
+    businessReportS3Location_bucketName,
 
     -- ** BusinessReportSchedule
-    businessReportSchedule_contentRange,
-    businessReportSchedule_format,
-    businessReportSchedule_scheduleArn,
-    businessReportSchedule_lastBusinessReport,
     businessReportSchedule_s3KeyPrefix,
+    businessReportSchedule_lastBusinessReport,
+    businessReportSchedule_format,
     businessReportSchedule_recurrence,
-    businessReportSchedule_s3BucketName,
     businessReportSchedule_scheduleName,
+    businessReportSchedule_scheduleArn,
+    businessReportSchedule_contentRange,
+    businessReportSchedule_s3BucketName,
 
     -- ** Category
-    category_categoryId,
     category_categoryName,
+    category_categoryId,
 
     -- ** ConferencePreference
     conferencePreference_defaultConferenceProviderArn,
 
     -- ** ConferenceProvider
     conferenceProvider_meetingSetting,
-    conferenceProvider_iPDialIn,
     conferenceProvider_arn,
-    conferenceProvider_name,
     conferenceProvider_pSTNDialIn,
+    conferenceProvider_name,
     conferenceProvider_type,
+    conferenceProvider_iPDialIn,
 
     -- ** Contact
-    contact_phoneNumber,
-    contact_phoneNumbers,
     contact_lastName,
-    contact_firstName,
     contact_contactArn,
-    contact_displayName,
+    contact_phoneNumbers,
+    contact_phoneNumber,
     contact_sipAddresses,
+    contact_firstName,
+    contact_displayName,
 
     -- ** ContactData
-    contactData_phoneNumber,
-    contactData_phoneNumbers,
     contactData_lastName,
-    contactData_firstName,
     contactData_contactArn,
-    contactData_displayName,
+    contactData_phoneNumbers,
+    contactData_phoneNumber,
     contactData_sipAddresses,
+    contactData_firstName,
+    contactData_displayName,
 
     -- ** Content
+    content_audioList,
     content_textList,
     content_ssmlList,
-    content_audioList,
 
     -- ** CreateEndOfMeetingReminder
     createEndOfMeetingReminder_reminderAtMinutes,
@@ -738,71 +738,71 @@ module Network.AWS.AlexaBusiness.Lens
     createInstantBooking_enabled,
 
     -- ** CreateMeetingRoomConfiguration
-    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
-    createMeetingRoomConfiguration_endOfMeetingReminder,
     createMeetingRoomConfiguration_instantBooking,
+    createMeetingRoomConfiguration_endOfMeetingReminder,
     createMeetingRoomConfiguration_requireCheckIn,
+    createMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** CreateRequireCheckIn
     createRequireCheckIn_releaseAfterMinutes,
     createRequireCheckIn_enabled,
 
     -- ** DeveloperInfo
-    developerInfo_developerName,
     developerInfo_email,
-    developerInfo_privacyPolicy,
     developerInfo_url,
+    developerInfo_privacyPolicy,
+    developerInfo_developerName,
 
     -- ** Device
     device_deviceStatus,
-    device_macAddress,
-    device_deviceArn,
     device_deviceStatusInfo,
-    device_roomArn,
+    device_deviceArn,
+    device_macAddress,
     device_deviceName,
-    device_deviceSerialNumber,
-    device_networkProfileInfo,
-    device_deviceType,
+    device_roomArn,
     device_softwareVersion,
+    device_deviceType,
+    device_networkProfileInfo,
+    device_deviceSerialNumber,
 
     -- ** DeviceData
     deviceData_deviceStatus,
-    deviceData_macAddress,
-    deviceData_createdTime,
-    deviceData_deviceArn,
     deviceData_networkProfileName,
     deviceData_deviceStatusInfo,
-    deviceData_roomArn,
+    deviceData_createdTime,
+    deviceData_deviceArn,
+    deviceData_networkProfileArn,
+    deviceData_macAddress,
     deviceData_deviceName,
-    deviceData_deviceSerialNumber,
+    deviceData_roomArn,
+    deviceData_softwareVersion,
     deviceData_deviceType,
     deviceData_roomName,
-    deviceData_networkProfileArn,
-    deviceData_softwareVersion,
+    deviceData_deviceSerialNumber,
 
     -- ** DeviceEvent
-    deviceEvent_timestamp,
     deviceEvent_value,
     deviceEvent_type,
+    deviceEvent_timestamp,
 
     -- ** DeviceNetworkProfileInfo
-    deviceNetworkProfileInfo_certificateExpirationTime,
     deviceNetworkProfileInfo_certificateArn,
     deviceNetworkProfileInfo_networkProfileArn,
+    deviceNetworkProfileInfo_certificateExpirationTime,
 
     -- ** DeviceStatusDetail
-    deviceStatusDetail_code,
     deviceStatusDetail_feature,
+    deviceStatusDetail_code,
 
     -- ** DeviceStatusInfo
-    deviceStatusInfo_deviceStatusDetails,
     deviceStatusInfo_connectionStatusUpdatedTime,
+    deviceStatusInfo_deviceStatusDetails,
     deviceStatusInfo_connectionStatus,
 
     -- ** EndOfMeetingReminder
+    endOfMeetingReminder_enabled,
     endOfMeetingReminder_reminderAtMinutes,
     endOfMeetingReminder_reminderType,
-    endOfMeetingReminder_enabled,
 
     -- ** Filter
     filter_key,
@@ -810,10 +810,10 @@ module Network.AWS.AlexaBusiness.Lens
 
     -- ** Gateway
     gateway_arn,
-    gateway_gatewayGroupArn,
     gateway_name,
-    gateway_description,
+    gateway_gatewayGroupArn,
     gateway_softwareVersion,
+    gateway_description,
 
     -- ** GatewayGroup
     gatewayGroup_arn,
@@ -827,48 +827,48 @@ module Network.AWS.AlexaBusiness.Lens
 
     -- ** GatewaySummary
     gatewaySummary_arn,
-    gatewaySummary_gatewayGroupArn,
     gatewaySummary_name,
-    gatewaySummary_description,
+    gatewaySummary_gatewayGroupArn,
     gatewaySummary_softwareVersion,
+    gatewaySummary_description,
 
     -- ** IPDialIn
     iPDialIn_endpoint,
     iPDialIn_commsProtocol,
 
     -- ** InstantBooking
-    instantBooking_durationInMinutes,
     instantBooking_enabled,
+    instantBooking_durationInMinutes,
 
     -- ** MeetingRoomConfiguration
-    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
-    meetingRoomConfiguration_endOfMeetingReminder,
     meetingRoomConfiguration_instantBooking,
+    meetingRoomConfiguration_endOfMeetingReminder,
     meetingRoomConfiguration_requireCheckIn,
+    meetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** MeetingSetting
     meetingSetting_requirePin,
 
     -- ** NetworkProfile
-    networkProfile_certificateAuthorityArn,
-    networkProfile_trustAnchors,
-    networkProfile_currentPassword,
-    networkProfile_eapMethod,
     networkProfile_networkProfileName,
-    networkProfile_description,
-    networkProfile_securityType,
-    networkProfile_nextPassword,
-    networkProfile_networkProfileArn,
     networkProfile_ssid,
+    networkProfile_networkProfileArn,
+    networkProfile_securityType,
+    networkProfile_currentPassword,
+    networkProfile_nextPassword,
+    networkProfile_eapMethod,
+    networkProfile_description,
+    networkProfile_trustAnchors,
+    networkProfile_certificateAuthorityArn,
 
     -- ** NetworkProfileData
-    networkProfileData_certificateAuthorityArn,
-    networkProfileData_eapMethod,
     networkProfileData_networkProfileName,
-    networkProfileData_description,
-    networkProfileData_securityType,
-    networkProfileData_networkProfileArn,
     networkProfileData_ssid,
+    networkProfileData_networkProfileArn,
+    networkProfileData_securityType,
+    networkProfileData_eapMethod,
+    networkProfileData_description,
+    networkProfileData_certificateAuthorityArn,
 
     -- ** PSTNDialIn
     pSTNDialIn_countryCode,
@@ -881,51 +881,51 @@ module Network.AWS.AlexaBusiness.Lens
     phoneNumber_type,
 
     -- ** Profile
-    profile_profileName,
-    profile_isDefault,
-    profile_address,
-    profile_locale,
-    profile_temperatureUnit,
-    profile_addressBookArn,
-    profile_pSTNEnabled,
     profile_setupModeDisabled,
-    profile_maxVolumeLimit,
-    profile_wakeWord,
-    profile_profileArn,
-    profile_meetingRoomConfiguration,
-    profile_timezone,
-    profile_dataRetentionOptIn,
+    profile_pSTNEnabled,
+    profile_addressBookArn,
     profile_distanceUnit,
+    profile_locale,
+    profile_address,
+    profile_profileArn,
+    profile_wakeWord,
+    profile_meetingRoomConfiguration,
+    profile_profileName,
+    profile_temperatureUnit,
+    profile_dataRetentionOptIn,
+    profile_timezone,
+    profile_maxVolumeLimit,
+    profile_isDefault,
 
     -- ** ProfileData
-    profileData_profileName,
-    profileData_isDefault,
-    profileData_address,
-    profileData_locale,
-    profileData_temperatureUnit,
-    profileData_wakeWord,
-    profileData_profileArn,
-    profileData_timezone,
     profileData_distanceUnit,
+    profileData_locale,
+    profileData_address,
+    profileData_profileArn,
+    profileData_wakeWord,
+    profileData_profileName,
+    profileData_temperatureUnit,
+    profileData_timezone,
+    profileData_isDefault,
 
     -- ** RequireCheckIn
-    requireCheckIn_releaseAfterMinutes,
     requireCheckIn_enabled,
+    requireCheckIn_releaseAfterMinutes,
 
     -- ** Room
-    room_roomArn,
     room_profileArn,
-    room_description,
     room_providerCalendarId,
+    room_roomArn,
     room_roomName,
+    room_description,
 
     -- ** RoomData
+    roomData_profileArn,
+    roomData_providerCalendarId,
     roomData_profileName,
     roomData_roomArn,
-    roomData_profileArn,
-    roomData_description,
-    roomData_providerCalendarId,
     roomData_roomName,
+    roomData_description,
 
     -- ** RoomSkillParameter
     roomSkillParameter_parameterKey,
@@ -936,47 +936,47 @@ module Network.AWS.AlexaBusiness.Lens
     sipAddress_type,
 
     -- ** SkillDetails
-    skillDetails_newInThisVersionBulletPoints,
     skillDetails_skillTypes,
-    skillDetails_bulletPoints,
-    skillDetails_reviews,
-    skillDetails_endUserLicenseAgreement,
-    skillDetails_genericKeywords,
-    skillDetails_developerInfo,
     skillDetails_productDescription,
     skillDetails_invocationPhrase,
+    skillDetails_developerInfo,
+    skillDetails_endUserLicenseAgreement,
+    skillDetails_genericKeywords,
+    skillDetails_reviews,
     skillDetails_releaseDate,
+    skillDetails_newInThisVersionBulletPoints,
+    skillDetails_bulletPoints,
 
     -- ** SkillGroup
-    skillGroup_skillGroupName,
-    skillGroup_description,
     skillGroup_skillGroupArn,
+    skillGroup_description,
+    skillGroup_skillGroupName,
 
     -- ** SkillGroupData
-    skillGroupData_skillGroupName,
-    skillGroupData_description,
     skillGroupData_skillGroupArn,
+    skillGroupData_description,
+    skillGroupData_skillGroupName,
 
     -- ** SkillSummary
     skillSummary_skillId,
     skillSummary_supportsLinking,
     skillSummary_skillType,
-    skillSummary_skillName,
     skillSummary_enablementType,
+    skillSummary_skillName,
 
     -- ** SkillsStoreSkill
-    skillsStoreSkill_iconUrl,
     skillsStoreSkill_skillId,
-    skillsStoreSkill_shortDescription,
     skillsStoreSkill_supportsLinking,
     skillsStoreSkill_sampleUtterances,
-    skillsStoreSkill_skillName,
+    skillsStoreSkill_shortDescription,
+    skillsStoreSkill_iconUrl,
     skillsStoreSkill_skillDetails,
+    skillsStoreSkill_skillName,
 
     -- ** SmartHomeAppliance
     smartHomeAppliance_friendlyName,
-    smartHomeAppliance_description,
     smartHomeAppliance_manufacturerName,
+    smartHomeAppliance_description,
 
     -- ** Sort
     sort_key,
@@ -995,31 +995,31 @@ module Network.AWS.AlexaBusiness.Lens
     textMessage_value,
 
     -- ** UpdateEndOfMeetingReminder
+    updateEndOfMeetingReminder_enabled,
     updateEndOfMeetingReminder_reminderAtMinutes,
     updateEndOfMeetingReminder_reminderType,
-    updateEndOfMeetingReminder_enabled,
 
     -- ** UpdateInstantBooking
-    updateInstantBooking_durationInMinutes,
     updateInstantBooking_enabled,
+    updateInstantBooking_durationInMinutes,
 
     -- ** UpdateMeetingRoomConfiguration
-    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
-    updateMeetingRoomConfiguration_endOfMeetingReminder,
     updateMeetingRoomConfiguration_instantBooking,
+    updateMeetingRoomConfiguration_endOfMeetingReminder,
     updateMeetingRoomConfiguration_requireCheckIn,
+    updateMeetingRoomConfiguration_roomUtilizationMetricsEnabled,
 
     -- ** UpdateRequireCheckIn
-    updateRequireCheckIn_releaseAfterMinutes,
     updateRequireCheckIn_enabled,
+    updateRequireCheckIn_releaseAfterMinutes,
 
     -- ** UserData
-    userData_userArn,
-    userData_enrollmentId,
     userData_email,
-    userData_enrollmentStatus,
     userData_lastName,
+    userData_enrollmentId,
+    userData_userArn,
     userData_firstName,
+    userData_enrollmentStatus,
   )
 where
 

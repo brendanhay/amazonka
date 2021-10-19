@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data Gateway = Gateway'
   { -- | The ARN of the gateway.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the gateway group that the gateway is associated to.
-    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the gateway.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the gateway group that the gateway is associated to.
+    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The software version of the gateway. The gateway automatically updates
     -- its software version during normal operation.
-    softwareVersion :: Prelude.Maybe Prelude.Text
+    softwareVersion :: Prelude.Maybe Prelude.Text,
+    -- | The description of the gateway.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,45 +51,45 @@ data Gateway = Gateway'
 --
 -- 'arn', 'gateway_arn' - The ARN of the gateway.
 --
--- 'gatewayGroupArn', 'gateway_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.
---
 -- 'name', 'gateway_name' - The name of the gateway.
 --
--- 'description', 'gateway_description' - The description of the gateway.
+-- 'gatewayGroupArn', 'gateway_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.
 --
 -- 'softwareVersion', 'gateway_softwareVersion' - The software version of the gateway. The gateway automatically updates
 -- its software version during normal operation.
+--
+-- 'description', 'gateway_description' - The description of the gateway.
 newGateway ::
   Gateway
 newGateway =
   Gateway'
     { arn = Prelude.Nothing,
-      gatewayGroupArn = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      softwareVersion = Prelude.Nothing
+      gatewayGroupArn = Prelude.Nothing,
+      softwareVersion = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ARN of the gateway.
 gateway_arn :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
 gateway_arn = Lens.lens (\Gateway' {arn} -> arn) (\s@Gateway' {} a -> s {arn = a} :: Gateway)
 
--- | The ARN of the gateway group that the gateway is associated to.
-gateway_gatewayGroupArn :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
-gateway_gatewayGroupArn = Lens.lens (\Gateway' {gatewayGroupArn} -> gatewayGroupArn) (\s@Gateway' {} a -> s {gatewayGroupArn = a} :: Gateway)
-
 -- | The name of the gateway.
 gateway_name :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
 gateway_name = Lens.lens (\Gateway' {name} -> name) (\s@Gateway' {} a -> s {name = a} :: Gateway)
 
--- | The description of the gateway.
-gateway_description :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
-gateway_description = Lens.lens (\Gateway' {description} -> description) (\s@Gateway' {} a -> s {description = a} :: Gateway)
+-- | The ARN of the gateway group that the gateway is associated to.
+gateway_gatewayGroupArn :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_gatewayGroupArn = Lens.lens (\Gateway' {gatewayGroupArn} -> gatewayGroupArn) (\s@Gateway' {} a -> s {gatewayGroupArn = a} :: Gateway)
 
 -- | The software version of the gateway. The gateway automatically updates
 -- its software version during normal operation.
 gateway_softwareVersion :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
 gateway_softwareVersion = Lens.lens (\Gateway' {softwareVersion} -> softwareVersion) (\s@Gateway' {} a -> s {softwareVersion = a} :: Gateway)
+
+-- | The description of the gateway.
+gateway_description :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_description = Lens.lens (\Gateway' {description} -> description) (\s@Gateway' {} a -> s {description = a} :: Gateway)
 
 instance Core.FromJSON Gateway where
   parseJSON =
@@ -98,10 +98,10 @@ instance Core.FromJSON Gateway where
       ( \x ->
           Gateway'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "GatewayGroupArn")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "GatewayGroupArn")
             Prelude.<*> (x Core..:? "SoftwareVersion")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable Gateway

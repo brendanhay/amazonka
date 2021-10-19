@@ -38,8 +38,8 @@ module Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
     newListSkillsStoreSkillsByCategoryResponse,
 
     -- * Response Lenses
-    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
     listSkillsStoreSkillsByCategoryResponse_nextToken,
+    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
     listSkillsStoreSkillsByCategoryResponse_httpStatus,
   )
 where
@@ -139,10 +139,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreSkillsByCategoryResponse'
-            Prelude.<$> ( x Core..?> "SkillsStoreSkills"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "SkillsStoreSkills"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,10 +190,10 @@ instance Core.ToQuery ListSkillsStoreSkillsByCategory where
 
 -- | /See:/ 'newListSkillsStoreSkillsByCategoryResponse' smart constructor.
 data ListSkillsStoreSkillsByCategoryResponse = ListSkillsStoreSkillsByCategoryResponse'
-  { -- | The skill store skills.
-    skillsStoreSkills :: Prelude.Maybe [SkillsStoreSkill],
-    -- | The tokens used for pagination.
+  { -- | The tokens used for pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The skill store skills.
+    skillsStoreSkills :: Prelude.Maybe [SkillsStoreSkill],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,9 +207,9 @@ data ListSkillsStoreSkillsByCategoryResponse = ListSkillsStoreSkillsByCategoryRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skillsStoreSkills', 'listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills' - The skill store skills.
---
 -- 'nextToken', 'listSkillsStoreSkillsByCategoryResponse_nextToken' - The tokens used for pagination.
+--
+-- 'skillsStoreSkills', 'listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills' - The skill store skills.
 --
 -- 'httpStatus', 'listSkillsStoreSkillsByCategoryResponse_httpStatus' - The response's http status code.
 newListSkillsStoreSkillsByCategoryResponse ::
@@ -219,19 +219,20 @@ newListSkillsStoreSkillsByCategoryResponse ::
 newListSkillsStoreSkillsByCategoryResponse
   pHttpStatus_ =
     ListSkillsStoreSkillsByCategoryResponse'
-      { skillsStoreSkills =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        skillsStoreSkills =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The skill store skills.
-listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Prelude.Maybe [SkillsStoreSkill])
-listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {skillsStoreSkills} -> skillsStoreSkills) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {skillsStoreSkills = a} :: ListSkillsStoreSkillsByCategoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The tokens used for pagination.
 listSkillsStoreSkillsByCategoryResponse_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Prelude.Maybe Prelude.Text)
 listSkillsStoreSkillsByCategoryResponse_nextToken = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {nextToken} -> nextToken) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {nextToken = a} :: ListSkillsStoreSkillsByCategoryResponse)
+
+-- | The skill store skills.
+listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Prelude.Maybe [SkillsStoreSkill])
+listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {skillsStoreSkills} -> skillsStoreSkills) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {skillsStoreSkills = a} :: ListSkillsStoreSkillsByCategoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSkillsStoreSkillsByCategoryResponse_httpStatus :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse Prelude.Int

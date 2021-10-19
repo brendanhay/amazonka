@@ -97,7 +97,7 @@ putSkillAuthorization_roomArn = Lens.lens (\PutSkillAuthorization' {roomArn} -> 
 -- must be populated in the AuthorizationResult map to establish the
 -- authorization.
 putSkillAuthorization_authorizationResult :: Lens.Lens' PutSkillAuthorization (Prelude.HashMap Prelude.Text Prelude.Text)
-putSkillAuthorization_authorizationResult = Lens.lens (\PutSkillAuthorization' {authorizationResult} -> authorizationResult) (\s@PutSkillAuthorization' {} a -> s {authorizationResult = a} :: PutSkillAuthorization) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+putSkillAuthorization_authorizationResult = Lens.lens (\PutSkillAuthorization' {authorizationResult} -> authorizationResult) (\s@PutSkillAuthorization' {} a -> s {authorizationResult = a} :: PutSkillAuthorization) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The unique identifier of a skill.
 putSkillAuthorization_skillId :: Lens.Lens' PutSkillAuthorization Prelude.Text

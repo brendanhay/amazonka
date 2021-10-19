@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceStatusInfo' smart constructor.
 data DeviceStatusInfo = DeviceStatusInfo'
-  { -- | One or more device status detail descriptions.
-    deviceStatusDetails :: Prelude.Maybe [DeviceStatusDetail],
-    -- | The time (in epoch) when the device connection status changed.
+  { -- | The time (in epoch) when the device connection status changed.
     connectionStatusUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | One or more device status detail descriptions.
+    deviceStatusDetails :: Prelude.Maybe [DeviceStatusDetail],
     -- | The latest available information about the connection status of a
     -- device.
     connectionStatus :: Prelude.Maybe ConnectionStatus
@@ -47,9 +47,9 @@ data DeviceStatusInfo = DeviceStatusInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceStatusDetails', 'deviceStatusInfo_deviceStatusDetails' - One or more device status detail descriptions.
---
 -- 'connectionStatusUpdatedTime', 'deviceStatusInfo_connectionStatusUpdatedTime' - The time (in epoch) when the device connection status changed.
+--
+-- 'deviceStatusDetails', 'deviceStatusInfo_deviceStatusDetails' - One or more device status detail descriptions.
 --
 -- 'connectionStatus', 'deviceStatusInfo_connectionStatus' - The latest available information about the connection status of a
 -- device.
@@ -57,19 +57,19 @@ newDeviceStatusInfo ::
   DeviceStatusInfo
 newDeviceStatusInfo =
   DeviceStatusInfo'
-    { deviceStatusDetails =
+    { connectionStatusUpdatedTime =
         Prelude.Nothing,
-      connectionStatusUpdatedTime = Prelude.Nothing,
+      deviceStatusDetails = Prelude.Nothing,
       connectionStatus = Prelude.Nothing
     }
-
--- | One or more device status detail descriptions.
-deviceStatusInfo_deviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe [DeviceStatusDetail])
-deviceStatusInfo_deviceStatusDetails = Lens.lens (\DeviceStatusInfo' {deviceStatusDetails} -> deviceStatusDetails) (\s@DeviceStatusInfo' {} a -> s {deviceStatusDetails = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time (in epoch) when the device connection status changed.
 deviceStatusInfo_connectionStatusUpdatedTime :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe Prelude.UTCTime)
 deviceStatusInfo_connectionStatusUpdatedTime = Lens.lens (\DeviceStatusInfo' {connectionStatusUpdatedTime} -> connectionStatusUpdatedTime) (\s@DeviceStatusInfo' {} a -> s {connectionStatusUpdatedTime = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Core._Time
+
+-- | One or more device status detail descriptions.
+deviceStatusInfo_deviceStatusDetails :: Lens.Lens' DeviceStatusInfo (Prelude.Maybe [DeviceStatusDetail])
+deviceStatusInfo_deviceStatusDetails = Lens.lens (\DeviceStatusInfo' {deviceStatusDetails} -> deviceStatusDetails) (\s@DeviceStatusInfo' {} a -> s {deviceStatusDetails = a} :: DeviceStatusInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The latest available information about the connection status of a
 -- device.
@@ -82,10 +82,10 @@ instance Core.FromJSON DeviceStatusInfo where
       "DeviceStatusInfo"
       ( \x ->
           DeviceStatusInfo'
-            Prelude.<$> ( x Core..:? "DeviceStatusDetails"
+            Prelude.<$> (x Core..:? "ConnectionStatusUpdatedTime")
+            Prelude.<*> ( x Core..:? "DeviceStatusDetails"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ConnectionStatusUpdatedTime")
             Prelude.<*> (x Core..:? "ConnectionStatus")
       )
 

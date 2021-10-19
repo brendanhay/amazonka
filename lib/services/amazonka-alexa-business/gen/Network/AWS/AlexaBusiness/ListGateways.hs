@@ -31,8 +31,8 @@ module Network.AWS.AlexaBusiness.ListGateways
 
     -- * Request Lenses
     listGateways_nextToken,
-    listGateways_maxResults,
     listGateways_gatewayGroupArn,
+    listGateways_maxResults,
 
     -- * Destructuring the Response
     ListGatewaysResponse (..),
@@ -56,10 +56,10 @@ import qualified Network.AWS.Response as Response
 data ListGateways = ListGateways'
   { -- | The token used to paginate though multiple pages of gateway summaries.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of gateway summaries to return. The default is 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The gateway group ARN for which to list gateways.
-    gatewayGroupArn :: Prelude.Maybe Prelude.Text
+    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of gateway summaries to return. The default is 50.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,29 +73,29 @@ data ListGateways = ListGateways'
 --
 -- 'nextToken', 'listGateways_nextToken' - The token used to paginate though multiple pages of gateway summaries.
 --
--- 'maxResults', 'listGateways_maxResults' - The maximum number of gateway summaries to return. The default is 50.
---
 -- 'gatewayGroupArn', 'listGateways_gatewayGroupArn' - The gateway group ARN for which to list gateways.
+--
+-- 'maxResults', 'listGateways_maxResults' - The maximum number of gateway summaries to return. The default is 50.
 newListGateways ::
   ListGateways
 newListGateways =
   ListGateways'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      gatewayGroupArn = Prelude.Nothing
+      gatewayGroupArn = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token used to paginate though multiple pages of gateway summaries.
 listGateways_nextToken :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
 listGateways_nextToken = Lens.lens (\ListGateways' {nextToken} -> nextToken) (\s@ListGateways' {} a -> s {nextToken = a} :: ListGateways)
 
--- | The maximum number of gateway summaries to return. The default is 50.
-listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
-listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
-
 -- | The gateway group ARN for which to list gateways.
 listGateways_gatewayGroupArn :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Text)
 listGateways_gatewayGroupArn = Lens.lens (\ListGateways' {gatewayGroupArn} -> gatewayGroupArn) (\s@ListGateways' {} a -> s {gatewayGroupArn = a} :: ListGateways)
+
+-- | The maximum number of gateway summaries to return. The default is 50.
+listGateways_maxResults :: Lens.Lens' ListGateways (Prelude.Maybe Prelude.Natural)
+listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) (\s@ListGateways' {} a -> s {maxResults = a} :: ListGateways)
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
@@ -133,9 +133,9 @@ instance Core.ToJSON ListGateways where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("GatewayGroupArn" Core..=)
-              Prelude.<$> gatewayGroupArn
+              Prelude.<$> gatewayGroupArn,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -186,7 +186,7 @@ listGatewaysResponse_nextToken = Lens.lens (\ListGatewaysResponse' {nextToken} -
 
 -- | The gateways in the list.
 listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewaySummary])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int

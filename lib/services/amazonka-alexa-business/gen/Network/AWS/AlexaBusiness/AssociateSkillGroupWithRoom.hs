@@ -28,8 +28,8 @@ module Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
     newAssociateSkillGroupWithRoom,
 
     -- * Request Lenses
-    associateSkillGroupWithRoom_roomArn,
     associateSkillGroupWithRoom_skillGroupArn,
+    associateSkillGroupWithRoom_roomArn,
 
     -- * Destructuring the Response
     AssociateSkillGroupWithRoomResponse (..),
@@ -49,10 +49,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateSkillGroupWithRoom' smart constructor.
 data AssociateSkillGroupWithRoom = AssociateSkillGroupWithRoom'
-  { -- | The ARN of the room with which to associate the skill group. Required.
-    roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the skill group to associate with a room. Required.
-    skillGroupArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the skill group to associate with a room. Required.
+    skillGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the room with which to associate the skill group. Required.
+    roomArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,25 +64,25 @@ data AssociateSkillGroupWithRoom = AssociateSkillGroupWithRoom'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roomArn', 'associateSkillGroupWithRoom_roomArn' - The ARN of the room with which to associate the skill group. Required.
---
 -- 'skillGroupArn', 'associateSkillGroupWithRoom_skillGroupArn' - The ARN of the skill group to associate with a room. Required.
+--
+-- 'roomArn', 'associateSkillGroupWithRoom_roomArn' - The ARN of the room with which to associate the skill group. Required.
 newAssociateSkillGroupWithRoom ::
   AssociateSkillGroupWithRoom
 newAssociateSkillGroupWithRoom =
   AssociateSkillGroupWithRoom'
-    { roomArn =
+    { skillGroupArn =
         Prelude.Nothing,
-      skillGroupArn = Prelude.Nothing
+      roomArn = Prelude.Nothing
     }
-
--- | The ARN of the room with which to associate the skill group. Required.
-associateSkillGroupWithRoom_roomArn :: Lens.Lens' AssociateSkillGroupWithRoom (Prelude.Maybe Prelude.Text)
-associateSkillGroupWithRoom_roomArn = Lens.lens (\AssociateSkillGroupWithRoom' {roomArn} -> roomArn) (\s@AssociateSkillGroupWithRoom' {} a -> s {roomArn = a} :: AssociateSkillGroupWithRoom)
 
 -- | The ARN of the skill group to associate with a room. Required.
 associateSkillGroupWithRoom_skillGroupArn :: Lens.Lens' AssociateSkillGroupWithRoom (Prelude.Maybe Prelude.Text)
 associateSkillGroupWithRoom_skillGroupArn = Lens.lens (\AssociateSkillGroupWithRoom' {skillGroupArn} -> skillGroupArn) (\s@AssociateSkillGroupWithRoom' {} a -> s {skillGroupArn = a} :: AssociateSkillGroupWithRoom)
+
+-- | The ARN of the room with which to associate the skill group. Required.
+associateSkillGroupWithRoom_roomArn :: Lens.Lens' AssociateSkillGroupWithRoom (Prelude.Maybe Prelude.Text)
+associateSkillGroupWithRoom_roomArn = Lens.lens (\AssociateSkillGroupWithRoom' {roomArn} -> roomArn) (\s@AssociateSkillGroupWithRoom' {} a -> s {roomArn = a} :: AssociateSkillGroupWithRoom)
 
 instance Core.AWSRequest AssociateSkillGroupWithRoom where
   type
@@ -119,8 +119,8 @@ instance Core.ToJSON AssociateSkillGroupWithRoom where
   toJSON AssociateSkillGroupWithRoom' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoomArn" Core..=) Prelude.<$> roomArn,
-            ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn
+          [ ("SkillGroupArn" Core..=) Prelude.<$> skillGroupArn,
+            ("RoomArn" Core..=) Prelude.<$> roomArn
           ]
       )
 

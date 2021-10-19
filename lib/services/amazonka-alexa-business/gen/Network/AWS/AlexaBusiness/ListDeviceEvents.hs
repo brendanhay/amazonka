@@ -30,8 +30,8 @@ module Network.AWS.AlexaBusiness.ListDeviceEvents
     newListDeviceEvents,
 
     -- * Request Lenses
-    listDeviceEvents_eventType,
     listDeviceEvents_nextToken,
+    listDeviceEvents_eventType,
     listDeviceEvents_maxResults,
     listDeviceEvents_deviceArn,
 
@@ -55,17 +55,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDeviceEvents' smart constructor.
 data ListDeviceEvents = ListDeviceEvents'
-  { -- | The event type to filter device events. If EventType isn\'t specified,
-    -- this returns a list of all device events in reverse chronological order.
-    -- If EventType is specified, this returns a list of device events for that
-    -- EventType in reverse chronological order.
-    eventType :: Prelude.Maybe DeviceEventType,
-    -- | An optional token returned from a prior request. Use this token for
+  { -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults. When the end of results is reached, the
     -- response has a value of null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The event type to filter device events. If EventType isn\'t specified,
+    -- this returns a list of all device events in reverse chronological order.
+    -- If EventType is specified, this returns a list of device events for that
+    -- EventType in reverse chronological order.
+    eventType :: Prelude.Maybe DeviceEventType,
     -- | The maximum number of results to include in the response. The default
     -- value is 50. If more results exist than the specified MaxResults value,
     -- a token is included in the response so that the remaining results can be
@@ -84,16 +84,16 @@ data ListDeviceEvents = ListDeviceEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventType', 'listDeviceEvents_eventType' - The event type to filter device events. If EventType isn\'t specified,
--- this returns a list of all device events in reverse chronological order.
--- If EventType is specified, this returns a list of device events for that
--- EventType in reverse chronological order.
---
 -- 'nextToken', 'listDeviceEvents_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults. When the end of results is reached, the
 -- response has a value of null.
+--
+-- 'eventType', 'listDeviceEvents_eventType' - The event type to filter device events. If EventType isn\'t specified,
+-- this returns a list of all device events in reverse chronological order.
+-- If EventType is specified, this returns a list of device events for that
+-- EventType in reverse chronological order.
 --
 -- 'maxResults', 'listDeviceEvents_maxResults' - The maximum number of results to include in the response. The default
 -- value is 50. If more results exist than the specified MaxResults value,
@@ -107,18 +107,11 @@ newListDeviceEvents ::
   ListDeviceEvents
 newListDeviceEvents pDeviceArn_ =
   ListDeviceEvents'
-    { eventType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      eventType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       deviceArn = pDeviceArn_
     }
-
--- | The event type to filter device events. If EventType isn\'t specified,
--- this returns a list of all device events in reverse chronological order.
--- If EventType is specified, this returns a list of device events for that
--- EventType in reverse chronological order.
-listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
-listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -127,6 +120,13 @@ listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventT
 -- response has a value of null.
 listDeviceEvents_nextToken :: Lens.Lens' ListDeviceEvents (Prelude.Maybe Prelude.Text)
 listDeviceEvents_nextToken = Lens.lens (\ListDeviceEvents' {nextToken} -> nextToken) (\s@ListDeviceEvents' {} a -> s {nextToken = a} :: ListDeviceEvents)
+
+-- | The event type to filter device events. If EventType isn\'t specified,
+-- this returns a list of all device events in reverse chronological order.
+-- If EventType is specified, this returns a list of device events for that
+-- EventType in reverse chronological order.
+listDeviceEvents_eventType :: Lens.Lens' ListDeviceEvents (Prelude.Maybe DeviceEventType)
+listDeviceEvents_eventType = Lens.lens (\ListDeviceEvents' {eventType} -> eventType) (\s@ListDeviceEvents' {} a -> s {eventType = a} :: ListDeviceEvents)
 
 -- | The maximum number of results to include in the response. The default
 -- value is 50. If more results exist than the specified MaxResults value,
@@ -198,8 +198,8 @@ instance Core.ToJSON ListDeviceEvents where
   toJSON ListDeviceEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EventType" Core..=) Prelude.<$> eventType,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("EventType" Core..=) Prelude.<$> eventType,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("DeviceArn" Core..= deviceArn)
           ]
@@ -253,7 +253,7 @@ listDeviceEventsResponse_nextToken = Lens.lens (\ListDeviceEventsResponse' {next
 
 -- | The device events requested for the device ARN.
 listDeviceEventsResponse_deviceEvents :: Lens.Lens' ListDeviceEventsResponse (Prelude.Maybe [DeviceEvent])
-listDeviceEventsResponse_deviceEvents = Lens.lens (\ListDeviceEventsResponse' {deviceEvents} -> deviceEvents) (\s@ListDeviceEventsResponse' {} a -> s {deviceEvents = a} :: ListDeviceEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDeviceEventsResponse_deviceEvents = Lens.lens (\ListDeviceEventsResponse' {deviceEvents} -> deviceEvents) (\s@ListDeviceEventsResponse' {} a -> s {deviceEvents = a} :: ListDeviceEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceEventsResponse_httpStatus :: Lens.Lens' ListDeviceEventsResponse Prelude.Int

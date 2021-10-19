@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRequireCheckIn' smart constructor.
 data RequireCheckIn = RequireCheckIn'
-  { -- | Duration between 5 and 20 minutes to determine when to release the room
+  { -- | Whether require check in is enabled or not.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Duration between 5 and 20 minutes to determine when to release the room
     -- if it\'s not checked into.
-    releaseAfterMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Whether require check in is enabled or not.
-    enabled :: Prelude.Maybe Prelude.Bool
+    releaseAfterMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,26 @@ data RequireCheckIn = RequireCheckIn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enabled', 'requireCheckIn_enabled' - Whether require check in is enabled or not.
+--
 -- 'releaseAfterMinutes', 'requireCheckIn_releaseAfterMinutes' - Duration between 5 and 20 minutes to determine when to release the room
 -- if it\'s not checked into.
---
--- 'enabled', 'requireCheckIn_enabled' - Whether require check in is enabled or not.
 newRequireCheckIn ::
   RequireCheckIn
 newRequireCheckIn =
   RequireCheckIn'
-    { releaseAfterMinutes =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { enabled = Prelude.Nothing,
+      releaseAfterMinutes = Prelude.Nothing
     }
+
+-- | Whether require check in is enabled or not.
+requireCheckIn_enabled :: Lens.Lens' RequireCheckIn (Prelude.Maybe Prelude.Bool)
+requireCheckIn_enabled = Lens.lens (\RequireCheckIn' {enabled} -> enabled) (\s@RequireCheckIn' {} a -> s {enabled = a} :: RequireCheckIn)
 
 -- | Duration between 5 and 20 minutes to determine when to release the room
 -- if it\'s not checked into.
 requireCheckIn_releaseAfterMinutes :: Lens.Lens' RequireCheckIn (Prelude.Maybe Prelude.Int)
 requireCheckIn_releaseAfterMinutes = Lens.lens (\RequireCheckIn' {releaseAfterMinutes} -> releaseAfterMinutes) (\s@RequireCheckIn' {} a -> s {releaseAfterMinutes = a} :: RequireCheckIn)
-
--- | Whether require check in is enabled or not.
-requireCheckIn_enabled :: Lens.Lens' RequireCheckIn (Prelude.Maybe Prelude.Bool)
-requireCheckIn_enabled = Lens.lens (\RequireCheckIn' {enabled} -> enabled) (\s@RequireCheckIn' {} a -> s {enabled = a} :: RequireCheckIn)
 
 instance Core.FromJSON RequireCheckIn where
   parseJSON =
@@ -73,8 +72,8 @@ instance Core.FromJSON RequireCheckIn where
       "RequireCheckIn"
       ( \x ->
           RequireCheckIn'
-            Prelude.<$> (x Core..:? "ReleaseAfterMinutes")
-            Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<$> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "ReleaseAfterMinutes")
       )
 
 instance Prelude.Hashable RequireCheckIn

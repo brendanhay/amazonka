@@ -29,10 +29,10 @@ module Network.AWS.AlexaBusiness.SearchDevices
     newSearchDevices,
 
     -- * Request Lenses
-    searchDevices_nextToken,
-    searchDevices_sortCriteria,
-    searchDevices_maxResults,
     searchDevices_filters,
+    searchDevices_sortCriteria,
+    searchDevices_nextToken,
+    searchDevices_maxResults,
 
     -- * Destructuring the Response
     SearchDevicesResponse (..),
@@ -55,26 +55,26 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchDevices' smart constructor.
 data SearchDevices = SearchDevices'
-  { -- | An optional token returned from a prior request. Use this token for
-    -- pagination of results from this action. If this parameter is specified,
-    -- the response includes only results beyond the token, up to the value
-    -- specified by @MaxResults@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The filters to use to list a specified set of devices. Supported filter
+    -- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
+    -- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
+    -- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
+    -- and FailureCode.
+    filters :: Prelude.Maybe [Filter],
     -- | The sort order to use in listing the specified set of devices. Supported
     -- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
     -- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
     -- NetworkProfileArn, Feature, and FailureCode.
     sortCriteria :: Prelude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The filters to use to list a specified set of devices. Supported filter
-    -- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
-    -- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
-    -- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
-    -- and FailureCode.
-    filters :: Prelude.Maybe [Filter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,34 +86,49 @@ data SearchDevices = SearchDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchDevices_nextToken' - An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@.
+-- 'filters', 'searchDevices_filters' - The filters to use to list a specified set of devices. Supported filter
+-- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
+-- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
+-- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
+-- and FailureCode.
 --
 -- 'sortCriteria', 'searchDevices_sortCriteria' - The sort order to use in listing the specified set of devices. Supported
 -- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
 -- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
 -- NetworkProfileArn, Feature, and FailureCode.
 --
+-- 'nextToken', 'searchDevices_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@.
+--
 -- 'maxResults', 'searchDevices_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
---
--- 'filters', 'searchDevices_filters' - The filters to use to list a specified set of devices. Supported filter
--- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
--- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
--- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
--- and FailureCode.
 newSearchDevices ::
   SearchDevices
 newSearchDevices =
   SearchDevices'
-    { nextToken = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       sortCriteria = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The filters to use to list a specified set of devices. Supported filter
+-- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
+-- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
+-- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
+-- and FailureCode.
+searchDevices_filters :: Lens.Lens' SearchDevices (Prelude.Maybe [Filter])
+searchDevices_filters = Lens.lens (\SearchDevices' {filters} -> filters) (\s@SearchDevices' {} a -> s {filters = a} :: SearchDevices) Prelude.. Lens.mapping Lens.coerced
+
+-- | The sort order to use in listing the specified set of devices. Supported
+-- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
+-- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
+-- NetworkProfileArn, Feature, and FailureCode.
+searchDevices_sortCriteria :: Lens.Lens' SearchDevices (Prelude.Maybe [Sort])
+searchDevices_sortCriteria = Lens.lens (\SearchDevices' {sortCriteria} -> sortCriteria) (\s@SearchDevices' {} a -> s {sortCriteria = a} :: SearchDevices) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -122,26 +137,11 @@ newSearchDevices =
 searchDevices_nextToken :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Text)
 searchDevices_nextToken = Lens.lens (\SearchDevices' {nextToken} -> nextToken) (\s@SearchDevices' {} a -> s {nextToken = a} :: SearchDevices)
 
--- | The sort order to use in listing the specified set of devices. Supported
--- sort keys are DeviceName, DeviceStatus, RoomName, DeviceType,
--- DeviceSerialNumber, ConnectionStatus, NetworkProfileName,
--- NetworkProfileArn, Feature, and FailureCode.
-searchDevices_sortCriteria :: Lens.Lens' SearchDevices (Prelude.Maybe [Sort])
-searchDevices_sortCriteria = Lens.lens (\SearchDevices' {sortCriteria} -> sortCriteria) (\s@SearchDevices' {} a -> s {sortCriteria = a} :: SearchDevices) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 searchDevices_maxResults :: Lens.Lens' SearchDevices (Prelude.Maybe Prelude.Natural)
 searchDevices_maxResults = Lens.lens (\SearchDevices' {maxResults} -> maxResults) (\s@SearchDevices' {} a -> s {maxResults = a} :: SearchDevices)
-
--- | The filters to use to list a specified set of devices. Supported filter
--- keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName,
--- DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus
--- (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature,
--- and FailureCode.
-searchDevices_filters :: Lens.Lens' SearchDevices (Prelude.Maybe [Filter])
-searchDevices_filters = Lens.lens (\SearchDevices' {filters} -> filters) (\s@SearchDevices' {} a -> s {filters = a} :: SearchDevices) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager SearchDevices where
   page rq rs
@@ -200,10 +200,10 @@ instance Core.ToJSON SearchDevices where
   toJSON SearchDevices' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
             ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -262,7 +262,7 @@ searchDevicesResponse_nextToken = Lens.lens (\SearchDevicesResponse' {nextToken}
 -- | The devices that meet the specified set of filter criteria, in sort
 -- order.
 searchDevicesResponse_devices :: Lens.Lens' SearchDevicesResponse (Prelude.Maybe [DeviceData])
-searchDevicesResponse_devices = Lens.lens (\SearchDevicesResponse' {devices} -> devices) (\s@SearchDevicesResponse' {} a -> s {devices = a} :: SearchDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
+searchDevicesResponse_devices = Lens.lens (\SearchDevicesResponse' {devices} -> devices) (\s@SearchDevicesResponse' {} a -> s {devices = a} :: SearchDevicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of devices returned.
 searchDevicesResponse_totalCount :: Lens.Lens' SearchDevicesResponse (Prelude.Maybe Prelude.Int)

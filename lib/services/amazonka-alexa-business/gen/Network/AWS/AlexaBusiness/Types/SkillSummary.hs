@@ -35,11 +35,11 @@ data SkillSummary = SkillSummary'
     supportsLinking :: Prelude.Maybe Prelude.Bool,
     -- | Whether the skill is publicly available or is a private skill.
     skillType :: Prelude.Maybe SkillType,
-    -- | The name of the skill.
-    skillName :: Prelude.Maybe Prelude.Text,
     -- | Whether the skill is enabled under the user\'s account, or if it
     -- requires linking to be used.
-    enablementType :: Prelude.Maybe EnablementType
+    enablementType :: Prelude.Maybe EnablementType,
+    -- | The name of the skill.
+    skillName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,10 +57,10 @@ data SkillSummary = SkillSummary'
 --
 -- 'skillType', 'skillSummary_skillType' - Whether the skill is publicly available or is a private skill.
 --
--- 'skillName', 'skillSummary_skillName' - The name of the skill.
---
 -- 'enablementType', 'skillSummary_enablementType' - Whether the skill is enabled under the user\'s account, or if it
 -- requires linking to be used.
+--
+-- 'skillName', 'skillSummary_skillName' - The name of the skill.
 newSkillSummary ::
   SkillSummary
 newSkillSummary =
@@ -68,8 +68,8 @@ newSkillSummary =
     { skillId = Prelude.Nothing,
       supportsLinking = Prelude.Nothing,
       skillType = Prelude.Nothing,
-      skillName = Prelude.Nothing,
-      enablementType = Prelude.Nothing
+      enablementType = Prelude.Nothing,
+      skillName = Prelude.Nothing
     }
 
 -- | The ARN of the skill summary.
@@ -84,14 +84,14 @@ skillSummary_supportsLinking = Lens.lens (\SkillSummary' {supportsLinking} -> su
 skillSummary_skillType :: Lens.Lens' SkillSummary (Prelude.Maybe SkillType)
 skillSummary_skillType = Lens.lens (\SkillSummary' {skillType} -> skillType) (\s@SkillSummary' {} a -> s {skillType = a} :: SkillSummary)
 
--- | The name of the skill.
-skillSummary_skillName :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
-skillSummary_skillName = Lens.lens (\SkillSummary' {skillName} -> skillName) (\s@SkillSummary' {} a -> s {skillName = a} :: SkillSummary)
-
 -- | Whether the skill is enabled under the user\'s account, or if it
 -- requires linking to be used.
 skillSummary_enablementType :: Lens.Lens' SkillSummary (Prelude.Maybe EnablementType)
 skillSummary_enablementType = Lens.lens (\SkillSummary' {enablementType} -> enablementType) (\s@SkillSummary' {} a -> s {enablementType = a} :: SkillSummary)
+
+-- | The name of the skill.
+skillSummary_skillName :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
+skillSummary_skillName = Lens.lens (\SkillSummary' {skillName} -> skillName) (\s@SkillSummary' {} a -> s {skillName = a} :: SkillSummary)
 
 instance Core.FromJSON SkillSummary where
   parseJSON =
@@ -102,8 +102,8 @@ instance Core.FromJSON SkillSummary where
             Prelude.<$> (x Core..:? "SkillId")
             Prelude.<*> (x Core..:? "SupportsLinking")
             Prelude.<*> (x Core..:? "SkillType")
-            Prelude.<*> (x Core..:? "SkillName")
             Prelude.<*> (x Core..:? "EnablementType")
+            Prelude.<*> (x Core..:? "SkillName")
       )
 
 instance Prelude.Hashable SkillSummary

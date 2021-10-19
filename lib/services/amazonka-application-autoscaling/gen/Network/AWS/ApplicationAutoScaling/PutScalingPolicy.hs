@@ -62,8 +62,8 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
     newPutScalingPolicy,
 
     -- * Request Lenses
-    putScalingPolicy_targetTrackingScalingPolicyConfiguration,
     putScalingPolicy_policyType,
+    putScalingPolicy_targetTrackingScalingPolicyConfiguration,
     putScalingPolicy_stepScalingPolicyConfiguration,
     putScalingPolicy_policyName,
     putScalingPolicy_serviceNamespace,
@@ -90,13 +90,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { -- | A target tracking scaling policy. Includes support for predefined or
-    -- customized metrics.
-    --
-    -- This parameter is required if you are creating a policy and the policy
-    -- type is @TargetTrackingScaling@.
-    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
-    -- | The policy type. This parameter is required if you are creating a
+  { -- | The policy type. This parameter is required if you are creating a
     -- scaling policy.
     --
     -- The following policy types are supported:
@@ -104,8 +98,7 @@ data PutScalingPolicy = PutScalingPolicy'
     -- @TargetTrackingScaling@—Not supported for Amazon EMR
     --
     -- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
-    -- Amazon Keyspaces (for Apache Cassandra), Amazon MSK, or Amazon
-    -- ElastiCache for Redis.
+    -- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
@@ -113,6 +106,12 @@ data PutScalingPolicy = PutScalingPolicy'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
     -- in the /Application Auto Scaling User Guide/.
     policyType :: Prelude.Maybe PolicyType,
+    -- | A target tracking scaling policy. Includes support for predefined or
+    -- customized metrics.
+    --
+    -- This parameter is required if you are creating a policy and the policy
+    -- type is @TargetTrackingScaling@.
+    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
     -- | A step scaling policy.
     --
     -- This parameter is required if you are creating a policy and the policy
@@ -131,8 +130,8 @@ data PutScalingPolicy = PutScalingPolicy'
     --     identifier is the cluster name and service name. Example:
     --     @service\/default\/sample-webapp@.
     --
-    -- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
-    --     the unique identifier is the Spot Fleet request ID. Example:
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
     --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
     --
     -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -152,8 +151,8 @@ data PutScalingPolicy = PutScalingPolicy'
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
     --
-    -- -   Amazon SageMaker endpoint variant - The resource type is @variant@
-    --     and the unique identifier is the resource ID. Example:
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
     --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     --
     -- -   Custom resources are not supported with a resource type. This
@@ -188,6 +187,9 @@ data PutScalingPolicy = PutScalingPolicy'
     -- -   Amazon ElastiCache replication group - The resource type is
     --     @replication-group@ and the unique identifier is the replication
     --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -199,7 +201,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --     of an EMR Instance Group.
     --
     -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
+    --     Spot Fleet.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -221,7 +223,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an Amazon SageMaker model endpoint variant.
+    --     instances for an SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -251,6 +253,9 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- -   @elasticache:replication-group:Replicas@ - The number of replicas
     --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -263,12 +268,6 @@ data PutScalingPolicy = PutScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetTrackingScalingPolicyConfiguration', 'putScalingPolicy_targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy. Includes support for predefined or
--- customized metrics.
---
--- This parameter is required if you are creating a policy and the policy
--- type is @TargetTrackingScaling@.
---
 -- 'policyType', 'putScalingPolicy_policyType' - The policy type. This parameter is required if you are creating a
 -- scaling policy.
 --
@@ -277,14 +276,19 @@ data PutScalingPolicy = PutScalingPolicy'
 -- @TargetTrackingScaling@—Not supported for Amazon EMR
 --
 -- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
--- Amazon Keyspaces (for Apache Cassandra), Amazon MSK, or Amazon
--- ElastiCache for Redis.
+-- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
 -- and
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
 -- in the /Application Auto Scaling User Guide/.
+--
+-- 'targetTrackingScalingPolicyConfiguration', 'putScalingPolicy_targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy. Includes support for predefined or
+-- customized metrics.
+--
+-- This parameter is required if you are creating a policy and the policy
+-- type is @TargetTrackingScaling@.
 --
 -- 'stepScalingPolicyConfiguration', 'putScalingPolicy_stepScalingPolicyConfiguration' - A step scaling policy.
 --
@@ -304,8 +308,8 @@ data PutScalingPolicy = PutScalingPolicy'
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -325,8 +329,8 @@ data PutScalingPolicy = PutScalingPolicy'
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -362,6 +366,9 @@ data PutScalingPolicy = PutScalingPolicy'
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
 --
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+--
 -- 'scalableDimension', 'putScalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -372,7 +379,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -394,7 +401,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -424,6 +431,9 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 newPutScalingPolicy ::
   -- | 'policyName'
   Prelude.Text ->
@@ -440,23 +450,15 @@ newPutScalingPolicy
   pResourceId_
   pScalableDimension_ =
     PutScalingPolicy'
-      { targetTrackingScalingPolicyConfiguration =
+      { policyType = Prelude.Nothing,
+        targetTrackingScalingPolicyConfiguration =
           Prelude.Nothing,
-        policyType = Prelude.Nothing,
         stepScalingPolicyConfiguration = Prelude.Nothing,
         policyName = pPolicyName_,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
       }
-
--- | A target tracking scaling policy. Includes support for predefined or
--- customized metrics.
---
--- This parameter is required if you are creating a policy and the policy
--- type is @TargetTrackingScaling@.
-putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
-putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
 
 -- | The policy type. This parameter is required if you are creating a
 -- scaling policy.
@@ -466,8 +468,7 @@ putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScali
 -- @TargetTrackingScaling@—Not supported for Amazon EMR
 --
 -- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
--- Amazon Keyspaces (for Apache Cassandra), Amazon MSK, or Amazon
--- ElastiCache for Redis.
+-- Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
@@ -476,6 +477,14 @@ putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScali
 -- in the /Application Auto Scaling User Guide/.
 putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe PolicyType)
 putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
+
+-- | A target tracking scaling policy. Includes support for predefined or
+-- customized metrics.
+--
+-- This parameter is required if you are creating a policy and the policy
+-- type is @TargetTrackingScaling@.
+putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
+putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
 
 -- | A step scaling policy.
 --
@@ -501,8 +510,8 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -522,8 +531,8 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -558,6 +567,9 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 -- -   Amazon ElastiCache replication group - The resource type is
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
 putScalingPolicy_resourceId :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> resourceId) (\s@PutScalingPolicy' {} a -> s {resourceId = a} :: PutScalingPolicy)
 
@@ -571,7 +583,7 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -593,7 +605,7 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -623,6 +635,9 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 putScalingPolicy_scalableDimension :: Lens.Lens' PutScalingPolicy ScalableDimension
 putScalingPolicy_scalableDimension = Lens.lens (\PutScalingPolicy' {scalableDimension} -> scalableDimension) (\s@PutScalingPolicy' {} a -> s {scalableDimension = a} :: PutScalingPolicy)
 
@@ -663,9 +678,9 @@ instance Core.ToJSON PutScalingPolicy where
   toJSON PutScalingPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetTrackingScalingPolicyConfiguration" Core..=)
+          [ ("PolicyType" Core..=) Prelude.<$> policyType,
+            ("TargetTrackingScalingPolicyConfiguration" Core..=)
               Prelude.<$> targetTrackingScalingPolicyConfiguration,
-            ("PolicyType" Core..=) Prelude.<$> policyType,
             ("StepScalingPolicyConfiguration" Core..=)
               Prelude.<$> stepScalingPolicyConfiguration,
             Prelude.Just ("PolicyName" Core..= policyName),
@@ -722,7 +737,7 @@ newPutScalingPolicyResponse pHttpStatus_ pPolicyARN_ =
 
 -- | The CloudWatch alarms created for the target tracking scaling policy.
 putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe [Alarm])
-putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
+putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int

@@ -36,9 +36,11 @@
 --
 -- -   Amazon Managed Streaming for Apache Kafka broker storage
 --
+-- -   Amazon Neptune clusters
+--
 -- -   Amazon SageMaker endpoint variants
 --
--- -   Spot Fleet (Amazon EC2) requests
+-- -   Spot Fleets (Amazon EC2)
 --
 -- -   Custom resources provided by your own applications or services
 --
@@ -77,26 +79,26 @@ module Network.AWS.ApplicationAutoScaling
     -- * Errors
     -- $errors
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** FailedResourceAccessException
     _FailedResourceAccessException,
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- ** ConcurrentUpdateException
     _ConcurrentUpdateException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -104,11 +106,11 @@ module Network.AWS.ApplicationAutoScaling
     -- * Operations
     -- $operations
 
-    -- ** RegisterScalableTarget
-    RegisterScalableTarget (RegisterScalableTarget'),
-    newRegisterScalableTarget,
-    RegisterScalableTargetResponse (RegisterScalableTargetResponse'),
-    newRegisterScalableTargetResponse,
+    -- ** DeleteScalingPolicy
+    DeleteScalingPolicy (DeleteScalingPolicy'),
+    newDeleteScalingPolicy,
+    DeleteScalingPolicyResponse (DeleteScalingPolicyResponse'),
+    newDeleteScalingPolicyResponse,
 
     -- ** PutScalingPolicy
     PutScalingPolicy (PutScalingPolicy'),
@@ -116,17 +118,11 @@ module Network.AWS.ApplicationAutoScaling
     PutScalingPolicyResponse (PutScalingPolicyResponse'),
     newPutScalingPolicyResponse,
 
-    -- ** DescribeScheduledActions (Paginated)
-    DescribeScheduledActions (DescribeScheduledActions'),
-    newDescribeScheduledActions,
-    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
-    newDescribeScheduledActionsResponse,
-
-    -- ** DeleteScheduledAction
-    DeleteScheduledAction (DeleteScheduledAction'),
-    newDeleteScheduledAction,
-    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
-    newDeleteScheduledActionResponse,
+    -- ** RegisterScalableTarget
+    RegisterScalableTarget (RegisterScalableTarget'),
+    newRegisterScalableTarget,
+    RegisterScalableTargetResponse (RegisterScalableTargetResponse'),
+    newRegisterScalableTargetResponse,
 
     -- ** DescribeScalingPolicies (Paginated)
     DescribeScalingPolicies (DescribeScalingPolicies'),
@@ -134,17 +130,23 @@ module Network.AWS.ApplicationAutoScaling
     DescribeScalingPoliciesResponse (DescribeScalingPoliciesResponse'),
     newDescribeScalingPoliciesResponse,
 
-    -- ** DeregisterScalableTarget
-    DeregisterScalableTarget (DeregisterScalableTarget'),
-    newDeregisterScalableTarget,
-    DeregisterScalableTargetResponse (DeregisterScalableTargetResponse'),
-    newDeregisterScalableTargetResponse,
+    -- ** PutScheduledAction
+    PutScheduledAction (PutScheduledAction'),
+    newPutScheduledAction,
+    PutScheduledActionResponse (PutScheduledActionResponse'),
+    newPutScheduledActionResponse,
 
-    -- ** DescribeScalingActivities (Paginated)
-    DescribeScalingActivities (DescribeScalingActivities'),
-    newDescribeScalingActivities,
-    DescribeScalingActivitiesResponse (DescribeScalingActivitiesResponse'),
-    newDescribeScalingActivitiesResponse,
+    -- ** DeleteScheduledAction
+    DeleteScheduledAction (DeleteScheduledAction'),
+    newDeleteScheduledAction,
+    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
+    newDeleteScheduledActionResponse,
+
+    -- ** DescribeScheduledActions (Paginated)
+    DescribeScheduledActions (DescribeScheduledActions'),
+    newDescribeScheduledActions,
+    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
+    newDescribeScheduledActionsResponse,
 
     -- ** DescribeScalableTargets (Paginated)
     DescribeScalableTargets (DescribeScalableTargets'),
@@ -152,17 +154,17 @@ module Network.AWS.ApplicationAutoScaling
     DescribeScalableTargetsResponse (DescribeScalableTargetsResponse'),
     newDescribeScalableTargetsResponse,
 
-    -- ** DeleteScalingPolicy
-    DeleteScalingPolicy (DeleteScalingPolicy'),
-    newDeleteScalingPolicy,
-    DeleteScalingPolicyResponse (DeleteScalingPolicyResponse'),
-    newDeleteScalingPolicyResponse,
+    -- ** DescribeScalingActivities (Paginated)
+    DescribeScalingActivities (DescribeScalingActivities'),
+    newDescribeScalingActivities,
+    DescribeScalingActivitiesResponse (DescribeScalingActivitiesResponse'),
+    newDescribeScalingActivitiesResponse,
 
-    -- ** PutScheduledAction
-    PutScheduledAction (PutScheduledAction'),
-    newPutScheduledAction,
-    PutScheduledActionResponse (PutScheduledActionResponse'),
-    newPutScheduledActionResponse,
+    -- ** DeregisterScalableTarget
+    DeregisterScalableTarget (DeregisterScalableTarget'),
+    newDeregisterScalableTarget,
+    DeregisterScalableTargetResponse (DeregisterScalableTargetResponse'),
+    newDeregisterScalableTargetResponse,
 
     -- * Types
 

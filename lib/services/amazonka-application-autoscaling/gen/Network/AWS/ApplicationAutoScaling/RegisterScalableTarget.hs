@@ -45,16 +45,23 @@
 -- change. Include the parameters that identify the scalable target:
 -- resource ID, scalable dimension, and namespace. Any parameters that you
 -- don\'t specify are not changed by this update request.
+--
+-- If you call the @RegisterScalableTarget@ API to update an existing
+-- scalable target, Application Auto Scaling retrieves the current capacity
+-- of the resource. If it is below the minimum capacity or above the
+-- maximum capacity, Application Auto Scaling adjusts the capacity of the
+-- scalable target to place it within these bounds, even if you don\'t
+-- include the @MinCapacity@ or @MaxCapacity@ request parameters.
 module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
   ( -- * Creating a Request
     RegisterScalableTarget (..),
     newRegisterScalableTarget,
 
     -- * Request Lenses
-    registerScalableTarget_roleARN,
-    registerScalableTarget_maxCapacity,
     registerScalableTarget_suspendedState,
+    registerScalableTarget_maxCapacity,
     registerScalableTarget_minCapacity,
+    registerScalableTarget_roleARN,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
@@ -77,31 +84,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-  { -- | This parameter is required for services that do not support
-    -- service-linked roles (such as Amazon EMR), and it must specify the ARN
-    -- of an IAM role that allows Application Auto Scaling to modify the
-    -- scalable target on your behalf.
-    --
-    -- If the service supports service-linked roles, Application Auto Scaling
-    -- uses a service-linked role, which it creates if it does not yet exist.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The maximum value that you plan to scale out to. When a scaling policy
-    -- is in effect, Application Auto Scaling can scale out (expand) as needed
-    -- to the maximum capacity limit in response to changing demand. This
-    -- property is required when registering a new scalable target.
-    --
-    -- Although you can specify a large maximum capacity, note that service
-    -- quotas may impose lower limits. Each service has its own default quotas
-    -- for the maximum capacity of the resource. If you want to specify a
-    -- higher limit, you can request an increase. For more information, consult
-    -- the documentation for that service. For information about the default
-    -- quotas for each service, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
-    -- in the /Amazon Web Services General Reference/.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
-    -- | An embedded object that contains attributes and attribute values that
+  { -- | An embedded object that contains attributes and attribute values that
     -- are used to suspend and resume automatic scaling. Setting the value of
     -- an attribute to @true@ suspends the specified scaling activities.
     -- Setting it to @false@ (default) resumes the specified scaling
@@ -124,6 +107,20 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
     -- in the /Application Auto Scaling User Guide/.
     suspendedState :: Prelude.Maybe SuspendedState,
+    -- | The maximum value that you plan to scale out to. When a scaling policy
+    -- is in effect, Application Auto Scaling can scale out (expand) as needed
+    -- to the maximum capacity limit in response to changing demand. This
+    -- property is required when registering a new scalable target.
+    --
+    -- Although you can specify a large maximum capacity, note that service
+    -- quotas may impose lower limits. Each service has its own default quotas
+    -- for the maximum capacity of the resource. If you want to specify a
+    -- higher limit, you can request an increase. For more information, consult
+    -- the documentation for that service. For information about the default
+    -- quotas for each service, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+    -- in the /Amazon Web Services General Reference/.
+    maxCapacity :: Prelude.Maybe Prelude.Int,
     -- | The minimum value that you plan to scale in to. When a scaling policy is
     -- in effect, Application Auto Scaling can scale in (contract) as needed to
     -- the minimum capacity limit in response to changing demand. This property
@@ -134,6 +131,16 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- clusters, EMR clusters, and custom resources. For all other resources,
     -- the minimum value allowed is 1.
     minCapacity :: Prelude.Maybe Prelude.Int,
+    -- | This parameter is required for services that do not support
+    -- service-linked roles (such as Amazon EMR), and it must specify the ARN
+    -- of an IAM role that allows Application Auto Scaling to modify the
+    -- scalable target on your behalf.
+    --
+    -- If the service supports service-linked roles, Application Auto Scaling
+    -- uses a service-linked role, which it creates if it does not yet exist.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -145,8 +152,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --     identifier is the cluster name and service name. Example:
     --     @service\/default\/sample-webapp@.
     --
-    -- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
-    --     the unique identifier is the Spot Fleet request ID. Example:
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
     --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
     --
     -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -166,8 +173,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
     --
-    -- -   Amazon SageMaker endpoint variant - The resource type is @variant@
-    --     and the unique identifier is the resource ID. Example:
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
     --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     --
     -- -   Custom resources are not supported with a resource type. This
@@ -202,6 +209,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- -   Amazon ElastiCache replication group - The resource type is
     --     @replication-group@ and the unique identifier is the replication
     --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -213,7 +223,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --     of an EMR Instance Group.
     --
     -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
+    --     Spot Fleet.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -235,7 +245,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an Amazon SageMaker model endpoint variant.
+    --     instances for an SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -265,6 +275,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --
     -- -   @elasticache:replication-group:Replicas@ - The number of replicas
     --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -276,30 +289,6 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support
--- service-linked roles (such as Amazon EMR), and it must specify the ARN
--- of an IAM role that allows Application Auto Scaling to modify the
--- scalable target on your behalf.
---
--- If the service supports service-linked roles, Application Auto Scaling
--- uses a service-linked role, which it creates if it does not yet exist.
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
---
--- 'maxCapacity', 'registerScalableTarget_maxCapacity' - The maximum value that you plan to scale out to. When a scaling policy
--- is in effect, Application Auto Scaling can scale out (expand) as needed
--- to the maximum capacity limit in response to changing demand. This
--- property is required when registering a new scalable target.
---
--- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
--- in the /Amazon Web Services General Reference/.
 --
 -- 'suspendedState', 'registerScalableTarget_suspendedState' - An embedded object that contains attributes and attribute values that
 -- are used to suspend and resume automatic scaling. Setting the value of
@@ -324,6 +313,20 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
+-- 'maxCapacity', 'registerScalableTarget_maxCapacity' - The maximum value that you plan to scale out to. When a scaling policy
+-- is in effect, Application Auto Scaling can scale out (expand) as needed
+-- to the maximum capacity limit in response to changing demand. This
+-- property is required when registering a new scalable target.
+--
+-- Although you can specify a large maximum capacity, note that service
+-- quotas may impose lower limits. Each service has its own default quotas
+-- for the maximum capacity of the resource. If you want to specify a
+-- higher limit, you can request an increase. For more information, consult
+-- the documentation for that service. For information about the default
+-- quotas for each service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- in the /Amazon Web Services General Reference/.
+--
 -- 'minCapacity', 'registerScalableTarget_minCapacity' - The minimum value that you plan to scale in to. When a scaling policy is
 -- in effect, Application Auto Scaling can scale in (contract) as needed to
 -- the minimum capacity limit in response to changing demand. This property
@@ -333,6 +336,16 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
 -- clusters, EMR clusters, and custom resources. For all other resources,
 -- the minimum value allowed is 1.
+--
+-- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support
+-- service-linked roles (such as Amazon EMR), and it must specify the ARN
+-- of an IAM role that allows Application Auto Scaling to modify the
+-- scalable target on your behalf.
+--
+-- If the service supports service-linked roles, Application Auto Scaling
+-- uses a service-linked role, which it creates if it does not yet exist.
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
 --
 -- 'serviceNamespace', 'registerScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -345,8 +358,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -366,8 +379,8 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -403,6 +416,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
 --
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+--
 -- 'scalableDimension', 'registerScalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
@@ -413,7 +429,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -435,7 +451,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -465,6 +481,9 @@ data RegisterScalableTarget = RegisterScalableTarget'
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 newRegisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -478,42 +497,15 @@ newRegisterScalableTarget
   pResourceId_
   pScalableDimension_ =
     RegisterScalableTarget'
-      { roleARN = Prelude.Nothing,
+      { suspendedState =
+          Prelude.Nothing,
         maxCapacity = Prelude.Nothing,
-        suspendedState = Prelude.Nothing,
         minCapacity = Prelude.Nothing,
+        roleARN = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
       }
-
--- | This parameter is required for services that do not support
--- service-linked roles (such as Amazon EMR), and it must specify the ARN
--- of an IAM role that allows Application Auto Scaling to modify the
--- scalable target on your behalf.
---
--- If the service supports service-linked roles, Application Auto Scaling
--- uses a service-linked role, which it creates if it does not yet exist.
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Text)
-registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -> roleARN) (\s@RegisterScalableTarget' {} a -> s {roleARN = a} :: RegisterScalableTarget)
-
--- | The maximum value that you plan to scale out to. When a scaling policy
--- is in effect, Application Auto Scaling can scale out (expand) as needed
--- to the maximum capacity limit in response to changing demand. This
--- property is required when registering a new scalable target.
---
--- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
--- in the /Amazon Web Services General Reference/.
-registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
-registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCapacity} -> maxCapacity) (\s@RegisterScalableTarget' {} a -> s {maxCapacity = a} :: RegisterScalableTarget)
 
 -- | An embedded object that contains attributes and attribute values that
 -- are used to suspend and resume automatic scaling. Setting the value of
@@ -540,6 +532,22 @@ registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCap
 registerScalableTarget_suspendedState :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe SuspendedState)
 registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {suspendedState} -> suspendedState) (\s@RegisterScalableTarget' {} a -> s {suspendedState = a} :: RegisterScalableTarget)
 
+-- | The maximum value that you plan to scale out to. When a scaling policy
+-- is in effect, Application Auto Scaling can scale out (expand) as needed
+-- to the maximum capacity limit in response to changing demand. This
+-- property is required when registering a new scalable target.
+--
+-- Although you can specify a large maximum capacity, note that service
+-- quotas may impose lower limits. Each service has its own default quotas
+-- for the maximum capacity of the resource. If you want to specify a
+-- higher limit, you can request an increase. For more information, consult
+-- the documentation for that service. For information about the default
+-- quotas for each service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- in the /Amazon Web Services General Reference/.
+registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
+registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCapacity} -> maxCapacity) (\s@RegisterScalableTarget' {} a -> s {maxCapacity = a} :: RegisterScalableTarget)
+
 -- | The minimum value that you plan to scale in to. When a scaling policy is
 -- in effect, Application Auto Scaling can scale in (contract) as needed to
 -- the minimum capacity limit in response to changing demand. This property
@@ -551,6 +559,18 @@ registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {sus
 -- the minimum value allowed is 1.
 registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
 registerScalableTarget_minCapacity = Lens.lens (\RegisterScalableTarget' {minCapacity} -> minCapacity) (\s@RegisterScalableTarget' {} a -> s {minCapacity = a} :: RegisterScalableTarget)
+
+-- | This parameter is required for services that do not support
+-- service-linked roles (such as Amazon EMR), and it must specify the ARN
+-- of an IAM role that allows Application Auto Scaling to modify the
+-- scalable target on your behalf.
+--
+-- If the service supports service-linked roles, Application Auto Scaling
+-- uses a service-linked role, which it creates if it does not yet exist.
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
+registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Text)
+registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -> roleARN) (\s@RegisterScalableTarget' {} a -> s {roleARN = a} :: RegisterScalableTarget)
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -565,8 +585,8 @@ registerScalableTarget_serviceNamespace = Lens.lens (\RegisterScalableTarget' {s
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -586,8 +606,8 @@ registerScalableTarget_serviceNamespace = Lens.lens (\RegisterScalableTarget' {s
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -622,6 +642,9 @@ registerScalableTarget_serviceNamespace = Lens.lens (\RegisterScalableTarget' {s
 -- -   Amazon ElastiCache replication group - The resource type is
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
 registerScalableTarget_resourceId :: Lens.Lens' RegisterScalableTarget Prelude.Text
 registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourceId} -> resourceId) (\s@RegisterScalableTarget' {} a -> s {resourceId = a} :: RegisterScalableTarget)
 
@@ -635,7 +658,7 @@ registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourc
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -657,7 +680,7 @@ registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourc
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -687,6 +710,9 @@ registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourc
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 registerScalableTarget_scalableDimension :: Lens.Lens' RegisterScalableTarget ScalableDimension
 registerScalableTarget_scalableDimension = Lens.lens (\RegisterScalableTarget' {scalableDimension} -> scalableDimension) (\s@RegisterScalableTarget' {} a -> s {scalableDimension = a} :: RegisterScalableTarget)
 
@@ -725,11 +751,11 @@ instance Core.ToJSON RegisterScalableTarget where
   toJSON RegisterScalableTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("SuspendedState" Core..=)
+          [ ("SuspendedState" Core..=)
               Prelude.<$> suspendedState,
+            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
             ("MinCapacity" Core..=) Prelude.<$> minCapacity,
+            ("RoleARN" Core..=) Prelude.<$> roleARN,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
             Prelude.Just ("ResourceId" Core..= resourceId),

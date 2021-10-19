@@ -30,16 +30,63 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetTrackingScalingPolicyConfiguration' smart constructor.
 data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration'
-  { -- | Indicates whether scale in by the target tracking scaling policy is
+  { -- | A predefined metric. You can specify either a predefined metric or a
+    -- customized metric.
+    predefinedMetricSpecification :: Prelude.Maybe PredefinedMetricSpecification,
+    -- | The amount of time, in seconds, after a scale-in activity completes
+    -- before another scale-in activity can start.
+    --
+    -- With the /scale-in cooldown period/, the intention is to scale in
+    -- conservatively to protect your application’s availability, so scale-in
+    -- activities are blocked until the cooldown period has expired. However,
+    -- if another alarm triggers a scale-out activity during the scale-in
+    -- cooldown period, Application Auto Scaling scales out the target
+    -- immediately. In this case, the scale-in cooldown period stops and
+    -- doesn\'t complete.
+    --
+    -- Application Auto Scaling provides a default value of 600 for Amazon
+    -- ElastiCache replication groups and a default value of 300 for the
+    -- following scalable targets:
+    --
+    -- -   AppStream 2.0 fleets
+    --
+    -- -   Aurora DB clusters
+    --
+    -- -   ECS services
+    --
+    -- -   EMR clusters
+    --
+    -- -   Neptune clusters
+    --
+    -- -   SageMaker endpoint variants
+    --
+    -- -   Spot Fleets
+    --
+    -- -   Custom resources
+    --
+    -- For all other scalable targets, the default value is 0:
+    --
+    -- -   Amazon Comprehend document classification and entity recognizer
+    --     endpoints
+    --
+    -- -   DynamoDB tables and global secondary indexes
+    --
+    -- -   Amazon Keyspaces tables
+    --
+    -- -   Lambda provisioned concurrency
+    --
+    -- -   Amazon MSK broker storage
+    scaleInCooldown :: Prelude.Maybe Prelude.Int,
+    -- | A customized metric. You can specify either a predefined metric or a
+    -- customized metric.
+    customizedMetricSpecification :: Prelude.Maybe CustomizedMetricSpecification,
+    -- | Indicates whether scale in by the target tracking scaling policy is
     -- disabled. If the value is @true@, scale in is disabled and the target
     -- tracking scaling policy won\'t remove capacity from the scalable target.
     -- Otherwise, scale in is enabled and the target tracking scaling policy
     -- can remove capacity from the scalable target. The default value is
     -- @false@.
     disableScaleIn :: Prelude.Maybe Prelude.Bool,
-    -- | A predefined metric. You can specify either a predefined metric or a
-    -- customized metric.
-    predefinedMetricSpecification :: Prelude.Maybe PredefinedMetricSpecification,
     -- | The amount of time, in seconds, to wait for a previous scale-out
     -- activity to take effect.
     --
@@ -57,82 +104,35 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
     -- ElastiCache replication groups and a default value of 300 for the
     -- following scalable targets:
     --
-    -- -   ECS services
-    --
-    -- -   Spot Fleet requests
-    --
-    -- -   EMR clusters
-    --
     -- -   AppStream 2.0 fleets
     --
     -- -   Aurora DB clusters
     --
-    -- -   Amazon SageMaker endpoint variants
+    -- -   ECS services
+    --
+    -- -   EMR clusters
+    --
+    -- -   Neptune clusters
+    --
+    -- -   SageMaker endpoint variants
+    --
+    -- -   Spot Fleets
     --
     -- -   Custom resources
     --
     -- For all other scalable targets, the default value is 0:
     --
-    -- -   DynamoDB tables
-    --
-    -- -   DynamoDB global secondary indexes
-    --
     -- -   Amazon Comprehend document classification and entity recognizer
     --     endpoints
     --
-    -- -   Lambda provisioned concurrency
+    -- -   DynamoDB tables and global secondary indexes
     --
     -- -   Amazon Keyspaces tables
+    --
+    -- -   Lambda provisioned concurrency
     --
     -- -   Amazon MSK broker storage
     scaleOutCooldown :: Prelude.Maybe Prelude.Int,
-    -- | A customized metric. You can specify either a predefined metric or a
-    -- customized metric.
-    customizedMetricSpecification :: Prelude.Maybe CustomizedMetricSpecification,
-    -- | The amount of time, in seconds, after a scale-in activity completes
-    -- before another scale-in activity can start.
-    --
-    -- With the /scale-in cooldown period/, the intention is to scale in
-    -- conservatively to protect your application’s availability, so scale-in
-    -- activities are blocked until the cooldown period has expired. However,
-    -- if another alarm triggers a scale-out activity during the scale-in
-    -- cooldown period, Application Auto Scaling scales out the target
-    -- immediately. In this case, the scale-in cooldown period stops and
-    -- doesn\'t complete.
-    --
-    -- Application Auto Scaling provides a default value of 600 for Amazon
-    -- ElastiCache replication groups and a default value of 300 for the
-    -- following scalable targets:
-    --
-    -- -   ECS services
-    --
-    -- -   Spot Fleet requests
-    --
-    -- -   EMR clusters
-    --
-    -- -   AppStream 2.0 fleets
-    --
-    -- -   Aurora DB clusters
-    --
-    -- -   Amazon SageMaker endpoint variants
-    --
-    -- -   Custom resources
-    --
-    -- For all other scalable targets, the default value is 0:
-    --
-    -- -   DynamoDB tables
-    --
-    -- -   DynamoDB global secondary indexes
-    --
-    -- -   Amazon Comprehend document classification and entity recognizer
-    --     endpoints
-    --
-    -- -   Lambda provisioned concurrency
-    --
-    -- -   Amazon Keyspaces tables
-    --
-    -- -   Amazon MSK broker storage
-    scaleInCooldown :: Prelude.Maybe Prelude.Int,
     -- | The target value for the metric. Although this property accepts numbers
     -- of type Double, it won\'t accept values that are either too small or too
     -- large. Values must be in the range of -2^360 to 2^360. The value must be
@@ -151,15 +151,62 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'predefinedMetricSpecification', 'targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
+--
+-- 'scaleInCooldown', 'targetTrackingScalingPolicyConfiguration_scaleInCooldown' - The amount of time, in seconds, after a scale-in activity completes
+-- before another scale-in activity can start.
+--
+-- With the /scale-in cooldown period/, the intention is to scale in
+-- conservatively to protect your application’s availability, so scale-in
+-- activities are blocked until the cooldown period has expired. However,
+-- if another alarm triggers a scale-out activity during the scale-in
+-- cooldown period, Application Auto Scaling scales out the target
+-- immediately. In this case, the scale-in cooldown period stops and
+-- doesn\'t complete.
+--
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
+-- following scalable targets:
+--
+-- -   AppStream 2.0 fleets
+--
+-- -   Aurora DB clusters
+--
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
+--
+-- -   Custom resources
+--
+-- For all other scalable targets, the default value is 0:
+--
+-- -   Amazon Comprehend document classification and entity recognizer
+--     endpoints
+--
+-- -   DynamoDB tables and global secondary indexes
+--
+-- -   Amazon Keyspaces tables
+--
+-- -   Lambda provisioned concurrency
+--
+-- -   Amazon MSK broker storage
+--
+-- 'customizedMetricSpecification', 'targetTrackingScalingPolicyConfiguration_customizedMetricSpecification' - A customized metric. You can specify either a predefined metric or a
+-- customized metric.
+--
 -- 'disableScaleIn', 'targetTrackingScalingPolicyConfiguration_disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is
 -- disabled. If the value is @true@, scale in is disabled and the target
 -- tracking scaling policy won\'t remove capacity from the scalable target.
 -- Otherwise, scale in is enabled and the target tracking scaling policy
 -- can remove capacity from the scalable target. The default value is
 -- @false@.
---
--- 'predefinedMetricSpecification', 'targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification' - A predefined metric. You can specify either a predefined metric or a
--- customized metric.
 --
 -- 'scaleOutCooldown', 'targetTrackingScalingPolicyConfiguration_scaleOutCooldown' - The amount of time, in seconds, to wait for a previous scale-out
 -- activity to take effect.
@@ -178,79 +225,32 @@ data TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfi
 -- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
 -- -   AppStream 2.0 fleets
 --
 -- -   Aurora DB clusters
 --
--- -   Amazon SageMaker endpoint variants
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
 --
 -- -   Custom resources
 --
 -- For all other scalable targets, the default value is 0:
 --
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
 -- -   Amazon Comprehend document classification and entity recognizer
 --     endpoints
 --
--- -   Lambda provisioned concurrency
+-- -   DynamoDB tables and global secondary indexes
 --
 -- -   Amazon Keyspaces tables
 --
--- -   Amazon MSK broker storage
---
--- 'customizedMetricSpecification', 'targetTrackingScalingPolicyConfiguration_customizedMetricSpecification' - A customized metric. You can specify either a predefined metric or a
--- customized metric.
---
--- 'scaleInCooldown', 'targetTrackingScalingPolicyConfiguration_scaleInCooldown' - The amount of time, in seconds, after a scale-in activity completes
--- before another scale-in activity can start.
---
--- With the /scale-in cooldown period/, the intention is to scale in
--- conservatively to protect your application’s availability, so scale-in
--- activities are blocked until the cooldown period has expired. However,
--- if another alarm triggers a scale-out activity during the scale-in
--- cooldown period, Application Auto Scaling scales out the target
--- immediately. In this case, the scale-in cooldown period stops and
--- doesn\'t complete.
---
--- Application Auto Scaling provides a default value of 600 for Amazon
--- ElastiCache replication groups and a default value of 300 for the
--- following scalable targets:
---
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
--- -   AppStream 2.0 fleets
---
--- -   Aurora DB clusters
---
--- -   Amazon SageMaker endpoint variants
---
--- -   Custom resources
---
--- For all other scalable targets, the default value is 0:
---
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
--- -   Amazon Comprehend document classification and entity recognizer
---     endpoints
---
 -- -   Lambda provisioned concurrency
---
--- -   Amazon Keyspaces tables
 --
 -- -   Amazon MSK broker storage
 --
@@ -267,17 +267,72 @@ newTargetTrackingScalingPolicyConfiguration ::
 newTargetTrackingScalingPolicyConfiguration
   pTargetValue_ =
     TargetTrackingScalingPolicyConfiguration'
-      { disableScaleIn =
-          Prelude.Nothing,
-        predefinedMetricSpecification =
-          Prelude.Nothing,
-        scaleOutCooldown =
-          Prelude.Nothing,
-        customizedMetricSpecification =
+      { predefinedMetricSpecification =
           Prelude.Nothing,
         scaleInCooldown = Prelude.Nothing,
+        customizedMetricSpecification =
+          Prelude.Nothing,
+        disableScaleIn = Prelude.Nothing,
+        scaleOutCooldown =
+          Prelude.Nothing,
         targetValue = pTargetValue_
       }
+
+-- | A predefined metric. You can specify either a predefined metric or a
+-- customized metric.
+targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe PredefinedMetricSpecification)
+targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {predefinedMetricSpecification} -> predefinedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {predefinedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+-- before another scale-in activity can start.
+--
+-- With the /scale-in cooldown period/, the intention is to scale in
+-- conservatively to protect your application’s availability, so scale-in
+-- activities are blocked until the cooldown period has expired. However,
+-- if another alarm triggers a scale-out activity during the scale-in
+-- cooldown period, Application Auto Scaling scales out the target
+-- immediately. In this case, the scale-in cooldown period stops and
+-- doesn\'t complete.
+--
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
+-- following scalable targets:
+--
+-- -   AppStream 2.0 fleets
+--
+-- -   Aurora DB clusters
+--
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
+--
+-- -   Custom resources
+--
+-- For all other scalable targets, the default value is 0:
+--
+-- -   Amazon Comprehend document classification and entity recognizer
+--     endpoints
+--
+-- -   DynamoDB tables and global secondary indexes
+--
+-- -   Amazon Keyspaces tables
+--
+-- -   Lambda provisioned concurrency
+--
+-- -   Amazon MSK broker storage
+targetTrackingScalingPolicyConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+targetTrackingScalingPolicyConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {scaleInCooldown} -> scaleInCooldown) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {scaleInCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
+
+-- | A customized metric. You can specify either a predefined metric or a
+-- customized metric.
+targetTrackingScalingPolicyConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe CustomizedMetricSpecification)
+targetTrackingScalingPolicyConfiguration_customizedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {customizedMetricSpecification} -> customizedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {customizedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 -- disabled. If the value is @true@, scale in is disabled and the target
@@ -287,11 +342,6 @@ newTargetTrackingScalingPolicyConfiguration
 -- @false@.
 targetTrackingScalingPolicyConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Bool)
 targetTrackingScalingPolicyConfiguration_disableScaleIn = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {disableScaleIn} -> disableScaleIn) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {disableScaleIn = a} :: TargetTrackingScalingPolicyConfiguration)
-
--- | A predefined metric. You can specify either a predefined metric or a
--- customized metric.
-targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe PredefinedMetricSpecification)
-targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {predefinedMetricSpecification} -> predefinedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {predefinedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scale-out
 -- activity to take effect.
@@ -310,87 +360,36 @@ targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification = Lens.le
 -- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
 -- -   AppStream 2.0 fleets
 --
 -- -   Aurora DB clusters
 --
--- -   Amazon SageMaker endpoint variants
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
 --
 -- -   Custom resources
 --
 -- For all other scalable targets, the default value is 0:
 --
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
 -- -   Amazon Comprehend document classification and entity recognizer
 --     endpoints
 --
--- -   Lambda provisioned concurrency
+-- -   DynamoDB tables and global secondary indexes
 --
 -- -   Amazon Keyspaces tables
+--
+-- -   Lambda provisioned concurrency
 --
 -- -   Amazon MSK broker storage
 targetTrackingScalingPolicyConfiguration_scaleOutCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 targetTrackingScalingPolicyConfiguration_scaleOutCooldown = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {scaleOutCooldown} -> scaleOutCooldown) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {scaleOutCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
-
--- | A customized metric. You can specify either a predefined metric or a
--- customized metric.
-targetTrackingScalingPolicyConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe CustomizedMetricSpecification)
-targetTrackingScalingPolicyConfiguration_customizedMetricSpecification = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {customizedMetricSpecification} -> customizedMetricSpecification) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {customizedMetricSpecification = a} :: TargetTrackingScalingPolicyConfiguration)
-
--- | The amount of time, in seconds, after a scale-in activity completes
--- before another scale-in activity can start.
---
--- With the /scale-in cooldown period/, the intention is to scale in
--- conservatively to protect your application’s availability, so scale-in
--- activities are blocked until the cooldown period has expired. However,
--- if another alarm triggers a scale-out activity during the scale-in
--- cooldown period, Application Auto Scaling scales out the target
--- immediately. In this case, the scale-in cooldown period stops and
--- doesn\'t complete.
---
--- Application Auto Scaling provides a default value of 600 for Amazon
--- ElastiCache replication groups and a default value of 300 for the
--- following scalable targets:
---
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
--- -   AppStream 2.0 fleets
---
--- -   Aurora DB clusters
---
--- -   Amazon SageMaker endpoint variants
---
--- -   Custom resources
---
--- For all other scalable targets, the default value is 0:
---
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
--- -   Amazon Comprehend document classification and entity recognizer
---     endpoints
---
--- -   Lambda provisioned concurrency
---
--- -   Amazon Keyspaces tables
---
--- -   Amazon MSK broker storage
-targetTrackingScalingPolicyConfiguration_scaleInCooldown :: Lens.Lens' TargetTrackingScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
-targetTrackingScalingPolicyConfiguration_scaleInCooldown = Lens.lens (\TargetTrackingScalingPolicyConfiguration' {scaleInCooldown} -> scaleInCooldown) (\s@TargetTrackingScalingPolicyConfiguration' {} a -> s {scaleInCooldown = a} :: TargetTrackingScalingPolicyConfiguration)
 
 -- | The target value for the metric. Although this property accepts numbers
 -- of type Double, it won\'t accept values that are either too small or too
@@ -410,11 +409,11 @@ instance
       "TargetTrackingScalingPolicyConfiguration"
       ( \x ->
           TargetTrackingScalingPolicyConfiguration'
-            Prelude.<$> (x Core..:? "DisableScaleIn")
-            Prelude.<*> (x Core..:? "PredefinedMetricSpecification")
-            Prelude.<*> (x Core..:? "ScaleOutCooldown")
-            Prelude.<*> (x Core..:? "CustomizedMetricSpecification")
+            Prelude.<$> (x Core..:? "PredefinedMetricSpecification")
             Prelude.<*> (x Core..:? "ScaleInCooldown")
+            Prelude.<*> (x Core..:? "CustomizedMetricSpecification")
+            Prelude.<*> (x Core..:? "DisableScaleIn")
+            Prelude.<*> (x Core..:? "ScaleOutCooldown")
             Prelude.<*> (x Core..: "TargetValue")
       )
 
@@ -433,16 +432,16 @@ instance
   toJSON TargetTrackingScalingPolicyConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DisableScaleIn" Core..=)
-              Prelude.<$> disableScaleIn,
-            ("PredefinedMetricSpecification" Core..=)
+          [ ("PredefinedMetricSpecification" Core..=)
               Prelude.<$> predefinedMetricSpecification,
-            ("ScaleOutCooldown" Core..=)
-              Prelude.<$> scaleOutCooldown,
-            ("CustomizedMetricSpecification" Core..=)
-              Prelude.<$> customizedMetricSpecification,
             ("ScaleInCooldown" Core..=)
               Prelude.<$> scaleInCooldown,
+            ("CustomizedMetricSpecification" Core..=)
+              Prelude.<$> customizedMetricSpecification,
+            ("DisableScaleIn" Core..=)
+              Prelude.<$> disableScaleIn,
+            ("ScaleOutCooldown" Core..=)
+              Prelude.<$> scaleOutCooldown,
             Prelude.Just ("TargetValue" Core..= targetValue)
           ]
       )

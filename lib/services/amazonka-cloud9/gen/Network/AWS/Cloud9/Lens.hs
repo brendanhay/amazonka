@@ -17,26 +17,16 @@ module Network.AWS.Cloud9.Lens
     -- ** ListEnvironments
     listEnvironments_nextToken,
     listEnvironments_maxResults,
-    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_environmentIds,
+    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
 
-    -- ** CreateEnvironmentMembership
-    createEnvironmentMembership_environmentId,
-    createEnvironmentMembership_userArn,
-    createEnvironmentMembership_permissions,
-    createEnvironmentMembershipResponse_httpStatus,
-    createEnvironmentMembershipResponse_membership,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** UpdateEnvironment
+    updateEnvironment_managedCredentialsAction,
+    updateEnvironment_name,
+    updateEnvironment_description,
+    updateEnvironment_environmentId,
+    updateEnvironmentResponse_httpStatus,
 
     -- ** DeleteEnvironment
     deleteEnvironment_environmentId,
@@ -48,22 +38,47 @@ module Network.AWS.Cloud9.Lens
     describeEnvironmentStatusResponse_status,
     describeEnvironmentStatusResponse_message,
 
-    -- ** UpdateEnvironment
-    updateEnvironment_managedCredentialsAction,
-    updateEnvironment_name,
-    updateEnvironment_description,
-    updateEnvironment_environmentId,
-    updateEnvironmentResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** DescribeEnvironmentMemberships
-    describeEnvironmentMemberships_userArn,
-    describeEnvironmentMemberships_nextToken,
-    describeEnvironmentMemberships_maxResults,
-    describeEnvironmentMemberships_environmentId,
-    describeEnvironmentMemberships_permissions,
-    describeEnvironmentMembershipsResponse_nextToken,
-    describeEnvironmentMembershipsResponse_memberships,
-    describeEnvironmentMembershipsResponse_httpStatus,
+    -- ** CreateEnvironmentEC
+    createEnvironmentEC_automaticStopTimeMinutes,
+    createEnvironmentEC_subnetId,
+    createEnvironmentEC_ownerArn,
+    createEnvironmentEC_imageId,
+    createEnvironmentEC_clientRequestToken,
+    createEnvironmentEC_connectionType,
+    createEnvironmentEC_description,
+    createEnvironmentEC_dryRun,
+    createEnvironmentEC_tags,
+    createEnvironmentEC_name,
+    createEnvironmentEC_instanceType,
+    createEnvironmentECResponse_environmentId,
+    createEnvironmentECResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** CreateEnvironmentMembership
+    createEnvironmentMembership_environmentId,
+    createEnvironmentMembership_userArn,
+    createEnvironmentMembership_permissions,
+    createEnvironmentMembershipResponse_httpStatus,
+    createEnvironmentMembershipResponse_membership,
+
+    -- ** DescribeEnvironments
+    describeEnvironments_environmentIds,
+    describeEnvironmentsResponse_environments,
+    describeEnvironmentsResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** DeleteEnvironmentMembership
     deleteEnvironmentMembership_environmentId,
@@ -77,48 +92,33 @@ module Network.AWS.Cloud9.Lens
     updateEnvironmentMembershipResponse_membership,
     updateEnvironmentMembershipResponse_httpStatus,
 
-    -- ** DescribeEnvironments
-    describeEnvironments_environmentIds,
-    describeEnvironmentsResponse_environments,
-    describeEnvironmentsResponse_httpStatus,
-
-    -- ** CreateEnvironmentEC
-    createEnvironmentEC_dryRun,
-    createEnvironmentEC_connectionType,
-    createEnvironmentEC_imageId,
-    createEnvironmentEC_ownerArn,
-    createEnvironmentEC_tags,
-    createEnvironmentEC_subnetId,
-    createEnvironmentEC_description,
-    createEnvironmentEC_clientRequestToken,
-    createEnvironmentEC_automaticStopTimeMinutes,
-    createEnvironmentEC_name,
-    createEnvironmentEC_instanceType,
-    createEnvironmentECResponse_environmentId,
-    createEnvironmentECResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** DescribeEnvironmentMemberships
+    describeEnvironmentMemberships_userArn,
+    describeEnvironmentMemberships_nextToken,
+    describeEnvironmentMemberships_permissions,
+    describeEnvironmentMemberships_environmentId,
+    describeEnvironmentMemberships_maxResults,
+    describeEnvironmentMembershipsResponse_nextToken,
+    describeEnvironmentMembershipsResponse_memberships,
+    describeEnvironmentMembershipsResponse_httpStatus,
 
     -- * Types
 
     -- ** Environment
     environment_lifecycle,
-    environment_connectionType,
-    environment_id,
     environment_name,
-    environment_managedCredentialsStatus,
+    environment_id,
+    environment_connectionType,
     environment_description,
+    environment_managedCredentialsStatus,
     environment_type,
     environment_arn,
     environment_ownerArn,
 
     -- ** EnvironmentLifecycle
     environmentLifecycle_status,
-    environmentLifecycle_reason,
     environmentLifecycle_failureResource,
+    environmentLifecycle_reason,
 
     -- ** EnvironmentMember
     environmentMember_lastAccess,

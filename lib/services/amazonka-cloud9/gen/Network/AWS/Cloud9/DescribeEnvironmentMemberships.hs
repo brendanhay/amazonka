@@ -32,9 +32,9 @@ module Network.AWS.Cloud9.DescribeEnvironmentMemberships
     -- * Request Lenses
     describeEnvironmentMemberships_userArn,
     describeEnvironmentMemberships_nextToken,
-    describeEnvironmentMemberships_maxResults,
-    describeEnvironmentMemberships_environmentId,
     describeEnvironmentMemberships_permissions,
+    describeEnvironmentMemberships_environmentId,
+    describeEnvironmentMemberships_maxResults,
 
     -- * Destructuring the Response
     DescribeEnvironmentMembershipsResponse (..),
@@ -67,10 +67,6 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of environment members to get information about.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the environment to get environment member information about.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The type of environment member permissions to get information about.
     -- Available values include:
     --
@@ -82,7 +78,11 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
     --
     -- If no value is specified, information about all environment members are
     -- returned.
-    permissions :: Prelude.Maybe [Permissions]
+    permissions :: Prelude.Maybe [Permissions],
+    -- | The ID of the environment to get environment member information about.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of environment members to get information about.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,10 +105,6 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
 --
--- 'maxResults', 'describeEnvironmentMemberships_maxResults' - The maximum number of environment members to get information about.
---
--- 'environmentId', 'describeEnvironmentMemberships_environmentId' - The ID of the environment to get environment member information about.
---
 -- 'permissions', 'describeEnvironmentMemberships_permissions' - The type of environment member permissions to get information about.
 -- Available values include:
 --
@@ -120,6 +116,10 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
 --
 -- If no value is specified, information about all environment members are
 -- returned.
+--
+-- 'environmentId', 'describeEnvironmentMemberships_environmentId' - The ID of the environment to get environment member information about.
+--
+-- 'maxResults', 'describeEnvironmentMemberships_maxResults' - The maximum number of environment members to get information about.
 newDescribeEnvironmentMemberships ::
   DescribeEnvironmentMemberships
 newDescribeEnvironmentMemberships =
@@ -127,9 +127,9 @@ newDescribeEnvironmentMemberships =
     { userArn =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      permissions = Prelude.Nothing,
       environmentId = Prelude.Nothing,
-      permissions = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of an individual environment member to
@@ -147,14 +147,6 @@ describeEnvironmentMemberships_userArn = Lens.lens (\DescribeEnvironmentMembersh
 describeEnvironmentMemberships_nextToken :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
 describeEnvironmentMemberships_nextToken = Lens.lens (\DescribeEnvironmentMemberships' {nextToken} -> nextToken) (\s@DescribeEnvironmentMemberships' {} a -> s {nextToken = a} :: DescribeEnvironmentMemberships)
 
--- | The maximum number of environment members to get information about.
-describeEnvironmentMemberships_maxResults :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Natural)
-describeEnvironmentMemberships_maxResults = Lens.lens (\DescribeEnvironmentMemberships' {maxResults} -> maxResults) (\s@DescribeEnvironmentMemberships' {} a -> s {maxResults = a} :: DescribeEnvironmentMemberships)
-
--- | The ID of the environment to get environment member information about.
-describeEnvironmentMemberships_environmentId :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
-describeEnvironmentMemberships_environmentId = Lens.lens (\DescribeEnvironmentMemberships' {environmentId} -> environmentId) (\s@DescribeEnvironmentMemberships' {} a -> s {environmentId = a} :: DescribeEnvironmentMemberships)
-
 -- | The type of environment member permissions to get information about.
 -- Available values include:
 --
@@ -167,7 +159,15 @@ describeEnvironmentMemberships_environmentId = Lens.lens (\DescribeEnvironmentMe
 -- If no value is specified, information about all environment members are
 -- returned.
 describeEnvironmentMemberships_permissions :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe [Permissions])
-describeEnvironmentMemberships_permissions = Lens.lens (\DescribeEnvironmentMemberships' {permissions} -> permissions) (\s@DescribeEnvironmentMemberships' {} a -> s {permissions = a} :: DescribeEnvironmentMemberships) Prelude.. Lens.mapping Lens._Coerce
+describeEnvironmentMemberships_permissions = Lens.lens (\DescribeEnvironmentMemberships' {permissions} -> permissions) (\s@DescribeEnvironmentMemberships' {} a -> s {permissions = a} :: DescribeEnvironmentMemberships) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the environment to get environment member information about.
+describeEnvironmentMemberships_environmentId :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Text)
+describeEnvironmentMemberships_environmentId = Lens.lens (\DescribeEnvironmentMemberships' {environmentId} -> environmentId) (\s@DescribeEnvironmentMemberships' {} a -> s {environmentId = a} :: DescribeEnvironmentMemberships)
+
+-- | The maximum number of environment members to get information about.
+describeEnvironmentMemberships_maxResults :: Lens.Lens' DescribeEnvironmentMemberships (Prelude.Maybe Prelude.Natural)
+describeEnvironmentMemberships_maxResults = Lens.lens (\DescribeEnvironmentMemberships' {maxResults} -> maxResults) (\s@DescribeEnvironmentMemberships' {} a -> s {maxResults = a} :: DescribeEnvironmentMemberships)
 
 instance Core.AWSPager DescribeEnvironmentMemberships where
   page rq rs
@@ -240,9 +240,9 @@ instance Core.ToJSON DescribeEnvironmentMemberships where
       ( Prelude.catMaybes
           [ ("userArn" Core..=) Prelude.<$> userArn,
             ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("permissions" Core..=) Prelude.<$> permissions,
             ("environmentId" Core..=) Prelude.<$> environmentId,
-            ("permissions" Core..=) Prelude.<$> permissions
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -304,7 +304,7 @@ describeEnvironmentMembershipsResponse_nextToken = Lens.lens (\DescribeEnvironme
 
 -- | Information about the environment members for the environment.
 describeEnvironmentMembershipsResponse_memberships :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Prelude.Maybe [EnvironmentMember])
-describeEnvironmentMembershipsResponse_memberships = Lens.lens (\DescribeEnvironmentMembershipsResponse' {memberships} -> memberships) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEnvironmentMembershipsResponse_memberships = Lens.lens (\DescribeEnvironmentMembershipsResponse' {memberships} -> memberships) (\s@DescribeEnvironmentMembershipsResponse' {} a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEnvironmentMembershipsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentMembershipsResponse Prelude.Int

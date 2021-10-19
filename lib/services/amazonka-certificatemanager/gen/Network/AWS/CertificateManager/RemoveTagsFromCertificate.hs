@@ -93,7 +93,7 @@ newRemoveTagsFromCertificate pCertificateArn_ pTags_ =
   RemoveTagsFromCertificate'
     { certificateArn =
         pCertificateArn_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | String that contains the ARN of the ACM Certificate with one or more
@@ -108,7 +108,7 @@ removeTagsFromCertificate_certificateArn = Lens.lens (\RemoveTagsFromCertificate
 
 -- | The key-value pair that defines the tag to remove.
 removeTagsFromCertificate_tags :: Lens.Lens' RemoveTagsFromCertificate (Prelude.NonEmpty Tag)
-removeTagsFromCertificate_tags = Lens.lens (\RemoveTagsFromCertificate' {tags} -> tags) (\s@RemoveTagsFromCertificate' {} a -> s {tags = a} :: RemoveTagsFromCertificate) Prelude.. Lens._Coerce
+removeTagsFromCertificate_tags = Lens.lens (\RemoveTagsFromCertificate' {tags} -> tags) (\s@RemoveTagsFromCertificate' {} a -> s {tags = a} :: RemoveTagsFromCertificate) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTagsFromCertificate where
   type

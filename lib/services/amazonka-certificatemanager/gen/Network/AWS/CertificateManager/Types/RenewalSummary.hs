@@ -90,7 +90,7 @@ newRenewalSummary
           Prelude.Nothing,
         renewalStatus = pRenewalStatus_,
         domainValidationOptions =
-          Lens._Coerce Lens.# pDomainValidationOptions_,
+          Lens.coerced Lens.# pDomainValidationOptions_,
         updatedAt = Core._Time Lens.# pUpdatedAt_
       }
 
@@ -111,7 +111,7 @@ renewalSummary_renewalStatus = Lens.lens (\RenewalSummary' {renewalStatus} -> re
 -- the RequestCertificate request. This field exists only when the
 -- certificate type is @AMAZON_ISSUED@.
 renewalSummary_domainValidationOptions :: Lens.Lens' RenewalSummary (Prelude.NonEmpty DomainValidation)
-renewalSummary_domainValidationOptions = Lens.lens (\RenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@RenewalSummary' {} a -> s {domainValidationOptions = a} :: RenewalSummary) Prelude.. Lens._Coerce
+renewalSummary_domainValidationOptions = Lens.lens (\RenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@RenewalSummary' {} a -> s {domainValidationOptions = a} :: RenewalSummary) Prelude.. Lens.coerced
 
 -- | The time at which the renewal summary was last updated.
 renewalSummary_updatedAt :: Lens.Lens' RenewalSummary Prelude.UTCTime

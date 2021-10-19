@@ -177,7 +177,7 @@ newListTagsForCertificateResponse pHttpStatus_ =
 
 -- | The key-value pairs that define the applied tags.
 listTagsForCertificateResponse_tags :: Lens.Lens' ListTagsForCertificateResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsForCertificateResponse_tags = Lens.lens (\ListTagsForCertificateResponse' {tags} -> tags) (\s@ListTagsForCertificateResponse' {} a -> s {tags = a} :: ListTagsForCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForCertificateResponse_tags = Lens.lens (\ListTagsForCertificateResponse' {tags} -> tags) (\s@ListTagsForCertificateResponse' {} a -> s {tags = a} :: ListTagsForCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForCertificateResponse_httpStatus :: Lens.Lens' ListTagsForCertificateResponse Prelude.Int

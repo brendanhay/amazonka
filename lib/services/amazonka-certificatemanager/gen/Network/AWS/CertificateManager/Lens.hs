@@ -14,120 +14,120 @@
 module Network.AWS.CertificateManager.Lens
   ( -- * Operations
 
-    -- ** GetAccountConfiguration
-    getAccountConfigurationResponse_expiryEvents,
-    getAccountConfigurationResponse_httpStatus,
-
-    -- ** RemoveTagsFromCertificate
-    removeTagsFromCertificate_certificateArn,
-    removeTagsFromCertificate_tags,
-
-    -- ** DeleteCertificate
-    deleteCertificate_certificateArn,
-
-    -- ** UpdateCertificateOptions
-    updateCertificateOptions_certificateArn,
-    updateCertificateOptions_options,
-
-    -- ** ExportCertificate
-    exportCertificate_certificateArn,
-    exportCertificate_passphrase,
-    exportCertificateResponse_privateKey,
-    exportCertificateResponse_certificateChain,
-    exportCertificateResponse_certificate,
-    exportCertificateResponse_httpStatus,
-
-    -- ** RenewCertificate
-    renewCertificate_certificateArn,
-
-    -- ** GetCertificate
-    getCertificate_certificateArn,
-    getCertificateResponse_certificateChain,
-    getCertificateResponse_certificate,
-    getCertificateResponse_httpStatus,
-
-    -- ** ImportCertificate
-    importCertificate_certificateArn,
-    importCertificate_tags,
-    importCertificate_certificateChain,
-    importCertificate_certificate,
-    importCertificate_privateKey,
-    importCertificateResponse_certificateArn,
-    importCertificateResponse_httpStatus,
-
-    -- ** DescribeCertificate
-    describeCertificate_certificateArn,
-    describeCertificateResponse_certificate,
-    describeCertificateResponse_httpStatus,
-
-    -- ** PutAccountConfiguration
-    putAccountConfiguration_expiryEvents,
-    putAccountConfiguration_idempotencyToken,
-
     -- ** ResendValidationEmail
     resendValidationEmail_certificateArn,
     resendValidationEmail_domain,
     resendValidationEmail_validationDomain,
 
-    -- ** ListCertificates
-    listCertificates_nextToken,
-    listCertificates_certificateStatuses,
-    listCertificates_includes,
-    listCertificates_maxItems,
-    listCertificatesResponse_nextToken,
-    listCertificatesResponse_certificateSummaryList,
-    listCertificatesResponse_httpStatus,
-
-    -- ** RequestCertificate
-    requestCertificate_idempotencyToken,
-    requestCertificate_validationMethod,
-    requestCertificate_certificateAuthorityArn,
-    requestCertificate_domainValidationOptions,
-    requestCertificate_options,
-    requestCertificate_subjectAlternativeNames,
-    requestCertificate_tags,
-    requestCertificate_domainName,
-    requestCertificateResponse_certificateArn,
-    requestCertificateResponse_httpStatus,
-
-    -- ** AddTagsToCertificate
-    addTagsToCertificate_certificateArn,
-    addTagsToCertificate_tags,
+    -- ** UpdateCertificateOptions
+    updateCertificateOptions_certificateArn,
+    updateCertificateOptions_options,
 
     -- ** ListTagsForCertificate
     listTagsForCertificate_certificateArn,
     listTagsForCertificateResponse_tags,
     listTagsForCertificateResponse_httpStatus,
 
+    -- ** GetCertificate
+    getCertificate_certificateArn,
+    getCertificateResponse_certificate,
+    getCertificateResponse_certificateChain,
+    getCertificateResponse_httpStatus,
+
+    -- ** AddTagsToCertificate
+    addTagsToCertificate_certificateArn,
+    addTagsToCertificate_tags,
+
+    -- ** RequestCertificate
+    requestCertificate_idempotencyToken,
+    requestCertificate_validationMethod,
+    requestCertificate_subjectAlternativeNames,
+    requestCertificate_options,
+    requestCertificate_domainValidationOptions,
+    requestCertificate_certificateAuthorityArn,
+    requestCertificate_tags,
+    requestCertificate_domainName,
+    requestCertificateResponse_certificateArn,
+    requestCertificateResponse_httpStatus,
+
+    -- ** ListCertificates
+    listCertificates_certificateStatuses,
+    listCertificates_nextToken,
+    listCertificates_includes,
+    listCertificates_maxItems,
+    listCertificatesResponse_certificateSummaryList,
+    listCertificatesResponse_nextToken,
+    listCertificatesResponse_httpStatus,
+
+    -- ** DeleteCertificate
+    deleteCertificate_certificateArn,
+
+    -- ** RemoveTagsFromCertificate
+    removeTagsFromCertificate_certificateArn,
+    removeTagsFromCertificate_tags,
+
+    -- ** GetAccountConfiguration
+    getAccountConfigurationResponse_expiryEvents,
+    getAccountConfigurationResponse_httpStatus,
+
+    -- ** ImportCertificate
+    importCertificate_certificateArn,
+    importCertificate_certificateChain,
+    importCertificate_tags,
+    importCertificate_certificate,
+    importCertificate_privateKey,
+    importCertificateResponse_certificateArn,
+    importCertificateResponse_httpStatus,
+
+    -- ** PutAccountConfiguration
+    putAccountConfiguration_expiryEvents,
+    putAccountConfiguration_idempotencyToken,
+
+    -- ** DescribeCertificate
+    describeCertificate_certificateArn,
+    describeCertificateResponse_certificate,
+    describeCertificateResponse_httpStatus,
+
+    -- ** RenewCertificate
+    renewCertificate_certificateArn,
+
+    -- ** ExportCertificate
+    exportCertificate_certificateArn,
+    exportCertificate_passphrase,
+    exportCertificateResponse_privateKey,
+    exportCertificateResponse_certificate,
+    exportCertificateResponse_certificateChain,
+    exportCertificateResponse_httpStatus,
+
     -- * Types
 
     -- ** CertificateDetail
-    certificateDetail_status,
-    certificateDetail_notBefore,
-    certificateDetail_certificateAuthorityArn,
-    certificateDetail_importedAt,
-    certificateDetail_extendedKeyUsages,
-    certificateDetail_domainValidationOptions,
-    certificateDetail_renewalEligibility,
-    certificateDetail_options,
-    certificateDetail_serial,
-    certificateDetail_certificateArn,
-    certificateDetail_createdAt,
-    certificateDetail_inUseBy,
-    certificateDetail_domainName,
-    certificateDetail_subjectAlternativeNames,
-    certificateDetail_revocationReason,
-    certificateDetail_failureReason,
     certificateDetail_subject,
-    certificateDetail_notAfter,
-    certificateDetail_revokedAt,
+    certificateDetail_status,
+    certificateDetail_failureReason,
+    certificateDetail_subjectAlternativeNames,
+    certificateDetail_inUseBy,
+    certificateDetail_createdAt,
+    certificateDetail_certificateArn,
+    certificateDetail_serial,
+    certificateDetail_renewalEligibility,
+    certificateDetail_extendedKeyUsages,
+    certificateDetail_importedAt,
     certificateDetail_keyUsages,
-    certificateDetail_issuer,
-    certificateDetail_signatureAlgorithm,
-    certificateDetail_issuedAt,
+    certificateDetail_revokedAt,
+    certificateDetail_notBefore,
+    certificateDetail_revocationReason,
+    certificateDetail_domainName,
+    certificateDetail_renewalSummary,
     certificateDetail_keyAlgorithm,
     certificateDetail_type,
-    certificateDetail_renewalSummary,
+    certificateDetail_options,
+    certificateDetail_issuedAt,
+    certificateDetail_signatureAlgorithm,
+    certificateDetail_domainValidationOptions,
+    certificateDetail_issuer,
+    certificateDetail_notAfter,
+    certificateDetail_certificateAuthorityArn,
 
     -- ** CertificateOptions
     certificateOptions_certificateTransparencyLoggingPreference,
@@ -137,9 +137,9 @@ module Network.AWS.CertificateManager.Lens
     certificateSummary_domainName,
 
     -- ** DomainValidation
-    domainValidation_resourceRecord,
-    domainValidation_validationMethod,
     domainValidation_validationEmails,
+    domainValidation_validationMethod,
+    domainValidation_resourceRecord,
     domainValidation_validationStatus,
     domainValidation_validationDomain,
     domainValidation_domainName,
@@ -152,13 +152,13 @@ module Network.AWS.CertificateManager.Lens
     expiryEventsConfiguration_daysBeforeExpiry,
 
     -- ** ExtendedKeyUsage
-    extendedKeyUsage_name,
     extendedKeyUsage_oid,
+    extendedKeyUsage_name,
 
     -- ** Filters
     filters_keyTypes,
-    filters_extendedKeyUsage,
     filters_keyUsage,
+    filters_extendedKeyUsage,
 
     -- ** KeyUsage
     keyUsage_name,

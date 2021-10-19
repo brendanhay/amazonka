@@ -24,53 +24,53 @@ module Network.AWS.CertificateManager
     -- * Errors
     -- $errors
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
-
-    -- ** InvalidArgsException
-    _InvalidArgsException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** InvalidDomainValidationOptionsException
-    _InvalidDomainValidationOptionsException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
     -- ** InvalidTagException
     _InvalidTagException,
 
     -- ** ValidationException
     _ValidationException,
 
-    -- ** RequestInProgressException
-    _RequestInProgressException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidDomainValidationOptionsException
+    _InvalidDomainValidationOptionsException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ConflictException
     _ConflictException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -81,23 +81,11 @@ module Network.AWS.CertificateManager
     -- * Operations
     -- $operations
 
-    -- ** GetAccountConfiguration
-    GetAccountConfiguration (GetAccountConfiguration'),
-    newGetAccountConfiguration,
-    GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
-    newGetAccountConfigurationResponse,
-
-    -- ** RemoveTagsFromCertificate
-    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
-    newRemoveTagsFromCertificate,
-    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
-    newRemoveTagsFromCertificateResponse,
-
-    -- ** DeleteCertificate
-    DeleteCertificate (DeleteCertificate'),
-    newDeleteCertificate,
-    DeleteCertificateResponse (DeleteCertificateResponse'),
-    newDeleteCertificateResponse,
+    -- ** ResendValidationEmail
+    ResendValidationEmail (ResendValidationEmail'),
+    newResendValidationEmail,
+    ResendValidationEmailResponse (ResendValidationEmailResponse'),
+    newResendValidationEmailResponse,
 
     -- ** UpdateCertificateOptions
     UpdateCertificateOptions (UpdateCertificateOptions'),
@@ -105,17 +93,11 @@ module Network.AWS.CertificateManager
     UpdateCertificateOptionsResponse (UpdateCertificateOptionsResponse'),
     newUpdateCertificateOptionsResponse,
 
-    -- ** ExportCertificate
-    ExportCertificate (ExportCertificate'),
-    newExportCertificate,
-    ExportCertificateResponse (ExportCertificateResponse'),
-    newExportCertificateResponse,
-
-    -- ** RenewCertificate
-    RenewCertificate (RenewCertificate'),
-    newRenewCertificate,
-    RenewCertificateResponse (RenewCertificateResponse'),
-    newRenewCertificateResponse,
+    -- ** ListTagsForCertificate
+    ListTagsForCertificate (ListTagsForCertificate'),
+    newListTagsForCertificate,
+    ListTagsForCertificateResponse (ListTagsForCertificateResponse'),
+    newListTagsForCertificateResponse,
 
     -- ** GetCertificate
     GetCertificate (GetCertificate'),
@@ -123,35 +105,11 @@ module Network.AWS.CertificateManager
     GetCertificateResponse (GetCertificateResponse'),
     newGetCertificateResponse,
 
-    -- ** ImportCertificate
-    ImportCertificate (ImportCertificate'),
-    newImportCertificate,
-    ImportCertificateResponse (ImportCertificateResponse'),
-    newImportCertificateResponse,
-
-    -- ** DescribeCertificate
-    DescribeCertificate (DescribeCertificate'),
-    newDescribeCertificate,
-    DescribeCertificateResponse (DescribeCertificateResponse'),
-    newDescribeCertificateResponse,
-
-    -- ** PutAccountConfiguration
-    PutAccountConfiguration (PutAccountConfiguration'),
-    newPutAccountConfiguration,
-    PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
-    newPutAccountConfigurationResponse,
-
-    -- ** ResendValidationEmail
-    ResendValidationEmail (ResendValidationEmail'),
-    newResendValidationEmail,
-    ResendValidationEmailResponse (ResendValidationEmailResponse'),
-    newResendValidationEmailResponse,
-
-    -- ** ListCertificates (Paginated)
-    ListCertificates (ListCertificates'),
-    newListCertificates,
-    ListCertificatesResponse (ListCertificatesResponse'),
-    newListCertificatesResponse,
+    -- ** AddTagsToCertificate
+    AddTagsToCertificate (AddTagsToCertificate'),
+    newAddTagsToCertificate,
+    AddTagsToCertificateResponse (AddTagsToCertificateResponse'),
+    newAddTagsToCertificateResponse,
 
     -- ** RequestCertificate
     RequestCertificate (RequestCertificate'),
@@ -159,17 +117,59 @@ module Network.AWS.CertificateManager
     RequestCertificateResponse (RequestCertificateResponse'),
     newRequestCertificateResponse,
 
-    -- ** AddTagsToCertificate
-    AddTagsToCertificate (AddTagsToCertificate'),
-    newAddTagsToCertificate,
-    AddTagsToCertificateResponse (AddTagsToCertificateResponse'),
-    newAddTagsToCertificateResponse,
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
 
-    -- ** ListTagsForCertificate
-    ListTagsForCertificate (ListTagsForCertificate'),
-    newListTagsForCertificate,
-    ListTagsForCertificateResponse (ListTagsForCertificateResponse'),
-    newListTagsForCertificateResponse,
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
+
+    -- ** RemoveTagsFromCertificate
+    RemoveTagsFromCertificate (RemoveTagsFromCertificate'),
+    newRemoveTagsFromCertificate,
+    RemoveTagsFromCertificateResponse (RemoveTagsFromCertificateResponse'),
+    newRemoveTagsFromCertificateResponse,
+
+    -- ** GetAccountConfiguration
+    GetAccountConfiguration (GetAccountConfiguration'),
+    newGetAccountConfiguration,
+    GetAccountConfigurationResponse (GetAccountConfigurationResponse'),
+    newGetAccountConfigurationResponse,
+
+    -- ** ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
+
+    -- ** PutAccountConfiguration
+    PutAccountConfiguration (PutAccountConfiguration'),
+    newPutAccountConfiguration,
+    PutAccountConfigurationResponse (PutAccountConfigurationResponse'),
+    newPutAccountConfigurationResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** RenewCertificate
+    RenewCertificate (RenewCertificate'),
+    newRenewCertificate,
+    RenewCertificateResponse (RenewCertificateResponse'),
+    newRenewCertificateResponse,
+
+    -- ** ExportCertificate
+    ExportCertificate (ExportCertificate'),
+    newExportCertificate,
+    ExportCertificateResponse (ExportCertificateResponse'),
+    newExportCertificateResponse,
 
     -- * Types
 

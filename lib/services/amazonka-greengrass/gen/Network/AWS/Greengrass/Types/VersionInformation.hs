@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVersionInformation' smart constructor.
 data VersionInformation = VersionInformation'
-  { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the version.
+  { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,39 +46,38 @@ data VersionInformation = VersionInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'versionInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
 -- 'arn', 'versionInformation_arn' - The ARN of the version.
 --
--- 'id', 'versionInformation_id' - The ID of the parent definition that the version is associated with.
+-- 'creationTimestamp', 'versionInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
 -- 'version', 'versionInformation_version' - The ID of the version.
+--
+-- 'id', 'versionInformation_id' - The ID of the parent definition that the version is associated with.
 newVersionInformation ::
   VersionInformation
 newVersionInformation =
   VersionInformation'
-    { creationTimestamp =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      version = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      version = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The time, in milliseconds since the epoch, when the version was created.
-versionInformation_creationTimestamp :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
-versionInformation_creationTimestamp = Lens.lens (\VersionInformation' {creationTimestamp} -> creationTimestamp) (\s@VersionInformation' {} a -> s {creationTimestamp = a} :: VersionInformation)
 
 -- | The ARN of the version.
 versionInformation_arn :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
 versionInformation_arn = Lens.lens (\VersionInformation' {arn} -> arn) (\s@VersionInformation' {} a -> s {arn = a} :: VersionInformation)
 
--- | The ID of the parent definition that the version is associated with.
-versionInformation_id :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
-versionInformation_id = Lens.lens (\VersionInformation' {id} -> id) (\s@VersionInformation' {} a -> s {id = a} :: VersionInformation)
+-- | The time, in milliseconds since the epoch, when the version was created.
+versionInformation_creationTimestamp :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
+versionInformation_creationTimestamp = Lens.lens (\VersionInformation' {creationTimestamp} -> creationTimestamp) (\s@VersionInformation' {} a -> s {creationTimestamp = a} :: VersionInformation)
 
 -- | The ID of the version.
 versionInformation_version :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
 versionInformation_version = Lens.lens (\VersionInformation' {version} -> version) (\s@VersionInformation' {} a -> s {version = a} :: VersionInformation)
+
+-- | The ID of the parent definition that the version is associated with.
+versionInformation_id :: Lens.Lens' VersionInformation (Prelude.Maybe Prelude.Text)
+versionInformation_id = Lens.lens (\VersionInformation' {id} -> id) (\s@VersionInformation' {} a -> s {id = a} :: VersionInformation)
 
 instance Core.FromJSON VersionInformation where
   parseJSON =
@@ -86,10 +85,10 @@ instance Core.FromJSON VersionInformation where
       "VersionInformation"
       ( \x ->
           VersionInformation'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "CreationTimestamp")
             Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable VersionInformation

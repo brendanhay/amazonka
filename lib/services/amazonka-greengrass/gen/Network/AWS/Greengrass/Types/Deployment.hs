@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Deployment = Deployment'
   { -- | The ID of the deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the deployment.
-    deploymentType :: Prelude.Maybe DeploymentType,
+    -- | The ARN of the deployment.
+    deploymentArn :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the deployment was
     -- created.
     createdAt :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the deployment.
-    deploymentArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of the deployment.
+    deploymentType :: Prelude.Maybe DeploymentType,
     -- | The ARN of the group for this deployment.
     groupArn :: Prelude.Maybe Prelude.Text
   }
@@ -52,12 +52,12 @@ data Deployment = Deployment'
 --
 -- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment.
 --
--- 'deploymentType', 'deployment_deploymentType' - The type of the deployment.
+-- 'deploymentArn', 'deployment_deploymentArn' - The ARN of the deployment.
 --
 -- 'createdAt', 'deployment_createdAt' - The time, in milliseconds since the epoch, when the deployment was
 -- created.
 --
--- 'deploymentArn', 'deployment_deploymentArn' - The ARN of the deployment.
+-- 'deploymentType', 'deployment_deploymentType' - The type of the deployment.
 --
 -- 'groupArn', 'deployment_groupArn' - The ARN of the group for this deployment.
 newDeployment ::
@@ -65,9 +65,9 @@ newDeployment ::
 newDeployment =
   Deployment'
     { deploymentId = Prelude.Nothing,
-      deploymentType = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       deploymentArn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      deploymentType = Prelude.Nothing,
       groupArn = Prelude.Nothing
     }
 
@@ -75,18 +75,18 @@ newDeployment =
 deployment_deploymentId :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_deploymentId = Lens.lens (\Deployment' {deploymentId} -> deploymentId) (\s@Deployment' {} a -> s {deploymentId = a} :: Deployment)
 
--- | The type of the deployment.
-deployment_deploymentType :: Lens.Lens' Deployment (Prelude.Maybe DeploymentType)
-deployment_deploymentType = Lens.lens (\Deployment' {deploymentType} -> deploymentType) (\s@Deployment' {} a -> s {deploymentType = a} :: Deployment)
+-- | The ARN of the deployment.
+deployment_deploymentArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_deploymentArn = Lens.lens (\Deployment' {deploymentArn} -> deploymentArn) (\s@Deployment' {} a -> s {deploymentArn = a} :: Deployment)
 
 -- | The time, in milliseconds since the epoch, when the deployment was
 -- created.
 deployment_createdAt :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_createdAt = Lens.lens (\Deployment' {createdAt} -> createdAt) (\s@Deployment' {} a -> s {createdAt = a} :: Deployment)
 
--- | The ARN of the deployment.
-deployment_deploymentArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
-deployment_deploymentArn = Lens.lens (\Deployment' {deploymentArn} -> deploymentArn) (\s@Deployment' {} a -> s {deploymentArn = a} :: Deployment)
+-- | The type of the deployment.
+deployment_deploymentType :: Lens.Lens' Deployment (Prelude.Maybe DeploymentType)
+deployment_deploymentType = Lens.lens (\Deployment' {deploymentType} -> deploymentType) (\s@Deployment' {} a -> s {deploymentType = a} :: Deployment)
 
 -- | The ARN of the group for this deployment.
 deployment_groupArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
@@ -99,9 +99,9 @@ instance Core.FromJSON Deployment where
       ( \x ->
           Deployment'
             Prelude.<$> (x Core..:? "DeploymentId")
-            Prelude.<*> (x Core..:? "DeploymentType")
-            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "DeploymentArn")
+            Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "DeploymentType")
             Prelude.<*> (x Core..:? "GroupArn")
       )
 

@@ -34,8 +34,8 @@ module Network.AWS.Greengrass.GetAssociatedRole
     newGetAssociatedRoleResponse,
 
     -- * Response Lenses
-    getAssociatedRoleResponse_roleArn,
     getAssociatedRoleResponse_associatedAt,
+    getAssociatedRoleResponse_roleArn,
     getAssociatedRoleResponse_httpStatus,
   )
 where
@@ -83,8 +83,8 @@ instance Core.AWSRequest GetAssociatedRole where
     Response.receiveJSON
       ( \s h x ->
           GetAssociatedRoleResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "AssociatedAt")
+            Prelude.<$> (x Core..?> "AssociatedAt")
+            Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -113,10 +113,10 @@ instance Core.ToQuery GetAssociatedRole where
 
 -- | /See:/ 'newGetAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-  { -- | The ARN of the role that is associated with the group.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The time when the role was associated with the group.
+  { -- | The time when the role was associated with the group.
     associatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the role that is associated with the group.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -130,9 +130,9 @@ data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'getAssociatedRoleResponse_roleArn' - The ARN of the role that is associated with the group.
---
 -- 'associatedAt', 'getAssociatedRoleResponse_associatedAt' - The time when the role was associated with the group.
+--
+-- 'roleArn', 'getAssociatedRoleResponse_roleArn' - The ARN of the role that is associated with the group.
 --
 -- 'httpStatus', 'getAssociatedRoleResponse_httpStatus' - The response's http status code.
 newGetAssociatedRoleResponse ::
@@ -141,19 +141,19 @@ newGetAssociatedRoleResponse ::
   GetAssociatedRoleResponse
 newGetAssociatedRoleResponse pHttpStatus_ =
   GetAssociatedRoleResponse'
-    { roleArn =
+    { associatedAt =
         Prelude.Nothing,
-      associatedAt = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the role that is associated with the group.
-getAssociatedRoleResponse_roleArn :: Lens.Lens' GetAssociatedRoleResponse (Prelude.Maybe Prelude.Text)
-getAssociatedRoleResponse_roleArn = Lens.lens (\GetAssociatedRoleResponse' {roleArn} -> roleArn) (\s@GetAssociatedRoleResponse' {} a -> s {roleArn = a} :: GetAssociatedRoleResponse)
 
 -- | The time when the role was associated with the group.
 getAssociatedRoleResponse_associatedAt :: Lens.Lens' GetAssociatedRoleResponse (Prelude.Maybe Prelude.Text)
 getAssociatedRoleResponse_associatedAt = Lens.lens (\GetAssociatedRoleResponse' {associatedAt} -> associatedAt) (\s@GetAssociatedRoleResponse' {} a -> s {associatedAt = a} :: GetAssociatedRoleResponse)
+
+-- | The ARN of the role that is associated with the group.
+getAssociatedRoleResponse_roleArn :: Lens.Lens' GetAssociatedRoleResponse (Prelude.Maybe Prelude.Text)
+getAssociatedRoleResponse_roleArn = Lens.lens (\GetAssociatedRoleResponse' {roleArn} -> roleArn) (\s@GetAssociatedRoleResponse' {} a -> s {roleArn = a} :: GetAssociatedRoleResponse)
 
 -- | The response's http status code.
 getAssociatedRoleResponse_httpStatus :: Lens.Lens' GetAssociatedRoleResponse Prelude.Int

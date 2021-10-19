@@ -36,8 +36,8 @@ module Network.AWS.Greengrass.GetGroupCertificateAuthority
     newGetGroupCertificateAuthorityResponse,
 
     -- * Response Lenses
-    getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn,
     getGroupCertificateAuthorityResponse_pemEncodedCertificate,
+    getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn,
     getGroupCertificateAuthorityResponse_groupCertificateAuthorityId,
     getGroupCertificateAuthorityResponse_httpStatus,
   )
@@ -102,8 +102,8 @@ instance Core.AWSRequest GetGroupCertificateAuthority where
     Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateAuthorityResponse'
-            Prelude.<$> (x Core..?> "GroupCertificateAuthorityArn")
-            Prelude.<*> (x Core..?> "PemEncodedCertificate")
+            Prelude.<$> (x Core..?> "PemEncodedCertificate")
+            Prelude.<*> (x Core..?> "GroupCertificateAuthorityArn")
             Prelude.<*> (x Core..?> "GroupCertificateAuthorityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -139,10 +139,10 @@ instance Core.ToQuery GetGroupCertificateAuthority where
 
 -- | /See:/ 'newGetGroupCertificateAuthorityResponse' smart constructor.
 data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse'
-  { -- | The ARN of the certificate authority for the group.
-    groupCertificateAuthorityArn :: Prelude.Maybe Prelude.Text,
-    -- | The PEM encoded certificate for the group.
+  { -- | The PEM encoded certificate for the group.
     pemEncodedCertificate :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the certificate authority for the group.
+    groupCertificateAuthorityArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate authority for the group.
     groupCertificateAuthorityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -158,9 +158,9 @@ data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupCertificateAuthorityArn', 'getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn' - The ARN of the certificate authority for the group.
---
 -- 'pemEncodedCertificate', 'getGroupCertificateAuthorityResponse_pemEncodedCertificate' - The PEM encoded certificate for the group.
+--
+-- 'groupCertificateAuthorityArn', 'getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn' - The ARN of the certificate authority for the group.
 --
 -- 'groupCertificateAuthorityId', 'getGroupCertificateAuthorityResponse_groupCertificateAuthorityId' - The ID of the certificate authority for the group.
 --
@@ -171,22 +171,22 @@ newGetGroupCertificateAuthorityResponse ::
   GetGroupCertificateAuthorityResponse
 newGetGroupCertificateAuthorityResponse pHttpStatus_ =
   GetGroupCertificateAuthorityResponse'
-    { groupCertificateAuthorityArn =
+    { pemEncodedCertificate =
         Prelude.Nothing,
-      pemEncodedCertificate =
+      groupCertificateAuthorityArn =
         Prelude.Nothing,
       groupCertificateAuthorityId =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the certificate authority for the group.
-getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
-getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn = Lens.lens (\GetGroupCertificateAuthorityResponse' {groupCertificateAuthorityArn} -> groupCertificateAuthorityArn) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {groupCertificateAuthorityArn = a} :: GetGroupCertificateAuthorityResponse)
-
 -- | The PEM encoded certificate for the group.
 getGroupCertificateAuthorityResponse_pemEncodedCertificate :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
 getGroupCertificateAuthorityResponse_pemEncodedCertificate = Lens.lens (\GetGroupCertificateAuthorityResponse' {pemEncodedCertificate} -> pemEncodedCertificate) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {pemEncodedCertificate = a} :: GetGroupCertificateAuthorityResponse)
+
+-- | The ARN of the certificate authority for the group.
+getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn = Lens.lens (\GetGroupCertificateAuthorityResponse' {groupCertificateAuthorityArn} -> groupCertificateAuthorityArn) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {groupCertificateAuthorityArn = a} :: GetGroupCertificateAuthorityResponse)
 
 -- | The ID of the certificate authority for the group.
 getGroupCertificateAuthorityResponse_groupCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)

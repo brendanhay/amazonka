@@ -33,8 +33,8 @@ module Network.AWS.Greengrass.StartBulkDeployment
     newStartBulkDeployment,
 
     -- * Request Lenses
-    startBulkDeployment_tags,
     startBulkDeployment_amznClientToken,
+    startBulkDeployment_tags,
     startBulkDeployment_executionRoleArn,
     startBulkDeployment_inputFileUri,
 
@@ -43,8 +43,8 @@ module Network.AWS.Greengrass.StartBulkDeployment
     newStartBulkDeploymentResponse,
 
     -- * Response Lenses
-    startBulkDeploymentResponse_bulkDeploymentId,
     startBulkDeploymentResponse_bulkDeploymentArn,
+    startBulkDeploymentResponse_bulkDeploymentId,
     startBulkDeploymentResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartBulkDeployment' smart constructor.
 data StartBulkDeployment = StartBulkDeployment'
-  { -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token used to correlate requests and responses.
+  { -- | A client token used to correlate requests and responses.
     amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) to add to the new resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the execution role to associate with the bulk deployment
     -- operation. This IAM role must allow the
     -- \'\'greengrass:CreateDeployment\'\' action for all group versions that
@@ -86,9 +86,9 @@ data StartBulkDeployment = StartBulkDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startBulkDeployment_tags' - Tag(s) to add to the new resource.
---
 -- 'amznClientToken', 'startBulkDeployment_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'tags', 'startBulkDeployment_tags' - Tag(s) to add to the new resource.
 --
 -- 'executionRoleArn', 'startBulkDeployment_executionRoleArn' - The ARN of the execution role to associate with the bulk deployment
 -- operation. This IAM role must allow the
@@ -112,19 +112,20 @@ newStartBulkDeployment
   pExecutionRoleArn_
   pInputFileUri_ =
     StartBulkDeployment'
-      { tags = Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+      { amznClientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         executionRoleArn = pExecutionRoleArn_,
         inputFileUri = pInputFileUri_
       }
 
--- | Tag(s) to add to the new resource.
-startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A client token used to correlate requests and responses.
 startBulkDeployment_amznClientToken :: Lens.Lens' StartBulkDeployment (Prelude.Maybe Prelude.Text)
 startBulkDeployment_amznClientToken = Lens.lens (\StartBulkDeployment' {amznClientToken} -> amznClientToken) (\s@StartBulkDeployment' {} a -> s {amznClientToken = a} :: StartBulkDeployment)
+
+-- | Tag(s) to add to the new resource.
+startBulkDeployment_tags :: Lens.Lens' StartBulkDeployment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startBulkDeployment_tags = Lens.lens (\StartBulkDeployment' {tags} -> tags) (\s@StartBulkDeployment' {} a -> s {tags = a} :: StartBulkDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the execution role to associate with the bulk deployment
 -- operation. This IAM role must allow the
@@ -152,8 +153,8 @@ instance Core.AWSRequest StartBulkDeployment where
     Response.receiveJSON
       ( \s h x ->
           StartBulkDeploymentResponse'
-            Prelude.<$> (x Core..?> "BulkDeploymentId")
-            Prelude.<*> (x Core..?> "BulkDeploymentArn")
+            Prelude.<$> (x Core..?> "BulkDeploymentArn")
+            Prelude.<*> (x Core..?> "BulkDeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,10 +189,10 @@ instance Core.ToQuery StartBulkDeployment where
 
 -- | /See:/ 'newStartBulkDeploymentResponse' smart constructor.
 data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
-  { -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the bulk deployment.
+  { -- | The ARN of the bulk deployment.
     bulkDeploymentArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the bulk deployment.
+    bulkDeploymentId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,9 +206,9 @@ data StartBulkDeploymentResponse = StartBulkDeploymentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bulkDeploymentId', 'startBulkDeploymentResponse_bulkDeploymentId' - The ID of the bulk deployment.
---
 -- 'bulkDeploymentArn', 'startBulkDeploymentResponse_bulkDeploymentArn' - The ARN of the bulk deployment.
+--
+-- 'bulkDeploymentId', 'startBulkDeploymentResponse_bulkDeploymentId' - The ID of the bulk deployment.
 --
 -- 'httpStatus', 'startBulkDeploymentResponse_httpStatus' - The response's http status code.
 newStartBulkDeploymentResponse ::
@@ -216,19 +217,19 @@ newStartBulkDeploymentResponse ::
   StartBulkDeploymentResponse
 newStartBulkDeploymentResponse pHttpStatus_ =
   StartBulkDeploymentResponse'
-    { bulkDeploymentId =
+    { bulkDeploymentArn =
         Prelude.Nothing,
-      bulkDeploymentArn = Prelude.Nothing,
+      bulkDeploymentId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the bulk deployment.
-startBulkDeploymentResponse_bulkDeploymentId :: Lens.Lens' StartBulkDeploymentResponse (Prelude.Maybe Prelude.Text)
-startBulkDeploymentResponse_bulkDeploymentId = Lens.lens (\StartBulkDeploymentResponse' {bulkDeploymentId} -> bulkDeploymentId) (\s@StartBulkDeploymentResponse' {} a -> s {bulkDeploymentId = a} :: StartBulkDeploymentResponse)
 
 -- | The ARN of the bulk deployment.
 startBulkDeploymentResponse_bulkDeploymentArn :: Lens.Lens' StartBulkDeploymentResponse (Prelude.Maybe Prelude.Text)
 startBulkDeploymentResponse_bulkDeploymentArn = Lens.lens (\StartBulkDeploymentResponse' {bulkDeploymentArn} -> bulkDeploymentArn) (\s@StartBulkDeploymentResponse' {} a -> s {bulkDeploymentArn = a} :: StartBulkDeploymentResponse)
+
+-- | The ID of the bulk deployment.
+startBulkDeploymentResponse_bulkDeploymentId :: Lens.Lens' StartBulkDeploymentResponse (Prelude.Maybe Prelude.Text)
+startBulkDeploymentResponse_bulkDeploymentId = Lens.lens (\StartBulkDeploymentResponse' {bulkDeploymentId} -> bulkDeploymentId) (\s@StartBulkDeploymentResponse' {} a -> s {bulkDeploymentId = a} :: StartBulkDeploymentResponse)
 
 -- | The response's http status code.
 startBulkDeploymentResponse_httpStatus :: Lens.Lens' StartBulkDeploymentResponse Prelude.Int

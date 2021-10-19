@@ -27,18 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGroupInformation' smart constructor.
 data GroupInformation = GroupInformation'
-  { -- | The time, in milliseconds since the epoch, when the group was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the latest version associated with the group.
+  { -- | The ARN of the latest version associated with the group.
     latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the group.
-    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the group.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the group.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the group.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the group was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the group.
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the group was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text
@@ -53,17 +53,17 @@ data GroupInformation = GroupInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'groupInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the group was created.
---
 -- 'latestVersionArn', 'groupInformation_latestVersionArn' - The ARN of the latest version associated with the group.
---
--- 'latestVersion', 'groupInformation_latestVersion' - The ID of the latest version associated with the group.
 --
 -- 'arn', 'groupInformation_arn' - The ARN of the group.
 --
+-- 'name', 'groupInformation_name' - The name of the group.
+--
+-- 'creationTimestamp', 'groupInformation_creationTimestamp' - The time, in milliseconds since the epoch, when the group was created.
+--
 -- 'id', 'groupInformation_id' - The ID of the group.
 --
--- 'name', 'groupInformation_name' - The name of the group.
+-- 'latestVersion', 'groupInformation_latestVersion' - The ID of the latest version associated with the group.
 --
 -- 'lastUpdatedTimestamp', 'groupInformation_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the group was last
 -- updated.
@@ -71,39 +71,39 @@ newGroupInformation ::
   GroupInformation
 newGroupInformation =
   GroupInformation'
-    { creationTimestamp =
+    { latestVersionArn =
         Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing
     }
-
--- | The time, in milliseconds since the epoch, when the group was created.
-groupInformation_creationTimestamp :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
-groupInformation_creationTimestamp = Lens.lens (\GroupInformation' {creationTimestamp} -> creationTimestamp) (\s@GroupInformation' {} a -> s {creationTimestamp = a} :: GroupInformation)
 
 -- | The ARN of the latest version associated with the group.
 groupInformation_latestVersionArn :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
 groupInformation_latestVersionArn = Lens.lens (\GroupInformation' {latestVersionArn} -> latestVersionArn) (\s@GroupInformation' {} a -> s {latestVersionArn = a} :: GroupInformation)
 
--- | The ID of the latest version associated with the group.
-groupInformation_latestVersion :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
-groupInformation_latestVersion = Lens.lens (\GroupInformation' {latestVersion} -> latestVersion) (\s@GroupInformation' {} a -> s {latestVersion = a} :: GroupInformation)
-
 -- | The ARN of the group.
 groupInformation_arn :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
 groupInformation_arn = Lens.lens (\GroupInformation' {arn} -> arn) (\s@GroupInformation' {} a -> s {arn = a} :: GroupInformation)
+
+-- | The name of the group.
+groupInformation_name :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_name = Lens.lens (\GroupInformation' {name} -> name) (\s@GroupInformation' {} a -> s {name = a} :: GroupInformation)
+
+-- | The time, in milliseconds since the epoch, when the group was created.
+groupInformation_creationTimestamp :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_creationTimestamp = Lens.lens (\GroupInformation' {creationTimestamp} -> creationTimestamp) (\s@GroupInformation' {} a -> s {creationTimestamp = a} :: GroupInformation)
 
 -- | The ID of the group.
 groupInformation_id :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
 groupInformation_id = Lens.lens (\GroupInformation' {id} -> id) (\s@GroupInformation' {} a -> s {id = a} :: GroupInformation)
 
--- | The name of the group.
-groupInformation_name :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
-groupInformation_name = Lens.lens (\GroupInformation' {name} -> name) (\s@GroupInformation' {} a -> s {name = a} :: GroupInformation)
+-- | The ID of the latest version associated with the group.
+groupInformation_latestVersion :: Lens.Lens' GroupInformation (Prelude.Maybe Prelude.Text)
+groupInformation_latestVersion = Lens.lens (\GroupInformation' {latestVersion} -> latestVersion) (\s@GroupInformation' {} a -> s {latestVersion = a} :: GroupInformation)
 
 -- | The time, in milliseconds since the epoch, when the group was last
 -- updated.
@@ -116,12 +116,12 @@ instance Core.FromJSON GroupInformation where
       "GroupInformation"
       ( \x ->
           GroupInformation'
-            Prelude.<$> (x Core..:? "CreationTimestamp")
-            Prelude.<*> (x Core..:? "LatestVersionArn")
-            Prelude.<*> (x Core..:? "LatestVersion")
+            Prelude.<$> (x Core..:? "LatestVersionArn")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "CreationTimestamp")
+            Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "LatestVersion")
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 

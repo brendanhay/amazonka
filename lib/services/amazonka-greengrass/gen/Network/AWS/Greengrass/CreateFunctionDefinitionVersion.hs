@@ -28,9 +28,9 @@ module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     newCreateFunctionDefinitionVersion,
 
     -- * Request Lenses
-    createFunctionDefinitionVersion_functions,
-    createFunctionDefinitionVersion_defaultConfig,
     createFunctionDefinitionVersion_amznClientToken,
+    createFunctionDefinitionVersion_defaultConfig,
+    createFunctionDefinitionVersion_functions,
     createFunctionDefinitionVersion_functionDefinitionId,
 
     -- * Destructuring the Response
@@ -38,10 +38,10 @@ module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     newCreateFunctionDefinitionVersionResponse,
 
     -- * Response Lenses
-    createFunctionDefinitionVersionResponse_creationTimestamp,
     createFunctionDefinitionVersionResponse_arn,
-    createFunctionDefinitionVersionResponse_id,
+    createFunctionDefinitionVersionResponse_creationTimestamp,
     createFunctionDefinitionVersionResponse_version,
+    createFunctionDefinitionVersionResponse_id,
     createFunctionDefinitionVersionResponse_httpStatus,
   )
 where
@@ -57,14 +57,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
-  { -- | A list of Lambda functions in this function definition version.
-    functions :: Prelude.Maybe [Function],
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | The default configuration that applies to all Lambda functions in this
     -- function definition version. Individual Lambda functions can override
     -- these settings.
     defaultConfig :: Prelude.Maybe FunctionDefaultConfig,
-    -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Lambda functions in this function definition version.
+    functions :: Prelude.Maybe [Function],
     -- | The ID of the Lambda function definition.
     functionDefinitionId :: Prelude.Text
   }
@@ -78,13 +78,13 @@ data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functions', 'createFunctionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.
+-- 'amznClientToken', 'createFunctionDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'defaultConfig', 'createFunctionDefinitionVersion_defaultConfig' - The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
 -- these settings.
 --
--- 'amznClientToken', 'createFunctionDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
+-- 'functions', 'createFunctionDefinitionVersion_functions' - A list of Lambda functions in this function definition version.
 --
 -- 'functionDefinitionId', 'createFunctionDefinitionVersion_functionDefinitionId' - The ID of the Lambda function definition.
 newCreateFunctionDefinitionVersion ::
@@ -94,17 +94,17 @@ newCreateFunctionDefinitionVersion ::
 newCreateFunctionDefinitionVersion
   pFunctionDefinitionId_ =
     CreateFunctionDefinitionVersion'
-      { functions =
+      { amznClientToken =
           Prelude.Nothing,
         defaultConfig = Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+        functions = Prelude.Nothing,
         functionDefinitionId =
           pFunctionDefinitionId_
       }
 
--- | A list of Lambda functions in this function definition version.
-createFunctionDefinitionVersion_functions :: Lens.Lens' CreateFunctionDefinitionVersion (Prelude.Maybe [Function])
-createFunctionDefinitionVersion_functions = Lens.lens (\CreateFunctionDefinitionVersion' {functions} -> functions) (\s@CreateFunctionDefinitionVersion' {} a -> s {functions = a} :: CreateFunctionDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
+-- | A client token used to correlate requests and responses.
+createFunctionDefinitionVersion_amznClientToken :: Lens.Lens' CreateFunctionDefinitionVersion (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionVersion_amznClientToken = Lens.lens (\CreateFunctionDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateFunctionDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateFunctionDefinitionVersion)
 
 -- | The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
@@ -112,9 +112,9 @@ createFunctionDefinitionVersion_functions = Lens.lens (\CreateFunctionDefinition
 createFunctionDefinitionVersion_defaultConfig :: Lens.Lens' CreateFunctionDefinitionVersion (Prelude.Maybe FunctionDefaultConfig)
 createFunctionDefinitionVersion_defaultConfig = Lens.lens (\CreateFunctionDefinitionVersion' {defaultConfig} -> defaultConfig) (\s@CreateFunctionDefinitionVersion' {} a -> s {defaultConfig = a} :: CreateFunctionDefinitionVersion)
 
--- | A client token used to correlate requests and responses.
-createFunctionDefinitionVersion_amznClientToken :: Lens.Lens' CreateFunctionDefinitionVersion (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionVersion_amznClientToken = Lens.lens (\CreateFunctionDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateFunctionDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateFunctionDefinitionVersion)
+-- | A list of Lambda functions in this function definition version.
+createFunctionDefinitionVersion_functions :: Lens.Lens' CreateFunctionDefinitionVersion (Prelude.Maybe [Function])
+createFunctionDefinitionVersion_functions = Lens.lens (\CreateFunctionDefinitionVersion' {functions} -> functions) (\s@CreateFunctionDefinitionVersion' {} a -> s {functions = a} :: CreateFunctionDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Lambda function definition.
 createFunctionDefinitionVersion_functionDefinitionId :: Lens.Lens' CreateFunctionDefinitionVersion Prelude.Text
@@ -132,10 +132,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,8 +162,8 @@ instance Core.ToJSON CreateFunctionDefinitionVersion where
   toJSON CreateFunctionDefinitionVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Functions" Core..=) Prelude.<$> functions,
-            ("DefaultConfig" Core..=) Prelude.<$> defaultConfig
+          [ ("DefaultConfig" Core..=) Prelude.<$> defaultConfig,
+            ("Functions" Core..=) Prelude.<$> functions
           ]
       )
 
@@ -180,14 +180,14 @@ instance Core.ToQuery CreateFunctionDefinitionVersion where
 
 -- | /See:/ 'newCreateFunctionDefinitionVersionResponse' smart constructor.
 data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionResponse'
-  { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the version.
+  { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,13 +201,13 @@ data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
 -- 'arn', 'createFunctionDefinitionVersionResponse_arn' - The ARN of the version.
 --
--- 'id', 'createFunctionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
+-- 'creationTimestamp', 'createFunctionDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
 -- 'version', 'createFunctionDefinitionVersionResponse_version' - The ID of the version.
+--
+-- 'id', 'createFunctionDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
 --
 -- 'httpStatus', 'createFunctionDefinitionVersionResponse_httpStatus' - The response's http status code.
 newCreateFunctionDefinitionVersionResponse ::
@@ -217,29 +217,30 @@ newCreateFunctionDefinitionVersionResponse ::
 newCreateFunctionDefinitionVersionResponse
   pHttpStatus_ =
     CreateFunctionDefinitionVersionResponse'
-      { creationTimestamp =
+      { arn =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
-        id = Prelude.Nothing,
+        creationTimestamp =
+          Prelude.Nothing,
         version = Prelude.Nothing,
+        id = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The time, in milliseconds since the epoch, when the version was created.
-createFunctionDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateFunctionDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateFunctionDefinitionVersionResponse)
 
 -- | The ARN of the version.
 createFunctionDefinitionVersionResponse_arn :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createFunctionDefinitionVersionResponse_arn = Lens.lens (\CreateFunctionDefinitionVersionResponse' {arn} -> arn) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {arn = a} :: CreateFunctionDefinitionVersionResponse)
 
--- | The ID of the parent definition that the version is associated with.
-createFunctionDefinitionVersionResponse_id :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionVersionResponse_id = Lens.lens (\CreateFunctionDefinitionVersionResponse' {id} -> id) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {id = a} :: CreateFunctionDefinitionVersionResponse)
+-- | The time, in milliseconds since the epoch, when the version was created.
+createFunctionDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateFunctionDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateFunctionDefinitionVersionResponse)
 
 -- | The ID of the version.
 createFunctionDefinitionVersionResponse_version :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createFunctionDefinitionVersionResponse_version = Lens.lens (\CreateFunctionDefinitionVersionResponse' {version} -> version) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {version = a} :: CreateFunctionDefinitionVersionResponse)
+
+-- | The ID of the parent definition that the version is associated with.
+createFunctionDefinitionVersionResponse_id :: Lens.Lens' CreateFunctionDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionVersionResponse_id = Lens.lens (\CreateFunctionDefinitionVersionResponse' {id} -> id) (\s@CreateFunctionDefinitionVersionResponse' {} a -> s {id = a} :: CreateFunctionDefinitionVersionResponse)
 
 -- | The response's http status code.
 createFunctionDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateFunctionDefinitionVersionResponse Prelude.Int

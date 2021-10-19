@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionDefaultExecutionConfig' smart constructor.
 data FunctionDefaultExecutionConfig = FunctionDefaultExecutionConfig'
-  { isolationMode :: Prelude.Maybe FunctionIsolationMode,
-    runAs :: Prelude.Maybe FunctionRunAsConfig
+  { runAs :: Prelude.Maybe FunctionRunAsConfig,
+    isolationMode :: Prelude.Maybe FunctionIsolationMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data FunctionDefaultExecutionConfig = FunctionDefaultExecutionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isolationMode', 'functionDefaultExecutionConfig_isolationMode' - Undocumented member.
---
 -- 'runAs', 'functionDefaultExecutionConfig_runAs' - Undocumented member.
+--
+-- 'isolationMode', 'functionDefaultExecutionConfig_isolationMode' - Undocumented member.
 newFunctionDefaultExecutionConfig ::
   FunctionDefaultExecutionConfig
 newFunctionDefaultExecutionConfig =
   FunctionDefaultExecutionConfig'
-    { isolationMode =
+    { runAs =
         Prelude.Nothing,
-      runAs = Prelude.Nothing
+      isolationMode = Prelude.Nothing
     }
-
--- | Undocumented member.
-functionDefaultExecutionConfig_isolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionIsolationMode)
-functionDefaultExecutionConfig_isolationMode = Lens.lens (\FunctionDefaultExecutionConfig' {isolationMode} -> isolationMode) (\s@FunctionDefaultExecutionConfig' {} a -> s {isolationMode = a} :: FunctionDefaultExecutionConfig)
 
 -- | Undocumented member.
 functionDefaultExecutionConfig_runAs :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionRunAsConfig)
 functionDefaultExecutionConfig_runAs = Lens.lens (\FunctionDefaultExecutionConfig' {runAs} -> runAs) (\s@FunctionDefaultExecutionConfig' {} a -> s {runAs = a} :: FunctionDefaultExecutionConfig)
+
+-- | Undocumented member.
+functionDefaultExecutionConfig_isolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Prelude.Maybe FunctionIsolationMode)
+functionDefaultExecutionConfig_isolationMode = Lens.lens (\FunctionDefaultExecutionConfig' {isolationMode} -> isolationMode) (\s@FunctionDefaultExecutionConfig' {} a -> s {isolationMode = a} :: FunctionDefaultExecutionConfig)
 
 instance Core.FromJSON FunctionDefaultExecutionConfig where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON FunctionDefaultExecutionConfig where
       "FunctionDefaultExecutionConfig"
       ( \x ->
           FunctionDefaultExecutionConfig'
-            Prelude.<$> (x Core..:? "IsolationMode")
-            Prelude.<*> (x Core..:? "RunAs")
+            Prelude.<$> (x Core..:? "RunAs")
+            Prelude.<*> (x Core..:? "IsolationMode")
       )
 
 instance
@@ -84,7 +84,7 @@ instance Core.ToJSON FunctionDefaultExecutionConfig where
   toJSON FunctionDefaultExecutionConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IsolationMode" Core..=) Prelude.<$> isolationMode,
-            ("RunAs" Core..=) Prelude.<$> runAs
+          [ ("RunAs" Core..=) Prelude.<$> runAs,
+            ("IsolationMode" Core..=) Prelude.<$> isolationMode
           ]
       )

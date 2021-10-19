@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunction' smart constructor.
 data Function = Function'
-  { -- | The configuration of the Lambda function.
-    functionConfiguration :: Prelude.Maybe FunctionConfiguration,
-    -- | The ARN of the Lambda function.
+  { -- | The ARN of the Lambda function.
     functionArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the Lambda function.
+    functionConfiguration :: Prelude.Maybe FunctionConfiguration,
     -- | A descriptive or arbitrary ID for the function. This value must be
     -- unique within the function definition version. Max length is 128
     -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
@@ -47,9 +47,9 @@ data Function = Function'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functionConfiguration', 'function_functionConfiguration' - The configuration of the Lambda function.
---
 -- 'functionArn', 'function_functionArn' - The ARN of the Lambda function.
+--
+-- 'functionConfiguration', 'function_functionConfiguration' - The configuration of the Lambda function.
 --
 -- 'id', 'function_id' - A descriptive or arbitrary ID for the function. This value must be
 -- unique within the function definition version. Max length is 128
@@ -60,18 +60,18 @@ newFunction ::
   Function
 newFunction pId_ =
   Function'
-    { functionConfiguration = Prelude.Nothing,
-      functionArn = Prelude.Nothing,
+    { functionArn = Prelude.Nothing,
+      functionConfiguration = Prelude.Nothing,
       id = pId_
     }
-
--- | The configuration of the Lambda function.
-function_functionConfiguration :: Lens.Lens' Function (Prelude.Maybe FunctionConfiguration)
-function_functionConfiguration = Lens.lens (\Function' {functionConfiguration} -> functionConfiguration) (\s@Function' {} a -> s {functionConfiguration = a} :: Function)
 
 -- | The ARN of the Lambda function.
 function_functionArn :: Lens.Lens' Function (Prelude.Maybe Prelude.Text)
 function_functionArn = Lens.lens (\Function' {functionArn} -> functionArn) (\s@Function' {} a -> s {functionArn = a} :: Function)
+
+-- | The configuration of the Lambda function.
+function_functionConfiguration :: Lens.Lens' Function (Prelude.Maybe FunctionConfiguration)
+function_functionConfiguration = Lens.lens (\Function' {functionConfiguration} -> functionConfiguration) (\s@Function' {} a -> s {functionConfiguration = a} :: Function)
 
 -- | A descriptive or arbitrary ID for the function. This value must be
 -- unique within the function definition version. Max length is 128
@@ -85,8 +85,8 @@ instance Core.FromJSON Function where
       "Function"
       ( \x ->
           Function'
-            Prelude.<$> (x Core..:? "FunctionConfiguration")
-            Prelude.<*> (x Core..:? "FunctionArn")
+            Prelude.<$> (x Core..:? "FunctionArn")
+            Prelude.<*> (x Core..:? "FunctionConfiguration")
             Prelude.<*> (x Core..: "Id")
       )
 
@@ -98,9 +98,9 @@ instance Core.ToJSON Function where
   toJSON Function' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FunctionConfiguration" Core..=)
+          [ ("FunctionArn" Core..=) Prelude.<$> functionArn,
+            ("FunctionConfiguration" Core..=)
               Prelude.<$> functionConfiguration,
-            ("FunctionArn" Core..=) Prelude.<$> functionArn,
             Prelude.Just ("Id" Core..= id)
           ]
       )

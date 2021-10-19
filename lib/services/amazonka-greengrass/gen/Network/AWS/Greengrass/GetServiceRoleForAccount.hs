@@ -31,8 +31,8 @@ module Network.AWS.Greengrass.GetServiceRoleForAccount
     newGetServiceRoleForAccountResponse,
 
     -- * Response Lenses
-    getServiceRoleForAccountResponse_roleArn,
     getServiceRoleForAccountResponse_associatedAt,
+    getServiceRoleForAccountResponse_roleArn,
     getServiceRoleForAccountResponse_httpStatus,
   )
 where
@@ -68,8 +68,8 @@ instance Core.AWSRequest GetServiceRoleForAccount where
     Response.receiveJSON
       ( \s h x ->
           GetServiceRoleForAccountResponse'
-            Prelude.<$> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "AssociatedAt")
+            Prelude.<$> (x Core..?> "AssociatedAt")
+            Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -96,10 +96,10 @@ instance Core.ToQuery GetServiceRoleForAccount where
 
 -- | /See:/ 'newGetServiceRoleForAccountResponse' smart constructor.
 data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
-  { -- | The ARN of the role which is associated with the account.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The time when the service role was associated with the account.
+  { -- | The time when the service role was associated with the account.
     associatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the role which is associated with the account.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -113,9 +113,9 @@ data GetServiceRoleForAccountResponse = GetServiceRoleForAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'getServiceRoleForAccountResponse_roleArn' - The ARN of the role which is associated with the account.
---
 -- 'associatedAt', 'getServiceRoleForAccountResponse_associatedAt' - The time when the service role was associated with the account.
+--
+-- 'roleArn', 'getServiceRoleForAccountResponse_roleArn' - The ARN of the role which is associated with the account.
 --
 -- 'httpStatus', 'getServiceRoleForAccountResponse_httpStatus' - The response's http status code.
 newGetServiceRoleForAccountResponse ::
@@ -124,19 +124,19 @@ newGetServiceRoleForAccountResponse ::
   GetServiceRoleForAccountResponse
 newGetServiceRoleForAccountResponse pHttpStatus_ =
   GetServiceRoleForAccountResponse'
-    { roleArn =
+    { associatedAt =
         Prelude.Nothing,
-      associatedAt = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the role which is associated with the account.
-getServiceRoleForAccountResponse_roleArn :: Lens.Lens' GetServiceRoleForAccountResponse (Prelude.Maybe Prelude.Text)
-getServiceRoleForAccountResponse_roleArn = Lens.lens (\GetServiceRoleForAccountResponse' {roleArn} -> roleArn) (\s@GetServiceRoleForAccountResponse' {} a -> s {roleArn = a} :: GetServiceRoleForAccountResponse)
 
 -- | The time when the service role was associated with the account.
 getServiceRoleForAccountResponse_associatedAt :: Lens.Lens' GetServiceRoleForAccountResponse (Prelude.Maybe Prelude.Text)
 getServiceRoleForAccountResponse_associatedAt = Lens.lens (\GetServiceRoleForAccountResponse' {associatedAt} -> associatedAt) (\s@GetServiceRoleForAccountResponse' {} a -> s {associatedAt = a} :: GetServiceRoleForAccountResponse)
+
+-- | The ARN of the role which is associated with the account.
+getServiceRoleForAccountResponse_roleArn :: Lens.Lens' GetServiceRoleForAccountResponse (Prelude.Maybe Prelude.Text)
+getServiceRoleForAccountResponse_roleArn = Lens.lens (\GetServiceRoleForAccountResponse' {roleArn} -> roleArn) (\s@GetServiceRoleForAccountResponse' {} a -> s {roleArn = a} :: GetServiceRoleForAccountResponse)
 
 -- | The response's http status code.
 getServiceRoleForAccountResponse_httpStatus :: Lens.Lens' GetServiceRoleForAccountResponse Prelude.Int

@@ -34,9 +34,9 @@ module Network.AWS.Greengrass.GetGroupCertificateConfiguration
     newGetGroupCertificateConfigurationResponse,
 
     -- * Response Lenses
-    getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds,
-    getGroupCertificateConfigurationResponse_groupId,
     getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds,
+    getGroupCertificateConfigurationResponse_groupId,
+    getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds,
     getGroupCertificateConfigurationResponse_httpStatus,
   )
 where
@@ -90,11 +90,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateConfigurationResponse'
-            Prelude.<$> (x Core..?> "CertificateExpiryInMilliseconds")
-            Prelude.<*> (x Core..?> "GroupId")
-            Prelude.<*> ( x
+            Prelude.<$> ( x
                             Core..?> "CertificateAuthorityExpiryInMilliseconds"
                         )
+            Prelude.<*> (x Core..?> "GroupId")
+            Prelude.<*> (x Core..?> "CertificateExpiryInMilliseconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,14 +136,14 @@ instance
 
 -- | /See:/ 'newGetGroupCertificateConfigurationResponse' smart constructor.
 data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfigurationResponse'
-  { -- | The amount of time remaining before the certificate expires, in
-    -- milliseconds.
-    certificateExpiryInMilliseconds :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the group certificate configuration.
-    groupId :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time remaining before the certificate authority expires,
+  { -- | The amount of time remaining before the certificate authority expires,
     -- in milliseconds.
     certificateAuthorityExpiryInMilliseconds :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group certificate configuration.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The amount of time remaining before the certificate expires, in
+    -- milliseconds.
+    certificateExpiryInMilliseconds :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,13 +157,13 @@ data GetGroupCertificateConfigurationResponse = GetGroupCertificateConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in
--- milliseconds.
+-- 'certificateAuthorityExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires,
+-- in milliseconds.
 --
 -- 'groupId', 'getGroupCertificateConfigurationResponse_groupId' - The ID of the group certificate configuration.
 --
--- 'certificateAuthorityExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires,
--- in milliseconds.
+-- 'certificateExpiryInMilliseconds', 'getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in
+-- milliseconds.
 --
 -- 'httpStatus', 'getGroupCertificateConfigurationResponse_httpStatus' - The response's http status code.
 newGetGroupCertificateConfigurationResponse ::
@@ -173,27 +173,27 @@ newGetGroupCertificateConfigurationResponse ::
 newGetGroupCertificateConfigurationResponse
   pHttpStatus_ =
     GetGroupCertificateConfigurationResponse'
-      { certificateExpiryInMilliseconds =
+      { certificateAuthorityExpiryInMilliseconds =
           Prelude.Nothing,
         groupId = Prelude.Nothing,
-        certificateAuthorityExpiryInMilliseconds =
+        certificateExpiryInMilliseconds =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The amount of time remaining before the certificate expires, in
--- milliseconds.
-getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
-getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds = Lens.lens (\GetGroupCertificateConfigurationResponse' {certificateExpiryInMilliseconds} -> certificateExpiryInMilliseconds) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {certificateExpiryInMilliseconds = a} :: GetGroupCertificateConfigurationResponse)
-
--- | The ID of the group certificate configuration.
-getGroupCertificateConfigurationResponse_groupId :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
-getGroupCertificateConfigurationResponse_groupId = Lens.lens (\GetGroupCertificateConfigurationResponse' {groupId} -> groupId) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {groupId = a} :: GetGroupCertificateConfigurationResponse)
 
 -- | The amount of time remaining before the certificate authority expires,
 -- in milliseconds.
 getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
 getGroupCertificateConfigurationResponse_certificateAuthorityExpiryInMilliseconds = Lens.lens (\GetGroupCertificateConfigurationResponse' {certificateAuthorityExpiryInMilliseconds} -> certificateAuthorityExpiryInMilliseconds) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {certificateAuthorityExpiryInMilliseconds = a} :: GetGroupCertificateConfigurationResponse)
+
+-- | The ID of the group certificate configuration.
+getGroupCertificateConfigurationResponse_groupId :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateConfigurationResponse_groupId = Lens.lens (\GetGroupCertificateConfigurationResponse' {groupId} -> groupId) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {groupId = a} :: GetGroupCertificateConfigurationResponse)
+
+-- | The amount of time remaining before the certificate expires, in
+-- milliseconds.
+getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds :: Lens.Lens' GetGroupCertificateConfigurationResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateConfigurationResponse_certificateExpiryInMilliseconds = Lens.lens (\GetGroupCertificateConfigurationResponse' {certificateExpiryInMilliseconds} -> certificateExpiryInMilliseconds) (\s@GetGroupCertificateConfigurationResponse' {} a -> s {certificateExpiryInMilliseconds = a} :: GetGroupCertificateConfigurationResponse)
 
 -- | The response's http status code.
 getGroupCertificateConfigurationResponse_httpStatus :: Lens.Lens' GetGroupCertificateConfigurationResponse Prelude.Int

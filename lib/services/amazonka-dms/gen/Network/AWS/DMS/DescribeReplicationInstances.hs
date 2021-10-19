@@ -31,16 +31,16 @@ module Network.AWS.DMS.DescribeReplicationInstances
 
     -- * Request Lenses
     describeReplicationInstances_filters,
-    describeReplicationInstances_maxRecords,
     describeReplicationInstances_marker,
+    describeReplicationInstances_maxRecords,
 
     -- * Destructuring the Response
     DescribeReplicationInstancesResponse (..),
     newDescribeReplicationInstancesResponse,
 
     -- * Response Lenses
-    describeReplicationInstancesResponse_replicationInstances,
     describeReplicationInstancesResponse_marker,
+    describeReplicationInstancesResponse_replicationInstances,
     describeReplicationInstancesResponse_httpStatus,
   )
 where
@@ -61,6 +61,10 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
     -- Valid filter names: replication-instance-arn | replication-instance-id |
     -- replication-instance-class | engine-version
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -69,11 +73,7 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,6 +90,10 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
 -- Valid filter names: replication-instance-arn | replication-instance-id |
 -- replication-instance-class | engine-version
 --
+-- 'marker', 'describeReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeReplicationInstances_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -98,18 +102,14 @@ data DescribeReplicationInstances = DescribeReplicationInstances'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 newDescribeReplicationInstances ::
   DescribeReplicationInstances
 newDescribeReplicationInstances =
   DescribeReplicationInstances'
     { filters =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | Filters applied to replication instances.
@@ -117,7 +117,13 @@ newDescribeReplicationInstances =
 -- Valid filter names: replication-instance-arn | replication-instance-id |
 -- replication-instance-class | engine-version
 describeReplicationInstances_filters :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe [Filter])
-describeReplicationInstances_filters = Lens.lens (\DescribeReplicationInstances' {filters} -> filters) (\s@DescribeReplicationInstances' {} a -> s {filters = a} :: DescribeReplicationInstances) Prelude.. Lens.mapping Lens._Coerce
+describeReplicationInstances_filters = Lens.lens (\DescribeReplicationInstances' {filters} -> filters) (\s@DescribeReplicationInstances' {} a -> s {filters = a} :: DescribeReplicationInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationInstances_marker :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe Prelude.Text)
+describeReplicationInstances_marker = Lens.lens (\DescribeReplicationInstances' {marker} -> marker) (\s@DescribeReplicationInstances' {} a -> s {marker = a} :: DescribeReplicationInstances)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -129,12 +135,6 @@ describeReplicationInstances_filters = Lens.lens (\DescribeReplicationInstances'
 -- Constraints: Minimum 20, maximum 100.
 describeReplicationInstances_maxRecords :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe Prelude.Int)
 describeReplicationInstances_maxRecords = Lens.lens (\DescribeReplicationInstances' {maxRecords} -> maxRecords) (\s@DescribeReplicationInstances' {} a -> s {maxRecords = a} :: DescribeReplicationInstances)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationInstances_marker :: Lens.Lens' DescribeReplicationInstances (Prelude.Maybe Prelude.Text)
-describeReplicationInstances_marker = Lens.lens (\DescribeReplicationInstances' {marker} -> marker) (\s@DescribeReplicationInstances' {} a -> s {marker = a} :: DescribeReplicationInstances)
 
 instance Core.AWSPager DescribeReplicationInstances where
   page rq rs
@@ -167,10 +167,10 @@ instance Core.AWSRequest DescribeReplicationInstances where
     Response.receiveJSON
       ( \s h x ->
           DescribeReplicationInstancesResponse'
-            Prelude.<$> ( x Core..?> "ReplicationInstances"
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> ( x Core..?> "ReplicationInstances"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -200,8 +200,8 @@ instance Core.ToJSON DescribeReplicationInstances where
     Core.object
       ( Prelude.catMaybes
           [ ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
@@ -215,12 +215,12 @@ instance Core.ToQuery DescribeReplicationInstances where
 --
 -- /See:/ 'newDescribeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
-  { -- | The replication instances described.
-    replicationInstances :: Prelude.Maybe [ReplicationInstance],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The replication instances described.
+    replicationInstances :: Prelude.Maybe [ReplicationInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,11 +234,11 @@ data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationInstances', 'describeReplicationInstancesResponse_replicationInstances' - The replication instances described.
---
 -- 'marker', 'describeReplicationInstancesResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'replicationInstances', 'describeReplicationInstancesResponse_replicationInstances' - The replication instances described.
 --
 -- 'httpStatus', 'describeReplicationInstancesResponse_httpStatus' - The response's http status code.
 newDescribeReplicationInstancesResponse ::
@@ -247,21 +247,22 @@ newDescribeReplicationInstancesResponse ::
   DescribeReplicationInstancesResponse
 newDescribeReplicationInstancesResponse pHttpStatus_ =
   DescribeReplicationInstancesResponse'
-    { replicationInstances =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      replicationInstances =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The replication instances described.
-describeReplicationInstancesResponse_replicationInstances :: Lens.Lens' DescribeReplicationInstancesResponse (Prelude.Maybe [ReplicationInstance])
-describeReplicationInstancesResponse_replicationInstances = Lens.lens (\DescribeReplicationInstancesResponse' {replicationInstances} -> replicationInstances) (\s@DescribeReplicationInstancesResponse' {} a -> s {replicationInstances = a} :: DescribeReplicationInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeReplicationInstancesResponse_marker :: Lens.Lens' DescribeReplicationInstancesResponse (Prelude.Maybe Prelude.Text)
 describeReplicationInstancesResponse_marker = Lens.lens (\DescribeReplicationInstancesResponse' {marker} -> marker) (\s@DescribeReplicationInstancesResponse' {} a -> s {marker = a} :: DescribeReplicationInstancesResponse)
+
+-- | The replication instances described.
+describeReplicationInstancesResponse_replicationInstances :: Lens.Lens' DescribeReplicationInstancesResponse (Prelude.Maybe [ReplicationInstance])
+describeReplicationInstancesResponse_replicationInstances = Lens.lens (\DescribeReplicationInstancesResponse' {replicationInstances} -> replicationInstances) (\s@DescribeReplicationInstancesResponse' {} a -> s {replicationInstances = a} :: DescribeReplicationInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReplicationInstancesResponse_httpStatus :: Lens.Lens' DescribeReplicationInstancesResponse Prelude.Int

@@ -17,29 +17,29 @@ module Network.AWS.DMS.Types
     defaultService,
 
     -- * Errors
+    _KMSAccessDeniedFault,
     _KMSDisabledFault,
     _KMSFault,
-    _KMSAccessDeniedFault,
-    _AccessDeniedFault,
+    _InvalidSubnet,
+    _KMSKeyNotAccessibleFault,
+    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+    _S3ResourceNotFoundFault,
+    _InvalidResourceStateFault,
     _InvalidCertificateFault,
     _SNSNoAuthorizationFault,
-    _InvalidResourceStateFault,
-    _KMSKeyNotAccessibleFault,
-    _ResourceNotFoundFault,
-    _ResourceQuotaExceededFault,
+    _ResourceAlreadyExistsFault,
+    _InsufficientResourceCapacityFault,
+    _S3AccessDeniedFault,
     _SNSInvalidTopicFault,
     _KMSNotFoundFault,
-    _InsufficientResourceCapacityFault,
-    _KMSInvalidStateFault,
-    _SubnetAlreadyInUse,
-    _S3AccessDeniedFault,
-    _ResourceAlreadyExistsFault,
-    _StorageQuotaExceededFault,
-    _S3ResourceNotFoundFault,
-    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
-    _UpgradeDependencyFailureFault,
     _KMSThrottlingFault,
-    _InvalidSubnet,
+    _ResourceQuotaExceededFault,
+    _UpgradeDependencyFailureFault,
+    _ResourceNotFoundFault,
+    _StorageQuotaExceededFault,
+    _AccessDeniedFault,
+    _SubnetAlreadyInUse,
+    _KMSInvalidStateFault,
 
     -- * AuthMechanismValue
     AuthMechanismValue (..),
@@ -128,9 +128,9 @@ module Network.AWS.DMS.Types
     -- * AccountQuota
     AccountQuota (..),
     newAccountQuota,
+    accountQuota_max,
     accountQuota_used,
     accountQuota_accountQuotaName,
-    accountQuota_max,
 
     -- * AvailabilityZone
     AvailabilityZone (..),
@@ -142,45 +142,45 @@ module Network.AWS.DMS.Types
     newCertificate,
     certificate_certificateOwner,
     certificate_signingAlgorithm,
-    certificate_validToDate,
-    certificate_certificateIdentifier,
-    certificate_keyLength,
-    certificate_certificateArn,
-    certificate_certificateWallet,
     certificate_validFromDate,
-    certificate_certificateCreationDate,
     certificate_certificatePem,
+    certificate_certificateArn,
+    certificate_certificateCreationDate,
+    certificate_certificateIdentifier,
+    certificate_certificateWallet,
+    certificate_keyLength,
+    certificate_validToDate,
 
     -- * Connection
     Connection (..),
     newConnection,
     connection_status,
-    connection_lastFailureMessage,
+    connection_replicationInstanceArn,
+    connection_endpointIdentifier,
     connection_replicationInstanceIdentifier,
     connection_endpointArn,
-    connection_endpointIdentifier,
-    connection_replicationInstanceArn,
+    connection_lastFailureMessage,
 
     -- * DmsTransferSettings
     DmsTransferSettings (..),
     newDmsTransferSettings,
-    dmsTransferSettings_bucketName,
     dmsTransferSettings_serviceAccessRoleArn,
+    dmsTransferSettings_bucketName,
 
     -- * DocDbSettings
     DocDbSettings (..),
     newDocDbSettings,
-    docDbSettings_secretsManagerSecretId,
     docDbSettings_serverName,
+    docDbSettings_secretsManagerAccessRoleArn,
+    docDbSettings_username,
     docDbSettings_kmsKeyId,
     docDbSettings_password,
-    docDbSettings_port,
-    docDbSettings_username,
-    docDbSettings_secretsManagerAccessRoleArn,
-    docDbSettings_extractDocId,
-    docDbSettings_docsToInvestigate,
     docDbSettings_nestingLevel,
     docDbSettings_databaseName,
+    docDbSettings_docsToInvestigate,
+    docDbSettings_secretsManagerSecretId,
+    docDbSettings_extractDocId,
+    docDbSettings_port,
 
     -- * DynamoDbSettings
     DynamoDbSettings (..),
@@ -190,89 +190,89 @@ module Network.AWS.DMS.Types
     -- * ElasticsearchSettings
     ElasticsearchSettings (..),
     newElasticsearchSettings,
-    elasticsearchSettings_errorRetryDuration,
     elasticsearchSettings_fullLoadErrorPercentage,
+    elasticsearchSettings_errorRetryDuration,
     elasticsearchSettings_serviceAccessRoleArn,
     elasticsearchSettings_endpointUri,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
-    endpoint_mongoDbSettings,
-    endpoint_sslMode,
     endpoint_status,
-    endpoint_neptuneSettings,
-    endpoint_redisSettings,
-    endpoint_engineName,
-    endpoint_externalTableDefinition,
-    endpoint_elasticsearchSettings,
-    endpoint_postgreSQLSettings,
-    endpoint_oracleSettings,
-    endpoint_endpointType,
+    endpoint_dmsTransferSettings,
+    endpoint_mySQLSettings,
+    endpoint_serverName,
+    endpoint_microsoftSQLServerSettings,
     endpoint_certificateArn,
     endpoint_serviceAccessRoleArn,
-    endpoint_s3Settings,
-    endpoint_microsoftSQLServerSettings,
-    endpoint_serverName,
-    endpoint_kmsKeyId,
-    endpoint_iBMDb2Settings,
-    endpoint_mySQLSettings,
-    endpoint_dmsTransferSettings,
-    endpoint_port,
-    endpoint_redshiftSettings,
-    endpoint_endpointArn,
-    endpoint_username,
-    endpoint_extraConnectionAttributes,
-    endpoint_kafkaSettings,
     endpoint_docDbSettings,
     endpoint_engineDisplayName,
-    endpoint_dynamoDbSettings,
-    endpoint_endpointIdentifier,
-    endpoint_externalId,
-    endpoint_kinesisSettings,
+    endpoint_postgreSQLSettings,
+    endpoint_extraConnectionAttributes,
+    endpoint_kafkaSettings,
+    endpoint_oracleSettings,
+    endpoint_endpointType,
+    endpoint_redshiftSettings,
+    endpoint_elasticsearchSettings,
+    endpoint_username,
+    endpoint_externalTableDefinition,
+    endpoint_engineName,
+    endpoint_redisSettings,
+    endpoint_neptuneSettings,
+    endpoint_iBMDb2Settings,
+    endpoint_kmsKeyId,
+    endpoint_mongoDbSettings,
+    endpoint_sslMode,
     endpoint_sybaseSettings,
     endpoint_databaseName,
+    endpoint_s3Settings,
+    endpoint_kinesisSettings,
+    endpoint_endpointIdentifier,
+    endpoint_externalId,
+    endpoint_dynamoDbSettings,
+    endpoint_endpointArn,
+    endpoint_port,
 
     -- * EndpointSetting
     EndpointSetting (..),
     newEndpointSetting,
-    endpointSetting_applicability,
-    endpointSetting_intValueMin,
-    endpointSetting_name,
-    endpointSetting_intValueMax,
     endpointSetting_sensitive,
-    endpointSetting_enumValues,
+    endpointSetting_intValueMax,
+    endpointSetting_applicability,
+    endpointSetting_name,
+    endpointSetting_intValueMin,
+    endpointSetting_units,
     endpointSetting_defaultValue,
     endpointSetting_type,
-    endpointSetting_units,
+    endpointSetting_enumValues,
 
     -- * Event
     Event (..),
     newEvent,
-    event_message,
-    event_eventCategories,
-    event_date,
-    event_sourceIdentifier,
     event_sourceType,
+    event_sourceIdentifier,
+    event_date,
+    event_eventCategories,
+    event_message,
 
     -- * EventCategoryGroup
     EventCategoryGroup (..),
     newEventCategoryGroup,
-    eventCategoryGroup_eventCategories,
     eventCategoryGroup_sourceType,
+    eventCategoryGroup_eventCategories,
 
     -- * EventSubscription
     EventSubscription (..),
     newEventSubscription,
-    eventSubscription_custSubscriptionId,
     eventSubscription_status,
-    eventSubscription_sourceIdsList,
-    eventSubscription_eventCategoriesList,
-    eventSubscription_enabled,
-    eventSubscription_subscriptionCreationTime,
     eventSubscription_customerAwsId,
-    eventSubscription_sourceType,
+    eventSubscription_custSubscriptionId,
     eventSubscription_snsTopicArn,
+    eventSubscription_enabled,
+    eventSubscription_sourceType,
+    eventSubscription_subscriptionCreationTime,
+    eventSubscription_eventCategoriesList,
+    eventSubscription_sourceIdsList,
 
     -- * Filter
     Filter (..),
@@ -283,214 +283,214 @@ module Network.AWS.DMS.Types
     -- * IBMDb2Settings
     IBMDb2Settings (..),
     newIBMDb2Settings,
-    iBMDb2Settings_currentLsn,
-    iBMDb2Settings_secretsManagerSecretId,
     iBMDb2Settings_serverName,
-    iBMDb2Settings_password,
-    iBMDb2Settings_port,
-    iBMDb2Settings_username,
-    iBMDb2Settings_secretsManagerAccessRoleArn,
-    iBMDb2Settings_maxKBytesPerRead,
+    iBMDb2Settings_currentLsn,
     iBMDb2Settings_setDataCaptureChanges,
+    iBMDb2Settings_secretsManagerAccessRoleArn,
+    iBMDb2Settings_username,
+    iBMDb2Settings_password,
     iBMDb2Settings_databaseName,
+    iBMDb2Settings_secretsManagerSecretId,
+    iBMDb2Settings_maxKBytesPerRead,
+    iBMDb2Settings_port,
 
     -- * KafkaSettings
     KafkaSettings (..),
     newKafkaSettings,
-    kafkaSettings_noHexPrefix,
-    kafkaSettings_includeNullAndEmpty,
-    kafkaSettings_sslCaCertificateArn,
-    kafkaSettings_messageFormat,
-    kafkaSettings_sslClientCertificateArn,
-    kafkaSettings_sslClientKeyPassword,
     kafkaSettings_sslClientKeyArn,
-    kafkaSettings_includeControlDetails,
+    kafkaSettings_includeTransactionDetails,
+    kafkaSettings_includeTableAlterOperations,
+    kafkaSettings_sslClientCertificateArn,
+    kafkaSettings_sslCaCertificateArn,
     kafkaSettings_partitionIncludeSchemaTable,
     kafkaSettings_topic,
-    kafkaSettings_messageMaxBytes,
-    kafkaSettings_broker,
-    kafkaSettings_saslUsername,
-    kafkaSettings_securityProtocol,
-    kafkaSettings_includePartitionValue,
-    kafkaSettings_includeTransactionDetails,
+    kafkaSettings_includeControlDetails,
+    kafkaSettings_noHexPrefix,
     kafkaSettings_saslPassword,
-    kafkaSettings_includeTableAlterOperations,
+    kafkaSettings_sslClientKeyPassword,
+    kafkaSettings_includePartitionValue,
+    kafkaSettings_messageFormat,
+    kafkaSettings_securityProtocol,
+    kafkaSettings_saslUsername,
+    kafkaSettings_broker,
+    kafkaSettings_messageMaxBytes,
+    kafkaSettings_includeNullAndEmpty,
 
     -- * KinesisSettings
     KinesisSettings (..),
     newKinesisSettings,
-    kinesisSettings_noHexPrefix,
-    kinesisSettings_includeNullAndEmpty,
-    kinesisSettings_messageFormat,
-    kinesisSettings_serviceAccessRoleArn,
-    kinesisSettings_includeControlDetails,
-    kinesisSettings_partitionIncludeSchemaTable,
-    kinesisSettings_streamArn,
-    kinesisSettings_includePartitionValue,
     kinesisSettings_includeTransactionDetails,
     kinesisSettings_includeTableAlterOperations,
+    kinesisSettings_serviceAccessRoleArn,
+    kinesisSettings_partitionIncludeSchemaTable,
+    kinesisSettings_streamArn,
+    kinesisSettings_includeControlDetails,
+    kinesisSettings_noHexPrefix,
+    kinesisSettings_includePartitionValue,
+    kinesisSettings_messageFormat,
+    kinesisSettings_includeNullAndEmpty,
 
     -- * MicrosoftSQLServerSettings
     MicrosoftSQLServerSettings (..),
     newMicrosoftSQLServerSettings,
-    microsoftSQLServerSettings_useBcpFullLoad,
-    microsoftSQLServerSettings_safeguardPolicy,
-    microsoftSQLServerSettings_useThirdPartyBackupDevice,
-    microsoftSQLServerSettings_secretsManagerSecretId,
-    microsoftSQLServerSettings_serverName,
-    microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_bcpPacketSize,
-    microsoftSQLServerSettings_port,
-    microsoftSQLServerSettings_username,
-    microsoftSQLServerSettings_controlTablesFileGroup,
-    microsoftSQLServerSettings_secretsManagerAccessRoleArn,
-    microsoftSQLServerSettings_readBackupOnly,
+    microsoftSQLServerSettings_useBcpFullLoad,
+    microsoftSQLServerSettings_serverName,
     microsoftSQLServerSettings_querySingleAlwaysOnNode,
+    microsoftSQLServerSettings_secretsManagerAccessRoleArn,
+    microsoftSQLServerSettings_username,
+    microsoftSQLServerSettings_safeguardPolicy,
+    microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_databaseName,
+    microsoftSQLServerSettings_secretsManagerSecretId,
+    microsoftSQLServerSettings_readBackupOnly,
+    microsoftSQLServerSettings_useThirdPartyBackupDevice,
+    microsoftSQLServerSettings_controlTablesFileGroup,
+    microsoftSQLServerSettings_port,
 
     -- * MongoDbSettings
     MongoDbSettings (..),
     newMongoDbSettings,
-    mongoDbSettings_authSource,
-    mongoDbSettings_secretsManagerSecretId,
     mongoDbSettings_serverName,
+    mongoDbSettings_secretsManagerAccessRoleArn,
+    mongoDbSettings_authMechanism,
+    mongoDbSettings_username,
     mongoDbSettings_kmsKeyId,
     mongoDbSettings_password,
-    mongoDbSettings_port,
-    mongoDbSettings_username,
-    mongoDbSettings_authMechanism,
-    mongoDbSettings_secretsManagerAccessRoleArn,
-    mongoDbSettings_authType,
-    mongoDbSettings_extractDocId,
-    mongoDbSettings_docsToInvestigate,
     mongoDbSettings_nestingLevel,
     mongoDbSettings_databaseName,
+    mongoDbSettings_docsToInvestigate,
+    mongoDbSettings_authSource,
+    mongoDbSettings_secretsManagerSecretId,
+    mongoDbSettings_extractDocId,
+    mongoDbSettings_authType,
+    mongoDbSettings_port,
 
     -- * MySQLSettings
     MySQLSettings (..),
     newMySQLSettings,
-    mySQLSettings_targetDbType,
-    mySQLSettings_serverTimezone,
-    mySQLSettings_afterConnectScript,
-    mySQLSettings_secretsManagerSecretId,
-    mySQLSettings_serverName,
     mySQLSettings_maxFileSize,
+    mySQLSettings_targetDbType,
+    mySQLSettings_serverName,
+    mySQLSettings_cleanSourceMetadataOnMismatch,
+    mySQLSettings_parallelLoadThreads,
+    mySQLSettings_secretsManagerAccessRoleArn,
+    mySQLSettings_username,
     mySQLSettings_password,
     mySQLSettings_eventsPollInterval,
-    mySQLSettings_port,
-    mySQLSettings_username,
-    mySQLSettings_secretsManagerAccessRoleArn,
-    mySQLSettings_parallelLoadThreads,
-    mySQLSettings_cleanSourceMetadataOnMismatch,
     mySQLSettings_databaseName,
+    mySQLSettings_afterConnectScript,
+    mySQLSettings_secretsManagerSecretId,
+    mySQLSettings_serverTimezone,
+    mySQLSettings_port,
 
     -- * NeptuneSettings
     NeptuneSettings (..),
     newNeptuneSettings,
-    neptuneSettings_errorRetryDuration,
-    neptuneSettings_serviceAccessRoleArn,
     neptuneSettings_maxFileSize,
     neptuneSettings_maxRetryCount,
+    neptuneSettings_serviceAccessRoleArn,
     neptuneSettings_iamAuthEnabled,
+    neptuneSettings_errorRetryDuration,
     neptuneSettings_s3BucketName,
     neptuneSettings_s3BucketFolder,
 
     -- * OracleSettings
     OracleSettings (..),
     newOracleSettings,
-    oracleSettings_failTasksOnLobTruncation,
-    oracleSettings_retryInterval,
-    oracleSettings_useLogminerReader,
-    oracleSettings_standbyDelayTime,
     oracleSettings_useBFile,
+    oracleSettings_standbyDelayTime,
+    oracleSettings_failTasksOnLobTruncation,
+    oracleSettings_serverName,
+    oracleSettings_directPathNoLog,
+    oracleSettings_extraArchivedLogDestIds,
+    oracleSettings_securityDbEncryptionName,
+    oracleSettings_oraclePathPrefix,
+    oracleSettings_secretsManagerAccessRoleArn,
+    oracleSettings_useDirectPathFullLoad,
+    oracleSettings_username,
+    oracleSettings_allowSelectNestedTables,
+    oracleSettings_readAheadBlocks,
+    oracleSettings_archivedLogDestId,
+    oracleSettings_replacePathPrefix,
     oracleSettings_accessAlternateDirectly,
     oracleSettings_secretsManagerOracleAsmSecretId,
-    oracleSettings_useAlternateFolderForOnline,
-    oracleSettings_useDirectPathFullLoad,
-    oracleSettings_numberDatatypeScale,
-    oracleSettings_oraclePathPrefix,
-    oracleSettings_securityDbEncryptionName,
-    oracleSettings_asmPassword,
-    oracleSettings_additionalArchivedLogDestId,
-    oracleSettings_directPathNoLog,
+    oracleSettings_securityDbEncryption,
+    oracleSettings_useLogminerReader,
+    oracleSettings_readTableSpaceName,
+    oracleSettings_retryInterval,
+    oracleSettings_password,
+    oracleSettings_spatialDataOptionToGeoJsonFunctionName,
+    oracleSettings_databaseName,
+    oracleSettings_addSupplementalLogging,
+    oracleSettings_secretsManagerOracleAsmAccessRoleArn,
+    oracleSettings_asmServer,
+    oracleSettings_charLengthSemantics,
     oracleSettings_archivedLogsOnly,
     oracleSettings_directPathParallelLoad,
     oracleSettings_secretsManagerSecretId,
-    oracleSettings_serverName,
-    oracleSettings_asmServer,
-    oracleSettings_password,
-    oracleSettings_readTableSpaceName,
-    oracleSettings_securityDbEncryption,
-    oracleSettings_archivedLogDestId,
-    oracleSettings_replacePathPrefix,
-    oracleSettings_readAheadBlocks,
-    oracleSettings_port,
-    oracleSettings_allowSelectNestedTables,
-    oracleSettings_asmUser,
-    oracleSettings_usePathPrefix,
-    oracleSettings_username,
-    oracleSettings_parallelAsmReadThreads,
-    oracleSettings_secretsManagerAccessRoleArn,
+    oracleSettings_additionalArchivedLogDestId,
+    oracleSettings_asmPassword,
     oracleSettings_enableHomogenousTablespace,
-    oracleSettings_extraArchivedLogDestIds,
-    oracleSettings_charLengthSemantics,
-    oracleSettings_spatialDataOptionToGeoJsonFunctionName,
-    oracleSettings_addSupplementalLogging,
-    oracleSettings_databaseName,
-    oracleSettings_secretsManagerOracleAsmAccessRoleArn,
+    oracleSettings_parallelAsmReadThreads,
+    oracleSettings_numberDatatypeScale,
+    oracleSettings_usePathPrefix,
+    oracleSettings_asmUser,
+    oracleSettings_useAlternateFolderForOnline,
+    oracleSettings_port,
 
     -- * OrderableReplicationInstance
     OrderableReplicationInstance (..),
     newOrderableReplicationInstance,
+    orderableReplicationInstance_engineVersion,
+    orderableReplicationInstance_minAllocatedStorage,
+    orderableReplicationInstance_releaseStatus,
+    orderableReplicationInstance_includedAllocatedStorage,
     orderableReplicationInstance_availabilityZones,
     orderableReplicationInstance_maxAllocatedStorage,
-    orderableReplicationInstance_storageType,
-    orderableReplicationInstance_defaultAllocatedStorage,
-    orderableReplicationInstance_includedAllocatedStorage,
-    orderableReplicationInstance_releaseStatus,
-    orderableReplicationInstance_engineVersion,
     orderableReplicationInstance_replicationInstanceClass,
-    orderableReplicationInstance_minAllocatedStorage,
+    orderableReplicationInstance_defaultAllocatedStorage,
+    orderableReplicationInstance_storageType,
 
     -- * PendingMaintenanceAction
     PendingMaintenanceAction (..),
     newPendingMaintenanceAction,
-    pendingMaintenanceAction_forcedApplyDate,
-    pendingMaintenanceAction_optInStatus,
     pendingMaintenanceAction_autoAppliedAfterDate,
-    pendingMaintenanceAction_currentApplyDate,
     pendingMaintenanceAction_action,
+    pendingMaintenanceAction_optInStatus,
     pendingMaintenanceAction_description,
+    pendingMaintenanceAction_forcedApplyDate,
+    pendingMaintenanceAction_currentApplyDate,
 
     -- * PostgreSQLSettings
     PostgreSQLSettings (..),
     newPostgreSQLSettings,
-    postgreSQLSettings_failTasksOnLobTruncation,
     postgreSQLSettings_executeTimeout,
-    postgreSQLSettings_heartbeatEnable,
-    postgreSQLSettings_heartbeatSchema,
-    postgreSQLSettings_pluginName,
-    postgreSQLSettings_captureDdls,
-    postgreSQLSettings_slotName,
+    postgreSQLSettings_maxFileSize,
+    postgreSQLSettings_failTasksOnLobTruncation,
+    postgreSQLSettings_serverName,
     postgreSQLSettings_ddlArtifactsSchema,
+    postgreSQLSettings_slotName,
+    postgreSQLSettings_secretsManagerAccessRoleArn,
+    postgreSQLSettings_username,
+    postgreSQLSettings_heartbeatFrequency,
+    postgreSQLSettings_password,
+    postgreSQLSettings_databaseName,
     postgreSQLSettings_afterConnectScript,
     postgreSQLSettings_secretsManagerSecretId,
-    postgreSQLSettings_serverName,
-    postgreSQLSettings_maxFileSize,
-    postgreSQLSettings_password,
-    postgreSQLSettings_heartbeatFrequency,
+    postgreSQLSettings_captureDdls,
+    postgreSQLSettings_pluginName,
     postgreSQLSettings_port,
-    postgreSQLSettings_username,
-    postgreSQLSettings_secretsManagerAccessRoleArn,
-    postgreSQLSettings_databaseName,
+    postgreSQLSettings_heartbeatSchema,
+    postgreSQLSettings_heartbeatEnable,
 
     -- * RedisSettings
     RedisSettings (..),
     newRedisSettings,
-    redisSettings_sslCaCertificateArn,
-    redisSettings_authPassword,
     redisSettings_sslSecurityProtocol,
     redisSettings_authUserName,
+    redisSettings_sslCaCertificateArn,
+    redisSettings_authPassword,
     redisSettings_authType,
     redisSettings_serverName,
     redisSettings_port,
@@ -498,72 +498,72 @@ module Network.AWS.DMS.Types
     -- * RedshiftSettings
     RedshiftSettings (..),
     newRedshiftSettings,
-    redshiftSettings_replaceChars,
+    redshiftSettings_emptyAsNull,
     redshiftSettings_caseSensitiveNames,
-    redshiftSettings_fileTransferUploadStreams,
-    redshiftSettings_bucketName,
-    redshiftSettings_timeFormat,
-    redshiftSettings_replaceInvalidChars,
-    redshiftSettings_serverSideEncryptionKmsKeyId,
-    redshiftSettings_bucketFolder,
-    redshiftSettings_writeBufferSize,
-    redshiftSettings_serviceAccessRoleArn,
-    redshiftSettings_afterConnectScript,
-    redshiftSettings_secretsManagerSecretId,
+    redshiftSettings_maxFileSize,
+    redshiftSettings_replaceChars,
+    redshiftSettings_serverName,
     redshiftSettings_connectionTimeout,
     redshiftSettings_loadTimeout,
-    redshiftSettings_acceptAnyDate,
-    redshiftSettings_serverName,
-    redshiftSettings_dateFormat,
-    redshiftSettings_maxFileSize,
-    redshiftSettings_password,
-    redshiftSettings_removeQuotes,
-    redshiftSettings_encryptionMode,
-    redshiftSettings_emptyAsNull,
-    redshiftSettings_port,
-    redshiftSettings_username,
-    redshiftSettings_trimBlanks,
+    redshiftSettings_serviceAccessRoleArn,
+    redshiftSettings_explicitIds,
+    redshiftSettings_bucketFolder,
     redshiftSettings_truncateColumns,
     redshiftSettings_secretsManagerAccessRoleArn,
-    redshiftSettings_explicitIds,
-    redshiftSettings_compUpdate,
+    redshiftSettings_replaceInvalidChars,
+    redshiftSettings_username,
+    redshiftSettings_bucketName,
+    redshiftSettings_encryptionMode,
+    redshiftSettings_dateFormat,
+    redshiftSettings_removeQuotes,
+    redshiftSettings_password,
     redshiftSettings_databaseName,
+    redshiftSettings_acceptAnyDate,
+    redshiftSettings_afterConnectScript,
+    redshiftSettings_secretsManagerSecretId,
+    redshiftSettings_writeBufferSize,
+    redshiftSettings_compUpdate,
+    redshiftSettings_trimBlanks,
+    redshiftSettings_timeFormat,
+    redshiftSettings_serverSideEncryptionKmsKeyId,
+    redshiftSettings_port,
+    redshiftSettings_fileTransferUploadStreams,
 
     -- * RefreshSchemasStatus
     RefreshSchemasStatus (..),
     newRefreshSchemasStatus,
     refreshSchemasStatus_status,
-    refreshSchemasStatus_lastFailureMessage,
-    refreshSchemasStatus_endpointArn,
     refreshSchemasStatus_lastRefreshDate,
     refreshSchemasStatus_replicationInstanceArn,
+    refreshSchemasStatus_endpointArn,
+    refreshSchemasStatus_lastFailureMessage,
 
     -- * ReplicationInstance
     ReplicationInstance (..),
     newReplicationInstance,
-    replicationInstance_vpcSecurityGroups,
-    replicationInstance_replicationInstancePrivateIpAddress,
-    replicationInstance_freeUntil,
-    replicationInstance_instanceCreateTime,
-    replicationInstance_replicationSubnetGroup,
+    replicationInstance_engineVersion,
     replicationInstance_publiclyAccessible,
-    replicationInstance_multiAZ,
+    replicationInstance_autoMinorVersionUpgrade,
+    replicationInstance_replicationInstancePublicIpAddresses,
+    replicationInstance_replicationSubnetGroup,
+    replicationInstance_instanceCreateTime,
+    replicationInstance_freeUntil,
+    replicationInstance_replicationInstanceStatus,
+    replicationInstance_replicationInstancePrivateIpAddresses,
+    replicationInstance_preferredMaintenanceWindow,
+    replicationInstance_replicationInstancePrivateIpAddress,
     replicationInstance_kmsKeyId,
     replicationInstance_availabilityZone,
-    replicationInstance_engineVersion,
-    replicationInstance_preferredMaintenanceWindow,
-    replicationInstance_replicationInstancePrivateIpAddresses,
-    replicationInstance_replicationInstanceStatus,
-    replicationInstance_replicationInstanceIdentifier,
-    replicationInstance_pendingModifiedValues,
-    replicationInstance_replicationInstanceClass,
-    replicationInstance_replicationInstancePublicIpAddress,
-    replicationInstance_dnsNameServers,
+    replicationInstance_vpcSecurityGroups,
+    replicationInstance_multiAZ,
+    replicationInstance_secondaryAvailabilityZone,
     replicationInstance_replicationInstanceArn,
     replicationInstance_allocatedStorage,
-    replicationInstance_replicationInstancePublicIpAddresses,
-    replicationInstance_secondaryAvailabilityZone,
-    replicationInstance_autoMinorVersionUpgrade,
+    replicationInstance_dnsNameServers,
+    replicationInstance_replicationInstancePublicIpAddress,
+    replicationInstance_replicationInstanceClass,
+    replicationInstance_replicationInstanceIdentifier,
+    replicationInstance_pendingModifiedValues,
 
     -- * ReplicationInstanceTaskLog
     ReplicationInstanceTaskLog (..),
@@ -575,69 +575,69 @@ module Network.AWS.DMS.Types
     -- * ReplicationPendingModifiedValues
     ReplicationPendingModifiedValues (..),
     newReplicationPendingModifiedValues,
-    replicationPendingModifiedValues_multiAZ,
     replicationPendingModifiedValues_engineVersion,
-    replicationPendingModifiedValues_replicationInstanceClass,
+    replicationPendingModifiedValues_multiAZ,
     replicationPendingModifiedValues_allocatedStorage,
+    replicationPendingModifiedValues_replicationInstanceClass,
 
     -- * ReplicationSubnetGroup
     ReplicationSubnetGroup (..),
     newReplicationSubnetGroup,
+    replicationSubnetGroup_vpcId,
+    replicationSubnetGroup_subnets,
     replicationSubnetGroup_replicationSubnetGroupIdentifier,
     replicationSubnetGroup_subnetGroupStatus,
     replicationSubnetGroup_replicationSubnetGroupDescription,
-    replicationSubnetGroup_vpcId,
-    replicationSubnetGroup_subnets,
 
     -- * ReplicationTask
     ReplicationTask (..),
     newReplicationTask,
+    replicationTask_replicationTaskSettings,
     replicationTask_status,
     replicationTask_stopReason,
-    replicationTask_migrationType,
-    replicationTask_replicationTaskCreationDate,
-    replicationTask_recoveryCheckpoint,
-    replicationTask_targetReplicationInstanceArn,
-    replicationTask_taskData,
     replicationTask_targetEndpointArn,
-    replicationTask_replicationTaskSettings,
-    replicationTask_replicationTaskArn,
-    replicationTask_tableMappings,
-    replicationTask_lastFailureMessage,
-    replicationTask_sourceEndpointArn,
-    replicationTask_replicationInstanceArn,
-    replicationTask_replicationTaskStats,
-    replicationTask_replicationTaskStartDate,
-    replicationTask_cdcStopPosition,
-    replicationTask_cdcStartPosition,
     replicationTask_replicationTaskIdentifier,
+    replicationTask_cdcStartPosition,
+    replicationTask_replicationTaskStartDate,
+    replicationTask_sourceEndpointArn,
+    replicationTask_recoveryCheckpoint,
+    replicationTask_tableMappings,
+    replicationTask_targetReplicationInstanceArn,
+    replicationTask_replicationTaskCreationDate,
+    replicationTask_migrationType,
+    replicationTask_replicationTaskArn,
+    replicationTask_taskData,
+    replicationTask_cdcStopPosition,
+    replicationTask_replicationTaskStats,
+    replicationTask_replicationInstanceArn,
+    replicationTask_lastFailureMessage,
 
     -- * ReplicationTaskAssessmentResult
     ReplicationTaskAssessmentResult (..),
     newReplicationTaskAssessmentResult,
-    replicationTaskAssessmentResult_s3ObjectUrl,
-    replicationTaskAssessmentResult_assessmentStatus,
     replicationTaskAssessmentResult_assessmentResults,
-    replicationTaskAssessmentResult_replicationTaskArn,
-    replicationTaskAssessmentResult_replicationTaskLastAssessmentDate,
-    replicationTaskAssessmentResult_replicationTaskIdentifier,
     replicationTaskAssessmentResult_assessmentResultsFile,
+    replicationTaskAssessmentResult_replicationTaskIdentifier,
+    replicationTaskAssessmentResult_assessmentStatus,
+    replicationTaskAssessmentResult_s3ObjectUrl,
+    replicationTaskAssessmentResult_replicationTaskLastAssessmentDate,
+    replicationTaskAssessmentResult_replicationTaskArn,
 
     -- * ReplicationTaskAssessmentRun
     ReplicationTaskAssessmentRun (..),
     newReplicationTaskAssessmentRun,
     replicationTaskAssessmentRun_status,
-    replicationTaskAssessmentRun_resultKmsKeyArn,
+    replicationTaskAssessmentRun_serviceAccessRoleArn,
     replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate,
     replicationTaskAssessmentRun_assessmentProgress,
-    replicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
-    replicationTaskAssessmentRun_assessmentRunName,
-    replicationTaskAssessmentRun_serviceAccessRoleArn,
-    replicationTaskAssessmentRun_resultEncryptionMode,
+    replicationTaskAssessmentRun_resultKmsKeyArn,
     replicationTaskAssessmentRun_replicationTaskArn,
-    replicationTaskAssessmentRun_lastFailureMessage,
-    replicationTaskAssessmentRun_resultLocationFolder,
     replicationTaskAssessmentRun_resultLocationBucket,
+    replicationTaskAssessmentRun_resultLocationFolder,
+    replicationTaskAssessmentRun_resultEncryptionMode,
+    replicationTaskAssessmentRun_assessmentRunName,
+    replicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
+    replicationTaskAssessmentRun_lastFailureMessage,
 
     -- * ReplicationTaskAssessmentRunProgress
     ReplicationTaskAssessmentRunProgress (..),
@@ -649,25 +649,25 @@ module Network.AWS.DMS.Types
     ReplicationTaskIndividualAssessment (..),
     newReplicationTaskIndividualAssessment,
     replicationTaskIndividualAssessment_status,
-    replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn,
-    replicationTaskIndividualAssessment_individualAssessmentName,
     replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate,
+    replicationTaskIndividualAssessment_individualAssessmentName,
     replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn,
+    replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn,
 
     -- * ReplicationTaskStats
     ReplicationTaskStats (..),
     newReplicationTaskStats,
-    replicationTaskStats_tablesErrored,
     replicationTaskStats_stopDate,
-    replicationTaskStats_startDate,
-    replicationTaskStats_freshStartDate,
-    replicationTaskStats_tablesLoading,
+    replicationTaskStats_fullLoadProgressPercent,
     replicationTaskStats_fullLoadStartDate,
     replicationTaskStats_elapsedTimeMillis,
-    replicationTaskStats_fullLoadProgressPercent,
-    replicationTaskStats_tablesQueued,
-    replicationTaskStats_tablesLoaded,
+    replicationTaskStats_startDate,
+    replicationTaskStats_tablesErrored,
     replicationTaskStats_fullLoadFinishDate,
+    replicationTaskStats_tablesLoaded,
+    replicationTaskStats_tablesQueued,
+    replicationTaskStats_tablesLoading,
+    replicationTaskStats_freshStartDate,
 
     -- * ResourcePendingMaintenanceActions
     ResourcePendingMaintenanceActions (..),
@@ -678,42 +678,42 @@ module Network.AWS.DMS.Types
     -- * S3Settings
     S3Settings (..),
     newS3Settings,
-    s3Settings_timestampColumnName,
-    s3Settings_csvRowDelimiter,
-    s3Settings_preserveTransactions,
     s3Settings_parquetVersion,
-    s3Settings_datePartitionSequence,
-    s3Settings_bucketName,
-    s3Settings_cdcPath,
-    s3Settings_serverSideEncryptionKmsKeyId,
-    s3Settings_externalTableDefinition,
-    s3Settings_csvNullValue,
-    s3Settings_dataPageSize,
+    s3Settings_preserveTransactions,
+    s3Settings_maxFileSize,
+    s3Settings_csvNoSupValue,
+    s3Settings_rfc4180,
+    s3Settings_parquetTimestampInMillisecond,
+    s3Settings_includeOpForFullLoad,
+    s3Settings_cdcMinFileSize,
+    s3Settings_csvDelimiter,
+    s3Settings_serviceAccessRoleArn,
+    s3Settings_bucketFolder,
     s3Settings_dataFormat,
     s3Settings_datePartitionEnabled,
     s3Settings_encodingType,
-    s3Settings_bucketFolder,
-    s3Settings_cannedAclForObjects,
-    s3Settings_serviceAccessRoleArn,
-    s3Settings_addColumnName,
-    s3Settings_datePartitionDelimiter,
-    s3Settings_maxFileSize,
+    s3Settings_cdcMaxBatchInterval,
+    s3Settings_ignoreHeaderRows,
+    s3Settings_externalTableDefinition,
+    s3Settings_dictPageSizeLimit,
+    s3Settings_bucketName,
     s3Settings_encryptionMode,
-    s3Settings_cdcInsertsOnly,
     s3Settings_enableStatistics,
+    s3Settings_cdcInsertsOnly,
+    s3Settings_timestampColumnName,
+    s3Settings_csvRowDelimiter,
+    s3Settings_datePartitionDelimiter,
+    s3Settings_addColumnName,
+    s3Settings_cannedAclForObjects,
+    s3Settings_compressionType,
+    s3Settings_csvNullValue,
+    s3Settings_serverSideEncryptionKmsKeyId,
+    s3Settings_dataPageSize,
     s3Settings_useCsvNoSupValue,
     s3Settings_cdcInsertsAndUpdates,
+    s3Settings_datePartitionSequence,
     s3Settings_rowGroupLength,
-    s3Settings_dictPageSizeLimit,
-    s3Settings_ignoreHeaderRows,
-    s3Settings_compressionType,
-    s3Settings_cdcMaxBatchInterval,
-    s3Settings_cdcMinFileSize,
-    s3Settings_includeOpForFullLoad,
-    s3Settings_csvDelimiter,
-    s3Settings_parquetTimestampInMillisecond,
-    s3Settings_rfc4180,
-    s3Settings_csvNoSupValue,
+    s3Settings_cdcPath,
 
     -- * Subnet
     Subnet (..),
@@ -725,45 +725,45 @@ module Network.AWS.DMS.Types
     -- * SupportedEndpointType
     SupportedEndpointType (..),
     newSupportedEndpointType,
-    supportedEndpointType_replicationInstanceEngineMinimumVersion,
-    supportedEndpointType_engineName,
-    supportedEndpointType_endpointType,
-    supportedEndpointType_supportsCDC,
     supportedEndpointType_engineDisplayName,
+    supportedEndpointType_endpointType,
+    supportedEndpointType_engineName,
+    supportedEndpointType_replicationInstanceEngineMinimumVersion,
+    supportedEndpointType_supportsCDC,
 
     -- * SybaseSettings
     SybaseSettings (..),
     newSybaseSettings,
-    sybaseSettings_secretsManagerSecretId,
     sybaseSettings_serverName,
-    sybaseSettings_password,
-    sybaseSettings_port,
-    sybaseSettings_username,
     sybaseSettings_secretsManagerAccessRoleArn,
+    sybaseSettings_username,
+    sybaseSettings_password,
     sybaseSettings_databaseName,
+    sybaseSettings_secretsManagerSecretId,
+    sybaseSettings_port,
 
     -- * TableStatistics
     TableStatistics (..),
     newTableStatistics,
-    tableStatistics_fullLoadCondtnlChkFailedRows,
-    tableStatistics_fullLoadRows,
-    tableStatistics_fullLoadErrorRows,
-    tableStatistics_tableName,
-    tableStatistics_tableState,
-    tableStatistics_lastUpdateTime,
-    tableStatistics_validationFailedRecords,
-    tableStatistics_fullLoadStartTime,
-    tableStatistics_updates,
-    tableStatistics_deletes,
-    tableStatistics_ddls,
-    tableStatistics_fullLoadEndTime,
-    tableStatistics_inserts,
     tableStatistics_validationState,
-    tableStatistics_validationStateDetails,
+    tableStatistics_fullLoadRows,
+    tableStatistics_inserts,
+    tableStatistics_fullLoadEndTime,
+    tableStatistics_fullLoadCondtnlChkFailedRows,
+    tableStatistics_fullLoadReloaded,
+    tableStatistics_validationFailedRecords,
     tableStatistics_validationSuspendedRecords,
     tableStatistics_schemaName,
-    tableStatistics_fullLoadReloaded,
+    tableStatistics_validationStateDetails,
+    tableStatistics_tableState,
+    tableStatistics_fullLoadErrorRows,
+    tableStatistics_ddls,
+    tableStatistics_deletes,
+    tableStatistics_updates,
     tableStatistics_validationPendingRecords,
+    tableStatistics_fullLoadStartTime,
+    tableStatistics_lastUpdateTime,
+    tableStatistics_tableName,
 
     -- * TableToReload
     TableToReload (..),
@@ -774,9 +774,9 @@ module Network.AWS.DMS.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
-    tag_resourceArn,
     tag_value,
+    tag_resourceArn,
+    tag_key,
 
     -- * VpcSecurityGroupMembership
     VpcSecurityGroupMembership (..),
@@ -891,37 +891,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -934,7 +911,38 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The ciphertext references a key that doesn\'t exist or that the DMS
+-- account doesn\'t have access to.
+_KMSAccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedFault =
+  Core._MatchServiceError
+    defaultService
+    "KMSAccessDeniedFault"
 
 -- | The specified master key (CMK) isn\'t enabled.
 _KMSDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -948,21 +956,43 @@ _KMSFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a 
 _KMSFault =
   Core._MatchServiceError defaultService "KMSFault"
 
--- | The ciphertext references a key that doesn\'t exist or that the DMS
--- account doesn\'t have access to.
-_KMSAccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSAccessDeniedFault =
+-- | The subnet provided is invalid.
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnet =
   Core._MatchServiceError
     defaultService
-    "KMSAccessDeniedFault"
+    "InvalidSubnet"
 
--- | DMS was denied access to the endpoint. Check that the role is correctly
--- configured.
-_AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedFault =
+-- | DMS cannot access the KMS key.
+_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSKeyNotAccessibleFault =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedFault"
+    "KMSKeyNotAccessibleFault"
+
+-- | The replication subnet group does not cover enough Availability Zones
+-- (AZs). Edit the replication subnet group and add more AZs.
+_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationSubnetGroupDoesNotCoverEnoughAZs =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+
+-- | A specified Amazon S3 bucket, bucket folder, or other object can\'t be
+-- found.
+_S3ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3ResourceNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "S3ResourceNotFoundFault"
+
+-- | The resource is in a state that prevents it from being used for database
+-- migration.
+_InvalidResourceStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceStateFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourceStateFault"
 
 -- | The certificate was not valid.
 _InvalidCertificateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -978,34 +1008,26 @@ _SNSNoAuthorizationFault =
     defaultService
     "SNSNoAuthorizationFault"
 
--- | The resource is in a state that prevents it from being used for database
--- migration.
-_InvalidResourceStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceStateFault =
+-- | The resource you are attempting to create already exists.
+_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
-    "InvalidResourceStateFault"
+    "ResourceAlreadyExistsFault"
 
--- | DMS cannot access the KMS key.
-_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSKeyNotAccessibleFault =
+-- | There are not enough resources allocated to the database migration.
+_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientResourceCapacityFault =
   Core._MatchServiceError
     defaultService
-    "KMSKeyNotAccessibleFault"
+    "InsufficientResourceCapacityFault"
 
--- | The resource could not be found.
-_ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundFault =
+-- | Insufficient privileges are preventing access to an Amazon S3 object.
+_S3AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_S3AccessDeniedFault =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundFault"
-
--- | The quota for this resource quota has been exceeded.
-_ResourceQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "ResourceQuotaExceededFault"
+    "S3AccessDeniedFault"
 
 -- | The SNS topic is invalid.
 _SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1021,63 +1043,19 @@ _KMSNotFoundFault =
     defaultService
     "KMSNotFoundFault"
 
--- | There are not enough resources allocated to the database migration.
-_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientResourceCapacityFault =
+-- | This request triggered KMS request throttling.
+_KMSThrottlingFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSThrottlingFault =
   Core._MatchServiceError
     defaultService
-    "InsufficientResourceCapacityFault"
+    "KMSThrottlingFault"
 
--- | The state of the specified KMS resource isn\'t valid for this request.
-_KMSInvalidStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSInvalidStateFault =
+-- | The quota for this resource quota has been exceeded.
+_ResourceQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "KMSInvalidStateFault"
-
--- | The specified subnet is already in use.
-_SubnetAlreadyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubnetAlreadyInUse =
-  Core._MatchServiceError
-    defaultService
-    "SubnetAlreadyInUse"
-
--- | Insufficient privileges are preventing access to an Amazon S3 object.
-_S3AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_S3AccessDeniedFault =
-  Core._MatchServiceError
-    defaultService
-    "S3AccessDeniedFault"
-
--- | The resource you are attempting to create already exists.
-_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsFault =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsFault"
-
--- | The storage quota has been exceeded.
-_StorageQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StorageQuotaExceededFault =
-  Core._MatchServiceError
-    defaultService
-    "StorageQuotaExceededFault"
-
--- | A specified Amazon S3 bucket, bucket folder, or other object can\'t be
--- found.
-_S3ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_S3ResourceNotFoundFault =
-  Core._MatchServiceError
-    defaultService
-    "S3ResourceNotFoundFault"
-
--- | The replication subnet group does not cover enough Availability Zones
--- (AZs). Edit the replication subnet group and add more AZs.
-_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicationSubnetGroupDoesNotCoverEnoughAZs =
-  Core._MatchServiceError
-    defaultService
-    "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
+    "ResourceQuotaExceededFault"
 
 -- | An upgrade dependency is preventing the database migration.
 _UpgradeDependencyFailureFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1086,16 +1064,38 @@ _UpgradeDependencyFailureFault =
     defaultService
     "UpgradeDependencyFailureFault"
 
--- | This request triggered KMS request throttling.
-_KMSThrottlingFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSThrottlingFault =
+-- | The resource could not be found.
+_ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
-    "KMSThrottlingFault"
+    "ResourceNotFoundFault"
 
--- | The subnet provided is invalid.
-_InvalidSubnet :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnet =
+-- | The storage quota has been exceeded.
+_StorageQuotaExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StorageQuotaExceededFault =
   Core._MatchServiceError
     defaultService
-    "InvalidSubnet"
+    "StorageQuotaExceededFault"
+
+-- | DMS was denied access to the endpoint. Check that the role is correctly
+-- configured.
+_AccessDeniedFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedFault =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedFault"
+
+-- | The specified subnet is already in use.
+_SubnetAlreadyInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubnetAlreadyInUse =
+  Core._MatchServiceError
+    defaultService
+    "SubnetAlreadyInUse"
+
+-- | The state of the specified KMS resource isn\'t valid for this request.
+_KMSInvalidStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateFault =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidStateFault"

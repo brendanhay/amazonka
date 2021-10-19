@@ -31,8 +31,8 @@ module Network.AWS.DMS.DescribeEventCategories
     newDescribeEventCategories,
 
     -- * Request Lenses
-    describeEventCategories_filters,
     describeEventCategories_sourceType,
+    describeEventCategories_filters,
 
     -- * Destructuring the Response
     DescribeEventCategoriesResponse (..),
@@ -55,12 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { -- | Filters applied to the event categories.
-    filters :: Prelude.Maybe [Filter],
-    -- | The type of DMS resource that generates events.
+  { -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-task
-    sourceType :: Prelude.Maybe Prelude.Text
+    sourceType :: Prelude.Maybe Prelude.Text,
+    -- | Filters applied to the event categories.
+    filters :: Prelude.Maybe [Filter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,28 +72,29 @@ data DescribeEventCategories = DescribeEventCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'describeEventCategories_filters' - Filters applied to the event categories.
---
 -- 'sourceType', 'describeEventCategories_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
+--
+-- 'filters', 'describeEventCategories_filters' - Filters applied to the event categories.
 newDescribeEventCategories ::
   DescribeEventCategories
 newDescribeEventCategories =
   DescribeEventCategories'
-    { filters = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+    { sourceType =
+        Prelude.Nothing,
+      filters = Prelude.Nothing
     }
-
--- | Filters applied to the event categories.
-describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
-describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
 describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
+
+-- | Filters applied to the event categories.
+describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
+describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeEventCategories where
   type
@@ -133,8 +134,8 @@ instance Core.ToJSON DescribeEventCategories where
   toJSON DescribeEventCategories' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Filters" Core..=) Prelude.<$> filters,
-            ("SourceType" Core..=) Prelude.<$> sourceType
+          [ ("SourceType" Core..=) Prelude.<$> sourceType,
+            ("Filters" Core..=) Prelude.<$> filters
           ]
       )
 
@@ -179,7 +180,7 @@ newDescribeEventCategoriesResponse pHttpStatus_ =
 
 -- | A list of event categories.
 describeEventCategoriesResponse_eventCategoryGroupList :: Lens.Lens' DescribeEventCategoriesResponse (Prelude.Maybe [EventCategoryGroup])
-describeEventCategoriesResponse_eventCategoryGroupList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoryGroupList} -> eventCategoryGroupList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoryGroupList = a} :: DescribeEventCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventCategoriesResponse_eventCategoryGroupList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoryGroupList} -> eventCategoryGroupList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoryGroupList = a} :: DescribeEventCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Prelude.Int

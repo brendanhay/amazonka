@@ -27,17 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNeptuneSettings' smart constructor.
 data NeptuneSettings = NeptuneSettings'
-  { -- | The number of milliseconds for DMS to wait to retry a bulk-load of
-    -- migrated graph data to the Neptune target database before raising an
-    -- error. The default is 250.
-    errorRetryDuration :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the service role that you created for
-    -- the Neptune target endpoint. The role must allow the @iam:PassRole@
-    -- action. For more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
-    -- in the /Database Migration Service User Guide./
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size in kilobytes of migrated graph data stored in a .csv
+  { -- | The maximum size in kilobytes of migrated graph data stored in a .csv
     -- file before DMS bulk-loads the data to the Neptune target database. The
     -- default is 1,048,576 KB. If the bulk load is successful, DMS clears the
     -- bucket, ready to store the next batch of migrated graph data.
@@ -46,11 +36,21 @@ data NeptuneSettings = NeptuneSettings'
     -- to the Neptune target database before raising an error. The default is
     -- 5.
     maxRetryCount :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the service role that you created for
+    -- the Neptune target endpoint. The role must allow the @iam:PassRole@
+    -- action. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
+    -- in the /Database Migration Service User Guide./
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | If you want Identity and Access Management (IAM) authorization enabled
     -- for this endpoint, set this parameter to @true@. Then attach the
     -- appropriate IAM policy document to your service role specified by
     -- @ServiceAccessRoleArn@. The default is @false@.
     iamAuthEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The number of milliseconds for DMS to wait to retry a bulk-load of
+    -- migrated graph data to the Neptune target database before raising an
+    -- error. The default is 250.
+    errorRetryDuration :: Prelude.Maybe Prelude.Int,
     -- | The name of the Amazon S3 bucket where DMS can temporarily store
     -- migrated graph data in .csv files before bulk-loading it to the Neptune
     -- target database. DMS maps the SQL source data to graph data before
@@ -70,16 +70,6 @@ data NeptuneSettings = NeptuneSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorRetryDuration', 'neptuneSettings_errorRetryDuration' - The number of milliseconds for DMS to wait to retry a bulk-load of
--- migrated graph data to the Neptune target database before raising an
--- error. The default is 250.
---
--- 'serviceAccessRoleArn', 'neptuneSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) of the service role that you created for
--- the Neptune target endpoint. The role must allow the @iam:PassRole@
--- action. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
--- in the /Database Migration Service User Guide./
---
 -- 'maxFileSize', 'neptuneSettings_maxFileSize' - The maximum size in kilobytes of migrated graph data stored in a .csv
 -- file before DMS bulk-loads the data to the Neptune target database. The
 -- default is 1,048,576 KB. If the bulk load is successful, DMS clears the
@@ -89,10 +79,20 @@ data NeptuneSettings = NeptuneSettings'
 -- to the Neptune target database before raising an error. The default is
 -- 5.
 --
+-- 'serviceAccessRoleArn', 'neptuneSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) of the service role that you created for
+-- the Neptune target endpoint. The role must allow the @iam:PassRole@
+-- action. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
+-- in the /Database Migration Service User Guide./
+--
 -- 'iamAuthEnabled', 'neptuneSettings_iamAuthEnabled' - If you want Identity and Access Management (IAM) authorization enabled
 -- for this endpoint, set this parameter to @true@. Then attach the
 -- appropriate IAM policy document to your service role specified by
 -- @ServiceAccessRoleArn@. The default is @false@.
+--
+-- 'errorRetryDuration', 'neptuneSettings_errorRetryDuration' - The number of milliseconds for DMS to wait to retry a bulk-load of
+-- migrated graph data to the Neptune target database before raising an
+-- error. The default is 250.
 --
 -- 's3BucketName', 'neptuneSettings_s3BucketName' - The name of the Amazon S3 bucket where DMS can temporarily store
 -- migrated graph data in .csv files before bulk-loading it to the Neptune
@@ -109,29 +109,14 @@ newNeptuneSettings ::
   NeptuneSettings
 newNeptuneSettings pS3BucketName_ pS3BucketFolder_ =
   NeptuneSettings'
-    { errorRetryDuration =
-        Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing,
-      maxFileSize = Prelude.Nothing,
+    { maxFileSize = Prelude.Nothing,
       maxRetryCount = Prelude.Nothing,
+      serviceAccessRoleArn = Prelude.Nothing,
       iamAuthEnabled = Prelude.Nothing,
+      errorRetryDuration = Prelude.Nothing,
       s3BucketName = pS3BucketName_,
       s3BucketFolder = pS3BucketFolder_
     }
-
--- | The number of milliseconds for DMS to wait to retry a bulk-load of
--- migrated graph data to the Neptune target database before raising an
--- error. The default is 250.
-neptuneSettings_errorRetryDuration :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Int)
-neptuneSettings_errorRetryDuration = Lens.lens (\NeptuneSettings' {errorRetryDuration} -> errorRetryDuration) (\s@NeptuneSettings' {} a -> s {errorRetryDuration = a} :: NeptuneSettings)
-
--- | The Amazon Resource Name (ARN) of the service role that you created for
--- the Neptune target endpoint. The role must allow the @iam:PassRole@
--- action. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
--- in the /Database Migration Service User Guide./
-neptuneSettings_serviceAccessRoleArn :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Text)
-neptuneSettings_serviceAccessRoleArn = Lens.lens (\NeptuneSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@NeptuneSettings' {} a -> s {serviceAccessRoleArn = a} :: NeptuneSettings)
 
 -- | The maximum size in kilobytes of migrated graph data stored in a .csv
 -- file before DMS bulk-loads the data to the Neptune target database. The
@@ -146,12 +131,26 @@ neptuneSettings_maxFileSize = Lens.lens (\NeptuneSettings' {maxFileSize} -> maxF
 neptuneSettings_maxRetryCount :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Int)
 neptuneSettings_maxRetryCount = Lens.lens (\NeptuneSettings' {maxRetryCount} -> maxRetryCount) (\s@NeptuneSettings' {} a -> s {maxRetryCount = a} :: NeptuneSettings)
 
+-- | The Amazon Resource Name (ARN) of the service role that you created for
+-- the Neptune target endpoint. The role must allow the @iam:PassRole@
+-- action. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole Creating an IAM Service Role for Accessing Amazon Neptune as a Target>
+-- in the /Database Migration Service User Guide./
+neptuneSettings_serviceAccessRoleArn :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Text)
+neptuneSettings_serviceAccessRoleArn = Lens.lens (\NeptuneSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@NeptuneSettings' {} a -> s {serviceAccessRoleArn = a} :: NeptuneSettings)
+
 -- | If you want Identity and Access Management (IAM) authorization enabled
 -- for this endpoint, set this parameter to @true@. Then attach the
 -- appropriate IAM policy document to your service role specified by
 -- @ServiceAccessRoleArn@. The default is @false@.
 neptuneSettings_iamAuthEnabled :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Bool)
 neptuneSettings_iamAuthEnabled = Lens.lens (\NeptuneSettings' {iamAuthEnabled} -> iamAuthEnabled) (\s@NeptuneSettings' {} a -> s {iamAuthEnabled = a} :: NeptuneSettings)
+
+-- | The number of milliseconds for DMS to wait to retry a bulk-load of
+-- migrated graph data to the Neptune target database before raising an
+-- error. The default is 250.
+neptuneSettings_errorRetryDuration :: Lens.Lens' NeptuneSettings (Prelude.Maybe Prelude.Int)
+neptuneSettings_errorRetryDuration = Lens.lens (\NeptuneSettings' {errorRetryDuration} -> errorRetryDuration) (\s@NeptuneSettings' {} a -> s {errorRetryDuration = a} :: NeptuneSettings)
 
 -- | The name of the Amazon S3 bucket where DMS can temporarily store
 -- migrated graph data in .csv files before bulk-loading it to the Neptune
@@ -171,11 +170,11 @@ instance Core.FromJSON NeptuneSettings where
       "NeptuneSettings"
       ( \x ->
           NeptuneSettings'
-            Prelude.<$> (x Core..:? "ErrorRetryDuration")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
-            Prelude.<*> (x Core..:? "MaxFileSize")
+            Prelude.<$> (x Core..:? "MaxFileSize")
             Prelude.<*> (x Core..:? "MaxRetryCount")
+            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
             Prelude.<*> (x Core..:? "IamAuthEnabled")
+            Prelude.<*> (x Core..:? "ErrorRetryDuration")
             Prelude.<*> (x Core..: "S3BucketName")
             Prelude.<*> (x Core..: "S3BucketFolder")
       )
@@ -188,14 +187,14 @@ instance Core.ToJSON NeptuneSettings where
   toJSON NeptuneSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ErrorRetryDuration" Core..=)
-              Prelude.<$> errorRetryDuration,
+          [ ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
+            ("MaxRetryCount" Core..=) Prelude.<$> maxRetryCount,
             ("ServiceAccessRoleArn" Core..=)
               Prelude.<$> serviceAccessRoleArn,
-            ("MaxFileSize" Core..=) Prelude.<$> maxFileSize,
-            ("MaxRetryCount" Core..=) Prelude.<$> maxRetryCount,
             ("IamAuthEnabled" Core..=)
               Prelude.<$> iamAuthEnabled,
+            ("ErrorRetryDuration" Core..=)
+              Prelude.<$> errorRetryDuration,
             Prelude.Just ("S3BucketName" Core..= s3BucketName),
             Prelude.Just
               ("S3BucketFolder" Core..= s3BucketFolder)

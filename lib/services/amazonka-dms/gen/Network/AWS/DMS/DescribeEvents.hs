@@ -32,15 +32,15 @@ module Network.AWS.DMS.DescribeEvents
     newDescribeEvents,
 
     -- * Request Lenses
-    describeEvents_duration,
     describeEvents_startTime,
-    describeEvents_endTime,
-    describeEvents_eventCategories,
-    describeEvents_sourceIdentifier,
-    describeEvents_filters,
     describeEvents_sourceType,
-    describeEvents_maxRecords,
+    describeEvents_filters,
+    describeEvents_sourceIdentifier,
+    describeEvents_eventCategories,
     describeEvents_marker,
+    describeEvents_maxRecords,
+    describeEvents_endTime,
+    describeEvents_duration,
 
     -- * Destructuring the Response
     DescribeEventsResponse (..),
@@ -64,22 +64,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { -- | The duration of the events to be listed.
-    duration :: Prelude.Maybe Prelude.Int,
-    -- | The start time for the events to be listed.
+  { -- | The start time for the events to be listed.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The end time for the events to be listed.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | A list of event categories for the source type that you\'ve chosen.
-    eventCategories :: Prelude.Maybe [Prelude.Text],
-    -- | The identifier of an event source.
-    sourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied to events.
-    filters :: Prelude.Maybe [Filter],
     -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-task
     sourceType :: Prelude.Maybe SourceType,
+    -- | Filters applied to events.
+    filters :: Prelude.Maybe [Filter],
+    -- | The identifier of an event source.
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A list of event categories for the source type that you\'ve chosen.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -89,10 +89,10 @@ data DescribeEvents = DescribeEvents'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The end time for the events to be listed.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The duration of the events to be listed.
+    duration :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,21 +104,21 @@ data DescribeEvents = DescribeEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'duration', 'describeEvents_duration' - The duration of the events to be listed.
---
 -- 'startTime', 'describeEvents_startTime' - The start time for the events to be listed.
---
--- 'endTime', 'describeEvents_endTime' - The end time for the events to be listed.
---
--- 'eventCategories', 'describeEvents_eventCategories' - A list of event categories for the source type that you\'ve chosen.
---
--- 'sourceIdentifier', 'describeEvents_sourceIdentifier' - The identifier of an event source.
---
--- 'filters', 'describeEvents_filters' - Filters applied to events.
 --
 -- 'sourceType', 'describeEvents_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
+--
+-- 'filters', 'describeEvents_filters' - Filters applied to events.
+--
+-- 'sourceIdentifier', 'describeEvents_sourceIdentifier' - The identifier of an event source.
+--
+-- 'eventCategories', 'describeEvents_eventCategories' - A list of event categories for the source type that you\'ve chosen.
+--
+-- 'marker', 'describeEvents_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -129,53 +129,51 @@ data DescribeEvents = DescribeEvents'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'marker', 'describeEvents_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- 'endTime', 'describeEvents_endTime' - The end time for the events to be listed.
+--
+-- 'duration', 'describeEvents_duration' - The duration of the events to be listed.
 newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
   DescribeEvents'
-    { duration = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      eventCategories = Prelude.Nothing,
-      sourceIdentifier = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { startTime = Prelude.Nothing,
       sourceType = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      endTime = Prelude.Nothing,
+      duration = Prelude.Nothing
     }
-
--- | The duration of the events to be listed.
-describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
-describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 -- | The start time for the events to be listed.
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
-
--- | The end time for the events to be listed.
-describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
-
--- | A list of event categories for the source type that you\'ve chosen.
-describeEvents_eventCategories :: Lens.Lens' DescribeEvents (Prelude.Maybe [Prelude.Text])
-describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -> eventCategories) (\s@DescribeEvents' {} a -> s {eventCategories = a} :: DescribeEvents) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of an event source.
-describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier} -> sourceIdentifier) (\s@DescribeEvents' {} a -> s {sourceIdentifier = a} :: DescribeEvents)
-
--- | Filters applied to events.
-describeEvents_filters :: Lens.Lens' DescribeEvents (Prelude.Maybe [Filter])
-describeEvents_filters = Lens.lens (\DescribeEvents' {filters} -> filters) (\s@DescribeEvents' {} a -> s {filters = a} :: DescribeEvents) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
+
+-- | Filters applied to events.
+describeEvents_filters :: Lens.Lens' DescribeEvents (Prelude.Maybe [Filter])
+describeEvents_filters = Lens.lens (\DescribeEvents' {filters} -> filters) (\s@DescribeEvents' {} a -> s {filters = a} :: DescribeEvents) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of an event source.
+describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier} -> sourceIdentifier) (\s@DescribeEvents' {} a -> s {sourceIdentifier = a} :: DescribeEvents)
+
+-- | A list of event categories for the source type that you\'ve chosen.
+describeEvents_eventCategories :: Lens.Lens' DescribeEvents (Prelude.Maybe [Prelude.Text])
+describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -> eventCategories) (\s@DescribeEvents' {} a -> s {eventCategories = a} :: DescribeEvents) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -188,11 +186,13 @@ describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceTy
 describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
+-- | The end time for the events to be listed.
+describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+
+-- | The duration of the events to be listed.
+describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -250,17 +250,17 @@ instance Core.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Duration" Core..=) Prelude.<$> duration,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("EventCategories" Core..=)
-              Prelude.<$> eventCategories,
+          [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("SourceType" Core..=) Prelude.<$> sourceType,
+            ("Filters" Core..=) Prelude.<$> filters,
             ("SourceIdentifier" Core..=)
               Prelude.<$> sourceIdentifier,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
+            ("EventCategories" Core..=)
+              Prelude.<$> eventCategories,
+            ("Marker" Core..=) Prelude.<$> marker,
             ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("EndTime" Core..=) Prelude.<$> endTime,
+            ("Duration" Core..=) Prelude.<$> duration
           ]
       )
 
@@ -313,7 +313,7 @@ newDescribeEventsResponse pHttpStatus_ =
 
 -- | The events described.
 describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
-describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

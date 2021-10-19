@@ -118,7 +118,7 @@ reloadTables_replicationTaskArn = Lens.lens (\ReloadTables' {replicationTaskArn}
 
 -- | The name and schema of the table to be reloaded.
 reloadTables_tablesToReload :: Lens.Lens' ReloadTables [TableToReload]
-reloadTables_tablesToReload = Lens.lens (\ReloadTables' {tablesToReload} -> tablesToReload) (\s@ReloadTables' {} a -> s {tablesToReload = a} :: ReloadTables) Prelude.. Lens._Coerce
+reloadTables_tablesToReload = Lens.lens (\ReloadTables' {tablesToReload} -> tablesToReload) (\s@ReloadTables' {} a -> s {tablesToReload = a} :: ReloadTables) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ReloadTables where
   type AWSResponse ReloadTables = ReloadTablesResponse

@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 data RefreshSchemasStatus = RefreshSchemasStatus'
   { -- | The status of the schema.
     status :: Prelude.Maybe RefreshSchemasStatusTypeValue,
-    -- | The last failure message for the schema.
-    lastFailureMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) string that uniquely identifies the
-    -- endpoint.
-    endpointArn :: Prelude.Maybe Prelude.Text,
     -- | The date the schema was last refreshed.
     lastRefreshDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceArn :: Prelude.Maybe Prelude.Text
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the
+    -- endpoint.
+    endpointArn :: Prelude.Maybe Prelude.Text,
+    -- | The last failure message for the schema.
+    lastFailureMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,37 +53,28 @@ data RefreshSchemasStatus = RefreshSchemasStatus'
 --
 -- 'status', 'refreshSchemasStatus_status' - The status of the schema.
 --
--- 'lastFailureMessage', 'refreshSchemasStatus_lastFailureMessage' - The last failure message for the schema.
+-- 'lastRefreshDate', 'refreshSchemasStatus_lastRefreshDate' - The date the schema was last refreshed.
+--
+-- 'replicationInstanceArn', 'refreshSchemasStatus_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 --
 -- 'endpointArn', 'refreshSchemasStatus_endpointArn' - The Amazon Resource Name (ARN) string that uniquely identifies the
 -- endpoint.
 --
--- 'lastRefreshDate', 'refreshSchemasStatus_lastRefreshDate' - The date the schema was last refreshed.
---
--- 'replicationInstanceArn', 'refreshSchemasStatus_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
+-- 'lastFailureMessage', 'refreshSchemasStatus_lastFailureMessage' - The last failure message for the schema.
 newRefreshSchemasStatus ::
   RefreshSchemasStatus
 newRefreshSchemasStatus =
   RefreshSchemasStatus'
     { status = Prelude.Nothing,
-      lastFailureMessage = Prelude.Nothing,
-      endpointArn = Prelude.Nothing,
       lastRefreshDate = Prelude.Nothing,
-      replicationInstanceArn = Prelude.Nothing
+      replicationInstanceArn = Prelude.Nothing,
+      endpointArn = Prelude.Nothing,
+      lastFailureMessage = Prelude.Nothing
     }
 
 -- | The status of the schema.
 refreshSchemasStatus_status :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe RefreshSchemasStatusTypeValue)
 refreshSchemasStatus_status = Lens.lens (\RefreshSchemasStatus' {status} -> status) (\s@RefreshSchemasStatus' {} a -> s {status = a} :: RefreshSchemasStatus)
-
--- | The last failure message for the schema.
-refreshSchemasStatus_lastFailureMessage :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
-refreshSchemasStatus_lastFailureMessage = Lens.lens (\RefreshSchemasStatus' {lastFailureMessage} -> lastFailureMessage) (\s@RefreshSchemasStatus' {} a -> s {lastFailureMessage = a} :: RefreshSchemasStatus)
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the
--- endpoint.
-refreshSchemasStatus_endpointArn :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
-refreshSchemasStatus_endpointArn = Lens.lens (\RefreshSchemasStatus' {endpointArn} -> endpointArn) (\s@RefreshSchemasStatus' {} a -> s {endpointArn = a} :: RefreshSchemasStatus)
 
 -- | The date the schema was last refreshed.
 refreshSchemasStatus_lastRefreshDate :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.UTCTime)
@@ -93,6 +84,15 @@ refreshSchemasStatus_lastRefreshDate = Lens.lens (\RefreshSchemasStatus' {lastRe
 refreshSchemasStatus_replicationInstanceArn :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
 refreshSchemasStatus_replicationInstanceArn = Lens.lens (\RefreshSchemasStatus' {replicationInstanceArn} -> replicationInstanceArn) (\s@RefreshSchemasStatus' {} a -> s {replicationInstanceArn = a} :: RefreshSchemasStatus)
 
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the
+-- endpoint.
+refreshSchemasStatus_endpointArn :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
+refreshSchemasStatus_endpointArn = Lens.lens (\RefreshSchemasStatus' {endpointArn} -> endpointArn) (\s@RefreshSchemasStatus' {} a -> s {endpointArn = a} :: RefreshSchemasStatus)
+
+-- | The last failure message for the schema.
+refreshSchemasStatus_lastFailureMessage :: Lens.Lens' RefreshSchemasStatus (Prelude.Maybe Prelude.Text)
+refreshSchemasStatus_lastFailureMessage = Lens.lens (\RefreshSchemasStatus' {lastFailureMessage} -> lastFailureMessage) (\s@RefreshSchemasStatus' {} a -> s {lastFailureMessage = a} :: RefreshSchemasStatus)
+
 instance Core.FromJSON RefreshSchemasStatus where
   parseJSON =
     Core.withObject
@@ -100,10 +100,10 @@ instance Core.FromJSON RefreshSchemasStatus where
       ( \x ->
           RefreshSchemasStatus'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "EndpointArn")
             Prelude.<*> (x Core..:? "LastRefreshDate")
             Prelude.<*> (x Core..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Core..:? "EndpointArn")
+            Prelude.<*> (x Core..:? "LastFailureMessage")
       )
 
 instance Prelude.Hashable RefreshSchemasStatus

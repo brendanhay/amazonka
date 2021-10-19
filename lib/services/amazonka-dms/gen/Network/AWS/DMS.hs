@@ -31,17 +31,29 @@ module Network.AWS.DMS
     -- * Errors
     -- $errors
 
+    -- ** KMSAccessDeniedFault
+    _KMSAccessDeniedFault,
+
     -- ** KMSDisabledFault
     _KMSDisabledFault,
 
     -- ** KMSFault
     _KMSFault,
 
-    -- ** KMSAccessDeniedFault
-    _KMSAccessDeniedFault,
+    -- ** InvalidSubnet
+    _InvalidSubnet,
 
-    -- ** AccessDeniedFault
-    _AccessDeniedFault,
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
+    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** S3ResourceNotFoundFault
+    _S3ResourceNotFoundFault,
+
+    -- ** InvalidResourceStateFault
+    _InvalidResourceStateFault,
 
     -- ** InvalidCertificateFault
     _InvalidCertificateFault,
@@ -49,17 +61,14 @@ module Network.AWS.DMS
     -- ** SNSNoAuthorizationFault
     _SNSNoAuthorizationFault,
 
-    -- ** InvalidResourceStateFault
-    _InvalidResourceStateFault,
+    -- ** ResourceAlreadyExistsFault
+    _ResourceAlreadyExistsFault,
 
-    -- ** KMSKeyNotAccessibleFault
-    _KMSKeyNotAccessibleFault,
+    -- ** InsufficientResourceCapacityFault
+    _InsufficientResourceCapacityFault,
 
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** ResourceQuotaExceededFault
-    _ResourceQuotaExceededFault,
+    -- ** S3AccessDeniedFault
+    _S3AccessDeniedFault,
 
     -- ** SNSInvalidTopicFault
     _SNSInvalidTopicFault,
@@ -67,38 +76,29 @@ module Network.AWS.DMS
     -- ** KMSNotFoundFault
     _KMSNotFoundFault,
 
-    -- ** InsufficientResourceCapacityFault
-    _InsufficientResourceCapacityFault,
+    -- ** KMSThrottlingFault
+    _KMSThrottlingFault,
 
-    -- ** KMSInvalidStateFault
-    _KMSInvalidStateFault,
-
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
-
-    -- ** S3AccessDeniedFault
-    _S3AccessDeniedFault,
-
-    -- ** ResourceAlreadyExistsFault
-    _ResourceAlreadyExistsFault,
-
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
-
-    -- ** S3ResourceNotFoundFault
-    _S3ResourceNotFoundFault,
-
-    -- ** ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
+    -- ** ResourceQuotaExceededFault
+    _ResourceQuotaExceededFault,
 
     -- ** UpgradeDependencyFailureFault
     _UpgradeDependencyFailureFault,
 
-    -- ** KMSThrottlingFault
-    _KMSThrottlingFault,
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
 
-    -- ** InvalidSubnet
-    _InvalidSubnet,
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** AccessDeniedFault
+    _AccessDeniedFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** KMSInvalidStateFault
+    _KMSInvalidStateFault,
 
     -- * Waiters
     -- $waiters
@@ -109,44 +109,44 @@ module Network.AWS.DMS
     -- ** ReplicationTaskDeleted
     newReplicationTaskDeleted,
 
-    -- ** EndpointDeleted
-    newEndpointDeleted,
-
-    -- ** ReplicationTaskRunning
-    newReplicationTaskRunning,
+    -- ** ReplicationTaskReady
+    newReplicationTaskReady,
 
     -- ** ReplicationInstanceDeleted
     newReplicationInstanceDeleted,
 
-    -- ** ReplicationTaskReady
-    newReplicationTaskReady,
-
-    -- ** TestConnectionSucceeds
-    newTestConnectionSucceeds,
+    -- ** EndpointDeleted
+    newEndpointDeleted,
 
     -- ** ReplicationTaskStopped
     newReplicationTaskStopped,
 
+    -- ** ReplicationTaskRunning
+    newReplicationTaskRunning,
+
+    -- ** TestConnectionSucceeds
+    newTestConnectionSucceeds,
+
     -- * Operations
     -- $operations
 
-    -- ** CreateEndpoint
-    CreateEndpoint (CreateEndpoint'),
-    newCreateEndpoint,
-    CreateEndpointResponse (CreateEndpointResponse'),
-    newCreateEndpointResponse,
+    -- ** DeleteReplicationInstance
+    DeleteReplicationInstance (DeleteReplicationInstance'),
+    newDeleteReplicationInstance,
+    DeleteReplicationInstanceResponse (DeleteReplicationInstanceResponse'),
+    newDeleteReplicationInstanceResponse,
 
-    -- ** DescribeEventCategories
-    DescribeEventCategories (DescribeEventCategories'),
-    newDescribeEventCategories,
-    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
-    newDescribeEventCategoriesResponse,
+    -- ** RebootReplicationInstance
+    RebootReplicationInstance (RebootReplicationInstance'),
+    newRebootReplicationInstance,
+    RebootReplicationInstanceResponse (RebootReplicationInstanceResponse'),
+    newRebootReplicationInstanceResponse,
 
-    -- ** DescribeOrderableReplicationInstances (Paginated)
-    DescribeOrderableReplicationInstances (DescribeOrderableReplicationInstances'),
-    newDescribeOrderableReplicationInstances,
-    DescribeOrderableReplicationInstancesResponse (DescribeOrderableReplicationInstancesResponse'),
-    newDescribeOrderableReplicationInstancesResponse,
+    -- ** ReloadTables
+    ReloadTables (ReloadTables'),
+    newReloadTables,
+    ReloadTablesResponse (ReloadTablesResponse'),
+    newReloadTablesResponse,
 
     -- ** StartReplicationTaskAssessment
     StartReplicationTaskAssessment (StartReplicationTaskAssessment'),
@@ -160,59 +160,131 @@ module Network.AWS.DMS
     DeleteReplicationTaskAssessmentRunResponse (DeleteReplicationTaskAssessmentRunResponse'),
     newDeleteReplicationTaskAssessmentRunResponse,
 
+    -- ** CreateEndpoint
+    CreateEndpoint (CreateEndpoint'),
+    newCreateEndpoint,
+    CreateEndpointResponse (CreateEndpointResponse'),
+    newCreateEndpointResponse,
+
+    -- ** DescribeSchemas (Paginated)
+    DescribeSchemas (DescribeSchemas'),
+    newDescribeSchemas,
+    DescribeSchemasResponse (DescribeSchemasResponse'),
+    newDescribeSchemasResponse,
+
     -- ** DeleteConnection
     DeleteConnection (DeleteConnection'),
     newDeleteConnection,
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
-    -- ** ReloadTables
-    ReloadTables (ReloadTables'),
-    newReloadTables,
-    ReloadTablesResponse (ReloadTablesResponse'),
-    newReloadTablesResponse,
+    -- ** ModifyEventSubscription
+    ModifyEventSubscription (ModifyEventSubscription'),
+    newModifyEventSubscription,
+    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
+    newModifyEventSubscriptionResponse,
 
-    -- ** DescribeApplicableIndividualAssessments
-    DescribeApplicableIndividualAssessments (DescribeApplicableIndividualAssessments'),
-    newDescribeApplicableIndividualAssessments,
-    DescribeApplicableIndividualAssessmentsResponse (DescribeApplicableIndividualAssessmentsResponse'),
-    newDescribeApplicableIndividualAssessmentsResponse,
+    -- ** DescribeReplicationInstanceTaskLogs
+    DescribeReplicationInstanceTaskLogs (DescribeReplicationInstanceTaskLogs'),
+    newDescribeReplicationInstanceTaskLogs,
+    DescribeReplicationInstanceTaskLogsResponse (DescribeReplicationInstanceTaskLogsResponse'),
+    newDescribeReplicationInstanceTaskLogsResponse,
 
-    -- ** DeleteCertificate
-    DeleteCertificate (DeleteCertificate'),
-    newDeleteCertificate,
-    DeleteCertificateResponse (DeleteCertificateResponse'),
-    newDeleteCertificateResponse,
+    -- ** DescribeEvents (Paginated)
+    DescribeEvents (DescribeEvents'),
+    newDescribeEvents,
+    DescribeEventsResponse (DescribeEventsResponse'),
+    newDescribeEventsResponse,
 
-    -- ** StartReplicationTask
-    StartReplicationTask (StartReplicationTask'),
-    newStartReplicationTask,
-    StartReplicationTaskResponse (StartReplicationTaskResponse'),
-    newStartReplicationTaskResponse,
+    -- ** DeleteEndpoint
+    DeleteEndpoint (DeleteEndpoint'),
+    newDeleteEndpoint,
+    DeleteEndpointResponse (DeleteEndpointResponse'),
+    newDeleteEndpointResponse,
 
-    -- ** StopReplicationTask
-    StopReplicationTask (StopReplicationTask'),
-    newStopReplicationTask,
-    StopReplicationTaskResponse (StopReplicationTaskResponse'),
-    newStopReplicationTaskResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** CreateReplicationInstance
-    CreateReplicationInstance (CreateReplicationInstance'),
-    newCreateReplicationInstance,
-    CreateReplicationInstanceResponse (CreateReplicationInstanceResponse'),
-    newCreateReplicationInstanceResponse,
+    -- ** DescribeEndpointTypes (Paginated)
+    DescribeEndpointTypes (DescribeEndpointTypes'),
+    newDescribeEndpointTypes,
+    DescribeEndpointTypesResponse (DescribeEndpointTypesResponse'),
+    newDescribeEndpointTypesResponse,
 
-    -- ** ModifyReplicationTask
-    ModifyReplicationTask (ModifyReplicationTask'),
-    newModifyReplicationTask,
-    ModifyReplicationTaskResponse (ModifyReplicationTaskResponse'),
-    newModifyReplicationTaskResponse,
+    -- ** DeleteReplicationTask
+    DeleteReplicationTask (DeleteReplicationTask'),
+    newDeleteReplicationTask,
+    DeleteReplicationTaskResponse (DeleteReplicationTaskResponse'),
+    newDeleteReplicationTaskResponse,
 
-    -- ** DescribeEventSubscriptions (Paginated)
-    DescribeEventSubscriptions (DescribeEventSubscriptions'),
-    newDescribeEventSubscriptions,
-    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
-    newDescribeEventSubscriptionsResponse,
+    -- ** DescribeReplicationTaskAssessmentRuns
+    DescribeReplicationTaskAssessmentRuns (DescribeReplicationTaskAssessmentRuns'),
+    newDescribeReplicationTaskAssessmentRuns,
+    DescribeReplicationTaskAssessmentRunsResponse (DescribeReplicationTaskAssessmentRunsResponse'),
+    newDescribeReplicationTaskAssessmentRunsResponse,
+
+    -- ** DescribeReplicationTaskAssessmentResults (Paginated)
+    DescribeReplicationTaskAssessmentResults (DescribeReplicationTaskAssessmentResults'),
+    newDescribeReplicationTaskAssessmentResults,
+    DescribeReplicationTaskAssessmentResultsResponse (DescribeReplicationTaskAssessmentResultsResponse'),
+    newDescribeReplicationTaskAssessmentResultsResponse,
+
+    -- ** TestConnection
+    TestConnection (TestConnection'),
+    newTestConnection,
+    TestConnectionResponse (TestConnectionResponse'),
+    newTestConnectionResponse,
+
+    -- ** DescribeConnections (Paginated)
+    DescribeConnections (DescribeConnections'),
+    newDescribeConnections,
+    DescribeConnectionsResponse (DescribeConnectionsResponse'),
+    newDescribeConnectionsResponse,
+
+    -- ** MoveReplicationTask
+    MoveReplicationTask (MoveReplicationTask'),
+    newMoveReplicationTask,
+    MoveReplicationTaskResponse (MoveReplicationTaskResponse'),
+    newMoveReplicationTaskResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** ModifyEndpoint
+    ModifyEndpoint (ModifyEndpoint'),
+    newModifyEndpoint,
+    ModifyEndpointResponse (ModifyEndpointResponse'),
+    newModifyEndpointResponse,
+
+    -- ** CreateEventSubscription
+    CreateEventSubscription (CreateEventSubscription'),
+    newCreateEventSubscription,
+    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
+    newCreateEventSubscriptionResponse,
+
+    -- ** DescribeEndpointSettings
+    DescribeEndpointSettings (DescribeEndpointSettings'),
+    newDescribeEndpointSettings,
+    DescribeEndpointSettingsResponse (DescribeEndpointSettingsResponse'),
+    newDescribeEndpointSettingsResponse,
+
+    -- ** DescribeCertificates (Paginated)
+    DescribeCertificates (DescribeCertificates'),
+    newDescribeCertificates,
+    DescribeCertificatesResponse (DescribeCertificatesResponse'),
+    newDescribeCertificatesResponse,
+
+    -- ** StartReplicationTaskAssessmentRun
+    StartReplicationTaskAssessmentRun (StartReplicationTaskAssessmentRun'),
+    newStartReplicationTaskAssessmentRun,
+    StartReplicationTaskAssessmentRunResponse (StartReplicationTaskAssessmentRunResponse'),
+    newStartReplicationTaskAssessmentRunResponse,
 
     -- ** DeleteEventSubscription
     DeleteEventSubscription (DeleteEventSubscription'),
@@ -232,137 +304,17 @@ module Network.AWS.DMS
     DescribeReplicationSubnetGroupsResponse (DescribeReplicationSubnetGroupsResponse'),
     newDescribeReplicationSubnetGroupsResponse,
 
-    -- ** DescribeRefreshSchemasStatus
-    DescribeRefreshSchemasStatus (DescribeRefreshSchemasStatus'),
-    newDescribeRefreshSchemasStatus,
-    DescribeRefreshSchemasStatusResponse (DescribeRefreshSchemasStatusResponse'),
-    newDescribeRefreshSchemasStatusResponse,
+    -- ** StartReplicationTask
+    StartReplicationTask (StartReplicationTask'),
+    newStartReplicationTask,
+    StartReplicationTaskResponse (StartReplicationTaskResponse'),
+    newStartReplicationTaskResponse,
 
-    -- ** StartReplicationTaskAssessmentRun
-    StartReplicationTaskAssessmentRun (StartReplicationTaskAssessmentRun'),
-    newStartReplicationTaskAssessmentRun,
-    StartReplicationTaskAssessmentRunResponse (StartReplicationTaskAssessmentRunResponse'),
-    newStartReplicationTaskAssessmentRunResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** DescribeCertificates (Paginated)
-    DescribeCertificates (DescribeCertificates'),
-    newDescribeCertificates,
-    DescribeCertificatesResponse (DescribeCertificatesResponse'),
-    newDescribeCertificatesResponse,
-
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
-
-    -- ** ModifyEndpoint
-    ModifyEndpoint (ModifyEndpoint'),
-    newModifyEndpoint,
-    ModifyEndpointResponse (ModifyEndpointResponse'),
-    newModifyEndpointResponse,
-
-    -- ** DescribeEndpointSettings
-    DescribeEndpointSettings (DescribeEndpointSettings'),
-    newDescribeEndpointSettings,
-    DescribeEndpointSettingsResponse (DescribeEndpointSettingsResponse'),
-    newDescribeEndpointSettingsResponse,
-
-    -- ** ApplyPendingMaintenanceAction
-    ApplyPendingMaintenanceAction (ApplyPendingMaintenanceAction'),
-    newApplyPendingMaintenanceAction,
-    ApplyPendingMaintenanceActionResponse (ApplyPendingMaintenanceActionResponse'),
-    newApplyPendingMaintenanceActionResponse,
-
-    -- ** ImportCertificate
-    ImportCertificate (ImportCertificate'),
-    newImportCertificate,
-    ImportCertificateResponse (ImportCertificateResponse'),
-    newImportCertificateResponse,
-
-    -- ** DescribeReplicationTaskAssessmentResults (Paginated)
-    DescribeReplicationTaskAssessmentResults (DescribeReplicationTaskAssessmentResults'),
-    newDescribeReplicationTaskAssessmentResults,
-    DescribeReplicationTaskAssessmentResultsResponse (DescribeReplicationTaskAssessmentResultsResponse'),
-    newDescribeReplicationTaskAssessmentResultsResponse,
-
-    -- ** TestConnection
-    TestConnection (TestConnection'),
-    newTestConnection,
-    TestConnectionResponse (TestConnectionResponse'),
-    newTestConnectionResponse,
-
-    -- ** DescribeEndpointTypes (Paginated)
-    DescribeEndpointTypes (DescribeEndpointTypes'),
-    newDescribeEndpointTypes,
-    DescribeEndpointTypesResponse (DescribeEndpointTypesResponse'),
-    newDescribeEndpointTypesResponse,
-
-    -- ** DescribeEvents (Paginated)
-    DescribeEvents (DescribeEvents'),
-    newDescribeEvents,
-    DescribeEventsResponse (DescribeEventsResponse'),
-    newDescribeEventsResponse,
-
-    -- ** DeleteEndpoint
-    DeleteEndpoint (DeleteEndpoint'),
-    newDeleteEndpoint,
-    DeleteEndpointResponse (DeleteEndpointResponse'),
-    newDeleteEndpointResponse,
-
-    -- ** DescribePendingMaintenanceActions
-    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
-    newDescribePendingMaintenanceActions,
-    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
-    newDescribePendingMaintenanceActionsResponse,
-
-    -- ** DescribeSchemas (Paginated)
-    DescribeSchemas (DescribeSchemas'),
-    newDescribeSchemas,
-    DescribeSchemasResponse (DescribeSchemasResponse'),
-    newDescribeSchemasResponse,
-
-    -- ** RefreshSchemas
-    RefreshSchemas (RefreshSchemas'),
-    newRefreshSchemas,
-    RefreshSchemasResponse (RefreshSchemasResponse'),
-    newRefreshSchemasResponse,
-
-    -- ** ModifyEventSubscription
-    ModifyEventSubscription (ModifyEventSubscription'),
-    newModifyEventSubscription,
-    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
-    newModifyEventSubscriptionResponse,
-
-    -- ** DescribeReplicationTasks (Paginated)
-    DescribeReplicationTasks (DescribeReplicationTasks'),
-    newDescribeReplicationTasks,
-    DescribeReplicationTasksResponse (DescribeReplicationTasksResponse'),
-    newDescribeReplicationTasksResponse,
-
-    -- ** CreateReplicationSubnetGroup
-    CreateReplicationSubnetGroup (CreateReplicationSubnetGroup'),
-    newCreateReplicationSubnetGroup,
-    CreateReplicationSubnetGroupResponse (CreateReplicationSubnetGroupResponse'),
-    newCreateReplicationSubnetGroupResponse,
-
-    -- ** DeleteReplicationInstance
-    DeleteReplicationInstance (DeleteReplicationInstance'),
-    newDeleteReplicationInstance,
-    DeleteReplicationInstanceResponse (DeleteReplicationInstanceResponse'),
-    newDeleteReplicationInstanceResponse,
-
-    -- ** RebootReplicationInstance
-    RebootReplicationInstance (RebootReplicationInstance'),
-    newRebootReplicationInstance,
-    RebootReplicationInstanceResponse (RebootReplicationInstanceResponse'),
-    newRebootReplicationInstanceResponse,
+    -- ** DescribeEventSubscriptions (Paginated)
+    DescribeEventSubscriptions (DescribeEventSubscriptions'),
+    newDescribeEventSubscriptions,
+    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
+    newDescribeEventSubscriptionsResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
@@ -370,65 +322,53 @@ module Network.AWS.DMS
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
 
-    -- ** DeleteReplicationSubnetGroup
-    DeleteReplicationSubnetGroup (DeleteReplicationSubnetGroup'),
-    newDeleteReplicationSubnetGroup,
-    DeleteReplicationSubnetGroupResponse (DeleteReplicationSubnetGroupResponse'),
-    newDeleteReplicationSubnetGroupResponse,
+    -- ** CreateReplicationSubnetGroup
+    CreateReplicationSubnetGroup (CreateReplicationSubnetGroup'),
+    newCreateReplicationSubnetGroup,
+    CreateReplicationSubnetGroupResponse (CreateReplicationSubnetGroupResponse'),
+    newCreateReplicationSubnetGroupResponse,
 
-    -- ** CreateEventSubscription
-    CreateEventSubscription (CreateEventSubscription'),
-    newCreateEventSubscription,
-    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
-    newCreateEventSubscriptionResponse,
+    -- ** DescribeApplicableIndividualAssessments
+    DescribeApplicableIndividualAssessments (DescribeApplicableIndividualAssessments'),
+    newDescribeApplicableIndividualAssessments,
+    DescribeApplicableIndividualAssessmentsResponse (DescribeApplicableIndividualAssessmentsResponse'),
+    newDescribeApplicableIndividualAssessmentsResponse,
 
-    -- ** DescribeReplicationInstances (Paginated)
-    DescribeReplicationInstances (DescribeReplicationInstances'),
-    newDescribeReplicationInstances,
-    DescribeReplicationInstancesResponse (DescribeReplicationInstancesResponse'),
-    newDescribeReplicationInstancesResponse,
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
 
-    -- ** MoveReplicationTask
-    MoveReplicationTask (MoveReplicationTask'),
-    newMoveReplicationTask,
-    MoveReplicationTaskResponse (MoveReplicationTaskResponse'),
-    newMoveReplicationTaskResponse,
+    -- ** RefreshSchemas
+    RefreshSchemas (RefreshSchemas'),
+    newRefreshSchemas,
+    RefreshSchemasResponse (RefreshSchemasResponse'),
+    newRefreshSchemasResponse,
 
-    -- ** DescribeConnections (Paginated)
-    DescribeConnections (DescribeConnections'),
-    newDescribeConnections,
-    DescribeConnectionsResponse (DescribeConnectionsResponse'),
-    newDescribeConnectionsResponse,
+    -- ** DescribeReplicationTasks (Paginated)
+    DescribeReplicationTasks (DescribeReplicationTasks'),
+    newDescribeReplicationTasks,
+    DescribeReplicationTasksResponse (DescribeReplicationTasksResponse'),
+    newDescribeReplicationTasksResponse,
 
-    -- ** ModifyReplicationSubnetGroup
-    ModifyReplicationSubnetGroup (ModifyReplicationSubnetGroup'),
-    newModifyReplicationSubnetGroup,
-    ModifyReplicationSubnetGroupResponse (ModifyReplicationSubnetGroupResponse'),
-    newModifyReplicationSubnetGroupResponse,
+    -- ** DescribeEventCategories
+    DescribeEventCategories (DescribeEventCategories'),
+    newDescribeEventCategories,
+    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
+    newDescribeEventCategoriesResponse,
 
-    -- ** DeleteReplicationTask
-    DeleteReplicationTask (DeleteReplicationTask'),
-    newDeleteReplicationTask,
-    DeleteReplicationTaskResponse (DeleteReplicationTaskResponse'),
-    newDeleteReplicationTaskResponse,
+    -- ** DescribeOrderableReplicationInstances (Paginated)
+    DescribeOrderableReplicationInstances (DescribeOrderableReplicationInstances'),
+    newDescribeOrderableReplicationInstances,
+    DescribeOrderableReplicationInstancesResponse (DescribeOrderableReplicationInstancesResponse'),
+    newDescribeOrderableReplicationInstancesResponse,
 
-    -- ** CancelReplicationTaskAssessmentRun
-    CancelReplicationTaskAssessmentRun (CancelReplicationTaskAssessmentRun'),
-    newCancelReplicationTaskAssessmentRun,
-    CancelReplicationTaskAssessmentRunResponse (CancelReplicationTaskAssessmentRunResponse'),
-    newCancelReplicationTaskAssessmentRunResponse,
-
-    -- ** DescribeReplicationTaskAssessmentRuns
-    DescribeReplicationTaskAssessmentRuns (DescribeReplicationTaskAssessmentRuns'),
-    newDescribeReplicationTaskAssessmentRuns,
-    DescribeReplicationTaskAssessmentRunsResponse (DescribeReplicationTaskAssessmentRunsResponse'),
-    newDescribeReplicationTaskAssessmentRunsResponse,
-
-    -- ** DescribeReplicationTaskIndividualAssessments
-    DescribeReplicationTaskIndividualAssessments (DescribeReplicationTaskIndividualAssessments'),
-    newDescribeReplicationTaskIndividualAssessments,
-    DescribeReplicationTaskIndividualAssessmentsResponse (DescribeReplicationTaskIndividualAssessmentsResponse'),
-    newDescribeReplicationTaskIndividualAssessmentsResponse,
+    -- ** DescribePendingMaintenanceActions
+    DescribePendingMaintenanceActions (DescribePendingMaintenanceActions'),
+    newDescribePendingMaintenanceActions,
+    DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
+    newDescribePendingMaintenanceActionsResponse,
 
     -- ** CreateReplicationTask
     CreateReplicationTask (CreateReplicationTask'),
@@ -436,29 +376,89 @@ module Network.AWS.DMS
     CreateReplicationTaskResponse (CreateReplicationTaskResponse'),
     newCreateReplicationTaskResponse,
 
-    -- ** ModifyReplicationInstance
-    ModifyReplicationInstance (ModifyReplicationInstance'),
-    newModifyReplicationInstance,
-    ModifyReplicationInstanceResponse (ModifyReplicationInstanceResponse'),
-    newModifyReplicationInstanceResponse,
-
     -- ** DescribeEndpoints (Paginated)
     DescribeEndpoints (DescribeEndpoints'),
     newDescribeEndpoints,
     DescribeEndpointsResponse (DescribeEndpointsResponse'),
     newDescribeEndpointsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ModifyReplicationInstance
+    ModifyReplicationInstance (ModifyReplicationInstance'),
+    newModifyReplicationInstance,
+    ModifyReplicationInstanceResponse (ModifyReplicationInstanceResponse'),
+    newModifyReplicationInstanceResponse,
 
-    -- ** DescribeReplicationInstanceTaskLogs
-    DescribeReplicationInstanceTaskLogs (DescribeReplicationInstanceTaskLogs'),
-    newDescribeReplicationInstanceTaskLogs,
-    DescribeReplicationInstanceTaskLogsResponse (DescribeReplicationInstanceTaskLogsResponse'),
-    newDescribeReplicationInstanceTaskLogsResponse,
+    -- ** ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
+
+    -- ** CancelReplicationTaskAssessmentRun
+    CancelReplicationTaskAssessmentRun (CancelReplicationTaskAssessmentRun'),
+    newCancelReplicationTaskAssessmentRun,
+    CancelReplicationTaskAssessmentRunResponse (CancelReplicationTaskAssessmentRunResponse'),
+    newCancelReplicationTaskAssessmentRunResponse,
+
+    -- ** ModifyReplicationSubnetGroup
+    ModifyReplicationSubnetGroup (ModifyReplicationSubnetGroup'),
+    newModifyReplicationSubnetGroup,
+    ModifyReplicationSubnetGroupResponse (ModifyReplicationSubnetGroupResponse'),
+    newModifyReplicationSubnetGroupResponse,
+
+    -- ** DescribeReplicationTaskIndividualAssessments
+    DescribeReplicationTaskIndividualAssessments (DescribeReplicationTaskIndividualAssessments'),
+    newDescribeReplicationTaskIndividualAssessments,
+    DescribeReplicationTaskIndividualAssessmentsResponse (DescribeReplicationTaskIndividualAssessmentsResponse'),
+    newDescribeReplicationTaskIndividualAssessmentsResponse,
+
+    -- ** ApplyPendingMaintenanceAction
+    ApplyPendingMaintenanceAction (ApplyPendingMaintenanceAction'),
+    newApplyPendingMaintenanceAction,
+    ApplyPendingMaintenanceActionResponse (ApplyPendingMaintenanceActionResponse'),
+    newApplyPendingMaintenanceActionResponse,
+
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
+    -- ** DescribeReplicationInstances (Paginated)
+    DescribeReplicationInstances (DescribeReplicationInstances'),
+    newDescribeReplicationInstances,
+    DescribeReplicationInstancesResponse (DescribeReplicationInstancesResponse'),
+    newDescribeReplicationInstancesResponse,
+
+    -- ** DescribeRefreshSchemasStatus
+    DescribeRefreshSchemasStatus (DescribeRefreshSchemasStatus'),
+    newDescribeRefreshSchemasStatus,
+    DescribeRefreshSchemasStatusResponse (DescribeRefreshSchemasStatusResponse'),
+    newDescribeRefreshSchemasStatusResponse,
+
+    -- ** StopReplicationTask
+    StopReplicationTask (StopReplicationTask'),
+    newStopReplicationTask,
+    StopReplicationTaskResponse (StopReplicationTaskResponse'),
+    newStopReplicationTaskResponse,
+
+    -- ** ModifyReplicationTask
+    ModifyReplicationTask (ModifyReplicationTask'),
+    newModifyReplicationTask,
+    ModifyReplicationTaskResponse (ModifyReplicationTaskResponse'),
+    newModifyReplicationTaskResponse,
+
+    -- ** CreateReplicationInstance
+    CreateReplicationInstance (CreateReplicationInstance'),
+    newCreateReplicationInstance,
+    CreateReplicationInstanceResponse (CreateReplicationInstanceResponse'),
+    newCreateReplicationInstanceResponse,
+
+    -- ** DeleteReplicationSubnetGroup
+    DeleteReplicationSubnetGroup (DeleteReplicationSubnetGroup'),
+    newDeleteReplicationSubnetGroup,
+    DeleteReplicationSubnetGroupResponse (DeleteReplicationSubnetGroupResponse'),
+    newDeleteReplicationSubnetGroupResponse,
 
     -- * Types
 

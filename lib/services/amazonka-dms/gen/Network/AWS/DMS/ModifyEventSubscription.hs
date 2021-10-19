@@ -27,10 +27,10 @@ module Network.AWS.DMS.ModifyEventSubscription
     newModifyEventSubscription,
 
     -- * Request Lenses
-    modifyEventSubscription_enabled,
-    modifyEventSubscription_eventCategories,
-    modifyEventSubscription_sourceType,
     modifyEventSubscription_snsTopicArn,
+    modifyEventSubscription_enabled,
+    modifyEventSubscription_sourceType,
+    modifyEventSubscription_eventCategories,
     modifyEventSubscription_subscriptionName,
 
     -- * Destructuring the Response
@@ -54,21 +54,21 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newModifyEventSubscription' smart constructor.
 data ModifyEventSubscription = ModifyEventSubscription'
-  { -- | A Boolean value; set to __true__ to activate the subscription.
+  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+    -- notification. The ARN is created by Amazon SNS when you create a topic
+    -- and subscribe to it.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value; set to __true__ to activate the subscription.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of event categories for a source type that you want to subscribe
-    -- to. Use the @DescribeEventCategories@ action to see a list of event
-    -- categories.
-    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The type of DMS resource that generates the events you want to subscribe
     -- to.
     --
     -- Valid values: replication-instance | replication-task
     sourceType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
-    -- notification. The ARN is created by Amazon SNS when you create a topic
-    -- and subscribe to it.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of event categories for a source type that you want to subscribe
+    -- to. Use the @DescribeEventCategories@ action to see a list of event
+    -- categories.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
     -- | The name of the DMS event notification subscription to be modified.
     subscriptionName :: Prelude.Text
   }
@@ -82,20 +82,20 @@ data ModifyEventSubscription = ModifyEventSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'modifyEventSubscription_enabled' - A Boolean value; set to __true__ to activate the subscription.
+-- 'snsTopicArn', 'modifyEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
 --
--- 'eventCategories', 'modifyEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
--- to. Use the @DescribeEventCategories@ action to see a list of event
--- categories.
+-- 'enabled', 'modifyEventSubscription_enabled' - A Boolean value; set to __true__ to activate the subscription.
 --
 -- 'sourceType', 'modifyEventSubscription_sourceType' - The type of DMS resource that generates the events you want to subscribe
 -- to.
 --
 -- Valid values: replication-instance | replication-task
 --
--- 'snsTopicArn', 'modifyEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
--- notification. The ARN is created by Amazon SNS when you create a topic
--- and subscribe to it.
+-- 'eventCategories', 'modifyEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
+-- to. Use the @DescribeEventCategories@ action to see a list of event
+-- categories.
 --
 -- 'subscriptionName', 'modifyEventSubscription_subscriptionName' - The name of the DMS event notification subscription to be modified.
 newModifyEventSubscription ::
@@ -104,22 +104,23 @@ newModifyEventSubscription ::
   ModifyEventSubscription
 newModifyEventSubscription pSubscriptionName_ =
   ModifyEventSubscription'
-    { enabled = Prelude.Nothing,
-      eventCategories = Prelude.Nothing,
+    { snsTopicArn =
+        Prelude.Nothing,
+      enabled = Prelude.Nothing,
       sourceType = Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
       subscriptionName = pSubscriptionName_
     }
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
+modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
 
 -- | A Boolean value; set to __true__ to activate the subscription.
 modifyEventSubscription_enabled :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Bool)
 modifyEventSubscription_enabled = Lens.lens (\ModifyEventSubscription' {enabled} -> enabled) (\s@ModifyEventSubscription' {} a -> s {enabled = a} :: ModifyEventSubscription)
-
--- | A list of event categories for a source type that you want to subscribe
--- to. Use the @DescribeEventCategories@ action to see a list of event
--- categories.
-modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
-modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of DMS resource that generates the events you want to subscribe
 -- to.
@@ -128,11 +129,11 @@ modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {
 modifyEventSubscription_sourceType :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
 modifyEventSubscription_sourceType = Lens.lens (\ModifyEventSubscription' {sourceType} -> sourceType) (\s@ModifyEventSubscription' {} a -> s {sourceType = a} :: ModifyEventSubscription)
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
--- notification. The ARN is created by Amazon SNS when you create a topic
--- and subscribe to it.
-modifyEventSubscription_snsTopicArn :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe Prelude.Text)
-modifyEventSubscription_snsTopicArn = Lens.lens (\ModifyEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@ModifyEventSubscription' {} a -> s {snsTopicArn = a} :: ModifyEventSubscription)
+-- | A list of event categories for a source type that you want to subscribe
+-- to. Use the @DescribeEventCategories@ action to see a list of event
+-- categories.
+modifyEventSubscription_eventCategories :: Lens.Lens' ModifyEventSubscription (Prelude.Maybe [Prelude.Text])
+modifyEventSubscription_eventCategories = Lens.lens (\ModifyEventSubscription' {eventCategories} -> eventCategories) (\s@ModifyEventSubscription' {} a -> s {eventCategories = a} :: ModifyEventSubscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DMS event notification subscription to be modified.
 modifyEventSubscription_subscriptionName :: Lens.Lens' ModifyEventSubscription Prelude.Text
@@ -174,11 +175,11 @@ instance Core.ToJSON ModifyEventSubscription where
   toJSON ModifyEventSubscription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Enabled" Core..=) Prelude.<$> enabled,
+          [ ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+            ("Enabled" Core..=) Prelude.<$> enabled,
+            ("SourceType" Core..=) Prelude.<$> sourceType,
             ("EventCategories" Core..=)
               Prelude.<$> eventCategories,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
             Prelude.Just
               ("SubscriptionName" Core..= subscriptionName)
           ]

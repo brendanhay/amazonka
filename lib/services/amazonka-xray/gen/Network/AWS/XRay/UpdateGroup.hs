@@ -27,10 +27,10 @@ module Network.AWS.XRay.UpdateGroup
     newUpdateGroup,
 
     -- * Request Lenses
-    updateGroup_groupName,
-    updateGroup_insightsConfiguration,
     updateGroup_filterExpression,
+    updateGroup_insightsConfiguration,
     updateGroup_groupARN,
+    updateGroup_groupName,
 
     -- * Destructuring the Response
     UpdateGroupResponse (..),
@@ -51,8 +51,9 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | The case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+  { -- | The updated filter expression defining criteria by which to group
+    -- traces.
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -62,11 +63,10 @@ data UpdateGroup = UpdateGroup'
     --     insights notifications for the group. Notifications can only be
     --     enabled on a group with InsightsEnabled set to true.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
-    -- | The updated filter expression defining criteria by which to group
-    -- traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The ARN that was generated upon creation.
-    groupARN :: Prelude.Maybe Prelude.Text
+    groupARN :: Prelude.Maybe Prelude.Text,
+    -- | The case-sensitive name of the group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,7 +78,8 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'updateGroup_groupName' - The case-sensitive name of the group.
+-- 'filterExpression', 'updateGroup_filterExpression' - The updated filter expression defining criteria by which to group
+-- traces.
 --
 -- 'insightsConfiguration', 'updateGroup_insightsConfiguration' - The structure containing configurations related to insights.
 --
@@ -89,23 +90,23 @@ data UpdateGroup = UpdateGroup'
 --     insights notifications for the group. Notifications can only be
 --     enabled on a group with InsightsEnabled set to true.
 --
--- 'filterExpression', 'updateGroup_filterExpression' - The updated filter expression defining criteria by which to group
--- traces.
---
 -- 'groupARN', 'updateGroup_groupARN' - The ARN that was generated upon creation.
+--
+-- 'groupName', 'updateGroup_groupName' - The case-sensitive name of the group.
 newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { groupName = Prelude.Nothing,
+    { filterExpression = Prelude.Nothing,
       insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+      groupARN = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
 
--- | The case-sensitive name of the group.
-updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
+-- | The updated filter expression defining criteria by which to group
+-- traces.
+updateGroup_filterExpression :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_filterExpression = Lens.lens (\UpdateGroup' {filterExpression} -> filterExpression) (\s@UpdateGroup' {} a -> s {filterExpression = a} :: UpdateGroup)
 
 -- | The structure containing configurations related to insights.
 --
@@ -118,14 +119,13 @@ updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@U
 updateGroup_insightsConfiguration :: Lens.Lens' UpdateGroup (Prelude.Maybe InsightsConfiguration)
 updateGroup_insightsConfiguration = Lens.lens (\UpdateGroup' {insightsConfiguration} -> insightsConfiguration) (\s@UpdateGroup' {} a -> s {insightsConfiguration = a} :: UpdateGroup)
 
--- | The updated filter expression defining criteria by which to group
--- traces.
-updateGroup_filterExpression :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_filterExpression = Lens.lens (\UpdateGroup' {filterExpression} -> filterExpression) (\s@UpdateGroup' {} a -> s {filterExpression = a} :: UpdateGroup)
-
 -- | The ARN that was generated upon creation.
 updateGroup_groupARN :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_groupARN = Lens.lens (\UpdateGroup' {groupARN} -> groupARN) (\s@UpdateGroup' {} a -> s {groupARN = a} :: UpdateGroup)
+
+-- | The case-sensitive name of the group.
+updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
@@ -149,12 +149,12 @@ instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
+          [ ("FilterExpression" Core..=)
+              Prelude.<$> filterExpression,
             ("InsightsConfiguration" Core..=)
               Prelude.<$> insightsConfiguration,
-            ("FilterExpression" Core..=)
-              Prelude.<$> filterExpression,
-            ("GroupARN" Core..=) Prelude.<$> groupARN
+            ("GroupARN" Core..=) Prelude.<$> groupARN,
+            ("GroupName" Core..=) Prelude.<$> groupName
           ]
       )
 

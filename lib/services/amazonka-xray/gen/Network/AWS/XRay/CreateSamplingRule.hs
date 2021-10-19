@@ -146,7 +146,7 @@ newCreateSamplingRule pSamplingRule_ =
 -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
 --     Web Services use.
 createSamplingRule_tags :: Lens.Lens' CreateSamplingRule (Prelude.Maybe [Tag])
-createSamplingRule_tags = Lens.lens (\CreateSamplingRule' {tags} -> tags) (\s@CreateSamplingRule' {} a -> s {tags = a} :: CreateSamplingRule) Prelude.. Lens.mapping Lens._Coerce
+createSamplingRule_tags = Lens.lens (\CreateSamplingRule' {tags} -> tags) (\s@CreateSamplingRule' {} a -> s {tags = a} :: CreateSamplingRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule definition.
 createSamplingRule_samplingRule :: Lens.Lens' CreateSamplingRule SamplingRule

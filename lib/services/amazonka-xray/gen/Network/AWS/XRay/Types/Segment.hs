@@ -35,10 +35,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'
-  { -- | The segment\'s ID.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The segment document.
-    document :: Prelude.Maybe Prelude.Text
+  { -- | The segment document.
+    document :: Prelude.Maybe Prelude.Text,
+    -- | The segment\'s ID.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,24 @@ data Segment = Segment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'segment_id' - The segment\'s ID.
---
 -- 'document', 'segment_document' - The segment document.
+--
+-- 'id', 'segment_id' - The segment\'s ID.
 newSegment ::
   Segment
 newSegment =
   Segment'
-    { id = Prelude.Nothing,
-      document = Prelude.Nothing
+    { document = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The segment\'s ID.
-segment_id :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
-segment_id = Lens.lens (\Segment' {id} -> id) (\s@Segment' {} a -> s {id = a} :: Segment)
 
 -- | The segment document.
 segment_document :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
 segment_document = Lens.lens (\Segment' {document} -> document) (\s@Segment' {} a -> s {document = a} :: Segment)
+
+-- | The segment\'s ID.
+segment_id :: Lens.Lens' Segment (Prelude.Maybe Prelude.Text)
+segment_id = Lens.lens (\Segment' {id} -> id) (\s@Segment' {} a -> s {id = a} :: Segment)
 
 instance Core.FromJSON Segment where
   parseJSON =
@@ -75,8 +75,8 @@ instance Core.FromJSON Segment where
       "Segment"
       ( \x ->
           Segment'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Document")
+            Prelude.<$> (x Core..:? "Document")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable Segment

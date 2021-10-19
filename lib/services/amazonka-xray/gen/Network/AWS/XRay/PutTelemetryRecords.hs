@@ -28,8 +28,8 @@ module Network.AWS.XRay.PutTelemetryRecords
 
     -- * Request Lenses
     putTelemetryRecords_hostname,
-    putTelemetryRecords_resourceARN,
     putTelemetryRecords_eC2InstanceId,
+    putTelemetryRecords_resourceARN,
     putTelemetryRecords_telemetryRecords,
 
     -- * Destructuring the Response
@@ -51,8 +51,8 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
   { hostname :: Prelude.Maybe Prelude.Text,
-    resourceARN :: Prelude.Maybe Prelude.Text,
     eC2InstanceId :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     telemetryRecords :: [TelemetryRecord]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data PutTelemetryRecords = PutTelemetryRecords'
 --
 -- 'hostname', 'putTelemetryRecords_hostname' -
 --
--- 'resourceARN', 'putTelemetryRecords_resourceARN' -
---
 -- 'eC2InstanceId', 'putTelemetryRecords_eC2InstanceId' -
+--
+-- 'resourceARN', 'putTelemetryRecords_resourceARN' -
 --
 -- 'telemetryRecords', 'putTelemetryRecords_telemetryRecords' -
 newPutTelemetryRecords ::
@@ -77,8 +77,8 @@ newPutTelemetryRecords ::
 newPutTelemetryRecords =
   PutTelemetryRecords'
     { hostname = Prelude.Nothing,
-      resourceARN = Prelude.Nothing,
       eC2InstanceId = Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
       telemetryRecords = Prelude.mempty
     }
 
@@ -87,16 +87,16 @@ putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Pr
 putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
 
 -- |
-putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
-putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
-
--- |
 putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_eC2InstanceId = Lens.lens (\PutTelemetryRecords' {eC2InstanceId} -> eC2InstanceId) (\s@PutTelemetryRecords' {} a -> s {eC2InstanceId = a} :: PutTelemetryRecords)
 
 -- |
+putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
+
+-- |
 putTelemetryRecords_telemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
-putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Prelude.. Lens._Coerce
+putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutTelemetryRecords where
   type
@@ -122,8 +122,8 @@ instance Core.ToJSON PutTelemetryRecords where
     Core.object
       ( Prelude.catMaybes
           [ ("Hostname" Core..=) Prelude.<$> hostname,
-            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
+            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             Prelude.Just
               ("TelemetryRecords" Core..= telemetryRecords)
           ]

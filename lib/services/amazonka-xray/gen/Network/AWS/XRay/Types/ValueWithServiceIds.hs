@@ -29,10 +29,10 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'newValueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { -- | Values of the annotation.
-    annotationValue :: Prelude.Maybe AnnotationValue,
-    -- | Services to which the annotation applies.
-    serviceIds :: Prelude.Maybe [ServiceId]
+  { -- | Services to which the annotation applies.
+    serviceIds :: Prelude.Maybe [ServiceId],
+    -- | Values of the annotation.
+    annotationValue :: Prelude.Maybe AnnotationValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data ValueWithServiceIds = ValueWithServiceIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'annotationValue', 'valueWithServiceIds_annotationValue' - Values of the annotation.
---
 -- 'serviceIds', 'valueWithServiceIds_serviceIds' - Services to which the annotation applies.
+--
+-- 'annotationValue', 'valueWithServiceIds_annotationValue' - Values of the annotation.
 newValueWithServiceIds ::
   ValueWithServiceIds
 newValueWithServiceIds =
   ValueWithServiceIds'
-    { annotationValue =
-        Prelude.Nothing,
-      serviceIds = Prelude.Nothing
+    { serviceIds = Prelude.Nothing,
+      annotationValue = Prelude.Nothing
     }
+
+-- | Services to which the annotation applies.
+valueWithServiceIds_serviceIds :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe [ServiceId])
+valueWithServiceIds_serviceIds = Lens.lens (\ValueWithServiceIds' {serviceIds} -> serviceIds) (\s@ValueWithServiceIds' {} a -> s {serviceIds = a} :: ValueWithServiceIds) Prelude.. Lens.mapping Lens.coerced
 
 -- | Values of the annotation.
 valueWithServiceIds_annotationValue :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe AnnotationValue)
 valueWithServiceIds_annotationValue = Lens.lens (\ValueWithServiceIds' {annotationValue} -> annotationValue) (\s@ValueWithServiceIds' {} a -> s {annotationValue = a} :: ValueWithServiceIds)
-
--- | Services to which the annotation applies.
-valueWithServiceIds_serviceIds :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe [ServiceId])
-valueWithServiceIds_serviceIds = Lens.lens (\ValueWithServiceIds' {serviceIds} -> serviceIds) (\s@ValueWithServiceIds' {} a -> s {serviceIds = a} :: ValueWithServiceIds) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ValueWithServiceIds where
   parseJSON =
@@ -70,8 +69,8 @@ instance Core.FromJSON ValueWithServiceIds where
       "ValueWithServiceIds"
       ( \x ->
           ValueWithServiceIds'
-            Prelude.<$> (x Core..:? "AnnotationValue")
-            Prelude.<*> (x Core..:? "ServiceIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "ServiceIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AnnotationValue")
       )
 
 instance Prelude.Hashable ValueWithServiceIds

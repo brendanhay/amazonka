@@ -33,11 +33,11 @@ data SamplingRule = SamplingRule'
   { -- | The name of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
     ruleName :: Prelude.Maybe Prelude.Text,
+    -- | Matches attributes derived from the request.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
     ruleARN :: Prelude.Maybe Prelude.Text,
-    -- | Matches attributes derived from the request.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Matches the ARN of the Amazon Web Services resource on which the service
     -- runs.
     resourceARN :: Prelude.Text,
@@ -77,10 +77,10 @@ data SamplingRule = SamplingRule'
 -- 'ruleName', 'samplingRule_ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
 --
+-- 'attributes', 'samplingRule_attributes' - Matches attributes derived from the request.
+--
 -- 'ruleARN', 'samplingRule_ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
---
--- 'attributes', 'samplingRule_attributes' - Matches attributes derived from the request.
 --
 -- 'resourceARN', 'samplingRule_resourceARN' - Matches the ARN of the Amazon Web Services resource on which the service
 -- runs.
@@ -141,8 +141,8 @@ newSamplingRule
   pVersion_ =
     SamplingRule'
       { ruleName = Prelude.Nothing,
-        ruleARN = Prelude.Nothing,
         attributes = Prelude.Nothing,
+        ruleARN = Prelude.Nothing,
         resourceARN = pResourceARN_,
         priority = pPriority_,
         fixedRate = pFixedRate_,
@@ -160,14 +160,14 @@ newSamplingRule
 samplingRule_ruleName :: Lens.Lens' SamplingRule (Prelude.Maybe Prelude.Text)
 samplingRule_ruleName = Lens.lens (\SamplingRule' {ruleName} -> ruleName) (\s@SamplingRule' {} a -> s {ruleName = a} :: SamplingRule)
 
+-- | Matches attributes derived from the request.
+samplingRule_attributes :: Lens.Lens' SamplingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+samplingRule_attributes = Lens.lens (\SamplingRule' {attributes} -> attributes) (\s@SamplingRule' {} a -> s {attributes = a} :: SamplingRule) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
 samplingRule_ruleARN :: Lens.Lens' SamplingRule (Prelude.Maybe Prelude.Text)
 samplingRule_ruleARN = Lens.lens (\SamplingRule' {ruleARN} -> ruleARN) (\s@SamplingRule' {} a -> s {ruleARN = a} :: SamplingRule)
-
--- | Matches attributes derived from the request.
-samplingRule_attributes :: Lens.Lens' SamplingRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-samplingRule_attributes = Lens.lens (\SamplingRule' {attributes} -> attributes) (\s@SamplingRule' {} a -> s {attributes = a} :: SamplingRule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Matches the ARN of the Amazon Web Services resource on which the service
 -- runs.
@@ -221,8 +221,8 @@ instance Core.FromJSON SamplingRule where
       ( \x ->
           SamplingRule'
             Prelude.<$> (x Core..:? "RuleName")
-            Prelude.<*> (x Core..:? "RuleARN")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RuleARN")
             Prelude.<*> (x Core..: "ResourceARN")
             Prelude.<*> (x Core..: "Priority")
             Prelude.<*> (x Core..: "FixedRate")
@@ -244,8 +244,8 @@ instance Core.ToJSON SamplingRule where
     Core.object
       ( Prelude.catMaybes
           [ ("RuleName" Core..=) Prelude.<$> ruleName,
-            ("RuleARN" Core..=) Prelude.<$> ruleARN,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("RuleARN" Core..=) Prelude.<$> ruleARN,
             Prelude.Just ("ResourceARN" Core..= resourceARN),
             Prelude.Just ("Priority" Core..= priority),
             Prelude.Just ("FixedRate" Core..= fixedRate),

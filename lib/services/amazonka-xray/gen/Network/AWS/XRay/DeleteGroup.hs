@@ -27,8 +27,8 @@ module Network.AWS.XRay.DeleteGroup
     newDeleteGroup,
 
     -- * Request Lenses
-    deleteGroup_groupName,
     deleteGroup_groupARN,
+    deleteGroup_groupName,
 
     -- * Destructuring the Response
     DeleteGroupResponse (..),
@@ -48,10 +48,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-  { -- | The case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the group that was generated on creation.
-    groupARN :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the group that was generated on creation.
+    groupARN :: Prelude.Maybe Prelude.Text,
+    -- | The case-sensitive name of the group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,24 +63,24 @@ data DeleteGroup = DeleteGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'deleteGroup_groupName' - The case-sensitive name of the group.
---
 -- 'groupARN', 'deleteGroup_groupARN' - The ARN of the group that was generated on creation.
+--
+-- 'groupName', 'deleteGroup_groupName' - The case-sensitive name of the group.
 newDeleteGroup ::
   DeleteGroup
 newDeleteGroup =
   DeleteGroup'
-    { groupName = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+    { groupARN = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | The case-sensitive name of the group.
-deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
-deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 -- | The ARN of the group that was generated on creation.
 deleteGroup_groupARN :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
 deleteGroup_groupARN = Lens.lens (\DeleteGroup' {groupARN} -> groupARN) (\s@DeleteGroup' {} a -> s {groupARN = a} :: DeleteGroup)
+
+-- | The case-sensitive name of the group.
+deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
+deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
@@ -103,8 +103,8 @@ instance Core.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("GroupARN" Core..=) Prelude.<$> groupARN
+          [ ("GroupARN" Core..=) Prelude.<$> groupARN,
+            ("GroupName" Core..=) Prelude.<$> groupName
           ]
       )
 

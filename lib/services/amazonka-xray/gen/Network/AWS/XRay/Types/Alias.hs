@@ -60,7 +60,7 @@ newAlias =
 
 -- | A list of names for the alias, including the canonical name.
 alias_names :: Lens.Lens' Alias (Prelude.Maybe [Prelude.Text])
-alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Prelude.. Lens.mapping Lens._Coerce
+alias_names = Lens.lens (\Alias' {names} -> names) (\s@Alias' {} a -> s {names = a} :: Alias) Prelude.. Lens.mapping Lens.coerced
 
 -- | The canonical name of the alias.
 alias_name :: Lens.Lens' Alias (Prelude.Maybe Prelude.Text)

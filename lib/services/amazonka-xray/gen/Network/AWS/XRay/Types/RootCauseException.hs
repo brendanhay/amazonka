@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRootCauseException' smart constructor.
 data RootCauseException = RootCauseException'
-  { -- | The message of the exception.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the exception.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the exception.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The message of the exception.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data RootCauseException = RootCauseException'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'rootCauseException_message' - The message of the exception.
---
 -- 'name', 'rootCauseException_name' - The name of the exception.
+--
+-- 'message', 'rootCauseException_message' - The message of the exception.
 newRootCauseException ::
   RootCauseException
 newRootCauseException =
   RootCauseException'
-    { message = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message of the exception.
-rootCauseException_message :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
-rootCauseException_message = Lens.lens (\RootCauseException' {message} -> message) (\s@RootCauseException' {} a -> s {message = a} :: RootCauseException)
 
 -- | The name of the exception.
 rootCauseException_name :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
 rootCauseException_name = Lens.lens (\RootCauseException' {name} -> name) (\s@RootCauseException' {} a -> s {name = a} :: RootCauseException)
+
+-- | The message of the exception.
+rootCauseException_message :: Lens.Lens' RootCauseException (Prelude.Maybe Prelude.Text)
+rootCauseException_message = Lens.lens (\RootCauseException' {message} -> message) (\s@RootCauseException' {} a -> s {message = a} :: RootCauseException)
 
 instance Core.FromJSON RootCauseException where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON RootCauseException where
       "RootCauseException"
       ( \x ->
           RootCauseException'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable RootCauseException

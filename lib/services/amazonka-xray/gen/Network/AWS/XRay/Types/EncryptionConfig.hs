@@ -33,11 +33,11 @@ data EncryptionConfig = EncryptionConfig'
   { -- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt
     -- data with a combination of the new and old settings.
     status :: Prelude.Maybe EncryptionStatus,
+    -- | The ID of the KMS key used for encryption, if applicable.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
     -- to @NONE@ for default encryption.
-    type' :: Prelude.Maybe EncryptionType,
-    -- | The ID of the KMS key used for encryption, if applicable.
-    keyId :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe EncryptionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,17 +52,17 @@ data EncryptionConfig = EncryptionConfig'
 -- 'status', 'encryptionConfig_status' - The encryption status. While the status is @UPDATING@, X-Ray may encrypt
 -- data with a combination of the new and old settings.
 --
+-- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.
+--
 -- 'type'', 'encryptionConfig_type' - The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
 -- to @NONE@ for default encryption.
---
--- 'keyId', 'encryptionConfig_keyId' - The ID of the KMS key used for encryption, if applicable.
 newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
   EncryptionConfig'
     { status = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      keyId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The encryption status. While the status is @UPDATING@, X-Ray may encrypt
@@ -70,14 +70,14 @@ newEncryptionConfig =
 encryptionConfig_status :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionStatus)
 encryptionConfig_status = Lens.lens (\EncryptionConfig' {status} -> status) (\s@EncryptionConfig' {} a -> s {status = a} :: EncryptionConfig)
 
+-- | The ID of the KMS key used for encryption, if applicable.
+encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
+encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
+
 -- | The type of encryption. Set to @KMS@ for encryption with KMS keys. Set
 -- to @NONE@ for default encryption.
 encryptionConfig_type :: Lens.Lens' EncryptionConfig (Prelude.Maybe EncryptionType)
 encryptionConfig_type = Lens.lens (\EncryptionConfig' {type'} -> type') (\s@EncryptionConfig' {} a -> s {type' = a} :: EncryptionConfig)
-
--- | The ID of the KMS key used for encryption, if applicable.
-encryptionConfig_keyId :: Lens.Lens' EncryptionConfig (Prelude.Maybe Prelude.Text)
-encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 
 instance Core.FromJSON EncryptionConfig where
   parseJSON =
@@ -86,8 +86,8 @@ instance Core.FromJSON EncryptionConfig where
       ( \x ->
           EncryptionConfig'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "KeyId")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable EncryptionConfig

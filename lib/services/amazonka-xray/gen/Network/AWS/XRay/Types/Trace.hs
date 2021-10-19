@@ -28,10 +28,7 @@ import Network.AWS.XRay.Types.Segment
 --
 -- /See:/ 'newTrace' smart constructor.
 data Trace = Trace'
-  { -- | The length of time in seconds between the start time of the root segment
-    -- and the end time of the last segment that completed.
-    duration :: Prelude.Maybe Prelude.Double,
-    -- | LimitExceeded is set to true when the trace has exceeded one of the
+  { -- | LimitExceeded is set to true when the trace has exceeded one of the
     -- defined quotas. For more information about quotas, see
     -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
     limitExceeded :: Prelude.Maybe Prelude.Bool,
@@ -40,7 +37,10 @@ data Trace = Trace'
     id :: Prelude.Maybe Prelude.Text,
     -- | Segment documents for the segments and subsegments that comprise the
     -- trace.
-    segments :: Prelude.Maybe [Segment]
+    segments :: Prelude.Maybe [Segment],
+    -- | The length of time in seconds between the start time of the root segment
+    -- and the end time of the last segment that completed.
+    duration :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,6 @@ data Trace = Trace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'duration', 'trace_duration' - The length of time in seconds between the start time of the root segment
--- and the end time of the last segment that completed.
---
 -- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the
 -- defined quotas. For more information about quotas, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
@@ -64,20 +61,18 @@ data Trace = Trace'
 --
 -- 'segments', 'trace_segments' - Segment documents for the segments and subsegments that comprise the
 -- trace.
+--
+-- 'duration', 'trace_duration' - The length of time in seconds between the start time of the root segment
+-- and the end time of the last segment that completed.
 newTrace ::
   Trace
 newTrace =
   Trace'
-    { duration = Prelude.Nothing,
-      limitExceeded = Prelude.Nothing,
+    { limitExceeded = Prelude.Nothing,
       id = Prelude.Nothing,
-      segments = Prelude.Nothing
+      segments = Prelude.Nothing,
+      duration = Prelude.Nothing
     }
-
--- | The length of time in seconds between the start time of the root segment
--- and the end time of the last segment that completed.
-trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
-trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
 
 -- | LimitExceeded is set to true when the trace has exceeded one of the
 -- defined quotas. For more information about quotas, see
@@ -93,7 +88,12 @@ trace_id = Lens.lens (\Trace' {id} -> id) (\s@Trace' {} a -> s {id = a} :: Trace
 -- | Segment documents for the segments and subsegments that comprise the
 -- trace.
 trace_segments :: Lens.Lens' Trace (Prelude.Maybe [Segment])
-trace_segments = Lens.lens (\Trace' {segments} -> segments) (\s@Trace' {} a -> s {segments = a} :: Trace) Prelude.. Lens.mapping Lens._Coerce
+trace_segments = Lens.lens (\Trace' {segments} -> segments) (\s@Trace' {} a -> s {segments = a} :: Trace) Prelude.. Lens.mapping Lens.coerced
+
+-- | The length of time in seconds between the start time of the root segment
+-- and the end time of the last segment that completed.
+trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
+trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
 
 instance Core.FromJSON Trace where
   parseJSON =
@@ -101,10 +101,10 @@ instance Core.FromJSON Trace where
       "Trace"
       ( \x ->
           Trace'
-            Prelude.<$> (x Core..:? "Duration")
-            Prelude.<*> (x Core..:? "LimitExceeded")
+            Prelude.<$> (x Core..:? "LimitExceeded")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Segments" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Duration")
       )
 
 instance Prelude.Hashable Trace

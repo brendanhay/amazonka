@@ -28,11 +28,11 @@ import Network.AWS.XRay.Types.ErrorRootCauseService
 --
 -- /See:/ 'newErrorRootCause' smart constructor.
 data ErrorRootCause = ErrorRootCause'
-  { -- | A list of services corresponding to an error. A service identifies a
+  { -- | A flag that denotes that the root cause impacts the trace client.
+    clientImpacting :: Prelude.Maybe Prelude.Bool,
+    -- | A list of services corresponding to an error. A service identifies a
     -- segment and it contains a name, account ID, type, and inferred flag.
-    services :: Prelude.Maybe [ErrorRootCauseService],
-    -- | A flag that denotes that the root cause impacts the trace client.
-    clientImpacting :: Prelude.Maybe Prelude.Bool
+    services :: Prelude.Maybe [ErrorRootCauseService]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data ErrorRootCause = ErrorRootCause'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientImpacting', 'errorRootCause_clientImpacting' - A flag that denotes that the root cause impacts the trace client.
+--
 -- 'services', 'errorRootCause_services' - A list of services corresponding to an error. A service identifies a
 -- segment and it contains a name, account ID, type, and inferred flag.
---
--- 'clientImpacting', 'errorRootCause_clientImpacting' - A flag that denotes that the root cause impacts the trace client.
 newErrorRootCause ::
   ErrorRootCause
 newErrorRootCause =
   ErrorRootCause'
-    { services = Prelude.Nothing,
-      clientImpacting = Prelude.Nothing
+    { clientImpacting = Prelude.Nothing,
+      services = Prelude.Nothing
     }
-
--- | A list of services corresponding to an error. A service identifies a
--- segment and it contains a name, account ID, type, and inferred flag.
-errorRootCause_services :: Lens.Lens' ErrorRootCause (Prelude.Maybe [ErrorRootCauseService])
-errorRootCause_services = Lens.lens (\ErrorRootCause' {services} -> services) (\s@ErrorRootCause' {} a -> s {services = a} :: ErrorRootCause) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that denotes that the root cause impacts the trace client.
 errorRootCause_clientImpacting :: Lens.Lens' ErrorRootCause (Prelude.Maybe Prelude.Bool)
 errorRootCause_clientImpacting = Lens.lens (\ErrorRootCause' {clientImpacting} -> clientImpacting) (\s@ErrorRootCause' {} a -> s {clientImpacting = a} :: ErrorRootCause)
+
+-- | A list of services corresponding to an error. A service identifies a
+-- segment and it contains a name, account ID, type, and inferred flag.
+errorRootCause_services :: Lens.Lens' ErrorRootCause (Prelude.Maybe [ErrorRootCauseService])
+errorRootCause_services = Lens.lens (\ErrorRootCause' {services} -> services) (\s@ErrorRootCause' {} a -> s {services = a} :: ErrorRootCause) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ErrorRootCause where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON ErrorRootCause where
       "ErrorRootCause"
       ( \x ->
           ErrorRootCause'
-            Prelude.<$> (x Core..:? "Services" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ClientImpacting")
+            Prelude.<$> (x Core..:? "ClientImpacting")
+            Prelude.<*> (x Core..:? "Services" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ErrorRootCause

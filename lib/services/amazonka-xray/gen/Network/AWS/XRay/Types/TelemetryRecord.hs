@@ -28,11 +28,11 @@ import Network.AWS.XRay.Types.BackendConnectionErrors
 --
 -- /See:/ 'newTelemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-  { segmentsSpilloverCount :: Prelude.Maybe Prelude.Int,
-    backendConnectionErrors :: Prelude.Maybe BackendConnectionErrors,
-    segmentsRejectedCount :: Prelude.Maybe Prelude.Int,
+  { segmentsReceivedCount :: Prelude.Maybe Prelude.Int,
     segmentsSentCount :: Prelude.Maybe Prelude.Int,
-    segmentsReceivedCount :: Prelude.Maybe Prelude.Int,
+    segmentsSpilloverCount :: Prelude.Maybe Prelude.Int,
+    segmentsRejectedCount :: Prelude.Maybe Prelude.Int,
+    backendConnectionErrors :: Prelude.Maybe BackendConnectionErrors,
     timestamp :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,15 +45,15 @@ data TelemetryRecord = TelemetryRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'segmentsSpilloverCount', 'telemetryRecord_segmentsSpilloverCount' -
---
--- 'backendConnectionErrors', 'telemetryRecord_backendConnectionErrors' -
---
--- 'segmentsRejectedCount', 'telemetryRecord_segmentsRejectedCount' -
+-- 'segmentsReceivedCount', 'telemetryRecord_segmentsReceivedCount' -
 --
 -- 'segmentsSentCount', 'telemetryRecord_segmentsSentCount' -
 --
--- 'segmentsReceivedCount', 'telemetryRecord_segmentsReceivedCount' -
+-- 'segmentsSpilloverCount', 'telemetryRecord_segmentsSpilloverCount' -
+--
+-- 'segmentsRejectedCount', 'telemetryRecord_segmentsRejectedCount' -
+--
+-- 'backendConnectionErrors', 'telemetryRecord_backendConnectionErrors' -
 --
 -- 'timestamp', 'telemetryRecord_timestamp' -
 newTelemetryRecord ::
@@ -62,34 +62,34 @@ newTelemetryRecord ::
   TelemetryRecord
 newTelemetryRecord pTimestamp_ =
   TelemetryRecord'
-    { segmentsSpilloverCount =
+    { segmentsReceivedCount =
         Prelude.Nothing,
-      backendConnectionErrors = Prelude.Nothing,
-      segmentsRejectedCount = Prelude.Nothing,
       segmentsSentCount = Prelude.Nothing,
-      segmentsReceivedCount = Prelude.Nothing,
+      segmentsSpilloverCount = Prelude.Nothing,
+      segmentsRejectedCount = Prelude.Nothing,
+      backendConnectionErrors = Prelude.Nothing,
       timestamp = Core._Time Lens.# pTimestamp_
     }
 
 -- |
-telemetryRecord_segmentsSpilloverCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
-telemetryRecord_segmentsSpilloverCount = Lens.lens (\TelemetryRecord' {segmentsSpilloverCount} -> segmentsSpilloverCount) (\s@TelemetryRecord' {} a -> s {segmentsSpilloverCount = a} :: TelemetryRecord)
-
--- |
-telemetryRecord_backendConnectionErrors :: Lens.Lens' TelemetryRecord (Prelude.Maybe BackendConnectionErrors)
-telemetryRecord_backendConnectionErrors = Lens.lens (\TelemetryRecord' {backendConnectionErrors} -> backendConnectionErrors) (\s@TelemetryRecord' {} a -> s {backendConnectionErrors = a} :: TelemetryRecord)
-
--- |
-telemetryRecord_segmentsRejectedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
-telemetryRecord_segmentsRejectedCount = Lens.lens (\TelemetryRecord' {segmentsRejectedCount} -> segmentsRejectedCount) (\s@TelemetryRecord' {} a -> s {segmentsRejectedCount = a} :: TelemetryRecord)
+telemetryRecord_segmentsReceivedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsReceivedCount = Lens.lens (\TelemetryRecord' {segmentsReceivedCount} -> segmentsReceivedCount) (\s@TelemetryRecord' {} a -> s {segmentsReceivedCount = a} :: TelemetryRecord)
 
 -- |
 telemetryRecord_segmentsSentCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
 telemetryRecord_segmentsSentCount = Lens.lens (\TelemetryRecord' {segmentsSentCount} -> segmentsSentCount) (\s@TelemetryRecord' {} a -> s {segmentsSentCount = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_segmentsReceivedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
-telemetryRecord_segmentsReceivedCount = Lens.lens (\TelemetryRecord' {segmentsReceivedCount} -> segmentsReceivedCount) (\s@TelemetryRecord' {} a -> s {segmentsReceivedCount = a} :: TelemetryRecord)
+telemetryRecord_segmentsSpilloverCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsSpilloverCount = Lens.lens (\TelemetryRecord' {segmentsSpilloverCount} -> segmentsSpilloverCount) (\s@TelemetryRecord' {} a -> s {segmentsSpilloverCount = a} :: TelemetryRecord)
+
+-- |
+telemetryRecord_segmentsRejectedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsRejectedCount = Lens.lens (\TelemetryRecord' {segmentsRejectedCount} -> segmentsRejectedCount) (\s@TelemetryRecord' {} a -> s {segmentsRejectedCount = a} :: TelemetryRecord)
+
+-- |
+telemetryRecord_backendConnectionErrors :: Lens.Lens' TelemetryRecord (Prelude.Maybe BackendConnectionErrors)
+telemetryRecord_backendConnectionErrors = Lens.lens (\TelemetryRecord' {backendConnectionErrors} -> backendConnectionErrors) (\s@TelemetryRecord' {} a -> s {backendConnectionErrors = a} :: TelemetryRecord)
 
 -- |
 telemetryRecord_timestamp :: Lens.Lens' TelemetryRecord Prelude.UTCTime
@@ -103,16 +103,16 @@ instance Core.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SegmentsSpilloverCount" Core..=)
-              Prelude.<$> segmentsSpilloverCount,
-            ("BackendConnectionErrors" Core..=)
-              Prelude.<$> backendConnectionErrors,
-            ("SegmentsRejectedCount" Core..=)
-              Prelude.<$> segmentsRejectedCount,
+          [ ("SegmentsReceivedCount" Core..=)
+              Prelude.<$> segmentsReceivedCount,
             ("SegmentsSentCount" Core..=)
               Prelude.<$> segmentsSentCount,
-            ("SegmentsReceivedCount" Core..=)
-              Prelude.<$> segmentsReceivedCount,
+            ("SegmentsSpilloverCount" Core..=)
+              Prelude.<$> segmentsSpilloverCount,
+            ("SegmentsRejectedCount" Core..=)
+              Prelude.<$> segmentsRejectedCount,
+            ("BackendConnectionErrors" Core..=)
+              Prelude.<$> backendConnectionErrors,
             Prelude.Just ("Timestamp" Core..= timestamp)
           ]
       )

@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRoute' smart constructor.
 data Route = Route'
-  { -- | The type of destination for the route.
-    destinationType :: Prelude.Maybe DestinationType,
+  { -- | The destination of the route.
+    destination :: Prelude.Maybe Prelude.Text,
     -- | The type of target for the route.
     targetType :: Prelude.Maybe TargetType,
-    -- | The destination of the route.
-    destination :: Prelude.Maybe Prelude.Text,
+    -- | The type of destination for the route.
+    destinationType :: Prelude.Maybe DestinationType,
     -- | The route\'s target.
     target :: Prelude.Maybe Prelude.Text
   }
@@ -48,34 +48,34 @@ data Route = Route'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationType', 'route_destinationType' - The type of destination for the route.
+-- 'destination', 'route_destination' - The destination of the route.
 --
 -- 'targetType', 'route_targetType' - The type of target for the route.
 --
--- 'destination', 'route_destination' - The destination of the route.
+-- 'destinationType', 'route_destinationType' - The type of destination for the route.
 --
 -- 'target', 'route_target' - The route\'s target.
 newRoute ::
   Route
 newRoute =
   Route'
-    { destinationType = Prelude.Nothing,
+    { destination = Prelude.Nothing,
       targetType = Prelude.Nothing,
-      destination = Prelude.Nothing,
+      destinationType = Prelude.Nothing,
       target = Prelude.Nothing
     }
 
--- | The type of destination for the route.
-route_destinationType :: Lens.Lens' Route (Prelude.Maybe DestinationType)
-route_destinationType = Lens.lens (\Route' {destinationType} -> destinationType) (\s@Route' {} a -> s {destinationType = a} :: Route)
+-- | The destination of the route.
+route_destination :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
+route_destination = Lens.lens (\Route' {destination} -> destination) (\s@Route' {} a -> s {destination = a} :: Route)
 
 -- | The type of target for the route.
 route_targetType :: Lens.Lens' Route (Prelude.Maybe TargetType)
 route_targetType = Lens.lens (\Route' {targetType} -> targetType) (\s@Route' {} a -> s {targetType = a} :: Route)
 
--- | The destination of the route.
-route_destination :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
-route_destination = Lens.lens (\Route' {destination} -> destination) (\s@Route' {} a -> s {destination = a} :: Route)
+-- | The type of destination for the route.
+route_destinationType :: Lens.Lens' Route (Prelude.Maybe DestinationType)
+route_destinationType = Lens.lens (\Route' {destinationType} -> destinationType) (\s@Route' {} a -> s {destinationType = a} :: Route)
 
 -- | The route\'s target.
 route_target :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
@@ -87,9 +87,9 @@ instance Core.FromJSON Route where
       "Route"
       ( \x ->
           Route'
-            Prelude.<$> (x Core..:? "DestinationType")
+            Prelude.<$> (x Core..:? "Destination")
             Prelude.<*> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "Destination")
+            Prelude.<*> (x Core..:? "DestinationType")
             Prelude.<*> (x Core..:? "Target")
       )
 

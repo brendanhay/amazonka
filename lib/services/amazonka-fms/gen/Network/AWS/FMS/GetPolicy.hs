@@ -34,8 +34,8 @@ module Network.AWS.FMS.GetPolicy
     newGetPolicyResponse,
 
     -- * Response Lenses
-    getPolicyResponse_policy,
     getPolicyResponse_policyArn,
+    getPolicyResponse_policy,
     getPolicyResponse_httpStatus,
   )
 where
@@ -81,8 +81,8 @@ instance Core.AWSRequest GetPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Core..?> "Policy")
-            Prelude.<*> (x Core..?> "PolicyArn")
+            Prelude.<$> (x Core..?> "PolicyArn")
+            Prelude.<*> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,10 +118,10 @@ instance Core.ToQuery GetPolicy where
 
 -- | /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { -- | Information about the specified Firewall Manager policy.
-    policy :: Prelude.Maybe Policy,
-    -- | The Amazon Resource Name (ARN) of the specified policy.
+  { -- | The Amazon Resource Name (ARN) of the specified policy.
     policyArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the specified Firewall Manager policy.
+    policy :: Prelude.Maybe Policy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -135,9 +135,9 @@ data GetPolicyResponse = GetPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'getPolicyResponse_policy' - Information about the specified Firewall Manager policy.
---
 -- 'policyArn', 'getPolicyResponse_policyArn' - The Amazon Resource Name (ARN) of the specified policy.
+--
+-- 'policy', 'getPolicyResponse_policy' - Information about the specified Firewall Manager policy.
 --
 -- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
 newGetPolicyResponse ::
@@ -146,18 +146,18 @@ newGetPolicyResponse ::
   GetPolicyResponse
 newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { policy = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
+    { policyArn = Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the specified Firewall Manager policy.
-getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Policy)
-getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the specified policy.
 getPolicyResponse_policyArn :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
 getPolicyResponse_policyArn = Lens.lens (\GetPolicyResponse' {policyArn} -> policyArn) (\s@GetPolicyResponse' {} a -> s {policyArn = a} :: GetPolicyResponse)
+
+-- | Information about the specified Firewall Manager policy.
+getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Policy)
+getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
 -- | The response's http status code.
 getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int

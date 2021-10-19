@@ -27,23 +27,23 @@ module Network.AWS.FMS
     -- * Errors
     -- $errors
 
-    -- ** InvalidTypeException
-    _InvalidTypeException,
-
-    -- ** InvalidOperationException
-    _InvalidOperationException,
-
     -- ** InternalErrorException
     _InternalErrorException,
 
     -- ** InvalidInputException
     _InvalidInputException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -51,17 +51,53 @@ module Network.AWS.FMS
     -- * Operations
     -- $operations
 
-    -- ** DeleteNotificationChannel
-    DeleteNotificationChannel (DeleteNotificationChannel'),
-    newDeleteNotificationChannel,
-    DeleteNotificationChannelResponse (DeleteNotificationChannelResponse'),
-    newDeleteNotificationChannelResponse,
-
     -- ** ListPolicies (Paginated)
     ListPolicies (ListPolicies'),
     newListPolicies,
     ListPoliciesResponse (ListPoliciesResponse'),
     newListPoliciesResponse,
+
+    -- ** GetComplianceDetail
+    GetComplianceDetail (GetComplianceDetail'),
+    newGetComplianceDetail,
+    GetComplianceDetailResponse (GetComplianceDetailResponse'),
+    newGetComplianceDetailResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** GetNotificationChannel
+    GetNotificationChannel (GetNotificationChannel'),
+    newGetNotificationChannel,
+    GetNotificationChannelResponse (GetNotificationChannelResponse'),
+    newGetNotificationChannelResponse,
+
+    -- ** GetAdminAccount
+    GetAdminAccount (GetAdminAccount'),
+    newGetAdminAccount,
+    GetAdminAccountResponse (GetAdminAccountResponse'),
+    newGetAdminAccountResponse,
+
+    -- ** ListComplianceStatus (Paginated)
+    ListComplianceStatus (ListComplianceStatus'),
+    newListComplianceStatus,
+    ListComplianceStatusResponse (ListComplianceStatusResponse'),
+    newListComplianceStatusResponse,
+
+    -- ** GetAppsList
+    GetAppsList (GetAppsList'),
+    newGetAppsList,
+    GetAppsListResponse (GetAppsListResponse'),
+    newGetAppsListResponse,
+
+    -- ** PutPolicy
+    PutPolicy (PutPolicy'),
+    newPutPolicy,
+    PutPolicyResponse (PutPolicyResponse'),
+    newPutPolicyResponse,
 
     -- ** DeletePolicy
     DeletePolicy (DeletePolicy'),
@@ -69,29 +105,65 @@ module Network.AWS.FMS
     DeletePolicyResponse (DeletePolicyResponse'),
     newDeletePolicyResponse,
 
-    -- ** GetProtectionStatus
-    GetProtectionStatus (GetProtectionStatus'),
-    newGetProtectionStatus,
-    GetProtectionStatusResponse (GetProtectionStatusResponse'),
-    newGetProtectionStatusResponse,
+    -- ** DisassociateAdminAccount
+    DisassociateAdminAccount (DisassociateAdminAccount'),
+    newDisassociateAdminAccount,
+    DisassociateAdminAccountResponse (DisassociateAdminAccountResponse'),
+    newDisassociateAdminAccountResponse,
 
-    -- ** ListAppsLists (Paginated)
-    ListAppsLists (ListAppsLists'),
-    newListAppsLists,
-    ListAppsListsResponse (ListAppsListsResponse'),
-    newListAppsListsResponse,
+    -- ** PutNotificationChannel
+    PutNotificationChannel (PutNotificationChannel'),
+    newPutNotificationChannel,
+    PutNotificationChannelResponse (PutNotificationChannelResponse'),
+    newPutNotificationChannelResponse,
 
-    -- ** PutAppsList
-    PutAppsList (PutAppsList'),
-    newPutAppsList,
-    PutAppsListResponse (PutAppsListResponse'),
-    newPutAppsListResponse,
+    -- ** DeleteNotificationChannel
+    DeleteNotificationChannel (DeleteNotificationChannel'),
+    newDeleteNotificationChannel,
+    DeleteNotificationChannelResponse (DeleteNotificationChannelResponse'),
+    newDeleteNotificationChannelResponse,
 
-    -- ** GetAppsList
-    GetAppsList (GetAppsList'),
-    newGetAppsList,
-    GetAppsListResponse (GetAppsListResponse'),
-    newGetAppsListResponse,
+    -- ** AssociateAdminAccount
+    AssociateAdminAccount (AssociateAdminAccount'),
+    newAssociateAdminAccount,
+    AssociateAdminAccountResponse (AssociateAdminAccountResponse'),
+    newAssociateAdminAccountResponse,
+
+    -- ** GetViolationDetails
+    GetViolationDetails (GetViolationDetails'),
+    newGetViolationDetails,
+    GetViolationDetailsResponse (GetViolationDetailsResponse'),
+    newGetViolationDetailsResponse,
+
+    -- ** ListMemberAccounts (Paginated)
+    ListMemberAccounts (ListMemberAccounts'),
+    newListMemberAccounts,
+    ListMemberAccountsResponse (ListMemberAccountsResponse'),
+    newListMemberAccountsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteProtocolsList
+    DeleteProtocolsList (DeleteProtocolsList'),
+    newDeleteProtocolsList,
+    DeleteProtocolsListResponse (DeleteProtocolsListResponse'),
+    newDeleteProtocolsListResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
 
     -- ** ListProtocolsLists (Paginated)
     ListProtocolsLists (ListProtocolsLists'),
@@ -105,59 +177,11 @@ module Network.AWS.FMS
     PutProtocolsListResponse (PutProtocolsListResponse'),
     newPutProtocolsListResponse,
 
-    -- ** ListComplianceStatus (Paginated)
-    ListComplianceStatus (ListComplianceStatus'),
-    newListComplianceStatus,
-    ListComplianceStatusResponse (ListComplianceStatusResponse'),
-    newListComplianceStatusResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetNotificationChannel
-    GetNotificationChannel (GetNotificationChannel'),
-    newGetNotificationChannel,
-    GetNotificationChannelResponse (GetNotificationChannelResponse'),
-    newGetNotificationChannelResponse,
-
-    -- ** AssociateAdminAccount
-    AssociateAdminAccount (AssociateAdminAccount'),
-    newAssociateAdminAccount,
-    AssociateAdminAccountResponse (AssociateAdminAccountResponse'),
-    newAssociateAdminAccountResponse,
-
-    -- ** PutNotificationChannel
-    PutNotificationChannel (PutNotificationChannel'),
-    newPutNotificationChannel,
-    PutNotificationChannelResponse (PutNotificationChannelResponse'),
-    newPutNotificationChannelResponse,
-
-    -- ** DisassociateAdminAccount
-    DisassociateAdminAccount (DisassociateAdminAccount'),
-    newDisassociateAdminAccount,
-    DisassociateAdminAccountResponse (DisassociateAdminAccountResponse'),
-    newDisassociateAdminAccountResponse,
-
-    -- ** PutPolicy
-    PutPolicy (PutPolicy'),
-    newPutPolicy,
-    PutPolicyResponse (PutPolicyResponse'),
-    newPutPolicyResponse,
-
-    -- ** GetProtocolsList
-    GetProtocolsList (GetProtocolsList'),
-    newGetProtocolsList,
-    GetProtocolsListResponse (GetProtocolsListResponse'),
-    newGetProtocolsListResponse,
+    -- ** PutAppsList
+    PutAppsList (PutAppsList'),
+    newPutAppsList,
+    PutAppsListResponse (PutAppsListResponse'),
+    newPutAppsListResponse,
 
     -- ** DeleteAppsList
     DeleteAppsList (DeleteAppsList'),
@@ -165,47 +189,23 @@ module Network.AWS.FMS
     DeleteAppsListResponse (DeleteAppsListResponse'),
     newDeleteAppsListResponse,
 
-    -- ** GetPolicy
-    GetPolicy (GetPolicy'),
-    newGetPolicy,
-    GetPolicyResponse (GetPolicyResponse'),
-    newGetPolicyResponse,
+    -- ** ListAppsLists (Paginated)
+    ListAppsLists (ListAppsLists'),
+    newListAppsLists,
+    ListAppsListsResponse (ListAppsListsResponse'),
+    newListAppsListsResponse,
 
-    -- ** DeleteProtocolsList
-    DeleteProtocolsList (DeleteProtocolsList'),
-    newDeleteProtocolsList,
-    DeleteProtocolsListResponse (DeleteProtocolsListResponse'),
-    newDeleteProtocolsListResponse,
+    -- ** GetProtocolsList
+    GetProtocolsList (GetProtocolsList'),
+    newGetProtocolsList,
+    GetProtocolsListResponse (GetProtocolsListResponse'),
+    newGetProtocolsListResponse,
 
-    -- ** GetAdminAccount
-    GetAdminAccount (GetAdminAccount'),
-    newGetAdminAccount,
-    GetAdminAccountResponse (GetAdminAccountResponse'),
-    newGetAdminAccountResponse,
-
-    -- ** ListMemberAccounts (Paginated)
-    ListMemberAccounts (ListMemberAccounts'),
-    newListMemberAccounts,
-    ListMemberAccountsResponse (ListMemberAccountsResponse'),
-    newListMemberAccountsResponse,
-
-    -- ** GetViolationDetails
-    GetViolationDetails (GetViolationDetails'),
-    newGetViolationDetails,
-    GetViolationDetailsResponse (GetViolationDetailsResponse'),
-    newGetViolationDetailsResponse,
-
-    -- ** GetComplianceDetail
-    GetComplianceDetail (GetComplianceDetail'),
-    newGetComplianceDetail,
-    GetComplianceDetailResponse (GetComplianceDetailResponse'),
-    newGetComplianceDetailResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** GetProtectionStatus
+    GetProtectionStatus (GetProtectionStatus'),
+    newGetProtectionStatus,
+    GetProtectionStatusResponse (GetProtectionStatusResponse'),
+    newGetProtectionStatusResponse,
 
     -- * Types
 

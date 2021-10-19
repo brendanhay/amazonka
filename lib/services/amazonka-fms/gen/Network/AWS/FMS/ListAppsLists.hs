@@ -29,8 +29,8 @@ module Network.AWS.FMS.ListAppsLists
     newListAppsLists,
 
     -- * Request Lenses
-    listAppsLists_nextToken,
     listAppsLists_defaultLists,
+    listAppsLists_nextToken,
     listAppsLists_maxResults,
 
     -- * Destructuring the Response
@@ -53,15 +53,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAppsLists' smart constructor.
 data ListAppsLists = ListAppsLists'
-  { -- | If you specify a value for @MaxResults@ in your list request, and you
+  { -- | Specifies whether the lists to retrieve are default lists owned by
+    -- Firewall Manager.
+    defaultLists :: Prelude.Maybe Prelude.Bool,
+    -- | If you specify a value for @MaxResults@ in your list request, and you
     -- have more objects than the maximum, Firewall Manager returns this token
     -- in the response. For all but the first request, you provide the token
     -- returned by the prior request in the request parameters, to retrieve the
     -- next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the lists to retrieve are default lists owned by
-    -- Firewall Manager.
-    defaultLists :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of objects that you want Firewall Manager to return
     -- for this request. If more objects are available, in the response,
     -- Firewall Manager provides a @NextToken@ value that you can use in a
@@ -81,14 +81,14 @@ data ListAppsLists = ListAppsLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultLists', 'listAppsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by
+-- Firewall Manager.
+--
 -- 'nextToken', 'listAppsLists_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
 -- have more objects than the maximum, Firewall Manager returns this token
 -- in the response. For all but the first request, you provide the token
 -- returned by the prior request in the request parameters, to retrieve the
 -- next batch of objects.
---
--- 'defaultLists', 'listAppsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by
--- Firewall Manager.
 --
 -- 'maxResults', 'listAppsLists_maxResults' - The maximum number of objects that you want Firewall Manager to return
 -- for this request. If more objects are available, in the response,
@@ -103,10 +103,15 @@ newListAppsLists ::
   ListAppsLists
 newListAppsLists pMaxResults_ =
   ListAppsLists'
-    { nextToken = Prelude.Nothing,
-      defaultLists = Prelude.Nothing,
+    { defaultLists = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = pMaxResults_
     }
+
+-- | Specifies whether the lists to retrieve are default lists owned by
+-- Firewall Manager.
+listAppsLists_defaultLists :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Bool)
+listAppsLists_defaultLists = Lens.lens (\ListAppsLists' {defaultLists} -> defaultLists) (\s@ListAppsLists' {} a -> s {defaultLists = a} :: ListAppsLists)
 
 -- | If you specify a value for @MaxResults@ in your list request, and you
 -- have more objects than the maximum, Firewall Manager returns this token
@@ -115,11 +120,6 @@ newListAppsLists pMaxResults_ =
 -- next batch of objects.
 listAppsLists_nextToken :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Text)
 listAppsLists_nextToken = Lens.lens (\ListAppsLists' {nextToken} -> nextToken) (\s@ListAppsLists' {} a -> s {nextToken = a} :: ListAppsLists)
-
--- | Specifies whether the lists to retrieve are default lists owned by
--- Firewall Manager.
-listAppsLists_defaultLists :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Bool)
-listAppsLists_defaultLists = Lens.lens (\ListAppsLists' {defaultLists} -> defaultLists) (\s@ListAppsLists' {} a -> s {defaultLists = a} :: ListAppsLists)
 
 -- | The maximum number of objects that you want Firewall Manager to return
 -- for this request. If more objects are available, in the response,
@@ -187,8 +187,8 @@ instance Core.ToJSON ListAppsLists where
   toJSON ListAppsLists' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DefaultLists" Core..=) Prelude.<$> defaultLists,
+          [ ("DefaultLists" Core..=) Prelude.<$> defaultLists,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             Prelude.Just ("MaxResults" Core..= maxResults)
           ]
       )
@@ -249,7 +249,7 @@ listAppsListsResponse_nextToken = Lens.lens (\ListAppsListsResponse' {nextToken}
 
 -- | An array of @AppsListDataSummary@ objects.
 listAppsListsResponse_appsLists :: Lens.Lens' ListAppsListsResponse (Prelude.Maybe [AppsListDataSummary])
-listAppsListsResponse_appsLists = Lens.lens (\ListAppsListsResponse' {appsLists} -> appsLists) (\s@ListAppsListsResponse' {} a -> s {appsLists = a} :: ListAppsListsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAppsListsResponse_appsLists = Lens.lens (\ListAppsListsResponse' {appsLists} -> appsLists) (\s@ListAppsListsResponse' {} a -> s {appsLists = a} :: ListAppsListsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAppsListsResponse_httpStatus :: Lens.Lens' ListAppsListsResponse Prelude.Int

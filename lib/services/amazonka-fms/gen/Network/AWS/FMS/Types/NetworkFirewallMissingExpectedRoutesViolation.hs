@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data NetworkFirewallMissingExpectedRoutesViolation = NetworkFirewallMissingExpectedRoutesViolation'
   { -- | The expected routes.
     expectedRoutes :: Prelude.Maybe [ExpectedRoute],
-    -- | The target of the violation.
-    violationTarget :: Prelude.Maybe Prelude.Text,
     -- | Information about the VPC ID.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The target of the violation.
+    violationTarget :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,31 +47,31 @@ data NetworkFirewallMissingExpectedRoutesViolation = NetworkFirewallMissingExpec
 --
 -- 'expectedRoutes', 'networkFirewallMissingExpectedRoutesViolation_expectedRoutes' - The expected routes.
 --
--- 'violationTarget', 'networkFirewallMissingExpectedRoutesViolation_violationTarget' - The target of the violation.
---
 -- 'vpcId', 'networkFirewallMissingExpectedRoutesViolation_vpcId' - Information about the VPC ID.
+--
+-- 'violationTarget', 'networkFirewallMissingExpectedRoutesViolation_violationTarget' - The target of the violation.
 newNetworkFirewallMissingExpectedRoutesViolation ::
   NetworkFirewallMissingExpectedRoutesViolation
 newNetworkFirewallMissingExpectedRoutesViolation =
   NetworkFirewallMissingExpectedRoutesViolation'
     { expectedRoutes =
         Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       violationTarget =
-        Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The expected routes.
 networkFirewallMissingExpectedRoutesViolation_expectedRoutes :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe [ExpectedRoute])
-networkFirewallMissingExpectedRoutesViolation_expectedRoutes = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {expectedRoutes} -> expectedRoutes) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {expectedRoutes = a} :: NetworkFirewallMissingExpectedRoutesViolation) Prelude.. Lens.mapping Lens._Coerce
-
--- | The target of the violation.
-networkFirewallMissingExpectedRoutesViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
-networkFirewallMissingExpectedRoutesViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRoutesViolation)
+networkFirewallMissingExpectedRoutesViolation_expectedRoutes = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {expectedRoutes} -> expectedRoutes) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {expectedRoutes = a} :: NetworkFirewallMissingExpectedRoutesViolation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the VPC ID.
 networkFirewallMissingExpectedRoutesViolation_vpcId :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRoutesViolation_vpcId = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallMissingExpectedRoutesViolation)
+
+-- | The target of the violation.
+networkFirewallMissingExpectedRoutesViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRoutesViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingExpectedRoutesViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRoutesViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRoutesViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRoutesViolation)
 
 instance
   Core.FromJSON
@@ -83,8 +83,8 @@ instance
       ( \x ->
           NetworkFirewallMissingExpectedRoutesViolation'
             Prelude.<$> (x Core..:? "ExpectedRoutes" Core..!= Prelude.mempty)
-              Prelude.<*> (x Core..:? "ViolationTarget")
               Prelude.<*> (x Core..:? "VpcId")
+              Prelude.<*> (x Core..:? "ViolationTarget")
       )
 
 instance

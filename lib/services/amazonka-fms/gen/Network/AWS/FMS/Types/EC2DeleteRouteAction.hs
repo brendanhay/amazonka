@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEC2DeleteRouteAction' smart constructor.
 data EC2DeleteRouteAction = EC2DeleteRouteAction'
-  { -- | Information about the ID of the prefix list for the route.
-    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the IPv6 CIDR range for the route. The value you
+  { -- | Information about the IPv6 CIDR range for the route. The value you
     -- specify must match the CIDR for the route exactly.
     destinationIpv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | Information about the ID of the prefix list for the route.
+    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the DeleteRoute action.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Information about the IPv4 CIDR range for the route. The value you
     -- specify must match the CIDR for the route exactly.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | A description of the DeleteRoute action.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Information about the ID of the route table.
     routeTableId :: ActionTarget
   }
@@ -51,15 +51,15 @@ data EC2DeleteRouteAction = EC2DeleteRouteAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationPrefixListId', 'eC2DeleteRouteAction_destinationPrefixListId' - Information about the ID of the prefix list for the route.
---
 -- 'destinationIpv6CidrBlock', 'eC2DeleteRouteAction_destinationIpv6CidrBlock' - Information about the IPv6 CIDR range for the route. The value you
 -- specify must match the CIDR for the route exactly.
 --
--- 'destinationCidrBlock', 'eC2DeleteRouteAction_destinationCidrBlock' - Information about the IPv4 CIDR range for the route. The value you
--- specify must match the CIDR for the route exactly.
+-- 'destinationPrefixListId', 'eC2DeleteRouteAction_destinationPrefixListId' - Information about the ID of the prefix list for the route.
 --
 -- 'description', 'eC2DeleteRouteAction_description' - A description of the DeleteRoute action.
+--
+-- 'destinationCidrBlock', 'eC2DeleteRouteAction_destinationCidrBlock' - Information about the IPv4 CIDR range for the route. The value you
+-- specify must match the CIDR for the route exactly.
 --
 -- 'routeTableId', 'eC2DeleteRouteAction_routeTableId' - Information about the ID of the route table.
 newEC2DeleteRouteAction ::
@@ -68,31 +68,31 @@ newEC2DeleteRouteAction ::
   EC2DeleteRouteAction
 newEC2DeleteRouteAction pRouteTableId_ =
   EC2DeleteRouteAction'
-    { destinationPrefixListId =
+    { destinationIpv6CidrBlock =
         Prelude.Nothing,
-      destinationIpv6CidrBlock = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing,
+      destinationPrefixListId = Prelude.Nothing,
       description = Prelude.Nothing,
+      destinationCidrBlock = Prelude.Nothing,
       routeTableId = pRouteTableId_
     }
-
--- | Information about the ID of the prefix list for the route.
-eC2DeleteRouteAction_destinationPrefixListId :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
-eC2DeleteRouteAction_destinationPrefixListId = Lens.lens (\EC2DeleteRouteAction' {destinationPrefixListId} -> destinationPrefixListId) (\s@EC2DeleteRouteAction' {} a -> s {destinationPrefixListId = a} :: EC2DeleteRouteAction)
 
 -- | Information about the IPv6 CIDR range for the route. The value you
 -- specify must match the CIDR for the route exactly.
 eC2DeleteRouteAction_destinationIpv6CidrBlock :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
 eC2DeleteRouteAction_destinationIpv6CidrBlock = Lens.lens (\EC2DeleteRouteAction' {destinationIpv6CidrBlock} -> destinationIpv6CidrBlock) (\s@EC2DeleteRouteAction' {} a -> s {destinationIpv6CidrBlock = a} :: EC2DeleteRouteAction)
 
--- | Information about the IPv4 CIDR range for the route. The value you
--- specify must match the CIDR for the route exactly.
-eC2DeleteRouteAction_destinationCidrBlock :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
-eC2DeleteRouteAction_destinationCidrBlock = Lens.lens (\EC2DeleteRouteAction' {destinationCidrBlock} -> destinationCidrBlock) (\s@EC2DeleteRouteAction' {} a -> s {destinationCidrBlock = a} :: EC2DeleteRouteAction)
+-- | Information about the ID of the prefix list for the route.
+eC2DeleteRouteAction_destinationPrefixListId :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
+eC2DeleteRouteAction_destinationPrefixListId = Lens.lens (\EC2DeleteRouteAction' {destinationPrefixListId} -> destinationPrefixListId) (\s@EC2DeleteRouteAction' {} a -> s {destinationPrefixListId = a} :: EC2DeleteRouteAction)
 
 -- | A description of the DeleteRoute action.
 eC2DeleteRouteAction_description :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
 eC2DeleteRouteAction_description = Lens.lens (\EC2DeleteRouteAction' {description} -> description) (\s@EC2DeleteRouteAction' {} a -> s {description = a} :: EC2DeleteRouteAction)
+
+-- | Information about the IPv4 CIDR range for the route. The value you
+-- specify must match the CIDR for the route exactly.
+eC2DeleteRouteAction_destinationCidrBlock :: Lens.Lens' EC2DeleteRouteAction (Prelude.Maybe Prelude.Text)
+eC2DeleteRouteAction_destinationCidrBlock = Lens.lens (\EC2DeleteRouteAction' {destinationCidrBlock} -> destinationCidrBlock) (\s@EC2DeleteRouteAction' {} a -> s {destinationCidrBlock = a} :: EC2DeleteRouteAction)
 
 -- | Information about the ID of the route table.
 eC2DeleteRouteAction_routeTableId :: Lens.Lens' EC2DeleteRouteAction ActionTarget
@@ -104,10 +104,10 @@ instance Core.FromJSON EC2DeleteRouteAction where
       "EC2DeleteRouteAction"
       ( \x ->
           EC2DeleteRouteAction'
-            Prelude.<$> (x Core..:? "DestinationPrefixListId")
-            Prelude.<*> (x Core..:? "DestinationIpv6CidrBlock")
-            Prelude.<*> (x Core..:? "DestinationCidrBlock")
+            Prelude.<$> (x Core..:? "DestinationIpv6CidrBlock")
+            Prelude.<*> (x Core..:? "DestinationPrefixListId")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "DestinationCidrBlock")
             Prelude.<*> (x Core..: "RouteTableId")
       )
 

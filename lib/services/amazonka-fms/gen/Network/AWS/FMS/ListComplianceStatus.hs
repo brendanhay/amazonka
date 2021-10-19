@@ -260,7 +260,7 @@ listComplianceStatusResponse_nextToken = Lens.lens (\ListComplianceStatusRespons
 
 -- | An array of @PolicyComplianceStatus@ objects.
 listComplianceStatusResponse_policyComplianceStatusList :: Lens.Lens' ListComplianceStatusResponse (Prelude.Maybe [PolicyComplianceStatus])
-listComplianceStatusResponse_policyComplianceStatusList = Lens.lens (\ListComplianceStatusResponse' {policyComplianceStatusList} -> policyComplianceStatusList) (\s@ListComplianceStatusResponse' {} a -> s {policyComplianceStatusList = a} :: ListComplianceStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+listComplianceStatusResponse_policyComplianceStatusList = Lens.lens (\ListComplianceStatusResponse' {policyComplianceStatusList} -> policyComplianceStatusList) (\s@ListComplianceStatusResponse' {} a -> s {policyComplianceStatusList = a} :: ListComplianceStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listComplianceStatusResponse_httpStatus :: Lens.Lens' ListComplianceStatusResponse Prelude.Int

@@ -118,7 +118,7 @@ newDescribeEventDetailsForOrganization
       { locale =
           Prelude.Nothing,
         organizationEventDetailFilters =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pOrganizationEventDetailFilters_
       }
 
@@ -130,7 +130,7 @@ describeEventDetailsForOrganization_locale = Lens.lens (\DescribeEventDetailsFor
 -- | A set of JSON elements that includes the @awsAccountId@ and the
 -- @eventArn@.
 describeEventDetailsForOrganization_organizationEventDetailFilters :: Lens.Lens' DescribeEventDetailsForOrganization (Prelude.NonEmpty EventAccountFilter)
-describeEventDetailsForOrganization_organizationEventDetailFilters = Lens.lens (\DescribeEventDetailsForOrganization' {organizationEventDetailFilters} -> organizationEventDetailFilters) (\s@DescribeEventDetailsForOrganization' {} a -> s {organizationEventDetailFilters = a} :: DescribeEventDetailsForOrganization) Prelude.. Lens._Coerce
+describeEventDetailsForOrganization_organizationEventDetailFilters = Lens.lens (\DescribeEventDetailsForOrganization' {organizationEventDetailFilters} -> organizationEventDetailFilters) (\s@DescribeEventDetailsForOrganization' {} a -> s {organizationEventDetailFilters = a} :: DescribeEventDetailsForOrganization) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -241,11 +241,11 @@ newDescribeEventDetailsForOrganizationResponse
 
 -- | Information about the events that could be retrieved.
 describeEventDetailsForOrganizationResponse_successfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetails])
-describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Error messages for any events that could not be retrieved.
 describeEventDetailsForOrganizationResponse_failedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetailsErrorItem])
-describeEventDetailsForOrganizationResponse_failedSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventDetailsForOrganizationResponse_failedSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventDetailsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Prelude.Int

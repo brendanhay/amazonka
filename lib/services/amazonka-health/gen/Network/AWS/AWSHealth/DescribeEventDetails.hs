@@ -96,7 +96,7 @@ newDescribeEventDetails ::
 newDescribeEventDetails pEventArns_ =
   DescribeEventDetails'
     { locale = Prelude.Nothing,
-      eventArns = Lens._Coerce Lens.# pEventArns_
+      eventArns = Lens.coerced Lens.# pEventArns_
     }
 
 -- | The locale (language) to return information in. English (en) is the
@@ -107,7 +107,7 @@ describeEventDetails_locale = Lens.lens (\DescribeEventDetails' {locale} -> loca
 -- | A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
 describeEventDetails_eventArns :: Lens.Lens' DescribeEventDetails (Prelude.NonEmpty Prelude.Text)
-describeEventDetails_eventArns = Lens.lens (\DescribeEventDetails' {eventArns} -> eventArns) (\s@DescribeEventDetails' {} a -> s {eventArns = a} :: DescribeEventDetails) Prelude.. Lens._Coerce
+describeEventDetails_eventArns = Lens.lens (\DescribeEventDetails' {eventArns} -> eventArns) (\s@DescribeEventDetails' {} a -> s {eventArns = a} :: DescribeEventDetails) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeEventDetails where
   type
@@ -195,11 +195,11 @@ newDescribeEventDetailsResponse pHttpStatus_ =
 
 -- | Information about the events that could be retrieved.
 describeEventDetailsResponse_successfulSet :: Lens.Lens' DescribeEventDetailsResponse (Prelude.Maybe [EventDetails])
-describeEventDetailsResponse_successfulSet = Lens.lens (\DescribeEventDetailsResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventDetailsResponse_successfulSet = Lens.lens (\DescribeEventDetailsResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Error messages for any events that could not be retrieved.
 describeEventDetailsResponse_failedSet :: Lens.Lens' DescribeEventDetailsResponse (Prelude.Maybe [EventDetailsErrorItem])
-describeEventDetailsResponse_failedSet = Lens.lens (\DescribeEventDetailsResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventDetailsResponse_failedSet = Lens.lens (\DescribeEventDetailsResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventDetailsResponse_httpStatus :: Lens.Lens' DescribeEventDetailsResponse Prelude.Int

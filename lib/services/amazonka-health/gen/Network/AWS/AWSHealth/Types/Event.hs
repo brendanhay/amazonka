@@ -47,9 +47,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
-  { -- | The category of the event. Possible values are @issue@,
-    -- @scheduledChange@, and @accountNotification@.
-    eventTypeCategory :: Prelude.Maybe EventTypeCategory,
+  { -- | The most recent date and time that the event was updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The unique identifier for the event. The event ARN has the
+    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- format.
+    --
+    -- For example, an event ARN might look like the following:
+    --
+    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The AWS service that is affected by the event. For example, @EC2@,
+    -- @RDS@.
+    service :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the event began.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | This parameter specifies if the AWS Health event is a public AWS service
     -- event or an account-specific event.
     --
@@ -65,34 +77,22 @@ data Event = Event'
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
     eventScopeCode :: Prelude.Maybe EventScopeCode,
-    -- | The date and time that the event began.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
-    -- format.
-    --
-    -- For example, an event ARN might look like the following:
-    --
-    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The AWS service that is affected by the event. For example, @EC2@,
-    -- @RDS@.
-    service :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the event ended.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Availability Zone of the event. For example, us-east-1a.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The most recent status of the event. Possible values are @open@,
-    -- @closed@, and @upcoming@.
-    statusCode :: Prelude.Maybe EventStatusCode,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
+    -- | The category of the event. Possible values are @issue@,
+    -- @scheduledChange@, and @accountNotification@.
+    eventTypeCategory :: Prelude.Maybe EventTypeCategory,
+    -- | The AWS Availability Zone of the event. For example, us-east-1a.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the event ended.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS Region name of the event.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The most recent date and time that the event was updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    -- | The most recent status of the event. Possible values are @open@,
+    -- @closed@, and @upcoming@.
+    statusCode :: Prelude.Maybe EventStatusCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,8 +104,20 @@ data Event = Event'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTypeCategory', 'event_eventTypeCategory' - The category of the event. Possible values are @issue@,
--- @scheduledChange@, and @accountNotification@.
+-- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.
+--
+-- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- 'service', 'event_service' - The AWS service that is affected by the event. For example, @EC2@,
+-- @RDS@.
+--
+-- 'startTime', 'event_startTime' - The date and time that the event began.
 --
 -- 'eventScopeCode', 'event_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service
 -- event or an account-specific event.
@@ -122,54 +134,60 @@ data Event = Event'
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 --
--- 'startTime', 'event_startTime' - The date and time that the event began.
+-- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is
+-- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
--- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the
+-- 'eventTypeCategory', 'event_eventTypeCategory' - The category of the event. Possible values are @issue@,
+-- @scheduledChange@, and @accountNotification@.
+--
+-- 'availabilityZone', 'event_availabilityZone' - The AWS Availability Zone of the event. For example, us-east-1a.
+--
+-- 'endTime', 'event_endTime' - The date and time that the event ended.
+--
+-- 'region', 'event_region' - The AWS Region name of the event.
+--
+-- 'statusCode', 'event_statusCode' - The most recent status of the event. Possible values are @open@,
+-- @closed@, and @upcoming@.
+newEvent ::
+  Event
+newEvent =
+  Event'
+    { lastUpdatedTime = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      service = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      eventScopeCode = Prelude.Nothing,
+      eventTypeCode = Prelude.Nothing,
+      eventTypeCategory = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      region = Prelude.Nothing,
+      statusCode = Prelude.Nothing
+    }
+
+-- | The most recent date and time that the event was updated.
+event_lastUpdatedTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+
+-- | The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
 -- format.
 --
 -- For example, an event ARN might look like the following:
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- 'service', 'event_service' - The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
---
--- 'endTime', 'event_endTime' - The date and time that the event ended.
---
--- 'availabilityZone', 'event_availabilityZone' - The AWS Availability Zone of the event. For example, us-east-1a.
---
--- 'statusCode', 'event_statusCode' - The most recent status of the event. Possible values are @open@,
--- @closed@, and @upcoming@.
---
--- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
--- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
---
--- 'region', 'event_region' - The AWS Region name of the event.
---
--- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.
-newEvent ::
-  Event
-newEvent =
-  Event'
-    { eventTypeCategory = Prelude.Nothing,
-      eventScopeCode = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      service = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      eventTypeCode = Prelude.Nothing,
-      region = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
-    }
+event_arn :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: Event)
 
--- | The category of the event. Possible values are @issue@,
--- @scheduledChange@, and @accountNotification@.
-event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
-event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
+-- | The AWS service that is affected by the event. For example, @EC2@,
+-- @RDS@.
+event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
+
+-- | The date and time that the event began.
+event_startTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Core._Time
 
 -- | This parameter specifies if the AWS Health event is a public AWS service
 -- event or an account-specific event.
@@ -188,51 +206,33 @@ event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCat
 event_eventScopeCode :: Lens.Lens' Event (Prelude.Maybe EventScopeCode)
 event_eventScopeCode = Lens.lens (\Event' {eventScopeCode} -> eventScopeCode) (\s@Event' {} a -> s {eventScopeCode = a} :: Event)
 
--- | The date and time that the event began.
-event_startTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_startTime = Lens.lens (\Event' {startTime} -> startTime) (\s@Event' {} a -> s {startTime = a} :: Event) Prelude.. Lens.mapping Core._Time
-
--- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
--- format.
---
--- For example, an event ARN might look like the following:
---
--- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-event_arn :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_arn = Lens.lens (\Event' {arn} -> arn) (\s@Event' {} a -> s {arn = a} :: Event)
-
--- | The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
-event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
-
--- | The date and time that the event ended.
-event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Core._Time
-
--- | The AWS Availability Zone of the event. For example, us-east-1a.
-event_availabilityZone :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_availabilityZone = Lens.lens (\Event' {availabilityZone} -> availabilityZone) (\s@Event' {} a -> s {availabilityZone = a} :: Event)
-
--- | The most recent status of the event. Possible values are @open@,
--- @closed@, and @upcoming@.
-event_statusCode :: Lens.Lens' Event (Prelude.Maybe EventStatusCode)
-event_statusCode = Lens.lens (\Event' {statusCode} -> statusCode) (\s@Event' {} a -> s {statusCode = a} :: Event)
-
 -- | The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
 
+-- | The category of the event. Possible values are @issue@,
+-- @scheduledChange@, and @accountNotification@.
+event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
+event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
+
+-- | The AWS Availability Zone of the event. For example, us-east-1a.
+event_availabilityZone :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_availabilityZone = Lens.lens (\Event' {availabilityZone} -> availabilityZone) (\s@Event' {} a -> s {availabilityZone = a} :: Event)
+
+-- | The date and time that the event ended.
+event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+
 -- | The AWS Region name of the event.
 event_region :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {region = a} :: Event)
 
--- | The most recent date and time that the event was updated.
-event_lastUpdatedTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime) (\s@Event' {} a -> s {lastUpdatedTime = a} :: Event) Prelude.. Lens.mapping Core._Time
+-- | The most recent status of the event. Possible values are @open@,
+-- @closed@, and @upcoming@.
+event_statusCode :: Lens.Lens' Event (Prelude.Maybe EventStatusCode)
+event_statusCode = Lens.lens (\Event' {statusCode} -> statusCode) (\s@Event' {} a -> s {statusCode = a} :: Event)
 
 instance Core.FromJSON Event where
   parseJSON =
@@ -240,17 +240,17 @@ instance Core.FromJSON Event where
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "eventTypeCategory")
-            Prelude.<*> (x Core..:? "eventScopeCode")
-            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<$> (x Core..:? "lastUpdatedTime")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "endTime")
-            Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "statusCode")
+            Prelude.<*> (x Core..:? "startTime")
+            Prelude.<*> (x Core..:? "eventScopeCode")
             Prelude.<*> (x Core..:? "eventTypeCode")
+            Prelude.<*> (x Core..:? "eventTypeCategory")
+            Prelude.<*> (x Core..:? "availabilityZone")
+            Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "region")
-            Prelude.<*> (x Core..:? "lastUpdatedTime")
+            Prelude.<*> (x Core..:? "statusCode")
       )
 
 instance Prelude.Hashable Event

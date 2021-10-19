@@ -35,8 +35,8 @@ module Network.AWS.AWSHealth.DescribeEventAggregates
 
     -- * Request Lenses
     describeEventAggregates_nextToken,
-    describeEventAggregates_maxResults,
     describeEventAggregates_filter,
+    describeEventAggregates_maxResults,
     describeEventAggregates_aggregateField,
 
     -- * Destructuring the Response
@@ -65,11 +65,11 @@ data DescribeEventAggregates = DescribeEventAggregates'
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Values to narrow the results returned.
+    filter' :: Prelude.Maybe EventFilter,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Values to narrow the results returned.
-    filter' :: Prelude.Maybe EventFilter,
     -- | The only currently supported value is @eventTypeCategory@.
     aggregateField :: EventAggregateField
   }
@@ -89,10 +89,10 @@ data DescribeEventAggregates = DescribeEventAggregates'
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
+-- 'filter'', 'describeEventAggregates_filter' - Values to narrow the results returned.
+--
 -- 'maxResults', 'describeEventAggregates_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
---
--- 'filter'', 'describeEventAggregates_filter' - Values to narrow the results returned.
 --
 -- 'aggregateField', 'describeEventAggregates_aggregateField' - The only currently supported value is @eventTypeCategory@.
 newDescribeEventAggregates ::
@@ -103,8 +103,8 @@ newDescribeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       aggregateField = pAggregateField_
     }
 
@@ -116,14 +116,14 @@ newDescribeEventAggregates pAggregateField_ =
 describeEventAggregates_nextToken :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Text)
 describeEventAggregates_nextToken = Lens.lens (\DescribeEventAggregates' {nextToken} -> nextToken) (\s@DescribeEventAggregates' {} a -> s {nextToken = a} :: DescribeEventAggregates)
 
+-- | Values to narrow the results returned.
+describeEventAggregates_filter :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe EventFilter)
+describeEventAggregates_filter = Lens.lens (\DescribeEventAggregates' {filter'} -> filter') (\s@DescribeEventAggregates' {} a -> s {filter' = a} :: DescribeEventAggregates)
+
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
 describeEventAggregates_maxResults :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Natural)
 describeEventAggregates_maxResults = Lens.lens (\DescribeEventAggregates' {maxResults} -> maxResults) (\s@DescribeEventAggregates' {} a -> s {maxResults = a} :: DescribeEventAggregates)
-
--- | Values to narrow the results returned.
-describeEventAggregates_filter :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe EventFilter)
-describeEventAggregates_filter = Lens.lens (\DescribeEventAggregates' {filter'} -> filter') (\s@DescribeEventAggregates' {} a -> s {filter' = a} :: DescribeEventAggregates)
 
 -- | The only currently supported value is @eventTypeCategory@.
 describeEventAggregates_aggregateField :: Lens.Lens' DescribeEventAggregates EventAggregateField
@@ -191,8 +191,8 @@ instance Core.ToJSON DescribeEventAggregates where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("aggregateField" Core..= aggregateField)
           ]
@@ -261,7 +261,7 @@ describeEventAggregatesResponse_nextToken = Lens.lens (\DescribeEventAggregatesR
 -- | The number of events in each category that meet the optional filter
 -- criteria.
 describeEventAggregatesResponse_eventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Prelude.Maybe [EventAggregate])
-describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventAggregatesResponse_eventAggregates = Lens.lens (\DescribeEventAggregatesResponse' {eventAggregates} -> eventAggregates) (\s@DescribeEventAggregatesResponse' {} a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventAggregatesResponse_httpStatus :: Lens.Lens' DescribeEventAggregatesResponse Prelude.Int

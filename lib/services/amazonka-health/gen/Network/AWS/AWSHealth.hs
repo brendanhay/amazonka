@@ -68,11 +68,11 @@ module Network.AWS.AWSHealth
     -- * Errors
     -- $errors
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** InvalidPaginationToken
     _InvalidPaginationToken,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** UnsupportedLocale
     _UnsupportedLocale,
@@ -83,41 +83,17 @@ module Network.AWS.AWSHealth
     -- * Operations
     -- $operations
 
-    -- ** DescribeEntityAggregates
-    DescribeEntityAggregates (DescribeEntityAggregates'),
-    newDescribeEntityAggregates,
-    DescribeEntityAggregatesResponse (DescribeEntityAggregatesResponse'),
-    newDescribeEntityAggregatesResponse,
-
     -- ** EnableHealthServiceAccessForOrganization
     EnableHealthServiceAccessForOrganization (EnableHealthServiceAccessForOrganization'),
     newEnableHealthServiceAccessForOrganization,
     EnableHealthServiceAccessForOrganizationResponse (EnableHealthServiceAccessForOrganizationResponse'),
     newEnableHealthServiceAccessForOrganizationResponse,
 
-    -- ** DisableHealthServiceAccessForOrganization
-    DisableHealthServiceAccessForOrganization (DisableHealthServiceAccessForOrganization'),
-    newDisableHealthServiceAccessForOrganization,
-    DisableHealthServiceAccessForOrganizationResponse (DisableHealthServiceAccessForOrganizationResponse'),
-    newDisableHealthServiceAccessForOrganizationResponse,
-
-    -- ** DescribeEventDetailsForOrganization
-    DescribeEventDetailsForOrganization (DescribeEventDetailsForOrganization'),
-    newDescribeEventDetailsForOrganization,
-    DescribeEventDetailsForOrganizationResponse (DescribeEventDetailsForOrganizationResponse'),
-    newDescribeEventDetailsForOrganizationResponse,
-
-    -- ** DescribeEventDetails
-    DescribeEventDetails (DescribeEventDetails'),
-    newDescribeEventDetails,
-    DescribeEventDetailsResponse (DescribeEventDetailsResponse'),
-    newDescribeEventDetailsResponse,
-
-    -- ** DescribeAffectedAccountsForOrganization (Paginated)
-    DescribeAffectedAccountsForOrganization (DescribeAffectedAccountsForOrganization'),
-    newDescribeAffectedAccountsForOrganization,
-    DescribeAffectedAccountsForOrganizationResponse (DescribeAffectedAccountsForOrganizationResponse'),
-    newDescribeAffectedAccountsForOrganizationResponse,
+    -- ** DescribeEntityAggregates
+    DescribeEntityAggregates (DescribeEntityAggregates'),
+    newDescribeEntityAggregates,
+    DescribeEntityAggregatesResponse (DescribeEntityAggregatesResponse'),
+    newDescribeEntityAggregatesResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -125,23 +101,29 @@ module Network.AWS.AWSHealth
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
-    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
-    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
-    newDescribeAffectedEntitiesForOrganization,
-    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
-    newDescribeAffectedEntitiesForOrganizationResponse,
+    -- ** DescribeEventsForOrganization (Paginated)
+    DescribeEventsForOrganization (DescribeEventsForOrganization'),
+    newDescribeEventsForOrganization,
+    DescribeEventsForOrganizationResponse (DescribeEventsForOrganizationResponse'),
+    newDescribeEventsForOrganizationResponse,
+
+    -- ** DescribeAffectedAccountsForOrganization (Paginated)
+    DescribeAffectedAccountsForOrganization (DescribeAffectedAccountsForOrganization'),
+    newDescribeAffectedAccountsForOrganization,
+    DescribeAffectedAccountsForOrganizationResponse (DescribeAffectedAccountsForOrganizationResponse'),
+    newDescribeAffectedAccountsForOrganizationResponse,
+
+    -- ** DescribeEventDetails
+    DescribeEventDetails (DescribeEventDetails'),
+    newDescribeEventDetails,
+    DescribeEventDetailsResponse (DescribeEventDetailsResponse'),
+    newDescribeEventDetailsResponse,
 
     -- ** DescribeEventAggregates (Paginated)
     DescribeEventAggregates (DescribeEventAggregates'),
     newDescribeEventAggregates,
     DescribeEventAggregatesResponse (DescribeEventAggregatesResponse'),
     newDescribeEventAggregatesResponse,
-
-    -- ** DescribeHealthServiceStatusForOrganization
-    DescribeHealthServiceStatusForOrganization (DescribeHealthServiceStatusForOrganization'),
-    newDescribeHealthServiceStatusForOrganization,
-    DescribeHealthServiceStatusForOrganizationResponse (DescribeHealthServiceStatusForOrganizationResponse'),
-    newDescribeHealthServiceStatusForOrganizationResponse,
 
     -- ** DescribeAffectedEntities (Paginated)
     DescribeAffectedEntities (DescribeAffectedEntities'),
@@ -155,11 +137,29 @@ module Network.AWS.AWSHealth
     DescribeEventTypesResponse (DescribeEventTypesResponse'),
     newDescribeEventTypesResponse,
 
-    -- ** DescribeEventsForOrganization (Paginated)
-    DescribeEventsForOrganization (DescribeEventsForOrganization'),
-    newDescribeEventsForOrganization,
-    DescribeEventsForOrganizationResponse (DescribeEventsForOrganizationResponse'),
-    newDescribeEventsForOrganizationResponse,
+    -- ** DescribeAffectedEntitiesForOrganization (Paginated)
+    DescribeAffectedEntitiesForOrganization (DescribeAffectedEntitiesForOrganization'),
+    newDescribeAffectedEntitiesForOrganization,
+    DescribeAffectedEntitiesForOrganizationResponse (DescribeAffectedEntitiesForOrganizationResponse'),
+    newDescribeAffectedEntitiesForOrganizationResponse,
+
+    -- ** DescribeHealthServiceStatusForOrganization
+    DescribeHealthServiceStatusForOrganization (DescribeHealthServiceStatusForOrganization'),
+    newDescribeHealthServiceStatusForOrganization,
+    DescribeHealthServiceStatusForOrganizationResponse (DescribeHealthServiceStatusForOrganizationResponse'),
+    newDescribeHealthServiceStatusForOrganizationResponse,
+
+    -- ** DescribeEventDetailsForOrganization
+    DescribeEventDetailsForOrganization (DescribeEventDetailsForOrganization'),
+    newDescribeEventDetailsForOrganization,
+    DescribeEventDetailsForOrganizationResponse (DescribeEventDetailsForOrganizationResponse'),
+    newDescribeEventDetailsForOrganizationResponse,
+
+    -- ** DisableHealthServiceAccessForOrganization
+    DisableHealthServiceAccessForOrganization (DisableHealthServiceAccessForOrganization'),
+    newDisableHealthServiceAccessForOrganization,
+    DisableHealthServiceAccessForOrganizationResponse (DisableHealthServiceAccessForOrganizationResponse'),
+    newDisableHealthServiceAccessForOrganizationResponse,
 
     -- * Types
 

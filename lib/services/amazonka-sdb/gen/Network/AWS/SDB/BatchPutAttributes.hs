@@ -126,7 +126,7 @@ batchPutAttributes_domainName = Lens.lens (\BatchPutAttributes' {domainName} -> 
 
 -- | A list of items on which to perform the operation.
 batchPutAttributes_items :: Lens.Lens' BatchPutAttributes [ReplaceableItem]
-batchPutAttributes_items = Lens.lens (\BatchPutAttributes' {items} -> items) (\s@BatchPutAttributes' {} a -> s {items = a} :: BatchPutAttributes) Prelude.. Lens._Coerce
+batchPutAttributes_items = Lens.lens (\BatchPutAttributes' {items} -> items) (\s@BatchPutAttributes' {} a -> s {items = a} :: BatchPutAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchPutAttributes where
   type

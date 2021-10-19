@@ -86,7 +86,7 @@ batchDeleteAttributes_domainName = Lens.lens (\BatchDeleteAttributes' {domainNam
 
 -- | A list of items on which to perform the operation.
 batchDeleteAttributes_items :: Lens.Lens' BatchDeleteAttributes [DeletableItem]
-batchDeleteAttributes_items = Lens.lens (\BatchDeleteAttributes' {items} -> items) (\s@BatchDeleteAttributes' {} a -> s {items = a} :: BatchDeleteAttributes) Prelude.. Lens._Coerce
+batchDeleteAttributes_items = Lens.lens (\BatchDeleteAttributes' {items} -> items) (\s@BatchDeleteAttributes' {} a -> s {items = a} :: BatchDeleteAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteAttributes where
   type

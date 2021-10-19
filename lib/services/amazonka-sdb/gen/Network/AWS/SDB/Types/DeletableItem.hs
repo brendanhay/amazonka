@@ -54,7 +54,7 @@ newDeletableItem pName_ =
 
 -- | Undocumented member.
 deletableItem_attributes :: Lens.Lens' DeletableItem (Prelude.Maybe [Attribute])
-deletableItem_attributes = Lens.lens (\DeletableItem' {attributes} -> attributes) (\s@DeletableItem' {} a -> s {attributes = a} :: DeletableItem) Prelude.. Lens.mapping Lens._Coerce
+deletableItem_attributes = Lens.lens (\DeletableItem' {attributes} -> attributes) (\s@DeletableItem' {} a -> s {attributes = a} :: DeletableItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 deletableItem_name :: Lens.Lens' DeletableItem Prelude.Text

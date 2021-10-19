@@ -55,8 +55,8 @@ module Network.AWS.GameLift.ListGameServers
     newListGameServersResponse,
 
     -- * Response Lenses
-    listGameServersResponse_nextToken,
     listGameServersResponse_gameServers,
+    listGameServersResponse_nextToken,
     listGameServersResponse_httpStatus,
   )
 where
@@ -179,8 +179,8 @@ instance Core.AWSRequest ListGameServers where
     Response.receiveJSON
       ( \s h x ->
           ListGameServersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "GameServers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "GameServers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,12 +221,12 @@ instance Core.ToQuery ListGameServers where
 
 -- | /See:/ 'newListGameServersResponse' smart constructor.
 data ListGameServersResponse = ListGameServersResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A collection of game server objects that match the request.
+    gameServers :: Prelude.Maybe [GameServer],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of game server objects that match the request.
-    gameServers :: Prelude.Maybe [GameServer],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -240,11 +240,11 @@ data ListGameServersResponse = ListGameServersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gameServers', 'listGameServersResponse_gameServers' - A collection of game server objects that match the request.
+--
 -- 'nextToken', 'listGameServersResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'gameServers', 'listGameServersResponse_gameServers' - A collection of game server objects that match the request.
 --
 -- 'httpStatus', 'listGameServersResponse_httpStatus' - The response's http status code.
 newListGameServersResponse ::
@@ -253,21 +253,21 @@ newListGameServersResponse ::
   ListGameServersResponse
 newListGameServersResponse pHttpStatus_ =
   ListGameServersResponse'
-    { nextToken =
+    { gameServers =
         Prelude.Nothing,
-      gameServers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of game server objects that match the request.
+listGameServersResponse_gameServers :: Lens.Lens' ListGameServersResponse (Prelude.Maybe [GameServer])
+listGameServersResponse_gameServers = Lens.lens (\ListGameServersResponse' {gameServers} -> gameServers) (\s@ListGameServersResponse' {} a -> s {gameServers = a} :: ListGameServersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 listGameServersResponse_nextToken :: Lens.Lens' ListGameServersResponse (Prelude.Maybe Prelude.Text)
 listGameServersResponse_nextToken = Lens.lens (\ListGameServersResponse' {nextToken} -> nextToken) (\s@ListGameServersResponse' {} a -> s {nextToken = a} :: ListGameServersResponse)
-
--- | A collection of game server objects that match the request.
-listGameServersResponse_gameServers :: Lens.Lens' ListGameServersResponse (Prelude.Maybe [GameServer])
-listGameServersResponse_gameServers = Lens.lens (\ListGameServersResponse' {gameServers} -> gameServers) (\s@ListGameServersResponse' {} a -> s {gameServers = a} :: ListGameServersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listGameServersResponse_httpStatus :: Lens.Lens' ListGameServersResponse Prelude.Int

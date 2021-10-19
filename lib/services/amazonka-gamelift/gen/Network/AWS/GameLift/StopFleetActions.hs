@@ -70,8 +70,8 @@ module Network.AWS.GameLift.StopFleetActions
     newStopFleetActionsResponse,
 
     -- * Response Lenses
-    stopFleetActionsResponse_fleetId,
     stopFleetActionsResponse_fleetArn,
+    stopFleetActionsResponse_fleetId,
     stopFleetActionsResponse_httpStatus,
   )
 where
@@ -123,7 +123,7 @@ newStopFleetActions pFleetId_ pActions_ =
   StopFleetActions'
     { location = Prelude.Nothing,
       fleetId = pFleetId_,
-      actions = Lens._Coerce Lens.# pActions_
+      actions = Lens.coerced Lens.# pActions_
     }
 
 -- | The fleet location to stop fleet actions for. Specify a location in the
@@ -138,7 +138,7 @@ stopFleetActions_fleetId = Lens.lens (\StopFleetActions' {fleetId} -> fleetId) (
 
 -- | List of actions to suspend on the fleet.
 stopFleetActions_actions :: Lens.Lens' StopFleetActions (Prelude.NonEmpty FleetAction)
-stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Prelude.. Lens._Coerce
+stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopFleetActions where
   type
@@ -149,8 +149,8 @@ instance Core.AWSRequest StopFleetActions where
     Response.receiveJSON
       ( \s h x ->
           StopFleetActionsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Core..?> "FleetArn")
+            Prelude.<*> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,14 +191,14 @@ instance Core.ToQuery StopFleetActions where
 --
 -- /See:/ 'newStopFleetActionsResponse' smart constructor.
 data StopFleetActionsResponse = StopFleetActionsResponse'
-  { -- | A unique identifier for the fleet to stop actions on.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet to stop actions on.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,13 +212,13 @@ data StopFleetActionsResponse = StopFleetActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'stopFleetActionsResponse_fleetId' - A unique identifier for the fleet to stop actions on.
---
 -- 'fleetArn', 'stopFleetActionsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift fleet resource and uniquely identifies
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
+--
+-- 'fleetId', 'stopFleetActionsResponse_fleetId' - A unique identifier for the fleet to stop actions on.
 --
 -- 'httpStatus', 'stopFleetActionsResponse_httpStatus' - The response's http status code.
 newStopFleetActionsResponse ::
@@ -227,15 +227,11 @@ newStopFleetActionsResponse ::
   StopFleetActionsResponse
 newStopFleetActionsResponse pHttpStatus_ =
   StopFleetActionsResponse'
-    { fleetId =
+    { fleetArn =
         Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A unique identifier for the fleet to stop actions on.
-stopFleetActionsResponse_fleetId :: Lens.Lens' StopFleetActionsResponse (Prelude.Maybe Prelude.Text)
-stopFleetActionsResponse_fleetId = Lens.lens (\StopFleetActionsResponse' {fleetId} -> fleetId) (\s@StopFleetActionsResponse' {} a -> s {fleetId = a} :: StopFleetActionsResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -244,6 +240,10 @@ stopFleetActionsResponse_fleetId = Lens.lens (\StopFleetActionsResponse' {fleetI
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 stopFleetActionsResponse_fleetArn :: Lens.Lens' StopFleetActionsResponse (Prelude.Maybe Prelude.Text)
 stopFleetActionsResponse_fleetArn = Lens.lens (\StopFleetActionsResponse' {fleetArn} -> fleetArn) (\s@StopFleetActionsResponse' {} a -> s {fleetArn = a} :: StopFleetActionsResponse)
+
+-- | A unique identifier for the fleet to stop actions on.
+stopFleetActionsResponse_fleetId :: Lens.Lens' StopFleetActionsResponse (Prelude.Maybe Prelude.Text)
+stopFleetActionsResponse_fleetId = Lens.lens (\StopFleetActionsResponse' {fleetId} -> fleetId) (\s@StopFleetActionsResponse' {} a -> s {fleetId = a} :: StopFleetActionsResponse)
 
 -- | The response's http status code.
 stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Prelude.Int

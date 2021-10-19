@@ -39,8 +39,8 @@ module Network.AWS.GameLift.UpdateBuild
     newUpdateBuild,
 
     -- * Request Lenses
-    updateBuild_version,
     updateBuild_name,
+    updateBuild_version,
     updateBuild_buildId,
 
     -- * Destructuring the Response
@@ -64,12 +64,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { -- | Version information that is associated with a build or script. Version
-    -- strings do not need to be unique.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive label that is associated with a build. Build names do not
+  { -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Version information that is associated with a build or script. Version
+    -- strings do not need to be unique.
+    version :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the build to update. You can use either the
     -- build ID or ARN value.
     buildId :: Prelude.Text
@@ -84,11 +84,11 @@ data UpdateBuild = UpdateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'updateBuild_version' - Version information that is associated with a build or script. Version
--- strings do not need to be unique.
---
 -- 'name', 'updateBuild_name' - A descriptive label that is associated with a build. Build names do not
 -- need to be unique.
+--
+-- 'version', 'updateBuild_version' - Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
 --
 -- 'buildId', 'updateBuild_buildId' - A unique identifier for the build to update. You can use either the
 -- build ID or ARN value.
@@ -98,20 +98,20 @@ newUpdateBuild ::
   UpdateBuild
 newUpdateBuild pBuildId_ =
   UpdateBuild'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      version = Prelude.Nothing,
       buildId = pBuildId_
     }
-
--- | Version information that is associated with a build or script. Version
--- strings do not need to be unique.
-updateBuild_version :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
-updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateBuild' {} a -> s {version = a} :: UpdateBuild)
 
 -- | A descriptive label that is associated with a build. Build names do not
 -- need to be unique.
 updateBuild_name :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
 updateBuild_name = Lens.lens (\UpdateBuild' {name} -> name) (\s@UpdateBuild' {} a -> s {name = a} :: UpdateBuild)
+
+-- | Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
+updateBuild_version :: Lens.Lens' UpdateBuild (Prelude.Maybe Prelude.Text)
+updateBuild_version = Lens.lens (\UpdateBuild' {version} -> version) (\s@UpdateBuild' {} a -> s {version = a} :: UpdateBuild)
 
 -- | A unique identifier for the build to update. You can use either the
 -- build ID or ARN value.
@@ -150,8 +150,8 @@ instance Core.ToJSON UpdateBuild where
   toJSON UpdateBuild' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            ("Name" Core..=) Prelude.<$> name,
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Version" Core..=) Prelude.<$> version,
             Prelude.Just ("BuildId" Core..= buildId)
           ]
       )

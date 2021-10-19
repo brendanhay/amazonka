@@ -86,8 +86,8 @@ module Network.AWS.GameLift.DescribeEC2InstanceLimits
     newDescribeEC2InstanceLimits,
 
     -- * Request Lenses
-    describeEC2InstanceLimits_eC2InstanceType,
     describeEC2InstanceLimits_location,
+    describeEC2InstanceLimits_eC2InstanceType,
 
     -- * Destructuring the Response
     DescribeEC2InstanceLimitsResponse (..),
@@ -110,15 +110,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEC2InstanceLimits' smart constructor.
 data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
-  { -- | Name of an EC2 instance type that is supported in GameLift. A fleet
+  { -- | The name of a remote location to request instance limits for, in the
+    -- form of an AWS Region code such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | Name of an EC2 instance type that is supported in GameLift. A fleet
     -- instance type determines the computing resources of each instance in the
     -- fleet, including CPU, memory, storage, and networking capacity. Do not
     -- specify a value for this parameter to retrieve limits for all instance
     -- types.
-    eC2InstanceType :: Prelude.Maybe EC2InstanceType,
-    -- | The name of a remote location to request instance limits for, in the
-    -- form of an AWS Region code such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text
+    eC2InstanceType :: Prelude.Maybe EC2InstanceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -130,22 +130,27 @@ data DescribeEC2InstanceLimits = DescribeEC2InstanceLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'location', 'describeEC2InstanceLimits_location' - The name of a remote location to request instance limits for, in the
+-- form of an AWS Region code such as @us-west-2@.
+--
 -- 'eC2InstanceType', 'describeEC2InstanceLimits_eC2InstanceType' - Name of an EC2 instance type that is supported in GameLift. A fleet
 -- instance type determines the computing resources of each instance in the
 -- fleet, including CPU, memory, storage, and networking capacity. Do not
 -- specify a value for this parameter to retrieve limits for all instance
 -- types.
---
--- 'location', 'describeEC2InstanceLimits_location' - The name of a remote location to request instance limits for, in the
--- form of an AWS Region code such as @us-west-2@.
 newDescribeEC2InstanceLimits ::
   DescribeEC2InstanceLimits
 newDescribeEC2InstanceLimits =
   DescribeEC2InstanceLimits'
-    { eC2InstanceType =
+    { location =
         Prelude.Nothing,
-      location = Prelude.Nothing
+      eC2InstanceType = Prelude.Nothing
     }
+
+-- | The name of a remote location to request instance limits for, in the
+-- form of an AWS Region code such as @us-west-2@.
+describeEC2InstanceLimits_location :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe Prelude.Text)
+describeEC2InstanceLimits_location = Lens.lens (\DescribeEC2InstanceLimits' {location} -> location) (\s@DescribeEC2InstanceLimits' {} a -> s {location = a} :: DescribeEC2InstanceLimits)
 
 -- | Name of an EC2 instance type that is supported in GameLift. A fleet
 -- instance type determines the computing resources of each instance in the
@@ -154,11 +159,6 @@ newDescribeEC2InstanceLimits =
 -- types.
 describeEC2InstanceLimits_eC2InstanceType :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe EC2InstanceType)
 describeEC2InstanceLimits_eC2InstanceType = Lens.lens (\DescribeEC2InstanceLimits' {eC2InstanceType} -> eC2InstanceType) (\s@DescribeEC2InstanceLimits' {} a -> s {eC2InstanceType = a} :: DescribeEC2InstanceLimits)
-
--- | The name of a remote location to request instance limits for, in the
--- form of an AWS Region code such as @us-west-2@.
-describeEC2InstanceLimits_location :: Lens.Lens' DescribeEC2InstanceLimits (Prelude.Maybe Prelude.Text)
-describeEC2InstanceLimits_location = Lens.lens (\DescribeEC2InstanceLimits' {location} -> location) (\s@DescribeEC2InstanceLimits' {} a -> s {location = a} :: DescribeEC2InstanceLimits)
 
 instance Core.AWSRequest DescribeEC2InstanceLimits where
   type
@@ -198,9 +198,9 @@ instance Core.ToJSON DescribeEC2InstanceLimits where
   toJSON DescribeEC2InstanceLimits' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EC2InstanceType" Core..=)
-              Prelude.<$> eC2InstanceType,
-            ("Location" Core..=) Prelude.<$> location
+          [ ("Location" Core..=) Prelude.<$> location,
+            ("EC2InstanceType" Core..=)
+              Prelude.<$> eC2InstanceType
           ]
       )
 
@@ -245,7 +245,7 @@ newDescribeEC2InstanceLimitsResponse pHttpStatus_ =
 
 -- | The maximum number of instances for the specified instance type.
 describeEC2InstanceLimitsResponse_eC2InstanceLimits :: Lens.Lens' DescribeEC2InstanceLimitsResponse (Prelude.Maybe [EC2InstanceLimit])
-describeEC2InstanceLimitsResponse_eC2InstanceLimits = Lens.lens (\DescribeEC2InstanceLimitsResponse' {eC2InstanceLimits} -> eC2InstanceLimits) (\s@DescribeEC2InstanceLimitsResponse' {} a -> s {eC2InstanceLimits = a} :: DescribeEC2InstanceLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEC2InstanceLimitsResponse_eC2InstanceLimits = Lens.lens (\DescribeEC2InstanceLimitsResponse' {eC2InstanceLimits} -> eC2InstanceLimits) (\s@DescribeEC2InstanceLimitsResponse' {} a -> s {eC2InstanceLimits = a} :: DescribeEC2InstanceLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEC2InstanceLimitsResponse_httpStatus :: Lens.Lens' DescribeEC2InstanceLimitsResponse Prelude.Int

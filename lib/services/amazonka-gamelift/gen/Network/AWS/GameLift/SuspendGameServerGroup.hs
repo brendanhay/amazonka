@@ -112,7 +112,7 @@ newSuspendGameServerGroup
       { gameServerGroupName =
           pGameServerGroupName_,
         suspendActions =
-          Lens._Coerce Lens.# pSuspendActions_
+          Lens.coerced Lens.# pSuspendActions_
       }
 
 -- | A unique identifier for the game server group. Use either the
@@ -122,7 +122,7 @@ suspendGameServerGroup_gameServerGroupName = Lens.lens (\SuspendGameServerGroup'
 
 -- | The activity to suspend for this game server group.
 suspendGameServerGroup_suspendActions :: Lens.Lens' SuspendGameServerGroup (Prelude.NonEmpty GameServerGroupAction)
-suspendGameServerGroup_suspendActions = Lens.lens (\SuspendGameServerGroup' {suspendActions} -> suspendActions) (\s@SuspendGameServerGroup' {} a -> s {suspendActions = a} :: SuspendGameServerGroup) Prelude.. Lens._Coerce
+suspendGameServerGroup_suspendActions = Lens.lens (\SuspendGameServerGroup' {suspendActions} -> suspendActions) (\s@SuspendGameServerGroup' {} a -> s {suspendActions = a} :: SuspendGameServerGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SuspendGameServerGroup where
   type

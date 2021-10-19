@@ -49,8 +49,8 @@ module Network.AWS.GameLift.CreateAlias
     newCreateAlias,
 
     -- * Request Lenses
-    createAlias_tags,
     createAlias_description,
+    createAlias_tags,
     createAlias_name,
     createAlias_routingStrategy,
 
@@ -75,7 +75,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { -- | A list of labels to assign to the new alias resource. Tags are
+  { -- | A human-readable description of the alias.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of labels to assign to the new alias resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
     -- resource management, access management and cost allocation. For more
     -- information, see
@@ -85,8 +87,6 @@ data CreateAlias = CreateAlias'
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
     tags :: Prelude.Maybe [Tag],
-    -- | A human-readable description of the alias.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with an alias. Alias names do not
     -- need to be unique.
     name :: Prelude.Text,
@@ -104,6 +104,8 @@ data CreateAlias = CreateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createAlias_description' - A human-readable description of the alias.
+--
 -- 'tags', 'createAlias_tags' - A list of labels to assign to the new alias resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
 -- resource management, access management and cost allocation. For more
@@ -113,8 +115,6 @@ data CreateAlias = CreateAlias'
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
---
--- 'description', 'createAlias_description' - A human-readable description of the alias.
 --
 -- 'name', 'createAlias_name' - A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
@@ -129,11 +129,15 @@ newCreateAlias ::
   CreateAlias
 newCreateAlias pName_ pRoutingStrategy_ =
   CreateAlias'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       routingStrategy = pRoutingStrategy_
     }
+
+-- | A human-readable description of the alias.
+createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
+createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
 
 -- | A list of labels to assign to the new alias resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -145,11 +149,7 @@ newCreateAlias pName_ pRoutingStrategy_ =
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
 createAlias_tags :: Lens.Lens' CreateAlias (Prelude.Maybe [Tag])
-createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Prelude.. Lens.mapping Lens._Coerce
-
--- | A human-readable description of the alias.
-createAlias_description :: Lens.Lens' CreateAlias (Prelude.Maybe Prelude.Text)
-createAlias_description = Lens.lens (\CreateAlias' {description} -> description) (\s@CreateAlias' {} a -> s {description = a} :: CreateAlias)
+createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Prelude.. Lens.mapping Lens.coerced
 
 -- | A descriptive label that is associated with an alias. Alias names do not
 -- need to be unique.
@@ -193,8 +193,8 @@ instance Core.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("RoutingStrategy" Core..= routingStrategy)

@@ -52,8 +52,8 @@ module Network.AWS.GameLift.ListBuilds
     newListBuildsResponse,
 
     -- * Response Lenses
-    listBuildsResponse_nextToken,
     listBuildsResponse_builds,
+    listBuildsResponse_nextToken,
     listBuildsResponse_httpStatus,
   )
 where
@@ -189,8 +189,8 @@ instance Core.AWSRequest ListBuilds where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Builds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Builds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -231,12 +231,12 @@ instance Core.ToQuery ListBuilds where
 --
 -- /See:/ 'newListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A collection of build resources that match the request.
+    builds :: Prelude.Maybe [Build],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of build resources that match the request.
-    builds :: Prelude.Maybe [Build],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,11 +250,11 @@ data ListBuildsResponse = ListBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'builds', 'listBuildsResponse_builds' - A collection of build resources that match the request.
+--
 -- 'nextToken', 'listBuildsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'builds', 'listBuildsResponse_builds' - A collection of build resources that match the request.
 --
 -- 'httpStatus', 'listBuildsResponse_httpStatus' - The response's http status code.
 newListBuildsResponse ::
@@ -263,20 +263,20 @@ newListBuildsResponse ::
   ListBuildsResponse
 newListBuildsResponse pHttpStatus_ =
   ListBuildsResponse'
-    { nextToken = Prelude.Nothing,
-      builds = Prelude.Nothing,
+    { builds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of build resources that match the request.
+listBuildsResponse_builds :: Lens.Lens' ListBuildsResponse (Prelude.Maybe [Build])
+listBuildsResponse_builds = Lens.lens (\ListBuildsResponse' {builds} -> builds) (\s@ListBuildsResponse' {} a -> s {builds = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 listBuildsResponse_nextToken :: Lens.Lens' ListBuildsResponse (Prelude.Maybe Prelude.Text)
 listBuildsResponse_nextToken = Lens.lens (\ListBuildsResponse' {nextToken} -> nextToken) (\s@ListBuildsResponse' {} a -> s {nextToken = a} :: ListBuildsResponse)
-
--- | A collection of build resources that match the request.
-listBuildsResponse_builds :: Lens.Lens' ListBuildsResponse (Prelude.Maybe [Build])
-listBuildsResponse_builds = Lens.lens (\ListBuildsResponse' {builds} -> builds) (\s@ListBuildsResponse' {} a -> s {builds = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBuildsResponse_httpStatus :: Lens.Lens' ListBuildsResponse Prelude.Int

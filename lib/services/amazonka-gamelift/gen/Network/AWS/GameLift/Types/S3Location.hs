@@ -29,7 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The name of the zip file that contains the build files or script files.
+  { -- | An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+    --
+    -- GameLift currently does not support uploading from Amazon S3 buckets
+    -- with names that contain a dot (.).
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | The name of the zip file that contains the build files or script files.
     key :: Prelude.Maybe Prelude.Text,
     -- | The version of the file, if object versioning is turned on for the
     -- bucket. Amazon GameLift uses this information when retrieving files from
@@ -40,12 +45,7 @@ data S3Location = S3Location'
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access the S3 bucket.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 bucket identifier. This is the name of the S3 bucket.
-    --
-    -- GameLift currently does not support uploading from Amazon S3 buckets
-    -- with names that contain a dot (.).
-    bucket :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +56,11 @@ data S3Location = S3Location'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'bucket', 's3Location_bucket' - An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+--
+-- GameLift currently does not support uploading from Amazon S3 buckets
+-- with names that contain a dot (.).
 --
 -- 'key', 's3Location_key' - The name of the zip file that contains the build files or script files.
 --
@@ -68,20 +73,22 @@ data S3Location = S3Location'
 -- 'roleArn', 's3Location_roleArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- for an IAM role that allows Amazon GameLift to access the S3 bucket.
---
--- 'bucket', 's3Location_bucket' - An Amazon S3 bucket identifier. This is the name of the S3 bucket.
---
--- GameLift currently does not support uploading from Amazon S3 buckets
--- with names that contain a dot (.).
 newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { key = Prelude.Nothing,
+    { bucket = Prelude.Nothing,
+      key = Prelude.Nothing,
       objectVersion = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      bucket = Prelude.Nothing
+      roleArn = Prelude.Nothing
     }
+
+-- | An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+--
+-- GameLift currently does not support uploading from Amazon S3 buckets
+-- with names that contain a dot (.).
+s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
 -- | The name of the zip file that contains the build files or script files.
 s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
@@ -101,23 +108,16 @@ s3Location_objectVersion = Lens.lens (\S3Location' {objectVersion} -> objectVers
 s3Location_roleArn :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_roleArn = Lens.lens (\S3Location' {roleArn} -> roleArn) (\s@S3Location' {} a -> s {roleArn = a} :: S3Location)
 
--- | An Amazon S3 bucket identifier. This is the name of the S3 bucket.
---
--- GameLift currently does not support uploading from Amazon S3 buckets
--- with names that contain a dot (.).
-s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
-
 instance Core.FromJSON S3Location where
   parseJSON =
     Core.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Bucket")
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "ObjectVersion")
             Prelude.<*> (x Core..:? "RoleArn")
-            Prelude.<*> (x Core..:? "Bucket")
       )
 
 instance Prelude.Hashable S3Location
@@ -128,9 +128,9 @@ instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
+          [ ("Bucket" Core..=) Prelude.<$> bucket,
+            ("Key" Core..=) Prelude.<$> key,
             ("ObjectVersion" Core..=) Prelude.<$> objectVersion,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("Bucket" Core..=) Prelude.<$> bucket
+            ("RoleArn" Core..=) Prelude.<$> roleArn
           ]
       )

@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDesiredPlayerSession' smart constructor.
 data DesiredPlayerSession = DesiredPlayerSession'
-  { -- | A unique identifier for a player to associate with the player session.
-    playerId :: Prelude.Maybe Prelude.Text,
-    -- | Developer-defined information related to a player. GameLift does not use
+  { -- | Developer-defined information related to a player. GameLift does not use
     -- this data, so it can be formatted as needed for use in the game.
-    playerData :: Prelude.Maybe Prelude.Text
+    playerData :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for a player to associate with the player session.
+    playerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data DesiredPlayerSession = DesiredPlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerId', 'desiredPlayerSession_playerId' - A unique identifier for a player to associate with the player session.
---
 -- 'playerData', 'desiredPlayerSession_playerData' - Developer-defined information related to a player. GameLift does not use
 -- this data, so it can be formatted as needed for use in the game.
+--
+-- 'playerId', 'desiredPlayerSession_playerId' - A unique identifier for a player to associate with the player session.
 newDesiredPlayerSession ::
   DesiredPlayerSession
 newDesiredPlayerSession =
   DesiredPlayerSession'
-    { playerId = Prelude.Nothing,
-      playerData = Prelude.Nothing
+    { playerData = Prelude.Nothing,
+      playerId = Prelude.Nothing
     }
-
--- | A unique identifier for a player to associate with the player session.
-desiredPlayerSession_playerId :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
-desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> playerId) (\s@DesiredPlayerSession' {} a -> s {playerId = a} :: DesiredPlayerSession)
 
 -- | Developer-defined information related to a player. GameLift does not use
 -- this data, so it can be formatted as needed for use in the game.
 desiredPlayerSession_playerData :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
 desiredPlayerSession_playerData = Lens.lens (\DesiredPlayerSession' {playerData} -> playerData) (\s@DesiredPlayerSession' {} a -> s {playerData = a} :: DesiredPlayerSession)
+
+-- | A unique identifier for a player to associate with the player session.
+desiredPlayerSession_playerId :: Lens.Lens' DesiredPlayerSession (Prelude.Maybe Prelude.Text)
+desiredPlayerSession_playerId = Lens.lens (\DesiredPlayerSession' {playerId} -> playerId) (\s@DesiredPlayerSession' {} a -> s {playerId = a} :: DesiredPlayerSession)
 
 instance Prelude.Hashable DesiredPlayerSession
 
@@ -73,7 +73,7 @@ instance Core.ToJSON DesiredPlayerSession where
   toJSON DesiredPlayerSession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PlayerId" Core..=) Prelude.<$> playerId,
-            ("PlayerData" Core..=) Prelude.<$> playerData
+          [ ("PlayerData" Core..=) Prelude.<$> playerData,
+            ("PlayerId" Core..=) Prelude.<$> playerId
           ]
       )

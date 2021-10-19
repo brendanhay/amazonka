@@ -52,8 +52,8 @@ module Network.AWS.GameLift.UpdateFleetPortSettings
     newUpdateFleetPortSettings,
 
     -- * Request Lenses
-    updateFleetPortSettings_inboundPermissionAuthorizations,
     updateFleetPortSettings_inboundPermissionRevocations,
+    updateFleetPortSettings_inboundPermissionAuthorizations,
     updateFleetPortSettings_fleetId,
 
     -- * Destructuring the Response
@@ -77,10 +77,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { -- | A collection of port settings to be added to the fleet resource.
-    inboundPermissionAuthorizations :: Prelude.Maybe [IpPermission],
-    -- | A collection of port settings to be removed from the fleet resource.
+  { -- | A collection of port settings to be removed from the fleet resource.
     inboundPermissionRevocations :: Prelude.Maybe [IpPermission],
+    -- | A collection of port settings to be added to the fleet resource.
+    inboundPermissionAuthorizations :: Prelude.Maybe [IpPermission],
     -- | A unique identifier for the fleet to update port settings for. You can
     -- use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -95,9 +95,9 @@ data UpdateFleetPortSettings = UpdateFleetPortSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inboundPermissionAuthorizations', 'updateFleetPortSettings_inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
---
 -- 'inboundPermissionRevocations', 'updateFleetPortSettings_inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
+--
+-- 'inboundPermissionAuthorizations', 'updateFleetPortSettings_inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
 --
 -- 'fleetId', 'updateFleetPortSettings_fleetId' - A unique identifier for the fleet to update port settings for. You can
 -- use either the fleet ID or ARN value.
@@ -107,19 +107,19 @@ newUpdateFleetPortSettings ::
   UpdateFleetPortSettings
 newUpdateFleetPortSettings pFleetId_ =
   UpdateFleetPortSettings'
-    { inboundPermissionAuthorizations =
+    { inboundPermissionRevocations =
         Prelude.Nothing,
-      inboundPermissionRevocations = Prelude.Nothing,
+      inboundPermissionAuthorizations = Prelude.Nothing,
       fleetId = pFleetId_
     }
 
--- | A collection of port settings to be added to the fleet resource.
-updateFleetPortSettings_inboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
-updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionAuthorizations} -> inboundPermissionAuthorizations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A collection of port settings to be removed from the fleet resource.
 updateFleetPortSettings_inboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
-updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens._Coerce
+updateFleetPortSettings_inboundPermissionRevocations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionRevocations} -> inboundPermissionRevocations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionRevocations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of port settings to be added to the fleet resource.
+updateFleetPortSettings_inboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Prelude.Maybe [IpPermission])
+updateFleetPortSettings_inboundPermissionAuthorizations = Lens.lens (\UpdateFleetPortSettings' {inboundPermissionAuthorizations} -> inboundPermissionAuthorizations) (\s@UpdateFleetPortSettings' {} a -> s {inboundPermissionAuthorizations = a} :: UpdateFleetPortSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the fleet to update port settings for. You can
 -- use either the fleet ID or ARN value.
@@ -162,10 +162,10 @@ instance Core.ToJSON UpdateFleetPortSettings where
   toJSON UpdateFleetPortSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InboundPermissionAuthorizations" Core..=)
-              Prelude.<$> inboundPermissionAuthorizations,
-            ("InboundPermissionRevocations" Core..=)
+          [ ("InboundPermissionRevocations" Core..=)
               Prelude.<$> inboundPermissionRevocations,
+            ("InboundPermissionAuthorizations" Core..=)
+              Prelude.<$> inboundPermissionAuthorizations,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )

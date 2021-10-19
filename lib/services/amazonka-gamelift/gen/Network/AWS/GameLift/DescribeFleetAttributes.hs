@@ -61,8 +61,8 @@ module Network.AWS.GameLift.DescribeFleetAttributes
 
     -- * Request Lenses
     describeFleetAttributes_nextToken,
-    describeFleetAttributes_fleetIds,
     describeFleetAttributes_limit,
+    describeFleetAttributes_fleetIds,
 
     -- * Destructuring the Response
     DescribeFleetAttributesResponse (..),
@@ -92,14 +92,14 @@ data DescribeFleetAttributes = DescribeFleetAttributes'
     -- This parameter is ignored when the request specifies one or a list of
     -- fleet IDs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of unique fleet identifiers to retrieve attributes for. You can
-    -- use either the fleet ID or ARN value. To retrieve attributes for all
-    -- current fleets, do not include this parameter.
-    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. This parameter
     -- is ignored when the request specifies one or a list of fleet IDs.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A list of unique fleet identifiers to retrieve attributes for. You can
+    -- use either the fleet ID or ARN value. To retrieve attributes for all
+    -- current fleets, do not include this parameter.
+    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,21 +117,21 @@ data DescribeFleetAttributes = DescribeFleetAttributes'
 -- This parameter is ignored when the request specifies one or a list of
 -- fleet IDs.
 --
--- 'fleetIds', 'describeFleetAttributes_fleetIds' - A list of unique fleet identifiers to retrieve attributes for. You can
--- use either the fleet ID or ARN value. To retrieve attributes for all
--- current fleets, do not include this parameter.
---
 -- 'limit', 'describeFleetAttributes_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is ignored when the request specifies one or a list of fleet IDs.
+--
+-- 'fleetIds', 'describeFleetAttributes_fleetIds' - A list of unique fleet identifiers to retrieve attributes for. You can
+-- use either the fleet ID or ARN value. To retrieve attributes for all
+-- current fleets, do not include this parameter.
 newDescribeFleetAttributes ::
   DescribeFleetAttributes
 newDescribeFleetAttributes =
   DescribeFleetAttributes'
     { nextToken =
         Prelude.Nothing,
-      fleetIds = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      fleetIds = Prelude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results.
@@ -142,17 +142,17 @@ newDescribeFleetAttributes =
 describeFleetAttributes_nextToken :: Lens.Lens' DescribeFleetAttributes (Prelude.Maybe Prelude.Text)
 describeFleetAttributes_nextToken = Lens.lens (\DescribeFleetAttributes' {nextToken} -> nextToken) (\s@DescribeFleetAttributes' {} a -> s {nextToken = a} :: DescribeFleetAttributes)
 
--- | A list of unique fleet identifiers to retrieve attributes for. You can
--- use either the fleet ID or ARN value. To retrieve attributes for all
--- current fleets, do not include this parameter.
-describeFleetAttributes_fleetIds :: Lens.Lens' DescribeFleetAttributes (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeFleetAttributes_fleetIds = Lens.lens (\DescribeFleetAttributes' {fleetIds} -> fleetIds) (\s@DescribeFleetAttributes' {} a -> s {fleetIds = a} :: DescribeFleetAttributes) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is ignored when the request specifies one or a list of fleet IDs.
 describeFleetAttributes_limit :: Lens.Lens' DescribeFleetAttributes (Prelude.Maybe Prelude.Natural)
 describeFleetAttributes_limit = Lens.lens (\DescribeFleetAttributes' {limit} -> limit) (\s@DescribeFleetAttributes' {} a -> s {limit = a} :: DescribeFleetAttributes)
+
+-- | A list of unique fleet identifiers to retrieve attributes for. You can
+-- use either the fleet ID or ARN value. To retrieve attributes for all
+-- current fleets, do not include this parameter.
+describeFleetAttributes_fleetIds :: Lens.Lens' DescribeFleetAttributes (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeFleetAttributes_fleetIds = Lens.lens (\DescribeFleetAttributes' {fleetIds} -> fleetIds) (\s@DescribeFleetAttributes' {} a -> s {fleetIds = a} :: DescribeFleetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeFleetAttributes where
   page rq rs
@@ -216,8 +216,8 @@ instance Core.ToJSON DescribeFleetAttributes where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FleetIds" Core..=) Prelude.<$> fleetIds,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("FleetIds" Core..=) Prelude.<$> fleetIds
           ]
       )
 
@@ -283,7 +283,7 @@ describeFleetAttributesResponse_nextToken = Lens.lens (\DescribeFleetAttributesR
 -- fleet ID. Attribute objects are returned only for fleets that currently
 -- exist.
 describeFleetAttributesResponse_fleetAttributes :: Lens.Lens' DescribeFleetAttributesResponse (Prelude.Maybe [FleetAttributes])
-describeFleetAttributesResponse_fleetAttributes = Lens.lens (\DescribeFleetAttributesResponse' {fleetAttributes} -> fleetAttributes) (\s@DescribeFleetAttributesResponse' {} a -> s {fleetAttributes = a} :: DescribeFleetAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFleetAttributesResponse_fleetAttributes = Lens.lens (\DescribeFleetAttributesResponse' {fleetAttributes} -> fleetAttributes) (\s@DescribeFleetAttributesResponse' {} a -> s {fleetAttributes = a} :: DescribeFleetAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetAttributesResponse_httpStatus :: Lens.Lens' DescribeFleetAttributesResponse Prelude.Int

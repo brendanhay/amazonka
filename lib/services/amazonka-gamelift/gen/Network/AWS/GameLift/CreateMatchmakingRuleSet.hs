@@ -149,7 +149,7 @@ newCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
 createMatchmakingRuleSet_tags :: Lens.Lens' CreateMatchmakingRuleSet (Prelude.Maybe [Tag])
-createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Lens._Coerce
+createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the matchmaking rule set. A matchmaking
 -- configuration identifies the rule set it uses by this name value. Note

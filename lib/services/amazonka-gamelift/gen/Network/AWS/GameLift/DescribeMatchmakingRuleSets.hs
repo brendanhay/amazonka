@@ -45,8 +45,8 @@ module Network.AWS.GameLift.DescribeMatchmakingRuleSets
     newDescribeMatchmakingRuleSets,
 
     -- * Request Lenses
-    describeMatchmakingRuleSets_names,
     describeMatchmakingRuleSets_nextToken,
+    describeMatchmakingRuleSets_names,
     describeMatchmakingRuleSets_limit,
 
     -- * Destructuring the Response
@@ -71,15 +71,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeMatchmakingRuleSets' smart constructor.
 data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
-  { -- | A list of one or more matchmaking rule set names to retrieve details
+  { -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of one or more matchmaking rule set names to retrieve details
     -- for. (Note: The rule set name is different from the optional \"name\"
     -- field in the rule set body.) You can use either the rule set name or ARN
     -- value.
     names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural
@@ -94,14 +94,14 @@ data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'describeMatchmakingRuleSets_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+--
 -- 'names', 'describeMatchmakingRuleSets_names' - A list of one or more matchmaking rule set names to retrieve details
 -- for. (Note: The rule set name is different from the optional \"name\"
 -- field in the rule set body.) You can use either the rule set name or ARN
 -- value.
---
--- 'nextToken', 'describeMatchmakingRuleSets_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
 --
 -- 'limit', 'describeMatchmakingRuleSets_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -109,24 +109,24 @@ newDescribeMatchmakingRuleSets ::
   DescribeMatchmakingRuleSets
 newDescribeMatchmakingRuleSets =
   DescribeMatchmakingRuleSets'
-    { names =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      names = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A list of one or more matchmaking rule set names to retrieve details
--- for. (Note: The rule set name is different from the optional \"name\"
--- field in the rule set body.) You can use either the rule set name or ARN
--- value.
-describeMatchmakingRuleSets_names :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeMatchmakingRuleSets_names = Lens.lens (\DescribeMatchmakingRuleSets' {names} -> names) (\s@DescribeMatchmakingRuleSets' {} a -> s {names = a} :: DescribeMatchmakingRuleSets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 describeMatchmakingRuleSets_nextToken :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe Prelude.Text)
 describeMatchmakingRuleSets_nextToken = Lens.lens (\DescribeMatchmakingRuleSets' {nextToken} -> nextToken) (\s@DescribeMatchmakingRuleSets' {} a -> s {nextToken = a} :: DescribeMatchmakingRuleSets)
+
+-- | A list of one or more matchmaking rule set names to retrieve details
+-- for. (Note: The rule set name is different from the optional \"name\"
+-- field in the rule set body.) You can use either the rule set name or ARN
+-- value.
+describeMatchmakingRuleSets_names :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeMatchmakingRuleSets_names = Lens.lens (\DescribeMatchmakingRuleSets' {names} -> names) (\s@DescribeMatchmakingRuleSets' {} a -> s {names = a} :: DescribeMatchmakingRuleSets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -191,8 +191,8 @@ instance Core.ToJSON DescribeMatchmakingRuleSets where
   toJSON DescribeMatchmakingRuleSets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Names" Core..=) Prelude.<$> names,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -257,7 +257,7 @@ describeMatchmakingRuleSetsResponse_httpStatus = Lens.lens (\DescribeMatchmaking
 
 -- | A collection of requested matchmaking rule set objects.
 describeMatchmakingRuleSetsResponse_ruleSets :: Lens.Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
-describeMatchmakingRuleSetsResponse_ruleSets = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {ruleSets} -> ruleSets) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {ruleSets = a} :: DescribeMatchmakingRuleSetsResponse) Prelude.. Lens._Coerce
+describeMatchmakingRuleSetsResponse_ruleSets = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {ruleSets} -> ruleSets) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {ruleSets = a} :: DescribeMatchmakingRuleSetsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

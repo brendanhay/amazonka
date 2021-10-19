@@ -70,8 +70,8 @@ module Network.AWS.GameLift.DescribeFleetUtilization
 
     -- * Request Lenses
     describeFleetUtilization_nextToken,
-    describeFleetUtilization_fleetIds,
     describeFleetUtilization_limit,
+    describeFleetUtilization_fleetIds,
 
     -- * Destructuring the Response
     DescribeFleetUtilizationResponse (..),
@@ -101,14 +101,14 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
     -- This parameter is ignored when the request specifies one or a list of
     -- fleet IDs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the fleet(s) to retrieve utilization data for.
-    -- You can use either the fleet ID or ARN value. To retrieve attributes for
-    -- all current fleets, do not include this parameter.
-    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. This parameter
     -- is ignored when the request specifies one or a list of fleet IDs.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A unique identifier for the fleet(s) to retrieve utilization data for.
+    -- You can use either the fleet ID or ARN value. To retrieve attributes for
+    -- all current fleets, do not include this parameter.
+    fleetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,21 +126,21 @@ data DescribeFleetUtilization = DescribeFleetUtilization'
 -- This parameter is ignored when the request specifies one or a list of
 -- fleet IDs.
 --
--- 'fleetIds', 'describeFleetUtilization_fleetIds' - A unique identifier for the fleet(s) to retrieve utilization data for.
--- You can use either the fleet ID or ARN value. To retrieve attributes for
--- all current fleets, do not include this parameter.
---
 -- 'limit', 'describeFleetUtilization_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is ignored when the request specifies one or a list of fleet IDs.
+--
+-- 'fleetIds', 'describeFleetUtilization_fleetIds' - A unique identifier for the fleet(s) to retrieve utilization data for.
+-- You can use either the fleet ID or ARN value. To retrieve attributes for
+-- all current fleets, do not include this parameter.
 newDescribeFleetUtilization ::
   DescribeFleetUtilization
 newDescribeFleetUtilization =
   DescribeFleetUtilization'
     { nextToken =
         Prelude.Nothing,
-      fleetIds = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      fleetIds = Prelude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results.
@@ -151,17 +151,17 @@ newDescribeFleetUtilization =
 describeFleetUtilization_nextToken :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe Prelude.Text)
 describeFleetUtilization_nextToken = Lens.lens (\DescribeFleetUtilization' {nextToken} -> nextToken) (\s@DescribeFleetUtilization' {} a -> s {nextToken = a} :: DescribeFleetUtilization)
 
--- | A unique identifier for the fleet(s) to retrieve utilization data for.
--- You can use either the fleet ID or ARN value. To retrieve attributes for
--- all current fleets, do not include this parameter.
-describeFleetUtilization_fleetIds :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeFleetUtilization_fleetIds = Lens.lens (\DescribeFleetUtilization' {fleetIds} -> fleetIds) (\s@DescribeFleetUtilization' {} a -> s {fleetIds = a} :: DescribeFleetUtilization) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. This parameter
 -- is ignored when the request specifies one or a list of fleet IDs.
 describeFleetUtilization_limit :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe Prelude.Natural)
 describeFleetUtilization_limit = Lens.lens (\DescribeFleetUtilization' {limit} -> limit) (\s@DescribeFleetUtilization' {} a -> s {limit = a} :: DescribeFleetUtilization)
+
+-- | A unique identifier for the fleet(s) to retrieve utilization data for.
+-- You can use either the fleet ID or ARN value. To retrieve attributes for
+-- all current fleets, do not include this parameter.
+describeFleetUtilization_fleetIds :: Lens.Lens' DescribeFleetUtilization (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeFleetUtilization_fleetIds = Lens.lens (\DescribeFleetUtilization' {fleetIds} -> fleetIds) (\s@DescribeFleetUtilization' {} a -> s {fleetIds = a} :: DescribeFleetUtilization) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeFleetUtilization where
   page rq rs
@@ -225,8 +225,8 @@ instance Core.ToJSON DescribeFleetUtilization where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("FleetIds" Core..=) Prelude.<$> fleetIds,
-            ("Limit" Core..=) Prelude.<$> limit
+            ("Limit" Core..=) Prelude.<$> limit,
+            ("FleetIds" Core..=) Prelude.<$> fleetIds
           ]
       )
 
@@ -292,7 +292,7 @@ describeFleetUtilizationResponse_nextToken = Lens.lens (\DescribeFleetUtilizatio
 -- requested fleet ID. Utilization objects are returned only for fleets
 -- that currently exist.
 describeFleetUtilizationResponse_fleetUtilization :: Lens.Lens' DescribeFleetUtilizationResponse (Prelude.Maybe [FleetUtilization])
-describeFleetUtilizationResponse_fleetUtilization = Lens.lens (\DescribeFleetUtilizationResponse' {fleetUtilization} -> fleetUtilization) (\s@DescribeFleetUtilizationResponse' {} a -> s {fleetUtilization = a} :: DescribeFleetUtilizationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFleetUtilizationResponse_fleetUtilization = Lens.lens (\DescribeFleetUtilizationResponse' {fleetUtilization} -> fleetUtilization) (\s@DescribeFleetUtilizationResponse' {} a -> s {fleetUtilization = a} :: DescribeFleetUtilizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetUtilizationResponse_httpStatus :: Lens.Lens' DescribeFleetUtilizationResponse Prelude.Int

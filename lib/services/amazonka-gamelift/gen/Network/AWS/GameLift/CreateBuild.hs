@@ -71,20 +71,20 @@ module Network.AWS.GameLift.CreateBuild
     newCreateBuild,
 
     -- * Request Lenses
-    createBuild_version,
-    createBuild_name,
     createBuild_storageLocation,
-    createBuild_tags,
     createBuild_operatingSystem,
+    createBuild_name,
+    createBuild_version,
+    createBuild_tags,
 
     -- * Destructuring the Response
     CreateBuildResponse (..),
     newCreateBuildResponse,
 
     -- * Response Lenses
-    createBuildResponse_build,
     createBuildResponse_storageLocation,
     createBuildResponse_uploadCredentials,
+    createBuildResponse_build,
     createBuildResponse_httpStatus,
   )
 where
@@ -100,20 +100,27 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateBuild' smart constructor.
 data CreateBuild = CreateBuild'
-  { -- | Version information that is associated with a build or script. Version
-    -- strings do not need to be unique. You can use UpdateBuild to change this
-    -- value later.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive label that is associated with a build. Build names do not
-    -- need to be unique. You can use UpdateBuild to change this value later.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Information indicating where your game build files are stored. Use this
+  { -- | Information indicating where your game build files are stored. Use this
     -- parameter only when creating a build with files stored in an Amazon S3
     -- bucket that you own. The storage location must specify an Amazon S3
     -- bucket name and key. The location must also specify a role ARN that you
     -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
     -- bucket and your new build must be in the same Region.
     storageLocation :: Prelude.Maybe S3Location,
+    -- | The operating system that the game server binaries are built to run on.
+    -- This value determines the type of fleet resources that you can use for
+    -- this build. If your game build contains multiple executables, they all
+    -- must run on the same operating system. If an operating system is not
+    -- specified when creating a build, Amazon GameLift uses the default value
+    -- (WINDOWS_2012). This value cannot be changed later.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | A descriptive label that is associated with a build. Build names do not
+    -- need to be unique. You can use UpdateBuild to change this value later.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Version information that is associated with a build or script. Version
+    -- strings do not need to be unique. You can use UpdateBuild to change this
+    -- value later.
+    version :: Prelude.Maybe Prelude.Text,
     -- | A list of labels to assign to the new build resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
     -- resource management, access management and cost allocation. For more
@@ -123,14 +130,7 @@ data CreateBuild = CreateBuild'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Prelude.Maybe [Tag],
-    -- | The operating system that the game server binaries are built to run on.
-    -- This value determines the type of fleet resources that you can use for
-    -- this build. If your game build contains multiple executables, they all
-    -- must run on the same operating system. If an operating system is not
-    -- specified when creating a build, Amazon GameLift uses the default value
-    -- (WINDOWS_2012). This value cannot be changed later.
-    operatingSystem :: Prelude.Maybe OperatingSystem
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,19 +142,26 @@ data CreateBuild = CreateBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'createBuild_version' - Version information that is associated with a build or script. Version
--- strings do not need to be unique. You can use UpdateBuild to change this
--- value later.
---
--- 'name', 'createBuild_name' - A descriptive label that is associated with a build. Build names do not
--- need to be unique. You can use UpdateBuild to change this value later.
---
 -- 'storageLocation', 'createBuild_storageLocation' - Information indicating where your game build files are stored. Use this
 -- parameter only when creating a build with files stored in an Amazon S3
 -- bucket that you own. The storage location must specify an Amazon S3
 -- bucket name and key. The location must also specify a role ARN that you
 -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
 -- bucket and your new build must be in the same Region.
+--
+-- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that the game server binaries are built to run on.
+-- This value determines the type of fleet resources that you can use for
+-- this build. If your game build contains multiple executables, they all
+-- must run on the same operating system. If an operating system is not
+-- specified when creating a build, Amazon GameLift uses the default value
+-- (WINDOWS_2012). This value cannot be changed later.
+--
+-- 'name', 'createBuild_name' - A descriptive label that is associated with a build. Build names do not
+-- need to be unique. You can use UpdateBuild to change this value later.
+--
+-- 'version', 'createBuild_version' - Version information that is associated with a build or script. Version
+-- strings do not need to be unique. You can use UpdateBuild to change this
+-- value later.
 --
 -- 'tags', 'createBuild_tags' - A list of labels to assign to the new build resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -165,34 +172,16 @@ data CreateBuild = CreateBuild'
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
---
--- 'operatingSystem', 'createBuild_operatingSystem' - The operating system that the game server binaries are built to run on.
--- This value determines the type of fleet resources that you can use for
--- this build. If your game build contains multiple executables, they all
--- must run on the same operating system. If an operating system is not
--- specified when creating a build, Amazon GameLift uses the default value
--- (WINDOWS_2012). This value cannot be changed later.
 newCreateBuild ::
   CreateBuild
 newCreateBuild =
   CreateBuild'
-    { version = Prelude.Nothing,
+    { storageLocation = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
       name = Prelude.Nothing,
-      storageLocation = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing
+      version = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | Version information that is associated with a build or script. Version
--- strings do not need to be unique. You can use UpdateBuild to change this
--- value later.
-createBuild_version :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
-createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateBuild' {} a -> s {version = a} :: CreateBuild)
-
--- | A descriptive label that is associated with a build. Build names do not
--- need to be unique. You can use UpdateBuild to change this value later.
-createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
-createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
 
 -- | Information indicating where your game build files are stored. Use this
 -- parameter only when creating a build with files stored in an Amazon S3
@@ -202,6 +191,26 @@ createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} 
 -- bucket and your new build must be in the same Region.
 createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
 createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
+
+-- | The operating system that the game server binaries are built to run on.
+-- This value determines the type of fleet resources that you can use for
+-- this build. If your game build contains multiple executables, they all
+-- must run on the same operating system. If an operating system is not
+-- specified when creating a build, Amazon GameLift uses the default value
+-- (WINDOWS_2012). This value cannot be changed later.
+createBuild_operatingSystem :: Lens.Lens' CreateBuild (Prelude.Maybe OperatingSystem)
+createBuild_operatingSystem = Lens.lens (\CreateBuild' {operatingSystem} -> operatingSystem) (\s@CreateBuild' {} a -> s {operatingSystem = a} :: CreateBuild)
+
+-- | A descriptive label that is associated with a build. Build names do not
+-- need to be unique. You can use UpdateBuild to change this value later.
+createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
+createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
+
+-- | Version information that is associated with a build or script. Version
+-- strings do not need to be unique. You can use UpdateBuild to change this
+-- value later.
+createBuild_version :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
+createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateBuild' {} a -> s {version = a} :: CreateBuild)
 
 -- | A list of labels to assign to the new build resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -213,16 +222,7 @@ createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> stor
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
 createBuild_tags :: Lens.Lens' CreateBuild (Prelude.Maybe [Tag])
-createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens._Coerce
-
--- | The operating system that the game server binaries are built to run on.
--- This value determines the type of fleet resources that you can use for
--- this build. If your game build contains multiple executables, they all
--- must run on the same operating system. If an operating system is not
--- specified when creating a build, Amazon GameLift uses the default value
--- (WINDOWS_2012). This value cannot be changed later.
-createBuild_operatingSystem :: Lens.Lens' CreateBuild (Prelude.Maybe OperatingSystem)
-createBuild_operatingSystem = Lens.lens (\CreateBuild' {operatingSystem} -> operatingSystem) (\s@CreateBuild' {} a -> s {operatingSystem = a} :: CreateBuild)
+createBuild_tags = Lens.lens (\CreateBuild' {tags} -> tags) (\s@CreateBuild' {} a -> s {tags = a} :: CreateBuild) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateBuild where
   type AWSResponse CreateBuild = CreateBuildResponse
@@ -231,9 +231,9 @@ instance Core.AWSRequest CreateBuild where
     Response.receiveJSON
       ( \s h x ->
           CreateBuildResponse'
-            Prelude.<$> (x Core..?> "Build")
-            Prelude.<*> (x Core..?> "StorageLocation")
+            Prelude.<$> (x Core..?> "StorageLocation")
             Prelude.<*> (x Core..?> "UploadCredentials")
+            Prelude.<*> (x Core..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -258,13 +258,13 @@ instance Core.ToJSON CreateBuild where
   toJSON CreateBuild' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            ("Name" Core..=) Prelude.<$> name,
-            ("StorageLocation" Core..=)
+          [ ("StorageLocation" Core..=)
               Prelude.<$> storageLocation,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("OperatingSystem" Core..=)
-              Prelude.<$> operatingSystem
+              Prelude.<$> operatingSystem,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Version" Core..=) Prelude.<$> version,
+            ("Tags" Core..=) Prelude.<$> tags
           ]
       )
 
@@ -278,10 +278,7 @@ instance Core.ToQuery CreateBuild where
 --
 -- /See:/ 'newCreateBuildResponse' smart constructor.
 data CreateBuildResponse = CreateBuildResponse'
-  { -- | The newly created build resource, including a unique build IDs and
-    -- status.
-    build :: Prelude.Maybe Build,
-    -- | Amazon S3 location for your game build file, including bucket name and
+  { -- | Amazon S3 location for your game build file, including bucket name and
     -- key.
     storageLocation :: Prelude.Maybe S3Location,
     -- | This element is returned only when the operation is called without a
@@ -290,6 +287,9 @@ data CreateBuildResponse = CreateBuildResponse'
     -- Credentials have a limited life span. To refresh these credentials, call
     -- RequestUploadCredentials.
     uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
+    -- | The newly created build resource, including a unique build IDs and
+    -- status.
+    build :: Prelude.Maybe Build,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -303,9 +303,6 @@ data CreateBuildResponse = CreateBuildResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'build', 'createBuildResponse_build' - The newly created build resource, including a unique build IDs and
--- status.
---
 -- 'storageLocation', 'createBuildResponse_storageLocation' - Amazon S3 location for your game build file, including bucket name and
 -- key.
 --
@@ -315,6 +312,9 @@ data CreateBuildResponse = CreateBuildResponse'
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
 --
+-- 'build', 'createBuildResponse_build' - The newly created build resource, including a unique build IDs and
+-- status.
+--
 -- 'httpStatus', 'createBuildResponse_httpStatus' - The response's http status code.
 newCreateBuildResponse ::
   -- | 'httpStatus'
@@ -322,16 +322,12 @@ newCreateBuildResponse ::
   CreateBuildResponse
 newCreateBuildResponse pHttpStatus_ =
   CreateBuildResponse'
-    { build = Prelude.Nothing,
-      storageLocation = Prelude.Nothing,
+    { storageLocation =
+        Prelude.Nothing,
       uploadCredentials = Prelude.Nothing,
+      build = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The newly created build resource, including a unique build IDs and
--- status.
-createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Prelude.Maybe Build)
-createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (\s@CreateBuildResponse' {} a -> s {build = a} :: CreateBuildResponse)
 
 -- | Amazon S3 location for your game build file, including bucket name and
 -- key.
@@ -345,6 +341,11 @@ createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageL
 -- RequestUploadCredentials.
 createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Prelude.Maybe AwsCredentials)
 createBuildResponse_uploadCredentials = Lens.lens (\CreateBuildResponse' {uploadCredentials} -> uploadCredentials) (\s@CreateBuildResponse' {} a -> s {uploadCredentials = a} :: CreateBuildResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The newly created build resource, including a unique build IDs and
+-- status.
+createBuildResponse_build :: Lens.Lens' CreateBuildResponse (Prelude.Maybe Build)
+createBuildResponse_build = Lens.lens (\CreateBuildResponse' {build} -> build) (\s@CreateBuildResponse' {} a -> s {build = a} :: CreateBuildResponse)
 
 -- | The response's http status code.
 createBuildResponse_httpStatus :: Lens.Lens' CreateBuildResponse Prelude.Int

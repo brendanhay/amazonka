@@ -40,8 +40,8 @@ module Network.AWS.GameLift.ResolveAlias
     newResolveAliasResponse,
 
     -- * Response Lenses
-    resolveAliasResponse_fleetId,
     resolveAliasResponse_fleetArn,
+    resolveAliasResponse_fleetId,
     resolveAliasResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest ResolveAlias where
     Response.receiveJSON
       ( \s h x ->
           ResolveAliasResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<$> (x Core..?> "FleetArn")
+            Prelude.<*> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,12 +131,12 @@ instance Core.ToQuery ResolveAlias where
 --
 -- /See:/ 'newResolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
-  { -- | The fleet identifier that the alias is pointing to.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name
+  { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- associated with the GameLift fleet resource that this alias points to.
     fleetArn :: Prelude.Maybe Prelude.Text,
+    -- | The fleet identifier that the alias is pointing to.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,11 +150,11 @@ data ResolveAliasResponse = ResolveAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'resolveAliasResponse_fleetId' - The fleet identifier that the alias is pointing to.
---
 -- 'fleetArn', 'resolveAliasResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- associated with the GameLift fleet resource that this alias points to.
+--
+-- 'fleetId', 'resolveAliasResponse_fleetId' - The fleet identifier that the alias is pointing to.
 --
 -- 'httpStatus', 'resolveAliasResponse_httpStatus' - The response's http status code.
 newResolveAliasResponse ::
@@ -163,20 +163,20 @@ newResolveAliasResponse ::
   ResolveAliasResponse
 newResolveAliasResponse pHttpStatus_ =
   ResolveAliasResponse'
-    { fleetId = Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
+    { fleetArn = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The fleet identifier that the alias is pointing to.
-resolveAliasResponse_fleetId :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
-resolveAliasResponse_fleetId = Lens.lens (\ResolveAliasResponse' {fleetId} -> fleetId) (\s@ResolveAliasResponse' {} a -> s {fleetId = a} :: ResolveAliasResponse)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- associated with the GameLift fleet resource that this alias points to.
 resolveAliasResponse_fleetArn :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
 resolveAliasResponse_fleetArn = Lens.lens (\ResolveAliasResponse' {fleetArn} -> fleetArn) (\s@ResolveAliasResponse' {} a -> s {fleetArn = a} :: ResolveAliasResponse)
+
+-- | The fleet identifier that the alias is pointing to.
+resolveAliasResponse_fleetId :: Lens.Lens' ResolveAliasResponse (Prelude.Maybe Prelude.Text)
+resolveAliasResponse_fleetId = Lens.lens (\ResolveAliasResponse' {fleetId} -> fleetId) (\s@ResolveAliasResponse' {} a -> s {fleetId = a} :: ResolveAliasResponse)
 
 -- | The response's http status code.
 resolveAliasResponse_httpStatus :: Lens.Lens' ResolveAliasResponse Prelude.Int

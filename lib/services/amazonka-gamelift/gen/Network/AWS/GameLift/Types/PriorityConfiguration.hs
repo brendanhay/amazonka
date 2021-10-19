@@ -50,12 +50,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPriorityConfiguration' smart constructor.
 data PriorityConfiguration = PriorityConfiguration'
-  { -- | The prioritization order to use for fleet locations, when the
-    -- @PriorityOrder@ property includes @LOCATION@. Locations are identified
-    -- by AWS Region codes such as @us-west-2@. Each location can only be
-    -- listed once.
-    locationOrder :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The recommended sequence to use when prioritizing where to place new
+  { -- | The recommended sequence to use when prioritizing where to place new
     -- game sessions. Each type can only be listed once.
     --
     -- -   @LATENCY@ -- FleetIQ prioritizes locations where the average player
@@ -71,7 +66,12 @@ data PriorityConfiguration = PriorityConfiguration'
     --
     -- -   @LOCATION@ -- FleetIQ prioritizes based on the provided order of
     --     locations, as defined in @LocationOrder@.
-    priorityOrder :: Prelude.Maybe (Prelude.NonEmpty PriorityType)
+    priorityOrder :: Prelude.Maybe (Prelude.NonEmpty PriorityType),
+    -- | The prioritization order to use for fleet locations, when the
+    -- @PriorityOrder@ property includes @LOCATION@. Locations are identified
+    -- by AWS Region codes such as @us-west-2@. Each location can only be
+    -- listed once.
+    locationOrder :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,11 +82,6 @@ data PriorityConfiguration = PriorityConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'locationOrder', 'priorityConfiguration_locationOrder' - The prioritization order to use for fleet locations, when the
--- @PriorityOrder@ property includes @LOCATION@. Locations are identified
--- by AWS Region codes such as @us-west-2@. Each location can only be
--- listed once.
 --
 -- 'priorityOrder', 'priorityConfiguration_priorityOrder' - The recommended sequence to use when prioritizing where to place new
 -- game sessions. Each type can only be listed once.
@@ -104,21 +99,19 @@ data PriorityConfiguration = PriorityConfiguration'
 --
 -- -   @LOCATION@ -- FleetIQ prioritizes based on the provided order of
 --     locations, as defined in @LocationOrder@.
+--
+-- 'locationOrder', 'priorityConfiguration_locationOrder' - The prioritization order to use for fleet locations, when the
+-- @PriorityOrder@ property includes @LOCATION@. Locations are identified
+-- by AWS Region codes such as @us-west-2@. Each location can only be
+-- listed once.
 newPriorityConfiguration ::
   PriorityConfiguration
 newPriorityConfiguration =
   PriorityConfiguration'
-    { locationOrder =
+    { priorityOrder =
         Prelude.Nothing,
-      priorityOrder = Prelude.Nothing
+      locationOrder = Prelude.Nothing
     }
-
--- | The prioritization order to use for fleet locations, when the
--- @PriorityOrder@ property includes @LOCATION@. Locations are identified
--- by AWS Region codes such as @us-west-2@. Each location can only be
--- listed once.
-priorityConfiguration_locationOrder :: Lens.Lens' PriorityConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-priorityConfiguration_locationOrder = Lens.lens (\PriorityConfiguration' {locationOrder} -> locationOrder) (\s@PriorityConfiguration' {} a -> s {locationOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The recommended sequence to use when prioritizing where to place new
 -- game sessions. Each type can only be listed once.
@@ -137,7 +130,14 @@ priorityConfiguration_locationOrder = Lens.lens (\PriorityConfiguration' {locati
 -- -   @LOCATION@ -- FleetIQ prioritizes based on the provided order of
 --     locations, as defined in @LocationOrder@.
 priorityConfiguration_priorityOrder :: Lens.Lens' PriorityConfiguration (Prelude.Maybe (Prelude.NonEmpty PriorityType))
-priorityConfiguration_priorityOrder = Lens.lens (\PriorityConfiguration' {priorityOrder} -> priorityOrder) (\s@PriorityConfiguration' {} a -> s {priorityOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens._Coerce
+priorityConfiguration_priorityOrder = Lens.lens (\PriorityConfiguration' {priorityOrder} -> priorityOrder) (\s@PriorityConfiguration' {} a -> s {priorityOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The prioritization order to use for fleet locations, when the
+-- @PriorityOrder@ property includes @LOCATION@. Locations are identified
+-- by AWS Region codes such as @us-west-2@. Each location can only be
+-- listed once.
+priorityConfiguration_locationOrder :: Lens.Lens' PriorityConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+priorityConfiguration_locationOrder = Lens.lens (\PriorityConfiguration' {locationOrder} -> locationOrder) (\s@PriorityConfiguration' {} a -> s {locationOrder = a} :: PriorityConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PriorityConfiguration where
   parseJSON =
@@ -145,8 +145,8 @@ instance Core.FromJSON PriorityConfiguration where
       "PriorityConfiguration"
       ( \x ->
           PriorityConfiguration'
-            Prelude.<$> (x Core..:? "LocationOrder")
-            Prelude.<*> (x Core..:? "PriorityOrder")
+            Prelude.<$> (x Core..:? "PriorityOrder")
+            Prelude.<*> (x Core..:? "LocationOrder")
       )
 
 instance Prelude.Hashable PriorityConfiguration
@@ -157,7 +157,7 @@ instance Core.ToJSON PriorityConfiguration where
   toJSON PriorityConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LocationOrder" Core..=) Prelude.<$> locationOrder,
-            ("PriorityOrder" Core..=) Prelude.<$> priorityOrder
+          [ ("PriorityOrder" Core..=) Prelude.<$> priorityOrder,
+            ("LocationOrder" Core..=) Prelude.<$> locationOrder
           ]
       )

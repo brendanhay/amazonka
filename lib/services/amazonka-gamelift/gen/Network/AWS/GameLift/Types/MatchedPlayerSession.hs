@@ -33,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMatchedPlayerSession' smart constructor.
 data MatchedPlayerSession = MatchedPlayerSession'
-  { -- | A unique identifier for a player
-    playerId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a player session
-    playerSessionId :: Prelude.Maybe Prelude.Text
+  { -- | A unique identifier for a player session
+    playerSessionId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for a player
+    playerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,25 @@ data MatchedPlayerSession = MatchedPlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerId', 'matchedPlayerSession_playerId' - A unique identifier for a player
---
 -- 'playerSessionId', 'matchedPlayerSession_playerSessionId' - A unique identifier for a player session
+--
+-- 'playerId', 'matchedPlayerSession_playerId' - A unique identifier for a player
 newMatchedPlayerSession ::
   MatchedPlayerSession
 newMatchedPlayerSession =
   MatchedPlayerSession'
-    { playerId = Prelude.Nothing,
-      playerSessionId = Prelude.Nothing
+    { playerSessionId =
+        Prelude.Nothing,
+      playerId = Prelude.Nothing
     }
-
--- | A unique identifier for a player
-matchedPlayerSession_playerId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
-matchedPlayerSession_playerId = Lens.lens (\MatchedPlayerSession' {playerId} -> playerId) (\s@MatchedPlayerSession' {} a -> s {playerId = a} :: MatchedPlayerSession)
 
 -- | A unique identifier for a player session
 matchedPlayerSession_playerSessionId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
 matchedPlayerSession_playerSessionId = Lens.lens (\MatchedPlayerSession' {playerSessionId} -> playerSessionId) (\s@MatchedPlayerSession' {} a -> s {playerSessionId = a} :: MatchedPlayerSession)
+
+-- | A unique identifier for a player
+matchedPlayerSession_playerId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
+matchedPlayerSession_playerId = Lens.lens (\MatchedPlayerSession' {playerId} -> playerId) (\s@MatchedPlayerSession' {} a -> s {playerId = a} :: MatchedPlayerSession)
 
 instance Core.FromJSON MatchedPlayerSession where
   parseJSON =
@@ -73,8 +74,8 @@ instance Core.FromJSON MatchedPlayerSession where
       "MatchedPlayerSession"
       ( \x ->
           MatchedPlayerSession'
-            Prelude.<$> (x Core..:? "PlayerId")
-            Prelude.<*> (x Core..:? "PlayerSessionId")
+            Prelude.<$> (x Core..:? "PlayerSessionId")
+            Prelude.<*> (x Core..:? "PlayerId")
       )
 
 instance Prelude.Hashable MatchedPlayerSession

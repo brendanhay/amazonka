@@ -50,10 +50,10 @@ module Network.AWS.GameLift.UpdateGameServerGroup
     newUpdateGameServerGroup,
 
     -- * Request Lenses
-    updateGameServerGroup_roleArn,
     updateGameServerGroup_instanceDefinitions,
     updateGameServerGroup_balancingStrategy,
     updateGameServerGroup_gameServerProtectionPolicy,
+    updateGameServerGroup_roleArn,
     updateGameServerGroup_gameServerGroupName,
 
     -- * Destructuring the Response
@@ -75,12 +75,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGameServerGroup' smart constructor.
 data UpdateGameServerGroup = UpdateGameServerGroup'
-  { -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
-    -- Scaling groups.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | An updated list of EC2 instance types to use in the Auto Scaling group.
+  { -- | An updated list of EC2 instance types to use in the Auto Scaling group.
     -- The instance definitions must specify at least two different instance
     -- types that are supported by GameLift FleetIQ. This updated list replaces
     -- the entire current list of instance definitions for the game server
@@ -125,6 +120,11 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- of protection status. This property is set to @NO_PROTECTION@ by
     -- default.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
+    -- Scaling groups.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
     gameServerGroupName :: Prelude.Text
@@ -138,11 +138,6 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'updateGameServerGroup_roleArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
 --
 -- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of EC2 instance types to use in the Auto Scaling group.
 -- The instance definitions must specify at least two different instance
@@ -189,6 +184,11 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 -- of protection status. This property is set to @NO_PROTECTION@ by
 -- default.
 --
+-- 'roleArn', 'updateGameServerGroup_roleArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- for an IAM role that allows Amazon GameLift to access your EC2 Auto
+-- Scaling groups.
+--
 -- 'gameServerGroupName', 'updateGameServerGroup_gameServerGroupName' - A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
 newUpdateGameServerGroup ::
@@ -197,19 +197,13 @@ newUpdateGameServerGroup ::
   UpdateGameServerGroup
 newUpdateGameServerGroup pGameServerGroupName_ =
   UpdateGameServerGroup'
-    { roleArn = Prelude.Nothing,
-      instanceDefinitions = Prelude.Nothing,
+    { instanceDefinitions =
+        Prelude.Nothing,
       balancingStrategy = Prelude.Nothing,
       gameServerProtectionPolicy = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
-updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
-updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
 
 -- | An updated list of EC2 instance types to use in the Auto Scaling group.
 -- The instance definitions must specify at least two different instance
@@ -224,7 +218,7 @@ updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> 
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
 -- in the Amazon EC2 Auto Scaling User Guide.
 updateGameServerGroup_instanceDefinitions :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
-updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Prelude.. Lens.mapping Lens._Coerce
+updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@UpdateGameServerGroup' {} a -> s {instanceDefinitions = a} :: UpdateGameServerGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -261,6 +255,13 @@ updateGameServerGroup_balancingStrategy = Lens.lens (\UpdateGameServerGroup' {ba
 -- default.
 updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@UpdateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: UpdateGameServerGroup)
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- for an IAM role that allows Amazon GameLift to access your EC2 Auto
+-- Scaling groups.
+updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
+updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
@@ -303,13 +304,13 @@ instance Core.ToJSON UpdateGameServerGroup where
   toJSON UpdateGameServerGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("InstanceDefinitions" Core..=)
+          [ ("InstanceDefinitions" Core..=)
               Prelude.<$> instanceDefinitions,
             ("BalancingStrategy" Core..=)
               Prelude.<$> balancingStrategy,
             ("GameServerProtectionPolicy" Core..=)
               Prelude.<$> gameServerProtectionPolicy,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just
               ("GameServerGroupName" Core..= gameServerGroupName)
           ]

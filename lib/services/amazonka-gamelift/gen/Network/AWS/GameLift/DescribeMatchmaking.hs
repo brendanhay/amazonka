@@ -100,7 +100,7 @@ newDescribeMatchmaking =
 -- | A unique identifier for a matchmaking ticket. You can include up to 10
 -- ID values.
 describeMatchmaking_ticketIds :: Lens.Lens' DescribeMatchmaking [Prelude.Text]
-describeMatchmaking_ticketIds = Lens.lens (\DescribeMatchmaking' {ticketIds} -> ticketIds) (\s@DescribeMatchmaking' {} a -> s {ticketIds = a} :: DescribeMatchmaking) Prelude.. Lens._Coerce
+describeMatchmaking_ticketIds = Lens.lens (\DescribeMatchmaking' {ticketIds} -> ticketIds) (\s@DescribeMatchmaking' {} a -> s {ticketIds = a} :: DescribeMatchmaking) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeMatchmaking where
   type
@@ -185,7 +185,7 @@ newDescribeMatchmakingResponse pHttpStatus_ =
 -- | A collection of existing matchmaking ticket objects matching the
 -- request.
 describeMatchmakingResponse_ticketList :: Lens.Lens' DescribeMatchmakingResponse (Prelude.Maybe [MatchmakingTicket])
-describeMatchmakingResponse_ticketList = Lens.lens (\DescribeMatchmakingResponse' {ticketList} -> ticketList) (\s@DescribeMatchmakingResponse' {} a -> s {ticketList = a} :: DescribeMatchmakingResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMatchmakingResponse_ticketList = Lens.lens (\DescribeMatchmakingResponse' {ticketList} -> ticketList) (\s@DescribeMatchmakingResponse' {} a -> s {ticketList = a} :: DescribeMatchmakingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMatchmakingResponse_httpStatus :: Lens.Lens' DescribeMatchmakingResponse Prelude.Int

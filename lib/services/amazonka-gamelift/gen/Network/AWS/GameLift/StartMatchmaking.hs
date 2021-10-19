@@ -153,7 +153,7 @@ startMatchmaking_configurationName = Lens.lens (\StartMatchmaking' {configuratio
 -- used in the matchmaking process. After a successful match, @Player@
 -- objects contain the name of the team the player is assigned to.
 startMatchmaking_players :: Lens.Lens' StartMatchmaking [Player]
-startMatchmaking_players = Lens.lens (\StartMatchmaking' {players} -> players) (\s@StartMatchmaking' {} a -> s {players = a} :: StartMatchmaking) Prelude.. Lens._Coerce
+startMatchmaking_players = Lens.lens (\StartMatchmaking' {players} -> players) (\s@StartMatchmaking' {} a -> s {players = a} :: StartMatchmaking) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartMatchmaking where
   type

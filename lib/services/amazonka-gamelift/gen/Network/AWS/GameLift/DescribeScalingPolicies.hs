@@ -48,9 +48,9 @@ module Network.AWS.GameLift.DescribeScalingPolicies
     newDescribeScalingPolicies,
 
     -- * Request Lenses
+    describeScalingPolicies_location,
     describeScalingPolicies_nextToken,
     describeScalingPolicies_statusFilter,
-    describeScalingPolicies_location,
     describeScalingPolicies_limit,
     describeScalingPolicies_fleetId,
 
@@ -76,7 +76,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeScalingPolicies' smart constructor.
 data DescribeScalingPolicies = DescribeScalingPolicies'
-  { -- | A token that indicates the start of the next sequential page of results.
+  { -- | CONTENT TODO
+    location :: Prelude.Maybe Prelude.Text,
+    -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -100,8 +102,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
     -- -   __ERROR__ -- An error occurred in creating the policy. It should be
     --     removed and recreated.
     statusFilter :: Prelude.Maybe ScalingStatusType,
-    -- | CONTENT TODO
-    location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -118,6 +118,8 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'location', 'describeScalingPolicies_location' - CONTENT TODO
 --
 -- 'nextToken', 'describeScalingPolicies_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
@@ -143,8 +145,6 @@ data DescribeScalingPolicies = DescribeScalingPolicies'
 -- -   __ERROR__ -- An error occurred in creating the policy. It should be
 --     removed and recreated.
 --
--- 'location', 'describeScalingPolicies_location' - CONTENT TODO
---
 -- 'limit', 'describeScalingPolicies_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
@@ -156,13 +156,17 @@ newDescribeScalingPolicies ::
   DescribeScalingPolicies
 newDescribeScalingPolicies pFleetId_ =
   DescribeScalingPolicies'
-    { nextToken =
+    { location =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       statusFilter = Prelude.Nothing,
-      location = Prelude.Nothing,
       limit = Prelude.Nothing,
       fleetId = pFleetId_
     }
+
+-- | CONTENT TODO
+describeScalingPolicies_location :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
+describeScalingPolicies_location = Lens.lens (\DescribeScalingPolicies' {location} -> location) (\s@DescribeScalingPolicies' {} a -> s {location = a} :: DescribeScalingPolicies)
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
@@ -191,10 +195,6 @@ describeScalingPolicies_nextToken = Lens.lens (\DescribeScalingPolicies' {nextTo
 --     removed and recreated.
 describeScalingPolicies_statusFilter :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe ScalingStatusType)
 describeScalingPolicies_statusFilter = Lens.lens (\DescribeScalingPolicies' {statusFilter} -> statusFilter) (\s@DescribeScalingPolicies' {} a -> s {statusFilter = a} :: DescribeScalingPolicies)
-
--- | CONTENT TODO
-describeScalingPolicies_location :: Lens.Lens' DescribeScalingPolicies (Prelude.Maybe Prelude.Text)
-describeScalingPolicies_location = Lens.lens (\DescribeScalingPolicies' {location} -> location) (\s@DescribeScalingPolicies' {} a -> s {location = a} :: DescribeScalingPolicies)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -267,9 +267,9 @@ instance Core.ToJSON DescribeScalingPolicies where
   toJSON DescribeScalingPolicies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Location" Core..=) Prelude.<$> location,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("StatusFilter" Core..=) Prelude.<$> statusFilter,
-            ("Location" Core..=) Prelude.<$> location,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
@@ -334,7 +334,7 @@ describeScalingPoliciesResponse_nextToken = Lens.lens (\DescribeScalingPoliciesR
 -- | A collection of objects containing the scaling policies matching the
 -- request.
 describeScalingPoliciesResponse_scalingPolicies :: Lens.Lens' DescribeScalingPoliciesResponse (Prelude.Maybe [ScalingPolicy])
-describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeScalingPoliciesResponse_scalingPolicies = Lens.lens (\DescribeScalingPoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribeScalingPoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribeScalingPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeScalingPoliciesResponse_httpStatus :: Lens.Lens' DescribeScalingPoliciesResponse Prelude.Int

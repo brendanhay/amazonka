@@ -49,13 +49,13 @@ data RuntimeConfiguration = RuntimeConfiguration'
     -- become active before the timeout, it is ended and the game session
     -- status is changed to @TERMINATED@.
     gameSessionActivationTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | A collection of server process configurations that identify what server
+    -- processes to run on each instance in a fleet.
+    serverProcesses :: Prelude.Maybe (Prelude.NonEmpty ServerProcess),
     -- | The number of game sessions in status @ACTIVATING@ to allow on an
     -- instance. This setting limits the instance resources that can be used
     -- for new game activations at any one time.
-    maxConcurrentGameSessionActivations :: Prelude.Maybe Prelude.Natural,
-    -- | A collection of server process configurations that identify what server
-    -- processes to run on each instance in a fleet.
-    serverProcesses :: Prelude.Maybe (Prelude.NonEmpty ServerProcess)
+    maxConcurrentGameSessionActivations :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,21 @@ data RuntimeConfiguration = RuntimeConfiguration'
 -- become active before the timeout, it is ended and the game session
 -- status is changed to @TERMINATED@.
 --
+-- 'serverProcesses', 'runtimeConfiguration_serverProcesses' - A collection of server process configurations that identify what server
+-- processes to run on each instance in a fleet.
+--
 -- 'maxConcurrentGameSessionActivations', 'runtimeConfiguration_maxConcurrentGameSessionActivations' - The number of game sessions in status @ACTIVATING@ to allow on an
 -- instance. This setting limits the instance resources that can be used
 -- for new game activations at any one time.
---
--- 'serverProcesses', 'runtimeConfiguration_serverProcesses' - A collection of server process configurations that identify what server
--- processes to run on each instance in a fleet.
 newRuntimeConfiguration ::
   RuntimeConfiguration
 newRuntimeConfiguration =
   RuntimeConfiguration'
     { gameSessionActivationTimeoutSeconds =
         Prelude.Nothing,
+      serverProcesses = Prelude.Nothing,
       maxConcurrentGameSessionActivations =
-        Prelude.Nothing,
-      serverProcesses = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The maximum amount of time (in seconds) allowed to launch a new game
@@ -98,16 +98,16 @@ newRuntimeConfiguration =
 runtimeConfiguration_gameSessionActivationTimeoutSeconds :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe Prelude.Natural)
 runtimeConfiguration_gameSessionActivationTimeoutSeconds = Lens.lens (\RuntimeConfiguration' {gameSessionActivationTimeoutSeconds} -> gameSessionActivationTimeoutSeconds) (\s@RuntimeConfiguration' {} a -> s {gameSessionActivationTimeoutSeconds = a} :: RuntimeConfiguration)
 
+-- | A collection of server process configurations that identify what server
+-- processes to run on each instance in a fleet.
+runtimeConfiguration_serverProcesses :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe (Prelude.NonEmpty ServerProcess))
+runtimeConfiguration_serverProcesses = Lens.lens (\RuntimeConfiguration' {serverProcesses} -> serverProcesses) (\s@RuntimeConfiguration' {} a -> s {serverProcesses = a} :: RuntimeConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The number of game sessions in status @ACTIVATING@ to allow on an
 -- instance. This setting limits the instance resources that can be used
 -- for new game activations at any one time.
 runtimeConfiguration_maxConcurrentGameSessionActivations :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe Prelude.Natural)
 runtimeConfiguration_maxConcurrentGameSessionActivations = Lens.lens (\RuntimeConfiguration' {maxConcurrentGameSessionActivations} -> maxConcurrentGameSessionActivations) (\s@RuntimeConfiguration' {} a -> s {maxConcurrentGameSessionActivations = a} :: RuntimeConfiguration)
-
--- | A collection of server process configurations that identify what server
--- processes to run on each instance in a fleet.
-runtimeConfiguration_serverProcesses :: Lens.Lens' RuntimeConfiguration (Prelude.Maybe (Prelude.NonEmpty ServerProcess))
-runtimeConfiguration_serverProcesses = Lens.lens (\RuntimeConfiguration' {serverProcesses} -> serverProcesses) (\s@RuntimeConfiguration' {} a -> s {serverProcesses = a} :: RuntimeConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON RuntimeConfiguration where
   parseJSON =
@@ -116,8 +116,8 @@ instance Core.FromJSON RuntimeConfiguration where
       ( \x ->
           RuntimeConfiguration'
             Prelude.<$> (x Core..:? "GameSessionActivationTimeoutSeconds")
-            Prelude.<*> (x Core..:? "MaxConcurrentGameSessionActivations")
             Prelude.<*> (x Core..:? "ServerProcesses")
+            Prelude.<*> (x Core..:? "MaxConcurrentGameSessionActivations")
       )
 
 instance Prelude.Hashable RuntimeConfiguration
@@ -130,9 +130,9 @@ instance Core.ToJSON RuntimeConfiguration where
       ( Prelude.catMaybes
           [ ("GameSessionActivationTimeoutSeconds" Core..=)
               Prelude.<$> gameSessionActivationTimeoutSeconds,
-            ("MaxConcurrentGameSessionActivations" Core..=)
-              Prelude.<$> maxConcurrentGameSessionActivations,
             ("ServerProcesses" Core..=)
-              Prelude.<$> serverProcesses
+              Prelude.<$> serverProcesses,
+            ("MaxConcurrentGameSessionActivations" Core..=)
+              Prelude.<$> maxConcurrentGameSessionActivations
           ]
       )

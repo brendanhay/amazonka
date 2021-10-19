@@ -33,9 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMatchmakingTicket' smart constructor.
 data MatchmakingTicket = MatchmakingTicket'
-  { -- | Additional information about the current status.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Current status of the matchmaking request.
+  { -- | Current status of the matchmaking request.
     --
     -- -   __QUEUED__ -- The matchmaking request has been received and is
     --     currently waiting to be processed.
@@ -68,45 +66,47 @@ data MatchmakingTicket = MatchmakingTicket'
     -- FAILED, CANCELLED, TIMED_OUT) can be resubmitted as new requests with
     -- new ticket IDs.
     status :: Prelude.Maybe MatchmakingConfigurationStatus,
-    -- | Average amount of time (in seconds) that players are currently waiting
-    -- for a match. If there is not enough recent data, this property may be
-    -- empty.
-    estimatedWaitTime :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for a matchmaking ticket.
-    ticketId :: Prelude.Maybe Prelude.Text,
-    -- | A set of @Player@ objects, each representing a player to find matches
-    -- for. Players are identified by a unique player ID and may include
-    -- latency data for use during matchmaking. If the ticket is in status
-    -- @COMPLETED@, the @Player@ objects include the team the players were
-    -- assigned to in the resulting match.
-    players :: Prelude.Maybe [Player],
-    -- | The Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- associated with the GameLift matchmaking configuration resource that is
-    -- used with this ticket.
-    configurationArn :: Prelude.Maybe Prelude.Text,
-    -- | Time stamp indicating when this matchmaking request was received. Format
-    -- is a number expressed in Unix time as milliseconds (for example
-    -- @\"1469498468.057\"@).
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | Time stamp indicating when this matchmaking request stopped being
-    -- processed due to success, failure, or cancellation. Format is a number
-    -- expressed in Unix time as milliseconds (for example
-    -- @\"1469498468.057\"@).
-    endTime :: Prelude.Maybe Core.POSIX,
     -- | Name of the MatchmakingConfiguration that is used with this ticket.
     -- Matchmaking configurations determine how players are grouped into a
     -- match and how a new game session is created for the match.
     configurationName :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this matchmaking request was received. Format
+    -- is a number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Identifier and connection information of the game session created for
     -- the match. This information is added to the ticket only after the
     -- matchmaking request has been successfully completed. This parameter is
     -- not set when FlexMatch is being used without GameLift hosting.
     gameSessionConnectionInfo :: Prelude.Maybe GameSessionConnectionInfo,
+    -- | A unique identifier for a matchmaking ticket.
+    ticketId :: Prelude.Maybe Prelude.Text,
+    -- | Average amount of time (in seconds) that players are currently waiting
+    -- for a match. If there is not enough recent data, this property may be
+    -- empty.
+    estimatedWaitTime :: Prelude.Maybe Prelude.Natural,
+    -- | Additional information about the current status.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | Time stamp indicating when this matchmaking request stopped being
+    -- processed due to success, failure, or cancellation. Format is a number
+    -- expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+    -- associated with the GameLift matchmaking configuration resource that is
+    -- used with this ticket.
+    configurationArn :: Prelude.Maybe Prelude.Text,
     -- | Code to explain the current status. For example, a status reason may
     -- indicate when a ticket has returned to @SEARCHING@ status after a
     -- proposed match fails to receive player acceptances.
-    statusReason :: Prelude.Maybe Prelude.Text
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | A set of @Player@ objects, each representing a player to find matches
+    -- for. Players are identified by a unique player ID and may include
+    -- latency data for use during matchmaking. If the ticket is in status
+    -- @COMPLETED@, the @Player@ objects include the team the players were
+    -- assigned to in the resulting match.
+    players :: Prelude.Maybe [Player]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -117,8 +117,6 @@ data MatchmakingTicket = MatchmakingTicket'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'statusMessage', 'matchmakingTicket_statusMessage' - Additional information about the current status.
 --
 -- 'status', 'matchmakingTicket_status' - Current status of the matchmaking request.
 --
@@ -153,64 +151,62 @@ data MatchmakingTicket = MatchmakingTicket'
 -- FAILED, CANCELLED, TIMED_OUT) can be resubmitted as new requests with
 -- new ticket IDs.
 --
--- 'estimatedWaitTime', 'matchmakingTicket_estimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting
--- for a match. If there is not enough recent data, this property may be
--- empty.
---
--- 'ticketId', 'matchmakingTicket_ticketId' - A unique identifier for a matchmaking ticket.
---
--- 'players', 'matchmakingTicket_players' - A set of @Player@ objects, each representing a player to find matches
--- for. Players are identified by a unique player ID and may include
--- latency data for use during matchmaking. If the ticket is in status
--- @COMPLETED@, the @Player@ objects include the team the players were
--- assigned to in the resulting match.
---
--- 'configurationArn', 'matchmakingTicket_configurationArn' - The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- associated with the GameLift matchmaking configuration resource that is
--- used with this ticket.
+-- 'configurationName', 'matchmakingTicket_configurationName' - Name of the MatchmakingConfiguration that is used with this ticket.
+-- Matchmaking configurations determine how players are grouped into a
+-- match and how a new game session is created for the match.
 --
 -- 'startTime', 'matchmakingTicket_startTime' - Time stamp indicating when this matchmaking request was received. Format
 -- is a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
---
--- 'endTime', 'matchmakingTicket_endTime' - Time stamp indicating when this matchmaking request stopped being
--- processed due to success, failure, or cancellation. Format is a number
--- expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
---
--- 'configurationName', 'matchmakingTicket_configurationName' - Name of the MatchmakingConfiguration that is used with this ticket.
--- Matchmaking configurations determine how players are grouped into a
--- match and how a new game session is created for the match.
 --
 -- 'gameSessionConnectionInfo', 'matchmakingTicket_gameSessionConnectionInfo' - Identifier and connection information of the game session created for
 -- the match. This information is added to the ticket only after the
 -- matchmaking request has been successfully completed. This parameter is
 -- not set when FlexMatch is being used without GameLift hosting.
 --
+-- 'ticketId', 'matchmakingTicket_ticketId' - A unique identifier for a matchmaking ticket.
+--
+-- 'estimatedWaitTime', 'matchmakingTicket_estimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting
+-- for a match. If there is not enough recent data, this property may be
+-- empty.
+--
+-- 'statusMessage', 'matchmakingTicket_statusMessage' - Additional information about the current status.
+--
+-- 'endTime', 'matchmakingTicket_endTime' - Time stamp indicating when this matchmaking request stopped being
+-- processed due to success, failure, or cancellation. Format is a number
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+--
+-- 'configurationArn', 'matchmakingTicket_configurationArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- associated with the GameLift matchmaking configuration resource that is
+-- used with this ticket.
+--
 -- 'statusReason', 'matchmakingTicket_statusReason' - Code to explain the current status. For example, a status reason may
 -- indicate when a ticket has returned to @SEARCHING@ status after a
 -- proposed match fails to receive player acceptances.
+--
+-- 'players', 'matchmakingTicket_players' - A set of @Player@ objects, each representing a player to find matches
+-- for. Players are identified by a unique player ID and may include
+-- latency data for use during matchmaking. If the ticket is in status
+-- @COMPLETED@, the @Player@ objects include the team the players were
+-- assigned to in the resulting match.
 newMatchmakingTicket ::
   MatchmakingTicket
 newMatchmakingTicket =
   MatchmakingTicket'
-    { statusMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      estimatedWaitTime = Prelude.Nothing,
-      ticketId = Prelude.Nothing,
-      players = Prelude.Nothing,
-      configurationArn = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { status = Prelude.Nothing,
       configurationName = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       gameSessionConnectionInfo = Prelude.Nothing,
-      statusReason = Prelude.Nothing
+      ticketId = Prelude.Nothing,
+      estimatedWaitTime = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      configurationArn = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
+      players = Prelude.Nothing
     }
-
--- | Additional information about the current status.
-matchmakingTicket_statusMessage :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
-matchmakingTicket_statusMessage = Lens.lens (\MatchmakingTicket' {statusMessage} -> statusMessage) (\s@MatchmakingTicket' {} a -> s {statusMessage = a} :: MatchmakingTicket)
 
 -- | Current status of the matchmaking request.
 --
@@ -247,49 +243,17 @@ matchmakingTicket_statusMessage = Lens.lens (\MatchmakingTicket' {statusMessage}
 matchmakingTicket_status :: Lens.Lens' MatchmakingTicket (Prelude.Maybe MatchmakingConfigurationStatus)
 matchmakingTicket_status = Lens.lens (\MatchmakingTicket' {status} -> status) (\s@MatchmakingTicket' {} a -> s {status = a} :: MatchmakingTicket)
 
--- | Average amount of time (in seconds) that players are currently waiting
--- for a match. If there is not enough recent data, this property may be
--- empty.
-matchmakingTicket_estimatedWaitTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Natural)
-matchmakingTicket_estimatedWaitTime = Lens.lens (\MatchmakingTicket' {estimatedWaitTime} -> estimatedWaitTime) (\s@MatchmakingTicket' {} a -> s {estimatedWaitTime = a} :: MatchmakingTicket)
-
--- | A unique identifier for a matchmaking ticket.
-matchmakingTicket_ticketId :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
-matchmakingTicket_ticketId = Lens.lens (\MatchmakingTicket' {ticketId} -> ticketId) (\s@MatchmakingTicket' {} a -> s {ticketId = a} :: MatchmakingTicket)
-
--- | A set of @Player@ objects, each representing a player to find matches
--- for. Players are identified by a unique player ID and may include
--- latency data for use during matchmaking. If the ticket is in status
--- @COMPLETED@, the @Player@ objects include the team the players were
--- assigned to in the resulting match.
-matchmakingTicket_players :: Lens.Lens' MatchmakingTicket (Prelude.Maybe [Player])
-matchmakingTicket_players = Lens.lens (\MatchmakingTicket' {players} -> players) (\s@MatchmakingTicket' {} a -> s {players = a} :: MatchmakingTicket) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Name
--- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- associated with the GameLift matchmaking configuration resource that is
--- used with this ticket.
-matchmakingTicket_configurationArn :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
-matchmakingTicket_configurationArn = Lens.lens (\MatchmakingTicket' {configurationArn} -> configurationArn) (\s@MatchmakingTicket' {} a -> s {configurationArn = a} :: MatchmakingTicket)
+-- | Name of the MatchmakingConfiguration that is used with this ticket.
+-- Matchmaking configurations determine how players are grouped into a
+-- match and how a new game session is created for the match.
+matchmakingTicket_configurationName :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
+matchmakingTicket_configurationName = Lens.lens (\MatchmakingTicket' {configurationName} -> configurationName) (\s@MatchmakingTicket' {} a -> s {configurationName = a} :: MatchmakingTicket)
 
 -- | Time stamp indicating when this matchmaking request was received. Format
 -- is a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 matchmakingTicket_startTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
 matchmakingTicket_startTime = Lens.lens (\MatchmakingTicket' {startTime} -> startTime) (\s@MatchmakingTicket' {} a -> s {startTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
-
--- | Time stamp indicating when this matchmaking request stopped being
--- processed due to success, failure, or cancellation. Format is a number
--- expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
-matchmakingTicket_endTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
-matchmakingTicket_endTime = Lens.lens (\MatchmakingTicket' {endTime} -> endTime) (\s@MatchmakingTicket' {} a -> s {endTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
-
--- | Name of the MatchmakingConfiguration that is used with this ticket.
--- Matchmaking configurations determine how players are grouped into a
--- match and how a new game session is created for the match.
-matchmakingTicket_configurationName :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
-matchmakingTicket_configurationName = Lens.lens (\MatchmakingTicket' {configurationName} -> configurationName) (\s@MatchmakingTicket' {} a -> s {configurationName = a} :: MatchmakingTicket)
 
 -- | Identifier and connection information of the game session created for
 -- the match. This information is added to the ticket only after the
@@ -298,11 +262,47 @@ matchmakingTicket_configurationName = Lens.lens (\MatchmakingTicket' {configurat
 matchmakingTicket_gameSessionConnectionInfo :: Lens.Lens' MatchmakingTicket (Prelude.Maybe GameSessionConnectionInfo)
 matchmakingTicket_gameSessionConnectionInfo = Lens.lens (\MatchmakingTicket' {gameSessionConnectionInfo} -> gameSessionConnectionInfo) (\s@MatchmakingTicket' {} a -> s {gameSessionConnectionInfo = a} :: MatchmakingTicket)
 
+-- | A unique identifier for a matchmaking ticket.
+matchmakingTicket_ticketId :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
+matchmakingTicket_ticketId = Lens.lens (\MatchmakingTicket' {ticketId} -> ticketId) (\s@MatchmakingTicket' {} a -> s {ticketId = a} :: MatchmakingTicket)
+
+-- | Average amount of time (in seconds) that players are currently waiting
+-- for a match. If there is not enough recent data, this property may be
+-- empty.
+matchmakingTicket_estimatedWaitTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Natural)
+matchmakingTicket_estimatedWaitTime = Lens.lens (\MatchmakingTicket' {estimatedWaitTime} -> estimatedWaitTime) (\s@MatchmakingTicket' {} a -> s {estimatedWaitTime = a} :: MatchmakingTicket)
+
+-- | Additional information about the current status.
+matchmakingTicket_statusMessage :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
+matchmakingTicket_statusMessage = Lens.lens (\MatchmakingTicket' {statusMessage} -> statusMessage) (\s@MatchmakingTicket' {} a -> s {statusMessage = a} :: MatchmakingTicket)
+
+-- | Time stamp indicating when this matchmaking request stopped being
+-- processed due to success, failure, or cancellation. Format is a number
+-- expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+matchmakingTicket_endTime :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.UTCTime)
+matchmakingTicket_endTime = Lens.lens (\MatchmakingTicket' {endTime} -> endTime) (\s@MatchmakingTicket' {} a -> s {endTime = a} :: MatchmakingTicket) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
+-- associated with the GameLift matchmaking configuration resource that is
+-- used with this ticket.
+matchmakingTicket_configurationArn :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
+matchmakingTicket_configurationArn = Lens.lens (\MatchmakingTicket' {configurationArn} -> configurationArn) (\s@MatchmakingTicket' {} a -> s {configurationArn = a} :: MatchmakingTicket)
+
 -- | Code to explain the current status. For example, a status reason may
 -- indicate when a ticket has returned to @SEARCHING@ status after a
 -- proposed match fails to receive player acceptances.
 matchmakingTicket_statusReason :: Lens.Lens' MatchmakingTicket (Prelude.Maybe Prelude.Text)
 matchmakingTicket_statusReason = Lens.lens (\MatchmakingTicket' {statusReason} -> statusReason) (\s@MatchmakingTicket' {} a -> s {statusReason = a} :: MatchmakingTicket)
+
+-- | A set of @Player@ objects, each representing a player to find matches
+-- for. Players are identified by a unique player ID and may include
+-- latency data for use during matchmaking. If the ticket is in status
+-- @COMPLETED@, the @Player@ objects include the team the players were
+-- assigned to in the resulting match.
+matchmakingTicket_players :: Lens.Lens' MatchmakingTicket (Prelude.Maybe [Player])
+matchmakingTicket_players = Lens.lens (\MatchmakingTicket' {players} -> players) (\s@MatchmakingTicket' {} a -> s {players = a} :: MatchmakingTicket) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON MatchmakingTicket where
   parseJSON =
@@ -310,17 +310,17 @@ instance Core.FromJSON MatchmakingTicket where
       "MatchmakingTicket"
       ( \x ->
           MatchmakingTicket'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "EstimatedWaitTime")
-            Prelude.<*> (x Core..:? "TicketId")
-            Prelude.<*> (x Core..:? "Players" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ConfigurationArn")
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ConfigurationName")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "GameSessionConnectionInfo")
+            Prelude.<*> (x Core..:? "TicketId")
+            Prelude.<*> (x Core..:? "EstimatedWaitTime")
+            Prelude.<*> (x Core..:? "StatusMessage")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "ConfigurationArn")
             Prelude.<*> (x Core..:? "StatusReason")
+            Prelude.<*> (x Core..:? "Players" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable MatchmakingTicket

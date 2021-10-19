@@ -36,11 +36,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
-  { -- | The time span used in evaluating the resource creation limit policy.
-    policyPeriodInMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of game sessions that an individual can create during
+  { -- | The maximum number of game sessions that an individual can create during
     -- the policy period.
-    newGameSessionsPerCreator' :: Prelude.Maybe Prelude.Natural
+    newGameSessionsPerCreator' :: Prelude.Maybe Prelude.Natural,
+    -- | The time span used in evaluating the resource creation limit policy.
+    policyPeriodInMinutes :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,27 +52,27 @@ data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyPeriodInMinutes', 'resourceCreationLimitPolicy_policyPeriodInMinutes' - The time span used in evaluating the resource creation limit policy.
---
 -- 'newGameSessionsPerCreator'', 'resourceCreationLimitPolicy_newGameSessionsPerCreator' - The maximum number of game sessions that an individual can create during
 -- the policy period.
+--
+-- 'policyPeriodInMinutes', 'resourceCreationLimitPolicy_policyPeriodInMinutes' - The time span used in evaluating the resource creation limit policy.
 newResourceCreationLimitPolicy ::
   ResourceCreationLimitPolicy
 newResourceCreationLimitPolicy =
   ResourceCreationLimitPolicy'
-    { policyPeriodInMinutes =
+    { newGameSessionsPerCreator' =
         Prelude.Nothing,
-      newGameSessionsPerCreator' = Prelude.Nothing
+      policyPeriodInMinutes = Prelude.Nothing
     }
-
--- | The time span used in evaluating the resource creation limit policy.
-resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
-resourceCreationLimitPolicy_policyPeriodInMinutes = Lens.lens (\ResourceCreationLimitPolicy' {policyPeriodInMinutes} -> policyPeriodInMinutes) (\s@ResourceCreationLimitPolicy' {} a -> s {policyPeriodInMinutes = a} :: ResourceCreationLimitPolicy)
 
 -- | The maximum number of game sessions that an individual can create during
 -- the policy period.
 resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
 resourceCreationLimitPolicy_newGameSessionsPerCreator = Lens.lens (\ResourceCreationLimitPolicy' {newGameSessionsPerCreator'} -> newGameSessionsPerCreator') (\s@ResourceCreationLimitPolicy' {} a -> s {newGameSessionsPerCreator' = a} :: ResourceCreationLimitPolicy)
+
+-- | The time span used in evaluating the resource creation limit policy.
+resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
+resourceCreationLimitPolicy_policyPeriodInMinutes = Lens.lens (\ResourceCreationLimitPolicy' {policyPeriodInMinutes} -> policyPeriodInMinutes) (\s@ResourceCreationLimitPolicy' {} a -> s {policyPeriodInMinutes = a} :: ResourceCreationLimitPolicy)
 
 instance Core.FromJSON ResourceCreationLimitPolicy where
   parseJSON =
@@ -80,8 +80,8 @@ instance Core.FromJSON ResourceCreationLimitPolicy where
       "ResourceCreationLimitPolicy"
       ( \x ->
           ResourceCreationLimitPolicy'
-            Prelude.<$> (x Core..:? "PolicyPeriodInMinutes")
-            Prelude.<*> (x Core..:? "NewGameSessionsPerCreator")
+            Prelude.<$> (x Core..:? "NewGameSessionsPerCreator")
+            Prelude.<*> (x Core..:? "PolicyPeriodInMinutes")
       )
 
 instance Prelude.Hashable ResourceCreationLimitPolicy
@@ -92,9 +92,9 @@ instance Core.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PolicyPeriodInMinutes" Core..=)
-              Prelude.<$> policyPeriodInMinutes,
-            ("NewGameSessionsPerCreator" Core..=)
-              Prelude.<$> newGameSessionsPerCreator'
+          [ ("NewGameSessionsPerCreator" Core..=)
+              Prelude.<$> newGameSessionsPerCreator',
+            ("PolicyPeriodInMinutes" Core..=)
+              Prelude.<$> policyPeriodInMinutes
           ]
       )

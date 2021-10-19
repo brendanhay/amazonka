@@ -60,7 +60,7 @@ newEnvironmentImage =
 
 -- | A list of environment image versions.
 environmentImage_versions :: Lens.Lens' EnvironmentImage (Prelude.Maybe [Prelude.Text])
-environmentImage_versions = Lens.lens (\EnvironmentImage' {versions} -> versions) (\s@EnvironmentImage' {} a -> s {versions = a} :: EnvironmentImage) Prelude.. Lens.mapping Lens._Coerce
+environmentImage_versions = Lens.lens (\EnvironmentImage' {versions} -> versions) (\s@EnvironmentImage' {} a -> s {versions = a} :: EnvironmentImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Docker image.
 environmentImage_name :: Lens.Lens' EnvironmentImage (Prelude.Maybe Prelude.Text)

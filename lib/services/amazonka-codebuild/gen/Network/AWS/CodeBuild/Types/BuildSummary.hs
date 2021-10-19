@@ -32,8 +32,9 @@ data BuildSummary = BuildSummary'
   { -- | An array of @ResolvedArtifact@ objects that represents the secondary
     -- build artifacts for the build group.
     secondaryArtifacts :: Prelude.Maybe [ResolvedArtifact],
-    -- | When the build was started, expressed in Unix time format.
-    requestedOn :: Prelude.Maybe Core.POSIX,
+    -- | A @ResolvedArtifact@ object that represents the primary build artifacts
+    -- for the build group.
+    primaryArtifact :: Prelude.Maybe ResolvedArtifact,
     -- | The batch build ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the build group.
@@ -56,9 +57,8 @@ data BuildSummary = BuildSummary'
     -- [TIMED_OUT]
     --     The build group timed out.
     buildStatus :: Prelude.Maybe StatusType,
-    -- | A @ResolvedArtifact@ object that represents the primary build artifacts
-    -- for the build group.
-    primaryArtifact :: Prelude.Maybe ResolvedArtifact
+    -- | When the build was started, expressed in Unix time format.
+    requestedOn :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,7 +73,8 @@ data BuildSummary = BuildSummary'
 -- 'secondaryArtifacts', 'buildSummary_secondaryArtifacts' - An array of @ResolvedArtifact@ objects that represents the secondary
 -- build artifacts for the build group.
 --
--- 'requestedOn', 'buildSummary_requestedOn' - When the build was started, expressed in Unix time format.
+-- 'primaryArtifact', 'buildSummary_primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts
+-- for the build group.
 --
 -- 'arn', 'buildSummary_arn' - The batch build ARN.
 --
@@ -97,27 +98,27 @@ data BuildSummary = BuildSummary'
 -- [TIMED_OUT]
 --     The build group timed out.
 --
--- 'primaryArtifact', 'buildSummary_primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts
--- for the build group.
+-- 'requestedOn', 'buildSummary_requestedOn' - When the build was started, expressed in Unix time format.
 newBuildSummary ::
   BuildSummary
 newBuildSummary =
   BuildSummary'
     { secondaryArtifacts = Prelude.Nothing,
-      requestedOn = Prelude.Nothing,
+      primaryArtifact = Prelude.Nothing,
       arn = Prelude.Nothing,
       buildStatus = Prelude.Nothing,
-      primaryArtifact = Prelude.Nothing
+      requestedOn = Prelude.Nothing
     }
 
 -- | An array of @ResolvedArtifact@ objects that represents the secondary
 -- build artifacts for the build group.
 buildSummary_secondaryArtifacts :: Lens.Lens' BuildSummary (Prelude.Maybe [ResolvedArtifact])
-buildSummary_secondaryArtifacts = Lens.lens (\BuildSummary' {secondaryArtifacts} -> secondaryArtifacts) (\s@BuildSummary' {} a -> s {secondaryArtifacts = a} :: BuildSummary) Prelude.. Lens.mapping Lens._Coerce
+buildSummary_secondaryArtifacts = Lens.lens (\BuildSummary' {secondaryArtifacts} -> secondaryArtifacts) (\s@BuildSummary' {} a -> s {secondaryArtifacts = a} :: BuildSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | When the build was started, expressed in Unix time format.
-buildSummary_requestedOn :: Lens.Lens' BuildSummary (Prelude.Maybe Prelude.UTCTime)
-buildSummary_requestedOn = Lens.lens (\BuildSummary' {requestedOn} -> requestedOn) (\s@BuildSummary' {} a -> s {requestedOn = a} :: BuildSummary) Prelude.. Lens.mapping Core._Time
+-- | A @ResolvedArtifact@ object that represents the primary build artifacts
+-- for the build group.
+buildSummary_primaryArtifact :: Lens.Lens' BuildSummary (Prelude.Maybe ResolvedArtifact)
+buildSummary_primaryArtifact = Lens.lens (\BuildSummary' {primaryArtifact} -> primaryArtifact) (\s@BuildSummary' {} a -> s {primaryArtifact = a} :: BuildSummary)
 
 -- | The batch build ARN.
 buildSummary_arn :: Lens.Lens' BuildSummary (Prelude.Maybe Prelude.Text)
@@ -145,10 +146,9 @@ buildSummary_arn = Lens.lens (\BuildSummary' {arn} -> arn) (\s@BuildSummary' {} 
 buildSummary_buildStatus :: Lens.Lens' BuildSummary (Prelude.Maybe StatusType)
 buildSummary_buildStatus = Lens.lens (\BuildSummary' {buildStatus} -> buildStatus) (\s@BuildSummary' {} a -> s {buildStatus = a} :: BuildSummary)
 
--- | A @ResolvedArtifact@ object that represents the primary build artifacts
--- for the build group.
-buildSummary_primaryArtifact :: Lens.Lens' BuildSummary (Prelude.Maybe ResolvedArtifact)
-buildSummary_primaryArtifact = Lens.lens (\BuildSummary' {primaryArtifact} -> primaryArtifact) (\s@BuildSummary' {} a -> s {primaryArtifact = a} :: BuildSummary)
+-- | When the build was started, expressed in Unix time format.
+buildSummary_requestedOn :: Lens.Lens' BuildSummary (Prelude.Maybe Prelude.UTCTime)
+buildSummary_requestedOn = Lens.lens (\BuildSummary' {requestedOn} -> requestedOn) (\s@BuildSummary' {} a -> s {requestedOn = a} :: BuildSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON BuildSummary where
   parseJSON =
@@ -159,10 +159,10 @@ instance Core.FromJSON BuildSummary where
             Prelude.<$> ( x Core..:? "secondaryArtifacts"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "requestedOn")
+            Prelude.<*> (x Core..:? "primaryArtifact")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "buildStatus")
-            Prelude.<*> (x Core..:? "primaryArtifact")
+            Prelude.<*> (x Core..:? "requestedOn")
       )
 
 instance Prelude.Hashable BuildSummary

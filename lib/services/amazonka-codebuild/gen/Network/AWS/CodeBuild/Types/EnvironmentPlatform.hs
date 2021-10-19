@@ -65,7 +65,7 @@ environmentPlatform_platform = Lens.lens (\EnvironmentPlatform' {platform} -> pl
 -- | The list of programming languages that are available for the specified
 -- platform.
 environmentPlatform_languages :: Lens.Lens' EnvironmentPlatform (Prelude.Maybe [EnvironmentLanguage])
-environmentPlatform_languages = Lens.lens (\EnvironmentPlatform' {languages} -> languages) (\s@EnvironmentPlatform' {} a -> s {languages = a} :: EnvironmentPlatform) Prelude.. Lens.mapping Lens._Coerce
+environmentPlatform_languages = Lens.lens (\EnvironmentPlatform' {languages} -> languages) (\s@EnvironmentPlatform' {} a -> s {languages = a} :: EnvironmentPlatform) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EnvironmentPlatform where
   parseJSON =

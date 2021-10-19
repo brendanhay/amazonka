@@ -34,8 +34,8 @@ module Network.AWS.CodeBuild.BatchGetBuildBatches
     newBatchGetBuildBatchesResponse,
 
     -- * Response Lenses
-    batchGetBuildBatchesResponse_buildBatchesNotFound,
     batchGetBuildBatchesResponse_buildBatches,
+    batchGetBuildBatchesResponse_buildBatchesNotFound,
     batchGetBuildBatchesResponse_httpStatus,
   )
 where
@@ -70,7 +70,7 @@ newBatchGetBuildBatches =
 
 -- | An array that contains the batch build identifiers to retrieve.
 batchGetBuildBatches_ids :: Lens.Lens' BatchGetBuildBatches [Prelude.Text]
-batchGetBuildBatches_ids = Lens.lens (\BatchGetBuildBatches' {ids} -> ids) (\s@BatchGetBuildBatches' {} a -> s {ids = a} :: BatchGetBuildBatches) Prelude.. Lens._Coerce
+batchGetBuildBatches_ids = Lens.lens (\BatchGetBuildBatches' {ids} -> ids) (\s@BatchGetBuildBatches' {} a -> s {ids = a} :: BatchGetBuildBatches) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetBuildBatches where
   type
@@ -81,10 +81,10 @@ instance Core.AWSRequest BatchGetBuildBatches where
     Response.receiveJSON
       ( \s h x ->
           BatchGetBuildBatchesResponse'
-            Prelude.<$> ( x Core..?> "buildBatchesNotFound"
+            Prelude.<$> (x Core..?> "buildBatches" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "buildBatchesNotFound"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "buildBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -122,12 +122,12 @@ instance Core.ToQuery BatchGetBuildBatches where
 
 -- | /See:/ 'newBatchGetBuildBatchesResponse' smart constructor.
 data BatchGetBuildBatchesResponse = BatchGetBuildBatchesResponse'
-  { -- | An array that contains the identifiers of any batch builds that are not
-    -- found.
-    buildBatchesNotFound :: Prelude.Maybe [Prelude.Text],
-    -- | An array of @BuildBatch@ objects that represent the retrieved batch
+  { -- | An array of @BuildBatch@ objects that represent the retrieved batch
     -- builds.
     buildBatches :: Prelude.Maybe [BuildBatch],
+    -- | An array that contains the identifiers of any batch builds that are not
+    -- found.
+    buildBatchesNotFound :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -141,11 +141,11 @@ data BatchGetBuildBatchesResponse = BatchGetBuildBatchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildBatchesNotFound', 'batchGetBuildBatchesResponse_buildBatchesNotFound' - An array that contains the identifiers of any batch builds that are not
--- found.
---
 -- 'buildBatches', 'batchGetBuildBatchesResponse_buildBatches' - An array of @BuildBatch@ objects that represent the retrieved batch
 -- builds.
+--
+-- 'buildBatchesNotFound', 'batchGetBuildBatchesResponse_buildBatchesNotFound' - An array that contains the identifiers of any batch builds that are not
+-- found.
 --
 -- 'httpStatus', 'batchGetBuildBatchesResponse_httpStatus' - The response's http status code.
 newBatchGetBuildBatchesResponse ::
@@ -154,21 +154,21 @@ newBatchGetBuildBatchesResponse ::
   BatchGetBuildBatchesResponse
 newBatchGetBuildBatchesResponse pHttpStatus_ =
   BatchGetBuildBatchesResponse'
-    { buildBatchesNotFound =
+    { buildBatches =
         Prelude.Nothing,
-      buildBatches = Prelude.Nothing,
+      buildBatchesNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array that contains the identifiers of any batch builds that are not
--- found.
-batchGetBuildBatchesResponse_buildBatchesNotFound :: Lens.Lens' BatchGetBuildBatchesResponse (Prelude.Maybe [Prelude.Text])
-batchGetBuildBatchesResponse_buildBatchesNotFound = Lens.lens (\BatchGetBuildBatchesResponse' {buildBatchesNotFound} -> buildBatchesNotFound) (\s@BatchGetBuildBatchesResponse' {} a -> s {buildBatchesNotFound = a} :: BatchGetBuildBatchesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of @BuildBatch@ objects that represent the retrieved batch
 -- builds.
 batchGetBuildBatchesResponse_buildBatches :: Lens.Lens' BatchGetBuildBatchesResponse (Prelude.Maybe [BuildBatch])
-batchGetBuildBatchesResponse_buildBatches = Lens.lens (\BatchGetBuildBatchesResponse' {buildBatches} -> buildBatches) (\s@BatchGetBuildBatchesResponse' {} a -> s {buildBatches = a} :: BatchGetBuildBatchesResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetBuildBatchesResponse_buildBatches = Lens.lens (\BatchGetBuildBatchesResponse' {buildBatches} -> buildBatches) (\s@BatchGetBuildBatchesResponse' {} a -> s {buildBatches = a} :: BatchGetBuildBatchesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array that contains the identifiers of any batch builds that are not
+-- found.
+batchGetBuildBatchesResponse_buildBatchesNotFound :: Lens.Lens' BatchGetBuildBatchesResponse (Prelude.Maybe [Prelude.Text])
+batchGetBuildBatchesResponse_buildBatchesNotFound = Lens.lens (\BatchGetBuildBatchesResponse' {buildBatchesNotFound} -> buildBatchesNotFound) (\s@BatchGetBuildBatchesResponse' {} a -> s {buildBatchesNotFound = a} :: BatchGetBuildBatchesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetBuildBatchesResponse_httpStatus :: Lens.Lens' BatchGetBuildBatchesResponse Prelude.Int

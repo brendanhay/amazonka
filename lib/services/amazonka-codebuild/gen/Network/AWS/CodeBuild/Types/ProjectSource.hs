@@ -31,22 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjectSource' smart constructor.
 data ProjectSource = ProjectSource'
-  { -- | Information about the Git clone depth for the build project.
-    gitCloneDepth :: Prelude.Maybe Prelude.Natural,
-    -- | Contains information that defines how the build project reports the
-    -- build status to the source provider. This option is only used when the
-    -- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
-    buildStatusConfig :: Prelude.Maybe BuildStatusConfig,
-    -- | Information about the authorization settings for CodeBuild to access the
-    -- source code to be built.
-    --
-    -- This information is for the CodeBuild console\'s use only. Your code
-    -- should not get or set this information directly.
-    auth :: Prelude.Maybe SourceAuth,
-    -- | Enable this flag to ignore SSL warnings while connecting to the project
-    -- source code.
-    insecureSsl :: Prelude.Maybe Prelude.Bool,
-    -- | Set to true to report the status of a build\'s start and finish to your
+  { -- | Set to true to report the status of a build\'s start and finish to your
     -- source provider. This option is valid only when your source provider is
     -- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a
     -- different source provider, an @invalidInputException@ is thrown.
@@ -64,26 +49,9 @@ data ProjectSource = ProjectSource'
     -- If your project\'s builds are triggered by a webhook, you must push a
     -- new commit to the repo for a change to this property to take effect.
     reportBuildStatus :: Prelude.Maybe Prelude.Bool,
-    -- | An identifier for this project source. The identifier can only contain
-    -- alphanumeric characters and underscores, and must be less than 128
-    -- characters in length.
-    sourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The buildspec file declaration to use for the builds in this build
-    -- project.
-    --
-    -- If this value is set, it can be either an inline buildspec definition,
-    -- the path to an alternate buildspec file relative to the value of the
-    -- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
-    -- bucket. The bucket must be in the same Amazon Web Services Region as the
-    -- build project. Specify the buildspec file using its ARN (for example,
-    -- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
-    -- not provided or is set to an empty string, the source code must contain
-    -- a buildspec file in its root directory. For more information, see
-    -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-    buildspec :: Prelude.Maybe Prelude.Text,
-    -- | Information about the Git submodules configuration for the build
-    -- project.
-    gitSubmodulesConfig :: Prelude.Maybe GitSubmodulesConfig,
+    -- | Enable this flag to ignore SSL warnings while connecting to the project
+    -- source code.
+    insecureSsl :: Prelude.Maybe Prelude.Bool,
     -- | Information about the location of the source code to be built. Valid
     -- values include:
     --
@@ -135,6 +103,38 @@ data ProjectSource = ProjectSource'
     -- If you specify @CODEPIPELINE@ for the @Type@ property, don\'t specify
     -- this property. For all of the other types, you must specify @Location@.
     location :: Prelude.Maybe Prelude.Text,
+    -- | Information about the authorization settings for CodeBuild to access the
+    -- source code to be built.
+    --
+    -- This information is for the CodeBuild console\'s use only. Your code
+    -- should not get or set this information directly.
+    auth :: Prelude.Maybe SourceAuth,
+    -- | The buildspec file declaration to use for the builds in this build
+    -- project.
+    --
+    -- If this value is set, it can be either an inline buildspec definition,
+    -- the path to an alternate buildspec file relative to the value of the
+    -- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
+    -- bucket. The bucket must be in the same Amazon Web Services Region as the
+    -- build project. Specify the buildspec file using its ARN (for example,
+    -- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
+    -- not provided or is set to an empty string, the source code must contain
+    -- a buildspec file in its root directory. For more information, see
+    -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
+    buildspec :: Prelude.Maybe Prelude.Text,
+    -- | An identifier for this project source. The identifier can only contain
+    -- alphanumeric characters and underscores, and must be less than 128
+    -- characters in length.
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Git clone depth for the build project.
+    gitCloneDepth :: Prelude.Maybe Prelude.Natural,
+    -- | Information about the Git submodules configuration for the build
+    -- project.
+    gitSubmodulesConfig :: Prelude.Maybe GitSubmodulesConfig,
+    -- | Contains information that defines how the build project reports the
+    -- build status to the source provider. This option is only used when the
+    -- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
+    buildStatusConfig :: Prelude.Maybe BuildStatusConfig,
     -- | The type of repository that contains the source code to be built. Valid
     -- values include:
     --
@@ -166,21 +166,6 @@ data ProjectSource = ProjectSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gitCloneDepth', 'projectSource_gitCloneDepth' - Information about the Git clone depth for the build project.
---
--- 'buildStatusConfig', 'projectSource_buildStatusConfig' - Contains information that defines how the build project reports the
--- build status to the source provider. This option is only used when the
--- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
---
--- 'auth', 'projectSource_auth' - Information about the authorization settings for CodeBuild to access the
--- source code to be built.
---
--- This information is for the CodeBuild console\'s use only. Your code
--- should not get or set this information directly.
---
--- 'insecureSsl', 'projectSource_insecureSsl' - Enable this flag to ignore SSL warnings while connecting to the project
--- source code.
---
 -- 'reportBuildStatus', 'projectSource_reportBuildStatus' - Set to true to report the status of a build\'s start and finish to your
 -- source provider. This option is valid only when your source provider is
 -- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a
@@ -199,25 +184,8 @@ data ProjectSource = ProjectSource'
 -- If your project\'s builds are triggered by a webhook, you must push a
 -- new commit to the repo for a change to this property to take effect.
 --
--- 'sourceIdentifier', 'projectSource_sourceIdentifier' - An identifier for this project source. The identifier can only contain
--- alphanumeric characters and underscores, and must be less than 128
--- characters in length.
---
--- 'buildspec', 'projectSource_buildspec' - The buildspec file declaration to use for the builds in this build
--- project.
---
--- If this value is set, it can be either an inline buildspec definition,
--- the path to an alternate buildspec file relative to the value of the
--- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
--- bucket. The bucket must be in the same Amazon Web Services Region as the
--- build project. Specify the buildspec file using its ARN (for example,
--- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
--- not provided or is set to an empty string, the source code must contain
--- a buildspec file in its root directory. For more information, see
--- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
---
--- 'gitSubmodulesConfig', 'projectSource_gitSubmodulesConfig' - Information about the Git submodules configuration for the build
--- project.
+-- 'insecureSsl', 'projectSource_insecureSsl' - Enable this flag to ignore SSL warnings while connecting to the project
+-- source code.
 --
 -- 'location', 'projectSource_location' - Information about the location of the source code to be built. Valid
 -- values include:
@@ -270,6 +238,38 @@ data ProjectSource = ProjectSource'
 -- If you specify @CODEPIPELINE@ for the @Type@ property, don\'t specify
 -- this property. For all of the other types, you must specify @Location@.
 --
+-- 'auth', 'projectSource_auth' - Information about the authorization settings for CodeBuild to access the
+-- source code to be built.
+--
+-- This information is for the CodeBuild console\'s use only. Your code
+-- should not get or set this information directly.
+--
+-- 'buildspec', 'projectSource_buildspec' - The buildspec file declaration to use for the builds in this build
+-- project.
+--
+-- If this value is set, it can be either an inline buildspec definition,
+-- the path to an alternate buildspec file relative to the value of the
+-- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
+-- bucket. The bucket must be in the same Amazon Web Services Region as the
+-- build project. Specify the buildspec file using its ARN (for example,
+-- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
+-- not provided or is set to an empty string, the source code must contain
+-- a buildspec file in its root directory. For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
+--
+-- 'sourceIdentifier', 'projectSource_sourceIdentifier' - An identifier for this project source. The identifier can only contain
+-- alphanumeric characters and underscores, and must be less than 128
+-- characters in length.
+--
+-- 'gitCloneDepth', 'projectSource_gitCloneDepth' - Information about the Git clone depth for the build project.
+--
+-- 'gitSubmodulesConfig', 'projectSource_gitSubmodulesConfig' - Information about the Git submodules configuration for the build
+-- project.
+--
+-- 'buildStatusConfig', 'projectSource_buildStatusConfig' - Contains information that defines how the build project reports the
+-- build status to the source provider. This option is only used when the
+-- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
+--
 -- 'type'', 'projectSource_type' - The type of repository that contains the source code to be built. Valid
 -- values include:
 --
@@ -295,40 +295,17 @@ newProjectSource ::
   ProjectSource
 newProjectSource pType_ =
   ProjectSource'
-    { gitCloneDepth = Prelude.Nothing,
-      buildStatusConfig = Prelude.Nothing,
-      auth = Prelude.Nothing,
+    { reportBuildStatus = Prelude.Nothing,
       insecureSsl = Prelude.Nothing,
-      reportBuildStatus = Prelude.Nothing,
-      sourceIdentifier = Prelude.Nothing,
-      buildspec = Prelude.Nothing,
-      gitSubmodulesConfig = Prelude.Nothing,
       location = Prelude.Nothing,
+      auth = Prelude.Nothing,
+      buildspec = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      gitCloneDepth = Prelude.Nothing,
+      gitSubmodulesConfig = Prelude.Nothing,
+      buildStatusConfig = Prelude.Nothing,
       type' = pType_
     }
-
--- | Information about the Git clone depth for the build project.
-projectSource_gitCloneDepth :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Natural)
-projectSource_gitCloneDepth = Lens.lens (\ProjectSource' {gitCloneDepth} -> gitCloneDepth) (\s@ProjectSource' {} a -> s {gitCloneDepth = a} :: ProjectSource)
-
--- | Contains information that defines how the build project reports the
--- build status to the source provider. This option is only used when the
--- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
-projectSource_buildStatusConfig :: Lens.Lens' ProjectSource (Prelude.Maybe BuildStatusConfig)
-projectSource_buildStatusConfig = Lens.lens (\ProjectSource' {buildStatusConfig} -> buildStatusConfig) (\s@ProjectSource' {} a -> s {buildStatusConfig = a} :: ProjectSource)
-
--- | Information about the authorization settings for CodeBuild to access the
--- source code to be built.
---
--- This information is for the CodeBuild console\'s use only. Your code
--- should not get or set this information directly.
-projectSource_auth :: Lens.Lens' ProjectSource (Prelude.Maybe SourceAuth)
-projectSource_auth = Lens.lens (\ProjectSource' {auth} -> auth) (\s@ProjectSource' {} a -> s {auth = a} :: ProjectSource)
-
--- | Enable this flag to ignore SSL warnings while connecting to the project
--- source code.
-projectSource_insecureSsl :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Bool)
-projectSource_insecureSsl = Lens.lens (\ProjectSource' {insecureSsl} -> insecureSsl) (\s@ProjectSource' {} a -> s {insecureSsl = a} :: ProjectSource)
 
 -- | Set to true to report the status of a build\'s start and finish to your
 -- source provider. This option is valid only when your source provider is
@@ -350,31 +327,10 @@ projectSource_insecureSsl = Lens.lens (\ProjectSource' {insecureSsl} -> insecure
 projectSource_reportBuildStatus :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Bool)
 projectSource_reportBuildStatus = Lens.lens (\ProjectSource' {reportBuildStatus} -> reportBuildStatus) (\s@ProjectSource' {} a -> s {reportBuildStatus = a} :: ProjectSource)
 
--- | An identifier for this project source. The identifier can only contain
--- alphanumeric characters and underscores, and must be less than 128
--- characters in length.
-projectSource_sourceIdentifier :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Text)
-projectSource_sourceIdentifier = Lens.lens (\ProjectSource' {sourceIdentifier} -> sourceIdentifier) (\s@ProjectSource' {} a -> s {sourceIdentifier = a} :: ProjectSource)
-
--- | The buildspec file declaration to use for the builds in this build
--- project.
---
--- If this value is set, it can be either an inline buildspec definition,
--- the path to an alternate buildspec file relative to the value of the
--- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
--- bucket. The bucket must be in the same Amazon Web Services Region as the
--- build project. Specify the buildspec file using its ARN (for example,
--- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
--- not provided or is set to an empty string, the source code must contain
--- a buildspec file in its root directory. For more information, see
--- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
-projectSource_buildspec :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Text)
-projectSource_buildspec = Lens.lens (\ProjectSource' {buildspec} -> buildspec) (\s@ProjectSource' {} a -> s {buildspec = a} :: ProjectSource)
-
--- | Information about the Git submodules configuration for the build
--- project.
-projectSource_gitSubmodulesConfig :: Lens.Lens' ProjectSource (Prelude.Maybe GitSubmodulesConfig)
-projectSource_gitSubmodulesConfig = Lens.lens (\ProjectSource' {gitSubmodulesConfig} -> gitSubmodulesConfig) (\s@ProjectSource' {} a -> s {gitSubmodulesConfig = a} :: ProjectSource)
+-- | Enable this flag to ignore SSL warnings while connecting to the project
+-- source code.
+projectSource_insecureSsl :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Bool)
+projectSource_insecureSsl = Lens.lens (\ProjectSource' {insecureSsl} -> insecureSsl) (\s@ProjectSource' {} a -> s {insecureSsl = a} :: ProjectSource)
 
 -- | Information about the location of the source code to be built. Valid
 -- values include:
@@ -429,6 +385,50 @@ projectSource_gitSubmodulesConfig = Lens.lens (\ProjectSource' {gitSubmodulesCon
 projectSource_location :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Text)
 projectSource_location = Lens.lens (\ProjectSource' {location} -> location) (\s@ProjectSource' {} a -> s {location = a} :: ProjectSource)
 
+-- | Information about the authorization settings for CodeBuild to access the
+-- source code to be built.
+--
+-- This information is for the CodeBuild console\'s use only. Your code
+-- should not get or set this information directly.
+projectSource_auth :: Lens.Lens' ProjectSource (Prelude.Maybe SourceAuth)
+projectSource_auth = Lens.lens (\ProjectSource' {auth} -> auth) (\s@ProjectSource' {} a -> s {auth = a} :: ProjectSource)
+
+-- | The buildspec file declaration to use for the builds in this build
+-- project.
+--
+-- If this value is set, it can be either an inline buildspec definition,
+-- the path to an alternate buildspec file relative to the value of the
+-- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3
+-- bucket. The bucket must be in the same Amazon Web Services Region as the
+-- build project. Specify the buildspec file using its ARN (for example,
+-- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is
+-- not provided or is set to an empty string, the source code must contain
+-- a buildspec file in its root directory. For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location>.
+projectSource_buildspec :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Text)
+projectSource_buildspec = Lens.lens (\ProjectSource' {buildspec} -> buildspec) (\s@ProjectSource' {} a -> s {buildspec = a} :: ProjectSource)
+
+-- | An identifier for this project source. The identifier can only contain
+-- alphanumeric characters and underscores, and must be less than 128
+-- characters in length.
+projectSource_sourceIdentifier :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Text)
+projectSource_sourceIdentifier = Lens.lens (\ProjectSource' {sourceIdentifier} -> sourceIdentifier) (\s@ProjectSource' {} a -> s {sourceIdentifier = a} :: ProjectSource)
+
+-- | Information about the Git clone depth for the build project.
+projectSource_gitCloneDepth :: Lens.Lens' ProjectSource (Prelude.Maybe Prelude.Natural)
+projectSource_gitCloneDepth = Lens.lens (\ProjectSource' {gitCloneDepth} -> gitCloneDepth) (\s@ProjectSource' {} a -> s {gitCloneDepth = a} :: ProjectSource)
+
+-- | Information about the Git submodules configuration for the build
+-- project.
+projectSource_gitSubmodulesConfig :: Lens.Lens' ProjectSource (Prelude.Maybe GitSubmodulesConfig)
+projectSource_gitSubmodulesConfig = Lens.lens (\ProjectSource' {gitSubmodulesConfig} -> gitSubmodulesConfig) (\s@ProjectSource' {} a -> s {gitSubmodulesConfig = a} :: ProjectSource)
+
+-- | Contains information that defines how the build project reports the
+-- build status to the source provider. This option is only used when the
+-- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.
+projectSource_buildStatusConfig :: Lens.Lens' ProjectSource (Prelude.Maybe BuildStatusConfig)
+projectSource_buildStatusConfig = Lens.lens (\ProjectSource' {buildStatusConfig} -> buildStatusConfig) (\s@ProjectSource' {} a -> s {buildStatusConfig = a} :: ProjectSource)
+
 -- | The type of repository that contains the source code to be built. Valid
 -- values include:
 --
@@ -457,15 +457,15 @@ instance Core.FromJSON ProjectSource where
       "ProjectSource"
       ( \x ->
           ProjectSource'
-            Prelude.<$> (x Core..:? "gitCloneDepth")
-            Prelude.<*> (x Core..:? "buildStatusConfig")
-            Prelude.<*> (x Core..:? "auth")
+            Prelude.<$> (x Core..:? "reportBuildStatus")
             Prelude.<*> (x Core..:? "insecureSsl")
-            Prelude.<*> (x Core..:? "reportBuildStatus")
-            Prelude.<*> (x Core..:? "sourceIdentifier")
-            Prelude.<*> (x Core..:? "buildspec")
-            Prelude.<*> (x Core..:? "gitSubmodulesConfig")
             Prelude.<*> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "auth")
+            Prelude.<*> (x Core..:? "buildspec")
+            Prelude.<*> (x Core..:? "sourceIdentifier")
+            Prelude.<*> (x Core..:? "gitCloneDepth")
+            Prelude.<*> (x Core..:? "gitSubmodulesConfig")
+            Prelude.<*> (x Core..:? "buildStatusConfig")
             Prelude.<*> (x Core..: "type")
       )
 
@@ -477,19 +477,19 @@ instance Core.ToJSON ProjectSource where
   toJSON ProjectSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("gitCloneDepth" Core..=) Prelude.<$> gitCloneDepth,
-            ("buildStatusConfig" Core..=)
-              Prelude.<$> buildStatusConfig,
-            ("auth" Core..=) Prelude.<$> auth,
-            ("insecureSsl" Core..=) Prelude.<$> insecureSsl,
-            ("reportBuildStatus" Core..=)
+          [ ("reportBuildStatus" Core..=)
               Prelude.<$> reportBuildStatus,
+            ("insecureSsl" Core..=) Prelude.<$> insecureSsl,
+            ("location" Core..=) Prelude.<$> location,
+            ("auth" Core..=) Prelude.<$> auth,
+            ("buildspec" Core..=) Prelude.<$> buildspec,
             ("sourceIdentifier" Core..=)
               Prelude.<$> sourceIdentifier,
-            ("buildspec" Core..=) Prelude.<$> buildspec,
+            ("gitCloneDepth" Core..=) Prelude.<$> gitCloneDepth,
             ("gitSubmodulesConfig" Core..=)
               Prelude.<$> gitSubmodulesConfig,
-            ("location" Core..=) Prelude.<$> location,
+            ("buildStatusConfig" Core..=)
+              Prelude.<$> buildStatusConfig,
             Prelude.Just ("type" Core..= type')
           ]
       )

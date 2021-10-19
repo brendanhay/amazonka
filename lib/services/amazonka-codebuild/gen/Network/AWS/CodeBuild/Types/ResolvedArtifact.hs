@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResolvedArtifact' smart constructor.
 data ResolvedArtifact = ResolvedArtifact'
-  { -- | The identifier of the artifact.
+  { -- | The location of the artifact.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the artifact.
     identifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of artifact.
-    type' :: Prelude.Maybe ArtifactsType,
-    -- | The location of the artifact.
-    location :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe ArtifactsType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data ResolvedArtifact = ResolvedArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'location', 'resolvedArtifact_location' - The location of the artifact.
+--
 -- 'identifier', 'resolvedArtifact_identifier' - The identifier of the artifact.
 --
 -- 'type'', 'resolvedArtifact_type' - Specifies the type of artifact.
---
--- 'location', 'resolvedArtifact_location' - The location of the artifact.
 newResolvedArtifact ::
   ResolvedArtifact
 newResolvedArtifact =
   ResolvedArtifact'
-    { identifier = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      location = Prelude.Nothing
+    { location = Prelude.Nothing,
+      identifier = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The location of the artifact.
+resolvedArtifact_location :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
+resolvedArtifact_location = Lens.lens (\ResolvedArtifact' {location} -> location) (\s@ResolvedArtifact' {} a -> s {location = a} :: ResolvedArtifact)
 
 -- | The identifier of the artifact.
 resolvedArtifact_identifier :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
@@ -68,19 +72,15 @@ resolvedArtifact_identifier = Lens.lens (\ResolvedArtifact' {identifier} -> iden
 resolvedArtifact_type :: Lens.Lens' ResolvedArtifact (Prelude.Maybe ArtifactsType)
 resolvedArtifact_type = Lens.lens (\ResolvedArtifact' {type'} -> type') (\s@ResolvedArtifact' {} a -> s {type' = a} :: ResolvedArtifact)
 
--- | The location of the artifact.
-resolvedArtifact_location :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
-resolvedArtifact_location = Lens.lens (\ResolvedArtifact' {location} -> location) (\s@ResolvedArtifact' {} a -> s {location = a} :: ResolvedArtifact)
-
 instance Core.FromJSON ResolvedArtifact where
   parseJSON =
     Core.withObject
       "ResolvedArtifact"
       ( \x ->
           ResolvedArtifact'
-            Prelude.<$> (x Core..:? "identifier")
+            Prelude.<$> (x Core..:? "location")
+            Prelude.<*> (x Core..:? "identifier")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "location")
       )
 
 instance Prelude.Hashable ResolvedArtifact

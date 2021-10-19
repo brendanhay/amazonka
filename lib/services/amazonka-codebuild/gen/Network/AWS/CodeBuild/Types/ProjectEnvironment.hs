@@ -32,7 +32,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjectEnvironment' smart constructor.
 data ProjectEnvironment = ProjectEnvironment'
-  { -- | Enables running the Docker daemon inside a Docker container. Set to true
+  { -- | The type of credentials CodeBuild uses to pull images in your build.
+    -- There are two valid values:
+    --
+    -- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+    --     requires that you modify your ECR repository policy to trust
+    --     CodeBuild service principal.
+    --
+    -- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+    --     service role.
+    --
+    -- When you use a cross-account or private registry image, you must use
+    -- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+    -- must use CODEBUILD credentials.
+    imagePullCredentialsType :: Prelude.Maybe ImagePullCredentialsType,
+    -- | Enables running the Docker daemon inside a Docker container. Set to true
     -- only if the build project is used to build Docker images. Otherwise, a
     -- build that attempts to interact with the Docker daemon fails. The
     -- default setting is @false@.
@@ -54,31 +68,17 @@ data ProjectEnvironment = ProjectEnvironment'
     --
     -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
     privilegedMode :: Prelude.Maybe Prelude.Bool,
-    -- | The type of credentials CodeBuild uses to pull images in your build.
-    -- There are two valid values:
-    --
-    -- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
-    --     requires that you modify your ECR repository policy to trust
-    --     CodeBuild service principal.
-    --
-    -- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
-    --     service role.
-    --
-    -- When you use a cross-account or private registry image, you must use
-    -- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
-    -- must use CODEBUILD credentials.
-    imagePullCredentialsType :: Prelude.Maybe ImagePullCredentialsType,
     -- | The credentials for access to a private registry.
     registryCredential :: Prelude.Maybe RegistryCredential,
-    -- | A set of environment variables to make available to builds for this
-    -- build project.
-    environmentVariables :: Prelude.Maybe [EnvironmentVariable],
     -- | The ARN of the Amazon S3 bucket, path prefix, and object key that
     -- contains the PEM-encoded certificate for the build project. For more
     -- information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
     -- in the /CodeBuild User Guide/.
     certificate :: Prelude.Maybe Prelude.Text,
+    -- | A set of environment variables to make available to builds for this
+    -- build project.
+    environmentVariables :: Prelude.Maybe [EnvironmentVariable],
     -- | The type of build environment to use for related builds.
     --
     -- -   The environment type @ARM_CONTAINER@ is available only in regions US
@@ -167,6 +167,20 @@ data ProjectEnvironment = ProjectEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imagePullCredentialsType', 'projectEnvironment_imagePullCredentialsType' - The type of credentials CodeBuild uses to pull images in your build.
+-- There are two valid values:
+--
+-- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+--     requires that you modify your ECR repository policy to trust
+--     CodeBuild service principal.
+--
+-- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+--     service role.
+--
+-- When you use a cross-account or private registry image, you must use
+-- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+-- must use CODEBUILD credentials.
+--
 -- 'privilegedMode', 'projectEnvironment_privilegedMode' - Enables running the Docker daemon inside a Docker container. Set to true
 -- only if the build project is used to build Docker images. Otherwise, a
 -- build that attempts to interact with the Docker daemon fails. The
@@ -189,30 +203,16 @@ data ProjectEnvironment = ProjectEnvironment'
 --
 -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
 --
--- 'imagePullCredentialsType', 'projectEnvironment_imagePullCredentialsType' - The type of credentials CodeBuild uses to pull images in your build.
--- There are two valid values:
---
--- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
---     requires that you modify your ECR repository policy to trust
---     CodeBuild service principal.
---
--- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
---     service role.
---
--- When you use a cross-account or private registry image, you must use
--- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
--- must use CODEBUILD credentials.
---
 -- 'registryCredential', 'projectEnvironment_registryCredential' - The credentials for access to a private registry.
---
--- 'environmentVariables', 'projectEnvironment_environmentVariables' - A set of environment variables to make available to builds for this
--- build project.
 --
 -- 'certificate', 'projectEnvironment_certificate' - The ARN of the Amazon S3 bucket, path prefix, and object key that
 -- contains the PEM-encoded certificate for the build project. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
 -- in the /CodeBuild User Guide/.
+--
+-- 'environmentVariables', 'projectEnvironment_environmentVariables' - A set of environment variables to make available to builds for this
+-- build project.
 --
 -- 'type'', 'projectEnvironment_type' - The type of build environment to use for related builds.
 --
@@ -300,16 +300,32 @@ newProjectEnvironment ::
   ProjectEnvironment
 newProjectEnvironment pType_ pImage_ pComputeType_ =
   ProjectEnvironment'
-    { privilegedMode =
+    { imagePullCredentialsType =
         Prelude.Nothing,
-      imagePullCredentialsType = Prelude.Nothing,
+      privilegedMode = Prelude.Nothing,
       registryCredential = Prelude.Nothing,
-      environmentVariables = Prelude.Nothing,
       certificate = Prelude.Nothing,
+      environmentVariables = Prelude.Nothing,
       type' = pType_,
       image = pImage_,
       computeType = pComputeType_
     }
+
+-- | The type of credentials CodeBuild uses to pull images in your build.
+-- There are two valid values:
+--
+-- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+--     requires that you modify your ECR repository policy to trust
+--     CodeBuild service principal.
+--
+-- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+--     service role.
+--
+-- When you use a cross-account or private registry image, you must use
+-- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+-- must use CODEBUILD credentials.
+projectEnvironment_imagePullCredentialsType :: Lens.Lens' ProjectEnvironment (Prelude.Maybe ImagePullCredentialsType)
+projectEnvironment_imagePullCredentialsType = Lens.lens (\ProjectEnvironment' {imagePullCredentialsType} -> imagePullCredentialsType) (\s@ProjectEnvironment' {} a -> s {imagePullCredentialsType = a} :: ProjectEnvironment)
 
 -- | Enables running the Docker daemon inside a Docker container. Set to true
 -- only if the build project is used to build Docker images. Otherwise, a
@@ -335,30 +351,9 @@ newProjectEnvironment pType_ pImage_ pComputeType_ =
 projectEnvironment_privilegedMode :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Bool)
 projectEnvironment_privilegedMode = Lens.lens (\ProjectEnvironment' {privilegedMode} -> privilegedMode) (\s@ProjectEnvironment' {} a -> s {privilegedMode = a} :: ProjectEnvironment)
 
--- | The type of credentials CodeBuild uses to pull images in your build.
--- There are two valid values:
---
--- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
---     requires that you modify your ECR repository policy to trust
---     CodeBuild service principal.
---
--- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
---     service role.
---
--- When you use a cross-account or private registry image, you must use
--- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
--- must use CODEBUILD credentials.
-projectEnvironment_imagePullCredentialsType :: Lens.Lens' ProjectEnvironment (Prelude.Maybe ImagePullCredentialsType)
-projectEnvironment_imagePullCredentialsType = Lens.lens (\ProjectEnvironment' {imagePullCredentialsType} -> imagePullCredentialsType) (\s@ProjectEnvironment' {} a -> s {imagePullCredentialsType = a} :: ProjectEnvironment)
-
 -- | The credentials for access to a private registry.
 projectEnvironment_registryCredential :: Lens.Lens' ProjectEnvironment (Prelude.Maybe RegistryCredential)
 projectEnvironment_registryCredential = Lens.lens (\ProjectEnvironment' {registryCredential} -> registryCredential) (\s@ProjectEnvironment' {} a -> s {registryCredential = a} :: ProjectEnvironment)
-
--- | A set of environment variables to make available to builds for this
--- build project.
-projectEnvironment_environmentVariables :: Lens.Lens' ProjectEnvironment (Prelude.Maybe [EnvironmentVariable])
-projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {environmentVariables} -> environmentVariables) (\s@ProjectEnvironment' {} a -> s {environmentVariables = a} :: ProjectEnvironment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the Amazon S3 bucket, path prefix, and object key that
 -- contains the PEM-encoded certificate for the build project. For more
@@ -367,6 +362,11 @@ projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {envir
 -- in the /CodeBuild User Guide/.
 projectEnvironment_certificate :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Text)
 projectEnvironment_certificate = Lens.lens (\ProjectEnvironment' {certificate} -> certificate) (\s@ProjectEnvironment' {} a -> s {certificate = a} :: ProjectEnvironment)
+
+-- | A set of environment variables to make available to builds for this
+-- build project.
+projectEnvironment_environmentVariables :: Lens.Lens' ProjectEnvironment (Prelude.Maybe [EnvironmentVariable])
+projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {environmentVariables} -> environmentVariables) (\s@ProjectEnvironment' {} a -> s {environmentVariables = a} :: ProjectEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of build environment to use for related builds.
 --
@@ -457,13 +457,13 @@ instance Core.FromJSON ProjectEnvironment where
       "ProjectEnvironment"
       ( \x ->
           ProjectEnvironment'
-            Prelude.<$> (x Core..:? "privilegedMode")
-            Prelude.<*> (x Core..:? "imagePullCredentialsType")
+            Prelude.<$> (x Core..:? "imagePullCredentialsType")
+            Prelude.<*> (x Core..:? "privilegedMode")
             Prelude.<*> (x Core..:? "registryCredential")
+            Prelude.<*> (x Core..:? "certificate")
             Prelude.<*> ( x Core..:? "environmentVariables"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "certificate")
             Prelude.<*> (x Core..: "type")
             Prelude.<*> (x Core..: "image")
             Prelude.<*> (x Core..: "computeType")
@@ -477,15 +477,15 @@ instance Core.ToJSON ProjectEnvironment where
   toJSON ProjectEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("privilegedMode" Core..=)
-              Prelude.<$> privilegedMode,
-            ("imagePullCredentialsType" Core..=)
+          [ ("imagePullCredentialsType" Core..=)
               Prelude.<$> imagePullCredentialsType,
+            ("privilegedMode" Core..=)
+              Prelude.<$> privilegedMode,
             ("registryCredential" Core..=)
               Prelude.<$> registryCredential,
+            ("certificate" Core..=) Prelude.<$> certificate,
             ("environmentVariables" Core..=)
               Prelude.<$> environmentVariables,
-            ("certificate" Core..=) Prelude.<$> certificate,
             Prelude.Just ("type" Core..= type'),
             Prelude.Just ("image" Core..= image),
             Prelude.Just ("computeType" Core..= computeType)

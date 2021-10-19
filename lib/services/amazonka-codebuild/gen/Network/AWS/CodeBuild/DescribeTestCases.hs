@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.DescribeTestCases
 
     -- * Request Lenses
     describeTestCases_nextToken,
-    describeTestCases_maxResults,
     describeTestCases_filter,
+    describeTestCases_maxResults,
     describeTestCases_reportArn,
 
     -- * Destructuring the Response
@@ -62,12 +62,12 @@ data DescribeTestCases = DescribeTestCases'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A @TestCaseFilter@ object used to filter the returned reports.
+    filter' :: Prelude.Maybe TestCaseFilter,
     -- | The maximum number of paginated test cases returned per response. Use
     -- @nextToken@ to iterate pages in the list of returned @TestCase@ objects.
     -- The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A @TestCaseFilter@ object used to filter the returned reports.
-    filter' :: Prelude.Maybe TestCaseFilter,
     -- | The ARN of the report for which test cases are returned.
     reportArn :: Prelude.Text
   }
@@ -89,11 +89,11 @@ data DescribeTestCases = DescribeTestCases'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
+-- 'filter'', 'describeTestCases_filter' - A @TestCaseFilter@ object used to filter the returned reports.
+--
 -- 'maxResults', 'describeTestCases_maxResults' - The maximum number of paginated test cases returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @TestCase@ objects.
 -- The default value is 100.
---
--- 'filter'', 'describeTestCases_filter' - A @TestCaseFilter@ object used to filter the returned reports.
 --
 -- 'reportArn', 'describeTestCases_reportArn' - The ARN of the report for which test cases are returned.
 newDescribeTestCases ::
@@ -103,8 +103,8 @@ newDescribeTestCases ::
 newDescribeTestCases pReportArn_ =
   DescribeTestCases'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       reportArn = pReportArn_
     }
 
@@ -118,15 +118,15 @@ newDescribeTestCases pReportArn_ =
 describeTestCases_nextToken :: Lens.Lens' DescribeTestCases (Prelude.Maybe Prelude.Text)
 describeTestCases_nextToken = Lens.lens (\DescribeTestCases' {nextToken} -> nextToken) (\s@DescribeTestCases' {} a -> s {nextToken = a} :: DescribeTestCases)
 
+-- | A @TestCaseFilter@ object used to filter the returned reports.
+describeTestCases_filter :: Lens.Lens' DescribeTestCases (Prelude.Maybe TestCaseFilter)
+describeTestCases_filter = Lens.lens (\DescribeTestCases' {filter'} -> filter') (\s@DescribeTestCases' {} a -> s {filter' = a} :: DescribeTestCases)
+
 -- | The maximum number of paginated test cases returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @TestCase@ objects.
 -- The default value is 100.
 describeTestCases_maxResults :: Lens.Lens' DescribeTestCases (Prelude.Maybe Prelude.Natural)
 describeTestCases_maxResults = Lens.lens (\DescribeTestCases' {maxResults} -> maxResults) (\s@DescribeTestCases' {} a -> s {maxResults = a} :: DescribeTestCases)
-
--- | A @TestCaseFilter@ object used to filter the returned reports.
-describeTestCases_filter :: Lens.Lens' DescribeTestCases (Prelude.Maybe TestCaseFilter)
-describeTestCases_filter = Lens.lens (\DescribeTestCases' {filter'} -> filter') (\s@DescribeTestCases' {} a -> s {filter' = a} :: DescribeTestCases)
 
 -- | The ARN of the report for which test cases are returned.
 describeTestCases_reportArn :: Lens.Lens' DescribeTestCases Prelude.Text
@@ -192,8 +192,8 @@ instance Core.ToJSON DescribeTestCases where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("reportArn" Core..= reportArn)
           ]
       )
@@ -264,7 +264,7 @@ describeTestCasesResponse_nextToken = Lens.lens (\DescribeTestCasesResponse' {ne
 
 -- | The returned list of test cases.
 describeTestCasesResponse_testCases :: Lens.Lens' DescribeTestCasesResponse (Prelude.Maybe [TestCase])
-describeTestCasesResponse_testCases = Lens.lens (\DescribeTestCasesResponse' {testCases} -> testCases) (\s@DescribeTestCasesResponse' {} a -> s {testCases = a} :: DescribeTestCasesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTestCasesResponse_testCases = Lens.lens (\DescribeTestCasesResponse' {testCases} -> testCases) (\s@DescribeTestCasesResponse' {} a -> s {testCases = a} :: DescribeTestCasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTestCasesResponse_httpStatus :: Lens.Lens' DescribeTestCasesResponse Prelude.Int

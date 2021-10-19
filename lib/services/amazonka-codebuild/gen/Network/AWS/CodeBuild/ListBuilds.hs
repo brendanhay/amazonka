@@ -30,16 +30,16 @@ module Network.AWS.CodeBuild.ListBuilds
     newListBuilds,
 
     -- * Request Lenses
-    listBuilds_nextToken,
     listBuilds_sortOrder,
+    listBuilds_nextToken,
 
     -- * Destructuring the Response
     ListBuildsResponse (..),
     newListBuildsResponse,
 
     -- * Response Lenses
-    listBuildsResponse_nextToken,
     listBuildsResponse_ids,
+    listBuildsResponse_nextToken,
     listBuildsResponse_httpStatus,
   )
 where
@@ -53,19 +53,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { -- | During a previous call, if there are more than 100 items in the list,
+  { -- | The order to list build IDs. Valid values include:
+    --
+    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+    --
+    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
+    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | During a previous call, if there are more than 100 items in the list,
     -- only the first 100 items are returned, along with a unique string called
     -- a /nextToken/. To get the next batch of items in the list, call this
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The order to list build IDs. Valid values include:
-    --
-    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
-    --
-    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
-    sortOrder :: Prelude.Maybe SortOrderType
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,25 +77,33 @@ data ListBuilds = ListBuilds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listBuilds_sortOrder' - The order to list build IDs. Valid values include:
+--
+-- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+--
+-- -   @DESCENDING@: List the build IDs in descending order by build ID.
+--
 -- 'nextToken', 'listBuilds_nextToken' - During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
 -- a /nextToken/. To get the next batch of items in the list, call this
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
---
--- 'sortOrder', 'listBuilds_sortOrder' - The order to list build IDs. Valid values include:
---
--- -   @ASCENDING@: List the build IDs in ascending order by build ID.
---
--- -   @DESCENDING@: List the build IDs in descending order by build ID.
 newListBuilds ::
   ListBuilds
 newListBuilds =
   ListBuilds'
-    { nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The order to list build IDs. Valid values include:
+--
+-- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+--
+-- -   @DESCENDING@: List the build IDs in descending order by build ID.
+listBuilds_sortOrder :: Lens.Lens' ListBuilds (Prelude.Maybe SortOrderType)
+listBuilds_sortOrder = Lens.lens (\ListBuilds' {sortOrder} -> sortOrder) (\s@ListBuilds' {} a -> s {sortOrder = a} :: ListBuilds)
 
 -- | During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
@@ -105,14 +113,6 @@ newListBuilds =
 -- token that is returned, until no more next tokens are returned.
 listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
 listBuilds_nextToken = Lens.lens (\ListBuilds' {nextToken} -> nextToken) (\s@ListBuilds' {} a -> s {nextToken = a} :: ListBuilds)
-
--- | The order to list build IDs. Valid values include:
---
--- -   @ASCENDING@: List the build IDs in ascending order by build ID.
---
--- -   @DESCENDING@: List the build IDs in descending order by build ID.
-listBuilds_sortOrder :: Lens.Lens' ListBuilds (Prelude.Maybe SortOrderType)
-listBuilds_sortOrder = Lens.lens (\ListBuilds' {sortOrder} -> sortOrder) (\s@ListBuilds' {} a -> s {sortOrder = a} :: ListBuilds)
 
 instance Core.AWSPager ListBuilds where
   page rq rs
@@ -141,8 +141,8 @@ instance Core.AWSRequest ListBuilds where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "ids")
+            Prelude.<$> (x Core..?> "ids")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,8 +169,8 @@ instance Core.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken
           ]
       )
 
@@ -182,13 +182,13 @@ instance Core.ToQuery ListBuilds where
 
 -- | /See:/ 'newListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { -- | If there are more than 100 items in the list, only the first 100 items
+  { -- | A list of build IDs, with each build ID representing a single build.
+    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | If there are more than 100 items in the list, only the first 100 items
     -- are returned, along with a unique string called a /nextToken/. To get
     -- the next batch of items in the list, call this operation again, adding
     -- the next token to the call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of build IDs, with each build ID representing a single build.
-    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,12 +202,12 @@ data ListBuildsResponse = ListBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ids', 'listBuildsResponse_ids' - A list of build IDs, with each build ID representing a single build.
+--
 -- 'nextToken', 'listBuildsResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
 -- the next batch of items in the list, call this operation again, adding
 -- the next token to the call.
---
--- 'ids', 'listBuildsResponse_ids' - A list of build IDs, with each build ID representing a single build.
 --
 -- 'httpStatus', 'listBuildsResponse_httpStatus' - The response's http status code.
 newListBuildsResponse ::
@@ -216,10 +216,14 @@ newListBuildsResponse ::
   ListBuildsResponse
 newListBuildsResponse pHttpStatus_ =
   ListBuildsResponse'
-    { nextToken = Prelude.Nothing,
-      ids = Prelude.Nothing,
+    { ids = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of build IDs, with each build ID representing a single build.
+listBuildsResponse_ids :: Lens.Lens' ListBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBuildsResponse_ids = Lens.lens (\ListBuildsResponse' {ids} -> ids) (\s@ListBuildsResponse' {} a -> s {ids = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
@@ -227,10 +231,6 @@ newListBuildsResponse pHttpStatus_ =
 -- the next token to the call.
 listBuildsResponse_nextToken :: Lens.Lens' ListBuildsResponse (Prelude.Maybe Prelude.Text)
 listBuildsResponse_nextToken = Lens.lens (\ListBuildsResponse' {nextToken} -> nextToken) (\s@ListBuildsResponse' {} a -> s {nextToken = a} :: ListBuildsResponse)
-
--- | A list of build IDs, with each build ID representing a single build.
-listBuildsResponse_ids :: Lens.Lens' ListBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listBuildsResponse_ids = Lens.lens (\ListBuildsResponse' {ids} -> ids) (\s@ListBuildsResponse' {} a -> s {ids = a} :: ListBuildsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBuildsResponse_httpStatus :: Lens.Lens' ListBuildsResponse Prelude.Int

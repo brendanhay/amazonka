@@ -38,10 +38,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportedEnvironmentVariable' smart constructor.
 data ExportedEnvironmentVariable = ExportedEnvironmentVariable'
-  { -- | The name of the exported environment variable.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value assigned to the exported environment variable.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value assigned to the exported environment variable.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The name of the exported environment variable.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,25 +53,25 @@ data ExportedEnvironmentVariable = ExportedEnvironmentVariable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'exportedEnvironmentVariable_name' - The name of the exported environment variable.
---
 -- 'value', 'exportedEnvironmentVariable_value' - The value assigned to the exported environment variable.
+--
+-- 'name', 'exportedEnvironmentVariable_name' - The name of the exported environment variable.
 newExportedEnvironmentVariable ::
   ExportedEnvironmentVariable
 newExportedEnvironmentVariable =
   ExportedEnvironmentVariable'
-    { name =
+    { value =
         Prelude.Nothing,
-      value = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the exported environment variable.
-exportedEnvironmentVariable_name :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
-exportedEnvironmentVariable_name = Lens.lens (\ExportedEnvironmentVariable' {name} -> name) (\s@ExportedEnvironmentVariable' {} a -> s {name = a} :: ExportedEnvironmentVariable)
 
 -- | The value assigned to the exported environment variable.
 exportedEnvironmentVariable_value :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
 exportedEnvironmentVariable_value = Lens.lens (\ExportedEnvironmentVariable' {value} -> value) (\s@ExportedEnvironmentVariable' {} a -> s {value = a} :: ExportedEnvironmentVariable)
+
+-- | The name of the exported environment variable.
+exportedEnvironmentVariable_name :: Lens.Lens' ExportedEnvironmentVariable (Prelude.Maybe Prelude.Text)
+exportedEnvironmentVariable_name = Lens.lens (\ExportedEnvironmentVariable' {name} -> name) (\s@ExportedEnvironmentVariable' {} a -> s {name = a} :: ExportedEnvironmentVariable)
 
 instance Core.FromJSON ExportedEnvironmentVariable where
   parseJSON =
@@ -79,7 +79,7 @@ instance Core.FromJSON ExportedEnvironmentVariable where
       "ExportedEnvironmentVariable"
       ( \x ->
           ExportedEnvironmentVariable'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable ExportedEnvironmentVariable

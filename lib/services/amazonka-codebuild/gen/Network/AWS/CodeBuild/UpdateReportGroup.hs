@@ -113,7 +113,7 @@ updateReportGroup_exportConfig = Lens.lens (\UpdateReportGroup' {exportConfig} -
 -- These tags are available for use by Amazon Web Services services that
 -- support CodeBuild report group tags.
 updateReportGroup_tags :: Lens.Lens' UpdateReportGroup (Prelude.Maybe [Tag])
-updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@UpdateReportGroup' {} a -> s {tags = a} :: UpdateReportGroup) Prelude.. Lens.mapping Lens._Coerce
+updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@UpdateReportGroup' {} a -> s {tags = a} :: UpdateReportGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the report group to update.
 updateReportGroup_arn :: Lens.Lens' UpdateReportGroup Prelude.Text

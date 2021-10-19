@@ -106,7 +106,7 @@ newCreateReportGroup pName_ pType_ pExportConfig_ =
 -- These tags are available for use by Amazon Web Services services that
 -- support CodeBuild report group tags.
 createReportGroup_tags :: Lens.Lens' CreateReportGroup (Prelude.Maybe [Tag])
-createReportGroup_tags = Lens.lens (\CreateReportGroup' {tags} -> tags) (\s@CreateReportGroup' {} a -> s {tags = a} :: CreateReportGroup) Prelude.. Lens.mapping Lens._Coerce
+createReportGroup_tags = Lens.lens (\CreateReportGroup' {tags} -> tags) (\s@CreateReportGroup' {} a -> s {tags = a} :: CreateReportGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the report group.
 createReportGroup_name :: Lens.Lens' CreateReportGroup Prelude.Text

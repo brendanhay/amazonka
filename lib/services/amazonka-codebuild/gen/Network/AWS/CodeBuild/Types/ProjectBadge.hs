@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjectBadge' smart constructor.
 data ProjectBadge = ProjectBadge'
-  { -- | The publicly-accessible URL through which you can access the build badge
-    -- for your project.
-    badgeRequestUrl :: Prelude.Maybe Prelude.Text,
-    -- | Set this to true to generate a publicly accessible URL for your
+  { -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
-    badgeEnabled :: Prelude.Maybe Prelude.Bool
+    badgeEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The publicly-accessible URL through which you can access the build badge
+    -- for your project.
+    badgeRequestUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data ProjectBadge = ProjectBadge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'badgeRequestUrl', 'projectBadge_badgeRequestUrl' - The publicly-accessible URL through which you can access the build badge
--- for your project.
---
 -- 'badgeEnabled', 'projectBadge_badgeEnabled' - Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
+--
+-- 'badgeRequestUrl', 'projectBadge_badgeRequestUrl' - The publicly-accessible URL through which you can access the build badge
+-- for your project.
 newProjectBadge ::
   ProjectBadge
 newProjectBadge =
   ProjectBadge'
-    { badgeRequestUrl = Prelude.Nothing,
-      badgeEnabled = Prelude.Nothing
+    { badgeEnabled = Prelude.Nothing,
+      badgeRequestUrl = Prelude.Nothing
     }
-
--- | The publicly-accessible URL through which you can access the build badge
--- for your project.
-projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Text)
-projectBadge_badgeRequestUrl = Lens.lens (\ProjectBadge' {badgeRequestUrl} -> badgeRequestUrl) (\s@ProjectBadge' {} a -> s {badgeRequestUrl = a} :: ProjectBadge)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
 projectBadge_badgeEnabled :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Bool)
 projectBadge_badgeEnabled = Lens.lens (\ProjectBadge' {badgeEnabled} -> badgeEnabled) (\s@ProjectBadge' {} a -> s {badgeEnabled = a} :: ProjectBadge)
+
+-- | The publicly-accessible URL through which you can access the build badge
+-- for your project.
+projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Text)
+projectBadge_badgeRequestUrl = Lens.lens (\ProjectBadge' {badgeRequestUrl} -> badgeRequestUrl) (\s@ProjectBadge' {} a -> s {badgeRequestUrl = a} :: ProjectBadge)
 
 instance Core.FromJSON ProjectBadge where
   parseJSON =
@@ -73,8 +73,8 @@ instance Core.FromJSON ProjectBadge where
       "ProjectBadge"
       ( \x ->
           ProjectBadge'
-            Prelude.<$> (x Core..:? "badgeRequestUrl")
-            Prelude.<*> (x Core..:? "badgeEnabled")
+            Prelude.<$> (x Core..:? "badgeEnabled")
+            Prelude.<*> (x Core..:? "badgeRequestUrl")
       )
 
 instance Prelude.Hashable ProjectBadge

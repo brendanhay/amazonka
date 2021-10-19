@@ -29,8 +29,8 @@ module Network.AWS.CodeBuild.UpdateWebhook
     newUpdateWebhook,
 
     -- * Request Lenses
-    updateWebhook_rotateSecret,
     updateWebhook_branchFilter,
+    updateWebhook_rotateSecret,
     updateWebhook_filterGroups,
     updateWebhook_buildType,
     updateWebhook_projectName,
@@ -54,17 +54,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateWebhook' smart constructor.
 data UpdateWebhook = UpdateWebhook'
-  { -- | A boolean value that specifies whether the associated GitHub
-    -- repository\'s secret token should be updated. If you use Bitbucket for
-    -- your repository, @rotateSecret@ is ignored.
-    rotateSecret :: Prelude.Maybe Prelude.Bool,
-    -- | A regular expression used to determine which repository branches are
+  { -- | A regular expression used to determine which repository branches are
     -- built when a webhook is triggered. If the name of a branch matches the
     -- regular expression, then it is built. If @branchFilter@ is empty, then
     -- all branches are built.
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
     branchFilter :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value that specifies whether the associated GitHub
+    -- repository\'s secret token should be updated. If you use Bitbucket for
+    -- your repository, @rotateSecret@ is ignored.
+    rotateSecret :: Prelude.Maybe Prelude.Bool,
     -- | An array of arrays of @WebhookFilter@ objects used to determine if a
     -- webhook event can trigger a build. A filter group must contain at least
     -- one @EVENT@ @WebhookFilter@.
@@ -84,16 +84,16 @@ data UpdateWebhook = UpdateWebhook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rotateSecret', 'updateWebhook_rotateSecret' - A boolean value that specifies whether the associated GitHub
--- repository\'s secret token should be updated. If you use Bitbucket for
--- your repository, @rotateSecret@ is ignored.
---
 -- 'branchFilter', 'updateWebhook_branchFilter' - A regular expression used to determine which repository branches are
 -- built when a webhook is triggered. If the name of a branch matches the
 -- regular expression, then it is built. If @branchFilter@ is empty, then
 -- all branches are built.
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
+--
+-- 'rotateSecret', 'updateWebhook_rotateSecret' - A boolean value that specifies whether the associated GitHub
+-- repository\'s secret token should be updated. If you use Bitbucket for
+-- your repository, @rotateSecret@ is ignored.
 --
 -- 'filterGroups', 'updateWebhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine if a
 -- webhook event can trigger a build. A filter group must contain at least
@@ -108,18 +108,12 @@ newUpdateWebhook ::
   UpdateWebhook
 newUpdateWebhook pProjectName_ =
   UpdateWebhook'
-    { rotateSecret = Prelude.Nothing,
-      branchFilter = Prelude.Nothing,
+    { branchFilter = Prelude.Nothing,
+      rotateSecret = Prelude.Nothing,
       filterGroups = Prelude.Nothing,
       buildType = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | A boolean value that specifies whether the associated GitHub
--- repository\'s secret token should be updated. If you use Bitbucket for
--- your repository, @rotateSecret@ is ignored.
-updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Bool)
-updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotateSecret) (\s@UpdateWebhook' {} a -> s {rotateSecret = a} :: UpdateWebhook)
 
 -- | A regular expression used to determine which repository branches are
 -- built when a webhook is triggered. If the name of a branch matches the
@@ -130,11 +124,17 @@ updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotate
 updateWebhook_branchFilter :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Text)
 updateWebhook_branchFilter = Lens.lens (\UpdateWebhook' {branchFilter} -> branchFilter) (\s@UpdateWebhook' {} a -> s {branchFilter = a} :: UpdateWebhook)
 
+-- | A boolean value that specifies whether the associated GitHub
+-- repository\'s secret token should be updated. If you use Bitbucket for
+-- your repository, @rotateSecret@ is ignored.
+updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Bool)
+updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotateSecret) (\s@UpdateWebhook' {} a -> s {rotateSecret = a} :: UpdateWebhook)
+
 -- | An array of arrays of @WebhookFilter@ objects used to determine if a
 -- webhook event can trigger a build. A filter group must contain at least
 -- one @EVENT@ @WebhookFilter@.
 updateWebhook_filterGroups :: Lens.Lens' UpdateWebhook (Prelude.Maybe [[WebhookFilter]])
-updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filterGroups) (\s@UpdateWebhook' {} a -> s {filterGroups = a} :: UpdateWebhook) Prelude.. Lens.mapping Lens._Coerce
+updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filterGroups) (\s@UpdateWebhook' {} a -> s {filterGroups = a} :: UpdateWebhook) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the type of build this webhook will trigger.
 updateWebhook_buildType :: Lens.Lens' UpdateWebhook (Prelude.Maybe WebhookBuildType)
@@ -180,8 +180,8 @@ instance Core.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rotateSecret" Core..=) Prelude.<$> rotateSecret,
-            ("branchFilter" Core..=) Prelude.<$> branchFilter,
+          [ ("branchFilter" Core..=) Prelude.<$> branchFilter,
+            ("rotateSecret" Core..=) Prelude.<$> rotateSecret,
             ("filterGroups" Core..=) Prelude.<$> filterGroups,
             ("buildType" Core..=) Prelude.<$> buildType,
             Prelude.Just ("projectName" Core..= projectName)

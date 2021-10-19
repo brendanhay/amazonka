@@ -76,7 +76,7 @@ testReportSummary_total = Lens.lens (\TestReportSummary' {total} -> total) (\s@T
 -- | A map that contains the number of each type of status returned by the
 -- test results in this @TestReportSummary@.
 testReportSummary_statusCounts :: Lens.Lens' TestReportSummary (Prelude.HashMap Prelude.Text Prelude.Int)
-testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Prelude.. Lens._Coerce
+testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Prelude.. Lens.coerced
 
 -- | The number of nanoseconds it took to run all of the test cases in this
 -- report.

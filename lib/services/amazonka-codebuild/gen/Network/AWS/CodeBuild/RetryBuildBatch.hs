@@ -29,8 +29,8 @@ module Network.AWS.CodeBuild.RetryBuildBatch
 
     -- * Request Lenses
     retryBuildBatch_idempotencyToken,
-    retryBuildBatch_retryType,
     retryBuildBatch_id,
+    retryBuildBatch_retryType,
 
     -- * Destructuring the Response
     RetryBuildBatchResponse (..),
@@ -57,10 +57,10 @@ data RetryBuildBatch = RetryBuildBatch'
     -- repeat the @RetryBuildBatch@ request with the same token, but change a
     -- parameter, CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the type of retry to perform.
-    retryType :: Prelude.Maybe RetryBuildBatchType,
     -- | Specifies the identifier of the batch build to restart.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the type of retry to perform.
+    retryType :: Prelude.Maybe RetryBuildBatchType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,17 +78,17 @@ data RetryBuildBatch = RetryBuildBatch'
 -- repeat the @RetryBuildBatch@ request with the same token, but change a
 -- parameter, CodeBuild returns a parameter mismatch error.
 --
--- 'retryType', 'retryBuildBatch_retryType' - Specifies the type of retry to perform.
---
 -- 'id', 'retryBuildBatch_id' - Specifies the identifier of the batch build to restart.
+--
+-- 'retryType', 'retryBuildBatch_retryType' - Specifies the type of retry to perform.
 newRetryBuildBatch ::
   RetryBuildBatch
 newRetryBuildBatch =
   RetryBuildBatch'
     { idempotencyToken =
         Prelude.Nothing,
-      retryType = Prelude.Nothing,
-      id = Prelude.Nothing
+      id = Prelude.Nothing,
+      retryType = Prelude.Nothing
     }
 
 -- | A unique, case sensitive identifier you provide to ensure the
@@ -99,13 +99,13 @@ newRetryBuildBatch =
 retryBuildBatch_idempotencyToken :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
 retryBuildBatch_idempotencyToken = Lens.lens (\RetryBuildBatch' {idempotencyToken} -> idempotencyToken) (\s@RetryBuildBatch' {} a -> s {idempotencyToken = a} :: RetryBuildBatch)
 
--- | Specifies the type of retry to perform.
-retryBuildBatch_retryType :: Lens.Lens' RetryBuildBatch (Prelude.Maybe RetryBuildBatchType)
-retryBuildBatch_retryType = Lens.lens (\RetryBuildBatch' {retryType} -> retryType) (\s@RetryBuildBatch' {} a -> s {retryType = a} :: RetryBuildBatch)
-
 -- | Specifies the identifier of the batch build to restart.
 retryBuildBatch_id :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
 retryBuildBatch_id = Lens.lens (\RetryBuildBatch' {id} -> id) (\s@RetryBuildBatch' {} a -> s {id = a} :: RetryBuildBatch)
+
+-- | Specifies the type of retry to perform.
+retryBuildBatch_retryType :: Lens.Lens' RetryBuildBatch (Prelude.Maybe RetryBuildBatchType)
+retryBuildBatch_retryType = Lens.lens (\RetryBuildBatch' {retryType} -> retryType) (\s@RetryBuildBatch' {} a -> s {retryType = a} :: RetryBuildBatch)
 
 instance Core.AWSRequest RetryBuildBatch where
   type
@@ -145,8 +145,8 @@ instance Core.ToJSON RetryBuildBatch where
       ( Prelude.catMaybes
           [ ("idempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
-            ("retryType" Core..=) Prelude.<$> retryType,
-            ("id" Core..=) Prelude.<$> id
+            ("id" Core..=) Prelude.<$> id,
+            ("retryType" Core..=) Prelude.<$> retryType
           ]
       )
 

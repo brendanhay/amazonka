@@ -29,19 +29,19 @@ module Network.AWS.SageMaker.ListMonitoringSchedules
     newListMonitoringSchedules,
 
     -- * Request Lenses
+    listMonitoringSchedules_nameContains,
+    listMonitoringSchedules_endpointName,
     listMonitoringSchedules_lastModifiedTimeBefore,
+    listMonitoringSchedules_creationTimeAfter,
     listMonitoringSchedules_nextToken,
     listMonitoringSchedules_sortOrder,
-    listMonitoringSchedules_endpointName,
-    listMonitoringSchedules_nameContains,
-    listMonitoringSchedules_monitoringJobDefinitionName,
-    listMonitoringSchedules_maxResults,
-    listMonitoringSchedules_creationTimeBefore,
     listMonitoringSchedules_lastModifiedTimeAfter,
-    listMonitoringSchedules_sortBy,
+    listMonitoringSchedules_creationTimeBefore,
     listMonitoringSchedules_statusEquals,
     listMonitoringSchedules_monitoringTypeEquals,
-    listMonitoringSchedules_creationTimeAfter,
+    listMonitoringSchedules_maxResults,
+    listMonitoringSchedules_sortBy,
+    listMonitoringSchedules_monitoringJobDefinitionName,
 
     -- * Destructuring the Response
     ListMonitoringSchedulesResponse (..),
@@ -63,43 +63,43 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListMonitoringSchedules' smart constructor.
 data ListMonitoringSchedules = ListMonitoringSchedules'
-  { -- | A filter that returns only monitoring schedules modified before a
+  { -- | Filter for monitoring schedules whose name contains a specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | Name of a specific endpoint to fetch schedules for.
+    endpointName :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only monitoring schedules modified before a
     -- specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns only monitoring schedules created after a
+    -- specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The token returned if the response is truncated. To retrieve the next
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
     -- default is @Descending@.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | Name of a specific endpoint to fetch schedules for.
-    endpointName :: Prelude.Maybe Prelude.Text,
-    -- | Filter for monitoring schedules whose name contains a specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | Gets a list of the monitoring schedules for the specified monitoring job
-    -- definition.
-    monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of jobs to return in the response. The default value
-    -- is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only monitoring schedules created before a
-    -- specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only monitoring schedules modified after a
     -- specified time.
     lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
-    -- field. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe MonitoringScheduleSortKey,
+    -- | A filter that returns only monitoring schedules created before a
+    -- specified time.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only monitoring schedules modified before a
     -- specified time.
     statusEquals :: Prelude.Maybe ScheduleStatus,
     -- | A filter that returns only the monitoring schedules for the specified
     -- monitoring type.
     monitoringTypeEquals :: Prelude.Maybe MonitoringType,
-    -- | A filter that returns only monitoring schedules created after a
-    -- specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    -- | The maximum number of jobs to return in the response. The default value
+    -- is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+    -- field. The default is @CreationTime@.
+    sortBy :: Prelude.Maybe MonitoringScheduleSortKey,
+    -- | Gets a list of the monitoring schedules for the specified monitoring job
+    -- definition.
+    monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,7 +111,14 @@ data ListMonitoringSchedules = ListMonitoringSchedules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listMonitoringSchedules_nameContains' - Filter for monitoring schedules whose name contains a specified string.
+--
+-- 'endpointName', 'listMonitoringSchedules_endpointName' - Name of a specific endpoint to fetch schedules for.
+--
 -- 'lastModifiedTimeBefore', 'listMonitoringSchedules_lastModifiedTimeBefore' - A filter that returns only monitoring schedules modified before a
+-- specified time.
+--
+-- 'creationTimeAfter', 'listMonitoringSchedules_creationTimeAfter' - A filter that returns only monitoring schedules created after a
 -- specified time.
 --
 -- 'nextToken', 'listMonitoringSchedules_nextToken' - The token returned if the response is truncated. To retrieve the next
@@ -120,24 +127,11 @@ data ListMonitoringSchedules = ListMonitoringSchedules'
 -- 'sortOrder', 'listMonitoringSchedules_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
 -- default is @Descending@.
 --
--- 'endpointName', 'listMonitoringSchedules_endpointName' - Name of a specific endpoint to fetch schedules for.
---
--- 'nameContains', 'listMonitoringSchedules_nameContains' - Filter for monitoring schedules whose name contains a specified string.
---
--- 'monitoringJobDefinitionName', 'listMonitoringSchedules_monitoringJobDefinitionName' - Gets a list of the monitoring schedules for the specified monitoring job
--- definition.
---
--- 'maxResults', 'listMonitoringSchedules_maxResults' - The maximum number of jobs to return in the response. The default value
--- is 10.
---
--- 'creationTimeBefore', 'listMonitoringSchedules_creationTimeBefore' - A filter that returns only monitoring schedules created before a
--- specified time.
---
 -- 'lastModifiedTimeAfter', 'listMonitoringSchedules_lastModifiedTimeAfter' - A filter that returns only monitoring schedules modified after a
 -- specified time.
 --
--- 'sortBy', 'listMonitoringSchedules_sortBy' - Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
--- field. The default is @CreationTime@.
+-- 'creationTimeBefore', 'listMonitoringSchedules_creationTimeBefore' - A filter that returns only monitoring schedules created before a
+-- specified time.
 --
 -- 'statusEquals', 'listMonitoringSchedules_statusEquals' - A filter that returns only monitoring schedules modified before a
 -- specified time.
@@ -145,32 +139,51 @@ data ListMonitoringSchedules = ListMonitoringSchedules'
 -- 'monitoringTypeEquals', 'listMonitoringSchedules_monitoringTypeEquals' - A filter that returns only the monitoring schedules for the specified
 -- monitoring type.
 --
--- 'creationTimeAfter', 'listMonitoringSchedules_creationTimeAfter' - A filter that returns only monitoring schedules created after a
--- specified time.
+-- 'maxResults', 'listMonitoringSchedules_maxResults' - The maximum number of jobs to return in the response. The default value
+-- is 10.
+--
+-- 'sortBy', 'listMonitoringSchedules_sortBy' - Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+-- field. The default is @CreationTime@.
+--
+-- 'monitoringJobDefinitionName', 'listMonitoringSchedules_monitoringJobDefinitionName' - Gets a list of the monitoring schedules for the specified monitoring job
+-- definition.
 newListMonitoringSchedules ::
   ListMonitoringSchedules
 newListMonitoringSchedules =
   ListMonitoringSchedules'
-    { lastModifiedTimeBefore =
+    { nameContains =
         Prelude.Nothing,
+      endpointName = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      endpointName = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      monitoringJobDefinitionName = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
       statusEquals = Prelude.Nothing,
       monitoringTypeEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      monitoringJobDefinitionName = Prelude.Nothing
     }
+
+-- | Filter for monitoring schedules whose name contains a specified string.
+listMonitoringSchedules_nameContains :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
+listMonitoringSchedules_nameContains = Lens.lens (\ListMonitoringSchedules' {nameContains} -> nameContains) (\s@ListMonitoringSchedules' {} a -> s {nameContains = a} :: ListMonitoringSchedules)
+
+-- | Name of a specific endpoint to fetch schedules for.
+listMonitoringSchedules_endpointName :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
+listMonitoringSchedules_endpointName = Lens.lens (\ListMonitoringSchedules' {endpointName} -> endpointName) (\s@ListMonitoringSchedules' {} a -> s {endpointName = a} :: ListMonitoringSchedules)
 
 -- | A filter that returns only monitoring schedules modified before a
 -- specified time.
 listMonitoringSchedules_lastModifiedTimeBefore :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
 listMonitoringSchedules_lastModifiedTimeBefore = Lens.lens (\ListMonitoringSchedules' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListMonitoringSchedules' {} a -> s {lastModifiedTimeBefore = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
+
+-- | A filter that returns only monitoring schedules created after a
+-- specified time.
+listMonitoringSchedules_creationTimeAfter :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
+listMonitoringSchedules_creationTimeAfter = Lens.lens (\ListMonitoringSchedules' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringSchedules' {} a -> s {creationTimeAfter = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
 
 -- | The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
@@ -182,38 +195,15 @@ listMonitoringSchedules_nextToken = Lens.lens (\ListMonitoringSchedules' {nextTo
 listMonitoringSchedules_sortOrder :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe SortOrder)
 listMonitoringSchedules_sortOrder = Lens.lens (\ListMonitoringSchedules' {sortOrder} -> sortOrder) (\s@ListMonitoringSchedules' {} a -> s {sortOrder = a} :: ListMonitoringSchedules)
 
--- | Name of a specific endpoint to fetch schedules for.
-listMonitoringSchedules_endpointName :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
-listMonitoringSchedules_endpointName = Lens.lens (\ListMonitoringSchedules' {endpointName} -> endpointName) (\s@ListMonitoringSchedules' {} a -> s {endpointName = a} :: ListMonitoringSchedules)
-
--- | Filter for monitoring schedules whose name contains a specified string.
-listMonitoringSchedules_nameContains :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
-listMonitoringSchedules_nameContains = Lens.lens (\ListMonitoringSchedules' {nameContains} -> nameContains) (\s@ListMonitoringSchedules' {} a -> s {nameContains = a} :: ListMonitoringSchedules)
-
--- | Gets a list of the monitoring schedules for the specified monitoring job
--- definition.
-listMonitoringSchedules_monitoringJobDefinitionName :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
-listMonitoringSchedules_monitoringJobDefinitionName = Lens.lens (\ListMonitoringSchedules' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@ListMonitoringSchedules' {} a -> s {monitoringJobDefinitionName = a} :: ListMonitoringSchedules)
-
--- | The maximum number of jobs to return in the response. The default value
--- is 10.
-listMonitoringSchedules_maxResults :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Natural)
-listMonitoringSchedules_maxResults = Lens.lens (\ListMonitoringSchedules' {maxResults} -> maxResults) (\s@ListMonitoringSchedules' {} a -> s {maxResults = a} :: ListMonitoringSchedules)
-
--- | A filter that returns only monitoring schedules created before a
--- specified time.
-listMonitoringSchedules_creationTimeBefore :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
-listMonitoringSchedules_creationTimeBefore = Lens.lens (\ListMonitoringSchedules' {creationTimeBefore} -> creationTimeBefore) (\s@ListMonitoringSchedules' {} a -> s {creationTimeBefore = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
-
 -- | A filter that returns only monitoring schedules modified after a
 -- specified time.
 listMonitoringSchedules_lastModifiedTimeAfter :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
 listMonitoringSchedules_lastModifiedTimeAfter = Lens.lens (\ListMonitoringSchedules' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListMonitoringSchedules' {} a -> s {lastModifiedTimeAfter = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
 
--- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
--- field. The default is @CreationTime@.
-listMonitoringSchedules_sortBy :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe MonitoringScheduleSortKey)
-listMonitoringSchedules_sortBy = Lens.lens (\ListMonitoringSchedules' {sortBy} -> sortBy) (\s@ListMonitoringSchedules' {} a -> s {sortBy = a} :: ListMonitoringSchedules)
+-- | A filter that returns only monitoring schedules created before a
+-- specified time.
+listMonitoringSchedules_creationTimeBefore :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
+listMonitoringSchedules_creationTimeBefore = Lens.lens (\ListMonitoringSchedules' {creationTimeBefore} -> creationTimeBefore) (\s@ListMonitoringSchedules' {} a -> s {creationTimeBefore = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only monitoring schedules modified before a
 -- specified time.
@@ -225,10 +215,20 @@ listMonitoringSchedules_statusEquals = Lens.lens (\ListMonitoringSchedules' {sta
 listMonitoringSchedules_monitoringTypeEquals :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe MonitoringType)
 listMonitoringSchedules_monitoringTypeEquals = Lens.lens (\ListMonitoringSchedules' {monitoringTypeEquals} -> monitoringTypeEquals) (\s@ListMonitoringSchedules' {} a -> s {monitoringTypeEquals = a} :: ListMonitoringSchedules)
 
--- | A filter that returns only monitoring schedules created after a
--- specified time.
-listMonitoringSchedules_creationTimeAfter :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
-listMonitoringSchedules_creationTimeAfter = Lens.lens (\ListMonitoringSchedules' {creationTimeAfter} -> creationTimeAfter) (\s@ListMonitoringSchedules' {} a -> s {creationTimeAfter = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
+-- | The maximum number of jobs to return in the response. The default value
+-- is 10.
+listMonitoringSchedules_maxResults :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Natural)
+listMonitoringSchedules_maxResults = Lens.lens (\ListMonitoringSchedules' {maxResults} -> maxResults) (\s@ListMonitoringSchedules' {} a -> s {maxResults = a} :: ListMonitoringSchedules)
+
+-- | Whether to sort results by @Status@, @CreationTime@, @ScheduledTime@
+-- field. The default is @CreationTime@.
+listMonitoringSchedules_sortBy :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe MonitoringScheduleSortKey)
+listMonitoringSchedules_sortBy = Lens.lens (\ListMonitoringSchedules' {sortBy} -> sortBy) (\s@ListMonitoringSchedules' {} a -> s {sortBy = a} :: ListMonitoringSchedules)
+
+-- | Gets a list of the monitoring schedules for the specified monitoring job
+-- definition.
+listMonitoringSchedules_monitoringJobDefinitionName :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
+listMonitoringSchedules_monitoringJobDefinitionName = Lens.lens (\ListMonitoringSchedules' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@ListMonitoringSchedules' {} a -> s {monitoringJobDefinitionName = a} :: ListMonitoringSchedules)
 
 instance Core.AWSPager ListMonitoringSchedules where
   page rq rs
@@ -290,25 +290,25 @@ instance Core.ToJSON ListMonitoringSchedules where
   toJSON ListMonitoringSchedules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Core..=)
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("EndpointName" Core..=) Prelude.<$> endpointName,
+            ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MonitoringJobDefinitionName" Core..=)
-              Prelude.<$> monitoringJobDefinitionName,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
             ("StatusEquals" Core..=) Prelude.<$> statusEquals,
             ("MonitoringTypeEquals" Core..=)
               Prelude.<$> monitoringTypeEquals,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("MonitoringJobDefinitionName" Core..=)
+              Prelude.<$> monitoringJobDefinitionName
           ]
       )
 
@@ -371,7 +371,7 @@ listMonitoringSchedulesResponse_httpStatus = Lens.lens (\ListMonitoringSchedules
 -- | A JSON array in which each element is a summary for a monitoring
 -- schedule.
 listMonitoringSchedulesResponse_monitoringScheduleSummaries :: Lens.Lens' ListMonitoringSchedulesResponse [MonitoringScheduleSummary]
-listMonitoringSchedulesResponse_monitoringScheduleSummaries = Lens.lens (\ListMonitoringSchedulesResponse' {monitoringScheduleSummaries} -> monitoringScheduleSummaries) (\s@ListMonitoringSchedulesResponse' {} a -> s {monitoringScheduleSummaries = a} :: ListMonitoringSchedulesResponse) Prelude.. Lens._Coerce
+listMonitoringSchedulesResponse_monitoringScheduleSummaries = Lens.lens (\ListMonitoringSchedulesResponse' {monitoringScheduleSummaries} -> monitoringScheduleSummaries) (\s@ListMonitoringSchedulesResponse' {} a -> s {monitoringScheduleSummaries = a} :: ListMonitoringSchedulesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

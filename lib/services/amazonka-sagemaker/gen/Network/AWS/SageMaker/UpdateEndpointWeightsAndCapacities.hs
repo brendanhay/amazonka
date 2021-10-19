@@ -85,7 +85,7 @@ newUpdateEndpointWeightsAndCapacities
       { endpointName =
           pEndpointName_,
         desiredWeightsAndCapacities =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pDesiredWeightsAndCapacities_
       }
 
@@ -95,7 +95,7 @@ updateEndpointWeightsAndCapacities_endpointName = Lens.lens (\UpdateEndpointWeig
 
 -- | An object that provides new capacity and weight values for a variant.
 updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities :: Lens.Lens' UpdateEndpointWeightsAndCapacities (Prelude.NonEmpty DesiredWeightAndCapacity)
-updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities = Lens.lens (\UpdateEndpointWeightsAndCapacities' {desiredWeightsAndCapacities} -> desiredWeightsAndCapacities) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {desiredWeightsAndCapacities = a} :: UpdateEndpointWeightsAndCapacities) Prelude.. Lens._Coerce
+updateEndpointWeightsAndCapacities_desiredWeightsAndCapacities = Lens.lens (\UpdateEndpointWeightsAndCapacities' {desiredWeightsAndCapacities} -> desiredWeightsAndCapacities) (\s@UpdateEndpointWeightsAndCapacities' {} a -> s {desiredWeightsAndCapacities = a} :: UpdateEndpointWeightsAndCapacities) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

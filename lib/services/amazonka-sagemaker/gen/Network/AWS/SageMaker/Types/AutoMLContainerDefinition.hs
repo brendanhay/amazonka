@@ -71,7 +71,7 @@ newAutoMLContainerDefinition pImage_ pModelDataUrl_ =
 -- | The environment variables to set in the container. For more information,
 -- see .
 autoMLContainerDefinition_environment :: Lens.Lens' AutoMLContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-autoMLContainerDefinition_environment = Lens.lens (\AutoMLContainerDefinition' {environment} -> environment) (\s@AutoMLContainerDefinition' {} a -> s {environment = a} :: AutoMLContainerDefinition) Prelude.. Lens.mapping Lens._Coerce
+autoMLContainerDefinition_environment = Lens.lens (\AutoMLContainerDefinition' {environment} -> environment) (\s@AutoMLContainerDefinition' {} a -> s {environment = a} :: AutoMLContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Elastic Container Registry (Amazon ECR) path of the
 -- container. For more information, see .

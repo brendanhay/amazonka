@@ -33,17 +33,17 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 data DebugRuleConfiguration = DebugRuleConfiguration'
   { -- | Runtime configuration for rule container.
     ruleParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The instance type to deploy a Debugger custom rule for debugging a
-    -- training job.
-    instanceType :: Prelude.Maybe ProcessingInstanceType,
     -- | Path to Amazon S3 storage location for rules.
     s3OutputPath :: Prelude.Maybe Prelude.Text,
-    -- | The size, in GB, of the ML storage volume attached to the processing
-    -- instance.
-    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | Path to local storage location for output of rules. Defaults to
     -- @\/opt\/ml\/processing\/output\/rule\/@.
     localPath :: Prelude.Maybe Prelude.Text,
+    -- | The instance type to deploy a Debugger custom rule for debugging a
+    -- training job.
+    instanceType :: Prelude.Maybe ProcessingInstanceType,
+    -- | The size, in GB, of the ML storage volume attached to the processing
+    -- instance.
+    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The name of the rule configuration. It must be unique relative to other
     -- rule configuration names.
     ruleConfigurationName :: Prelude.Text,
@@ -63,16 +63,16 @@ data DebugRuleConfiguration = DebugRuleConfiguration'
 --
 -- 'ruleParameters', 'debugRuleConfiguration_ruleParameters' - Runtime configuration for rule container.
 --
--- 'instanceType', 'debugRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for debugging a
--- training job.
---
 -- 's3OutputPath', 'debugRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.
---
--- 'volumeSizeInGB', 'debugRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing
--- instance.
 --
 -- 'localPath', 'debugRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to
 -- @\/opt\/ml\/processing\/output\/rule\/@.
+--
+-- 'instanceType', 'debugRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for debugging a
+-- training job.
+--
+-- 'volumeSizeInGB', 'debugRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing
+-- instance.
 --
 -- 'ruleConfigurationName', 'debugRuleConfiguration_ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other
 -- rule configuration names.
@@ -91,36 +91,36 @@ newDebugRuleConfiguration
     DebugRuleConfiguration'
       { ruleParameters =
           Prelude.Nothing,
-        instanceType = Prelude.Nothing,
         s3OutputPath = Prelude.Nothing,
-        volumeSizeInGB = Prelude.Nothing,
         localPath = Prelude.Nothing,
+        instanceType = Prelude.Nothing,
+        volumeSizeInGB = Prelude.Nothing,
         ruleConfigurationName = pRuleConfigurationName_,
         ruleEvaluatorImage = pRuleEvaluatorImage_
       }
 
 -- | Runtime configuration for rule container.
 debugRuleConfiguration_ruleParameters :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-debugRuleConfiguration_ruleParameters = Lens.lens (\DebugRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@DebugRuleConfiguration' {} a -> s {ruleParameters = a} :: DebugRuleConfiguration) Prelude.. Lens.mapping Lens._Coerce
+debugRuleConfiguration_ruleParameters = Lens.lens (\DebugRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@DebugRuleConfiguration' {} a -> s {ruleParameters = a} :: DebugRuleConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Path to Amazon S3 storage location for rules.
+debugRuleConfiguration_s3OutputPath :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe Prelude.Text)
+debugRuleConfiguration_s3OutputPath = Lens.lens (\DebugRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@DebugRuleConfiguration' {} a -> s {s3OutputPath = a} :: DebugRuleConfiguration)
+
+-- | Path to local storage location for output of rules. Defaults to
+-- @\/opt\/ml\/processing\/output\/rule\/@.
+debugRuleConfiguration_localPath :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe Prelude.Text)
+debugRuleConfiguration_localPath = Lens.lens (\DebugRuleConfiguration' {localPath} -> localPath) (\s@DebugRuleConfiguration' {} a -> s {localPath = a} :: DebugRuleConfiguration)
 
 -- | The instance type to deploy a Debugger custom rule for debugging a
 -- training job.
 debugRuleConfiguration_instanceType :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe ProcessingInstanceType)
 debugRuleConfiguration_instanceType = Lens.lens (\DebugRuleConfiguration' {instanceType} -> instanceType) (\s@DebugRuleConfiguration' {} a -> s {instanceType = a} :: DebugRuleConfiguration)
 
--- | Path to Amazon S3 storage location for rules.
-debugRuleConfiguration_s3OutputPath :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe Prelude.Text)
-debugRuleConfiguration_s3OutputPath = Lens.lens (\DebugRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@DebugRuleConfiguration' {} a -> s {s3OutputPath = a} :: DebugRuleConfiguration)
-
 -- | The size, in GB, of the ML storage volume attached to the processing
 -- instance.
 debugRuleConfiguration_volumeSizeInGB :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe Prelude.Natural)
 debugRuleConfiguration_volumeSizeInGB = Lens.lens (\DebugRuleConfiguration' {volumeSizeInGB} -> volumeSizeInGB) (\s@DebugRuleConfiguration' {} a -> s {volumeSizeInGB = a} :: DebugRuleConfiguration)
-
--- | Path to local storage location for output of rules. Defaults to
--- @\/opt\/ml\/processing\/output\/rule\/@.
-debugRuleConfiguration_localPath :: Lens.Lens' DebugRuleConfiguration (Prelude.Maybe Prelude.Text)
-debugRuleConfiguration_localPath = Lens.lens (\DebugRuleConfiguration' {localPath} -> localPath) (\s@DebugRuleConfiguration' {} a -> s {localPath = a} :: DebugRuleConfiguration)
 
 -- | The name of the rule configuration. It must be unique relative to other
 -- rule configuration names.
@@ -139,10 +139,10 @@ instance Core.FromJSON DebugRuleConfiguration where
       ( \x ->
           DebugRuleConfiguration'
             Prelude.<$> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..:? "LocalPath")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..: "RuleConfigurationName")
             Prelude.<*> (x Core..: "RuleEvaluatorImage")
       )
@@ -157,11 +157,11 @@ instance Core.ToJSON DebugRuleConfiguration where
       ( Prelude.catMaybes
           [ ("RuleParameters" Core..=)
               Prelude.<$> ruleParameters,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
+            ("LocalPath" Core..=) Prelude.<$> localPath,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("VolumeSizeInGB" Core..=)
               Prelude.<$> volumeSizeInGB,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
             Prelude.Just
               ( "RuleConfigurationName"
                   Core..= ruleConfigurationName

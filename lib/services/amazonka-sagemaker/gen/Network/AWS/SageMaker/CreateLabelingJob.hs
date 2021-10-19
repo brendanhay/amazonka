@@ -69,9 +69,9 @@ module Network.AWS.SageMaker.CreateLabelingJob
     newCreateLabelingJob,
 
     -- * Request Lenses
-    createLabelingJob_stoppingConditions,
-    createLabelingJob_labelCategoryConfigS3Uri,
     createLabelingJob_labelingJobAlgorithmsConfig,
+    createLabelingJob_labelCategoryConfigS3Uri,
+    createLabelingJob_stoppingConditions,
     createLabelingJob_tags,
     createLabelingJob_labelingJobName,
     createLabelingJob_labelAttributeName,
@@ -99,10 +99,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateLabelingJob' smart constructor.
 data CreateLabelingJob = CreateLabelingJob'
-  { -- | A set of conditions for stopping the labeling job. If any of the
-    -- conditions are met, the job is automatically stopped. You can use these
-    -- conditions to control the cost of data labeling.
-    stoppingConditions :: Prelude.Maybe LabelingJobStoppingConditions,
+  { -- | Configures the information required to perform automated data labeling.
+    labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
     -- | The S3 URI of the file, referred to as a /label category configuration
     -- file/, that defines the categories used to label the data objects.
     --
@@ -152,8 +150,10 @@ data CreateLabelingJob = CreateLabelingJob'
     --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName LabelAttributeName>
     --     of the labeling job you want to adjust or verify annotations of.
     labelCategoryConfigS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | Configures the information required to perform automated data labeling.
-    labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
+    -- | A set of conditions for stopping the labeling job. If any of the
+    -- conditions are met, the job is automatically stopped. You can use these
+    -- conditions to control the cost of data labeling.
+    stoppingConditions :: Prelude.Maybe LabelingJobStoppingConditions,
     -- | An array of key\/value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
@@ -253,9 +253,7 @@ data CreateLabelingJob = CreateLabelingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stoppingConditions', 'createLabelingJob_stoppingConditions' - A set of conditions for stopping the labeling job. If any of the
--- conditions are met, the job is automatically stopped. You can use these
--- conditions to control the cost of data labeling.
+-- 'labelingJobAlgorithmsConfig', 'createLabelingJob_labelingJobAlgorithmsConfig' - Configures the information required to perform automated data labeling.
 --
 -- 'labelCategoryConfigS3Uri', 'createLabelingJob_labelCategoryConfigS3Uri' - The S3 URI of the file, referred to as a /label category configuration
 -- file/, that defines the categories used to label the data objects.
@@ -306,7 +304,9 @@ data CreateLabelingJob = CreateLabelingJob'
 --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName LabelAttributeName>
 --     of the labeling job you want to adjust or verify annotations of.
 --
--- 'labelingJobAlgorithmsConfig', 'createLabelingJob_labelingJobAlgorithmsConfig' - Configures the information required to perform automated data labeling.
+-- 'stoppingConditions', 'createLabelingJob_stoppingConditions' - A set of conditions for stopping the labeling job. If any of the
+-- conditions are met, the job is automatically stopped. You can use these
+-- conditions to control the cost of data labeling.
 --
 -- 'tags', 'createLabelingJob_tags' - An array of key\/value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
@@ -417,10 +417,10 @@ newCreateLabelingJob
   pRoleArn_
   pHumanTaskConfig_ =
     CreateLabelingJob'
-      { stoppingConditions =
+      { labelingJobAlgorithmsConfig =
           Prelude.Nothing,
         labelCategoryConfigS3Uri = Prelude.Nothing,
-        labelingJobAlgorithmsConfig = Prelude.Nothing,
+        stoppingConditions = Prelude.Nothing,
         tags = Prelude.Nothing,
         labelingJobName = pLabelingJobName_,
         labelAttributeName = pLabelAttributeName_,
@@ -430,11 +430,9 @@ newCreateLabelingJob
         humanTaskConfig = pHumanTaskConfig_
       }
 
--- | A set of conditions for stopping the labeling job. If any of the
--- conditions are met, the job is automatically stopped. You can use these
--- conditions to control the cost of data labeling.
-createLabelingJob_stoppingConditions :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobStoppingConditions)
-createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingConditions} -> stoppingConditions) (\s@CreateLabelingJob' {} a -> s {stoppingConditions = a} :: CreateLabelingJob)
+-- | Configures the information required to perform automated data labeling.
+createLabelingJob_labelingJobAlgorithmsConfig :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobAlgorithmsConfig)
+createLabelingJob_labelingJobAlgorithmsConfig = Lens.lens (\CreateLabelingJob' {labelingJobAlgorithmsConfig} -> labelingJobAlgorithmsConfig) (\s@CreateLabelingJob' {} a -> s {labelingJobAlgorithmsConfig = a} :: CreateLabelingJob)
 
 -- | The S3 URI of the file, referred to as a /label category configuration
 -- file/, that defines the categories used to label the data objects.
@@ -487,15 +485,17 @@ createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingC
 createLabelingJob_labelCategoryConfigS3Uri :: Lens.Lens' CreateLabelingJob (Prelude.Maybe Prelude.Text)
 createLabelingJob_labelCategoryConfigS3Uri = Lens.lens (\CreateLabelingJob' {labelCategoryConfigS3Uri} -> labelCategoryConfigS3Uri) (\s@CreateLabelingJob' {} a -> s {labelCategoryConfigS3Uri = a} :: CreateLabelingJob)
 
--- | Configures the information required to perform automated data labeling.
-createLabelingJob_labelingJobAlgorithmsConfig :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobAlgorithmsConfig)
-createLabelingJob_labelingJobAlgorithmsConfig = Lens.lens (\CreateLabelingJob' {labelingJobAlgorithmsConfig} -> labelingJobAlgorithmsConfig) (\s@CreateLabelingJob' {} a -> s {labelingJobAlgorithmsConfig = a} :: CreateLabelingJob)
+-- | A set of conditions for stopping the labeling job. If any of the
+-- conditions are met, the job is automatically stopped. You can use these
+-- conditions to control the cost of data labeling.
+createLabelingJob_stoppingConditions :: Lens.Lens' CreateLabelingJob (Prelude.Maybe LabelingJobStoppingConditions)
+createLabelingJob_stoppingConditions = Lens.lens (\CreateLabelingJob' {stoppingConditions} -> stoppingConditions) (\s@CreateLabelingJob' {} a -> s {stoppingConditions = a} :: CreateLabelingJob)
 
 -- | An array of key\/value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createLabelingJob_tags :: Lens.Lens' CreateLabelingJob (Prelude.Maybe [Tag])
-createLabelingJob_tags = Lens.lens (\CreateLabelingJob' {tags} -> tags) (\s@CreateLabelingJob' {} a -> s {tags = a} :: CreateLabelingJob) Prelude.. Lens.mapping Lens._Coerce
+createLabelingJob_tags = Lens.lens (\CreateLabelingJob' {tags} -> tags) (\s@CreateLabelingJob' {} a -> s {tags = a} :: CreateLabelingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the labeling job. This name is used to identify the job in a
 -- list of labeling jobs. Labeling job names must be unique within an
@@ -629,12 +629,12 @@ instance Core.ToJSON CreateLabelingJob where
   toJSON CreateLabelingJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StoppingConditions" Core..=)
-              Prelude.<$> stoppingConditions,
+          [ ("LabelingJobAlgorithmsConfig" Core..=)
+              Prelude.<$> labelingJobAlgorithmsConfig,
             ("LabelCategoryConfigS3Uri" Core..=)
               Prelude.<$> labelCategoryConfigS3Uri,
-            ("LabelingJobAlgorithmsConfig" Core..=)
-              Prelude.<$> labelingJobAlgorithmsConfig,
+            ("StoppingConditions" Core..=)
+              Prelude.<$> stoppingConditions,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("LabelingJobName" Core..= labelingJobName),

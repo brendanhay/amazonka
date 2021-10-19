@@ -53,18 +53,18 @@ data DataProcessing = DataProcessing'
     -- @OutputFilter@ as an additional filter to select a portion of the joined
     -- dataset and store it in the output file.
     --
-    -- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
-    -- adds the transformed data to the input JSON object in an attribute
-    -- called @SageMakerOutput@. The joined result for JSON must be a key-value
-    -- pair object. If the input is not a key-value pair object, Amazon
-    -- SageMaker creates a new JSON file. In the new JSON file, and the input
-    -- data is stored under the @SageMakerInput@ key and the results are stored
-    -- in @SageMakerOutput@.
+    -- For JSON or JSONLines objects, such as a JSON array, SageMaker adds the
+    -- transformed data to the input JSON object in an attribute called
+    -- @SageMakerOutput@. The joined result for JSON must be a key-value pair
+    -- object. If the input is not a key-value pair object, SageMaker creates a
+    -- new JSON file. In the new JSON file, and the input data is stored under
+    -- the @SageMakerInput@ key and the results are stored in
+    -- @SageMakerOutput@.
     --
-    -- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
-    -- the transformed data with the input by appending each transformed row to
-    -- the end of the input. The joined data has the original input data
-    -- followed by the transformed data and the output is a CSV file.
+    -- For CSV data, SageMaker takes each row as a JSON array and joins the
+    -- transformed data with the input by appending each transformed row to the
+    -- end of the input. The joined data has the original input data followed
+    -- by the transformed data and the output is a CSV file.
     --
     -- For information on how joining in applied, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
@@ -107,18 +107,18 @@ data DataProcessing = DataProcessing'
 -- @OutputFilter@ as an additional filter to select a portion of the joined
 -- dataset and store it in the output file.
 --
--- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
--- adds the transformed data to the input JSON object in an attribute
--- called @SageMakerOutput@. The joined result for JSON must be a key-value
--- pair object. If the input is not a key-value pair object, Amazon
--- SageMaker creates a new JSON file. In the new JSON file, and the input
--- data is stored under the @SageMakerInput@ key and the results are stored
--- in @SageMakerOutput@.
+-- For JSON or JSONLines objects, such as a JSON array, SageMaker adds the
+-- transformed data to the input JSON object in an attribute called
+-- @SageMakerOutput@. The joined result for JSON must be a key-value pair
+-- object. If the input is not a key-value pair object, SageMaker creates a
+-- new JSON file. In the new JSON file, and the input data is stored under
+-- the @SageMakerInput@ key and the results are stored in
+-- @SageMakerOutput@.
 --
--- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
--- the transformed data with the input by appending each transformed row to
--- the end of the input. The joined data has the original input data
--- followed by the transformed data and the output is a CSV file.
+-- For CSV data, SageMaker takes each row as a JSON array and joins the
+-- transformed data with the input by appending each transformed row to the
+-- end of the input. The joined data has the original input data followed
+-- by the transformed data and the output is a CSV file.
 --
 -- For information on how joining in applied, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.
@@ -160,18 +160,18 @@ dataProcessing_outputFilter = Lens.lens (\DataProcessing' {outputFilter} -> outp
 -- @OutputFilter@ as an additional filter to select a portion of the joined
 -- dataset and store it in the output file.
 --
--- For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker
--- adds the transformed data to the input JSON object in an attribute
--- called @SageMakerOutput@. The joined result for JSON must be a key-value
--- pair object. If the input is not a key-value pair object, Amazon
--- SageMaker creates a new JSON file. In the new JSON file, and the input
--- data is stored under the @SageMakerInput@ key and the results are stored
--- in @SageMakerOutput@.
+-- For JSON or JSONLines objects, such as a JSON array, SageMaker adds the
+-- transformed data to the input JSON object in an attribute called
+-- @SageMakerOutput@. The joined result for JSON must be a key-value pair
+-- object. If the input is not a key-value pair object, SageMaker creates a
+-- new JSON file. In the new JSON file, and the input data is stored under
+-- the @SageMakerInput@ key and the results are stored in
+-- @SageMakerOutput@.
 --
--- For CSV data, Amazon SageMaker takes each row as a JSON array and joins
--- the transformed data with the input by appending each transformed row to
--- the end of the input. The joined data has the original input data
--- followed by the transformed data and the output is a CSV file.
+-- For CSV data, SageMaker takes each row as a JSON array and joins the
+-- transformed data with the input by appending each transformed row to the
+-- end of the input. The joined data has the original input data followed
+-- by the transformed data and the output is a CSV file.
 --
 -- For information on how joining in applied, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow Workflow for Associating Inferences with Input Records>.

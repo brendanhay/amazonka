@@ -61,8 +61,8 @@ module Network.AWS.SageMaker.CreateEndpointConfig
     -- * Request Lenses
     createEndpointConfig_asyncInferenceConfig,
     createEndpointConfig_kmsKeyId,
-    createEndpointConfig_tags,
     createEndpointConfig_dataCaptureConfig,
+    createEndpointConfig_tags,
     createEndpointConfig_endpointConfigName,
     createEndpointConfig_productionVariants,
 
@@ -128,12 +128,12 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The name of the endpoint configuration. You specify this name in a
     -- CreateEndpoint request.
     endpointConfigName :: Prelude.Text,
@@ -194,12 +194,12 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
 --
+-- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
+--
 -- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
 --
 -- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
@@ -219,11 +219,11 @@ newCreateEndpointConfig
       { asyncInferenceConfig =
           Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         endpointConfigName = pEndpointConfigName_,
         productionVariants =
-          Lens._Coerce Lens.# pProductionVariants_
+          Lens.coerced Lens.# pProductionVariants_
       }
 
 -- | Specifies configuration for how an endpoint performs asynchronous
@@ -273,16 +273,16 @@ createEndpointConfig_asyncInferenceConfig = Lens.lens (\CreateEndpointConfig' {a
 createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
+-- | Undocumented member.
+createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe DataCaptureConfig)
+createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
+
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
-createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe DataCaptureConfig)
-createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
+createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the endpoint configuration. You specify this name in a
 -- CreateEndpoint request.
@@ -292,7 +292,7 @@ createEndpointConfig_endpointConfigName = Lens.lens (\CreateEndpointConfig' {end
 -- | An list of @ProductionVariant@ objects, one for each model that you want
 -- to host at this endpoint.
 createEndpointConfig_productionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.NonEmpty ProductionVariant)
-createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Prelude.. Lens._Coerce
+createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateEndpointConfig where
   type
@@ -333,9 +333,9 @@ instance Core.ToJSON CreateEndpointConfig where
           [ ("AsyncInferenceConfig" Core..=)
               Prelude.<$> asyncInferenceConfig,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("DataCaptureConfig" Core..=)
               Prelude.<$> dataCaptureConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("EndpointConfigName" Core..= endpointConfigName),
             Prelude.Just

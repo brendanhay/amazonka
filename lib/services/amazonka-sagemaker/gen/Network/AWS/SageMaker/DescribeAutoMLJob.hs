@@ -35,17 +35,17 @@ module Network.AWS.SageMaker.DescribeAutoMLJob
 
     -- * Response Lenses
     describeAutoMLJobResponse_generateCandidateDefinitionsOnly,
-    describeAutoMLJobResponse_modelDeployResult,
-    describeAutoMLJobResponse_endTime,
-    describeAutoMLJobResponse_resolvedAttributes,
-    describeAutoMLJobResponse_autoMLJobArtifacts,
-    describeAutoMLJobResponse_partialFailureReasons,
     describeAutoMLJobResponse_failureReason,
-    describeAutoMLJobResponse_autoMLJobObjective,
-    describeAutoMLJobResponse_modelDeployConfig,
-    describeAutoMLJobResponse_autoMLJobConfig,
+    describeAutoMLJobResponse_partialFailureReasons,
+    describeAutoMLJobResponse_modelDeployResult,
     describeAutoMLJobResponse_problemType,
+    describeAutoMLJobResponse_autoMLJobConfig,
+    describeAutoMLJobResponse_autoMLJobObjective,
+    describeAutoMLJobResponse_autoMLJobArtifacts,
+    describeAutoMLJobResponse_resolvedAttributes,
+    describeAutoMLJobResponse_endTime,
     describeAutoMLJobResponse_bestCandidate,
+    describeAutoMLJobResponse_modelDeployConfig,
     describeAutoMLJobResponse_httpStatus,
     describeAutoMLJobResponse_autoMLJobName,
     describeAutoMLJobResponse_autoMLJobArn,
@@ -103,17 +103,17 @@ instance Core.AWSRequest DescribeAutoMLJob where
       ( \s h x ->
           DescribeAutoMLJobResponse'
             Prelude.<$> (x Core..?> "GenerateCandidateDefinitionsOnly")
-            Prelude.<*> (x Core..?> "ModelDeployResult")
-            Prelude.<*> (x Core..?> "EndTime")
-            Prelude.<*> (x Core..?> "ResolvedAttributes")
-            Prelude.<*> (x Core..?> "AutoMLJobArtifacts")
-            Prelude.<*> (x Core..?> "PartialFailureReasons")
             Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "AutoMLJobObjective")
-            Prelude.<*> (x Core..?> "ModelDeployConfig")
-            Prelude.<*> (x Core..?> "AutoMLJobConfig")
+            Prelude.<*> (x Core..?> "PartialFailureReasons")
+            Prelude.<*> (x Core..?> "ModelDeployResult")
             Prelude.<*> (x Core..?> "ProblemType")
+            Prelude.<*> (x Core..?> "AutoMLJobConfig")
+            Prelude.<*> (x Core..?> "AutoMLJobObjective")
+            Prelude.<*> (x Core..?> "AutoMLJobArtifacts")
+            Prelude.<*> (x Core..?> "ResolvedAttributes")
+            Prelude.<*> (x Core..?> "EndTime")
             Prelude.<*> (x Core..?> "BestCandidate")
+            Prelude.<*> (x Core..?> "ModelDeployConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AutoMLJobName")
             Prelude.<*> (x Core..:> "AutoMLJobArn")
@@ -165,33 +165,33 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
   { -- | Indicates whether the output for an AutoML job generates candidate
     -- definitions only.
     generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Returns the failure reason for an AutoML job, when applicable.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of reasons for partial failures within an AutoML job.
+    partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
     -- | Provides information about endpoint for the model deployment.
     modelDeployResult :: Prelude.Maybe ModelDeployResult,
-    -- | Returns the end time of the AutoML job.
-    endTime :: Prelude.Maybe Core.POSIX,
+    -- | Returns the job\'s problem type.
+    problemType :: Prelude.Maybe ProblemType,
+    -- | Returns the configuration for the AutoML job.
+    autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
+    -- | Returns the job\'s objective.
+    autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+    -- | Returns information on the job\'s artifacts found in
+    -- @AutoMLJobArtifacts@.
+    autoMLJobArtifacts :: Prelude.Maybe AutoMLJobArtifacts,
     -- | This contains @ProblemType@, @AutoMLJobObjective@, and
     -- @CompletionCriteria@. If you do not provide these values, they are
     -- auto-inferred. If you do provide them, the values used are the ones you
     -- provide.
     resolvedAttributes :: Prelude.Maybe ResolvedAttributes,
-    -- | Returns information on the job\'s artifacts found in
-    -- @AutoMLJobArtifacts@.
-    autoMLJobArtifacts :: Prelude.Maybe AutoMLJobArtifacts,
-    -- | Returns a list of reasons for partial failures within an AutoML job.
-    partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
-    -- | Returns the failure reason for an AutoML job, when applicable.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | Returns the job\'s objective.
-    autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+    -- | Returns the end time of the AutoML job.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | Returns the job\'s best @AutoMLCandidate@.
+    bestCandidate :: Prelude.Maybe AutoMLCandidate,
     -- | Indicates whether the model was deployed automatically to an endpoint
     -- and the name of that endpoint if deployed automatically.
     modelDeployConfig :: Prelude.Maybe ModelDeployConfig,
-    -- | Returns the configuration for the AutoML job.
-    autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
-    -- | Returns the job\'s problem type.
-    problemType :: Prelude.Maybe ProblemType,
-    -- | Returns the job\'s best @AutoMLCandidate@.
-    bestCandidate :: Prelude.Maybe AutoMLCandidate,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Returns the name of the AutoML job.
@@ -228,32 +228,32 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 -- 'generateCandidateDefinitionsOnly', 'describeAutoMLJobResponse_generateCandidateDefinitionsOnly' - Indicates whether the output for an AutoML job generates candidate
 -- definitions only.
 --
+-- 'failureReason', 'describeAutoMLJobResponse_failureReason' - Returns the failure reason for an AutoML job, when applicable.
+--
+-- 'partialFailureReasons', 'describeAutoMLJobResponse_partialFailureReasons' - Returns a list of reasons for partial failures within an AutoML job.
+--
 -- 'modelDeployResult', 'describeAutoMLJobResponse_modelDeployResult' - Provides information about endpoint for the model deployment.
 --
--- 'endTime', 'describeAutoMLJobResponse_endTime' - Returns the end time of the AutoML job.
+-- 'problemType', 'describeAutoMLJobResponse_problemType' - Returns the job\'s problem type.
+--
+-- 'autoMLJobConfig', 'describeAutoMLJobResponse_autoMLJobConfig' - Returns the configuration for the AutoML job.
+--
+-- 'autoMLJobObjective', 'describeAutoMLJobResponse_autoMLJobObjective' - Returns the job\'s objective.
+--
+-- 'autoMLJobArtifacts', 'describeAutoMLJobResponse_autoMLJobArtifacts' - Returns information on the job\'s artifacts found in
+-- @AutoMLJobArtifacts@.
 --
 -- 'resolvedAttributes', 'describeAutoMLJobResponse_resolvedAttributes' - This contains @ProblemType@, @AutoMLJobObjective@, and
 -- @CompletionCriteria@. If you do not provide these values, they are
 -- auto-inferred. If you do provide them, the values used are the ones you
 -- provide.
 --
--- 'autoMLJobArtifacts', 'describeAutoMLJobResponse_autoMLJobArtifacts' - Returns information on the job\'s artifacts found in
--- @AutoMLJobArtifacts@.
+-- 'endTime', 'describeAutoMLJobResponse_endTime' - Returns the end time of the AutoML job.
 --
--- 'partialFailureReasons', 'describeAutoMLJobResponse_partialFailureReasons' - Returns a list of reasons for partial failures within an AutoML job.
---
--- 'failureReason', 'describeAutoMLJobResponse_failureReason' - Returns the failure reason for an AutoML job, when applicable.
---
--- 'autoMLJobObjective', 'describeAutoMLJobResponse_autoMLJobObjective' - Returns the job\'s objective.
+-- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - Returns the job\'s best @AutoMLCandidate@.
 --
 -- 'modelDeployConfig', 'describeAutoMLJobResponse_modelDeployConfig' - Indicates whether the model was deployed automatically to an endpoint
 -- and the name of that endpoint if deployed automatically.
---
--- 'autoMLJobConfig', 'describeAutoMLJobResponse_autoMLJobConfig' - Returns the configuration for the AutoML job.
---
--- 'problemType', 'describeAutoMLJobResponse_problemType' - Returns the job\'s problem type.
---
--- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - Returns the job\'s best @AutoMLCandidate@.
 --
 -- 'httpStatus', 'describeAutoMLJobResponse_httpStatus' - The response's http status code.
 --
@@ -312,22 +312,22 @@ newDescribeAutoMLJobResponse
     DescribeAutoMLJobResponse'
       { generateCandidateDefinitionsOnly =
           Prelude.Nothing,
-        modelDeployResult = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        resolvedAttributes = Prelude.Nothing,
-        autoMLJobArtifacts = Prelude.Nothing,
-        partialFailureReasons = Prelude.Nothing,
         failureReason = Prelude.Nothing,
-        autoMLJobObjective = Prelude.Nothing,
-        modelDeployConfig = Prelude.Nothing,
-        autoMLJobConfig = Prelude.Nothing,
+        partialFailureReasons = Prelude.Nothing,
+        modelDeployResult = Prelude.Nothing,
         problemType = Prelude.Nothing,
+        autoMLJobConfig = Prelude.Nothing,
+        autoMLJobObjective = Prelude.Nothing,
+        autoMLJobArtifacts = Prelude.Nothing,
+        resolvedAttributes = Prelude.Nothing,
+        endTime = Prelude.Nothing,
         bestCandidate = Prelude.Nothing,
+        modelDeployConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         autoMLJobName = pAutoMLJobName_,
         autoMLJobArn = pAutoMLJobArn_,
         inputDataConfig =
-          Lens._Coerce Lens.# pInputDataConfig_,
+          Lens.coerced Lens.# pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         roleArn = pRoleArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
@@ -343,13 +343,34 @@ newDescribeAutoMLJobResponse
 describeAutoMLJobResponse_generateCandidateDefinitionsOnly :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Bool)
 describeAutoMLJobResponse_generateCandidateDefinitionsOnly = Lens.lens (\DescribeAutoMLJobResponse' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@DescribeAutoMLJobResponse' {} a -> s {generateCandidateDefinitionsOnly = a} :: DescribeAutoMLJobResponse)
 
+-- | Returns the failure reason for an AutoML job, when applicable.
+describeAutoMLJobResponse_failureReason :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Text)
+describeAutoMLJobResponse_failureReason = Lens.lens (\DescribeAutoMLJobResponse' {failureReason} -> failureReason) (\s@DescribeAutoMLJobResponse' {} a -> s {failureReason = a} :: DescribeAutoMLJobResponse)
+
+-- | Returns a list of reasons for partial failures within an AutoML job.
+describeAutoMLJobResponse_partialFailureReasons :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason))
+describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobResponse' {partialFailureReasons} -> partialFailureReasons) (\s@DescribeAutoMLJobResponse' {} a -> s {partialFailureReasons = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Provides information about endpoint for the model deployment.
 describeAutoMLJobResponse_modelDeployResult :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ModelDeployResult)
 describeAutoMLJobResponse_modelDeployResult = Lens.lens (\DescribeAutoMLJobResponse' {modelDeployResult} -> modelDeployResult) (\s@DescribeAutoMLJobResponse' {} a -> s {modelDeployResult = a} :: DescribeAutoMLJobResponse)
 
--- | Returns the end time of the AutoML job.
-describeAutoMLJobResponse_endTime :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endTime} -> endTime) (\s@DescribeAutoMLJobResponse' {} a -> s {endTime = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Core._Time
+-- | Returns the job\'s problem type.
+describeAutoMLJobResponse_problemType :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ProblemType)
+describeAutoMLJobResponse_problemType = Lens.lens (\DescribeAutoMLJobResponse' {problemType} -> problemType) (\s@DescribeAutoMLJobResponse' {} a -> s {problemType = a} :: DescribeAutoMLJobResponse)
+
+-- | Returns the configuration for the AutoML job.
+describeAutoMLJobResponse_autoMLJobConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobConfig)
+describeAutoMLJobResponse_autoMLJobConfig = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobConfig} -> autoMLJobConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobConfig = a} :: DescribeAutoMLJobResponse)
+
+-- | Returns the job\'s objective.
+describeAutoMLJobResponse_autoMLJobObjective :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobObjective)
+describeAutoMLJobResponse_autoMLJobObjective = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobObjective} -> autoMLJobObjective) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobObjective = a} :: DescribeAutoMLJobResponse)
+
+-- | Returns information on the job\'s artifacts found in
+-- @AutoMLJobArtifacts@.
+describeAutoMLJobResponse_autoMLJobArtifacts :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobArtifacts)
+describeAutoMLJobResponse_autoMLJobArtifacts = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobArtifacts} -> autoMLJobArtifacts) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobArtifacts = a} :: DescribeAutoMLJobResponse)
 
 -- | This contains @ProblemType@, @AutoMLJobObjective@, and
 -- @CompletionCriteria@. If you do not provide these values, they are
@@ -358,39 +379,18 @@ describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endT
 describeAutoMLJobResponse_resolvedAttributes :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ResolvedAttributes)
 describeAutoMLJobResponse_resolvedAttributes = Lens.lens (\DescribeAutoMLJobResponse' {resolvedAttributes} -> resolvedAttributes) (\s@DescribeAutoMLJobResponse' {} a -> s {resolvedAttributes = a} :: DescribeAutoMLJobResponse)
 
--- | Returns information on the job\'s artifacts found in
--- @AutoMLJobArtifacts@.
-describeAutoMLJobResponse_autoMLJobArtifacts :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobArtifacts)
-describeAutoMLJobResponse_autoMLJobArtifacts = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobArtifacts} -> autoMLJobArtifacts) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobArtifacts = a} :: DescribeAutoMLJobResponse)
+-- | Returns the end time of the AutoML job.
+describeAutoMLJobResponse_endTime :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endTime} -> endTime) (\s@DescribeAutoMLJobResponse' {} a -> s {endTime = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Core._Time
 
--- | Returns a list of reasons for partial failures within an AutoML job.
-describeAutoMLJobResponse_partialFailureReasons :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason))
-describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobResponse' {partialFailureReasons} -> partialFailureReasons) (\s@DescribeAutoMLJobResponse' {} a -> s {partialFailureReasons = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Returns the failure reason for an AutoML job, when applicable.
-describeAutoMLJobResponse_failureReason :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Text)
-describeAutoMLJobResponse_failureReason = Lens.lens (\DescribeAutoMLJobResponse' {failureReason} -> failureReason) (\s@DescribeAutoMLJobResponse' {} a -> s {failureReason = a} :: DescribeAutoMLJobResponse)
-
--- | Returns the job\'s objective.
-describeAutoMLJobResponse_autoMLJobObjective :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobObjective)
-describeAutoMLJobResponse_autoMLJobObjective = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobObjective} -> autoMLJobObjective) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobObjective = a} :: DescribeAutoMLJobResponse)
+-- | Returns the job\'s best @AutoMLCandidate@.
+describeAutoMLJobResponse_bestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLCandidate)
+describeAutoMLJobResponse_bestCandidate = Lens.lens (\DescribeAutoMLJobResponse' {bestCandidate} -> bestCandidate) (\s@DescribeAutoMLJobResponse' {} a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
 
 -- | Indicates whether the model was deployed automatically to an endpoint
 -- and the name of that endpoint if deployed automatically.
 describeAutoMLJobResponse_modelDeployConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ModelDeployConfig)
 describeAutoMLJobResponse_modelDeployConfig = Lens.lens (\DescribeAutoMLJobResponse' {modelDeployConfig} -> modelDeployConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {modelDeployConfig = a} :: DescribeAutoMLJobResponse)
-
--- | Returns the configuration for the AutoML job.
-describeAutoMLJobResponse_autoMLJobConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobConfig)
-describeAutoMLJobResponse_autoMLJobConfig = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobConfig} -> autoMLJobConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobConfig = a} :: DescribeAutoMLJobResponse)
-
--- | Returns the job\'s problem type.
-describeAutoMLJobResponse_problemType :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ProblemType)
-describeAutoMLJobResponse_problemType = Lens.lens (\DescribeAutoMLJobResponse' {problemType} -> problemType) (\s@DescribeAutoMLJobResponse' {} a -> s {problemType = a} :: DescribeAutoMLJobResponse)
-
--- | Returns the job\'s best @AutoMLCandidate@.
-describeAutoMLJobResponse_bestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLCandidate)
-describeAutoMLJobResponse_bestCandidate = Lens.lens (\DescribeAutoMLJobResponse' {bestCandidate} -> bestCandidate) (\s@DescribeAutoMLJobResponse' {} a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
 
 -- | The response's http status code.
 describeAutoMLJobResponse_httpStatus :: Lens.Lens' DescribeAutoMLJobResponse Prelude.Int
@@ -406,7 +406,7 @@ describeAutoMLJobResponse_autoMLJobArn = Lens.lens (\DescribeAutoMLJobResponse' 
 
 -- | Returns the input data configuration for the AutoML job..
 describeAutoMLJobResponse_inputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.NonEmpty AutoMLChannel)
-describeAutoMLJobResponse_inputDataConfig = Lens.lens (\DescribeAutoMLJobResponse' {inputDataConfig} -> inputDataConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {inputDataConfig = a} :: DescribeAutoMLJobResponse) Prelude.. Lens._Coerce
+describeAutoMLJobResponse_inputDataConfig = Lens.lens (\DescribeAutoMLJobResponse' {inputDataConfig} -> inputDataConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {inputDataConfig = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.coerced
 
 -- | Returns the job\'s output data config.
 describeAutoMLJobResponse_outputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse AutoMLOutputDataConfig

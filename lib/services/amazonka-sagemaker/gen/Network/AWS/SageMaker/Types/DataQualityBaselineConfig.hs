@@ -31,8 +31,8 @@ import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 --
 -- /See:/ 'newDataQualityBaselineConfig' smart constructor.
 data DataQualityBaselineConfig = DataQualityBaselineConfig'
-  { statisticsResource :: Prelude.Maybe MonitoringStatisticsResource,
-    constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
+  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
+    statisticsResource :: Prelude.Maybe MonitoringStatisticsResource,
     -- | The name of the job that performs baselining for the data quality
     -- monitoring job.
     baseliningJobName :: Prelude.Maybe Prelude.Text
@@ -47,9 +47,9 @@ data DataQualityBaselineConfig = DataQualityBaselineConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statisticsResource', 'dataQualityBaselineConfig_statisticsResource' - Undocumented member.
---
 -- 'constraintsResource', 'dataQualityBaselineConfig_constraintsResource' - Undocumented member.
+--
+-- 'statisticsResource', 'dataQualityBaselineConfig_statisticsResource' - Undocumented member.
 --
 -- 'baseliningJobName', 'dataQualityBaselineConfig_baseliningJobName' - The name of the job that performs baselining for the data quality
 -- monitoring job.
@@ -57,19 +57,19 @@ newDataQualityBaselineConfig ::
   DataQualityBaselineConfig
 newDataQualityBaselineConfig =
   DataQualityBaselineConfig'
-    { statisticsResource =
+    { constraintsResource =
         Prelude.Nothing,
-      constraintsResource = Prelude.Nothing,
+      statisticsResource = Prelude.Nothing,
       baseliningJobName = Prelude.Nothing
     }
 
 -- | Undocumented member.
-dataQualityBaselineConfig_statisticsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
-dataQualityBaselineConfig_statisticsResource = Lens.lens (\DataQualityBaselineConfig' {statisticsResource} -> statisticsResource) (\s@DataQualityBaselineConfig' {} a -> s {statisticsResource = a} :: DataQualityBaselineConfig)
-
--- | Undocumented member.
 dataQualityBaselineConfig_constraintsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
 dataQualityBaselineConfig_constraintsResource = Lens.lens (\DataQualityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@DataQualityBaselineConfig' {} a -> s {constraintsResource = a} :: DataQualityBaselineConfig)
+
+-- | Undocumented member.
+dataQualityBaselineConfig_statisticsResource :: Lens.Lens' DataQualityBaselineConfig (Prelude.Maybe MonitoringStatisticsResource)
+dataQualityBaselineConfig_statisticsResource = Lens.lens (\DataQualityBaselineConfig' {statisticsResource} -> statisticsResource) (\s@DataQualityBaselineConfig' {} a -> s {statisticsResource = a} :: DataQualityBaselineConfig)
 
 -- | The name of the job that performs baselining for the data quality
 -- monitoring job.
@@ -82,8 +82,8 @@ instance Core.FromJSON DataQualityBaselineConfig where
       "DataQualityBaselineConfig"
       ( \x ->
           DataQualityBaselineConfig'
-            Prelude.<$> (x Core..:? "StatisticsResource")
-            Prelude.<*> (x Core..:? "ConstraintsResource")
+            Prelude.<$> (x Core..:? "ConstraintsResource")
+            Prelude.<*> (x Core..:? "StatisticsResource")
             Prelude.<*> (x Core..:? "BaseliningJobName")
       )
 
@@ -95,10 +95,10 @@ instance Core.ToJSON DataQualityBaselineConfig where
   toJSON DataQualityBaselineConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StatisticsResource" Core..=)
-              Prelude.<$> statisticsResource,
-            ("ConstraintsResource" Core..=)
+          [ ("ConstraintsResource" Core..=)
               Prelude.<$> constraintsResource,
+            ("StatisticsResource" Core..=)
+              Prelude.<$> statisticsResource,
             ("BaseliningJobName" Core..=)
               Prelude.<$> baseliningJobName
           ]

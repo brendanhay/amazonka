@@ -118,7 +118,7 @@ addTags_resourceArn = Lens.lens (\AddTags' {resourceArn} -> resourceArn) (\s@Add
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
@@ -195,7 +195,7 @@ newAddTagsResponse pHttpStatus_ =
 
 -- | A list of tags associated with the Amazon SageMaker resource.
 addTagsResponse_tags :: Lens.Lens' AddTagsResponse (Prelude.Maybe [Tag])
-addTagsResponse_tags = Lens.lens (\AddTagsResponse' {tags} -> tags) (\s@AddTagsResponse' {} a -> s {tags = a} :: AddTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+addTagsResponse_tags = Lens.lens (\AddTagsResponse' {tags} -> tags) (\s@AddTagsResponse' {} a -> s {tags = a} :: AddTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addTagsResponse_httpStatus :: Lens.Lens' AddTagsResponse Prelude.Int

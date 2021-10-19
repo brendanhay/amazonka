@@ -29,17 +29,17 @@ module Network.AWS.SageMaker.ListEdgePackagingJobs
     newListEdgePackagingJobs,
 
     -- * Request Lenses
+    listEdgePackagingJobs_nameContains,
     listEdgePackagingJobs_lastModifiedTimeBefore,
+    listEdgePackagingJobs_creationTimeAfter,
     listEdgePackagingJobs_nextToken,
     listEdgePackagingJobs_sortOrder,
-    listEdgePackagingJobs_nameContains,
-    listEdgePackagingJobs_maxResults,
-    listEdgePackagingJobs_modelNameContains,
-    listEdgePackagingJobs_creationTimeBefore,
     listEdgePackagingJobs_lastModifiedTimeAfter,
-    listEdgePackagingJobs_sortBy,
+    listEdgePackagingJobs_creationTimeBefore,
+    listEdgePackagingJobs_modelNameContains,
     listEdgePackagingJobs_statusEquals,
-    listEdgePackagingJobs_creationTimeAfter,
+    listEdgePackagingJobs_maxResults,
+    listEdgePackagingJobs_sortBy,
 
     -- * Destructuring the Response
     ListEdgePackagingJobsResponse (..),
@@ -61,29 +61,29 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListEdgePackagingJobs' smart constructor.
 data ListEdgePackagingJobs = ListEdgePackagingJobs'
-  { -- | Select jobs where the job was updated before specified time.
+  { -- | Filter for jobs containing this name in their packaging job name.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | Select jobs where the job was updated before specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | Select jobs where the job was created after specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | The response from the last list when returning a list large enough to
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | What direction to sort by.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | Filter for jobs containing this name in their packaging job name.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to select.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Filter for jobs where the model name contains this string.
-    modelNameContains :: Prelude.Maybe Prelude.Text,
-    -- | Select jobs where the job was created before specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | Select jobs where the job was updated after specified time.
     lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | Use to specify what column to sort by.
-    sortBy :: Prelude.Maybe ListEdgePackagingJobsSortBy,
+    -- | Select jobs where the job was created before specified time.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | Filter for jobs where the model name contains this string.
+    modelNameContains :: Prelude.Maybe Prelude.Text,
     -- | The job status to filter for.
     statusEquals :: Prelude.Maybe EdgePackagingJobStatus,
-    -- | Select jobs where the job was created after specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    -- | Maximum number of results to select.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Use to specify what column to sort by.
+    sortBy :: Prelude.Maybe ListEdgePackagingJobsSortBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,49 +95,57 @@ data ListEdgePackagingJobs = ListEdgePackagingJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listEdgePackagingJobs_nameContains' - Filter for jobs containing this name in their packaging job name.
+--
 -- 'lastModifiedTimeBefore', 'listEdgePackagingJobs_lastModifiedTimeBefore' - Select jobs where the job was updated before specified time.
+--
+-- 'creationTimeAfter', 'listEdgePackagingJobs_creationTimeAfter' - Select jobs where the job was created after specified time.
 --
 -- 'nextToken', 'listEdgePackagingJobs_nextToken' - The response from the last list when returning a list large enough to
 -- need tokening.
 --
 -- 'sortOrder', 'listEdgePackagingJobs_sortOrder' - What direction to sort by.
 --
--- 'nameContains', 'listEdgePackagingJobs_nameContains' - Filter for jobs containing this name in their packaging job name.
---
--- 'maxResults', 'listEdgePackagingJobs_maxResults' - Maximum number of results to select.
---
--- 'modelNameContains', 'listEdgePackagingJobs_modelNameContains' - Filter for jobs where the model name contains this string.
+-- 'lastModifiedTimeAfter', 'listEdgePackagingJobs_lastModifiedTimeAfter' - Select jobs where the job was updated after specified time.
 --
 -- 'creationTimeBefore', 'listEdgePackagingJobs_creationTimeBefore' - Select jobs where the job was created before specified time.
 --
--- 'lastModifiedTimeAfter', 'listEdgePackagingJobs_lastModifiedTimeAfter' - Select jobs where the job was updated after specified time.
---
--- 'sortBy', 'listEdgePackagingJobs_sortBy' - Use to specify what column to sort by.
+-- 'modelNameContains', 'listEdgePackagingJobs_modelNameContains' - Filter for jobs where the model name contains this string.
 --
 -- 'statusEquals', 'listEdgePackagingJobs_statusEquals' - The job status to filter for.
 --
--- 'creationTimeAfter', 'listEdgePackagingJobs_creationTimeAfter' - Select jobs where the job was created after specified time.
+-- 'maxResults', 'listEdgePackagingJobs_maxResults' - Maximum number of results to select.
+--
+-- 'sortBy', 'listEdgePackagingJobs_sortBy' - Use to specify what column to sort by.
 newListEdgePackagingJobs ::
   ListEdgePackagingJobs
 newListEdgePackagingJobs =
   ListEdgePackagingJobs'
-    { lastModifiedTimeBefore =
+    { nameContains =
         Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      modelNameContains = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
+      modelNameContains = Prelude.Nothing,
       statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | Filter for jobs containing this name in their packaging job name.
+listEdgePackagingJobs_nameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
+listEdgePackagingJobs_nameContains = Lens.lens (\ListEdgePackagingJobs' {nameContains} -> nameContains) (\s@ListEdgePackagingJobs' {} a -> s {nameContains = a} :: ListEdgePackagingJobs)
 
 -- | Select jobs where the job was updated before specified time.
 listEdgePackagingJobs_lastModifiedTimeBefore :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
 listEdgePackagingJobs_lastModifiedTimeBefore = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+
+-- | Select jobs where the job was created after specified time.
+listEdgePackagingJobs_creationTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
+listEdgePackagingJobs_creationTimeAfter = Lens.lens (\ListEdgePackagingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
 
 -- | The response from the last list when returning a list large enough to
 -- need tokening.
@@ -148,37 +156,29 @@ listEdgePackagingJobs_nextToken = Lens.lens (\ListEdgePackagingJobs' {nextToken}
 listEdgePackagingJobs_sortOrder :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe SortOrder)
 listEdgePackagingJobs_sortOrder = Lens.lens (\ListEdgePackagingJobs' {sortOrder} -> sortOrder) (\s@ListEdgePackagingJobs' {} a -> s {sortOrder = a} :: ListEdgePackagingJobs)
 
--- | Filter for jobs containing this name in their packaging job name.
-listEdgePackagingJobs_nameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
-listEdgePackagingJobs_nameContains = Lens.lens (\ListEdgePackagingJobs' {nameContains} -> nameContains) (\s@ListEdgePackagingJobs' {} a -> s {nameContains = a} :: ListEdgePackagingJobs)
-
--- | Maximum number of results to select.
-listEdgePackagingJobs_maxResults :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Int)
-listEdgePackagingJobs_maxResults = Lens.lens (\ListEdgePackagingJobs' {maxResults} -> maxResults) (\s@ListEdgePackagingJobs' {} a -> s {maxResults = a} :: ListEdgePackagingJobs)
-
--- | Filter for jobs where the model name contains this string.
-listEdgePackagingJobs_modelNameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
-listEdgePackagingJobs_modelNameContains = Lens.lens (\ListEdgePackagingJobs' {modelNameContains} -> modelNameContains) (\s@ListEdgePackagingJobs' {} a -> s {modelNameContains = a} :: ListEdgePackagingJobs)
+-- | Select jobs where the job was updated after specified time.
+listEdgePackagingJobs_lastModifiedTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
+listEdgePackagingJobs_lastModifiedTimeAfter = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
 
 -- | Select jobs where the job was created before specified time.
 listEdgePackagingJobs_creationTimeBefore :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
 listEdgePackagingJobs_creationTimeBefore = Lens.lens (\ListEdgePackagingJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
 
--- | Select jobs where the job was updated after specified time.
-listEdgePackagingJobs_lastModifiedTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_lastModifiedTimeAfter = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
-
--- | Use to specify what column to sort by.
-listEdgePackagingJobs_sortBy :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe ListEdgePackagingJobsSortBy)
-listEdgePackagingJobs_sortBy = Lens.lens (\ListEdgePackagingJobs' {sortBy} -> sortBy) (\s@ListEdgePackagingJobs' {} a -> s {sortBy = a} :: ListEdgePackagingJobs)
+-- | Filter for jobs where the model name contains this string.
+listEdgePackagingJobs_modelNameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
+listEdgePackagingJobs_modelNameContains = Lens.lens (\ListEdgePackagingJobs' {modelNameContains} -> modelNameContains) (\s@ListEdgePackagingJobs' {} a -> s {modelNameContains = a} :: ListEdgePackagingJobs)
 
 -- | The job status to filter for.
 listEdgePackagingJobs_statusEquals :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe EdgePackagingJobStatus)
 listEdgePackagingJobs_statusEquals = Lens.lens (\ListEdgePackagingJobs' {statusEquals} -> statusEquals) (\s@ListEdgePackagingJobs' {} a -> s {statusEquals = a} :: ListEdgePackagingJobs)
 
--- | Select jobs where the job was created after specified time.
-listEdgePackagingJobs_creationTimeAfter :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
-listEdgePackagingJobs_creationTimeAfter = Lens.lens (\ListEdgePackagingJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgePackagingJobs' {} a -> s {creationTimeAfter = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
+-- | Maximum number of results to select.
+listEdgePackagingJobs_maxResults :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Int)
+listEdgePackagingJobs_maxResults = Lens.lens (\ListEdgePackagingJobs' {maxResults} -> maxResults) (\s@ListEdgePackagingJobs' {} a -> s {maxResults = a} :: ListEdgePackagingJobs)
+
+-- | Use to specify what column to sort by.
+listEdgePackagingJobs_sortBy :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe ListEdgePackagingJobsSortBy)
+listEdgePackagingJobs_sortBy = Lens.lens (\ListEdgePackagingJobs' {sortBy} -> sortBy) (\s@ListEdgePackagingJobs' {} a -> s {sortBy = a} :: ListEdgePackagingJobs)
 
 instance Core.AWSPager ListEdgePackagingJobs where
   page rq rs
@@ -240,22 +240,22 @@ instance Core.ToJSON ListEdgePackagingJobs where
   toJSON ListEdgePackagingJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Core..=)
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ModelNameContains" Core..=)
-              Prelude.<$> modelNameContains,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
+            ("ModelNameContains" Core..=)
+              Prelude.<$> modelNameContains,
             ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -311,6 +311,6 @@ listEdgePackagingJobsResponse_httpStatus = Lens.lens (\ListEdgePackagingJobsResp
 
 -- | Summaries of edge packaging jobs.
 listEdgePackagingJobsResponse_edgePackagingJobSummaries :: Lens.Lens' ListEdgePackagingJobsResponse [EdgePackagingJobSummary]
-listEdgePackagingJobsResponse_edgePackagingJobSummaries = Lens.lens (\ListEdgePackagingJobsResponse' {edgePackagingJobSummaries} -> edgePackagingJobSummaries) (\s@ListEdgePackagingJobsResponse' {} a -> s {edgePackagingJobSummaries = a} :: ListEdgePackagingJobsResponse) Prelude.. Lens._Coerce
+listEdgePackagingJobsResponse_edgePackagingJobSummaries = Lens.lens (\ListEdgePackagingJobsResponse' {edgePackagingJobSummaries} -> edgePackagingJobSummaries) (\s@ListEdgePackagingJobsResponse' {} a -> s {edgePackagingJobSummaries = a} :: ListEdgePackagingJobsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListEdgePackagingJobsResponse

@@ -28,16 +28,16 @@ import Network.AWS.SageMaker.Types.RuleEvaluationStatus
 --
 -- /See:/ 'newDebugRuleEvaluationStatus' smart constructor.
 data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
-  { -- | The name of the rule configuration.
-    ruleConfigurationName :: Prelude.Maybe Prelude.Text,
+  { -- | Timestamp when the rule evaluation status was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | Details from the rule evaluation.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | Status of the rule evaluation.
     ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus,
-    -- | Timestamp when the rule evaluation status was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the rule evaluation job.
-    ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text
+    ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule configuration.
+    ruleConfigurationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,30 @@ data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleConfigurationName', 'debugRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.
+-- 'lastModifiedTime', 'debugRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
 --
 -- 'statusDetails', 'debugRuleEvaluationStatus_statusDetails' - Details from the rule evaluation.
 --
 -- 'ruleEvaluationStatus', 'debugRuleEvaluationStatus_ruleEvaluationStatus' - Status of the rule evaluation.
 --
--- 'lastModifiedTime', 'debugRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
---
 -- 'ruleEvaluationJobArn', 'debugRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.
+--
+-- 'ruleConfigurationName', 'debugRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.
 newDebugRuleEvaluationStatus ::
   DebugRuleEvaluationStatus
 newDebugRuleEvaluationStatus =
   DebugRuleEvaluationStatus'
-    { ruleConfigurationName =
+    { lastModifiedTime =
         Prelude.Nothing,
       statusDetails = Prelude.Nothing,
       ruleEvaluationStatus = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      ruleEvaluationJobArn = Prelude.Nothing
+      ruleEvaluationJobArn = Prelude.Nothing,
+      ruleConfigurationName = Prelude.Nothing
     }
 
--- | The name of the rule configuration.
-debugRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-debugRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\DebugRuleEvaluationStatus' {ruleConfigurationName} -> ruleConfigurationName) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleConfigurationName = a} :: DebugRuleEvaluationStatus)
+-- | Timestamp when the rule evaluation status was last modified.
+debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
+debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Core._Time
 
 -- | Details from the rule evaluation.
 debugRuleEvaluationStatus_statusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
@@ -82,13 +82,13 @@ debugRuleEvaluationStatus_statusDetails = Lens.lens (\DebugRuleEvaluationStatus'
 debugRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
 debugRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: DebugRuleEvaluationStatus)
 
--- | Timestamp when the rule evaluation status was last modified.
-debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name (ARN) of the rule evaluation job.
 debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
 debugRuleEvaluationStatus_ruleEvaluationJobArn = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationJobArn} -> ruleEvaluationJobArn) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationJobArn = a} :: DebugRuleEvaluationStatus)
+
+-- | The name of the rule configuration.
+debugRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\DebugRuleEvaluationStatus' {ruleConfigurationName} -> ruleConfigurationName) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleConfigurationName = a} :: DebugRuleEvaluationStatus)
 
 instance Core.FromJSON DebugRuleEvaluationStatus where
   parseJSON =
@@ -96,11 +96,11 @@ instance Core.FromJSON DebugRuleEvaluationStatus where
       "DebugRuleEvaluationStatus"
       ( \x ->
           DebugRuleEvaluationStatus'
-            Prelude.<$> (x Core..:? "RuleConfigurationName")
+            Prelude.<$> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "StatusDetails")
             Prelude.<*> (x Core..:? "RuleEvaluationStatus")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "RuleEvaluationJobArn")
+            Prelude.<*> (x Core..:? "RuleConfigurationName")
       )
 
 instance Prelude.Hashable DebugRuleEvaluationStatus

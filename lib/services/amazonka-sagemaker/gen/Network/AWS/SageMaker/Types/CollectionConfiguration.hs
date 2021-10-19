@@ -64,7 +64,7 @@ newCollectionConfiguration =
 -- @\"name\"@, @\"include_regex\"@, @\"reduction_config\"@,
 -- @\"save_config\"@, @\"tensor_names\"@, and @\"save_histogram\"@.
 collectionConfiguration_collectionParameters :: Lens.Lens' CollectionConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Prelude.. Lens.mapping Lens._Coerce
+collectionConfiguration_collectionParameters = Lens.lens (\CollectionConfiguration' {collectionParameters} -> collectionParameters) (\s@CollectionConfiguration' {} a -> s {collectionParameters = a} :: CollectionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the tensor collection. The name must be unique relative to
 -- other rule configuration names.

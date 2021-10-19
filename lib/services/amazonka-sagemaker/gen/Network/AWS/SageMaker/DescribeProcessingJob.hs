@@ -34,21 +34,21 @@ module Network.AWS.SageMaker.DescribeProcessingJob
     newDescribeProcessingJobResponse,
 
     -- * Response Lenses
-    describeProcessingJobResponse_networkConfig,
-    describeProcessingJobResponse_processingEndTime,
-    describeProcessingJobResponse_roleArn,
-    describeProcessingJobResponse_processingOutputConfig,
-    describeProcessingJobResponse_experimentConfig,
-    describeProcessingJobResponse_exitMessage,
-    describeProcessingJobResponse_environment,
-    describeProcessingJobResponse_autoMLJobArn,
-    describeProcessingJobResponse_monitoringScheduleArn,
     describeProcessingJobResponse_failureReason,
+    describeProcessingJobResponse_monitoringScheduleArn,
+    describeProcessingJobResponse_environment,
+    describeProcessingJobResponse_stoppingCondition,
+    describeProcessingJobResponse_experimentConfig,
     describeProcessingJobResponse_lastModifiedTime,
     describeProcessingJobResponse_processingInputs,
-    describeProcessingJobResponse_processingStartTime,
-    describeProcessingJobResponse_stoppingCondition,
+    describeProcessingJobResponse_networkConfig,
+    describeProcessingJobResponse_autoMLJobArn,
     describeProcessingJobResponse_trainingJobArn,
+    describeProcessingJobResponse_exitMessage,
+    describeProcessingJobResponse_processingOutputConfig,
+    describeProcessingJobResponse_processingStartTime,
+    describeProcessingJobResponse_processingEndTime,
+    describeProcessingJobResponse_roleArn,
     describeProcessingJobResponse_httpStatus,
     describeProcessingJobResponse_processingJobName,
     describeProcessingJobResponse_processingResources,
@@ -108,23 +108,23 @@ instance Core.AWSRequest DescribeProcessingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeProcessingJobResponse'
-            Prelude.<$> (x Core..?> "NetworkConfig")
-            Prelude.<*> (x Core..?> "ProcessingEndTime")
-            Prelude.<*> (x Core..?> "RoleArn")
-            Prelude.<*> (x Core..?> "ProcessingOutputConfig")
-            Prelude.<*> (x Core..?> "ExperimentConfig")
-            Prelude.<*> (x Core..?> "ExitMessage")
-            Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "AutoMLJobArn")
+            Prelude.<$> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "MonitoringScheduleArn")
-            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<*> (x Core..?> "ExperimentConfig")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> ( x Core..?> "ProcessingInputs"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ProcessingStartTime")
-            Prelude.<*> (x Core..?> "StoppingCondition")
+            Prelude.<*> (x Core..?> "NetworkConfig")
+            Prelude.<*> (x Core..?> "AutoMLJobArn")
             Prelude.<*> (x Core..?> "TrainingJobArn")
+            Prelude.<*> (x Core..?> "ExitMessage")
+            Prelude.<*> (x Core..?> "ProcessingOutputConfig")
+            Prelude.<*> (x Core..?> "ProcessingStartTime")
+            Prelude.<*> (x Core..?> "ProcessingEndTime")
+            Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProcessingJobName")
             Prelude.<*> (x Core..:> "ProcessingResources")
@@ -170,40 +170,40 @@ instance Core.ToQuery DescribeProcessingJob where
 
 -- | /See:/ 'newDescribeProcessingJobResponse' smart constructor.
 data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
-  { -- | Networking options for a processing job.
+  { -- | A string, up to one KB in size, that contains the reason a processing
+    -- job failed, if it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a monitoring schedule for an endpoint associated with this
+    -- processing job.
+    monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
+    -- | The environment variables set in the Docker container.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time limit for how long the processing job is allowed to run.
+    stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
+    -- | The configuration information used to create an experiment.
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
+    -- | The time at which the processing job was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The inputs for a processing job.
+    processingInputs :: Prelude.Maybe [ProcessingInput],
+    -- | Networking options for a processing job.
     networkConfig :: Prelude.Maybe NetworkConfig,
+    -- | The ARN of an AutoML job associated with this processing job.
+    autoMLJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of a training job associated with this processing job.
+    trainingJobArn :: Prelude.Maybe Prelude.Text,
+    -- | An optional string, up to one KB in size, that contains metadata from
+    -- the processing container when the processing job exits.
+    exitMessage :: Prelude.Maybe Prelude.Text,
+    -- | Output configuration for the processing job.
+    processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
+    -- | The time at which the processing job started.
+    processingStartTime :: Prelude.Maybe Core.POSIX,
     -- | The time at which the processing job completed.
     processingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Output configuration for the processing job.
-    processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
-    -- | The configuration information used to create an experiment.
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
-    -- | An optional string, up to one KB in size, that contains metadata from
-    -- the processing container when the processing job exits.
-    exitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The environment variables set in the Docker container.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of an AutoML job associated with this processing job.
-    autoMLJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of a monitoring schedule for an endpoint associated with this
-    -- processing job.
-    monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
-    -- | A string, up to one KB in size, that contains the reason a processing
-    -- job failed, if it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the processing job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The inputs for a processing job.
-    processingInputs :: Prelude.Maybe [ProcessingInput],
-    -- | The time at which the processing job started.
-    processingStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The time limit for how long the processing job is allowed to run.
-    stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
-    -- | The ARN of a training job associated with this processing job.
-    trainingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the processing job. The name must be unique within an Amazon
@@ -232,39 +232,39 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'describeProcessingJobResponse_networkConfig' - Networking options for a processing job.
---
--- 'processingEndTime', 'describeProcessingJobResponse_processingEndTime' - The time at which the processing job completed.
---
--- 'roleArn', 'describeProcessingJobResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
--- assume to perform tasks on your behalf.
---
--- 'processingOutputConfig', 'describeProcessingJobResponse_processingOutputConfig' - Output configuration for the processing job.
---
--- 'experimentConfig', 'describeProcessingJobResponse_experimentConfig' - The configuration information used to create an experiment.
---
--- 'exitMessage', 'describeProcessingJobResponse_exitMessage' - An optional string, up to one KB in size, that contains metadata from
--- the processing container when the processing job exits.
---
--- 'environment', 'describeProcessingJobResponse_environment' - The environment variables set in the Docker container.
---
--- 'autoMLJobArn', 'describeProcessingJobResponse_autoMLJobArn' - The ARN of an AutoML job associated with this processing job.
+-- 'failureReason', 'describeProcessingJobResponse_failureReason' - A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
 --
 -- 'monitoringScheduleArn', 'describeProcessingJobResponse_monitoringScheduleArn' - The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
 --
--- 'failureReason', 'describeProcessingJobResponse_failureReason' - A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
+-- 'environment', 'describeProcessingJobResponse_environment' - The environment variables set in the Docker container.
+--
+-- 'stoppingCondition', 'describeProcessingJobResponse_stoppingCondition' - The time limit for how long the processing job is allowed to run.
+--
+-- 'experimentConfig', 'describeProcessingJobResponse_experimentConfig' - The configuration information used to create an experiment.
 --
 -- 'lastModifiedTime', 'describeProcessingJobResponse_lastModifiedTime' - The time at which the processing job was last modified.
 --
 -- 'processingInputs', 'describeProcessingJobResponse_processingInputs' - The inputs for a processing job.
 --
--- 'processingStartTime', 'describeProcessingJobResponse_processingStartTime' - The time at which the processing job started.
+-- 'networkConfig', 'describeProcessingJobResponse_networkConfig' - Networking options for a processing job.
 --
--- 'stoppingCondition', 'describeProcessingJobResponse_stoppingCondition' - The time limit for how long the processing job is allowed to run.
+-- 'autoMLJobArn', 'describeProcessingJobResponse_autoMLJobArn' - The ARN of an AutoML job associated with this processing job.
 --
 -- 'trainingJobArn', 'describeProcessingJobResponse_trainingJobArn' - The ARN of a training job associated with this processing job.
+--
+-- 'exitMessage', 'describeProcessingJobResponse_exitMessage' - An optional string, up to one KB in size, that contains metadata from
+-- the processing container when the processing job exits.
+--
+-- 'processingOutputConfig', 'describeProcessingJobResponse_processingOutputConfig' - Output configuration for the processing job.
+--
+-- 'processingStartTime', 'describeProcessingJobResponse_processingStartTime' - The time at which the processing job started.
+--
+-- 'processingEndTime', 'describeProcessingJobResponse_processingEndTime' - The time at which the processing job completed.
+--
+-- 'roleArn', 'describeProcessingJobResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
+-- assume to perform tasks on your behalf.
 --
 -- 'httpStatus', 'describeProcessingJobResponse_httpStatus' - The response's http status code.
 --
@@ -307,22 +307,22 @@ newDescribeProcessingJobResponse
   pProcessingJobStatus_
   pCreationTime_ =
     DescribeProcessingJobResponse'
-      { networkConfig =
+      { failureReason =
           Prelude.Nothing,
-        processingEndTime = Prelude.Nothing,
-        roleArn = Prelude.Nothing,
-        processingOutputConfig = Prelude.Nothing,
-        experimentConfig = Prelude.Nothing,
-        exitMessage = Prelude.Nothing,
-        environment = Prelude.Nothing,
-        autoMLJobArn = Prelude.Nothing,
         monitoringScheduleArn = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        environment = Prelude.Nothing,
+        stoppingCondition = Prelude.Nothing,
+        experimentConfig = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         processingInputs = Prelude.Nothing,
-        processingStartTime = Prelude.Nothing,
-        stoppingCondition = Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
+        autoMLJobArn = Prelude.Nothing,
         trainingJobArn = Prelude.Nothing,
+        exitMessage = Prelude.Nothing,
+        processingOutputConfig = Prelude.Nothing,
+        processingStartTime = Prelude.Nothing,
+        processingEndTime = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         processingJobName = pProcessingJobName_,
         processingResources = pProcessingResources_,
@@ -333,9 +333,60 @@ newDescribeProcessingJobResponse
           Core._Time Lens.# pCreationTime_
       }
 
+-- | A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
+describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_failureReason = Lens.lens (\DescribeProcessingJobResponse' {failureReason} -> failureReason) (\s@DescribeProcessingJobResponse' {} a -> s {failureReason = a} :: DescribeProcessingJobResponse)
+
+-- | The ARN of a monitoring schedule for an endpoint associated with this
+-- processing job.
+describeProcessingJobResponse_monitoringScheduleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_monitoringScheduleArn = Lens.lens (\DescribeProcessingJobResponse' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@DescribeProcessingJobResponse' {} a -> s {monitoringScheduleArn = a} :: DescribeProcessingJobResponse)
+
+-- | The environment variables set in the Docker container.
+describeProcessingJobResponse_environment :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeProcessingJobResponse_environment = Lens.lens (\DescribeProcessingJobResponse' {environment} -> environment) (\s@DescribeProcessingJobResponse' {} a -> s {environment = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time limit for how long the processing job is allowed to run.
+describeProcessingJobResponse_stoppingCondition :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingStoppingCondition)
+describeProcessingJobResponse_stoppingCondition = Lens.lens (\DescribeProcessingJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeProcessingJobResponse' {} a -> s {stoppingCondition = a} :: DescribeProcessingJobResponse)
+
+-- | The configuration information used to create an experiment.
+describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ExperimentConfig)
+describeProcessingJobResponse_experimentConfig = Lens.lens (\DescribeProcessingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeProcessingJobResponse' {} a -> s {experimentConfig = a} :: DescribeProcessingJobResponse)
+
+-- | The time at which the processing job was last modified.
+describeProcessingJobResponse_lastModifiedTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeProcessingJobResponse_lastModifiedTime = Lens.lens (\DescribeProcessingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProcessingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The inputs for a processing job.
+describeProcessingJobResponse_processingInputs :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe [ProcessingInput])
+describeProcessingJobResponse_processingInputs = Lens.lens (\DescribeProcessingJobResponse' {processingInputs} -> processingInputs) (\s@DescribeProcessingJobResponse' {} a -> s {processingInputs = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Networking options for a processing job.
 describeProcessingJobResponse_networkConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe NetworkConfig)
 describeProcessingJobResponse_networkConfig = Lens.lens (\DescribeProcessingJobResponse' {networkConfig} -> networkConfig) (\s@DescribeProcessingJobResponse' {} a -> s {networkConfig = a} :: DescribeProcessingJobResponse)
+
+-- | The ARN of an AutoML job associated with this processing job.
+describeProcessingJobResponse_autoMLJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_autoMLJobArn = Lens.lens (\DescribeProcessingJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeProcessingJobResponse)
+
+-- | The ARN of a training job associated with this processing job.
+describeProcessingJobResponse_trainingJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_trainingJobArn = Lens.lens (\DescribeProcessingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {trainingJobArn = a} :: DescribeProcessingJobResponse)
+
+-- | An optional string, up to one KB in size, that contains metadata from
+-- the processing container when the processing job exits.
+describeProcessingJobResponse_exitMessage :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_exitMessage = Lens.lens (\DescribeProcessingJobResponse' {exitMessage} -> exitMessage) (\s@DescribeProcessingJobResponse' {} a -> s {exitMessage = a} :: DescribeProcessingJobResponse)
+
+-- | Output configuration for the processing job.
+describeProcessingJobResponse_processingOutputConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingOutputConfig)
+describeProcessingJobResponse_processingOutputConfig = Lens.lens (\DescribeProcessingJobResponse' {processingOutputConfig} -> processingOutputConfig) (\s@DescribeProcessingJobResponse' {} a -> s {processingOutputConfig = a} :: DescribeProcessingJobResponse)
+
+-- | The time at which the processing job started.
+describeProcessingJobResponse_processingStartTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeProcessingJobResponse_processingStartTime = Lens.lens (\DescribeProcessingJobResponse' {processingStartTime} -> processingStartTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingStartTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The time at which the processing job completed.
 describeProcessingJobResponse_processingEndTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
@@ -345,57 +396,6 @@ describeProcessingJobResponse_processingEndTime = Lens.lens (\DescribeProcessing
 -- assume to perform tasks on your behalf.
 describeProcessingJobResponse_roleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_roleArn = Lens.lens (\DescribeProcessingJobResponse' {roleArn} -> roleArn) (\s@DescribeProcessingJobResponse' {} a -> s {roleArn = a} :: DescribeProcessingJobResponse)
-
--- | Output configuration for the processing job.
-describeProcessingJobResponse_processingOutputConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingOutputConfig)
-describeProcessingJobResponse_processingOutputConfig = Lens.lens (\DescribeProcessingJobResponse' {processingOutputConfig} -> processingOutputConfig) (\s@DescribeProcessingJobResponse' {} a -> s {processingOutputConfig = a} :: DescribeProcessingJobResponse)
-
--- | The configuration information used to create an experiment.
-describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ExperimentConfig)
-describeProcessingJobResponse_experimentConfig = Lens.lens (\DescribeProcessingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeProcessingJobResponse' {} a -> s {experimentConfig = a} :: DescribeProcessingJobResponse)
-
--- | An optional string, up to one KB in size, that contains metadata from
--- the processing container when the processing job exits.
-describeProcessingJobResponse_exitMessage :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_exitMessage = Lens.lens (\DescribeProcessingJobResponse' {exitMessage} -> exitMessage) (\s@DescribeProcessingJobResponse' {} a -> s {exitMessage = a} :: DescribeProcessingJobResponse)
-
--- | The environment variables set in the Docker container.
-describeProcessingJobResponse_environment :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeProcessingJobResponse_environment = Lens.lens (\DescribeProcessingJobResponse' {environment} -> environment) (\s@DescribeProcessingJobResponse' {} a -> s {environment = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ARN of an AutoML job associated with this processing job.
-describeProcessingJobResponse_autoMLJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_autoMLJobArn = Lens.lens (\DescribeProcessingJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeProcessingJobResponse)
-
--- | The ARN of a monitoring schedule for an endpoint associated with this
--- processing job.
-describeProcessingJobResponse_monitoringScheduleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_monitoringScheduleArn = Lens.lens (\DescribeProcessingJobResponse' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@DescribeProcessingJobResponse' {} a -> s {monitoringScheduleArn = a} :: DescribeProcessingJobResponse)
-
--- | A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
-describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_failureReason = Lens.lens (\DescribeProcessingJobResponse' {failureReason} -> failureReason) (\s@DescribeProcessingJobResponse' {} a -> s {failureReason = a} :: DescribeProcessingJobResponse)
-
--- | The time at which the processing job was last modified.
-describeProcessingJobResponse_lastModifiedTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeProcessingJobResponse_lastModifiedTime = Lens.lens (\DescribeProcessingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProcessingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
-
--- | The inputs for a processing job.
-describeProcessingJobResponse_processingInputs :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe [ProcessingInput])
-describeProcessingJobResponse_processingInputs = Lens.lens (\DescribeProcessingJobResponse' {processingInputs} -> processingInputs) (\s@DescribeProcessingJobResponse' {} a -> s {processingInputs = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time at which the processing job started.
-describeProcessingJobResponse_processingStartTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeProcessingJobResponse_processingStartTime = Lens.lens (\DescribeProcessingJobResponse' {processingStartTime} -> processingStartTime) (\s@DescribeProcessingJobResponse' {} a -> s {processingStartTime = a} :: DescribeProcessingJobResponse) Prelude.. Lens.mapping Core._Time
-
--- | The time limit for how long the processing job is allowed to run.
-describeProcessingJobResponse_stoppingCondition :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingStoppingCondition)
-describeProcessingJobResponse_stoppingCondition = Lens.lens (\DescribeProcessingJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeProcessingJobResponse' {} a -> s {stoppingCondition = a} :: DescribeProcessingJobResponse)
-
--- | The ARN of a training job associated with this processing job.
-describeProcessingJobResponse_trainingJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_trainingJobArn = Lens.lens (\DescribeProcessingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {trainingJobArn = a} :: DescribeProcessingJobResponse)
 
 -- | The response's http status code.
 describeProcessingJobResponse_httpStatus :: Lens.Lens' DescribeProcessingJobResponse Prelude.Int

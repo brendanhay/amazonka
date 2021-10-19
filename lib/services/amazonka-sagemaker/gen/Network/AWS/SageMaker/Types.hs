@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types
     defaultService,
 
     -- * Errors
-    _ResourceInUse,
     _ResourceLimitExceeded,
+    _ResourceInUse,
     _ConflictException,
     _ResourceNotFound,
 
@@ -532,8 +532,8 @@ module Network.AWS.SageMaker.Types
     -- * ActionSource
     ActionSource (..),
     newActionSource,
-    actionSource_sourceId,
     actionSource_sourceType,
+    actionSource_sourceId,
     actionSource_sourceUri,
 
     -- * ActionSummary
@@ -541,11 +541,11 @@ module Network.AWS.SageMaker.Types
     newActionSummary,
     actionSummary_creationTime,
     actionSummary_status,
-    actionSummary_actionName,
-    actionSummary_actionType,
-    actionSummary_actionArn,
-    actionSummary_source,
     actionSummary_lastModifiedTime,
+    actionSummary_actionName,
+    actionSummary_source,
+    actionSummary_actionArn,
+    actionSummary_actionType,
 
     -- * AgentVersion
     AgentVersion (..),
@@ -561,17 +561,17 @@ module Network.AWS.SageMaker.Types
     -- * AlgorithmSpecification
     AlgorithmSpecification (..),
     newAlgorithmSpecification,
-    algorithmSpecification_trainingImage,
     algorithmSpecification_enableSageMakerMetricsTimeSeries,
-    algorithmSpecification_metricDefinitions,
     algorithmSpecification_algorithmName,
+    algorithmSpecification_trainingImage,
+    algorithmSpecification_metricDefinitions,
     algorithmSpecification_trainingInputMode,
 
     -- * AlgorithmStatusDetails
     AlgorithmStatusDetails (..),
     newAlgorithmStatusDetails,
-    algorithmStatusDetails_validationStatuses,
     algorithmStatusDetails_imageScanStatuses,
+    algorithmStatusDetails_validationStatuses,
 
     -- * AlgorithmStatusItem
     AlgorithmStatusItem (..),
@@ -612,19 +612,19 @@ module Network.AWS.SageMaker.Types
     newAppDetails,
     appDetails_creationTime,
     appDetails_status,
-    appDetails_appType,
-    appDetails_appName,
     appDetails_userProfileName,
+    appDetails_appName,
     appDetails_domainId,
+    appDetails_appType,
 
     -- * AppImageConfigDetails
     AppImageConfigDetails (..),
     newAppImageConfigDetails,
     appImageConfigDetails_creationTime,
-    appImageConfigDetails_appImageConfigArn,
-    appImageConfigDetails_kernelGatewayImageConfig,
     appImageConfigDetails_appImageConfigName,
     appImageConfigDetails_lastModifiedTime,
+    appImageConfigDetails_kernelGatewayImageConfig,
+    appImageConfigDetails_appImageConfigArn,
 
     -- * AppSpecification
     AppSpecification (..),
@@ -649,24 +649,24 @@ module Network.AWS.SageMaker.Types
     ArtifactSummary (..),
     newArtifactSummary,
     artifactSummary_creationTime,
-    artifactSummary_artifactName,
-    artifactSummary_artifactType,
-    artifactSummary_artifactArn,
-    artifactSummary_source,
     artifactSummary_lastModifiedTime,
+    artifactSummary_artifactName,
+    artifactSummary_source,
+    artifactSummary_artifactArn,
+    artifactSummary_artifactType,
 
     -- * AssociationSummary
     AssociationSummary (..),
     newAssociationSummary,
     associationSummary_creationTime,
-    associationSummary_destinationType,
-    associationSummary_destinationArn,
-    associationSummary_destinationName,
     associationSummary_sourceName,
-    associationSummary_associationType,
-    associationSummary_createdBy,
-    associationSummary_sourceArn,
     associationSummary_sourceType,
+    associationSummary_sourceArn,
+    associationSummary_createdBy,
+    associationSummary_associationType,
+    associationSummary_destinationArn,
+    associationSummary_destinationType,
+    associationSummary_destinationName,
 
     -- * AsyncInferenceClientConfig
     AsyncInferenceClientConfig (..),
@@ -695,9 +695,9 @@ module Network.AWS.SageMaker.Types
     -- * AthenaDatasetDefinition
     AthenaDatasetDefinition (..),
     newAthenaDatasetDefinition,
-    athenaDatasetDefinition_outputCompression,
     athenaDatasetDefinition_kmsKeyId,
     athenaDatasetDefinition_workGroup,
+    athenaDatasetDefinition_outputCompression,
     athenaDatasetDefinition_catalog,
     athenaDatasetDefinition_database,
     athenaDatasetDefinition_queryString,
@@ -707,10 +707,10 @@ module Network.AWS.SageMaker.Types
     -- * AutoMLCandidate
     AutoMLCandidate (..),
     newAutoMLCandidate,
+    autoMLCandidate_failureReason,
+    autoMLCandidate_inferenceContainers,
     autoMLCandidate_candidateProperties,
     autoMLCandidate_endTime,
-    autoMLCandidate_inferenceContainers,
-    autoMLCandidate_failureReason,
     autoMLCandidate_finalAutoMLJobObjectiveMetric,
     autoMLCandidate_candidateName,
     autoMLCandidate_objectiveStatus,
@@ -754,9 +754,9 @@ module Network.AWS.SageMaker.Types
     -- * AutoMLJobCompletionCriteria
     AutoMLJobCompletionCriteria (..),
     newAutoMLJobCompletionCriteria,
+    autoMLJobCompletionCriteria_maxCandidates,
     autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds,
     autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds,
-    autoMLJobCompletionCriteria_maxCandidates,
 
     -- * AutoMLJobConfig
     AutoMLJobConfig (..),
@@ -772,9 +772,9 @@ module Network.AWS.SageMaker.Types
     -- * AutoMLJobSummary
     AutoMLJobSummary (..),
     newAutoMLJobSummary,
-    autoMLJobSummary_endTime,
-    autoMLJobSummary_partialFailureReasons,
     autoMLJobSummary_failureReason,
+    autoMLJobSummary_partialFailureReasons,
+    autoMLJobSummary_endTime,
     autoMLJobSummary_autoMLJobName,
     autoMLJobSummary_autoMLJobArn,
     autoMLJobSummary_autoMLJobStatus,
@@ -803,8 +803,8 @@ module Network.AWS.SageMaker.Types
     AutoMLSecurityConfig (..),
     newAutoMLSecurityConfig,
     autoMLSecurityConfig_vpcConfig,
-    autoMLSecurityConfig_enableInterContainerTrafficEncryption,
     autoMLSecurityConfig_volumeKmsKeyId,
+    autoMLSecurityConfig_enableInterContainerTrafficEncryption,
 
     -- * AutoRollbackConfig
     AutoRollbackConfig (..),
@@ -819,8 +819,8 @@ module Network.AWS.SageMaker.Types
     -- * BlueGreenUpdatePolicy
     BlueGreenUpdatePolicy (..),
     newBlueGreenUpdatePolicy,
-    blueGreenUpdatePolicy_terminationWaitInSeconds,
     blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds,
+    blueGreenUpdatePolicy_terminationWaitInSeconds,
     blueGreenUpdatePolicy_trafficRoutingConfiguration,
 
     -- * CacheHitResult
@@ -831,9 +831,9 @@ module Network.AWS.SageMaker.Types
     -- * CallbackStepMetadata
     CallbackStepMetadata (..),
     newCallbackStepMetadata,
-    callbackStepMetadata_sqsQueueUrl,
-    callbackStepMetadata_outputParameters,
     callbackStepMetadata_callbackToken,
+    callbackStepMetadata_outputParameters,
+    callbackStepMetadata_sqsQueueUrl,
 
     -- * CandidateArtifactLocations
     CandidateArtifactLocations (..),
@@ -877,20 +877,20 @@ module Network.AWS.SageMaker.Types
     -- * Channel
     Channel (..),
     newChannel,
-    channel_contentType,
-    channel_recordWrapperType,
     channel_shuffleConfig,
-    channel_compressionType,
+    channel_recordWrapperType,
     channel_inputMode,
+    channel_compressionType,
+    channel_contentType,
     channel_channelName,
     channel_dataSource,
 
     -- * ChannelSpecification
     ChannelSpecification (..),
     newChannelSpecification,
-    channelSpecification_description,
-    channelSpecification_isRequired,
     channelSpecification_supportedCompressionTypes,
+    channelSpecification_isRequired,
+    channelSpecification_description,
     channelSpecification_name,
     channelSpecification_supportedContentTypes,
     channelSpecification_supportedInputModes,
@@ -932,13 +932,13 @@ module Network.AWS.SageMaker.Types
     -- * CompilationJobSummary
     CompilationJobSummary (..),
     newCompilationJobSummary,
-    compilationJobSummary_compilationTargetPlatformArch,
     compilationJobSummary_compilationStartTime,
-    compilationJobSummary_compilationTargetPlatformOs,
     compilationJobSummary_compilationTargetPlatformAccelerator,
-    compilationJobSummary_lastModifiedTime,
-    compilationJobSummary_compilationEndTime,
     compilationJobSummary_compilationTargetDevice,
+    compilationJobSummary_lastModifiedTime,
+    compilationJobSummary_compilationTargetPlatformArch,
+    compilationJobSummary_compilationEndTime,
+    compilationJobSummary_compilationTargetPlatformOs,
     compilationJobSummary_compilationJobName,
     compilationJobSummary_compilationJobArn,
     compilationJobSummary_creationTime,
@@ -952,31 +952,31 @@ module Network.AWS.SageMaker.Types
     -- * ContainerDefinition
     ContainerDefinition (..),
     newContainerDefinition,
-    containerDefinition_modelDataUrl,
     containerDefinition_multiModelConfig,
+    containerDefinition_modelDataUrl,
+    containerDefinition_image,
+    containerDefinition_modelPackageName,
+    containerDefinition_environment,
+    containerDefinition_imageConfig,
     containerDefinition_mode,
     containerDefinition_containerHostname,
-    containerDefinition_imageConfig,
-    containerDefinition_environment,
-    containerDefinition_modelPackageName,
-    containerDefinition_image,
 
     -- * ContextSource
     ContextSource (..),
     newContextSource,
-    contextSource_sourceId,
     contextSource_sourceType,
+    contextSource_sourceId,
     contextSource_sourceUri,
 
     -- * ContextSummary
     ContextSummary (..),
     newContextSummary,
-    contextSummary_contextType,
     contextSummary_creationTime,
-    contextSummary_contextName,
-    contextSummary_source,
     contextSummary_lastModifiedTime,
+    contextSummary_contextType,
     contextSummary_contextArn,
+    contextSummary_source,
+    contextSummary_contextName,
 
     -- * ContinuousParameterRange
     ContinuousParameterRange (..),
@@ -1036,17 +1036,17 @@ module Network.AWS.SageMaker.Types
     DataQualityAppSpecification (..),
     newDataQualityAppSpecification,
     dataQualityAppSpecification_containerArguments,
+    dataQualityAppSpecification_recordPreprocessorSourceUri,
+    dataQualityAppSpecification_environment,
     dataQualityAppSpecification_containerEntrypoint,
     dataQualityAppSpecification_postAnalyticsProcessorSourceUri,
-    dataQualityAppSpecification_environment,
-    dataQualityAppSpecification_recordPreprocessorSourceUri,
     dataQualityAppSpecification_imageUri,
 
     -- * DataQualityBaselineConfig
     DataQualityBaselineConfig (..),
     newDataQualityBaselineConfig,
-    dataQualityBaselineConfig_statisticsResource,
     dataQualityBaselineConfig_constraintsResource,
+    dataQualityBaselineConfig_statisticsResource,
     dataQualityBaselineConfig_baseliningJobName,
 
     -- * DataQualityJobInput
@@ -1057,51 +1057,51 @@ module Network.AWS.SageMaker.Types
     -- * DataSource
     DataSource (..),
     newDataSource,
-    dataSource_fileSystemDataSource,
     dataSource_s3DataSource,
+    dataSource_fileSystemDataSource,
 
     -- * DatasetDefinition
     DatasetDefinition (..),
     newDatasetDefinition,
     datasetDefinition_redshiftDatasetDefinition,
-    datasetDefinition_localPath,
     datasetDefinition_athenaDatasetDefinition,
-    datasetDefinition_inputMode,
+    datasetDefinition_localPath,
     datasetDefinition_dataDistributionType,
+    datasetDefinition_inputMode,
 
     -- * DebugHookConfig
     DebugHookConfig (..),
     newDebugHookConfig,
+    debugHookConfig_localPath,
     debugHookConfig_collectionConfigurations,
     debugHookConfig_hookParameters,
-    debugHookConfig_localPath,
     debugHookConfig_s3OutputPath,
 
     -- * DebugRuleConfiguration
     DebugRuleConfiguration (..),
     newDebugRuleConfiguration,
     debugRuleConfiguration_ruleParameters,
-    debugRuleConfiguration_instanceType,
     debugRuleConfiguration_s3OutputPath,
-    debugRuleConfiguration_volumeSizeInGB,
     debugRuleConfiguration_localPath,
+    debugRuleConfiguration_instanceType,
+    debugRuleConfiguration_volumeSizeInGB,
     debugRuleConfiguration_ruleConfigurationName,
     debugRuleConfiguration_ruleEvaluatorImage,
 
     -- * DebugRuleEvaluationStatus
     DebugRuleEvaluationStatus (..),
     newDebugRuleEvaluationStatus,
-    debugRuleEvaluationStatus_ruleConfigurationName,
+    debugRuleEvaluationStatus_lastModifiedTime,
     debugRuleEvaluationStatus_statusDetails,
     debugRuleEvaluationStatus_ruleEvaluationStatus,
-    debugRuleEvaluationStatus_lastModifiedTime,
     debugRuleEvaluationStatus_ruleEvaluationJobArn,
+    debugRuleEvaluationStatus_ruleConfigurationName,
 
     -- * DeployedImage
     DeployedImage (..),
     newDeployedImage,
-    deployedImage_specifiedImage,
     deployedImage_resolvedImage,
+    deployedImage_specifiedImage,
     deployedImage_resolutionTime,
 
     -- * DeploymentConfig
@@ -1120,8 +1120,8 @@ module Network.AWS.SageMaker.Types
     -- * Device
     Device (..),
     newDevice,
-    device_iotThingName,
     device_description,
+    device_iotThingName,
     device_deviceName,
 
     -- * DeviceFleetSummary
@@ -1141,12 +1141,12 @@ module Network.AWS.SageMaker.Types
     -- * DeviceSummary
     DeviceSummary (..),
     newDeviceSummary,
-    deviceSummary_deviceFleetName,
-    deviceSummary_latestHeartbeat,
     deviceSummary_registrationTime,
     deviceSummary_models,
-    deviceSummary_iotThingName,
+    deviceSummary_latestHeartbeat,
     deviceSummary_description,
+    deviceSummary_deviceFleetName,
+    deviceSummary_iotThingName,
     deviceSummary_deviceName,
     deviceSummary_deviceArn,
 
@@ -1156,10 +1156,10 @@ module Network.AWS.SageMaker.Types
     domainDetails_creationTime,
     domainDetails_status,
     domainDetails_domainArn,
-    domainDetails_domainId,
-    domainDetails_domainName,
-    domainDetails_lastModifiedTime,
     domainDetails_url,
+    domainDetails_lastModifiedTime,
+    domainDetails_domainName,
+    domainDetails_domainId,
 
     -- * EdgeModel
     EdgeModel (..),
@@ -1188,19 +1188,19 @@ module Network.AWS.SageMaker.Types
     -- * EdgeOutputConfig
     EdgeOutputConfig (..),
     newEdgeOutputConfig,
-    edgeOutputConfig_presetDeploymentConfig,
-    edgeOutputConfig_kmsKeyId,
     edgeOutputConfig_presetDeploymentType,
+    edgeOutputConfig_kmsKeyId,
+    edgeOutputConfig_presetDeploymentConfig,
     edgeOutputConfig_s3OutputLocation,
 
     -- * EdgePackagingJobSummary
     EdgePackagingJobSummary (..),
     newEdgePackagingJobSummary,
     edgePackagingJobSummary_creationTime,
+    edgePackagingJobSummary_modelName,
+    edgePackagingJobSummary_lastModifiedTime,
     edgePackagingJobSummary_compilationJobName,
     edgePackagingJobSummary_modelVersion,
-    edgePackagingJobSummary_lastModifiedTime,
-    edgePackagingJobSummary_modelName,
     edgePackagingJobSummary_edgePackagingJobArn,
     edgePackagingJobSummary_edgePackagingJobName,
     edgePackagingJobSummary_edgePackagingJobStatus,
@@ -1208,19 +1208,19 @@ module Network.AWS.SageMaker.Types
     -- * EdgePresetDeploymentOutput
     EdgePresetDeploymentOutput (..),
     newEdgePresetDeploymentOutput,
-    edgePresetDeploymentOutput_statusMessage,
     edgePresetDeploymentOutput_status,
     edgePresetDeploymentOutput_artifact,
+    edgePresetDeploymentOutput_statusMessage,
     edgePresetDeploymentOutput_type,
 
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
+    endpoint_failureReason,
     endpoint_productionVariants,
     endpoint_monitoringSchedules,
-    endpoint_failureReason,
-    endpoint_tags,
     endpoint_dataCaptureConfig,
+    endpoint_tags,
     endpoint_endpointName,
     endpoint_endpointArn,
     endpoint_endpointConfigName,
@@ -1238,14 +1238,14 @@ module Network.AWS.SageMaker.Types
     -- * EndpointInput
     EndpointInput (..),
     newEndpointInput,
-    endpointInput_endTimeOffset,
     endpointInput_inferenceAttribute,
-    endpointInput_s3InputMode,
     endpointInput_s3DataDistributionType,
-    endpointInput_probabilityAttribute,
-    endpointInput_probabilityThresholdAttribute,
-    endpointInput_featuresAttribute,
+    endpointInput_s3InputMode,
     endpointInput_startTimeOffset,
+    endpointInput_featuresAttribute,
+    endpointInput_endTimeOffset,
+    endpointInput_probabilityThresholdAttribute,
+    endpointInput_probabilityAttribute,
     endpointInput_endpointName,
     endpointInput_localPath,
 
@@ -1262,21 +1262,21 @@ module Network.AWS.SageMaker.Types
     Experiment (..),
     newExperiment,
     experiment_creationTime,
+    experiment_createdBy,
+    experiment_lastModifiedTime,
+    experiment_experimentName,
     experiment_experimentArn,
     experiment_source,
-    experiment_tags,
-    experiment_lastModifiedTime,
-    experiment_description,
-    experiment_experimentName,
-    experiment_createdBy,
-    experiment_lastModifiedBy,
     experiment_displayName,
+    experiment_lastModifiedBy,
+    experiment_description,
+    experiment_tags,
 
     -- * ExperimentConfig
     ExperimentConfig (..),
     newExperimentConfig,
-    experimentConfig_experimentName,
     experimentConfig_trialComponentDisplayName,
+    experimentConfig_experimentName,
     experimentConfig_trialName,
 
     -- * ExperimentSource
@@ -1289,10 +1289,10 @@ module Network.AWS.SageMaker.Types
     ExperimentSummary (..),
     newExperimentSummary,
     experimentSummary_creationTime,
-    experimentSummary_experimentArn,
-    experimentSummary_experimentSource,
     experimentSummary_lastModifiedTime,
     experimentSummary_experimentName,
+    experimentSummary_experimentSource,
+    experimentSummary_experimentArn,
     experimentSummary_displayName,
 
     -- * Explainability
@@ -1309,20 +1309,20 @@ module Network.AWS.SageMaker.Types
     -- * FeatureGroup
     FeatureGroup (..),
     newFeatureGroup,
-    featureGroup_featureGroupStatus,
     featureGroup_creationTime,
     featureGroup_offlineStoreConfig,
-    featureGroup_roleArn,
-    featureGroup_featureGroupArn,
-    featureGroup_recordIdentifierFeatureName,
-    featureGroup_eventTimeFeatureName,
+    featureGroup_failureReason,
+    featureGroup_featureGroupStatus,
     featureGroup_featureDefinitions,
     featureGroup_offlineStoreStatus,
-    featureGroup_featureGroupName,
-    featureGroup_failureReason,
-    featureGroup_tags,
-    featureGroup_description,
     featureGroup_onlineStoreConfig,
+    featureGroup_eventTimeFeatureName,
+    featureGroup_recordIdentifierFeatureName,
+    featureGroup_featureGroupArn,
+    featureGroup_featureGroupName,
+    featureGroup_description,
+    featureGroup_tags,
+    featureGroup_roleArn,
 
     -- * FeatureGroupSummary
     FeatureGroupSummary (..),
@@ -1387,8 +1387,8 @@ module Network.AWS.SageMaker.Types
     -- * GitConfig
     GitConfig (..),
     newGitConfig,
-    gitConfig_secretArn,
     gitConfig_branch,
+    gitConfig_secretArn,
     gitConfig_repositoryUrl,
 
     -- * GitConfigForUpdate
@@ -1410,9 +1410,9 @@ module Network.AWS.SageMaker.Types
     HumanLoopConfig (..),
     newHumanLoopConfig,
     humanLoopConfig_taskKeywords,
+    humanLoopConfig_publicWorkforceTaskPrice,
     humanLoopConfig_taskTimeLimitInSeconds,
     humanLoopConfig_taskAvailabilityLifetimeInSeconds,
-    humanLoopConfig_publicWorkforceTaskPrice,
     humanLoopConfig_workteamArn,
     humanLoopConfig_humanTaskUiArn,
     humanLoopConfig_taskTitle,
@@ -1428,9 +1428,9 @@ module Network.AWS.SageMaker.Types
     HumanTaskConfig (..),
     newHumanTaskConfig,
     humanTaskConfig_taskKeywords,
+    humanTaskConfig_publicWorkforceTaskPrice,
     humanTaskConfig_taskAvailabilityLifetimeInSeconds,
     humanTaskConfig_maxConcurrentTaskCount,
-    humanTaskConfig_publicWorkforceTaskPrice,
     humanTaskConfig_workteamArn,
     humanTaskConfig_uiConfig,
     humanTaskConfig_preHumanTaskLambdaArn,
@@ -1450,36 +1450,36 @@ module Network.AWS.SageMaker.Types
     -- * HyperParameterAlgorithmSpecification
     HyperParameterAlgorithmSpecification (..),
     newHyperParameterAlgorithmSpecification,
+    hyperParameterAlgorithmSpecification_algorithmName,
     hyperParameterAlgorithmSpecification_trainingImage,
     hyperParameterAlgorithmSpecification_metricDefinitions,
-    hyperParameterAlgorithmSpecification_algorithmName,
     hyperParameterAlgorithmSpecification_trainingInputMode,
 
     -- * HyperParameterSpecification
     HyperParameterSpecification (..),
     newHyperParameterSpecification,
-    hyperParameterSpecification_range,
     hyperParameterSpecification_isTunable,
-    hyperParameterSpecification_description,
-    hyperParameterSpecification_isRequired,
+    hyperParameterSpecification_range,
     hyperParameterSpecification_defaultValue,
+    hyperParameterSpecification_isRequired,
+    hyperParameterSpecification_description,
     hyperParameterSpecification_name,
     hyperParameterSpecification_type,
 
     -- * HyperParameterTrainingJobDefinition
     HyperParameterTrainingJobDefinition (..),
     newHyperParameterTrainingJobDefinition,
-    hyperParameterTrainingJobDefinition_vpcConfig,
+    hyperParameterTrainingJobDefinition_tuningObjective,
+    hyperParameterTrainingJobDefinition_checkpointConfig,
+    hyperParameterTrainingJobDefinition_hyperParameterRanges,
+    hyperParameterTrainingJobDefinition_retryStrategy,
+    hyperParameterTrainingJobDefinition_enableNetworkIsolation,
     hyperParameterTrainingJobDefinition_staticHyperParameters,
     hyperParameterTrainingJobDefinition_enableManagedSpotTraining,
     hyperParameterTrainingJobDefinition_inputDataConfig,
-    hyperParameterTrainingJobDefinition_enableNetworkIsolation,
-    hyperParameterTrainingJobDefinition_hyperParameterRanges,
-    hyperParameterTrainingJobDefinition_enableInterContainerTrafficEncryption,
-    hyperParameterTrainingJobDefinition_checkpointConfig,
-    hyperParameterTrainingJobDefinition_retryStrategy,
-    hyperParameterTrainingJobDefinition_tuningObjective,
+    hyperParameterTrainingJobDefinition_vpcConfig,
     hyperParameterTrainingJobDefinition_definitionName,
+    hyperParameterTrainingJobDefinition_enableInterContainerTrafficEncryption,
     hyperParameterTrainingJobDefinition_algorithmSpecification,
     hyperParameterTrainingJobDefinition_roleArn,
     hyperParameterTrainingJobDefinition_outputDataConfig,
@@ -1489,13 +1489,13 @@ module Network.AWS.SageMaker.Types
     -- * HyperParameterTrainingJobSummary
     HyperParameterTrainingJobSummary (..),
     newHyperParameterTrainingJobSummary,
-    hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric,
-    hyperParameterTrainingJobSummary_tuningJobName,
     hyperParameterTrainingJobSummary_failureReason,
-    hyperParameterTrainingJobSummary_objectiveStatus,
-    hyperParameterTrainingJobSummary_trainingStartTime,
-    hyperParameterTrainingJobSummary_trainingJobDefinitionName,
+    hyperParameterTrainingJobSummary_tuningJobName,
     hyperParameterTrainingJobSummary_trainingEndTime,
+    hyperParameterTrainingJobSummary_objectiveStatus,
+    hyperParameterTrainingJobSummary_trainingJobDefinitionName,
+    hyperParameterTrainingJobSummary_trainingStartTime,
+    hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric,
     hyperParameterTrainingJobSummary_trainingJobName,
     hyperParameterTrainingJobSummary_trainingJobArn,
     hyperParameterTrainingJobSummary_creationTime,
@@ -1505,9 +1505,9 @@ module Network.AWS.SageMaker.Types
     -- * HyperParameterTuningJobConfig
     HyperParameterTuningJobConfig (..),
     newHyperParameterTuningJobConfig,
-    hyperParameterTuningJobConfig_hyperParameterTuningJobObjective,
-    hyperParameterTuningJobConfig_parameterRanges,
     hyperParameterTuningJobConfig_tuningJobCompletionCriteria,
+    hyperParameterTuningJobConfig_parameterRanges,
+    hyperParameterTuningJobConfig_hyperParameterTuningJobObjective,
     hyperParameterTuningJobConfig_trainingJobEarlyStoppingType,
     hyperParameterTuningJobConfig_strategy,
     hyperParameterTuningJobConfig_resourceLimits,
@@ -1522,8 +1522,8 @@ module Network.AWS.SageMaker.Types
     HyperParameterTuningJobSummary (..),
     newHyperParameterTuningJobSummary,
     hyperParameterTuningJobSummary_resourceLimits,
-    hyperParameterTuningJobSummary_hyperParameterTuningEndTime,
     hyperParameterTuningJobSummary_lastModifiedTime,
+    hyperParameterTuningJobSummary_hyperParameterTuningEndTime,
     hyperParameterTuningJobSummary_hyperParameterTuningJobName,
     hyperParameterTuningJobSummary_hyperParameterTuningJobArn,
     hyperParameterTuningJobSummary_hyperParameterTuningJobStatus,
@@ -1542,8 +1542,8 @@ module Network.AWS.SageMaker.Types
     Image (..),
     newImage,
     image_failureReason,
-    image_description,
     image_displayName,
+    image_description,
     image_creationTime,
     image_imageArn,
     image_imageName,
@@ -1575,8 +1575,8 @@ module Network.AWS.SageMaker.Types
     -- * InferenceSpecification
     InferenceSpecification (..),
     newInferenceSpecification,
-    inferenceSpecification_supportedTransformInstanceTypes,
     inferenceSpecification_supportedRealtimeInferenceInstanceTypes,
+    inferenceSpecification_supportedTransformInstanceTypes,
     inferenceSpecification_containers,
     inferenceSpecification_supportedContentTypes,
     inferenceSpecification_supportedResponseMIMETypes,
@@ -1606,15 +1606,15 @@ module Network.AWS.SageMaker.Types
     -- * JupyterServerAppSettings
     JupyterServerAppSettings (..),
     newJupyterServerAppSettings,
-    jupyterServerAppSettings_lifecycleConfigArns,
     jupyterServerAppSettings_defaultResourceSpec,
+    jupyterServerAppSettings_lifecycleConfigArns,
 
     -- * KernelGatewayAppSettings
     KernelGatewayAppSettings (..),
     newKernelGatewayAppSettings,
+    kernelGatewayAppSettings_defaultResourceSpec,
     kernelGatewayAppSettings_customImages,
     kernelGatewayAppSettings_lifecycleConfigArns,
-    kernelGatewayAppSettings_defaultResourceSpec,
 
     -- * KernelGatewayImageConfig
     KernelGatewayImageConfig (..),
@@ -1631,11 +1631,11 @@ module Network.AWS.SageMaker.Types
     -- * LabelCounters
     LabelCounters (..),
     newLabelCounters,
-    labelCounters_unlabeled,
-    labelCounters_failedNonRetryableError,
     labelCounters_machineLabeled,
-    labelCounters_humanLabeled,
     labelCounters_totalLabeled,
+    labelCounters_failedNonRetryableError,
+    labelCounters_unlabeled,
+    labelCounters_humanLabeled,
 
     -- * LabelCountersForWorkteam
     LabelCountersForWorkteam (..),
@@ -1647,8 +1647,8 @@ module Network.AWS.SageMaker.Types
     -- * LabelingJobAlgorithmsConfig
     LabelingJobAlgorithmsConfig (..),
     newLabelingJobAlgorithmsConfig,
-    labelingJobAlgorithmsConfig_initialActiveLearningModelArn,
     labelingJobAlgorithmsConfig_labelingJobResourceConfig,
+    labelingJobAlgorithmsConfig_initialActiveLearningModelArn,
     labelingJobAlgorithmsConfig_labelingJobAlgorithmSpecificationArn,
 
     -- * LabelingJobDataAttributes
@@ -1659,15 +1659,15 @@ module Network.AWS.SageMaker.Types
     -- * LabelingJobDataSource
     LabelingJobDataSource (..),
     newLabelingJobDataSource,
-    labelingJobDataSource_snsDataSource,
     labelingJobDataSource_s3DataSource,
+    labelingJobDataSource_snsDataSource,
 
     -- * LabelingJobForWorkteamSummary
     LabelingJobForWorkteamSummary (..),
     newLabelingJobForWorkteamSummary,
+    labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject,
     labelingJobForWorkteamSummary_labelCounters,
     labelingJobForWorkteamSummary_labelingJobName,
-    labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject,
     labelingJobForWorkteamSummary_jobReferenceCode,
     labelingJobForWorkteamSummary_workRequesterAccountId,
     labelingJobForWorkteamSummary_creationTime,
@@ -1687,8 +1687,8 @@ module Network.AWS.SageMaker.Types
     -- * LabelingJobOutputConfig
     LabelingJobOutputConfig (..),
     newLabelingJobOutputConfig,
-    labelingJobOutputConfig_kmsKeyId,
     labelingJobOutputConfig_snsTopicArn,
+    labelingJobOutputConfig_kmsKeyId,
     labelingJobOutputConfig_s3OutputPath,
 
     -- * LabelingJobResourceConfig
@@ -1709,15 +1709,15 @@ module Network.AWS.SageMaker.Types
     -- * LabelingJobStoppingConditions
     LabelingJobStoppingConditions (..),
     newLabelingJobStoppingConditions,
-    labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled,
     labelingJobStoppingConditions_maxHumanLabeledObjectCount,
+    labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled,
 
     -- * LabelingJobSummary
     LabelingJobSummary (..),
     newLabelingJobSummary,
+    labelingJobSummary_failureReason,
     labelingJobSummary_annotationConsolidationLambdaArn,
     labelingJobSummary_inputConfig,
-    labelingJobSummary_failureReason,
     labelingJobSummary_labelingJobOutput,
     labelingJobSummary_labelingJobName,
     labelingJobSummary_labelingJobArn,
@@ -1743,24 +1743,24 @@ module Network.AWS.SageMaker.Types
     -- * MetadataProperties
     MetadataProperties (..),
     newMetadataProperties,
-    metadataProperties_generatedBy,
     metadataProperties_commitId,
-    metadataProperties_projectId,
     metadataProperties_repository,
+    metadataProperties_generatedBy,
+    metadataProperties_projectId,
 
     -- * MetricData
     MetricData (..),
     newMetricData,
     metricData_metricName,
-    metricData_timestamp,
     metricData_value,
+    metricData_timestamp,
 
     -- * MetricDatum
     MetricDatum (..),
     newMetricDatum,
+    metricDatum_set,
     metricDatum_metricName,
     metricDatum_value,
-    metricDatum_set,
 
     -- * MetricDefinition
     MetricDefinition (..),
@@ -1849,54 +1849,54 @@ module Network.AWS.SageMaker.Types
     ModelMetrics (..),
     newModelMetrics,
     modelMetrics_bias,
-    modelMetrics_explainability,
     modelMetrics_modelDataQuality,
     modelMetrics_modelQuality,
+    modelMetrics_explainability,
 
     -- * ModelPackage
     ModelPackage (..),
     newModelPackage,
-    modelPackage_sourceAlgorithmSpecification,
-    modelPackage_modelPackageVersion,
     modelPackage_creationTime,
     modelPackage_metadataProperties,
-    modelPackage_validationSpecification,
-    modelPackage_modelPackageStatusDetails,
-    modelPackage_modelMetrics,
-    modelPackage_modelPackageName,
-    modelPackage_certifyForMarketplace,
     modelPackage_modelApprovalStatus,
-    modelPackage_modelPackageStatus,
-    modelPackage_tags,
-    modelPackage_approvalDescription,
-    modelPackage_inferenceSpecification,
-    modelPackage_lastModifiedTime,
-    modelPackage_createdBy,
-    modelPackage_modelPackageDescription,
+    modelPackage_sourceAlgorithmSpecification,
+    modelPackage_modelPackageName,
     modelPackage_modelPackageArn,
-    modelPackage_lastModifiedBy,
+    modelPackage_modelMetrics,
+    modelPackage_modelPackageDescription,
+    modelPackage_createdBy,
+    modelPackage_lastModifiedTime,
+    modelPackage_validationSpecification,
+    modelPackage_inferenceSpecification,
+    modelPackage_approvalDescription,
+    modelPackage_modelPackageVersion,
+    modelPackage_certifyForMarketplace,
     modelPackage_modelPackageGroupName,
+    modelPackage_lastModifiedBy,
+    modelPackage_modelPackageStatusDetails,
+    modelPackage_tags,
+    modelPackage_modelPackageStatus,
 
     -- * ModelPackageContainerDefinition
     ModelPackageContainerDefinition (..),
     newModelPackageContainerDefinition,
-    modelPackageContainerDefinition_imageDigest,
     modelPackageContainerDefinition_modelDataUrl,
-    modelPackageContainerDefinition_containerHostname,
     modelPackageContainerDefinition_environment,
+    modelPackageContainerDefinition_imageDigest,
+    modelPackageContainerDefinition_containerHostname,
     modelPackageContainerDefinition_productId,
     modelPackageContainerDefinition_image,
 
     -- * ModelPackageGroup
     ModelPackageGroup (..),
     newModelPackageGroup,
-    modelPackageGroup_modelPackageGroupArn,
     modelPackageGroup_creationTime,
     modelPackageGroup_modelPackageGroupDescription,
-    modelPackageGroup_tags,
-    modelPackageGroup_modelPackageGroupStatus,
+    modelPackageGroup_modelPackageGroupArn,
     modelPackageGroup_createdBy,
     modelPackageGroup_modelPackageGroupName,
+    modelPackageGroup_modelPackageGroupStatus,
+    modelPackageGroup_tags,
 
     -- * ModelPackageGroupSummary
     ModelPackageGroupSummary (..),
@@ -1923,9 +1923,9 @@ module Network.AWS.SageMaker.Types
     -- * ModelPackageSummary
     ModelPackageSummary (..),
     newModelPackageSummary,
-    modelPackageSummary_modelPackageVersion,
     modelPackageSummary_modelApprovalStatus,
     modelPackageSummary_modelPackageDescription,
+    modelPackageSummary_modelPackageVersion,
     modelPackageSummary_modelPackageGroupName,
     modelPackageSummary_modelPackageName,
     modelPackageSummary_modelPackageArn,
@@ -1954,11 +1954,11 @@ module Network.AWS.SageMaker.Types
     ModelQualityAppSpecification (..),
     newModelQualityAppSpecification,
     modelQualityAppSpecification_containerArguments,
+    modelQualityAppSpecification_recordPreprocessorSourceUri,
+    modelQualityAppSpecification_environment,
+    modelQualityAppSpecification_problemType,
     modelQualityAppSpecification_containerEntrypoint,
     modelQualityAppSpecification_postAnalyticsProcessorSourceUri,
-    modelQualityAppSpecification_environment,
-    modelQualityAppSpecification_recordPreprocessorSourceUri,
-    modelQualityAppSpecification_problemType,
     modelQualityAppSpecification_imageUri,
 
     -- * ModelQualityBaselineConfig
@@ -1989,16 +1989,16 @@ module Network.AWS.SageMaker.Types
     MonitoringAppSpecification (..),
     newMonitoringAppSpecification,
     monitoringAppSpecification_containerArguments,
+    monitoringAppSpecification_recordPreprocessorSourceUri,
     monitoringAppSpecification_containerEntrypoint,
     monitoringAppSpecification_postAnalyticsProcessorSourceUri,
-    monitoringAppSpecification_recordPreprocessorSourceUri,
     monitoringAppSpecification_imageUri,
 
     -- * MonitoringBaselineConfig
     MonitoringBaselineConfig (..),
     newMonitoringBaselineConfig,
-    monitoringBaselineConfig_statisticsResource,
     monitoringBaselineConfig_constraintsResource,
+    monitoringBaselineConfig_statisticsResource,
     monitoringBaselineConfig_baseliningJobName,
 
     -- * MonitoringClusterConfig
@@ -2017,11 +2017,11 @@ module Network.AWS.SageMaker.Types
     -- * MonitoringExecutionSummary
     MonitoringExecutionSummary (..),
     newMonitoringExecutionSummary,
-    monitoringExecutionSummary_endpointName,
     monitoringExecutionSummary_monitoringType,
-    monitoringExecutionSummary_monitoringJobDefinitionName,
     monitoringExecutionSummary_failureReason,
+    monitoringExecutionSummary_endpointName,
     monitoringExecutionSummary_processingJobArn,
+    monitoringExecutionSummary_monitoringJobDefinitionName,
     monitoringExecutionSummary_monitoringScheduleName,
     monitoringExecutionSummary_scheduledTime,
     monitoringExecutionSummary_creationTime,
@@ -2041,10 +2041,10 @@ module Network.AWS.SageMaker.Types
     -- * MonitoringJobDefinition
     MonitoringJobDefinition (..),
     newMonitoringJobDefinition,
-    monitoringJobDefinition_networkConfig,
     monitoringJobDefinition_environment,
-    monitoringJobDefinition_baselineConfig,
     monitoringJobDefinition_stoppingCondition,
+    monitoringJobDefinition_networkConfig,
+    monitoringJobDefinition_baselineConfig,
     monitoringJobDefinition_monitoringInputs,
     monitoringJobDefinition_monitoringOutputConfig,
     monitoringJobDefinition_monitoringResources,
@@ -2062,8 +2062,8 @@ module Network.AWS.SageMaker.Types
     -- * MonitoringNetworkConfig
     MonitoringNetworkConfig (..),
     newMonitoringNetworkConfig,
-    monitoringNetworkConfig_vpcConfig,
     monitoringNetworkConfig_enableNetworkIsolation,
+    monitoringNetworkConfig_vpcConfig,
     monitoringNetworkConfig_enableInterContainerTrafficEncryption,
 
     -- * MonitoringOutput
@@ -2093,30 +2093,30 @@ module Network.AWS.SageMaker.Types
     MonitoringSchedule (..),
     newMonitoringSchedule,
     monitoringSchedule_creationTime,
-    monitoringSchedule_endpointName,
     monitoringSchedule_monitoringType,
-    monitoringSchedule_monitoringScheduleName,
-    monitoringSchedule_monitoringScheduleStatus,
-    monitoringSchedule_monitoringScheduleArn,
     monitoringSchedule_failureReason,
-    monitoringSchedule_tags,
+    monitoringSchedule_monitoringScheduleArn,
+    monitoringSchedule_endpointName,
     monitoringSchedule_lastModifiedTime,
-    monitoringSchedule_monitoringScheduleConfig,
+    monitoringSchedule_monitoringScheduleStatus,
     monitoringSchedule_lastMonitoringExecutionSummary,
+    monitoringSchedule_monitoringScheduleConfig,
+    monitoringSchedule_monitoringScheduleName,
+    monitoringSchedule_tags,
 
     -- * MonitoringScheduleConfig
     MonitoringScheduleConfig (..),
     newMonitoringScheduleConfig,
-    monitoringScheduleConfig_scheduleConfig,
     monitoringScheduleConfig_monitoringType,
-    monitoringScheduleConfig_monitoringJobDefinitionName,
+    monitoringScheduleConfig_scheduleConfig,
     monitoringScheduleConfig_monitoringJobDefinition,
+    monitoringScheduleConfig_monitoringJobDefinitionName,
 
     -- * MonitoringScheduleSummary
     MonitoringScheduleSummary (..),
     newMonitoringScheduleSummary,
-    monitoringScheduleSummary_endpointName,
     monitoringScheduleSummary_monitoringType,
+    monitoringScheduleSummary_endpointName,
     monitoringScheduleSummary_monitoringJobDefinitionName,
     monitoringScheduleSummary_monitoringScheduleName,
     monitoringScheduleSummary_monitoringScheduleArn,
@@ -2154,8 +2154,8 @@ module Network.AWS.SageMaker.Types
     -- * NetworkConfig
     NetworkConfig (..),
     newNetworkConfig,
-    networkConfig_vpcConfig,
     networkConfig_enableNetworkIsolation,
+    networkConfig_vpcConfig,
     networkConfig_enableInterContainerTrafficEncryption,
 
     -- * NotebookInstanceLifecycleConfigSummary
@@ -2175,13 +2175,13 @@ module Network.AWS.SageMaker.Types
     NotebookInstanceSummary (..),
     newNotebookInstanceSummary,
     notebookInstanceSummary_creationTime,
-    notebookInstanceSummary_defaultCodeRepository,
-    notebookInstanceSummary_instanceType,
-    notebookInstanceSummary_notebookInstanceLifecycleConfigName,
     notebookInstanceSummary_additionalCodeRepositories,
-    notebookInstanceSummary_notebookInstanceStatus,
-    notebookInstanceSummary_lastModifiedTime,
     notebookInstanceSummary_url,
+    notebookInstanceSummary_lastModifiedTime,
+    notebookInstanceSummary_instanceType,
+    notebookInstanceSummary_notebookInstanceStatus,
+    notebookInstanceSummary_defaultCodeRepository,
+    notebookInstanceSummary_notebookInstanceLifecycleConfigName,
     notebookInstanceSummary_notebookInstanceName,
     notebookInstanceSummary_notebookInstanceArn,
 
@@ -2193,8 +2193,8 @@ module Network.AWS.SageMaker.Types
     -- * ObjectiveStatusCounters
     ObjectiveStatusCounters (..),
     newObjectiveStatusCounters,
-    objectiveStatusCounters_succeeded,
     objectiveStatusCounters_pending,
+    objectiveStatusCounters_succeeded,
     objectiveStatusCounters_failed,
 
     -- * OfflineStoreConfig
@@ -2226,12 +2226,12 @@ module Network.AWS.SageMaker.Types
     OidcConfigForResponse (..),
     newOidcConfigForResponse,
     oidcConfigForResponse_clientId,
-    oidcConfigForResponse_tokenEndpoint,
-    oidcConfigForResponse_authorizationEndpoint,
-    oidcConfigForResponse_userInfoEndpoint,
-    oidcConfigForResponse_logoutEndpoint,
     oidcConfigForResponse_jwksUri,
+    oidcConfigForResponse_userInfoEndpoint,
+    oidcConfigForResponse_authorizationEndpoint,
+    oidcConfigForResponse_tokenEndpoint,
     oidcConfigForResponse_issuer,
+    oidcConfigForResponse_logoutEndpoint,
 
     -- * OidcMemberDefinition
     OidcMemberDefinition (..),
@@ -2252,10 +2252,10 @@ module Network.AWS.SageMaker.Types
     -- * OutputConfig
     OutputConfig (..),
     newOutputConfig,
-    outputConfig_compilerOptions,
-    outputConfig_kmsKeyId,
-    outputConfig_targetDevice,
     outputConfig_targetPlatform,
+    outputConfig_kmsKeyId,
+    outputConfig_compilerOptions,
+    outputConfig_targetDevice,
     outputConfig_s3OutputLocation,
 
     -- * OutputDataConfig
@@ -2279,9 +2279,9 @@ module Network.AWS.SageMaker.Types
     -- * ParameterRange
     ParameterRange (..),
     newParameterRange,
-    parameterRange_continuousParameterRangeSpecification,
     parameterRange_categoricalParameterRangeSpecification,
     parameterRange_integerParameterRangeSpecification,
+    parameterRange_continuousParameterRangeSpecification,
 
     -- * ParameterRanges
     ParameterRanges (..),
@@ -2304,67 +2304,67 @@ module Network.AWS.SageMaker.Types
     -- * Pipeline
     Pipeline (..),
     newPipeline,
-    pipeline_pipelineArn,
     pipeline_creationTime,
-    pipeline_pipelineDescription,
-    pipeline_roleArn,
-    pipeline_lastRunTime,
     pipeline_pipelineDisplayName,
-    pipeline_tags,
+    pipeline_pipelineName,
+    pipeline_createdBy,
+    pipeline_lastRunTime,
     pipeline_lastModifiedTime,
     pipeline_pipelineStatus,
-    pipeline_createdBy,
+    pipeline_pipelineDescription,
+    pipeline_pipelineArn,
     pipeline_lastModifiedBy,
-    pipeline_pipelineName,
+    pipeline_tags,
+    pipeline_roleArn,
 
     -- * PipelineExecution
     PipelineExecution (..),
     newPipelineExecution,
-    pipelineExecution_pipelineArn,
     pipelineExecution_creationTime,
-    pipelineExecution_pipelineExecutionDescription,
-    pipelineExecution_pipelineParameters,
-    pipelineExecution_pipelineExecutionDisplayName,
     pipelineExecution_pipelineExecutionStatus,
     pipelineExecution_failureReason,
-    pipelineExecution_pipelineExperimentConfig,
-    pipelineExecution_lastModifiedTime,
-    pipelineExecution_createdBy,
-    pipelineExecution_lastModifiedBy,
     pipelineExecution_pipelineExecutionArn,
+    pipelineExecution_pipelineParameters,
+    pipelineExecution_createdBy,
+    pipelineExecution_lastModifiedTime,
+    pipelineExecution_pipelineArn,
+    pipelineExecution_pipelineExecutionDisplayName,
+    pipelineExecution_lastModifiedBy,
+    pipelineExecution_pipelineExecutionDescription,
+    pipelineExecution_pipelineExperimentConfig,
 
     -- * PipelineExecutionStep
     PipelineExecutionStep (..),
     newPipelineExecutionStep,
-    pipelineExecutionStep_metadata,
-    pipelineExecutionStep_startTime,
-    pipelineExecutionStep_endTime,
     pipelineExecutionStep_failureReason,
-    pipelineExecutionStep_stepStatus,
-    pipelineExecutionStep_cacheHitResult,
+    pipelineExecutionStep_startTime,
     pipelineExecutionStep_stepName,
+    pipelineExecutionStep_stepStatus,
+    pipelineExecutionStep_endTime,
+    pipelineExecutionStep_metadata,
+    pipelineExecutionStep_cacheHitResult,
 
     -- * PipelineExecutionStepMetadata
     PipelineExecutionStepMetadata (..),
     newPipelineExecutionStepMetadata,
-    pipelineExecutionStepMetadata_model,
-    pipelineExecutionStepMetadata_processingJob,
-    pipelineExecutionStepMetadata_condition,
-    pipelineExecutionStepMetadata_tuningJob,
-    pipelineExecutionStepMetadata_lambda,
     pipelineExecutionStepMetadata_trainingJob,
-    pipelineExecutionStepMetadata_callback,
-    pipelineExecutionStepMetadata_registerModel,
+    pipelineExecutionStepMetadata_processingJob,
+    pipelineExecutionStepMetadata_model,
+    pipelineExecutionStepMetadata_lambda,
+    pipelineExecutionStepMetadata_tuningJob,
+    pipelineExecutionStepMetadata_condition,
     pipelineExecutionStepMetadata_transformJob,
+    pipelineExecutionStepMetadata_registerModel,
+    pipelineExecutionStepMetadata_callback,
 
     -- * PipelineExecutionSummary
     PipelineExecutionSummary (..),
     newPipelineExecutionSummary,
-    pipelineExecutionSummary_pipelineExecutionDescription,
-    pipelineExecutionSummary_startTime,
-    pipelineExecutionSummary_pipelineExecutionDisplayName,
     pipelineExecutionSummary_pipelineExecutionStatus,
+    pipelineExecutionSummary_startTime,
     pipelineExecutionSummary_pipelineExecutionArn,
+    pipelineExecutionSummary_pipelineExecutionDisplayName,
+    pipelineExecutionSummary_pipelineExecutionDescription,
 
     -- * PipelineExperimentConfig
     PipelineExperimentConfig (..),
@@ -2375,14 +2375,14 @@ module Network.AWS.SageMaker.Types
     -- * PipelineSummary
     PipelineSummary (..),
     newPipelineSummary,
-    pipelineSummary_pipelineArn,
     pipelineSummary_creationTime,
-    pipelineSummary_pipelineDescription,
-    pipelineSummary_roleArn,
-    pipelineSummary_lastExecutionTime,
     pipelineSummary_pipelineDisplayName,
-    pipelineSummary_lastModifiedTime,
+    pipelineSummary_lastExecutionTime,
     pipelineSummary_pipelineName,
+    pipelineSummary_lastModifiedTime,
+    pipelineSummary_pipelineDescription,
+    pipelineSummary_pipelineArn,
+    pipelineSummary_roleArn,
 
     -- * ProcessingClusterConfig
     ProcessingClusterConfig (..),
@@ -2409,27 +2409,27 @@ module Network.AWS.SageMaker.Types
     ProcessingJob (..),
     newProcessingJob,
     processingJob_creationTime,
-    processingJob_networkConfig,
-    processingJob_appSpecification,
-    processingJob_processingEndTime,
-    processingJob_roleArn,
-    processingJob_processingOutputConfig,
-    processingJob_experimentConfig,
-    processingJob_exitMessage,
-    processingJob_processingJobStatus,
-    processingJob_environment,
-    processingJob_autoMLJobArn,
-    processingJob_monitoringScheduleArn,
     processingJob_failureReason,
-    processingJob_tags,
-    processingJob_processingJobArn,
+    processingJob_monitoringScheduleArn,
+    processingJob_appSpecification,
+    processingJob_processingResources,
+    processingJob_environment,
+    processingJob_processingJobName,
+    processingJob_stoppingCondition,
+    processingJob_experimentConfig,
     processingJob_lastModifiedTime,
     processingJob_processingInputs,
-    processingJob_processingStartTime,
-    processingJob_stoppingCondition,
-    processingJob_processingJobName,
-    processingJob_processingResources,
+    processingJob_networkConfig,
+    processingJob_autoMLJobArn,
     processingJob_trainingJobArn,
+    processingJob_processingJobStatus,
+    processingJob_exitMessage,
+    processingJob_processingOutputConfig,
+    processingJob_processingStartTime,
+    processingJob_processingEndTime,
+    processingJob_tags,
+    processingJob_processingJobArn,
+    processingJob_roleArn,
 
     -- * ProcessingJobStepMetadata
     ProcessingJobStepMetadata (..),
@@ -2439,10 +2439,10 @@ module Network.AWS.SageMaker.Types
     -- * ProcessingJobSummary
     ProcessingJobSummary (..),
     newProcessingJobSummary,
-    processingJobSummary_processingEndTime,
-    processingJobSummary_exitMessage,
     processingJobSummary_failureReason,
     processingJobSummary_lastModifiedTime,
+    processingJobSummary_exitMessage,
+    processingJobSummary_processingEndTime,
     processingJobSummary_processingJobName,
     processingJobSummary_processingJobArn,
     processingJobSummary_creationTime,
@@ -2451,8 +2451,8 @@ module Network.AWS.SageMaker.Types
     -- * ProcessingOutput
     ProcessingOutput (..),
     newProcessingOutput,
-    processingOutput_s3Output,
     processingOutput_featureStoreOutput,
+    processingOutput_s3Output,
     processingOutput_appManaged,
     processingOutput_outputName,
 
@@ -2470,10 +2470,10 @@ module Network.AWS.SageMaker.Types
     -- * ProcessingS3Input
     ProcessingS3Input (..),
     newProcessingS3Input,
-    processingS3Input_s3CompressionType,
-    processingS3Input_s3InputMode,
     processingS3Input_s3DataDistributionType,
+    processingS3Input_s3InputMode,
     processingS3Input_localPath,
+    processingS3Input_s3CompressionType,
     processingS3Input_s3Uri,
     processingS3Input_s3DataType,
 
@@ -2492,9 +2492,9 @@ module Network.AWS.SageMaker.Types
     -- * ProductionVariant
     ProductionVariant (..),
     newProductionVariant,
-    productionVariant_initialVariantWeight,
     productionVariant_acceleratorType,
     productionVariant_coreDumpConfig,
+    productionVariant_initialVariantWeight,
     productionVariant_variantName,
     productionVariant_modelName,
     productionVariant_initialInstanceCount,
@@ -2509,11 +2509,11 @@ module Network.AWS.SageMaker.Types
     -- * ProductionVariantSummary
     ProductionVariantSummary (..),
     newProductionVariantSummary,
-    productionVariantSummary_deployedImages,
     productionVariantSummary_desiredInstanceCount,
+    productionVariantSummary_desiredWeight,
     productionVariantSummary_currentWeight,
     productionVariantSummary_currentInstanceCount,
-    productionVariantSummary_desiredWeight,
+    productionVariantSummary_deployedImages,
     productionVariantSummary_variantName,
 
     -- * ProfilerConfig
@@ -2526,8 +2526,8 @@ module Network.AWS.SageMaker.Types
     -- * ProfilerConfigForUpdate
     ProfilerConfigForUpdate (..),
     newProfilerConfigForUpdate,
-    profilerConfigForUpdate_s3OutputPath,
     profilerConfigForUpdate_profilingParameters,
+    profilerConfigForUpdate_s3OutputPath,
     profilerConfigForUpdate_profilingIntervalInMilliseconds,
     profilerConfigForUpdate_disableProfiler,
 
@@ -2535,35 +2535,35 @@ module Network.AWS.SageMaker.Types
     ProfilerRuleConfiguration (..),
     newProfilerRuleConfiguration,
     profilerRuleConfiguration_ruleParameters,
-    profilerRuleConfiguration_instanceType,
     profilerRuleConfiguration_s3OutputPath,
-    profilerRuleConfiguration_volumeSizeInGB,
     profilerRuleConfiguration_localPath,
+    profilerRuleConfiguration_instanceType,
+    profilerRuleConfiguration_volumeSizeInGB,
     profilerRuleConfiguration_ruleConfigurationName,
     profilerRuleConfiguration_ruleEvaluatorImage,
 
     -- * ProfilerRuleEvaluationStatus
     ProfilerRuleEvaluationStatus (..),
     newProfilerRuleEvaluationStatus,
-    profilerRuleEvaluationStatus_ruleConfigurationName,
+    profilerRuleEvaluationStatus_lastModifiedTime,
     profilerRuleEvaluationStatus_statusDetails,
     profilerRuleEvaluationStatus_ruleEvaluationStatus,
-    profilerRuleEvaluationStatus_lastModifiedTime,
     profilerRuleEvaluationStatus_ruleEvaluationJobArn,
+    profilerRuleEvaluationStatus_ruleConfigurationName,
 
     -- * Project
     Project (..),
     newProject,
     project_creationTime,
-    project_projectId,
-    project_projectName,
     project_serviceCatalogProvisionedProductDetails,
-    project_tags,
-    project_projectStatus,
     project_createdBy,
-    project_projectDescription,
-    project_projectArn,
+    project_projectStatus,
+    project_projectName,
     project_serviceCatalogProvisioningDetails,
+    project_projectId,
+    project_projectArn,
+    project_projectDescription,
+    project_tags,
 
     -- * ProjectSummary
     ProjectSummary (..),
@@ -2588,8 +2588,8 @@ module Network.AWS.SageMaker.Types
     -- * ProvisioningParameter
     ProvisioningParameter (..),
     newProvisioningParameter,
-    provisioningParameter_key,
     provisioningParameter_value,
+    provisioningParameter_key,
 
     -- * PublicWorkforceTaskPrice
     PublicWorkforceTaskPrice (..),
@@ -2599,8 +2599,8 @@ module Network.AWS.SageMaker.Types
     -- * RedshiftDatasetDefinition
     RedshiftDatasetDefinition (..),
     newRedshiftDatasetDefinition,
-    redshiftDatasetDefinition_outputCompression,
     redshiftDatasetDefinition_kmsKeyId,
+    redshiftDatasetDefinition_outputCompression,
     redshiftDatasetDefinition_clusterId,
     redshiftDatasetDefinition_database,
     redshiftDatasetDefinition_dbUser,
@@ -2633,9 +2633,9 @@ module Network.AWS.SageMaker.Types
     -- * ResolvedAttributes
     ResolvedAttributes (..),
     newResolvedAttributes,
-    resolvedAttributes_completionCriteria,
-    resolvedAttributes_autoMLJobObjective,
     resolvedAttributes_problemType,
+    resolvedAttributes_autoMLJobObjective,
+    resolvedAttributes_completionCriteria,
 
     -- * ResourceConfig
     ResourceConfig (..),
@@ -2656,8 +2656,8 @@ module Network.AWS.SageMaker.Types
     newResourceSpec,
     resourceSpec_instanceType,
     resourceSpec_sageMakerImageArn,
-    resourceSpec_lifecycleConfigArn,
     resourceSpec_sageMakerImageVersionArn,
+    resourceSpec_lifecycleConfigArn,
 
     -- * RetentionPolicy
     RetentionPolicy (..),
@@ -2680,8 +2680,8 @@ module Network.AWS.SageMaker.Types
     -- * S3StorageConfig
     S3StorageConfig (..),
     newS3StorageConfig,
-    s3StorageConfig_kmsKeyId,
     s3StorageConfig_resolvedOutputS3Uri,
+    s3StorageConfig_kmsKeyId,
     s3StorageConfig_s3Uri,
 
     -- * ScheduleConfig
@@ -2692,25 +2692,25 @@ module Network.AWS.SageMaker.Types
     -- * SearchExpression
     SearchExpression (..),
     newSearchExpression,
-    searchExpression_nestedFilters,
+    searchExpression_subExpressions,
     searchExpression_operator,
     searchExpression_filters,
-    searchExpression_subExpressions,
+    searchExpression_nestedFilters,
 
     -- * SearchRecord
     SearchRecord (..),
     newSearchRecord,
-    searchRecord_experiment,
-    searchRecord_featureGroup,
-    searchRecord_modelPackage,
-    searchRecord_project,
     searchRecord_trainingJob,
-    searchRecord_endpoint,
-    searchRecord_pipelineExecution,
-    searchRecord_trialComponent,
     searchRecord_trial,
     searchRecord_modelPackageGroup,
+    searchRecord_trialComponent,
+    searchRecord_project,
+    searchRecord_pipelineExecution,
+    searchRecord_featureGroup,
+    searchRecord_experiment,
     searchRecord_pipeline,
+    searchRecord_modelPackage,
+    searchRecord_endpoint,
 
     -- * SecondaryStatusTransition
     SecondaryStatusTransition (..),
@@ -2729,10 +2729,10 @@ module Network.AWS.SageMaker.Types
     -- * ServiceCatalogProvisioningDetails
     ServiceCatalogProvisioningDetails (..),
     newServiceCatalogProvisioningDetails,
-    serviceCatalogProvisioningDetails_provisioningParameters,
-    serviceCatalogProvisioningDetails_pathId,
-    serviceCatalogProvisioningDetails_productId,
     serviceCatalogProvisioningDetails_provisioningArtifactId,
+    serviceCatalogProvisioningDetails_pathId,
+    serviceCatalogProvisioningDetails_provisioningParameters,
+    serviceCatalogProvisioningDetails_productId,
 
     -- * SharingSettings
     SharingSettings (..),
@@ -2765,25 +2765,25 @@ module Network.AWS.SageMaker.Types
     -- * StoppingCondition
     StoppingCondition (..),
     newStoppingCondition,
-    stoppingCondition_maxRuntimeInSeconds,
     stoppingCondition_maxWaitTimeInSeconds,
+    stoppingCondition_maxRuntimeInSeconds,
 
     -- * StudioLifecycleConfigDetails
     StudioLifecycleConfigDetails (..),
     newStudioLifecycleConfigDetails,
     studioLifecycleConfigDetails_creationTime,
-    studioLifecycleConfigDetails_studioLifecycleConfigArn,
-    studioLifecycleConfigDetails_studioLifecycleConfigName,
-    studioLifecycleConfigDetails_studioLifecycleConfigAppType,
     studioLifecycleConfigDetails_lastModifiedTime,
+    studioLifecycleConfigDetails_studioLifecycleConfigArn,
+    studioLifecycleConfigDetails_studioLifecycleConfigAppType,
+    studioLifecycleConfigDetails_studioLifecycleConfigName,
 
     -- * SubscribedWorkteam
     SubscribedWorkteam (..),
     newSubscribedWorkteam,
-    subscribedWorkteam_listingId,
     subscribedWorkteam_marketplaceTitle,
-    subscribedWorkteam_marketplaceDescription,
     subscribedWorkteam_sellerName,
+    subscribedWorkteam_listingId,
+    subscribedWorkteam_marketplaceDescription,
     subscribedWorkteam_workteamArn,
 
     -- * SuggestionQuery
@@ -2825,43 +2825,43 @@ module Network.AWS.SageMaker.Types
     -- * TrainingJob
     TrainingJob (..),
     newTrainingJob,
-    trainingJob_vpcConfig,
-    trainingJob_enableManagedSpotTraining,
     trainingJob_creationTime,
     trainingJob_labelingJobArn,
-    trainingJob_hyperParameters,
+    trainingJob_failureReason,
+    trainingJob_secondaryStatusTransitions,
+    trainingJob_modelArtifacts,
+    trainingJob_trainingEndTime,
+    trainingJob_environment,
+    trainingJob_billableTimeInSeconds,
+    trainingJob_debugHookConfig,
+    trainingJob_checkpointConfig,
+    trainingJob_retryStrategy,
+    trainingJob_stoppingCondition,
+    trainingJob_debugRuleEvaluationStatuses,
+    trainingJob_trainingJobStatus,
+    trainingJob_enableNetworkIsolation,
+    trainingJob_experimentConfig,
+    trainingJob_lastModifiedTime,
     trainingJob_debugRuleConfigurations,
+    trainingJob_enableManagedSpotTraining,
+    trainingJob_autoMLJobArn,
+    trainingJob_hyperParameters,
     trainingJob_inputDataConfig,
+    trainingJob_vpcConfig,
+    trainingJob_trainingJobArn,
+    trainingJob_algorithmSpecification,
+    trainingJob_finalMetricDataList,
+    trainingJob_outputDataConfig,
+    trainingJob_trainingStartTime,
+    trainingJob_tuningJobArn,
+    trainingJob_trainingJobName,
+    trainingJob_resourceConfig,
+    trainingJob_enableInterContainerTrafficEncryption,
+    trainingJob_tensorBoardOutputConfig,
+    trainingJob_secondaryStatus,
+    trainingJob_tags,
     trainingJob_trainingTimeInSeconds,
     trainingJob_roleArn,
-    trainingJob_experimentConfig,
-    trainingJob_enableNetworkIsolation,
-    trainingJob_enableInterContainerTrafficEncryption,
-    trainingJob_trainingJobName,
-    trainingJob_checkpointConfig,
-    trainingJob_tuningJobArn,
-    trainingJob_outputDataConfig,
-    trainingJob_environment,
-    trainingJob_modelArtifacts,
-    trainingJob_finalMetricDataList,
-    trainingJob_secondaryStatusTransitions,
-    trainingJob_autoMLJobArn,
-    trainingJob_failureReason,
-    trainingJob_tags,
-    trainingJob_lastModifiedTime,
-    trainingJob_secondaryStatus,
-    trainingJob_tensorBoardOutputConfig,
-    trainingJob_debugRuleEvaluationStatuses,
-    trainingJob_stoppingCondition,
-    trainingJob_trainingJobStatus,
-    trainingJob_retryStrategy,
-    trainingJob_resourceConfig,
-    trainingJob_debugHookConfig,
-    trainingJob_billableTimeInSeconds,
-    trainingJob_trainingStartTime,
-    trainingJob_trainingJobArn,
-    trainingJob_trainingEndTime,
-    trainingJob_algorithmSpecification,
 
     -- * TrainingJobDefinition
     TrainingJobDefinition (..),
@@ -2877,10 +2877,10 @@ module Network.AWS.SageMaker.Types
     TrainingJobStatusCounters (..),
     newTrainingJobStatusCounters,
     trainingJobStatusCounters_stopped,
+    trainingJobStatusCounters_retryableError,
+    trainingJobStatusCounters_inProgress,
     trainingJobStatusCounters_nonRetryableError,
     trainingJobStatusCounters_completed,
-    trainingJobStatusCounters_inProgress,
-    trainingJobStatusCounters_retryableError,
 
     -- * TrainingJobStepMetadata
     TrainingJobStepMetadata (..),
@@ -2890,8 +2890,8 @@ module Network.AWS.SageMaker.Types
     -- * TrainingJobSummary
     TrainingJobSummary (..),
     newTrainingJobSummary,
-    trainingJobSummary_lastModifiedTime,
     trainingJobSummary_trainingEndTime,
+    trainingJobSummary_lastModifiedTime,
     trainingJobSummary_trainingJobName,
     trainingJobSummary_trainingJobArn,
     trainingJobSummary_creationTime,
@@ -2900,11 +2900,11 @@ module Network.AWS.SageMaker.Types
     -- * TrainingSpecification
     TrainingSpecification (..),
     newTrainingSpecification,
-    trainingSpecification_metricDefinitions,
-    trainingSpecification_supportedHyperParameters,
-    trainingSpecification_supportsDistributedTraining,
     trainingSpecification_trainingImageDigest,
+    trainingSpecification_supportsDistributedTraining,
+    trainingSpecification_supportedHyperParameters,
     trainingSpecification_supportedTuningJobObjectiveMetrics,
+    trainingSpecification_metricDefinitions,
     trainingSpecification_trainingImage,
     trainingSpecification_supportedTrainingInstanceTypes,
     trainingSpecification_trainingChannels,
@@ -2917,43 +2917,43 @@ module Network.AWS.SageMaker.Types
     -- * TransformInput
     TransformInput (..),
     newTransformInput,
-    transformInput_contentType,
     transformInput_splitType,
     transformInput_compressionType,
+    transformInput_contentType,
     transformInput_dataSource,
 
     -- * TransformJob
     TransformJob (..),
     newTransformJob,
-    transformJob_transformJobName,
     transformJob_creationTime,
     transformJob_labelingJobArn,
-    transformJob_transformStartTime,
-    transformJob_experimentConfig,
-    transformJob_transformOutput,
-    transformJob_maxConcurrentTransforms,
-    transformJob_environment,
-    transformJob_maxPayloadInMB,
-    transformJob_transformJobStatus,
-    transformJob_batchStrategy,
-    transformJob_autoMLJobArn,
-    transformJob_modelClientConfig,
+    transformJob_transformJobName,
     transformJob_failureReason,
-    transformJob_tags,
-    transformJob_transformJobArn,
-    transformJob_transformEndTime,
-    transformJob_dataProcessing,
-    transformJob_modelName,
+    transformJob_modelClientConfig,
+    transformJob_batchStrategy,
+    transformJob_maxPayloadInMB,
+    transformJob_environment,
     transformJob_transformResources,
+    transformJob_modelName,
+    transformJob_experimentConfig,
+    transformJob_transformEndTime,
+    transformJob_transformStartTime,
+    transformJob_autoMLJobArn,
+    transformJob_transformJobStatus,
     transformJob_transformInput,
+    transformJob_maxConcurrentTransforms,
+    transformJob_transformOutput,
+    transformJob_dataProcessing,
+    transformJob_transformJobArn,
+    transformJob_tags,
 
     -- * TransformJobDefinition
     TransformJobDefinition (..),
     newTransformJobDefinition,
-    transformJobDefinition_maxConcurrentTransforms,
-    transformJobDefinition_environment,
-    transformJobDefinition_maxPayloadInMB,
     transformJobDefinition_batchStrategy,
+    transformJobDefinition_maxPayloadInMB,
+    transformJobDefinition_environment,
+    transformJobDefinition_maxConcurrentTransforms,
     transformJobDefinition_transformInput,
     transformJobDefinition_transformOutput,
     transformJobDefinition_transformResources,
@@ -2977,8 +2977,8 @@ module Network.AWS.SageMaker.Types
     -- * TransformOutput
     TransformOutput (..),
     newTransformOutput,
-    transformOutput_accept,
     transformOutput_assembleWith,
+    transformOutput_accept,
     transformOutput_kmsKeyId,
     transformOutput_s3OutputPath,
 
@@ -2998,41 +2998,41 @@ module Network.AWS.SageMaker.Types
     -- * Trial
     Trial (..),
     newTrial,
-    trial_trialArn,
     trial_creationTime,
     trial_metadataProperties,
-    trial_source,
     trial_trialComponentSummaries,
-    trial_tags,
+    trial_trialArn,
+    trial_createdBy,
     trial_lastModifiedTime,
     trial_experimentName,
-    trial_createdBy,
-    trial_lastModifiedBy,
-    trial_trialName,
+    trial_source,
     trial_displayName,
+    trial_trialName,
+    trial_lastModifiedBy,
+    trial_tags,
 
     -- * TrialComponent
     TrialComponent (..),
     newTrialComponent,
-    trialComponent_parents,
     trialComponent_creationTime,
-    trialComponent_status,
     trialComponent_metadataProperties,
+    trialComponent_status,
     trialComponent_sourceDetail,
-    trialComponent_trialComponentArn,
-    trialComponent_startTime,
-    trialComponent_source,
-    trialComponent_endTime,
     trialComponent_metrics,
-    trialComponent_tags,
-    trialComponent_lastModifiedTime,
-    trialComponent_createdBy,
-    trialComponent_inputArtifacts,
-    trialComponent_lastModifiedBy,
-    trialComponent_displayName,
-    trialComponent_trialComponentName,
     trialComponent_outputArtifacts,
+    trialComponent_startTime,
+    trialComponent_createdBy,
+    trialComponent_lastModifiedTime,
+    trialComponent_parents,
+    trialComponent_endTime,
+    trialComponent_trialComponentName,
     trialComponent_parameters,
+    trialComponent_source,
+    trialComponent_displayName,
+    trialComponent_lastModifiedBy,
+    trialComponent_trialComponentArn,
+    trialComponent_inputArtifacts,
+    trialComponent_tags,
 
     -- * TrialComponentArtifact
     TrialComponentArtifact (..),
@@ -3043,30 +3043,30 @@ module Network.AWS.SageMaker.Types
     -- * TrialComponentMetricSummary
     TrialComponentMetricSummary (..),
     newTrialComponentMetricSummary,
-    trialComponentMetricSummary_metricName,
-    trialComponentMetricSummary_min,
     trialComponentMetricSummary_max,
-    trialComponentMetricSummary_stdDev,
-    trialComponentMetricSummary_timeStamp,
-    trialComponentMetricSummary_count,
-    trialComponentMetricSummary_avg,
     trialComponentMetricSummary_sourceArn,
+    trialComponentMetricSummary_avg,
+    trialComponentMetricSummary_count,
+    trialComponentMetricSummary_metricName,
+    trialComponentMetricSummary_stdDev,
+    trialComponentMetricSummary_min,
     trialComponentMetricSummary_last,
+    trialComponentMetricSummary_timeStamp,
 
     -- * TrialComponentParameterValue
     TrialComponentParameterValue (..),
     newTrialComponentParameterValue,
-    trialComponentParameterValue_stringValue,
     trialComponentParameterValue_numberValue,
+    trialComponentParameterValue_stringValue,
 
     -- * TrialComponentSimpleSummary
     TrialComponentSimpleSummary (..),
     newTrialComponentSimpleSummary,
     trialComponentSimpleSummary_creationTime,
-    trialComponentSimpleSummary_trialComponentArn,
     trialComponentSimpleSummary_createdBy,
-    trialComponentSimpleSummary_trialComponentSource,
     trialComponentSimpleSummary_trialComponentName,
+    trialComponentSimpleSummary_trialComponentArn,
+    trialComponentSimpleSummary_trialComponentSource,
 
     -- * TrialComponentSource
     TrialComponentSource (..),
@@ -3077,31 +3077,31 @@ module Network.AWS.SageMaker.Types
     -- * TrialComponentSourceDetail
     TrialComponentSourceDetail (..),
     newTrialComponentSourceDetail,
-    trialComponentSourceDetail_processingJob,
     trialComponentSourceDetail_trainingJob,
-    trialComponentSourceDetail_transformJob,
     trialComponentSourceDetail_sourceArn,
+    trialComponentSourceDetail_processingJob,
+    trialComponentSourceDetail_transformJob,
 
     -- * TrialComponentStatus
     TrialComponentStatus (..),
     newTrialComponentStatus,
-    trialComponentStatus_message,
     trialComponentStatus_primaryStatus,
+    trialComponentStatus_message,
 
     -- * TrialComponentSummary
     TrialComponentSummary (..),
     newTrialComponentSummary,
     trialComponentSummary_creationTime,
     trialComponentSummary_status,
-    trialComponentSummary_trialComponentArn,
     trialComponentSummary_startTime,
-    trialComponentSummary_endTime,
-    trialComponentSummary_lastModifiedTime,
     trialComponentSummary_createdBy,
-    trialComponentSummary_trialComponentSource,
-    trialComponentSummary_lastModifiedBy,
-    trialComponentSummary_displayName,
+    trialComponentSummary_lastModifiedTime,
+    trialComponentSummary_endTime,
     trialComponentSummary_trialComponentName,
+    trialComponentSummary_displayName,
+    trialComponentSummary_lastModifiedBy,
+    trialComponentSummary_trialComponentArn,
+    trialComponentSummary_trialComponentSource,
 
     -- * TrialSource
     TrialSource (..),
@@ -3112,12 +3112,12 @@ module Network.AWS.SageMaker.Types
     -- * TrialSummary
     TrialSummary (..),
     newTrialSummary,
-    trialSummary_trialArn,
-    trialSummary_trialSource,
     trialSummary_creationTime,
+    trialSummary_trialArn,
     trialSummary_lastModifiedTime,
-    trialSummary_trialName,
+    trialSummary_trialSource,
     trialSummary_displayName,
+    trialSummary_trialName,
 
     -- * TuningJobCompletionCriteria
     TuningJobCompletionCriteria (..),
@@ -3132,15 +3132,15 @@ module Network.AWS.SageMaker.Types
     -- * USD
     USD (..),
     newUSD,
-    usd_dollars,
     usd_cents,
+    usd_dollars,
     usd_tenthFractionsOfACent,
 
     -- * UiConfig
     UiConfig (..),
     newUiConfig,
-    uiConfig_humanTaskUiArn,
     uiConfig_uiTemplateS3Uri,
+    uiConfig_humanTaskUiArn,
 
     -- * UiTemplate
     UiTemplate (..),
@@ -3150,15 +3150,15 @@ module Network.AWS.SageMaker.Types
     -- * UiTemplateInfo
     UiTemplateInfo (..),
     newUiTemplateInfo,
-    uiTemplateInfo_contentSha256,
     uiTemplateInfo_url,
+    uiTemplateInfo_contentSha256,
 
     -- * UserContext
     UserContext (..),
     newUserContext,
     userContext_userProfileName,
-    userContext_domainId,
     userContext_userProfileArn,
+    userContext_domainId,
 
     -- * UserProfileDetails
     UserProfileDetails (..),
@@ -3166,18 +3166,18 @@ module Network.AWS.SageMaker.Types
     userProfileDetails_creationTime,
     userProfileDetails_status,
     userProfileDetails_userProfileName,
-    userProfileDetails_domainId,
     userProfileDetails_lastModifiedTime,
+    userProfileDetails_domainId,
 
     -- * UserSettings
     UserSettings (..),
     newUserSettings,
-    userSettings_kernelGatewayAppSettings,
     userSettings_tensorBoardAppSettings,
+    userSettings_kernelGatewayAppSettings,
     userSettings_securityGroups,
     userSettings_jupyterServerAppSettings,
-    userSettings_executionRole,
     userSettings_sharingSettings,
+    userSettings_executionRole,
 
     -- * VariantProperty
     VariantProperty (..),
@@ -3193,24 +3193,24 @@ module Network.AWS.SageMaker.Types
     -- * Workforce
     Workforce (..),
     newWorkforce,
-    workforce_lastUpdatedDate,
-    workforce_createDate,
     workforce_subDomain,
+    workforce_createDate,
     workforce_sourceIpConfig,
-    workforce_oidcConfig,
     workforce_cognitoConfig,
+    workforce_lastUpdatedDate,
+    workforce_oidcConfig,
     workforce_workforceName,
     workforce_workforceArn,
 
     -- * Workteam
     Workteam (..),
     newWorkteam,
+    workteam_subDomain,
+    workteam_productListingIds,
+    workteam_notificationConfiguration,
+    workteam_createDate,
     workteam_workforceArn,
     workteam_lastUpdatedDate,
-    workteam_createDate,
-    workteam_notificationConfiguration,
-    workteam_productListingIds,
-    workteam_subDomain,
     workteam_workteamName,
     workteam_memberDefinitions,
     workteam_workteamArn,
@@ -3751,37 +3751,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -3794,14 +3771,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Resource being accessed is in use.
-_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUse =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUse"
 
 -- | You have exceeded an Amazon SageMaker resource limit. For example, you
 -- might have too many training jobs created.
@@ -3810,6 +3803,13 @@ _ResourceLimitExceeded =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceeded"
+
+-- | Resource being accessed is in use.
+_ResourceInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUse =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUse"
 
 -- | There was a conflict when you attempted to modify a SageMaker entity
 -- such as an @Experiment@ or @Artifact@.

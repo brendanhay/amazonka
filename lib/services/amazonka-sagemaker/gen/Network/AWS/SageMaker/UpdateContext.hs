@@ -28,8 +28,8 @@ module Network.AWS.SageMaker.UpdateContext
 
     -- * Request Lenses
     updateContext_propertiesToRemove,
-    updateContext_properties,
     updateContext_description,
+    updateContext_properties,
     updateContext_contextName,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import Network.AWS.SageMaker.Types
 data UpdateContext = UpdateContext'
   { -- | A list of properties to remove.
     propertiesToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The new list of properties. Overwrites the current property list.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The new description for the context.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The new list of properties. Overwrites the current property list.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the context to update.
     contextName :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data UpdateContext = UpdateContext'
 --
 -- 'propertiesToRemove', 'updateContext_propertiesToRemove' - A list of properties to remove.
 --
--- 'properties', 'updateContext_properties' - The new list of properties. Overwrites the current property list.
---
 -- 'description', 'updateContext_description' - The new description for the context.
+--
+-- 'properties', 'updateContext_properties' - The new list of properties. Overwrites the current property list.
 --
 -- 'contextName', 'updateContext_contextName' - The name of the context to update.
 newUpdateContext ::
@@ -85,22 +85,22 @@ newUpdateContext pContextName_ =
   UpdateContext'
     { propertiesToRemove =
         Prelude.Nothing,
-      properties = Prelude.Nothing,
       description = Prelude.Nothing,
+      properties = Prelude.Nothing,
       contextName = pContextName_
     }
 
 -- | A list of properties to remove.
 updateContext_propertiesToRemove :: Lens.Lens' UpdateContext (Prelude.Maybe [Prelude.Text])
-updateContext_propertiesToRemove = Lens.lens (\UpdateContext' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateContext' {} a -> s {propertiesToRemove = a} :: UpdateContext) Prelude.. Lens.mapping Lens._Coerce
-
--- | The new list of properties. Overwrites the current property list.
-updateContext_properties :: Lens.Lens' UpdateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateContext_properties = Lens.lens (\UpdateContext' {properties} -> properties) (\s@UpdateContext' {} a -> s {properties = a} :: UpdateContext) Prelude.. Lens.mapping Lens._Coerce
+updateContext_propertiesToRemove = Lens.lens (\UpdateContext' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateContext' {} a -> s {propertiesToRemove = a} :: UpdateContext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new description for the context.
 updateContext_description :: Lens.Lens' UpdateContext (Prelude.Maybe Prelude.Text)
 updateContext_description = Lens.lens (\UpdateContext' {description} -> description) (\s@UpdateContext' {} a -> s {description = a} :: UpdateContext)
+
+-- | The new list of properties. Overwrites the current property list.
+updateContext_properties :: Lens.Lens' UpdateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateContext_properties = Lens.lens (\UpdateContext' {properties} -> properties) (\s@UpdateContext' {} a -> s {properties = a} :: UpdateContext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the context to update.
 updateContext_contextName :: Lens.Lens' UpdateContext Prelude.Text
@@ -142,8 +142,8 @@ instance Core.ToJSON UpdateContext where
       ( Prelude.catMaybes
           [ ("PropertiesToRemove" Core..=)
               Prelude.<$> propertiesToRemove,
-            ("Properties" Core..=) Prelude.<$> properties,
             ("Description" Core..=) Prelude.<$> description,
+            ("Properties" Core..=) Prelude.<$> properties,
             Prelude.Just ("ContextName" Core..= contextName)
           ]
       )

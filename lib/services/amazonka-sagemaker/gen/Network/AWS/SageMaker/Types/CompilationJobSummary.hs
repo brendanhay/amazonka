@@ -32,24 +32,24 @@ import Network.AWS.SageMaker.Types.TargetPlatformOs
 --
 -- /See:/ 'newCompilationJobSummary' smart constructor.
 data CompilationJobSummary = CompilationJobSummary'
-  { -- | The type of architecture that the model will run on after the
-    -- compilation job has completed.
-    compilationTargetPlatformArch :: Prelude.Maybe TargetPlatformArch,
-    -- | The time when the model compilation job started.
+  { -- | The time when the model compilation job started.
     compilationStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of OS that the model will run on after the compilation job has
-    -- completed.
-    compilationTargetPlatformOs :: Prelude.Maybe TargetPlatformOs,
     -- | The type of accelerator that the model will run on after the compilation
     -- job has completed.
     compilationTargetPlatformAccelerator :: Prelude.Maybe TargetPlatformAccelerator,
-    -- | The time when the model compilation job was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The time when the model compilation job completed.
-    compilationEndTime :: Prelude.Maybe Core.POSIX,
     -- | The type of device that the model will run on after the compilation job
     -- has completed.
     compilationTargetDevice :: Prelude.Maybe TargetDevice,
+    -- | The time when the model compilation job was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of architecture that the model will run on after the
+    -- compilation job has completed.
+    compilationTargetPlatformArch :: Prelude.Maybe TargetPlatformArch,
+    -- | The time when the model compilation job completed.
+    compilationEndTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of OS that the model will run on after the compilation job has
+    -- completed.
+    compilationTargetPlatformOs :: Prelude.Maybe TargetPlatformOs,
     -- | The name of the model compilation job that you want a summary for.
     compilationJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model compilation job.
@@ -69,23 +69,23 @@ data CompilationJobSummary = CompilationJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'compilationTargetPlatformArch', 'compilationJobSummary_compilationTargetPlatformArch' - The type of architecture that the model will run on after the
--- compilation job has completed.
---
 -- 'compilationStartTime', 'compilationJobSummary_compilationStartTime' - The time when the model compilation job started.
---
--- 'compilationTargetPlatformOs', 'compilationJobSummary_compilationTargetPlatformOs' - The type of OS that the model will run on after the compilation job has
--- completed.
 --
 -- 'compilationTargetPlatformAccelerator', 'compilationJobSummary_compilationTargetPlatformAccelerator' - The type of accelerator that the model will run on after the compilation
 -- job has completed.
 --
+-- 'compilationTargetDevice', 'compilationJobSummary_compilationTargetDevice' - The type of device that the model will run on after the compilation job
+-- has completed.
+--
 -- 'lastModifiedTime', 'compilationJobSummary_lastModifiedTime' - The time when the model compilation job was last modified.
+--
+-- 'compilationTargetPlatformArch', 'compilationJobSummary_compilationTargetPlatformArch' - The type of architecture that the model will run on after the
+-- compilation job has completed.
 --
 -- 'compilationEndTime', 'compilationJobSummary_compilationEndTime' - The time when the model compilation job completed.
 --
--- 'compilationTargetDevice', 'compilationJobSummary_compilationTargetDevice' - The type of device that the model will run on after the compilation job
--- has completed.
+-- 'compilationTargetPlatformOs', 'compilationJobSummary_compilationTargetPlatformOs' - The type of OS that the model will run on after the compilation job has
+-- completed.
 --
 -- 'compilationJobName', 'compilationJobSummary_compilationJobName' - The name of the model compilation job that you want a summary for.
 --
@@ -110,52 +110,52 @@ newCompilationJobSummary
   pCreationTime_
   pCompilationJobStatus_ =
     CompilationJobSummary'
-      { compilationTargetPlatformArch =
+      { compilationStartTime =
           Prelude.Nothing,
-        compilationStartTime = Prelude.Nothing,
-        compilationTargetPlatformOs = Prelude.Nothing,
         compilationTargetPlatformAccelerator =
           Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        compilationEndTime = Prelude.Nothing,
         compilationTargetDevice = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        compilationTargetPlatformArch = Prelude.Nothing,
+        compilationEndTime = Prelude.Nothing,
+        compilationTargetPlatformOs = Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         compilationJobArn = pCompilationJobArn_,
         creationTime = Core._Time Lens.# pCreationTime_,
         compilationJobStatus = pCompilationJobStatus_
       }
 
--- | The type of architecture that the model will run on after the
--- compilation job has completed.
-compilationJobSummary_compilationTargetPlatformArch :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetPlatformArch)
-compilationJobSummary_compilationTargetPlatformArch = Lens.lens (\CompilationJobSummary' {compilationTargetPlatformArch} -> compilationTargetPlatformArch) (\s@CompilationJobSummary' {} a -> s {compilationTargetPlatformArch = a} :: CompilationJobSummary)
-
 -- | The time when the model compilation job started.
 compilationJobSummary_compilationStartTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
 compilationJobSummary_compilationStartTime = Lens.lens (\CompilationJobSummary' {compilationStartTime} -> compilationStartTime) (\s@CompilationJobSummary' {} a -> s {compilationStartTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | The type of OS that the model will run on after the compilation job has
--- completed.
-compilationJobSummary_compilationTargetPlatformOs :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetPlatformOs)
-compilationJobSummary_compilationTargetPlatformOs = Lens.lens (\CompilationJobSummary' {compilationTargetPlatformOs} -> compilationTargetPlatformOs) (\s@CompilationJobSummary' {} a -> s {compilationTargetPlatformOs = a} :: CompilationJobSummary)
 
 -- | The type of accelerator that the model will run on after the compilation
 -- job has completed.
 compilationJobSummary_compilationTargetPlatformAccelerator :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetPlatformAccelerator)
 compilationJobSummary_compilationTargetPlatformAccelerator = Lens.lens (\CompilationJobSummary' {compilationTargetPlatformAccelerator} -> compilationTargetPlatformAccelerator) (\s@CompilationJobSummary' {} a -> s {compilationTargetPlatformAccelerator = a} :: CompilationJobSummary)
 
+-- | The type of device that the model will run on after the compilation job
+-- has completed.
+compilationJobSummary_compilationTargetDevice :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetDevice)
+compilationJobSummary_compilationTargetDevice = Lens.lens (\CompilationJobSummary' {compilationTargetDevice} -> compilationTargetDevice) (\s@CompilationJobSummary' {} a -> s {compilationTargetDevice = a} :: CompilationJobSummary)
+
 -- | The time when the model compilation job was last modified.
 compilationJobSummary_lastModifiedTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
 compilationJobSummary_lastModifiedTime = Lens.lens (\CompilationJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@CompilationJobSummary' {} a -> s {lastModifiedTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The type of architecture that the model will run on after the
+-- compilation job has completed.
+compilationJobSummary_compilationTargetPlatformArch :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetPlatformArch)
+compilationJobSummary_compilationTargetPlatformArch = Lens.lens (\CompilationJobSummary' {compilationTargetPlatformArch} -> compilationTargetPlatformArch) (\s@CompilationJobSummary' {} a -> s {compilationTargetPlatformArch = a} :: CompilationJobSummary)
 
 -- | The time when the model compilation job completed.
 compilationJobSummary_compilationEndTime :: Lens.Lens' CompilationJobSummary (Prelude.Maybe Prelude.UTCTime)
 compilationJobSummary_compilationEndTime = Lens.lens (\CompilationJobSummary' {compilationEndTime} -> compilationEndTime) (\s@CompilationJobSummary' {} a -> s {compilationEndTime = a} :: CompilationJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | The type of device that the model will run on after the compilation job
--- has completed.
-compilationJobSummary_compilationTargetDevice :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetDevice)
-compilationJobSummary_compilationTargetDevice = Lens.lens (\CompilationJobSummary' {compilationTargetDevice} -> compilationTargetDevice) (\s@CompilationJobSummary' {} a -> s {compilationTargetDevice = a} :: CompilationJobSummary)
+-- | The type of OS that the model will run on after the compilation job has
+-- completed.
+compilationJobSummary_compilationTargetPlatformOs :: Lens.Lens' CompilationJobSummary (Prelude.Maybe TargetPlatformOs)
+compilationJobSummary_compilationTargetPlatformOs = Lens.lens (\CompilationJobSummary' {compilationTargetPlatformOs} -> compilationTargetPlatformOs) (\s@CompilationJobSummary' {} a -> s {compilationTargetPlatformOs = a} :: CompilationJobSummary)
 
 -- | The name of the model compilation job that you want a summary for.
 compilationJobSummary_compilationJobName :: Lens.Lens' CompilationJobSummary Prelude.Text
@@ -179,13 +179,13 @@ instance Core.FromJSON CompilationJobSummary where
       "CompilationJobSummary"
       ( \x ->
           CompilationJobSummary'
-            Prelude.<$> (x Core..:? "CompilationTargetPlatformArch")
-            Prelude.<*> (x Core..:? "CompilationStartTime")
-            Prelude.<*> (x Core..:? "CompilationTargetPlatformOs")
+            Prelude.<$> (x Core..:? "CompilationStartTime")
             Prelude.<*> (x Core..:? "CompilationTargetPlatformAccelerator")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "CompilationEndTime")
             Prelude.<*> (x Core..:? "CompilationTargetDevice")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "CompilationTargetPlatformArch")
+            Prelude.<*> (x Core..:? "CompilationEndTime")
+            Prelude.<*> (x Core..:? "CompilationTargetPlatformOs")
             Prelude.<*> (x Core..: "CompilationJobName")
             Prelude.<*> (x Core..: "CompilationJobArn")
             Prelude.<*> (x Core..: "CreationTime")

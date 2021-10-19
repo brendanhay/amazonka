@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_tags,
     createProject_projectDescription,
+    createProject_tags,
     createProject_projectName,
     createProject_serviceCatalogProvisioningDetails,
 
@@ -54,17 +54,19 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | An array of key-value pairs that you want to use to organize and track
+  { -- | A description for the project.
+    projectDescription :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs that you want to use to organize and track
     -- your Amazon Web Services resource costs. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | A description for the project.
-    projectDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the project.
     projectName :: Prelude.Text,
     -- | The product ID and provisioning artifact ID to provision a service
-    -- catalog. For information, see
+    -- catalog. The provisioning artifact ID will default to the latest
+    -- provisioning artifact ID of the product, if you don\'t provide the
+    -- provisioning artifact ID. For more information, see
     -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
     serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetails
   }
@@ -78,17 +80,19 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'projectDescription', 'createProject_projectDescription' - A description for the project.
+--
 -- 'tags', 'createProject_tags' - An array of key-value pairs that you want to use to organize and track
 -- your Amazon Web Services resource costs. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 --
--- 'projectDescription', 'createProject_projectDescription' - A description for the project.
---
 -- 'projectName', 'createProject_projectName' - The name of the project.
 --
 -- 'serviceCatalogProvisioningDetails', 'createProject_serviceCatalogProvisioningDetails' - The product ID and provisioning artifact ID to provision a service
--- catalog. For information, see
+-- catalog. The provisioning artifact ID will default to the latest
+-- provisioning artifact ID of the product, if you don\'t provide the
+-- provisioning artifact ID. For more information, see
 -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 newCreateProject ::
   -- | 'projectName'
@@ -100,30 +104,33 @@ newCreateProject
   pProjectName_
   pServiceCatalogProvisioningDetails_ =
     CreateProject'
-      { tags = Prelude.Nothing,
-        projectDescription = Prelude.Nothing,
+      { projectDescription =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         projectName = pProjectName_,
         serviceCatalogProvisioningDetails =
           pServiceCatalogProvisioningDetails_
       }
+
+-- | A description for the project.
+createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
 
 -- | An array of key-value pairs that you want to use to organize and track
 -- your Amazon Web Services resource costs. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
-createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description for the project.
-createProject_projectDescription :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
-createProject_projectDescription = Lens.lens (\CreateProject' {projectDescription} -> projectDescription) (\s@CreateProject' {} a -> s {projectDescription = a} :: CreateProject)
+createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project.
 createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
 createProject_projectName = Lens.lens (\CreateProject' {projectName} -> projectName) (\s@CreateProject' {} a -> s {projectName = a} :: CreateProject)
 
 -- | The product ID and provisioning artifact ID to provision a service
--- catalog. For information, see
+-- catalog. The provisioning artifact ID will default to the latest
+-- provisioning artifact ID of the product, if you don\'t provide the
+-- provisioning artifact ID. For more information, see
 -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 createProject_serviceCatalogProvisioningDetails :: Lens.Lens' CreateProject ServiceCatalogProvisioningDetails
 createProject_serviceCatalogProvisioningDetails = Lens.lens (\CreateProject' {serviceCatalogProvisioningDetails} -> serviceCatalogProvisioningDetails) (\s@CreateProject' {} a -> s {serviceCatalogProvisioningDetails = a} :: CreateProject)
@@ -163,9 +170,9 @@ instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ProjectDescription" Core..=)
+          [ ("ProjectDescription" Core..=)
               Prelude.<$> projectDescription,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ProjectName" Core..= projectName),
             Prelude.Just
               ( "ServiceCatalogProvisioningDetails"

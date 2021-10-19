@@ -29,10 +29,10 @@ module Network.AWS.SageMaker.CreateDataQualityJobDefinition
     newCreateDataQualityJobDefinition,
 
     -- * Request Lenses
-    createDataQualityJobDefinition_networkConfig,
     createDataQualityJobDefinition_dataQualityBaselineConfig,
-    createDataQualityJobDefinition_tags,
     createDataQualityJobDefinition_stoppingCondition,
+    createDataQualityJobDefinition_networkConfig,
+    createDataQualityJobDefinition_tags,
     createDataQualityJobDefinition_jobDefinitionName,
     createDataQualityJobDefinition_dataQualityAppSpecification,
     createDataQualityJobDefinition_dataQualityJobInput,
@@ -59,15 +59,15 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateDataQualityJobDefinition' smart constructor.
 data CreateDataQualityJobDefinition = CreateDataQualityJobDefinition'
-  { -- | Specifies networking configuration for the monitoring job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | Configures the constraints and baselines for the monitoring job.
+  { -- | Configures the constraints and baselines for the monitoring job.
     dataQualityBaselineConfig :: Prelude.Maybe DataQualityBaselineConfig,
+    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    -- | Specifies networking configuration for the monitoring job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
-    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name for the monitoring job definition.
     jobDefinitionName :: Prelude.Text,
     -- | Specifies the container that runs the monitoring job.
@@ -91,15 +91,15 @@ data CreateDataQualityJobDefinition = CreateDataQualityJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'createDataQualityJobDefinition_networkConfig' - Specifies networking configuration for the monitoring job.
---
 -- 'dataQualityBaselineConfig', 'createDataQualityJobDefinition_dataQualityBaselineConfig' - Configures the constraints and baselines for the monitoring job.
+--
+-- 'stoppingCondition', 'createDataQualityJobDefinition_stoppingCondition' - Undocumented member.
+--
+-- 'networkConfig', 'createDataQualityJobDefinition_networkConfig' - Specifies networking configuration for the monitoring job.
 --
 -- 'tags', 'createDataQualityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
---
--- 'stoppingCondition', 'createDataQualityJobDefinition_stoppingCondition' - Undocumented member.
 --
 -- 'jobDefinitionName', 'createDataQualityJobDefinition_jobDefinitionName' - The name for the monitoring job definition.
 --
@@ -136,11 +136,11 @@ newCreateDataQualityJobDefinition
   pJobResources_
   pRoleArn_ =
     CreateDataQualityJobDefinition'
-      { networkConfig =
+      { dataQualityBaselineConfig =
           Prelude.Nothing,
-        dataQualityBaselineConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
         stoppingCondition = Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         dataQualityAppSpecification =
           pDataQualityAppSpecification_,
@@ -151,23 +151,23 @@ newCreateDataQualityJobDefinition
         roleArn = pRoleArn_
       }
 
--- | Specifies networking configuration for the monitoring job.
-createDataQualityJobDefinition_networkConfig :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
-createDataQualityJobDefinition_networkConfig = Lens.lens (\CreateDataQualityJobDefinition' {networkConfig} -> networkConfig) (\s@CreateDataQualityJobDefinition' {} a -> s {networkConfig = a} :: CreateDataQualityJobDefinition)
-
 -- | Configures the constraints and baselines for the monitoring job.
 createDataQualityJobDefinition_dataQualityBaselineConfig :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe DataQualityBaselineConfig)
 createDataQualityJobDefinition_dataQualityBaselineConfig = Lens.lens (\CreateDataQualityJobDefinition' {dataQualityBaselineConfig} -> dataQualityBaselineConfig) (\s@CreateDataQualityJobDefinition' {} a -> s {dataQualityBaselineConfig = a} :: CreateDataQualityJobDefinition)
+
+-- | Undocumented member.
+createDataQualityJobDefinition_stoppingCondition :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
+createDataQualityJobDefinition_stoppingCondition = Lens.lens (\CreateDataQualityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateDataQualityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateDataQualityJobDefinition)
+
+-- | Specifies networking configuration for the monitoring job.
+createDataQualityJobDefinition_networkConfig :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
+createDataQualityJobDefinition_networkConfig = Lens.lens (\CreateDataQualityJobDefinition' {networkConfig} -> networkConfig) (\s@CreateDataQualityJobDefinition' {} a -> s {networkConfig = a} :: CreateDataQualityJobDefinition)
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createDataQualityJobDefinition_tags :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe [Tag])
-createDataQualityJobDefinition_tags = Lens.lens (\CreateDataQualityJobDefinition' {tags} -> tags) (\s@CreateDataQualityJobDefinition' {} a -> s {tags = a} :: CreateDataQualityJobDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-createDataQualityJobDefinition_stoppingCondition :: Lens.Lens' CreateDataQualityJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
-createDataQualityJobDefinition_stoppingCondition = Lens.lens (\CreateDataQualityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateDataQualityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateDataQualityJobDefinition)
+createDataQualityJobDefinition_tags = Lens.lens (\CreateDataQualityJobDefinition' {tags} -> tags) (\s@CreateDataQualityJobDefinition' {} a -> s {tags = a} :: CreateDataQualityJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the monitoring job definition.
 createDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' CreateDataQualityJobDefinition Prelude.Text
@@ -241,12 +241,12 @@ instance Core.ToJSON CreateDataQualityJobDefinition where
   toJSON CreateDataQualityJobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("DataQualityBaselineConfig" Core..=)
+          [ ("DataQualityBaselineConfig" Core..=)
               Prelude.<$> dataQualityBaselineConfig,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("StoppingCondition" Core..=)
               Prelude.<$> stoppingCondition,
+            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName),
             Prelude.Just

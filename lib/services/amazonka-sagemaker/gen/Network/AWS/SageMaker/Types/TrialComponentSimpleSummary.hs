@@ -31,12 +31,12 @@ import Network.AWS.SageMaker.Types.UserContext
 data TrialComponentSimpleSummary = TrialComponentSimpleSummary'
   { -- | When the component was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    createdBy :: Prelude.Maybe UserContext,
+    -- | The name of the trial component.
+    trialComponentName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the trial component.
     trialComponentArn :: Prelude.Maybe Prelude.Text,
-    createdBy :: Prelude.Maybe UserContext,
-    trialComponentSource :: Prelude.Maybe TrialComponentSource,
-    -- | The name of the trial component.
-    trialComponentName :: Prelude.Maybe Prelude.Text
+    trialComponentSource :: Prelude.Maybe TrialComponentSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,44 +50,44 @@ data TrialComponentSimpleSummary = TrialComponentSimpleSummary'
 --
 -- 'creationTime', 'trialComponentSimpleSummary_creationTime' - When the component was created.
 --
--- 'trialComponentArn', 'trialComponentSimpleSummary_trialComponentArn' - The Amazon Resource Name (ARN) of the trial component.
---
 -- 'createdBy', 'trialComponentSimpleSummary_createdBy' - Undocumented member.
 --
--- 'trialComponentSource', 'trialComponentSimpleSummary_trialComponentSource' - Undocumented member.
---
 -- 'trialComponentName', 'trialComponentSimpleSummary_trialComponentName' - The name of the trial component.
+--
+-- 'trialComponentArn', 'trialComponentSimpleSummary_trialComponentArn' - The Amazon Resource Name (ARN) of the trial component.
+--
+-- 'trialComponentSource', 'trialComponentSimpleSummary_trialComponentSource' - Undocumented member.
 newTrialComponentSimpleSummary ::
   TrialComponentSimpleSummary
 newTrialComponentSimpleSummary =
   TrialComponentSimpleSummary'
     { creationTime =
         Prelude.Nothing,
-      trialComponentArn = Prelude.Nothing,
       createdBy = Prelude.Nothing,
-      trialComponentSource = Prelude.Nothing,
-      trialComponentName = Prelude.Nothing
+      trialComponentName = Prelude.Nothing,
+      trialComponentArn = Prelude.Nothing,
+      trialComponentSource = Prelude.Nothing
     }
 
 -- | When the component was created.
 trialComponentSimpleSummary_creationTime :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe Prelude.UTCTime)
 trialComponentSimpleSummary_creationTime = Lens.lens (\TrialComponentSimpleSummary' {creationTime} -> creationTime) (\s@TrialComponentSimpleSummary' {} a -> s {creationTime = a} :: TrialComponentSimpleSummary) Prelude.. Lens.mapping Core._Time
 
+-- | Undocumented member.
+trialComponentSimpleSummary_createdBy :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe UserContext)
+trialComponentSimpleSummary_createdBy = Lens.lens (\TrialComponentSimpleSummary' {createdBy} -> createdBy) (\s@TrialComponentSimpleSummary' {} a -> s {createdBy = a} :: TrialComponentSimpleSummary)
+
+-- | The name of the trial component.
+trialComponentSimpleSummary_trialComponentName :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe Prelude.Text)
+trialComponentSimpleSummary_trialComponentName = Lens.lens (\TrialComponentSimpleSummary' {trialComponentName} -> trialComponentName) (\s@TrialComponentSimpleSummary' {} a -> s {trialComponentName = a} :: TrialComponentSimpleSummary)
+
 -- | The Amazon Resource Name (ARN) of the trial component.
 trialComponentSimpleSummary_trialComponentArn :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe Prelude.Text)
 trialComponentSimpleSummary_trialComponentArn = Lens.lens (\TrialComponentSimpleSummary' {trialComponentArn} -> trialComponentArn) (\s@TrialComponentSimpleSummary' {} a -> s {trialComponentArn = a} :: TrialComponentSimpleSummary)
 
 -- | Undocumented member.
-trialComponentSimpleSummary_createdBy :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe UserContext)
-trialComponentSimpleSummary_createdBy = Lens.lens (\TrialComponentSimpleSummary' {createdBy} -> createdBy) (\s@TrialComponentSimpleSummary' {} a -> s {createdBy = a} :: TrialComponentSimpleSummary)
-
--- | Undocumented member.
 trialComponentSimpleSummary_trialComponentSource :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe TrialComponentSource)
 trialComponentSimpleSummary_trialComponentSource = Lens.lens (\TrialComponentSimpleSummary' {trialComponentSource} -> trialComponentSource) (\s@TrialComponentSimpleSummary' {} a -> s {trialComponentSource = a} :: TrialComponentSimpleSummary)
-
--- | The name of the trial component.
-trialComponentSimpleSummary_trialComponentName :: Lens.Lens' TrialComponentSimpleSummary (Prelude.Maybe Prelude.Text)
-trialComponentSimpleSummary_trialComponentName = Lens.lens (\TrialComponentSimpleSummary' {trialComponentName} -> trialComponentName) (\s@TrialComponentSimpleSummary' {} a -> s {trialComponentName = a} :: TrialComponentSimpleSummary)
 
 instance Core.FromJSON TrialComponentSimpleSummary where
   parseJSON =
@@ -96,10 +96,10 @@ instance Core.FromJSON TrialComponentSimpleSummary where
       ( \x ->
           TrialComponentSimpleSummary'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "TrialComponentArn")
             Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "TrialComponentSource")
             Prelude.<*> (x Core..:? "TrialComponentName")
+            Prelude.<*> (x Core..:? "TrialComponentArn")
+            Prelude.<*> (x Core..:? "TrialComponentSource")
       )
 
 instance Prelude.Hashable TrialComponentSimpleSummary

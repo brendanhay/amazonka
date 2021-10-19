@@ -110,7 +110,7 @@ newCreateStudioLifecycleConfig
 -- consists of a key and an optional value. Tag keys must be unique per
 -- resource. Tags are searchable using the Search API.
 createStudioLifecycleConfig_tags :: Lens.Lens' CreateStudioLifecycleConfig (Prelude.Maybe [Tag])
-createStudioLifecycleConfig_tags = Lens.lens (\CreateStudioLifecycleConfig' {tags} -> tags) (\s@CreateStudioLifecycleConfig' {} a -> s {tags = a} :: CreateStudioLifecycleConfig) Prelude.. Lens.mapping Lens._Coerce
+createStudioLifecycleConfig_tags = Lens.lens (\CreateStudioLifecycleConfig' {tags} -> tags) (\s@CreateStudioLifecycleConfig' {} a -> s {tags = a} :: CreateStudioLifecycleConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Studio Lifecycle Configuration to create.
 createStudioLifecycleConfig_studioLifecycleConfigName :: Lens.Lens' CreateStudioLifecycleConfig Prelude.Text

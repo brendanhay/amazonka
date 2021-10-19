@@ -62,7 +62,7 @@ candidateProperties_candidateArtifactLocations = Lens.lens (\CandidateProperties
 
 -- | Information about the candidate metrics for an AutoML job.
 candidateProperties_candidateMetrics :: Lens.Lens' CandidateProperties (Prelude.Maybe [MetricDatum])
-candidateProperties_candidateMetrics = Lens.lens (\CandidateProperties' {candidateMetrics} -> candidateMetrics) (\s@CandidateProperties' {} a -> s {candidateMetrics = a} :: CandidateProperties) Prelude.. Lens.mapping Lens._Coerce
+candidateProperties_candidateMetrics = Lens.lens (\CandidateProperties' {candidateMetrics} -> candidateMetrics) (\s@CandidateProperties' {} a -> s {candidateMetrics = a} :: CandidateProperties) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CandidateProperties where
   parseJSON =

@@ -45,18 +45,18 @@ module Network.AWS.SageMaker.CreateModelPackage
     newCreateModelPackage,
 
     -- * Request Lenses
-    createModelPackage_sourceAlgorithmSpecification,
     createModelPackage_metadataProperties,
-    createModelPackage_validationSpecification,
-    createModelPackage_modelMetrics,
-    createModelPackage_modelPackageName,
-    createModelPackage_certifyForMarketplace,
     createModelPackage_modelApprovalStatus,
-    createModelPackage_tags,
-    createModelPackage_inferenceSpecification,
-    createModelPackage_modelPackageDescription,
-    createModelPackage_modelPackageGroupName,
+    createModelPackage_sourceAlgorithmSpecification,
+    createModelPackage_modelPackageName,
     createModelPackage_clientToken,
+    createModelPackage_modelMetrics,
+    createModelPackage_modelPackageDescription,
+    createModelPackage_validationSpecification,
+    createModelPackage_inferenceSpecification,
+    createModelPackage_certifyForMarketplace,
+    createModelPackage_modelPackageGroupName,
+    createModelPackage_tags,
 
     -- * Destructuring the Response
     CreateModelPackageResponse (..),
@@ -77,26 +77,7 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateModelPackage' smart constructor.
 data CreateModelPackage = CreateModelPackage'
-  { -- | Details about the algorithm that was used to create the model package.
-    sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | Specifies configurations for one or more transform jobs that Amazon
-    -- SageMaker runs to test the model package.
-    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
-    -- | A structure that contains model metrics reports.
-    modelMetrics :: Prelude.Maybe ModelMetrics,
-    -- | The name of the model package. The name must have 1 to 63 characters.
-    -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-    --
-    -- This parameter is required for unversioned models. It is not applicable
-    -- to versioned models.
-    modelPackageName :: Prelude.Maybe Prelude.Text,
-    -- | Whether to certify the model package for listing on Amazon Web Services
-    -- Marketplace.
-    --
-    -- This parameter is optional for unversioned models, and does not apply to
-    -- versioned models.
-    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
+  { metadataProperties :: Prelude.Maybe MetadataProperties,
     -- | Whether the model is approved for deployment.
     --
     -- This parameter is optional for versioned models, and does not apply to
@@ -105,11 +86,23 @@ data CreateModelPackage = CreateModelPackage'
     -- For versioned models, the value of this parameter must be set to
     -- @Approved@ to deploy the model.
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
-    -- | A list of key value pairs associated with the model. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
-    -- in the /Amazon Web Services General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
+    -- | Details about the algorithm that was used to create the model package.
+    sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
+    -- | The name of the model package. The name must have 1 to 63 characters.
+    -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+    --
+    -- This parameter is required for unversioned models. It is not applicable
+    -- to versioned models.
+    modelPackageName :: Prelude.Maybe Prelude.Text,
+    -- | A unique token that guarantees that the call to this API is idempotent.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A structure that contains model metrics reports.
+    modelMetrics :: Prelude.Maybe ModelMetrics,
+    -- | A description of the model package.
+    modelPackageDescription :: Prelude.Maybe Prelude.Text,
+    -- | Specifies configurations for one or more transform jobs that Amazon
+    -- SageMaker runs to test the model package.
+    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
     -- | Specifies details about inference jobs that can be run with models based
     -- on this model package, including the following:
     --
@@ -122,15 +115,22 @@ data CreateModelPackage = CreateModelPackage'
     -- -   The input and output content formats that the model package supports
     --     for inference.
     inferenceSpecification :: Prelude.Maybe InferenceSpecification,
-    -- | A description of the model package.
-    modelPackageDescription :: Prelude.Maybe Prelude.Text,
+    -- | Whether to certify the model package for listing on Amazon Web Services
+    -- Marketplace.
+    --
+    -- This parameter is optional for unversioned models, and does not apply to
+    -- versioned models.
+    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
     -- | The name of the model group that this model version belongs to.
     --
     -- This parameter is required for versioned models, and does not apply to
     -- unversioned models.
     modelPackageGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A unique token that guarantees that the call to this API is idempotent.
-    clientToken :: Prelude.Maybe Prelude.Text
+    -- | A list of key value pairs associated with the model. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,26 +142,7 @@ data CreateModelPackage = CreateModelPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceAlgorithmSpecification', 'createModelPackage_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
---
 -- 'metadataProperties', 'createModelPackage_metadataProperties' - Undocumented member.
---
--- 'validationSpecification', 'createModelPackage_validationSpecification' - Specifies configurations for one or more transform jobs that Amazon
--- SageMaker runs to test the model package.
---
--- 'modelMetrics', 'createModelPackage_modelMetrics' - A structure that contains model metrics reports.
---
--- 'modelPackageName', 'createModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.
--- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
---
--- This parameter is required for unversioned models. It is not applicable
--- to versioned models.
---
--- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on Amazon Web Services
--- Marketplace.
---
--- This parameter is optional for unversioned models, and does not apply to
--- versioned models.
 --
 -- 'modelApprovalStatus', 'createModelPackage_modelApprovalStatus' - Whether the model is approved for deployment.
 --
@@ -171,10 +152,22 @@ data CreateModelPackage = CreateModelPackage'
 -- For versioned models, the value of this parameter must be set to
 -- @Approved@ to deploy the model.
 --
--- 'tags', 'createModelPackage_tags' - A list of key value pairs associated with the model. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
+-- 'sourceAlgorithmSpecification', 'createModelPackage_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
+--
+-- 'modelPackageName', 'createModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.
+-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+--
+-- This parameter is required for unversioned models. It is not applicable
+-- to versioned models.
+--
+-- 'clientToken', 'createModelPackage_clientToken' - A unique token that guarantees that the call to this API is idempotent.
+--
+-- 'modelMetrics', 'createModelPackage_modelMetrics' - A structure that contains model metrics reports.
+--
+-- 'modelPackageDescription', 'createModelPackage_modelPackageDescription' - A description of the model package.
+--
+-- 'validationSpecification', 'createModelPackage_validationSpecification' - Specifies configurations for one or more transform jobs that Amazon
+-- SageMaker runs to test the model package.
 --
 -- 'inferenceSpecification', 'createModelPackage_inferenceSpecification' - Specifies details about inference jobs that can be run with models based
 -- on this model package, including the following:
@@ -188,65 +181,43 @@ data CreateModelPackage = CreateModelPackage'
 -- -   The input and output content formats that the model package supports
 --     for inference.
 --
--- 'modelPackageDescription', 'createModelPackage_modelPackageDescription' - A description of the model package.
+-- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on Amazon Web Services
+-- Marketplace.
+--
+-- This parameter is optional for unversioned models, and does not apply to
+-- versioned models.
 --
 -- 'modelPackageGroupName', 'createModelPackage_modelPackageGroupName' - The name of the model group that this model version belongs to.
 --
 -- This parameter is required for versioned models, and does not apply to
 -- unversioned models.
 --
--- 'clientToken', 'createModelPackage_clientToken' - A unique token that guarantees that the call to this API is idempotent.
+-- 'tags', 'createModelPackage_tags' - A list of key value pairs associated with the model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 newCreateModelPackage ::
   CreateModelPackage
 newCreateModelPackage =
   CreateModelPackage'
-    { sourceAlgorithmSpecification =
+    { metadataProperties =
         Prelude.Nothing,
-      metadataProperties = Prelude.Nothing,
-      validationSpecification = Prelude.Nothing,
-      modelMetrics = Prelude.Nothing,
-      modelPackageName = Prelude.Nothing,
-      certifyForMarketplace = Prelude.Nothing,
       modelApprovalStatus = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      inferenceSpecification = Prelude.Nothing,
+      sourceAlgorithmSpecification = Prelude.Nothing,
+      modelPackageName = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      modelMetrics = Prelude.Nothing,
       modelPackageDescription = Prelude.Nothing,
+      validationSpecification = Prelude.Nothing,
+      inferenceSpecification = Prelude.Nothing,
+      certifyForMarketplace = Prelude.Nothing,
       modelPackageGroupName = Prelude.Nothing,
-      clientToken = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | Details about the algorithm that was used to create the model package.
-createModelPackage_sourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe SourceAlgorithmSpecification)
-createModelPackage_sourceAlgorithmSpecification = Lens.lens (\CreateModelPackage' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@CreateModelPackage' {} a -> s {sourceAlgorithmSpecification = a} :: CreateModelPackage)
 
 -- | Undocumented member.
 createModelPackage_metadataProperties :: Lens.Lens' CreateModelPackage (Prelude.Maybe MetadataProperties)
 createModelPackage_metadataProperties = Lens.lens (\CreateModelPackage' {metadataProperties} -> metadataProperties) (\s@CreateModelPackage' {} a -> s {metadataProperties = a} :: CreateModelPackage)
-
--- | Specifies configurations for one or more transform jobs that Amazon
--- SageMaker runs to test the model package.
-createModelPackage_validationSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelPackageValidationSpecification)
-createModelPackage_validationSpecification = Lens.lens (\CreateModelPackage' {validationSpecification} -> validationSpecification) (\s@CreateModelPackage' {} a -> s {validationSpecification = a} :: CreateModelPackage)
-
--- | A structure that contains model metrics reports.
-createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelMetrics)
-createModelPackage_modelMetrics = Lens.lens (\CreateModelPackage' {modelMetrics} -> modelMetrics) (\s@CreateModelPackage' {} a -> s {modelMetrics = a} :: CreateModelPackage)
-
--- | The name of the model package. The name must have 1 to 63 characters.
--- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
---
--- This parameter is required for unversioned models. It is not applicable
--- to versioned models.
-createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
-createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPackageName} -> modelPackageName) (\s@CreateModelPackage' {} a -> s {modelPackageName = a} :: CreateModelPackage)
-
--- | Whether to certify the model package for listing on Amazon Web Services
--- Marketplace.
---
--- This parameter is optional for unversioned models, and does not apply to
--- versioned models.
-createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Bool)
-createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateModelPackage' {} a -> s {certifyForMarketplace = a} :: CreateModelPackage)
 
 -- | Whether the model is approved for deployment.
 --
@@ -258,12 +229,34 @@ createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {cert
 createModelPackage_modelApprovalStatus :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelApprovalStatus)
 createModelPackage_modelApprovalStatus = Lens.lens (\CreateModelPackage' {modelApprovalStatus} -> modelApprovalStatus) (\s@CreateModelPackage' {} a -> s {modelApprovalStatus = a} :: CreateModelPackage)
 
--- | A list of key value pairs associated with the model. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
-createModelPackage_tags :: Lens.Lens' CreateModelPackage (Prelude.Maybe [Tag])
-createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens._Coerce
+-- | Details about the algorithm that was used to create the model package.
+createModelPackage_sourceAlgorithmSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe SourceAlgorithmSpecification)
+createModelPackage_sourceAlgorithmSpecification = Lens.lens (\CreateModelPackage' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@CreateModelPackage' {} a -> s {sourceAlgorithmSpecification = a} :: CreateModelPackage)
+
+-- | The name of the model package. The name must have 1 to 63 characters.
+-- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+--
+-- This parameter is required for unversioned models. It is not applicable
+-- to versioned models.
+createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPackageName} -> modelPackageName) (\s@CreateModelPackage' {} a -> s {modelPackageName = a} :: CreateModelPackage)
+
+-- | A unique token that guarantees that the call to this API is idempotent.
+createModelPackage_clientToken :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_clientToken = Lens.lens (\CreateModelPackage' {clientToken} -> clientToken) (\s@CreateModelPackage' {} a -> s {clientToken = a} :: CreateModelPackage)
+
+-- | A structure that contains model metrics reports.
+createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelMetrics)
+createModelPackage_modelMetrics = Lens.lens (\CreateModelPackage' {modelMetrics} -> modelMetrics) (\s@CreateModelPackage' {} a -> s {modelMetrics = a} :: CreateModelPackage)
+
+-- | A description of the model package.
+createModelPackage_modelPackageDescription :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_modelPackageDescription = Lens.lens (\CreateModelPackage' {modelPackageDescription} -> modelPackageDescription) (\s@CreateModelPackage' {} a -> s {modelPackageDescription = a} :: CreateModelPackage)
+
+-- | Specifies configurations for one or more transform jobs that Amazon
+-- SageMaker runs to test the model package.
+createModelPackage_validationSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelPackageValidationSpecification)
+createModelPackage_validationSpecification = Lens.lens (\CreateModelPackage' {validationSpecification} -> validationSpecification) (\s@CreateModelPackage' {} a -> s {validationSpecification = a} :: CreateModelPackage)
 
 -- | Specifies details about inference jobs that can be run with models based
 -- on this model package, including the following:
@@ -279,9 +272,13 @@ createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@Cr
 createModelPackage_inferenceSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe InferenceSpecification)
 createModelPackage_inferenceSpecification = Lens.lens (\CreateModelPackage' {inferenceSpecification} -> inferenceSpecification) (\s@CreateModelPackage' {} a -> s {inferenceSpecification = a} :: CreateModelPackage)
 
--- | A description of the model package.
-createModelPackage_modelPackageDescription :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
-createModelPackage_modelPackageDescription = Lens.lens (\CreateModelPackage' {modelPackageDescription} -> modelPackageDescription) (\s@CreateModelPackage' {} a -> s {modelPackageDescription = a} :: CreateModelPackage)
+-- | Whether to certify the model package for listing on Amazon Web Services
+-- Marketplace.
+--
+-- This parameter is optional for unversioned models, and does not apply to
+-- versioned models.
+createModelPackage_certifyForMarketplace :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Bool)
+createModelPackage_certifyForMarketplace = Lens.lens (\CreateModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@CreateModelPackage' {} a -> s {certifyForMarketplace = a} :: CreateModelPackage)
 
 -- | The name of the model group that this model version belongs to.
 --
@@ -290,9 +287,12 @@ createModelPackage_modelPackageDescription = Lens.lens (\CreateModelPackage' {mo
 createModelPackage_modelPackageGroupName :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageGroupName = Lens.lens (\CreateModelPackage' {modelPackageGroupName} -> modelPackageGroupName) (\s@CreateModelPackage' {} a -> s {modelPackageGroupName = a} :: CreateModelPackage)
 
--- | A unique token that guarantees that the call to this API is idempotent.
-createModelPackage_clientToken :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
-createModelPackage_clientToken = Lens.lens (\CreateModelPackage' {clientToken} -> clientToken) (\s@CreateModelPackage' {} a -> s {clientToken = a} :: CreateModelPackage)
+-- | A list of key value pairs associated with the model. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+createModelPackage_tags :: Lens.Lens' CreateModelPackage (Prelude.Maybe [Tag])
+createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateModelPackage where
   type
@@ -330,27 +330,27 @@ instance Core.ToJSON CreateModelPackage where
   toJSON CreateModelPackage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceAlgorithmSpecification" Core..=)
-              Prelude.<$> sourceAlgorithmSpecification,
-            ("MetadataProperties" Core..=)
+          [ ("MetadataProperties" Core..=)
               Prelude.<$> metadataProperties,
-            ("ValidationSpecification" Core..=)
-              Prelude.<$> validationSpecification,
-            ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
-            ("ModelPackageName" Core..=)
-              Prelude.<$> modelPackageName,
-            ("CertifyForMarketplace" Core..=)
-              Prelude.<$> certifyForMarketplace,
             ("ModelApprovalStatus" Core..=)
               Prelude.<$> modelApprovalStatus,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("InferenceSpecification" Core..=)
-              Prelude.<$> inferenceSpecification,
+            ("SourceAlgorithmSpecification" Core..=)
+              Prelude.<$> sourceAlgorithmSpecification,
+            ("ModelPackageName" Core..=)
+              Prelude.<$> modelPackageName,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
             ("ModelPackageDescription" Core..=)
               Prelude.<$> modelPackageDescription,
+            ("ValidationSpecification" Core..=)
+              Prelude.<$> validationSpecification,
+            ("InferenceSpecification" Core..=)
+              Prelude.<$> inferenceSpecification,
+            ("CertifyForMarketplace" Core..=)
+              Prelude.<$> certifyForMarketplace,
             ("ModelPackageGroupName" Core..=)
               Prelude.<$> modelPackageGroupName,
-            ("ClientToken" Core..=) Prelude.<$> clientToken
+            ("Tags" Core..=) Prelude.<$> tags
           ]
       )
 

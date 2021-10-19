@@ -28,8 +28,8 @@ module Network.AWS.SageMaker.UpdateWorkteam
     newUpdateWorkteam,
 
     -- * Request Lenses
-    updateWorkteam_memberDefinitions,
     updateWorkteam_notificationConfiguration,
+    updateWorkteam_memberDefinitions,
     updateWorkteam_description,
     updateWorkteam_workteamName,
 
@@ -52,7 +52,9 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateWorkteam' smart constructor.
 data UpdateWorkteam = UpdateWorkteam'
-  { -- | A list of @MemberDefinition@ objects that contains objects that identify
+  { -- | Configures SNS topic notifications for available or expiring work items
+    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
+    -- | A list of @MemberDefinition@ objects that contains objects that identify
     -- the workers that make up the work team.
     --
     -- Workforces can be created using Amazon Cognito or your own OIDC Identity
@@ -78,8 +80,6 @@ data UpdateWorkteam = UpdateWorkteam'
     -- you do not include these user groups, they will no longer be associated
     -- with the work team you update.
     memberDefinitions :: Prelude.Maybe (Prelude.NonEmpty MemberDefinition),
-    -- | Configures SNS topic notifications for available or expiring work items
-    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
     -- | An updated description for the work team.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the work team to update.
@@ -94,6 +94,8 @@ data UpdateWorkteam = UpdateWorkteam'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'notificationConfiguration', 'updateWorkteam_notificationConfiguration' - Configures SNS topic notifications for available or expiring work items
 --
 -- 'memberDefinitions', 'updateWorkteam_memberDefinitions' - A list of @MemberDefinition@ objects that contains objects that identify
 -- the workers that make up the work team.
@@ -121,8 +123,6 @@ data UpdateWorkteam = UpdateWorkteam'
 -- you do not include these user groups, they will no longer be associated
 -- with the work team you update.
 --
--- 'notificationConfiguration', 'updateWorkteam_notificationConfiguration' - Configures SNS topic notifications for available or expiring work items
---
 -- 'description', 'updateWorkteam_description' - An updated description for the work team.
 --
 -- 'workteamName', 'updateWorkteam_workteamName' - The name of the work team to update.
@@ -132,12 +132,16 @@ newUpdateWorkteam ::
   UpdateWorkteam
 newUpdateWorkteam pWorkteamName_ =
   UpdateWorkteam'
-    { memberDefinitions =
+    { notificationConfiguration =
         Prelude.Nothing,
-      notificationConfiguration = Prelude.Nothing,
+      memberDefinitions = Prelude.Nothing,
       description = Prelude.Nothing,
       workteamName = pWorkteamName_
     }
+
+-- | Configures SNS topic notifications for available or expiring work items
+updateWorkteam_notificationConfiguration :: Lens.Lens' UpdateWorkteam (Prelude.Maybe NotificationConfiguration)
+updateWorkteam_notificationConfiguration = Lens.lens (\UpdateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@UpdateWorkteam' {} a -> s {notificationConfiguration = a} :: UpdateWorkteam)
 
 -- | A list of @MemberDefinition@ objects that contains objects that identify
 -- the workers that make up the work team.
@@ -165,11 +169,7 @@ newUpdateWorkteam pWorkteamName_ =
 -- you do not include these user groups, they will no longer be associated
 -- with the work team you update.
 updateWorkteam_memberDefinitions :: Lens.Lens' UpdateWorkteam (Prelude.Maybe (Prelude.NonEmpty MemberDefinition))
-updateWorkteam_memberDefinitions = Lens.lens (\UpdateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@UpdateWorkteam' {} a -> s {memberDefinitions = a} :: UpdateWorkteam) Prelude.. Lens.mapping Lens._Coerce
-
--- | Configures SNS topic notifications for available or expiring work items
-updateWorkteam_notificationConfiguration :: Lens.Lens' UpdateWorkteam (Prelude.Maybe NotificationConfiguration)
-updateWorkteam_notificationConfiguration = Lens.lens (\UpdateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@UpdateWorkteam' {} a -> s {notificationConfiguration = a} :: UpdateWorkteam)
+updateWorkteam_memberDefinitions = Lens.lens (\UpdateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@UpdateWorkteam' {} a -> s {memberDefinitions = a} :: UpdateWorkteam) Prelude.. Lens.mapping Lens.coerced
 
 -- | An updated description for the work team.
 updateWorkteam_description :: Lens.Lens' UpdateWorkteam (Prelude.Maybe Prelude.Text)
@@ -213,10 +213,10 @@ instance Core.ToJSON UpdateWorkteam where
   toJSON UpdateWorkteam' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MemberDefinitions" Core..=)
-              Prelude.<$> memberDefinitions,
-            ("NotificationConfiguration" Core..=)
+          [ ("NotificationConfiguration" Core..=)
               Prelude.<$> notificationConfiguration,
+            ("MemberDefinitions" Core..=)
+              Prelude.<$> memberDefinitions,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("WorkteamName" Core..= workteamName)
           ]

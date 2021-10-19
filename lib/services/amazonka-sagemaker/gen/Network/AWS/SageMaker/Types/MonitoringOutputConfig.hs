@@ -60,7 +60,7 @@ newMonitoringOutputConfig pMonitoringOutputs_ =
   MonitoringOutputConfig'
     { kmsKeyId = Prelude.Nothing,
       monitoringOutputs =
-        Lens._Coerce Lens.# pMonitoringOutputs_
+        Lens.coerced Lens.# pMonitoringOutputs_
     }
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
@@ -72,7 +72,7 @@ monitoringOutputConfig_kmsKeyId = Lens.lens (\MonitoringOutputConfig' {kmsKeyId}
 -- | Monitoring outputs for monitoring jobs. This is where the output of the
 -- periodic monitoring jobs is uploaded.
 monitoringOutputConfig_monitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Prelude.NonEmpty MonitoringOutput)
-monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Prelude.. Lens._Coerce
+monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON MonitoringOutputConfig where
   parseJSON =

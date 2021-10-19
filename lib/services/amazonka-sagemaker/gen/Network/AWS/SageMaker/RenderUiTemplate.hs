@@ -229,6 +229,6 @@ renderUiTemplateResponse_renderedContent = Lens.lens (\RenderUiTemplateResponse'
 -- while rendering the template. If there were no errors, the list is
 -- empty.
 renderUiTemplateResponse_errors :: Lens.Lens' RenderUiTemplateResponse [RenderingError]
-renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors} -> errors) (\s@RenderUiTemplateResponse' {} a -> s {errors = a} :: RenderUiTemplateResponse) Prelude.. Lens._Coerce
+renderUiTemplateResponse_errors = Lens.lens (\RenderUiTemplateResponse' {errors} -> errors) (\s@RenderUiTemplateResponse' {} a -> s {errors = a} :: RenderUiTemplateResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData RenderUiTemplateResponse

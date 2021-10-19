@@ -29,14 +29,14 @@ module Network.AWS.SageMaker.ListDataQualityJobDefinitions
     newListDataQualityJobDefinitions,
 
     -- * Request Lenses
+    listDataQualityJobDefinitions_nameContains,
+    listDataQualityJobDefinitions_endpointName,
+    listDataQualityJobDefinitions_creationTimeAfter,
     listDataQualityJobDefinitions_nextToken,
     listDataQualityJobDefinitions_sortOrder,
-    listDataQualityJobDefinitions_endpointName,
-    listDataQualityJobDefinitions_nameContains,
-    listDataQualityJobDefinitions_maxResults,
     listDataQualityJobDefinitions_creationTimeBefore,
+    listDataQualityJobDefinitions_maxResults,
     listDataQualityJobDefinitions_sortBy,
-    listDataQualityJobDefinitions_creationTimeAfter,
 
     -- * Destructuring the Response
     ListDataQualityJobDefinitionsResponse (..),
@@ -58,30 +58,30 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListDataQualityJobDefinitions' smart constructor.
 data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
-  { -- | If the result of the previous @ListDataQualityJobDefinitions@ request
+  { -- | A string in the data quality monitoring job definition name. This filter
+    -- returns only data quality monitoring job definitions whose name contains
+    -- the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that lists the data quality job definitions associated with the
+    -- specified endpoint.
+    endpointName :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only data quality monitoring job definitions
+    -- created after the specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | If the result of the previous @ListDataQualityJobDefinitions@ request
     -- was truncated, the response includes a @NextToken@. To retrieve the next
     -- set of transform jobs, use the token in the next request.>
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results. The default is @Descending@.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that lists the data quality job definitions associated with the
-    -- specified endpoint.
-    endpointName :: Prelude.Maybe Prelude.Text,
-    -- | A string in the data quality monitoring job definition name. This filter
-    -- returns only data quality monitoring job definitions whose name contains
-    -- the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of data quality monitoring job definitions to return
-    -- in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only data quality monitoring job definitions
     -- created before the specified time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of data quality monitoring job definitions to return
+    -- in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
-    -- | A filter that returns only data quality monitoring job definitions
-    -- created after the specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,43 +93,59 @@ data ListDataQualityJobDefinitions = ListDataQualityJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listDataQualityJobDefinitions_nameContains' - A string in the data quality monitoring job definition name. This filter
+-- returns only data quality monitoring job definitions whose name contains
+-- the specified string.
+--
+-- 'endpointName', 'listDataQualityJobDefinitions_endpointName' - A filter that lists the data quality job definitions associated with the
+-- specified endpoint.
+--
+-- 'creationTimeAfter', 'listDataQualityJobDefinitions_creationTimeAfter' - A filter that returns only data quality monitoring job definitions
+-- created after the specified time.
+--
 -- 'nextToken', 'listDataQualityJobDefinitions_nextToken' - If the result of the previous @ListDataQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
 -- set of transform jobs, use the token in the next request.>
 --
 -- 'sortOrder', 'listDataQualityJobDefinitions_sortOrder' - The sort order for results. The default is @Descending@.
 --
--- 'endpointName', 'listDataQualityJobDefinitions_endpointName' - A filter that lists the data quality job definitions associated with the
--- specified endpoint.
---
--- 'nameContains', 'listDataQualityJobDefinitions_nameContains' - A string in the data quality monitoring job definition name. This filter
--- returns only data quality monitoring job definitions whose name contains
--- the specified string.
+-- 'creationTimeBefore', 'listDataQualityJobDefinitions_creationTimeBefore' - A filter that returns only data quality monitoring job definitions
+-- created before the specified time.
 --
 -- 'maxResults', 'listDataQualityJobDefinitions_maxResults' - The maximum number of data quality monitoring job definitions to return
 -- in the response.
 --
--- 'creationTimeBefore', 'listDataQualityJobDefinitions_creationTimeBefore' - A filter that returns only data quality monitoring job definitions
--- created before the specified time.
---
 -- 'sortBy', 'listDataQualityJobDefinitions_sortBy' - The field to sort results by. The default is @CreationTime@.
---
--- 'creationTimeAfter', 'listDataQualityJobDefinitions_creationTimeAfter' - A filter that returns only data quality monitoring job definitions
--- created after the specified time.
 newListDataQualityJobDefinitions ::
   ListDataQualityJobDefinitions
 newListDataQualityJobDefinitions =
   ListDataQualityJobDefinitions'
-    { nextToken =
+    { nameContains =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A string in the data quality monitoring job definition name. This filter
+-- returns only data quality monitoring job definitions whose name contains
+-- the specified string.
+listDataQualityJobDefinitions_nameContains :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Text)
+listDataQualityJobDefinitions_nameContains = Lens.lens (\ListDataQualityJobDefinitions' {nameContains} -> nameContains) (\s@ListDataQualityJobDefinitions' {} a -> s {nameContains = a} :: ListDataQualityJobDefinitions)
+
+-- | A filter that lists the data quality job definitions associated with the
+-- specified endpoint.
+listDataQualityJobDefinitions_endpointName :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Text)
+listDataQualityJobDefinitions_endpointName = Lens.lens (\ListDataQualityJobDefinitions' {endpointName} -> endpointName) (\s@ListDataQualityJobDefinitions' {} a -> s {endpointName = a} :: ListDataQualityJobDefinitions)
+
+-- | A filter that returns only data quality monitoring job definitions
+-- created after the specified time.
+listDataQualityJobDefinitions_creationTimeAfter :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listDataQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 -- | If the result of the previous @ListDataQualityJobDefinitions@ request
 -- was truncated, the response includes a @NextToken@. To retrieve the next
@@ -141,35 +157,19 @@ listDataQualityJobDefinitions_nextToken = Lens.lens (\ListDataQualityJobDefiniti
 listDataQualityJobDefinitions_sortOrder :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe SortOrder)
 listDataQualityJobDefinitions_sortOrder = Lens.lens (\ListDataQualityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListDataQualityJobDefinitions' {} a -> s {sortOrder = a} :: ListDataQualityJobDefinitions)
 
--- | A filter that lists the data quality job definitions associated with the
--- specified endpoint.
-listDataQualityJobDefinitions_endpointName :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Text)
-listDataQualityJobDefinitions_endpointName = Lens.lens (\ListDataQualityJobDefinitions' {endpointName} -> endpointName) (\s@ListDataQualityJobDefinitions' {} a -> s {endpointName = a} :: ListDataQualityJobDefinitions)
-
--- | A string in the data quality monitoring job definition name. This filter
--- returns only data quality monitoring job definitions whose name contains
--- the specified string.
-listDataQualityJobDefinitions_nameContains :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Text)
-listDataQualityJobDefinitions_nameContains = Lens.lens (\ListDataQualityJobDefinitions' {nameContains} -> nameContains) (\s@ListDataQualityJobDefinitions' {} a -> s {nameContains = a} :: ListDataQualityJobDefinitions)
+-- | A filter that returns only data quality monitoring job definitions
+-- created before the specified time.
+listDataQualityJobDefinitions_creationTimeBefore :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listDataQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 -- | The maximum number of data quality monitoring job definitions to return
 -- in the response.
 listDataQualityJobDefinitions_maxResults :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.Natural)
 listDataQualityJobDefinitions_maxResults = Lens.lens (\ListDataQualityJobDefinitions' {maxResults} -> maxResults) (\s@ListDataQualityJobDefinitions' {} a -> s {maxResults = a} :: ListDataQualityJobDefinitions)
 
--- | A filter that returns only data quality monitoring job definitions
--- created before the specified time.
-listDataQualityJobDefinitions_creationTimeBefore :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listDataQualityJobDefinitions_creationTimeBefore = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
-
 -- | The field to sort results by. The default is @CreationTime@.
 listDataQualityJobDefinitions_sortBy :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
 listDataQualityJobDefinitions_sortBy = Lens.lens (\ListDataQualityJobDefinitions' {sortBy} -> sortBy) (\s@ListDataQualityJobDefinitions' {} a -> s {sortBy = a} :: ListDataQualityJobDefinitions)
-
--- | A filter that returns only data quality monitoring job definitions
--- created after the specified time.
-listDataQualityJobDefinitions_creationTimeAfter :: Lens.Lens' ListDataQualityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listDataQualityJobDefinitions_creationTimeAfter = Lens.lens (\ListDataQualityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListDataQualityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListDataQualityJobDefinitions) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListDataQualityJobDefinitions where
   page rq rs
@@ -236,16 +236,16 @@ instance Core.ToJSON ListDataQualityJobDefinitions where
   toJSON ListDataQualityJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -311,7 +311,7 @@ listDataQualityJobDefinitionsResponse_httpStatus = Lens.lens (\ListDataQualityJo
 
 -- | A list of data quality monitoring job definitions.
 listDataQualityJobDefinitionsResponse_jobDefinitionSummaries :: Lens.Lens' ListDataQualityJobDefinitionsResponse [MonitoringJobDefinitionSummary]
-listDataQualityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListDataQualityJobDefinitionsResponse' {jobDefinitionSummaries} -> jobDefinitionSummaries) (\s@ListDataQualityJobDefinitionsResponse' {} a -> s {jobDefinitionSummaries = a} :: ListDataQualityJobDefinitionsResponse) Prelude.. Lens._Coerce
+listDataQualityJobDefinitionsResponse_jobDefinitionSummaries = Lens.lens (\ListDataQualityJobDefinitionsResponse' {jobDefinitionSummaries} -> jobDefinitionSummaries) (\s@ListDataQualityJobDefinitionsResponse' {} a -> s {jobDefinitionSummaries = a} :: ListDataQualityJobDefinitionsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -64,7 +64,7 @@ newModelPackageValidationSpecification
       { validationRole =
           pValidationRole_,
         validationProfiles =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pValidationProfiles_
       }
 
@@ -76,7 +76,7 @@ modelPackageValidationSpecification_validationRole = Lens.lens (\ModelPackageVal
 -- specifies a batch transform job that Amazon SageMaker runs to validate
 -- your model package.
 modelPackageValidationSpecification_validationProfiles :: Lens.Lens' ModelPackageValidationSpecification (Prelude.NonEmpty ModelPackageValidationProfile)
-modelPackageValidationSpecification_validationProfiles = Lens.lens (\ModelPackageValidationSpecification' {validationProfiles} -> validationProfiles) (\s@ModelPackageValidationSpecification' {} a -> s {validationProfiles = a} :: ModelPackageValidationSpecification) Prelude.. Lens._Coerce
+modelPackageValidationSpecification_validationProfiles = Lens.lens (\ModelPackageValidationSpecification' {validationProfiles} -> validationProfiles) (\s@ModelPackageValidationSpecification' {} a -> s {validationProfiles = a} :: ModelPackageValidationSpecification) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

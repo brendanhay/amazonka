@@ -74,7 +74,7 @@ newSourceIpConfig =
 -- The following Length Constraints apply to individual CIDR values in the
 -- CIDR value list.
 sourceIpConfig_cidrs :: Lens.Lens' SourceIpConfig [Prelude.Text]
-sourceIpConfig_cidrs = Lens.lens (\SourceIpConfig' {cidrs} -> cidrs) (\s@SourceIpConfig' {} a -> s {cidrs = a} :: SourceIpConfig) Prelude.. Lens._Coerce
+sourceIpConfig_cidrs = Lens.lens (\SourceIpConfig' {cidrs} -> cidrs) (\s@SourceIpConfig' {} a -> s {cidrs = a} :: SourceIpConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON SourceIpConfig where
   parseJSON =

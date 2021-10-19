@@ -34,13 +34,13 @@ module Network.AWS.SageMaker.DescribeLabelingJob
     newDescribeLabelingJobResponse,
 
     -- * Response Lenses
+    describeLabelingJobResponse_failureReason,
+    describeLabelingJobResponse_labelingJobAlgorithmsConfig,
+    describeLabelingJobResponse_labelCategoryConfigS3Uri,
     describeLabelingJobResponse_stoppingConditions,
     describeLabelingJobResponse_labelAttributeName,
-    describeLabelingJobResponse_labelCategoryConfigS3Uri,
-    describeLabelingJobResponse_labelingJobAlgorithmsConfig,
-    describeLabelingJobResponse_failureReason,
-    describeLabelingJobResponse_tags,
     describeLabelingJobResponse_labelingJobOutput,
+    describeLabelingJobResponse_tags,
     describeLabelingJobResponse_httpStatus,
     describeLabelingJobResponse_labelingJobStatus,
     describeLabelingJobResponse_labelCounters,
@@ -102,13 +102,13 @@ instance Core.AWSRequest DescribeLabelingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeLabelingJobResponse'
-            Prelude.<$> (x Core..?> "StoppingConditions")
-            Prelude.<*> (x Core..?> "LabelAttributeName")
-            Prelude.<*> (x Core..?> "LabelCategoryConfigS3Uri")
+            Prelude.<$> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "LabelingJobAlgorithmsConfig")
-            Prelude.<*> (x Core..?> "FailureReason")
-            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LabelCategoryConfigS3Uri")
+            Prelude.<*> (x Core..?> "StoppingConditions")
+            Prelude.<*> (x Core..?> "LabelAttributeName")
             Prelude.<*> (x Core..?> "LabelingJobOutput")
+            Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "LabelingJobStatus")
             Prelude.<*> (x Core..:> "LabelCounters")
@@ -159,11 +159,10 @@ instance Core.ToQuery DescribeLabelingJob where
 
 -- | /See:/ 'newDescribeLabelingJobResponse' smart constructor.
 data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
-  { -- | A set of conditions for stopping a labeling job. If any of the
-    -- conditions are met, the job is automatically stopped.
-    stoppingConditions :: Prelude.Maybe LabelingJobStoppingConditions,
-    -- | The attribute used as the label in the output manifest file.
-    labelAttributeName :: Prelude.Maybe Prelude.Text,
+  { -- | If the job failed, the reason that it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information for automated data labeling.
+    labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
     -- | The S3 location of the JSON file that defines the categories used to
     -- label data objects. Please note the following label-category limits:
     --
@@ -204,17 +203,18 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     --
     -- @}@
     labelCategoryConfigS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information for automated data labeling.
-    labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
-    -- | If the job failed, the reason that it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | A set of conditions for stopping a labeling job. If any of the
+    -- conditions are met, the job is automatically stopped.
+    stoppingConditions :: Prelude.Maybe LabelingJobStoppingConditions,
+    -- | The attribute used as the label in the output manifest file.
+    labelAttributeName :: Prelude.Maybe Prelude.Text,
+    -- | The location of the output produced by the labeling job.
+    labelingJobOutput :: Prelude.Maybe LabelingJobOutput,
     -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | The location of the output produced by the labeling job.
-    labelingJobOutput :: Prelude.Maybe LabelingJobOutput,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The processing status of the labeling job.
@@ -258,10 +258,9 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stoppingConditions', 'describeLabelingJobResponse_stoppingConditions' - A set of conditions for stopping a labeling job. If any of the
--- conditions are met, the job is automatically stopped.
+-- 'failureReason', 'describeLabelingJobResponse_failureReason' - If the job failed, the reason that it failed.
 --
--- 'labelAttributeName', 'describeLabelingJobResponse_labelAttributeName' - The attribute used as the label in the output manifest file.
+-- 'labelingJobAlgorithmsConfig', 'describeLabelingJobResponse_labelingJobAlgorithmsConfig' - Configuration information for automated data labeling.
 --
 -- 'labelCategoryConfigS3Uri', 'describeLabelingJobResponse_labelCategoryConfigS3Uri' - The S3 location of the JSON file that defines the categories used to
 -- label data objects. Please note the following label-category limits:
@@ -303,16 +302,17 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 --
 -- @}@
 --
--- 'labelingJobAlgorithmsConfig', 'describeLabelingJobResponse_labelingJobAlgorithmsConfig' - Configuration information for automated data labeling.
+-- 'stoppingConditions', 'describeLabelingJobResponse_stoppingConditions' - A set of conditions for stopping a labeling job. If any of the
+-- conditions are met, the job is automatically stopped.
 --
--- 'failureReason', 'describeLabelingJobResponse_failureReason' - If the job failed, the reason that it failed.
+-- 'labelAttributeName', 'describeLabelingJobResponse_labelAttributeName' - The attribute used as the label in the output manifest file.
+--
+-- 'labelingJobOutput', 'describeLabelingJobResponse_labelingJobOutput' - The location of the output produced by the labeling job.
 --
 -- 'tags', 'describeLabelingJobResponse_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'labelingJobOutput', 'describeLabelingJobResponse_labelingJobOutput' - The location of the output produced by the labeling job.
 --
 -- 'httpStatus', 'describeLabelingJobResponse_httpStatus' - The response's http status code.
 --
@@ -385,14 +385,14 @@ newDescribeLabelingJobResponse
   pRoleArn_
   pHumanTaskConfig_ =
     DescribeLabelingJobResponse'
-      { stoppingConditions =
+      { failureReason =
           Prelude.Nothing,
-        labelAttributeName = Prelude.Nothing,
-        labelCategoryConfigS3Uri = Prelude.Nothing,
         labelingJobAlgorithmsConfig = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        labelCategoryConfigS3Uri = Prelude.Nothing,
+        stoppingConditions = Prelude.Nothing,
+        labelAttributeName = Prelude.Nothing,
         labelingJobOutput = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         labelingJobStatus = pLabelingJobStatus_,
         labelCounters = pLabelCounters_,
@@ -409,14 +409,13 @@ newDescribeLabelingJobResponse
         humanTaskConfig = pHumanTaskConfig_
       }
 
--- | A set of conditions for stopping a labeling job. If any of the
--- conditions are met, the job is automatically stopped.
-describeLabelingJobResponse_stoppingConditions :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobStoppingConditions)
-describeLabelingJobResponse_stoppingConditions = Lens.lens (\DescribeLabelingJobResponse' {stoppingConditions} -> stoppingConditions) (\s@DescribeLabelingJobResponse' {} a -> s {stoppingConditions = a} :: DescribeLabelingJobResponse)
+-- | If the job failed, the reason that it failed.
+describeLabelingJobResponse_failureReason :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
+describeLabelingJobResponse_failureReason = Lens.lens (\DescribeLabelingJobResponse' {failureReason} -> failureReason) (\s@DescribeLabelingJobResponse' {} a -> s {failureReason = a} :: DescribeLabelingJobResponse)
 
--- | The attribute used as the label in the output manifest file.
-describeLabelingJobResponse_labelAttributeName :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
-describeLabelingJobResponse_labelAttributeName = Lens.lens (\DescribeLabelingJobResponse' {labelAttributeName} -> labelAttributeName) (\s@DescribeLabelingJobResponse' {} a -> s {labelAttributeName = a} :: DescribeLabelingJobResponse)
+-- | Configuration information for automated data labeling.
+describeLabelingJobResponse_labelingJobAlgorithmsConfig :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobAlgorithmsConfig)
+describeLabelingJobResponse_labelingJobAlgorithmsConfig = Lens.lens (\DescribeLabelingJobResponse' {labelingJobAlgorithmsConfig} -> labelingJobAlgorithmsConfig) (\s@DescribeLabelingJobResponse' {} a -> s {labelingJobAlgorithmsConfig = a} :: DescribeLabelingJobResponse)
 
 -- | The S3 location of the JSON file that defines the categories used to
 -- label data objects. Please note the following label-category limits:
@@ -460,24 +459,25 @@ describeLabelingJobResponse_labelAttributeName = Lens.lens (\DescribeLabelingJob
 describeLabelingJobResponse_labelCategoryConfigS3Uri :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
 describeLabelingJobResponse_labelCategoryConfigS3Uri = Lens.lens (\DescribeLabelingJobResponse' {labelCategoryConfigS3Uri} -> labelCategoryConfigS3Uri) (\s@DescribeLabelingJobResponse' {} a -> s {labelCategoryConfigS3Uri = a} :: DescribeLabelingJobResponse)
 
--- | Configuration information for automated data labeling.
-describeLabelingJobResponse_labelingJobAlgorithmsConfig :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobAlgorithmsConfig)
-describeLabelingJobResponse_labelingJobAlgorithmsConfig = Lens.lens (\DescribeLabelingJobResponse' {labelingJobAlgorithmsConfig} -> labelingJobAlgorithmsConfig) (\s@DescribeLabelingJobResponse' {} a -> s {labelingJobAlgorithmsConfig = a} :: DescribeLabelingJobResponse)
+-- | A set of conditions for stopping a labeling job. If any of the
+-- conditions are met, the job is automatically stopped.
+describeLabelingJobResponse_stoppingConditions :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobStoppingConditions)
+describeLabelingJobResponse_stoppingConditions = Lens.lens (\DescribeLabelingJobResponse' {stoppingConditions} -> stoppingConditions) (\s@DescribeLabelingJobResponse' {} a -> s {stoppingConditions = a} :: DescribeLabelingJobResponse)
 
--- | If the job failed, the reason that it failed.
-describeLabelingJobResponse_failureReason :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
-describeLabelingJobResponse_failureReason = Lens.lens (\DescribeLabelingJobResponse' {failureReason} -> failureReason) (\s@DescribeLabelingJobResponse' {} a -> s {failureReason = a} :: DescribeLabelingJobResponse)
+-- | The attribute used as the label in the output manifest file.
+describeLabelingJobResponse_labelAttributeName :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
+describeLabelingJobResponse_labelAttributeName = Lens.lens (\DescribeLabelingJobResponse' {labelAttributeName} -> labelAttributeName) (\s@DescribeLabelingJobResponse' {} a -> s {labelAttributeName = a} :: DescribeLabelingJobResponse)
+
+-- | The location of the output produced by the labeling job.
+describeLabelingJobResponse_labelingJobOutput :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobOutput)
+describeLabelingJobResponse_labelingJobOutput = Lens.lens (\DescribeLabelingJobResponse' {labelingJobOutput} -> labelingJobOutput) (\s@DescribeLabelingJobResponse' {} a -> s {labelingJobOutput = a} :: DescribeLabelingJobResponse)
 
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 describeLabelingJobResponse_tags :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe [Tag])
-describeLabelingJobResponse_tags = Lens.lens (\DescribeLabelingJobResponse' {tags} -> tags) (\s@DescribeLabelingJobResponse' {} a -> s {tags = a} :: DescribeLabelingJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The location of the output produced by the labeling job.
-describeLabelingJobResponse_labelingJobOutput :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe LabelingJobOutput)
-describeLabelingJobResponse_labelingJobOutput = Lens.lens (\DescribeLabelingJobResponse' {labelingJobOutput} -> labelingJobOutput) (\s@DescribeLabelingJobResponse' {} a -> s {labelingJobOutput = a} :: DescribeLabelingJobResponse)
+describeLabelingJobResponse_tags = Lens.lens (\DescribeLabelingJobResponse' {tags} -> tags) (\s@DescribeLabelingJobResponse' {} a -> s {tags = a} :: DescribeLabelingJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLabelingJobResponse_httpStatus :: Lens.Lens' DescribeLabelingJobResponse Prelude.Int

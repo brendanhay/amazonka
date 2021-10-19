@@ -120,11 +120,11 @@ createArtifact_artifactName = Lens.lens (\CreateArtifact' {artifactName} -> arti
 
 -- | A list of tags to apply to the artifact.
 createArtifact_tags :: Lens.Lens' CreateArtifact (Prelude.Maybe [Tag])
-createArtifact_tags = Lens.lens (\CreateArtifact' {tags} -> tags) (\s@CreateArtifact' {} a -> s {tags = a} :: CreateArtifact) Prelude.. Lens.mapping Lens._Coerce
+createArtifact_tags = Lens.lens (\CreateArtifact' {tags} -> tags) (\s@CreateArtifact' {} a -> s {tags = a} :: CreateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of properties to add to the artifact.
 createArtifact_properties :: Lens.Lens' CreateArtifact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createArtifact_properties = Lens.lens (\CreateArtifact' {properties} -> properties) (\s@CreateArtifact' {} a -> s {properties = a} :: CreateArtifact) Prelude.. Lens.mapping Lens._Coerce
+createArtifact_properties = Lens.lens (\CreateArtifact' {properties} -> properties) (\s@CreateArtifact' {} a -> s {properties = a} :: CreateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID, ID type, and URI of the source.
 createArtifact_source :: Lens.Lens' CreateArtifact ArtifactSource

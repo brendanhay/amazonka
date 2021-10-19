@@ -27,9 +27,9 @@ module Network.AWS.SageMaker.StartPipelineExecution
     newStartPipelineExecution,
 
     -- * Request Lenses
-    startPipelineExecution_pipelineExecutionDescription,
     startPipelineExecution_pipelineParameters,
     startPipelineExecution_pipelineExecutionDisplayName,
+    startPipelineExecution_pipelineExecutionDescription,
     startPipelineExecution_pipelineName,
     startPipelineExecution_clientRequestToken,
 
@@ -52,12 +52,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newStartPipelineExecution' smart constructor.
 data StartPipelineExecution = StartPipelineExecution'
-  { -- | The description of the pipeline execution.
-    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
-    -- | Contains a list of pipeline parameters. This list can be empty.
+  { -- | Contains a list of pipeline parameters. This list can be empty.
     pipelineParameters :: Prelude.Maybe [Parameter],
     -- | The display name of the pipeline execution.
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the pipeline execution.
+    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
@@ -75,11 +75,11 @@ data StartPipelineExecution = StartPipelineExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineExecutionDescription', 'startPipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
---
 -- 'pipelineParameters', 'startPipelineExecution_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
 --
 -- 'pipelineExecutionDisplayName', 'startPipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
+--
+-- 'pipelineExecutionDescription', 'startPipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'pipelineName', 'startPipelineExecution_pipelineName' - The name of the pipeline.
 --
@@ -96,25 +96,25 @@ newStartPipelineExecution
   pPipelineName_
   pClientRequestToken_ =
     StartPipelineExecution'
-      { pipelineExecutionDescription =
+      { pipelineParameters =
           Prelude.Nothing,
-        pipelineParameters = Prelude.Nothing,
         pipelineExecutionDisplayName = Prelude.Nothing,
+        pipelineExecutionDescription = Prelude.Nothing,
         pipelineName = pPipelineName_,
         clientRequestToken = pClientRequestToken_
       }
 
--- | The description of the pipeline execution.
-startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
-startPipelineExecution_pipelineExecutionDescription = Lens.lens (\StartPipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: StartPipelineExecution)
-
 -- | Contains a list of pipeline parameters. This list can be empty.
 startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Prelude.Maybe [Parameter])
-startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Lens._Coerce
+startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The display name of the pipeline execution.
 startPipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
 startPipelineExecution_pipelineExecutionDisplayName = Lens.lens (\StartPipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: StartPipelineExecution)
+
+-- | The description of the pipeline execution.
+startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
+startPipelineExecution_pipelineExecutionDescription = Lens.lens (\StartPipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: StartPipelineExecution)
 
 -- | The name of the pipeline.
 startPipelineExecution_pipelineName :: Lens.Lens' StartPipelineExecution Prelude.Text
@@ -162,12 +162,12 @@ instance Core.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineExecutionDescription" Core..=)
-              Prelude.<$> pipelineExecutionDescription,
-            ("PipelineParameters" Core..=)
+          [ ("PipelineParameters" Core..=)
               Prelude.<$> pipelineParameters,
             ("PipelineExecutionDisplayName" Core..=)
               Prelude.<$> pipelineExecutionDisplayName,
+            ("PipelineExecutionDescription" Core..=)
+              Prelude.<$> pipelineExecutionDescription,
             Prelude.Just ("PipelineName" Core..= pipelineName),
             Prelude.Just
               ("ClientRequestToken" Core..= clientRequestToken)

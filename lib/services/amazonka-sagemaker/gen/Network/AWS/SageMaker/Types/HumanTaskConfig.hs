@@ -33,6 +33,9 @@ data HumanTaskConfig = HumanTaskConfig'
   { -- | Keywords used to describe the task so that workers on Amazon Mechanical
     -- Turk can discover the task.
     taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The price that you pay for each task performed by an Amazon Mechanical
+    -- Turk worker.
+    publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
     -- | The length of time that a task remains available for labeling by human
     -- workers. The default and maximum values for this parameter depend on the
     -- type of workforce you use.
@@ -50,9 +53,6 @@ data HumanTaskConfig = HumanTaskConfig'
     -- may have more than one worker at one time. The default value is 1000
     -- objects.
     maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
-    -- | The price that you pay for each task performed by an Amazon Mechanical
-    -- Turk worker.
-    publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
     -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
     -- tasks.
     workteamArn :: Prelude.Text,
@@ -750,6 +750,9 @@ data HumanTaskConfig = HumanTaskConfig'
 -- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
 -- Turk can discover the task.
 --
+-- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
+-- Turk worker.
+--
 -- 'taskAvailabilityLifetimeInSeconds', 'humanTaskConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
 -- type of workforce you use.
@@ -766,9 +769,6 @@ data HumanTaskConfig = HumanTaskConfig'
 -- workers at the same time. Also referred to as batch size. Each object
 -- may have more than one worker at one time. The default value is 1000
 -- objects.
---
--- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
--- Turk worker.
 --
 -- 'workteamArn', 'humanTaskConfig_workteamArn' - The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -1481,9 +1481,9 @@ newHumanTaskConfig
   pAnnotationConsolidationConfig_ =
     HumanTaskConfig'
       { taskKeywords = Prelude.Nothing,
+        publicWorkforceTaskPrice = Prelude.Nothing,
         taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
         maxConcurrentTaskCount = Prelude.Nothing,
-        publicWorkforceTaskPrice = Prelude.Nothing,
         workteamArn = pWorkteamArn_,
         uiConfig = pUiConfig_,
         preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_,
@@ -1499,7 +1499,12 @@ newHumanTaskConfig
 -- | Keywords used to describe the task so that workers on Amazon Mechanical
 -- Turk can discover the task.
 humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens._Coerce
+humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The price that you pay for each task performed by an Amazon Mechanical
+-- Turk worker.
+humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
+humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
 
 -- | The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
@@ -1521,11 +1526,6 @@ humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig'
 -- objects.
 humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
-
--- | The price that you pay for each task performed by an Amazon Mechanical
--- Turk worker.
-humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
-humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
 
 -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -2233,9 +2233,9 @@ instance Core.FromJSON HumanTaskConfig where
       ( \x ->
           HumanTaskConfig'
             Prelude.<$> (x Core..:? "TaskKeywords")
+            Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
             Prelude.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
             Prelude.<*> (x Core..:? "MaxConcurrentTaskCount")
-            Prelude.<*> (x Core..:? "PublicWorkforceTaskPrice")
             Prelude.<*> (x Core..: "WorkteamArn")
             Prelude.<*> (x Core..: "UiConfig")
             Prelude.<*> (x Core..: "PreHumanTaskLambdaArn")
@@ -2255,12 +2255,12 @@ instance Core.ToJSON HumanTaskConfig where
     Core.object
       ( Prelude.catMaybes
           [ ("TaskKeywords" Core..=) Prelude.<$> taskKeywords,
+            ("PublicWorkforceTaskPrice" Core..=)
+              Prelude.<$> publicWorkforceTaskPrice,
             ("TaskAvailabilityLifetimeInSeconds" Core..=)
               Prelude.<$> taskAvailabilityLifetimeInSeconds,
             ("MaxConcurrentTaskCount" Core..=)
               Prelude.<$> maxConcurrentTaskCount,
-            ("PublicWorkforceTaskPrice" Core..=)
-              Prelude.<$> publicWorkforceTaskPrice,
             Prelude.Just ("WorkteamArn" Core..= workteamArn),
             Prelude.Just ("UiConfig" Core..= uiConfig),
             Prelude.Just

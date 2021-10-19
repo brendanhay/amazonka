@@ -54,7 +54,7 @@ newCategoricalParameterRange ::
 newCategoricalParameterRange pName_ pValues_ =
   CategoricalParameterRange'
     { name = pName_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The name of the categorical hyperparameter to tune.
@@ -63,7 +63,7 @@ categoricalParameterRange_name = Lens.lens (\CategoricalParameterRange' {name} -
 
 -- | A list of the categories for the hyperparameter.
 categoricalParameterRange_values :: Lens.Lens' CategoricalParameterRange (Prelude.NonEmpty Prelude.Text)
-categoricalParameterRange_values = Lens.lens (\CategoricalParameterRange' {values} -> values) (\s@CategoricalParameterRange' {} a -> s {values = a} :: CategoricalParameterRange) Prelude.. Lens._Coerce
+categoricalParameterRange_values = Lens.lens (\CategoricalParameterRange' {values} -> values) (\s@CategoricalParameterRange' {} a -> s {values = a} :: CategoricalParameterRange) Prelude.. Lens.coerced
 
 instance Core.FromJSON CategoricalParameterRange where
   parseJSON =

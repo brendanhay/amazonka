@@ -92,7 +92,7 @@ createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig
 
 -- | A list of tags to apply to the AppImageConfig.
 createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
-createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens._Coerce
+createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the AppImageConfig. Must be unique to your account.
 createAppImageConfig_appImageConfigName :: Lens.Lens' CreateAppImageConfig Prelude.Text

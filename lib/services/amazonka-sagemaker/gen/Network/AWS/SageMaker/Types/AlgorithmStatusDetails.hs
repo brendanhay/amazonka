@@ -28,10 +28,10 @@ import Network.AWS.SageMaker.Types.AlgorithmStatusItem
 --
 -- /See:/ 'newAlgorithmStatusDetails' smart constructor.
 data AlgorithmStatusDetails = AlgorithmStatusDetails'
-  { -- | The status of algorithm validation.
-    validationStatuses :: Prelude.Maybe [AlgorithmStatusItem],
-    -- | The status of the scan of the algorithm\'s Docker image container.
-    imageScanStatuses :: Prelude.Maybe [AlgorithmStatusItem]
+  { -- | The status of the scan of the algorithm\'s Docker image container.
+    imageScanStatuses :: Prelude.Maybe [AlgorithmStatusItem],
+    -- | The status of algorithm validation.
+    validationStatuses :: Prelude.Maybe [AlgorithmStatusItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data AlgorithmStatusDetails = AlgorithmStatusDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validationStatuses', 'algorithmStatusDetails_validationStatuses' - The status of algorithm validation.
---
 -- 'imageScanStatuses', 'algorithmStatusDetails_imageScanStatuses' - The status of the scan of the algorithm\'s Docker image container.
+--
+-- 'validationStatuses', 'algorithmStatusDetails_validationStatuses' - The status of algorithm validation.
 newAlgorithmStatusDetails ::
   AlgorithmStatusDetails
 newAlgorithmStatusDetails =
   AlgorithmStatusDetails'
-    { validationStatuses =
+    { imageScanStatuses =
         Prelude.Nothing,
-      imageScanStatuses = Prelude.Nothing
+      validationStatuses = Prelude.Nothing
     }
-
--- | The status of algorithm validation.
-algorithmStatusDetails_validationStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
-algorithmStatusDetails_validationStatuses = Lens.lens (\AlgorithmStatusDetails' {validationStatuses} -> validationStatuses) (\s@AlgorithmStatusDetails' {} a -> s {validationStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of the scan of the algorithm\'s Docker image container.
 algorithmStatusDetails_imageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
-algorithmStatusDetails_imageScanStatuses = Lens.lens (\AlgorithmStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@AlgorithmStatusDetails' {} a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Lens._Coerce
+algorithmStatusDetails_imageScanStatuses = Lens.lens (\AlgorithmStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@AlgorithmStatusDetails' {} a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of algorithm validation.
+algorithmStatusDetails_validationStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
+algorithmStatusDetails_validationStatuses = Lens.lens (\AlgorithmStatusDetails' {validationStatuses} -> validationStatuses) (\s@AlgorithmStatusDetails' {} a -> s {validationStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AlgorithmStatusDetails where
   parseJSON =
@@ -69,10 +69,10 @@ instance Core.FromJSON AlgorithmStatusDetails where
       "AlgorithmStatusDetails"
       ( \x ->
           AlgorithmStatusDetails'
-            Prelude.<$> ( x Core..:? "ValidationStatuses"
+            Prelude.<$> ( x Core..:? "ImageScanStatuses"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "ImageScanStatuses"
+            Prelude.<*> ( x Core..:? "ValidationStatuses"
                             Core..!= Prelude.mempty
                         )
       )

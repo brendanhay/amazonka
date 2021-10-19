@@ -64,7 +64,7 @@ newAlgorithmValidationSpecification
       { validationRole =
           pValidationRole_,
         validationProfiles =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pValidationProfiles_
       }
 
@@ -76,7 +76,7 @@ algorithmValidationSpecification_validationRole = Lens.lens (\AlgorithmValidatio
 -- specifies a training job and batch transform job that Amazon SageMaker
 -- runs to validate your algorithm.
 algorithmValidationSpecification_validationProfiles :: Lens.Lens' AlgorithmValidationSpecification (Prelude.NonEmpty AlgorithmValidationProfile)
-algorithmValidationSpecification_validationProfiles = Lens.lens (\AlgorithmValidationSpecification' {validationProfiles} -> validationProfiles) (\s@AlgorithmValidationSpecification' {} a -> s {validationProfiles = a} :: AlgorithmValidationSpecification) Prelude.. Lens._Coerce
+algorithmValidationSpecification_validationProfiles = Lens.lens (\AlgorithmValidationSpecification' {validationProfiles} -> validationProfiles) (\s@AlgorithmValidationSpecification' {} a -> s {validationProfiles = a} :: AlgorithmValidationSpecification) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

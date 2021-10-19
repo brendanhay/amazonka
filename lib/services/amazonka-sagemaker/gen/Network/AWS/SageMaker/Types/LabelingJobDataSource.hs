@@ -40,12 +40,12 @@ import Network.AWS.SageMaker.Types.LabelingJobSnsDataSource
 --
 -- /See:/ 'newLabelingJobDataSource' smart constructor.
 data LabelingJobDataSource = LabelingJobDataSource'
-  { -- | An Amazon SNS data source used for streaming labeling jobs. To learn
+  { -- | The Amazon S3 location of the input data objects.
+    s3DataSource :: Prelude.Maybe LabelingJobS3DataSource,
+    -- | An Amazon SNS data source used for streaming labeling jobs. To learn
     -- more, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data Send Data to a Streaming Labeling Job>.
-    snsDataSource :: Prelude.Maybe LabelingJobSnsDataSource,
-    -- | The Amazon S3 location of the input data objects.
-    s3DataSource :: Prelude.Maybe LabelingJobS3DataSource
+    snsDataSource :: Prelude.Maybe LabelingJobSnsDataSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,19 +57,23 @@ data LabelingJobDataSource = LabelingJobDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3DataSource', 'labelingJobDataSource_s3DataSource' - The Amazon S3 location of the input data objects.
+--
 -- 'snsDataSource', 'labelingJobDataSource_snsDataSource' - An Amazon SNS data source used for streaming labeling jobs. To learn
 -- more, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data Send Data to a Streaming Labeling Job>.
---
--- 's3DataSource', 'labelingJobDataSource_s3DataSource' - The Amazon S3 location of the input data objects.
 newLabelingJobDataSource ::
   LabelingJobDataSource
 newLabelingJobDataSource =
   LabelingJobDataSource'
-    { snsDataSource =
+    { s3DataSource =
         Prelude.Nothing,
-      s3DataSource = Prelude.Nothing
+      snsDataSource = Prelude.Nothing
     }
+
+-- | The Amazon S3 location of the input data objects.
+labelingJobDataSource_s3DataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobS3DataSource)
+labelingJobDataSource_s3DataSource = Lens.lens (\LabelingJobDataSource' {s3DataSource} -> s3DataSource) (\s@LabelingJobDataSource' {} a -> s {s3DataSource = a} :: LabelingJobDataSource)
 
 -- | An Amazon SNS data source used for streaming labeling jobs. To learn
 -- more, see
@@ -77,18 +81,14 @@ newLabelingJobDataSource =
 labelingJobDataSource_snsDataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobSnsDataSource)
 labelingJobDataSource_snsDataSource = Lens.lens (\LabelingJobDataSource' {snsDataSource} -> snsDataSource) (\s@LabelingJobDataSource' {} a -> s {snsDataSource = a} :: LabelingJobDataSource)
 
--- | The Amazon S3 location of the input data objects.
-labelingJobDataSource_s3DataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobS3DataSource)
-labelingJobDataSource_s3DataSource = Lens.lens (\LabelingJobDataSource' {s3DataSource} -> s3DataSource) (\s@LabelingJobDataSource' {} a -> s {s3DataSource = a} :: LabelingJobDataSource)
-
 instance Core.FromJSON LabelingJobDataSource where
   parseJSON =
     Core.withObject
       "LabelingJobDataSource"
       ( \x ->
           LabelingJobDataSource'
-            Prelude.<$> (x Core..:? "SnsDataSource")
-            Prelude.<*> (x Core..:? "S3DataSource")
+            Prelude.<$> (x Core..:? "S3DataSource")
+            Prelude.<*> (x Core..:? "SnsDataSource")
       )
 
 instance Prelude.Hashable LabelingJobDataSource
@@ -99,7 +99,7 @@ instance Core.ToJSON LabelingJobDataSource where
   toJSON LabelingJobDataSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SnsDataSource" Core..=) Prelude.<$> snsDataSource,
-            ("S3DataSource" Core..=) Prelude.<$> s3DataSource
+          [ ("S3DataSource" Core..=) Prelude.<$> s3DataSource,
+            ("SnsDataSource" Core..=) Prelude.<$> snsDataSource
           ]
       )

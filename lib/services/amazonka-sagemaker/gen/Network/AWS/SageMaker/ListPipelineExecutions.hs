@@ -29,11 +29,11 @@ module Network.AWS.SageMaker.ListPipelineExecutions
     newListPipelineExecutions,
 
     -- * Request Lenses
+    listPipelineExecutions_createdAfter,
     listPipelineExecutions_nextToken,
     listPipelineExecutions_sortOrder,
-    listPipelineExecutions_createdAfter,
-    listPipelineExecutions_createdBefore,
     listPipelineExecutions_maxResults,
+    listPipelineExecutions_createdBefore,
     listPipelineExecutions_sortBy,
     listPipelineExecutions_pipelineName,
 
@@ -57,20 +57,20 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListPipelineExecutions' smart constructor.
 data ListPipelineExecutions = ListPipelineExecutions'
-  { -- | If the result of the previous @ListPipelineExecutions@ request was
+  { -- | A filter that returns the pipeline executions that were created after a
+    -- specified time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | If the result of the previous @ListPipelineExecutions@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of pipeline executions, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns the pipeline executions that were created after a
-    -- specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of pipeline executions to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns the pipeline executions that were created before a
     -- specified time.
     createdBefore :: Prelude.Maybe Core.POSIX,
-    -- | The maximum number of pipeline executions to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field by which to sort results. The default is @CreatedTime@.
     sortBy :: Prelude.Maybe SortPipelineExecutionsBy,
     -- | The name of the pipeline.
@@ -86,19 +86,19 @@ data ListPipelineExecutions = ListPipelineExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAfter', 'listPipelineExecutions_createdAfter' - A filter that returns the pipeline executions that were created after a
+-- specified time.
+--
 -- 'nextToken', 'listPipelineExecutions_nextToken' - If the result of the previous @ListPipelineExecutions@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of pipeline executions, use the token in the next request.
 --
 -- 'sortOrder', 'listPipelineExecutions_sortOrder' - The sort order for results.
 --
--- 'createdAfter', 'listPipelineExecutions_createdAfter' - A filter that returns the pipeline executions that were created after a
--- specified time.
+-- 'maxResults', 'listPipelineExecutions_maxResults' - The maximum number of pipeline executions to return in the response.
 --
 -- 'createdBefore', 'listPipelineExecutions_createdBefore' - A filter that returns the pipeline executions that were created before a
 -- specified time.
---
--- 'maxResults', 'listPipelineExecutions_maxResults' - The maximum number of pipeline executions to return in the response.
 --
 -- 'sortBy', 'listPipelineExecutions_sortBy' - The field by which to sort results. The default is @CreatedTime@.
 --
@@ -109,15 +109,20 @@ newListPipelineExecutions ::
   ListPipelineExecutions
 newListPipelineExecutions pPipelineName_ =
   ListPipelineExecutions'
-    { nextToken =
+    { createdAfter =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      createdBefore = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
+
+-- | A filter that returns the pipeline executions that were created after a
+-- specified time.
+listPipelineExecutions_createdAfter :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe Prelude.UTCTime)
+listPipelineExecutions_createdAfter = Lens.lens (\ListPipelineExecutions' {createdAfter} -> createdAfter) (\s@ListPipelineExecutions' {} a -> s {createdAfter = a} :: ListPipelineExecutions) Prelude.. Lens.mapping Core._Time
 
 -- | If the result of the previous @ListPipelineExecutions@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
@@ -129,19 +134,14 @@ listPipelineExecutions_nextToken = Lens.lens (\ListPipelineExecutions' {nextToke
 listPipelineExecutions_sortOrder :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe SortOrder)
 listPipelineExecutions_sortOrder = Lens.lens (\ListPipelineExecutions' {sortOrder} -> sortOrder) (\s@ListPipelineExecutions' {} a -> s {sortOrder = a} :: ListPipelineExecutions)
 
--- | A filter that returns the pipeline executions that were created after a
--- specified time.
-listPipelineExecutions_createdAfter :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe Prelude.UTCTime)
-listPipelineExecutions_createdAfter = Lens.lens (\ListPipelineExecutions' {createdAfter} -> createdAfter) (\s@ListPipelineExecutions' {} a -> s {createdAfter = a} :: ListPipelineExecutions) Prelude.. Lens.mapping Core._Time
+-- | The maximum number of pipeline executions to return in the response.
+listPipelineExecutions_maxResults :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe Prelude.Natural)
+listPipelineExecutions_maxResults = Lens.lens (\ListPipelineExecutions' {maxResults} -> maxResults) (\s@ListPipelineExecutions' {} a -> s {maxResults = a} :: ListPipelineExecutions)
 
 -- | A filter that returns the pipeline executions that were created before a
 -- specified time.
 listPipelineExecutions_createdBefore :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe Prelude.UTCTime)
 listPipelineExecutions_createdBefore = Lens.lens (\ListPipelineExecutions' {createdBefore} -> createdBefore) (\s@ListPipelineExecutions' {} a -> s {createdBefore = a} :: ListPipelineExecutions) Prelude.. Lens.mapping Core._Time
-
--- | The maximum number of pipeline executions to return in the response.
-listPipelineExecutions_maxResults :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe Prelude.Natural)
-listPipelineExecutions_maxResults = Lens.lens (\ListPipelineExecutions' {maxResults} -> maxResults) (\s@ListPipelineExecutions' {} a -> s {maxResults = a} :: ListPipelineExecutions)
 
 -- | The field by which to sort results. The default is @CreatedTime@.
 listPipelineExecutions_sortBy :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe SortPipelineExecutionsBy)
@@ -212,11 +212,11 @@ instance Core.ToJSON ListPipelineExecutions where
   toJSON ListPipelineExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("PipelineName" Core..= pipelineName)
           ]
@@ -286,7 +286,7 @@ listPipelineExecutionsResponse_nextToken = Lens.lens (\ListPipelineExecutionsRes
 -- Name (ARN) of the pipeline execution, the run date, and the status. This
 -- list can be empty.
 listPipelineExecutionsResponse_pipelineExecutionSummaries :: Lens.Lens' ListPipelineExecutionsResponse (Prelude.Maybe [PipelineExecutionSummary])
-listPipelineExecutionsResponse_pipelineExecutionSummaries = Lens.lens (\ListPipelineExecutionsResponse' {pipelineExecutionSummaries} -> pipelineExecutionSummaries) (\s@ListPipelineExecutionsResponse' {} a -> s {pipelineExecutionSummaries = a} :: ListPipelineExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPipelineExecutionsResponse_pipelineExecutionSummaries = Lens.lens (\ListPipelineExecutionsResponse' {pipelineExecutionSummaries} -> pipelineExecutionSummaries) (\s@ListPipelineExecutionsResponse' {} a -> s {pipelineExecutionSummaries = a} :: ListPipelineExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPipelineExecutionsResponse_httpStatus :: Lens.Lens' ListPipelineExecutionsResponse Prelude.Int

@@ -67,18 +67,18 @@ module Network.AWS.SageMaker.CreateNotebookInstance
     newCreateNotebookInstance,
 
     -- * Request Lenses
-    createNotebookInstance_securityGroupIds,
-    createNotebookInstance_platformIdentifier,
-    createNotebookInstance_defaultCodeRepository,
     createNotebookInstance_acceleratorTypes,
+    createNotebookInstance_platformIdentifier,
+    createNotebookInstance_securityGroupIds,
     createNotebookInstance_additionalCodeRepositories,
-    createNotebookInstance_kmsKeyId,
-    createNotebookInstance_volumeSizeInGB,
-    createNotebookInstance_tags,
-    createNotebookInstance_subnetId,
     createNotebookInstance_lifecycleConfigName,
+    createNotebookInstance_subnetId,
+    createNotebookInstance_defaultCodeRepository,
+    createNotebookInstance_volumeSizeInGB,
+    createNotebookInstance_kmsKeyId,
     createNotebookInstance_rootAccess,
     createNotebookInstance_directInternetAccess,
+    createNotebookInstance_tags,
     createNotebookInstance_notebookInstanceName,
     createNotebookInstance_instanceType,
     createNotebookInstance_roleArn,
@@ -102,25 +102,16 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateNotebookInstance' smart constructor.
 data CreateNotebookInstance = CreateNotebookInstance'
-  { -- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
-    -- must be for the same VPC as specified in the subnet.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The platform identifier of the notebook instance runtime environment.
-    platformIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A Git repository to associate with the notebook instance as its default
-    -- code repository. This can be either the name of a Git repository stored
-    -- as a resource in your account, or the URL of a Git repository in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
-    -- or in any other Git repository. When you open a notebook instance, it
-    -- opens in the directory that contains this repository. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
-    defaultCodeRepository :: Prelude.Maybe Prelude.Text,
-    -- | A list of Elastic Inference (EI) instance types to associate with this
+  { -- | A list of Elastic Inference (EI) instance types to associate with this
     -- notebook instance. Currently, only one instance type can be associated
     -- with a notebook instance. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
     acceleratorTypes :: Prelude.Maybe [NotebookInstanceAcceleratorType],
+    -- | The platform identifier of the notebook instance runtime environment.
+    platformIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
+    -- must be for the same VPC as specified in the subnet.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of up to three Git repositories to associate with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
@@ -130,6 +121,25 @@ data CreateNotebookInstance = CreateNotebookInstance'
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
+    -- | The name of a lifecycle configuration to associate with the notebook
+    -- instance. For information about lifestyle configurations, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
+    lifecycleConfigName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet in a VPC to which you would like to have a
+    -- connectivity from your ML compute instance.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | A Git repository to associate with the notebook instance as its default
+    -- code repository. This can be either the name of a Git repository stored
+    -- as a resource in your account, or the URL of a Git repository in
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
+    -- or in any other Git repository. When you open a notebook instance, it
+    -- opens in the directory that contains this repository. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    defaultCodeRepository :: Prelude.Maybe Prelude.Text,
+    -- | The size, in GB, of the ML storage volume to attach to the notebook
+    -- instance. The default value is 5 GB.
+    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
     -- Service key that Amazon SageMaker uses to encrypt data on the storage
     -- volume attached to your notebook instance. The KMS key you provide must
@@ -137,21 +147,6 @@ data CreateNotebookInstance = CreateNotebookInstance'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The size, in GB, of the ML storage volume to attach to the notebook
-    -- instance. The default value is 5 GB.
-    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
-    -- | An array of key-value pairs. You can use tags to categorize your Amazon
-    -- Web Services resources in different ways, for example, by purpose,
-    -- owner, or environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-    tags :: Prelude.Maybe [Tag],
-    -- | The ID of the subnet in a VPC to which you would like to have a
-    -- connectivity from your ML compute instance.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The name of a lifecycle configuration to associate with the notebook
-    -- instance. For information about lifestyle configurations, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
-    lifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | Whether root access is enabled or disabled for users of the notebook
     -- instance. The default value is @Enabled@.
     --
@@ -171,6 +166,11 @@ data CreateNotebookInstance = CreateNotebookInstance'
     -- You can set the value of this parameter to @Disabled@ only if you set a
     -- value for the @SubnetId@ parameter.
     directInternetAccess :: Prelude.Maybe DirectInternetAccess,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the new notebook instance.
     notebookInstanceName :: Prelude.Text,
     -- | The type of ML compute instance to launch for the notebook instance.
@@ -197,24 +197,15 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'createNotebookInstance_securityGroupIds' - The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
--- must be for the same VPC as specified in the subnet.
---
--- 'platformIdentifier', 'createNotebookInstance_platformIdentifier' - The platform identifier of the notebook instance runtime environment.
---
--- 'defaultCodeRepository', 'createNotebookInstance_defaultCodeRepository' - A Git repository to associate with the notebook instance as its default
--- code repository. This can be either the name of a Git repository stored
--- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
--- or in any other Git repository. When you open a notebook instance, it
--- opens in the directory that contains this repository. For more
--- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
---
 -- 'acceleratorTypes', 'createNotebookInstance_acceleratorTypes' - A list of Elastic Inference (EI) instance types to associate with this
 -- notebook instance. Currently, only one instance type can be associated
 -- with a notebook instance. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+--
+-- 'platformIdentifier', 'createNotebookInstance_platformIdentifier' - The platform identifier of the notebook instance runtime environment.
+--
+-- 'securityGroupIds', 'createNotebookInstance_securityGroupIds' - The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
+-- must be for the same VPC as specified in the subnet.
 --
 -- 'additionalCodeRepositories', 'createNotebookInstance_additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook
 -- instance. These can be either the names of Git repositories stored as
@@ -225,27 +216,31 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
 --
+-- 'lifecycleConfigName', 'createNotebookInstance_lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook
+-- instance. For information about lifestyle configurations, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
+--
+-- 'subnetId', 'createNotebookInstance_subnetId' - The ID of the subnet in a VPC to which you would like to have a
+-- connectivity from your ML compute instance.
+--
+-- 'defaultCodeRepository', 'createNotebookInstance_defaultCodeRepository' - A Git repository to associate with the notebook instance as its default
+-- code repository. This can be either the name of a Git repository stored
+-- as a resource in your account, or the URL of a Git repository in
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
+-- or in any other Git repository. When you open a notebook instance, it
+-- opens in the directory that contains this repository. For more
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+--
+-- 'volumeSizeInGB', 'createNotebookInstance_volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook
+-- instance. The default value is 5 GB.
+--
 -- 'kmsKeyId', 'createNotebookInstance_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that Amazon SageMaker uses to encrypt data on the storage
 -- volume attached to your notebook instance. The KMS key you provide must
 -- be enabled. For information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
---
--- 'volumeSizeInGB', 'createNotebookInstance_volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook
--- instance. The default value is 5 GB.
---
--- 'tags', 'createNotebookInstance_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'subnetId', 'createNotebookInstance_subnetId' - The ID of the subnet in a VPC to which you would like to have a
--- connectivity from your ML compute instance.
---
--- 'lifecycleConfigName', 'createNotebookInstance_lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook
--- instance. For information about lifestyle configurations, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
 --
 -- 'rootAccess', 'createNotebookInstance_rootAccess' - Whether root access is enabled or disabled for users of the notebook
 -- instance. The default value is @Enabled@.
@@ -265,6 +260,11 @@ data CreateNotebookInstance = CreateNotebookInstance'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
 -- You can set the value of this parameter to @Disabled@ only if you set a
 -- value for the @SubnetId@ parameter.
+--
+-- 'tags', 'createNotebookInstance_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'notebookInstanceName', 'createNotebookInstance_notebookInstanceName' - The name of the new notebook instance.
 --
@@ -293,32 +293,61 @@ newCreateNotebookInstance
   pInstanceType_
   pRoleArn_ =
     CreateNotebookInstance'
-      { securityGroupIds =
+      { acceleratorTypes =
           Prelude.Nothing,
         platformIdentifier = Prelude.Nothing,
-        defaultCodeRepository = Prelude.Nothing,
-        acceleratorTypes = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
         additionalCodeRepositories = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        volumeSizeInGB = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        subnetId = Prelude.Nothing,
         lifecycleConfigName = Prelude.Nothing,
+        subnetId = Prelude.Nothing,
+        defaultCodeRepository = Prelude.Nothing,
+        volumeSizeInGB = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         rootAccess = Prelude.Nothing,
         directInternetAccess = Prelude.Nothing,
+        tags = Prelude.Nothing,
         notebookInstanceName = pNotebookInstanceName_,
         instanceType = pInstanceType_,
         roleArn = pRoleArn_
       }
 
--- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
--- must be for the same VPC as specified in the subnet.
-createNotebookInstance_securityGroupIds :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
-createNotebookInstance_securityGroupIds = Lens.lens (\CreateNotebookInstance' {securityGroupIds} -> securityGroupIds) (\s@CreateNotebookInstance' {} a -> s {securityGroupIds = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of Elastic Inference (EI) instance types to associate with this
+-- notebook instance. Currently, only one instance type can be associated
+-- with a notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+createNotebookInstance_acceleratorTypes :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
+createNotebookInstance_acceleratorTypes = Lens.lens (\CreateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@CreateNotebookInstance' {} a -> s {acceleratorTypes = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The platform identifier of the notebook instance runtime environment.
 createNotebookInstance_platformIdentifier :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_platformIdentifier = Lens.lens (\CreateNotebookInstance' {platformIdentifier} -> platformIdentifier) (\s@CreateNotebookInstance' {} a -> s {platformIdentifier = a} :: CreateNotebookInstance)
+
+-- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups
+-- must be for the same VPC as specified in the subnet.
+createNotebookInstance_securityGroupIds :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
+createNotebookInstance_securityGroupIds = Lens.lens (\CreateNotebookInstance' {securityGroupIds} -> securityGroupIds) (\s@CreateNotebookInstance' {} a -> s {securityGroupIds = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of up to three Git repositories to associate with the notebook
+-- instance. These can be either the names of Git repositories stored as
+-- resources in your account, or the URL of Git repositories in
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
+-- or in any other Git repository. These repositories are cloned at the
+-- same level as the default repository of your notebook instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+createNotebookInstance_additionalCodeRepositories :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
+createNotebookInstance_additionalCodeRepositories = Lens.lens (\CreateNotebookInstance' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@CreateNotebookInstance' {} a -> s {additionalCodeRepositories = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of a lifecycle configuration to associate with the notebook
+-- instance. For information about lifestyle configurations, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
+createNotebookInstance_lifecycleConfigName :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
+createNotebookInstance_lifecycleConfigName = Lens.lens (\CreateNotebookInstance' {lifecycleConfigName} -> lifecycleConfigName) (\s@CreateNotebookInstance' {} a -> s {lifecycleConfigName = a} :: CreateNotebookInstance)
+
+-- | The ID of the subnet in a VPC to which you would like to have a
+-- connectivity from your ML compute instance.
+createNotebookInstance_subnetId :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
+createNotebookInstance_subnetId = Lens.lens (\CreateNotebookInstance' {subnetId} -> subnetId) (\s@CreateNotebookInstance' {} a -> s {subnetId = a} :: CreateNotebookInstance)
 
 -- | A Git repository to associate with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
@@ -331,23 +360,10 @@ createNotebookInstance_platformIdentifier = Lens.lens (\CreateNotebookInstance' 
 createNotebookInstance_defaultCodeRepository :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_defaultCodeRepository = Lens.lens (\CreateNotebookInstance' {defaultCodeRepository} -> defaultCodeRepository) (\s@CreateNotebookInstance' {} a -> s {defaultCodeRepository = a} :: CreateNotebookInstance)
 
--- | A list of Elastic Inference (EI) instance types to associate with this
--- notebook instance. Currently, only one instance type can be associated
--- with a notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-createNotebookInstance_acceleratorTypes :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
-createNotebookInstance_acceleratorTypes = Lens.lens (\CreateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@CreateNotebookInstance' {} a -> s {acceleratorTypes = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of up to three Git repositories to associate with the notebook
--- instance. These can be either the names of Git repositories stored as
--- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
--- or in any other Git repository. These repositories are cloned at the
--- same level as the default repository of your notebook instance. For more
--- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
-createNotebookInstance_additionalCodeRepositories :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Prelude.Text])
-createNotebookInstance_additionalCodeRepositories = Lens.lens (\CreateNotebookInstance' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@CreateNotebookInstance' {} a -> s {additionalCodeRepositories = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | The size, in GB, of the ML storage volume to attach to the notebook
+-- instance. The default value is 5 GB.
+createNotebookInstance_volumeSizeInGB :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Natural)
+createNotebookInstance_volumeSizeInGB = Lens.lens (\CreateNotebookInstance' {volumeSizeInGB} -> volumeSizeInGB) (\s@CreateNotebookInstance' {} a -> s {volumeSizeInGB = a} :: CreateNotebookInstance)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that Amazon SageMaker uses to encrypt data on the storage
@@ -357,29 +373,6 @@ createNotebookInstance_additionalCodeRepositories = Lens.lens (\CreateNotebookIn
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 createNotebookInstance_kmsKeyId :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
 createNotebookInstance_kmsKeyId = Lens.lens (\CreateNotebookInstance' {kmsKeyId} -> kmsKeyId) (\s@CreateNotebookInstance' {} a -> s {kmsKeyId = a} :: CreateNotebookInstance)
-
--- | The size, in GB, of the ML storage volume to attach to the notebook
--- instance. The default value is 5 GB.
-createNotebookInstance_volumeSizeInGB :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Natural)
-createNotebookInstance_volumeSizeInGB = Lens.lens (\CreateNotebookInstance' {volumeSizeInGB} -> volumeSizeInGB) (\s@CreateNotebookInstance' {} a -> s {volumeSizeInGB = a} :: CreateNotebookInstance)
-
--- | An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-createNotebookInstance_tags :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Tag])
-createNotebookInstance_tags = Lens.lens (\CreateNotebookInstance' {tags} -> tags) (\s@CreateNotebookInstance' {} a -> s {tags = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the subnet in a VPC to which you would like to have a
--- connectivity from your ML compute instance.
-createNotebookInstance_subnetId :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
-createNotebookInstance_subnetId = Lens.lens (\CreateNotebookInstance' {subnetId} -> subnetId) (\s@CreateNotebookInstance' {} a -> s {subnetId = a} :: CreateNotebookInstance)
-
--- | The name of a lifecycle configuration to associate with the notebook
--- instance. For information about lifestyle configurations, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>.
-createNotebookInstance_lifecycleConfigName :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe Prelude.Text)
-createNotebookInstance_lifecycleConfigName = Lens.lens (\CreateNotebookInstance' {lifecycleConfigName} -> lifecycleConfigName) (\s@CreateNotebookInstance' {} a -> s {lifecycleConfigName = a} :: CreateNotebookInstance)
 
 -- | Whether root access is enabled or disabled for users of the notebook
 -- instance. The default value is @Enabled@.
@@ -403,6 +396,13 @@ createNotebookInstance_rootAccess = Lens.lens (\CreateNotebookInstance' {rootAcc
 -- value for the @SubnetId@ parameter.
 createNotebookInstance_directInternetAccess :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe DirectInternetAccess)
 createNotebookInstance_directInternetAccess = Lens.lens (\CreateNotebookInstance' {directInternetAccess} -> directInternetAccess) (\s@CreateNotebookInstance' {} a -> s {directInternetAccess = a} :: CreateNotebookInstance)
+
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+createNotebookInstance_tags :: Lens.Lens' CreateNotebookInstance (Prelude.Maybe [Tag])
+createNotebookInstance_tags = Lens.lens (\CreateNotebookInstance' {tags} -> tags) (\s@CreateNotebookInstance' {} a -> s {tags = a} :: CreateNotebookInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new notebook instance.
 createNotebookInstance_notebookInstanceName :: Lens.Lens' CreateNotebookInstance Prelude.Text
@@ -461,26 +461,26 @@ instance Core.ToJSON CreateNotebookInstance where
   toJSON CreateNotebookInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Core..=)
-              Prelude.<$> securityGroupIds,
+          [ ("AcceleratorTypes" Core..=)
+              Prelude.<$> acceleratorTypes,
             ("PlatformIdentifier" Core..=)
               Prelude.<$> platformIdentifier,
-            ("DefaultCodeRepository" Core..=)
-              Prelude.<$> defaultCodeRepository,
-            ("AcceleratorTypes" Core..=)
-              Prelude.<$> acceleratorTypes,
+            ("SecurityGroupIds" Core..=)
+              Prelude.<$> securityGroupIds,
             ("AdditionalCodeRepositories" Core..=)
               Prelude.<$> additionalCodeRepositories,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("VolumeSizeInGB" Core..=)
-              Prelude.<$> volumeSizeInGB,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("SubnetId" Core..=) Prelude.<$> subnetId,
             ("LifecycleConfigName" Core..=)
               Prelude.<$> lifecycleConfigName,
+            ("SubnetId" Core..=) Prelude.<$> subnetId,
+            ("DefaultCodeRepository" Core..=)
+              Prelude.<$> defaultCodeRepository,
+            ("VolumeSizeInGB" Core..=)
+              Prelude.<$> volumeSizeInGB,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("RootAccess" Core..=) Prelude.<$> rootAccess,
             ("DirectInternetAccess" Core..=)
               Prelude.<$> directInternetAccess,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "NotebookInstanceName"
                   Core..= notebookInstanceName

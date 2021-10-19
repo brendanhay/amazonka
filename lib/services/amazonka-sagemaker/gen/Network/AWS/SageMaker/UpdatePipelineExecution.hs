@@ -27,8 +27,8 @@ module Network.AWS.SageMaker.UpdatePipelineExecution
     newUpdatePipelineExecution,
 
     -- * Request Lenses
-    updatePipelineExecution_pipelineExecutionDescription,
     updatePipelineExecution_pipelineExecutionDisplayName,
+    updatePipelineExecution_pipelineExecutionDescription,
     updatePipelineExecution_pipelineExecutionArn,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdatePipelineExecution' smart constructor.
 data UpdatePipelineExecution = UpdatePipelineExecution'
-  { -- | The description of the pipeline execution.
-    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the pipeline execution.
+  { -- | The display name of the pipeline execution.
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the pipeline execution.
+    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
     pipelineExecutionArn :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data UpdatePipelineExecution = UpdatePipelineExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineExecutionDescription', 'updatePipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
---
 -- 'pipelineExecutionDisplayName', 'updatePipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
+--
+-- 'pipelineExecutionDescription', 'updatePipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'pipelineExecutionArn', 'updatePipelineExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
 newUpdatePipelineExecution ::
@@ -78,19 +78,19 @@ newUpdatePipelineExecution ::
   UpdatePipelineExecution
 newUpdatePipelineExecution pPipelineExecutionArn_ =
   UpdatePipelineExecution'
-    { pipelineExecutionDescription =
+    { pipelineExecutionDisplayName =
         Prelude.Nothing,
-      pipelineExecutionDisplayName = Prelude.Nothing,
+      pipelineExecutionDescription = Prelude.Nothing,
       pipelineExecutionArn = pPipelineExecutionArn_
     }
-
--- | The description of the pipeline execution.
-updatePipelineExecution_pipelineExecutionDescription :: Lens.Lens' UpdatePipelineExecution (Prelude.Maybe Prelude.Text)
-updatePipelineExecution_pipelineExecutionDescription = Lens.lens (\UpdatePipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@UpdatePipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: UpdatePipelineExecution)
 
 -- | The display name of the pipeline execution.
 updatePipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' UpdatePipelineExecution (Prelude.Maybe Prelude.Text)
 updatePipelineExecution_pipelineExecutionDisplayName = Lens.lens (\UpdatePipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@UpdatePipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: UpdatePipelineExecution)
+
+-- | The description of the pipeline execution.
+updatePipelineExecution_pipelineExecutionDescription :: Lens.Lens' UpdatePipelineExecution (Prelude.Maybe Prelude.Text)
+updatePipelineExecution_pipelineExecutionDescription = Lens.lens (\UpdatePipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@UpdatePipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: UpdatePipelineExecution)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
 updatePipelineExecution_pipelineExecutionArn :: Lens.Lens' UpdatePipelineExecution Prelude.Text
@@ -132,10 +132,10 @@ instance Core.ToJSON UpdatePipelineExecution where
   toJSON UpdatePipelineExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineExecutionDescription" Core..=)
-              Prelude.<$> pipelineExecutionDescription,
-            ("PipelineExecutionDisplayName" Core..=)
+          [ ("PipelineExecutionDisplayName" Core..=)
               Prelude.<$> pipelineExecutionDisplayName,
+            ("PipelineExecutionDescription" Core..=)
+              Prelude.<$> pipelineExecutionDescription,
             Prelude.Just
               ( "PipelineExecutionArn"
                   Core..= pipelineExecutionArn

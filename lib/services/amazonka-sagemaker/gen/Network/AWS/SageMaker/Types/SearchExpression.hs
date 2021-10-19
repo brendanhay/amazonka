@@ -50,8 +50,8 @@ import Network.AWS.SageMaker.Types.NestedFilters
 --
 -- /See:/ 'newSearchExpression' smart constructor.
 data SearchExpression = SearchExpression'
-  { -- | A list of nested filter objects.
-    nestedFilters :: Prelude.Maybe (Prelude.NonEmpty NestedFilters),
+  { -- | A list of search expression objects.
+    subExpressions :: Prelude.Maybe (Prelude.NonEmpty SearchExpression),
     -- | A Boolean operator used to evaluate the search expression. If you want
     -- every conditional statement in all lists to be satisfied for the entire
     -- search expression to be true, specify @And@. If only a single
@@ -60,8 +60,8 @@ data SearchExpression = SearchExpression'
     operator :: Prelude.Maybe BooleanOperator,
     -- | A list of filter objects.
     filters :: Prelude.Maybe (Prelude.NonEmpty Filter),
-    -- | A list of search expression objects.
-    subExpressions :: Prelude.Maybe (Prelude.NonEmpty SearchExpression)
+    -- | A list of nested filter objects.
+    nestedFilters :: Prelude.Maybe (Prelude.NonEmpty NestedFilters)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,7 +73,7 @@ data SearchExpression = SearchExpression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nestedFilters', 'searchExpression_nestedFilters' - A list of nested filter objects.
+-- 'subExpressions', 'searchExpression_subExpressions' - A list of search expression objects.
 --
 -- 'operator', 'searchExpression_operator' - A Boolean operator used to evaluate the search expression. If you want
 -- every conditional statement in all lists to be satisfied for the entire
@@ -83,20 +83,20 @@ data SearchExpression = SearchExpression'
 --
 -- 'filters', 'searchExpression_filters' - A list of filter objects.
 --
--- 'subExpressions', 'searchExpression_subExpressions' - A list of search expression objects.
+-- 'nestedFilters', 'searchExpression_nestedFilters' - A list of nested filter objects.
 newSearchExpression ::
   SearchExpression
 newSearchExpression =
   SearchExpression'
-    { nestedFilters = Prelude.Nothing,
+    { subExpressions = Prelude.Nothing,
       operator = Prelude.Nothing,
       filters = Prelude.Nothing,
-      subExpressions = Prelude.Nothing
+      nestedFilters = Prelude.Nothing
     }
 
--- | A list of nested filter objects.
-searchExpression_nestedFilters :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty NestedFilters))
-searchExpression_nestedFilters = Lens.lens (\SearchExpression' {nestedFilters} -> nestedFilters) (\s@SearchExpression' {} a -> s {nestedFilters = a} :: SearchExpression) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of search expression objects.
+searchExpression_subExpressions :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty SearchExpression))
+searchExpression_subExpressions = Lens.lens (\SearchExpression' {subExpressions} -> subExpressions) (\s@SearchExpression' {} a -> s {subExpressions = a} :: SearchExpression) Prelude.. Lens.mapping Lens.coerced
 
 -- | A Boolean operator used to evaluate the search expression. If you want
 -- every conditional statement in all lists to be satisfied for the entire
@@ -108,11 +108,11 @@ searchExpression_operator = Lens.lens (\SearchExpression' {operator} -> operator
 
 -- | A list of filter objects.
 searchExpression_filters :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty Filter))
-searchExpression_filters = Lens.lens (\SearchExpression' {filters} -> filters) (\s@SearchExpression' {} a -> s {filters = a} :: SearchExpression) Prelude.. Lens.mapping Lens._Coerce
+searchExpression_filters = Lens.lens (\SearchExpression' {filters} -> filters) (\s@SearchExpression' {} a -> s {filters = a} :: SearchExpression) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of search expression objects.
-searchExpression_subExpressions :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty SearchExpression))
-searchExpression_subExpressions = Lens.lens (\SearchExpression' {subExpressions} -> subExpressions) (\s@SearchExpression' {} a -> s {subExpressions = a} :: SearchExpression) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of nested filter objects.
+searchExpression_nestedFilters :: Lens.Lens' SearchExpression (Prelude.Maybe (Prelude.NonEmpty NestedFilters))
+searchExpression_nestedFilters = Lens.lens (\SearchExpression' {nestedFilters} -> nestedFilters) (\s@SearchExpression' {} a -> s {nestedFilters = a} :: SearchExpression) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable SearchExpression
 
@@ -122,10 +122,10 @@ instance Core.ToJSON SearchExpression where
   toJSON SearchExpression' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NestedFilters" Core..=) Prelude.<$> nestedFilters,
+          [ ("SubExpressions" Core..=)
+              Prelude.<$> subExpressions,
             ("Operator" Core..=) Prelude.<$> operator,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("SubExpressions" Core..=)
-              Prelude.<$> subExpressions
+            ("NestedFilters" Core..=) Prelude.<$> nestedFilters
           ]
       )

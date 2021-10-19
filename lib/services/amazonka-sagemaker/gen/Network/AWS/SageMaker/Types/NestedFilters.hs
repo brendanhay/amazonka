@@ -76,7 +76,7 @@ newNestedFilters pNestedPropertyName_ pFilters_ =
   NestedFilters'
     { nestedPropertyName =
         pNestedPropertyName_,
-      filters = Lens._Coerce Lens.# pFilters_
+      filters = Lens.coerced Lens.# pFilters_
     }
 
 -- | The name of the property to use in the nested filters. The value must
@@ -90,7 +90,7 @@ nestedFilters_nestedPropertyName = Lens.lens (\NestedFilters' {nestedPropertyNam
 -- @InputDataConfig@ property:
 -- @InputDataConfig.DataSource.S3DataSource.S3Uri@.
 nestedFilters_filters :: Lens.Lens' NestedFilters (Prelude.NonEmpty Filter)
-nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@NestedFilters' {} a -> s {filters = a} :: NestedFilters) Prelude.. Lens._Coerce
+nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@NestedFilters' {} a -> s {filters = a} :: NestedFilters) Prelude.. Lens.coerced
 
 instance Prelude.Hashable NestedFilters
 

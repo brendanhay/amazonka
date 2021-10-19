@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActionSource' smart constructor.
 data ActionSource = ActionSource'
-  { -- | The ID of the source.
-    sourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the source.
+  { -- | The type of the source.
     sourceType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the source.
+    sourceId :: Prelude.Maybe Prelude.Text,
     -- | The URI of the source.
     sourceUri :: Prelude.Text
   }
@@ -44,9 +44,9 @@ data ActionSource = ActionSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceId', 'actionSource_sourceId' - The ID of the source.
---
 -- 'sourceType', 'actionSource_sourceType' - The type of the source.
+--
+-- 'sourceId', 'actionSource_sourceId' - The ID of the source.
 --
 -- 'sourceUri', 'actionSource_sourceUri' - The URI of the source.
 newActionSource ::
@@ -55,18 +55,18 @@ newActionSource ::
   ActionSource
 newActionSource pSourceUri_ =
   ActionSource'
-    { sourceId = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
+    { sourceType = Prelude.Nothing,
+      sourceId = Prelude.Nothing,
       sourceUri = pSourceUri_
     }
-
--- | The ID of the source.
-actionSource_sourceId :: Lens.Lens' ActionSource (Prelude.Maybe Prelude.Text)
-actionSource_sourceId = Lens.lens (\ActionSource' {sourceId} -> sourceId) (\s@ActionSource' {} a -> s {sourceId = a} :: ActionSource)
 
 -- | The type of the source.
 actionSource_sourceType :: Lens.Lens' ActionSource (Prelude.Maybe Prelude.Text)
 actionSource_sourceType = Lens.lens (\ActionSource' {sourceType} -> sourceType) (\s@ActionSource' {} a -> s {sourceType = a} :: ActionSource)
+
+-- | The ID of the source.
+actionSource_sourceId :: Lens.Lens' ActionSource (Prelude.Maybe Prelude.Text)
+actionSource_sourceId = Lens.lens (\ActionSource' {sourceId} -> sourceId) (\s@ActionSource' {} a -> s {sourceId = a} :: ActionSource)
 
 -- | The URI of the source.
 actionSource_sourceUri :: Lens.Lens' ActionSource Prelude.Text
@@ -78,8 +78,8 @@ instance Core.FromJSON ActionSource where
       "ActionSource"
       ( \x ->
           ActionSource'
-            Prelude.<$> (x Core..:? "SourceId")
-            Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<$> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..:? "SourceId")
             Prelude.<*> (x Core..: "SourceUri")
       )
 
@@ -91,8 +91,8 @@ instance Core.ToJSON ActionSource where
   toJSON ActionSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceId" Core..=) Prelude.<$> sourceId,
-            ("SourceType" Core..=) Prelude.<$> sourceType,
+          [ ("SourceType" Core..=) Prelude.<$> sourceType,
+            ("SourceId" Core..=) Prelude.<$> sourceId,
             Prelude.Just ("SourceUri" Core..= sourceUri)
           ]
       )

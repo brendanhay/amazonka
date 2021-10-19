@@ -35,14 +35,14 @@ module Network.AWS.SageMaker.DescribeExperiment
 
     -- * Response Lenses
     describeExperimentResponse_creationTime,
+    describeExperimentResponse_createdBy,
+    describeExperimentResponse_lastModifiedTime,
+    describeExperimentResponse_experimentName,
     describeExperimentResponse_experimentArn,
     describeExperimentResponse_source,
-    describeExperimentResponse_lastModifiedTime,
-    describeExperimentResponse_description,
-    describeExperimentResponse_experimentName,
-    describeExperimentResponse_createdBy,
-    describeExperimentResponse_lastModifiedBy,
     describeExperimentResponse_displayName,
+    describeExperimentResponse_lastModifiedBy,
+    describeExperimentResponse_description,
     describeExperimentResponse_httpStatus,
   )
 where
@@ -94,14 +94,14 @@ instance Core.AWSRequest DescribeExperiment where
       ( \s h x ->
           DescribeExperimentResponse'
             Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "CreatedBy")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "ExperimentName")
             Prelude.<*> (x Core..?> "ExperimentArn")
             Prelude.<*> (x Core..?> "Source")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "Description")
-            Prelude.<*> (x Core..?> "ExperimentName")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "LastModifiedBy")
+            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,23 +143,23 @@ instance Core.ToQuery DescribeExperiment where
 data DescribeExperimentResponse = DescribeExperimentResponse'
   { -- | When the experiment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | Who created the experiment.
+    createdBy :: Prelude.Maybe UserContext,
+    -- | When the experiment was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the experiment.
     experimentArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the source and, optionally, the type.
     source :: Prelude.Maybe ExperimentSource,
-    -- | When the experiment was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
-    -- | Who created the experiment.
-    createdBy :: Prelude.Maybe UserContext,
-    -- | Who last modified the experiment.
-    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
     -- specified, @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | Who last modified the experiment.
+    lastModifiedBy :: Prelude.Maybe UserContext,
+    -- | The description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,22 +175,22 @@ data DescribeExperimentResponse = DescribeExperimentResponse'
 --
 -- 'creationTime', 'describeExperimentResponse_creationTime' - When the experiment was created.
 --
+-- 'createdBy', 'describeExperimentResponse_createdBy' - Who created the experiment.
+--
+-- 'lastModifiedTime', 'describeExperimentResponse_lastModifiedTime' - When the experiment was last modified.
+--
+-- 'experimentName', 'describeExperimentResponse_experimentName' - The name of the experiment.
+--
 -- 'experimentArn', 'describeExperimentResponse_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
 --
 -- 'source', 'describeExperimentResponse_source' - The ARN of the source and, optionally, the type.
 --
--- 'lastModifiedTime', 'describeExperimentResponse_lastModifiedTime' - When the experiment was last modified.
---
--- 'description', 'describeExperimentResponse_description' - The description of the experiment.
---
--- 'experimentName', 'describeExperimentResponse_experimentName' - The name of the experiment.
---
--- 'createdBy', 'describeExperimentResponse_createdBy' - Who created the experiment.
+-- 'displayName', 'describeExperimentResponse_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
+-- specified, @ExperimentName@ is displayed.
 --
 -- 'lastModifiedBy', 'describeExperimentResponse_lastModifiedBy' - Who last modified the experiment.
 --
--- 'displayName', 'describeExperimentResponse_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
--- specified, @ExperimentName@ is displayed.
+-- 'description', 'describeExperimentResponse_description' - The description of the experiment.
 --
 -- 'httpStatus', 'describeExperimentResponse_httpStatus' - The response's http status code.
 newDescribeExperimentResponse ::
@@ -201,20 +201,32 @@ newDescribeExperimentResponse pHttpStatus_ =
   DescribeExperimentResponse'
     { creationTime =
         Prelude.Nothing,
+      createdBy = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      experimentName = Prelude.Nothing,
       experimentArn = Prelude.Nothing,
       source = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      experimentName = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When the experiment was created.
 describeExperimentResponse_creationTime :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.UTCTime)
 describeExperimentResponse_creationTime = Lens.lens (\DescribeExperimentResponse' {creationTime} -> creationTime) (\s@DescribeExperimentResponse' {} a -> s {creationTime = a} :: DescribeExperimentResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Who created the experiment.
+describeExperimentResponse_createdBy :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe UserContext)
+describeExperimentResponse_createdBy = Lens.lens (\DescribeExperimentResponse' {createdBy} -> createdBy) (\s@DescribeExperimentResponse' {} a -> s {createdBy = a} :: DescribeExperimentResponse)
+
+-- | When the experiment was last modified.
+describeExperimentResponse_lastModifiedTime :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.UTCTime)
+describeExperimentResponse_lastModifiedTime = Lens.lens (\DescribeExperimentResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeExperimentResponse' {} a -> s {lastModifiedTime = a} :: DescribeExperimentResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the experiment.
+describeExperimentResponse_experimentName :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
+describeExperimentResponse_experimentName = Lens.lens (\DescribeExperimentResponse' {experimentName} -> experimentName) (\s@DescribeExperimentResponse' {} a -> s {experimentName = a} :: DescribeExperimentResponse)
 
 -- | The Amazon Resource Name (ARN) of the experiment.
 describeExperimentResponse_experimentArn :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
@@ -224,30 +236,18 @@ describeExperimentResponse_experimentArn = Lens.lens (\DescribeExperimentRespons
 describeExperimentResponse_source :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe ExperimentSource)
 describeExperimentResponse_source = Lens.lens (\DescribeExperimentResponse' {source} -> source) (\s@DescribeExperimentResponse' {} a -> s {source = a} :: DescribeExperimentResponse)
 
--- | When the experiment was last modified.
-describeExperimentResponse_lastModifiedTime :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.UTCTime)
-describeExperimentResponse_lastModifiedTime = Lens.lens (\DescribeExperimentResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeExperimentResponse' {} a -> s {lastModifiedTime = a} :: DescribeExperimentResponse) Prelude.. Lens.mapping Core._Time
-
--- | The description of the experiment.
-describeExperimentResponse_description :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
-describeExperimentResponse_description = Lens.lens (\DescribeExperimentResponse' {description} -> description) (\s@DescribeExperimentResponse' {} a -> s {description = a} :: DescribeExperimentResponse)
-
--- | The name of the experiment.
-describeExperimentResponse_experimentName :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
-describeExperimentResponse_experimentName = Lens.lens (\DescribeExperimentResponse' {experimentName} -> experimentName) (\s@DescribeExperimentResponse' {} a -> s {experimentName = a} :: DescribeExperimentResponse)
-
--- | Who created the experiment.
-describeExperimentResponse_createdBy :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe UserContext)
-describeExperimentResponse_createdBy = Lens.lens (\DescribeExperimentResponse' {createdBy} -> createdBy) (\s@DescribeExperimentResponse' {} a -> s {createdBy = a} :: DescribeExperimentResponse)
+-- | The name of the experiment as displayed. If @DisplayName@ isn\'t
+-- specified, @ExperimentName@ is displayed.
+describeExperimentResponse_displayName :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
+describeExperimentResponse_displayName = Lens.lens (\DescribeExperimentResponse' {displayName} -> displayName) (\s@DescribeExperimentResponse' {} a -> s {displayName = a} :: DescribeExperimentResponse)
 
 -- | Who last modified the experiment.
 describeExperimentResponse_lastModifiedBy :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe UserContext)
 describeExperimentResponse_lastModifiedBy = Lens.lens (\DescribeExperimentResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeExperimentResponse' {} a -> s {lastModifiedBy = a} :: DescribeExperimentResponse)
 
--- | The name of the experiment as displayed. If @DisplayName@ isn\'t
--- specified, @ExperimentName@ is displayed.
-describeExperimentResponse_displayName :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
-describeExperimentResponse_displayName = Lens.lens (\DescribeExperimentResponse' {displayName} -> displayName) (\s@DescribeExperimentResponse' {} a -> s {displayName = a} :: DescribeExperimentResponse)
+-- | The description of the experiment.
+describeExperimentResponse_description :: Lens.Lens' DescribeExperimentResponse (Prelude.Maybe Prelude.Text)
+describeExperimentResponse_description = Lens.lens (\DescribeExperimentResponse' {description} -> description) (\s@DescribeExperimentResponse' {} a -> s {description = a} :: DescribeExperimentResponse)
 
 -- | The response's http status code.
 describeExperimentResponse_httpStatus :: Lens.Lens' DescribeExperimentResponse Prelude.Int

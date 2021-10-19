@@ -27,9 +27,9 @@ module Network.AWS.SageMaker.UpdateDeviceFleet
     newUpdateDeviceFleet,
 
     -- * Request Lenses
-    updateDeviceFleet_roleArn,
     updateDeviceFleet_enableIotRoleAlias,
     updateDeviceFleet_description,
+    updateDeviceFleet_roleArn,
     updateDeviceFleet_deviceFleetName,
     updateDeviceFleet_outputConfig,
 
@@ -48,9 +48,7 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateDeviceFleet' smart constructor.
 data UpdateDeviceFleet = UpdateDeviceFleet'
-  { -- | The Amazon Resource Name (ARN) of the device.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether to create an Amazon Web Services IoT Role Alias during device
+  { -- | Whether to create an Amazon Web Services IoT Role Alias during device
     -- fleet creation. The name of the role alias generated will match this
     -- pattern: \"SageMakerEdge-{DeviceFleetName}\".
     --
@@ -59,6 +57,8 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
     enableIotRoleAlias :: Prelude.Maybe Prelude.Bool,
     -- | Description of the fleet.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the device.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet.
     deviceFleetName :: Prelude.Text,
     -- | Output configuration for storing sample data collected by the fleet.
@@ -74,8 +74,6 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateDeviceFleet_roleArn' - The Amazon Resource Name (ARN) of the device.
---
 -- 'enableIotRoleAlias', 'updateDeviceFleet_enableIotRoleAlias' - Whether to create an Amazon Web Services IoT Role Alias during device
 -- fleet creation. The name of the role alias generated will match this
 -- pattern: \"SageMakerEdge-{DeviceFleetName}\".
@@ -84,6 +82,8 @@ data UpdateDeviceFleet = UpdateDeviceFleet'
 -- the role alias will be \"SageMakerEdge-demo-fleet\".
 --
 -- 'description', 'updateDeviceFleet_description' - Description of the fleet.
+--
+-- 'roleArn', 'updateDeviceFleet_roleArn' - The Amazon Resource Name (ARN) of the device.
 --
 -- 'deviceFleetName', 'updateDeviceFleet_deviceFleetName' - The name of the fleet.
 --
@@ -96,16 +96,13 @@ newUpdateDeviceFleet ::
   UpdateDeviceFleet
 newUpdateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   UpdateDeviceFleet'
-    { roleArn = Prelude.Nothing,
-      enableIotRoleAlias = Prelude.Nothing,
+    { enableIotRoleAlias =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
-
--- | The Amazon Resource Name (ARN) of the device.
-updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
-updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | Whether to create an Amazon Web Services IoT Role Alias during device
 -- fleet creation. The name of the role alias generated will match this
@@ -119,6 +116,10 @@ updateDeviceFleet_enableIotRoleAlias = Lens.lens (\UpdateDeviceFleet' {enableIot
 -- | Description of the fleet.
 updateDeviceFleet_description :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
 updateDeviceFleet_description = Lens.lens (\UpdateDeviceFleet' {description} -> description) (\s@UpdateDeviceFleet' {} a -> s {description = a} :: UpdateDeviceFleet)
+
+-- | The Amazon Resource Name (ARN) of the device.
+updateDeviceFleet_roleArn :: Lens.Lens' UpdateDeviceFleet (Prelude.Maybe Prelude.Text)
+updateDeviceFleet_roleArn = Lens.lens (\UpdateDeviceFleet' {roleArn} -> roleArn) (\s@UpdateDeviceFleet' {} a -> s {roleArn = a} :: UpdateDeviceFleet)
 
 -- | The name of the fleet.
 updateDeviceFleet_deviceFleetName :: Lens.Lens' UpdateDeviceFleet Prelude.Text
@@ -159,10 +160,10 @@ instance Core.ToJSON UpdateDeviceFleet where
   toJSON UpdateDeviceFleet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("EnableIotRoleAlias" Core..=)
+          [ ("EnableIotRoleAlias" Core..=)
               Prelude.<$> enableIotRoleAlias,
             ("Description" Core..=) Prelude.<$> description,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just
               ("DeviceFleetName" Core..= deviceFleetName),
             Prelude.Just ("OutputConfig" Core..= outputConfig)

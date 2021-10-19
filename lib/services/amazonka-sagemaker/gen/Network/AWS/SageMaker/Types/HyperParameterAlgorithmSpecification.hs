@@ -30,7 +30,11 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 --
 -- /See:/ 'newHyperParameterAlgorithmSpecification' smart constructor.
 data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification'
-  { -- | The registry path of the Docker image that contains the training
+  { -- | The name of the resource algorithm to use for the hyperparameter tuning
+    -- job. If you specify a value for this parameter, do not specify a value
+    -- for @TrainingImage@.
+    algorithmName :: Prelude.Maybe Prelude.Text,
+    -- | The registry path of the Docker image that contains the training
     -- algorithm. For information about Docker registry paths for built-in
     -- algorithms, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
@@ -42,24 +46,6 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- | An array of MetricDefinition objects that specify the metrics that the
     -- algorithm emits.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
-    -- | The name of the resource algorithm to use for the hyperparameter tuning
-    -- job. If you specify a value for this parameter, do not specify a value
-    -- for @TrainingImage@.
-    algorithmName :: Prelude.Maybe Prelude.Text,
-    -- | The input mode that the algorithm supports: File or Pipe. In File input
-    -- mode, Amazon SageMaker downloads the training data from Amazon S3 to the
-    -- storage volume that is attached to the training instance and mounts the
-    -- directory to the Docker volume for the training container. In Pipe input
-    -- mode, Amazon SageMaker streams data directly from Amazon S3 to the
-    -- container.
-    --
-    -- If you specify File mode, make sure that you provision the storage
-    -- volume that is attached to the training instance with enough capacity to
-    -- accommodate the training data downloaded from Amazon S3, the model
-    -- artifacts, and intermediate information.
-    --
-    -- For more information about input modes, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
     trainingInputMode :: TrainingInputMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,6 +57,10 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'algorithmName', 'hyperParameterAlgorithmSpecification_algorithmName' - The name of the resource algorithm to use for the hyperparameter tuning
+-- job. If you specify a value for this parameter, do not specify a value
+-- for @TrainingImage@.
 --
 -- 'trainingImage', 'hyperParameterAlgorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
 -- algorithm. For information about Docker registry paths for built-in
@@ -84,24 +74,7 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 -- 'metricDefinitions', 'hyperParameterAlgorithmSpecification_metricDefinitions' - An array of MetricDefinition objects that specify the metrics that the
 -- algorithm emits.
 --
--- 'algorithmName', 'hyperParameterAlgorithmSpecification_algorithmName' - The name of the resource algorithm to use for the hyperparameter tuning
--- job. If you specify a value for this parameter, do not specify a value
--- for @TrainingImage@.
---
--- 'trainingInputMode', 'hyperParameterAlgorithmSpecification_trainingInputMode' - The input mode that the algorithm supports: File or Pipe. In File input
--- mode, Amazon SageMaker downloads the training data from Amazon S3 to the
--- storage volume that is attached to the training instance and mounts the
--- directory to the Docker volume for the training container. In Pipe input
--- mode, Amazon SageMaker streams data directly from Amazon S3 to the
--- container.
---
--- If you specify File mode, make sure that you provision the storage
--- volume that is attached to the training instance with enough capacity to
--- accommodate the training data downloaded from Amazon S3, the model
--- artifacts, and intermediate information.
---
--- For more information about input modes, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
+-- 'trainingInputMode', 'hyperParameterAlgorithmSpecification_trainingInputMode' - Undocumented member.
 newHyperParameterAlgorithmSpecification ::
   -- | 'trainingInputMode'
   TrainingInputMode ->
@@ -109,13 +82,19 @@ newHyperParameterAlgorithmSpecification ::
 newHyperParameterAlgorithmSpecification
   pTrainingInputMode_ =
     HyperParameterAlgorithmSpecification'
-      { trainingImage =
+      { algorithmName =
           Prelude.Nothing,
+        trainingImage = Prelude.Nothing,
         metricDefinitions = Prelude.Nothing,
-        algorithmName = Prelude.Nothing,
         trainingInputMode =
           pTrainingInputMode_
       }
+
+-- | The name of the resource algorithm to use for the hyperparameter tuning
+-- job. If you specify a value for this parameter, do not specify a value
+-- for @TrainingImage@.
+hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
+hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterAlgorithmSpecification' {algorithmName} -> algorithmName) (\s@HyperParameterAlgorithmSpecification' {} a -> s {algorithmName = a} :: HyperParameterAlgorithmSpecification)
 
 -- | The registry path of the Docker image that contains the training
 -- algorithm. For information about Docker registry paths for built-in
@@ -131,28 +110,9 @@ hyperParameterAlgorithmSpecification_trainingImage = Lens.lens (\HyperParameterA
 -- | An array of MetricDefinition objects that specify the metrics that the
 -- algorithm emits.
 hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe [MetricDefinition])
-hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens._Coerce
+hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the resource algorithm to use for the hyperparameter tuning
--- job. If you specify a value for this parameter, do not specify a value
--- for @TrainingImage@.
-hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
-hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterAlgorithmSpecification' {algorithmName} -> algorithmName) (\s@HyperParameterAlgorithmSpecification' {} a -> s {algorithmName = a} :: HyperParameterAlgorithmSpecification)
-
--- | The input mode that the algorithm supports: File or Pipe. In File input
--- mode, Amazon SageMaker downloads the training data from Amazon S3 to the
--- storage volume that is attached to the training instance and mounts the
--- directory to the Docker volume for the training container. In Pipe input
--- mode, Amazon SageMaker streams data directly from Amazon S3 to the
--- container.
---
--- If you specify File mode, make sure that you provision the storage
--- volume that is attached to the training instance with enough capacity to
--- accommodate the training data downloaded from Amazon S3, the model
--- artifacts, and intermediate information.
---
--- For more information about input modes, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
+-- | Undocumented member.
 hyperParameterAlgorithmSpecification_trainingInputMode :: Lens.Lens' HyperParameterAlgorithmSpecification TrainingInputMode
 hyperParameterAlgorithmSpecification_trainingInputMode = Lens.lens (\HyperParameterAlgorithmSpecification' {trainingInputMode} -> trainingInputMode) (\s@HyperParameterAlgorithmSpecification' {} a -> s {trainingInputMode = a} :: HyperParameterAlgorithmSpecification)
 
@@ -165,11 +125,11 @@ instance
       "HyperParameterAlgorithmSpecification"
       ( \x ->
           HyperParameterAlgorithmSpecification'
-            Prelude.<$> (x Core..:? "TrainingImage")
+            Prelude.<$> (x Core..:? "AlgorithmName")
+            Prelude.<*> (x Core..:? "TrainingImage")
             Prelude.<*> ( x Core..:? "MetricDefinitions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "AlgorithmName")
             Prelude.<*> (x Core..: "TrainingInputMode")
       )
 
@@ -188,10 +148,10 @@ instance
   toJSON HyperParameterAlgorithmSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TrainingImage" Core..=) Prelude.<$> trainingImage,
+          [ ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
+            ("TrainingImage" Core..=) Prelude.<$> trainingImage,
             ("MetricDefinitions" Core..=)
               Prelude.<$> metricDefinitions,
-            ("AlgorithmName" Core..=) Prelude.<$> algorithmName,
             Prelude.Just
               ("TrainingInputMode" Core..= trainingInputMode)
           ]

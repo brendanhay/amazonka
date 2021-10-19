@@ -31,9 +31,9 @@ module Network.AWS.SageMaker.CreateContext
     newCreateContext,
 
     -- * Request Lenses
+    createContext_description,
     createContext_tags,
     createContext_properties,
-    createContext_description,
     createContext_contextName,
     createContext_source,
     createContext_contextType,
@@ -57,12 +57,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateContext' smart constructor.
 data CreateContext = CreateContext'
-  { -- | A list of tags to apply to the context.
+  { -- | The description of the context.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to apply to the context.
     tags :: Prelude.Maybe [Tag],
     -- | A list of properties to add to the context.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the context.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the context. Must be unique to your account in an Amazon Web
     -- Services Region.
     contextName :: Prelude.Text,
@@ -81,11 +81,11 @@ data CreateContext = CreateContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createContext_description' - The description of the context.
+--
 -- 'tags', 'createContext_tags' - A list of tags to apply to the context.
 --
 -- 'properties', 'createContext_properties' - A list of properties to add to the context.
---
--- 'description', 'createContext_description' - The description of the context.
 --
 -- 'contextName', 'createContext_contextName' - The name of the context. Must be unique to your account in an Amazon Web
 -- Services Region.
@@ -103,25 +103,25 @@ newCreateContext ::
   CreateContext
 newCreateContext pContextName_ pSource_ pContextType_ =
   CreateContext'
-    { tags = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       properties = Prelude.Nothing,
-      description = Prelude.Nothing,
       contextName = pContextName_,
       source = pSource_,
       contextType = pContextType_
     }
 
--- | A list of tags to apply to the context.
-createContext_tags :: Lens.Lens' CreateContext (Prelude.Maybe [Tag])
-createContext_tags = Lens.lens (\CreateContext' {tags} -> tags) (\s@CreateContext' {} a -> s {tags = a} :: CreateContext) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of properties to add to the context.
-createContext_properties :: Lens.Lens' CreateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContext_properties = Lens.lens (\CreateContext' {properties} -> properties) (\s@CreateContext' {} a -> s {properties = a} :: CreateContext) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The description of the context.
 createContext_description :: Lens.Lens' CreateContext (Prelude.Maybe Prelude.Text)
 createContext_description = Lens.lens (\CreateContext' {description} -> description) (\s@CreateContext' {} a -> s {description = a} :: CreateContext)
+
+-- | A list of tags to apply to the context.
+createContext_tags :: Lens.Lens' CreateContext (Prelude.Maybe [Tag])
+createContext_tags = Lens.lens (\CreateContext' {tags} -> tags) (\s@CreateContext' {} a -> s {tags = a} :: CreateContext) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of properties to add to the context.
+createContext_properties :: Lens.Lens' CreateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createContext_properties = Lens.lens (\CreateContext' {properties} -> properties) (\s@CreateContext' {} a -> s {properties = a} :: CreateContext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the context. Must be unique to your account in an Amazon Web
 -- Services Region.
@@ -170,9 +170,9 @@ instance Core.ToJSON CreateContext where
   toJSON CreateContext' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("ContextName" Core..= contextName),
             Prelude.Just ("Source" Core..= source),
             Prelude.Just ("ContextType" Core..= contextType)

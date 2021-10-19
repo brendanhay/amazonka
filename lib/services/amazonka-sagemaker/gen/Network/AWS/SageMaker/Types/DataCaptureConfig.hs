@@ -78,7 +78,7 @@ newDataCaptureConfig
           pInitialSamplingPercentage_,
         destinationS3Uri = pDestinationS3Uri_,
         captureOptions =
-          Lens._Coerce Lens.# pCaptureOptions_
+          Lens.coerced Lens.# pCaptureOptions_
       }
 
 -- |
@@ -103,7 +103,7 @@ dataCaptureConfig_destinationS3Uri = Lens.lens (\DataCaptureConfig' {destination
 
 -- |
 dataCaptureConfig_captureOptions :: Lens.Lens' DataCaptureConfig (Prelude.NonEmpty CaptureOption)
-dataCaptureConfig_captureOptions = Lens.lens (\DataCaptureConfig' {captureOptions} -> captureOptions) (\s@DataCaptureConfig' {} a -> s {captureOptions = a} :: DataCaptureConfig) Prelude.. Lens._Coerce
+dataCaptureConfig_captureOptions = Lens.lens (\DataCaptureConfig' {captureOptions} -> captureOptions) (\s@DataCaptureConfig' {} a -> s {captureOptions = a} :: DataCaptureConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON DataCaptureConfig where
   parseJSON =

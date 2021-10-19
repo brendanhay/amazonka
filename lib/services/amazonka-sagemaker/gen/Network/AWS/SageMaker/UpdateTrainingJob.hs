@@ -99,7 +99,7 @@ updateTrainingJob_profilerConfig = Lens.lens (\UpdateTrainingJob' {profilerConfi
 -- | Configuration information for Debugger rules for profiling system and
 -- framework metrics.
 updateTrainingJob_profilerRuleConfigurations :: Lens.Lens' UpdateTrainingJob (Prelude.Maybe [ProfilerRuleConfiguration])
-updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Prelude.. Lens.mapping Lens._Coerce
+updateTrainingJob_profilerRuleConfigurations = Lens.lens (\UpdateTrainingJob' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@UpdateTrainingJob' {} a -> s {profilerRuleConfigurations = a} :: UpdateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of a training job to update the Debugger profiling
 -- configuration.

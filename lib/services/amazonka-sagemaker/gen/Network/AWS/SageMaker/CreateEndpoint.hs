@@ -78,7 +78,7 @@
 -- access to use the CreateEndpoint and CreateEndpointConfig API
 -- operations, add the following policies to the role.
 --
--- -   Option 1: For a full Amazon SageMaker access, search and attach the
+-- -   Option 1: For a full SageMaker access, search and attach the
 --     @AmazonSageMakerFullAccess@ policy.
 --
 -- -   Option 2: For granting a limited access to an IAM role, paste the
@@ -96,7 +96,7 @@
 --     @]@
 --
 --     For more information, see
---     <https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html Amazon SageMaker API Permissions: Actions, Permissions, and Resources Reference>.
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html SageMaker API Permissions: Actions, Permissions, and Resources Reference>.
 module Network.AWS.SageMaker.CreateEndpoint
   ( -- * Creating a Request
     CreateEndpoint (..),
@@ -180,7 +180,7 @@ newCreateEndpoint pEndpointName_ pEndpointConfigName_ =
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
-createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens._Coerce
+createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the endpoint.The name must be unique within an Amazon Web
 -- Services Region in your Amazon Web Services account. The name is

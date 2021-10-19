@@ -37,11 +37,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeployedImage' smart constructor.
 data DeployedImage = DeployedImage'
-  { -- | The image path you specified when you created the model.
-    specifiedImage :: Prelude.Maybe Prelude.Text,
-    -- | The specific digest path of the image hosted in this
+  { -- | The specific digest path of the image hosted in this
     -- @ProductionVariant@.
     resolvedImage :: Prelude.Maybe Prelude.Text,
+    -- | The image path you specified when you created the model.
+    specifiedImage :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the image path for the model resolved to the
     -- @ResolvedImage@
     resolutionTime :: Prelude.Maybe Core.POSIX
@@ -56,10 +56,10 @@ data DeployedImage = DeployedImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'specifiedImage', 'deployedImage_specifiedImage' - The image path you specified when you created the model.
---
 -- 'resolvedImage', 'deployedImage_resolvedImage' - The specific digest path of the image hosted in this
 -- @ProductionVariant@.
+--
+-- 'specifiedImage', 'deployedImage_specifiedImage' - The image path you specified when you created the model.
 --
 -- 'resolutionTime', 'deployedImage_resolutionTime' - The date and time when the image path for the model resolved to the
 -- @ResolvedImage@
@@ -67,19 +67,19 @@ newDeployedImage ::
   DeployedImage
 newDeployedImage =
   DeployedImage'
-    { specifiedImage = Prelude.Nothing,
-      resolvedImage = Prelude.Nothing,
+    { resolvedImage = Prelude.Nothing,
+      specifiedImage = Prelude.Nothing,
       resolutionTime = Prelude.Nothing
     }
-
--- | The image path you specified when you created the model.
-deployedImage_specifiedImage :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.Text)
-deployedImage_specifiedImage = Lens.lens (\DeployedImage' {specifiedImage} -> specifiedImage) (\s@DeployedImage' {} a -> s {specifiedImage = a} :: DeployedImage)
 
 -- | The specific digest path of the image hosted in this
 -- @ProductionVariant@.
 deployedImage_resolvedImage :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.Text)
 deployedImage_resolvedImage = Lens.lens (\DeployedImage' {resolvedImage} -> resolvedImage) (\s@DeployedImage' {} a -> s {resolvedImage = a} :: DeployedImage)
+
+-- | The image path you specified when you created the model.
+deployedImage_specifiedImage :: Lens.Lens' DeployedImage (Prelude.Maybe Prelude.Text)
+deployedImage_specifiedImage = Lens.lens (\DeployedImage' {specifiedImage} -> specifiedImage) (\s@DeployedImage' {} a -> s {specifiedImage = a} :: DeployedImage)
 
 -- | The date and time when the image path for the model resolved to the
 -- @ResolvedImage@
@@ -92,8 +92,8 @@ instance Core.FromJSON DeployedImage where
       "DeployedImage"
       ( \x ->
           DeployedImage'
-            Prelude.<$> (x Core..:? "SpecifiedImage")
-            Prelude.<*> (x Core..:? "ResolvedImage")
+            Prelude.<$> (x Core..:? "ResolvedImage")
+            Prelude.<*> (x Core..:? "SpecifiedImage")
             Prelude.<*> (x Core..:? "ResolutionTime")
       )
 

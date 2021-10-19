@@ -34,10 +34,10 @@ module Network.AWS.SageMaker.DescribeEndpoint
     newDescribeEndpointResponse,
 
     -- * Response Lenses
+    describeEndpointResponse_failureReason,
     describeEndpointResponse_asyncInferenceConfig,
     describeEndpointResponse_productionVariants,
     describeEndpointResponse_lastDeploymentConfig,
-    describeEndpointResponse_failureReason,
     describeEndpointResponse_dataCaptureConfig,
     describeEndpointResponse_httpStatus,
     describeEndpointResponse_endpointName,
@@ -92,10 +92,10 @@ instance Core.AWSRequest DescribeEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            Prelude.<$> (x Core..?> "AsyncInferenceConfig")
+            Prelude.<$> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "AsyncInferenceConfig")
             Prelude.<*> (x Core..?> "ProductionVariants")
             Prelude.<*> (x Core..?> "LastDeploymentConfig")
-            Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointName")
@@ -138,7 +138,9 @@ instance Core.ToQuery DescribeEndpoint where
 
 -- | /See:/ 'newDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { -- | Returns the description of an endpoint configuration created using the
+  { -- | If the status of the endpoint is @Failed@, the reason why it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Returns the description of an endpoint configuration created using the
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
     -- API.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
@@ -147,8 +149,6 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | The most recent deployment configuration for the endpoint.
     lastDeploymentConfig :: Prelude.Maybe DeploymentConfig,
-    -- | If the status of the endpoint is @Failed@, the reason why it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -206,6 +206,8 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failureReason', 'describeEndpointResponse_failureReason' - If the status of the endpoint is @Failed@, the reason why it failed.
+--
 -- 'asyncInferenceConfig', 'describeEndpointResponse_asyncInferenceConfig' - Returns the description of an endpoint configuration created using the
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
 -- API.
@@ -214,8 +216,6 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- behind this endpoint.
 --
 -- 'lastDeploymentConfig', 'describeEndpointResponse_lastDeploymentConfig' - The most recent deployment configuration for the endpoint.
---
--- 'failureReason', 'describeEndpointResponse_failureReason' - If the status of the endpoint is @Failed@, the reason why it failed.
 --
 -- 'dataCaptureConfig', 'describeEndpointResponse_dataCaptureConfig' - Undocumented member.
 --
@@ -288,11 +288,11 @@ newDescribeEndpointResponse
   pCreationTime_
   pLastModifiedTime_ =
     DescribeEndpointResponse'
-      { asyncInferenceConfig =
+      { failureReason =
           Prelude.Nothing,
+        asyncInferenceConfig = Prelude.Nothing,
         productionVariants = Prelude.Nothing,
         lastDeploymentConfig = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointName = pEndpointName_,
@@ -304,6 +304,10 @@ newDescribeEndpointResponse
           Core._Time Lens.# pLastModifiedTime_
       }
 
+-- | If the status of the endpoint is @Failed@, the reason why it failed.
+describeEndpointResponse_failureReason :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
+describeEndpointResponse_failureReason = Lens.lens (\DescribeEndpointResponse' {failureReason} -> failureReason) (\s@DescribeEndpointResponse' {} a -> s {failureReason = a} :: DescribeEndpointResponse)
+
 -- | Returns the description of an endpoint configuration created using the
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
 -- API.
@@ -313,15 +317,11 @@ describeEndpointResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpointResp
 -- | An array of ProductionVariantSummary objects, one for each model hosted
 -- behind this endpoint.
 describeEndpointResponse_productionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
-describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The most recent deployment configuration for the endpoint.
 describeEndpointResponse_lastDeploymentConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe DeploymentConfig)
 describeEndpointResponse_lastDeploymentConfig = Lens.lens (\DescribeEndpointResponse' {lastDeploymentConfig} -> lastDeploymentConfig) (\s@DescribeEndpointResponse' {} a -> s {lastDeploymentConfig = a} :: DescribeEndpointResponse)
-
--- | If the status of the endpoint is @Failed@, the reason why it failed.
-describeEndpointResponse_failureReason :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe Prelude.Text)
-describeEndpointResponse_failureReason = Lens.lens (\DescribeEndpointResponse' {failureReason} -> failureReason) (\s@DescribeEndpointResponse' {} a -> s {failureReason = a} :: DescribeEndpointResponse)
 
 -- | Undocumented member.
 describeEndpointResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe DataCaptureConfigSummary)

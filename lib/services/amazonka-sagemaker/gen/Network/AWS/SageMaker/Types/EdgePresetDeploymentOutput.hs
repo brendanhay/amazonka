@@ -29,12 +29,12 @@ import Network.AWS.SageMaker.Types.EdgePresetDeploymentType
 --
 -- /See:/ 'newEdgePresetDeploymentOutput' smart constructor.
 data EdgePresetDeploymentOutput = EdgePresetDeploymentOutput'
-  { -- | Returns a message describing the status of the deployed resource.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the deployable resource.
+  { -- | The status of the deployable resource.
     status :: Prelude.Maybe EdgePresetDeploymentStatus,
     -- | The Amazon Resource Name (ARN) of the generated deployable resource.
     artifact :: Prelude.Maybe Prelude.Text,
+    -- | Returns a message describing the status of the deployed resource.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The deployment type created by SageMaker Edge Manager. Currently only
     -- supports Amazon Web Services IoT Greengrass Version 2 components.
     type' :: EdgePresetDeploymentType
@@ -49,11 +49,11 @@ data EdgePresetDeploymentOutput = EdgePresetDeploymentOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'edgePresetDeploymentOutput_statusMessage' - Returns a message describing the status of the deployed resource.
---
 -- 'status', 'edgePresetDeploymentOutput_status' - The status of the deployable resource.
 --
 -- 'artifact', 'edgePresetDeploymentOutput_artifact' - The Amazon Resource Name (ARN) of the generated deployable resource.
+--
+-- 'statusMessage', 'edgePresetDeploymentOutput_statusMessage' - Returns a message describing the status of the deployed resource.
 --
 -- 'type'', 'edgePresetDeploymentOutput_type' - The deployment type created by SageMaker Edge Manager. Currently only
 -- supports Amazon Web Services IoT Greengrass Version 2 components.
@@ -63,16 +63,12 @@ newEdgePresetDeploymentOutput ::
   EdgePresetDeploymentOutput
 newEdgePresetDeploymentOutput pType_ =
   EdgePresetDeploymentOutput'
-    { statusMessage =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       artifact = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       type' = pType_
     }
-
--- | Returns a message describing the status of the deployed resource.
-edgePresetDeploymentOutput_statusMessage :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe Prelude.Text)
-edgePresetDeploymentOutput_statusMessage = Lens.lens (\EdgePresetDeploymentOutput' {statusMessage} -> statusMessage) (\s@EdgePresetDeploymentOutput' {} a -> s {statusMessage = a} :: EdgePresetDeploymentOutput)
 
 -- | The status of the deployable resource.
 edgePresetDeploymentOutput_status :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe EdgePresetDeploymentStatus)
@@ -81,6 +77,10 @@ edgePresetDeploymentOutput_status = Lens.lens (\EdgePresetDeploymentOutput' {sta
 -- | The Amazon Resource Name (ARN) of the generated deployable resource.
 edgePresetDeploymentOutput_artifact :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe Prelude.Text)
 edgePresetDeploymentOutput_artifact = Lens.lens (\EdgePresetDeploymentOutput' {artifact} -> artifact) (\s@EdgePresetDeploymentOutput' {} a -> s {artifact = a} :: EdgePresetDeploymentOutput)
+
+-- | Returns a message describing the status of the deployed resource.
+edgePresetDeploymentOutput_statusMessage :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe Prelude.Text)
+edgePresetDeploymentOutput_statusMessage = Lens.lens (\EdgePresetDeploymentOutput' {statusMessage} -> statusMessage) (\s@EdgePresetDeploymentOutput' {} a -> s {statusMessage = a} :: EdgePresetDeploymentOutput)
 
 -- | The deployment type created by SageMaker Edge Manager. Currently only
 -- supports Amazon Web Services IoT Greengrass Version 2 components.
@@ -93,9 +93,9 @@ instance Core.FromJSON EdgePresetDeploymentOutput where
       "EdgePresetDeploymentOutput"
       ( \x ->
           EdgePresetDeploymentOutput'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Artifact")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..: "Type")
       )
 

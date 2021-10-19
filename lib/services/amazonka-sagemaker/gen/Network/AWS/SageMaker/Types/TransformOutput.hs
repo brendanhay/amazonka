@@ -28,14 +28,14 @@ import Network.AWS.SageMaker.Types.AssemblyType
 --
 -- /See:/ 'newTransformOutput' smart constructor.
 data TransformOutput = TransformOutput'
-  { -- | The MIME type used to specify the output data. Amazon SageMaker uses the
-    -- MIME type with each http call to transfer data from the transform job.
-    accept :: Prelude.Maybe Prelude.Text,
-    -- | Defines how to assemble the results of the transform job as a single S3
+  { -- | Defines how to assemble the results of the transform job as a single S3
     -- object. Choose a format that is most convenient to you. To concatenate
     -- the results in binary format, specify @None@. To add a newline character
     -- at the end of every transformed record, specify @Line@.
     assembleWith :: Prelude.Maybe AssemblyType,
+    -- | The MIME type used to specify the output data. Amazon SageMaker uses the
+    -- MIME type with each http call to transfer data from the transform job.
+    accept :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that Amazon SageMaker uses to encrypt the model artifacts at rest
     -- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
@@ -92,13 +92,13 @@ data TransformOutput = TransformOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accept', 'transformOutput_accept' - The MIME type used to specify the output data. Amazon SageMaker uses the
--- MIME type with each http call to transfer data from the transform job.
---
 -- 'assembleWith', 'transformOutput_assembleWith' - Defines how to assemble the results of the transform job as a single S3
 -- object. Choose a format that is most convenient to you. To concatenate
 -- the results in binary format, specify @None@. To add a newline character
 -- at the end of every transformed record, specify @Line@.
+--
+-- 'accept', 'transformOutput_accept' - The MIME type used to specify the output data. Amazon SageMaker uses the
+-- MIME type with each http call to transfer data from the transform job.
 --
 -- 'kmsKeyId', 'transformOutput_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt the model artifacts at rest
@@ -150,16 +150,11 @@ newTransformOutput ::
   TransformOutput
 newTransformOutput pS3OutputPath_ =
   TransformOutput'
-    { accept = Prelude.Nothing,
-      assembleWith = Prelude.Nothing,
+    { assembleWith = Prelude.Nothing,
+      accept = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       s3OutputPath = pS3OutputPath_
     }
-
--- | The MIME type used to specify the output data. Amazon SageMaker uses the
--- MIME type with each http call to transfer data from the transform job.
-transformOutput_accept :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
-transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@TransformOutput' {} a -> s {accept = a} :: TransformOutput)
 
 -- | Defines how to assemble the results of the transform job as a single S3
 -- object. Choose a format that is most convenient to you. To concatenate
@@ -167,6 +162,11 @@ transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@Tr
 -- at the end of every transformed record, specify @Line@.
 transformOutput_assembleWith :: Lens.Lens' TransformOutput (Prelude.Maybe AssemblyType)
 transformOutput_assembleWith = Lens.lens (\TransformOutput' {assembleWith} -> assembleWith) (\s@TransformOutput' {} a -> s {assembleWith = a} :: TransformOutput)
+
+-- | The MIME type used to specify the output data. Amazon SageMaker uses the
+-- MIME type with each http call to transfer data from the transform job.
+transformOutput_accept :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
+transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@TransformOutput' {} a -> s {accept = a} :: TransformOutput)
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt the model artifacts at rest
@@ -223,8 +223,8 @@ instance Core.FromJSON TransformOutput where
       "TransformOutput"
       ( \x ->
           TransformOutput'
-            Prelude.<$> (x Core..:? "Accept")
-            Prelude.<*> (x Core..:? "AssembleWith")
+            Prelude.<$> (x Core..:? "AssembleWith")
+            Prelude.<*> (x Core..:? "Accept")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..: "S3OutputPath")
       )
@@ -237,8 +237,8 @@ instance Core.ToJSON TransformOutput where
   toJSON TransformOutput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Accept" Core..=) Prelude.<$> accept,
-            ("AssembleWith" Core..=) Prelude.<$> assembleWith,
+          [ ("AssembleWith" Core..=) Prelude.<$> assembleWith,
+            ("Accept" Core..=) Prelude.<$> accept,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
           ]

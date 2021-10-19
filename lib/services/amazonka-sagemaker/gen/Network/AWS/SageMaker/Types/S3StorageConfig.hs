@@ -28,7 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3StorageConfig' smart constructor.
 data S3StorageConfig = S3StorageConfig'
-  { -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+  { -- | The S3 path where offline records are written.
+    resolvedOutputS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
     -- used to encrypt any objects written into the @OfflineStore@ S3 location.
     --
     -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
@@ -36,8 +38,6 @@ data S3StorageConfig = S3StorageConfig'
     --
     -- -   @\"kms:GenerateDataKey\"@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 path where offline records are written.
-    resolvedOutputS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
     --
     -- S3 URIs have a format similar to the following:
@@ -54,6 +54,8 @@ data S3StorageConfig = S3StorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resolvedOutputS3Uri', 's3StorageConfig_resolvedOutputS3Uri' - The S3 path where offline records are written.
+--
 -- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ID of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
@@ -61,8 +63,6 @@ data S3StorageConfig = S3StorageConfig'
 -- must have below permissions to the @KmsKeyId@:
 --
 -- -   @\"kms:GenerateDataKey\"@
---
--- 'resolvedOutputS3Uri', 's3StorageConfig_resolvedOutputS3Uri' - The S3 path where offline records are written.
 --
 -- 's3Uri', 's3StorageConfig_s3Uri' - The S3 URI, or location in Amazon S3, of @OfflineStore@.
 --
@@ -74,10 +74,15 @@ newS3StorageConfig ::
   S3StorageConfig
 newS3StorageConfig pS3Uri_ =
   S3StorageConfig'
-    { kmsKeyId = Prelude.Nothing,
-      resolvedOutputS3Uri = Prelude.Nothing,
+    { resolvedOutputS3Uri =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       s3Uri = pS3Uri_
     }
+
+-- | The S3 path where offline records are written.
+s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
+s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutputS3Uri} -> resolvedOutputS3Uri) (\s@S3StorageConfig' {} a -> s {resolvedOutputS3Uri = a} :: S3StorageConfig)
 
 -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
@@ -88,10 +93,6 @@ newS3StorageConfig pS3Uri_ =
 -- -   @\"kms:GenerateDataKey\"@
 s3StorageConfig_kmsKeyId :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
 s3StorageConfig_kmsKeyId = Lens.lens (\S3StorageConfig' {kmsKeyId} -> kmsKeyId) (\s@S3StorageConfig' {} a -> s {kmsKeyId = a} :: S3StorageConfig)
-
--- | The S3 path where offline records are written.
-s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
-s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutputS3Uri} -> resolvedOutputS3Uri) (\s@S3StorageConfig' {} a -> s {resolvedOutputS3Uri = a} :: S3StorageConfig)
 
 -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
 --
@@ -106,8 +107,8 @@ instance Core.FromJSON S3StorageConfig where
       "S3StorageConfig"
       ( \x ->
           S3StorageConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "ResolvedOutputS3Uri")
+            Prelude.<$> (x Core..:? "ResolvedOutputS3Uri")
+            Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..: "S3Uri")
       )
 
@@ -119,9 +120,9 @@ instance Core.ToJSON S3StorageConfig where
   toJSON S3StorageConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("ResolvedOutputS3Uri" Core..=)
+          [ ("ResolvedOutputS3Uri" Core..=)
               Prelude.<$> resolvedOutputS3Uri,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("S3Uri" Core..= s3Uri)
           ]
       )

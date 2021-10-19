@@ -101,7 +101,7 @@ newCreateMonitoringSchedule
 -- <%20https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createMonitoringSchedule_tags :: Lens.Lens' CreateMonitoringSchedule (Prelude.Maybe [Tag])
-createMonitoringSchedule_tags = Lens.lens (\CreateMonitoringSchedule' {tags} -> tags) (\s@CreateMonitoringSchedule' {} a -> s {tags = a} :: CreateMonitoringSchedule) Prelude.. Lens.mapping Lens._Coerce
+createMonitoringSchedule_tags = Lens.lens (\CreateMonitoringSchedule' {tags} -> tags) (\s@CreateMonitoringSchedule' {} a -> s {tags = a} :: CreateMonitoringSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the monitoring schedule. The name must be unique within an
 -- Amazon Web Services Region within an Amazon Web Services account.

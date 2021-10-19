@@ -32,13 +32,13 @@ import Network.AWS.SageMaker.Types.ExperimentSource
 data ExperimentSummary = ExperimentSummary'
   { -- | When the experiment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentArn :: Prelude.Maybe Prelude.Text,
-    experimentSource :: Prelude.Maybe ExperimentSource,
     -- | When the experiment was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the experiment.
     experimentName :: Prelude.Maybe Prelude.Text,
+    experimentSource :: Prelude.Maybe ExperimentSource,
+    -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
     -- specified, @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text
@@ -55,13 +55,13 @@ data ExperimentSummary = ExperimentSummary'
 --
 -- 'creationTime', 'experimentSummary_creationTime' - When the experiment was created.
 --
--- 'experimentArn', 'experimentSummary_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
---
--- 'experimentSource', 'experimentSummary_experimentSource' - Undocumented member.
---
 -- 'lastModifiedTime', 'experimentSummary_lastModifiedTime' - When the experiment was last modified.
 --
 -- 'experimentName', 'experimentSummary_experimentName' - The name of the experiment.
+--
+-- 'experimentSource', 'experimentSummary_experimentSource' - Undocumented member.
+--
+-- 'experimentArn', 'experimentSummary_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
 --
 -- 'displayName', 'experimentSummary_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
 -- specified, @ExperimentName@ is displayed.
@@ -70,24 +70,16 @@ newExperimentSummary ::
 newExperimentSummary =
   ExperimentSummary'
     { creationTime = Prelude.Nothing,
-      experimentArn = Prelude.Nothing,
-      experimentSource = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       experimentName = Prelude.Nothing,
+      experimentSource = Prelude.Nothing,
+      experimentArn = Prelude.Nothing,
       displayName = Prelude.Nothing
     }
 
 -- | When the experiment was created.
 experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
 experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of the experiment.
-experimentSummary_experimentArn :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
-experimentSummary_experimentArn = Lens.lens (\ExperimentSummary' {experimentArn} -> experimentArn) (\s@ExperimentSummary' {} a -> s {experimentArn = a} :: ExperimentSummary)
-
--- | Undocumented member.
-experimentSummary_experimentSource :: Lens.Lens' ExperimentSummary (Prelude.Maybe ExperimentSource)
-experimentSummary_experimentSource = Lens.lens (\ExperimentSummary' {experimentSource} -> experimentSource) (\s@ExperimentSummary' {} a -> s {experimentSource = a} :: ExperimentSummary)
 
 -- | When the experiment was last modified.
 experimentSummary_lastModifiedTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
@@ -96,6 +88,14 @@ experimentSummary_lastModifiedTime = Lens.lens (\ExperimentSummary' {lastModifie
 -- | The name of the experiment.
 experimentSummary_experimentName :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
 experimentSummary_experimentName = Lens.lens (\ExperimentSummary' {experimentName} -> experimentName) (\s@ExperimentSummary' {} a -> s {experimentName = a} :: ExperimentSummary)
+
+-- | Undocumented member.
+experimentSummary_experimentSource :: Lens.Lens' ExperimentSummary (Prelude.Maybe ExperimentSource)
+experimentSummary_experimentSource = Lens.lens (\ExperimentSummary' {experimentSource} -> experimentSource) (\s@ExperimentSummary' {} a -> s {experimentSource = a} :: ExperimentSummary)
+
+-- | The Amazon Resource Name (ARN) of the experiment.
+experimentSummary_experimentArn :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
+experimentSummary_experimentArn = Lens.lens (\ExperimentSummary' {experimentArn} -> experimentArn) (\s@ExperimentSummary' {} a -> s {experimentArn = a} :: ExperimentSummary)
 
 -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
 -- specified, @ExperimentName@ is displayed.
@@ -109,10 +109,10 @@ instance Core.FromJSON ExperimentSummary where
       ( \x ->
           ExperimentSummary'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "ExperimentArn")
-            Prelude.<*> (x Core..:? "ExperimentSource")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "ExperimentName")
+            Prelude.<*> (x Core..:? "ExperimentSource")
+            Prelude.<*> (x Core..:? "ExperimentArn")
             Prelude.<*> (x Core..:? "DisplayName")
       )
 

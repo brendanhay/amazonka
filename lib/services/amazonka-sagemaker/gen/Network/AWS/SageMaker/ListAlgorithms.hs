@@ -29,13 +29,13 @@ module Network.AWS.SageMaker.ListAlgorithms
     newListAlgorithms,
 
     -- * Request Lenses
+    listAlgorithms_nameContains,
+    listAlgorithms_creationTimeAfter,
     listAlgorithms_nextToken,
     listAlgorithms_sortOrder,
-    listAlgorithms_nameContains,
-    listAlgorithms_maxResults,
     listAlgorithms_creationTimeBefore,
+    listAlgorithms_maxResults,
     listAlgorithms_sortBy,
-    listAlgorithms_creationTimeAfter,
 
     -- * Destructuring the Response
     ListAlgorithmsResponse (..),
@@ -57,26 +57,26 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListAlgorithms' smart constructor.
 data ListAlgorithms = ListAlgorithms'
-  { -- | If the response to a previous @ListAlgorithms@ request was truncated,
+  { -- | A string in the algorithm name. This filter returns only algorithms
+    -- whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only algorithms created after the specified time
+    -- (timestamp).
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | If the response to a previous @ListAlgorithms@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- algorithms, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for the results. The default is @Ascending@.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A string in the algorithm name. This filter returns only algorithms
-    -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of algorithms to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only algorithms created before the specified time
     -- (timestamp).
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of algorithms to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
-    sortBy :: Prelude.Maybe AlgorithmSortBy,
-    -- | A filter that returns only algorithms created after the specified time
-    -- (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    sortBy :: Prelude.Maybe AlgorithmSortBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,37 +88,47 @@ data ListAlgorithms = ListAlgorithms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listAlgorithms_nameContains' - A string in the algorithm name. This filter returns only algorithms
+-- whose name contains the specified string.
+--
+-- 'creationTimeAfter', 'listAlgorithms_creationTimeAfter' - A filter that returns only algorithms created after the specified time
+-- (timestamp).
+--
 -- 'nextToken', 'listAlgorithms_nextToken' - If the response to a previous @ListAlgorithms@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- algorithms, use the token in the next request.
 --
 -- 'sortOrder', 'listAlgorithms_sortOrder' - The sort order for the results. The default is @Ascending@.
 --
--- 'nameContains', 'listAlgorithms_nameContains' - A string in the algorithm name. This filter returns only algorithms
--- whose name contains the specified string.
---
--- 'maxResults', 'listAlgorithms_maxResults' - The maximum number of algorithms to return in the response.
---
 -- 'creationTimeBefore', 'listAlgorithms_creationTimeBefore' - A filter that returns only algorithms created before the specified time
 -- (timestamp).
 --
+-- 'maxResults', 'listAlgorithms_maxResults' - The maximum number of algorithms to return in the response.
+--
 -- 'sortBy', 'listAlgorithms_sortBy' - The parameter by which to sort the results. The default is
 -- @CreationTime@.
---
--- 'creationTimeAfter', 'listAlgorithms_creationTimeAfter' - A filter that returns only algorithms created after the specified time
--- (timestamp).
 newListAlgorithms ::
   ListAlgorithms
 newListAlgorithms =
   ListAlgorithms'
-    { nextToken = Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A string in the algorithm name. This filter returns only algorithms
+-- whose name contains the specified string.
+listAlgorithms_nameContains :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Text)
+listAlgorithms_nameContains = Lens.lens (\ListAlgorithms' {nameContains} -> nameContains) (\s@ListAlgorithms' {} a -> s {nameContains = a} :: ListAlgorithms)
+
+-- | A filter that returns only algorithms created after the specified time
+-- (timestamp).
+listAlgorithms_creationTimeAfter :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
+listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Prelude.. Lens.mapping Core._Time
 
 -- | If the response to a previous @ListAlgorithms@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
@@ -130,29 +140,19 @@ listAlgorithms_nextToken = Lens.lens (\ListAlgorithms' {nextToken} -> nextToken)
 listAlgorithms_sortOrder :: Lens.Lens' ListAlgorithms (Prelude.Maybe SortOrder)
 listAlgorithms_sortOrder = Lens.lens (\ListAlgorithms' {sortOrder} -> sortOrder) (\s@ListAlgorithms' {} a -> s {sortOrder = a} :: ListAlgorithms)
 
--- | A string in the algorithm name. This filter returns only algorithms
--- whose name contains the specified string.
-listAlgorithms_nameContains :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Text)
-listAlgorithms_nameContains = Lens.lens (\ListAlgorithms' {nameContains} -> nameContains) (\s@ListAlgorithms' {} a -> s {nameContains = a} :: ListAlgorithms)
-
--- | The maximum number of algorithms to return in the response.
-listAlgorithms_maxResults :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Natural)
-listAlgorithms_maxResults = Lens.lens (\ListAlgorithms' {maxResults} -> maxResults) (\s@ListAlgorithms' {} a -> s {maxResults = a} :: ListAlgorithms)
-
 -- | A filter that returns only algorithms created before the specified time
 -- (timestamp).
 listAlgorithms_creationTimeBefore :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
 listAlgorithms_creationTimeBefore = Lens.lens (\ListAlgorithms' {creationTimeBefore} -> creationTimeBefore) (\s@ListAlgorithms' {} a -> s {creationTimeBefore = a} :: ListAlgorithms) Prelude.. Lens.mapping Core._Time
 
+-- | The maximum number of algorithms to return in the response.
+listAlgorithms_maxResults :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Natural)
+listAlgorithms_maxResults = Lens.lens (\ListAlgorithms' {maxResults} -> maxResults) (\s@ListAlgorithms' {} a -> s {maxResults = a} :: ListAlgorithms)
+
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
 listAlgorithms_sortBy :: Lens.Lens' ListAlgorithms (Prelude.Maybe AlgorithmSortBy)
 listAlgorithms_sortBy = Lens.lens (\ListAlgorithms' {sortBy} -> sortBy) (\s@ListAlgorithms' {} a -> s {sortBy = a} :: ListAlgorithms)
-
--- | A filter that returns only algorithms created after the specified time
--- (timestamp).
-listAlgorithms_creationTimeAfter :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
-listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListAlgorithms where
   page rq rs
@@ -211,15 +211,15 @@ instance Core.ToJSON ListAlgorithms where
   toJSON ListAlgorithms' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -281,6 +281,6 @@ listAlgorithmsResponse_httpStatus = Lens.lens (\ListAlgorithmsResponse' {httpSta
 -- | >An array of @AlgorithmSummary@ objects, each of which lists an
 -- algorithm.
 listAlgorithmsResponse_algorithmSummaryList :: Lens.Lens' ListAlgorithmsResponse [AlgorithmSummary]
-listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse' {algorithmSummaryList} -> algorithmSummaryList) (\s@ListAlgorithmsResponse' {} a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse) Prelude.. Lens._Coerce
+listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse' {algorithmSummaryList} -> algorithmSummaryList) (\s@ListAlgorithmsResponse' {} a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListAlgorithmsResponse

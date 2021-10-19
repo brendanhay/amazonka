@@ -40,15 +40,15 @@ module Network.AWS.SageMaker.CreateTrialComponent
     newCreateTrialComponent,
 
     -- * Request Lenses
-    createTrialComponent_status,
     createTrialComponent_metadataProperties,
+    createTrialComponent_status,
+    createTrialComponent_outputArtifacts,
     createTrialComponent_startTime,
     createTrialComponent_endTime,
-    createTrialComponent_tags,
-    createTrialComponent_inputArtifacts,
-    createTrialComponent_displayName,
-    createTrialComponent_outputArtifacts,
     createTrialComponent_parameters,
+    createTrialComponent_displayName,
+    createTrialComponent_inputArtifacts,
+    createTrialComponent_tags,
     createTrialComponent_trialComponentName,
 
     -- * Destructuring the Response
@@ -70,7 +70,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateTrialComponent' smart constructor.
 data CreateTrialComponent = CreateTrialComponent'
-  { -- | The status of the component. States include:
+  { metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The status of the component. States include:
     --
     -- -   InProgress
     --
@@ -78,26 +79,25 @@ data CreateTrialComponent = CreateTrialComponent'
     --
     -- -   Failed
     status :: Prelude.Maybe TrialComponentStatus,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The output artifacts for the component. Examples of output artifacts are
+    -- metrics, snapshots, logs, and images.
+    outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | When the component started.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | When the component ended.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | A list of tags to associate with the component. You can use Search API
-    -- to search on the tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | The input artifacts for the component. Examples of input artifacts are
-    -- datasets, algorithms, hyperparameters, source code, and instance types.
-    inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
+    -- | The hyperparameters for the component.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The name of the component as displayed. The name doesn\'t need to be
     -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The output artifacts for the component. Examples of output artifacts are
-    -- metrics, snapshots, logs, and images.
-    outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
-    -- | The hyperparameters for the component.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
+    -- | The input artifacts for the component. Examples of input artifacts are
+    -- datasets, algorithms, hyperparameters, source code, and instance types.
+    inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
+    -- | A list of tags to associate with the component. You can use Search API
+    -- to search on the tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the component. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
     trialComponentName :: Prelude.Text
@@ -112,6 +112,8 @@ data CreateTrialComponent = CreateTrialComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metadataProperties', 'createTrialComponent_metadataProperties' - Undocumented member.
+--
 -- 'status', 'createTrialComponent_status' - The status of the component. States include:
 --
 -- -   InProgress
@@ -120,26 +122,24 @@ data CreateTrialComponent = CreateTrialComponent'
 --
 -- -   Failed
 --
--- 'metadataProperties', 'createTrialComponent_metadataProperties' - Undocumented member.
+-- 'outputArtifacts', 'createTrialComponent_outputArtifacts' - The output artifacts for the component. Examples of output artifacts are
+-- metrics, snapshots, logs, and images.
 --
 -- 'startTime', 'createTrialComponent_startTime' - When the component started.
 --
 -- 'endTime', 'createTrialComponent_endTime' - When the component ended.
 --
--- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use Search API
--- to search on the tags.
---
--- 'inputArtifacts', 'createTrialComponent_inputArtifacts' - The input artifacts for the component. Examples of input artifacts are
--- datasets, algorithms, hyperparameters, source code, and instance types.
+-- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
 --
 -- 'displayName', 'createTrialComponent_displayName' - The name of the component as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
 -- displayed.
 --
--- 'outputArtifacts', 'createTrialComponent_outputArtifacts' - The output artifacts for the component. Examples of output artifacts are
--- metrics, snapshots, logs, and images.
+-- 'inputArtifacts', 'createTrialComponent_inputArtifacts' - The input artifacts for the component. Examples of input artifacts are
+-- datasets, algorithms, hyperparameters, source code, and instance types.
 --
--- 'parameters', 'createTrialComponent_parameters' - The hyperparameters for the component.
+-- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use Search API
+-- to search on the tags.
 --
 -- 'trialComponentName', 'createTrialComponent_trialComponentName' - The name of the component. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -149,17 +149,22 @@ newCreateTrialComponent ::
   CreateTrialComponent
 newCreateTrialComponent pTrialComponentName_ =
   CreateTrialComponent'
-    { status = Prelude.Nothing,
-      metadataProperties = Prelude.Nothing,
+    { metadataProperties =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      outputArtifacts = Prelude.Nothing,
       startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      inputArtifacts = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      outputArtifacts = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      inputArtifacts = Prelude.Nothing,
+      tags = Prelude.Nothing,
       trialComponentName = pTrialComponentName_
     }
+
+-- | Undocumented member.
+createTrialComponent_metadataProperties :: Lens.Lens' CreateTrialComponent (Prelude.Maybe MetadataProperties)
+createTrialComponent_metadataProperties = Lens.lens (\CreateTrialComponent' {metadataProperties} -> metadataProperties) (\s@CreateTrialComponent' {} a -> s {metadataProperties = a} :: CreateTrialComponent)
 
 -- | The status of the component. States include:
 --
@@ -171,9 +176,10 @@ newCreateTrialComponent pTrialComponentName_ =
 createTrialComponent_status :: Lens.Lens' CreateTrialComponent (Prelude.Maybe TrialComponentStatus)
 createTrialComponent_status = Lens.lens (\CreateTrialComponent' {status} -> status) (\s@CreateTrialComponent' {} a -> s {status = a} :: CreateTrialComponent)
 
--- | Undocumented member.
-createTrialComponent_metadataProperties :: Lens.Lens' CreateTrialComponent (Prelude.Maybe MetadataProperties)
-createTrialComponent_metadataProperties = Lens.lens (\CreateTrialComponent' {metadataProperties} -> metadataProperties) (\s@CreateTrialComponent' {} a -> s {metadataProperties = a} :: CreateTrialComponent)
+-- | The output artifacts for the component. Examples of output artifacts are
+-- metrics, snapshots, logs, and images.
+createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | When the component started.
 createTrialComponent_startTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
@@ -183,15 +189,9 @@ createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -
 createTrialComponent_endTime :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.UTCTime)
 createTrialComponent_endTime = Lens.lens (\CreateTrialComponent' {endTime} -> endTime) (\s@CreateTrialComponent' {} a -> s {endTime = a} :: CreateTrialComponent) Prelude.. Lens.mapping Core._Time
 
--- | A list of tags to associate with the component. You can use Search API
--- to search on the tags.
-createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
-createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
-
--- | The input artifacts for the component. Examples of input artifacts are
--- datasets, algorithms, hyperparameters, source code, and instance types.
-createTrialComponent_inputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
-createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@CreateTrialComponent' {} a -> s {inputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+-- | The hyperparameters for the component.
+createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
+createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the component as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @TrialComponentName@ is
@@ -199,14 +199,15 @@ createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputAr
 createTrialComponent_displayName :: Lens.Lens' CreateTrialComponent (Prelude.Maybe Prelude.Text)
 createTrialComponent_displayName = Lens.lens (\CreateTrialComponent' {displayName} -> displayName) (\s@CreateTrialComponent' {} a -> s {displayName = a} :: CreateTrialComponent)
 
--- | The output artifacts for the component. Examples of output artifacts are
--- metrics, snapshots, logs, and images.
-createTrialComponent_outputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
-createTrialComponent_outputArtifacts = Lens.lens (\CreateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@CreateTrialComponent' {} a -> s {outputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+-- | The input artifacts for the component. Examples of input artifacts are
+-- datasets, algorithms, hyperparameters, source code, and instance types.
+createTrialComponent_inputArtifacts :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
+createTrialComponent_inputArtifacts = Lens.lens (\CreateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@CreateTrialComponent' {} a -> s {inputArtifacts = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
--- | The hyperparameters for the component.
-createTrialComponent_parameters :: Lens.Lens' CreateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
-createTrialComponent_parameters = Lens.lens (\CreateTrialComponent' {parameters} -> parameters) (\s@CreateTrialComponent' {} a -> s {parameters = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of tags to associate with the component. You can use Search API
+-- to search on the tags.
+createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
+createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the component. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -249,18 +250,18 @@ instance Core.ToJSON CreateTrialComponent where
   toJSON CreateTrialComponent' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("MetadataProperties" Core..=)
+          [ ("MetadataProperties" Core..=)
               Prelude.<$> metadataProperties,
-            ("StartTime" Core..=) Prelude.<$> startTime,
-            ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("InputArtifacts" Core..=)
-              Prelude.<$> inputArtifacts,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Status" Core..=) Prelude.<$> status,
             ("OutputArtifacts" Core..=)
               Prelude.<$> outputArtifacts,
+            ("StartTime" Core..=) Prelude.<$> startTime,
+            ("EndTime" Core..=) Prelude.<$> endTime,
             ("Parameters" Core..=) Prelude.<$> parameters,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("InputArtifacts" Core..=)
+              Prelude.<$> inputArtifacts,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("TrialComponentName" Core..= trialComponentName)
           ]

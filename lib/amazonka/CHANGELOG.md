@@ -21,7 +21,7 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
   - All type constructors (Such as record constructors) are now exported by default.
 
 - CI
-  - Nix and GitHub Actions are used for CI (thanks @endgame)
+  - Nix, Bazel, and GitHub Actions are used for CI
   - `nix-build-uncached` is used to prevent spurious rebuilds in CI [#627](https://github.com/brendanhay/amazonka/pull/627)
   - CPP supporting GHC < 8.8 has been removed.
   - While GHC 8.6 is not in the CI matrix, it currently builds, so packages depend on `base >= 4.12`.

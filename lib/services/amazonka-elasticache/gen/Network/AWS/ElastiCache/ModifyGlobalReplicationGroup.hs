@@ -28,9 +28,9 @@ module Network.AWS.ElastiCache.ModifyGlobalReplicationGroup
 
     -- * Request Lenses
     modifyGlobalReplicationGroup_automaticFailoverEnabled,
-    modifyGlobalReplicationGroup_cacheParameterGroupName,
     modifyGlobalReplicationGroup_engineVersion,
     modifyGlobalReplicationGroup_cacheNodeType,
+    modifyGlobalReplicationGroup_cacheParameterGroupName,
     modifyGlobalReplicationGroup_globalReplicationGroupDescription,
     modifyGlobalReplicationGroup_globalReplicationGroupId,
     modifyGlobalReplicationGroup_applyImmediately,
@@ -57,15 +57,15 @@ data ModifyGlobalReplicationGroup = ModifyGlobalReplicationGroup'
   { -- | Determines whether a read replica is automatically promoted to
     -- read\/write primary if the existing primary encounters a failure.
     automaticFailoverEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the cache parameter group to use with the Global datastore.
-    -- It must be compatible with the major engine version used by the Global
-    -- datastore.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The upgraded version of the cache engine to be run on the clusters in
     -- the Global datastore.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | A valid cache node type that you want to scale this Global datastore to.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cache parameter group to use with the Global datastore.
+    -- It must be compatible with the major engine version used by the Global
+    -- datastore.
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | A description of the Global datastore
     globalReplicationGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the Global datastore
@@ -89,14 +89,14 @@ data ModifyGlobalReplicationGroup = ModifyGlobalReplicationGroup'
 -- 'automaticFailoverEnabled', 'modifyGlobalReplicationGroup_automaticFailoverEnabled' - Determines whether a read replica is automatically promoted to
 -- read\/write primary if the existing primary encounters a failure.
 --
--- 'cacheParameterGroupName', 'modifyGlobalReplicationGroup_cacheParameterGroupName' - The name of the cache parameter group to use with the Global datastore.
--- It must be compatible with the major engine version used by the Global
--- datastore.
---
 -- 'engineVersion', 'modifyGlobalReplicationGroup_engineVersion' - The upgraded version of the cache engine to be run on the clusters in
 -- the Global datastore.
 --
 -- 'cacheNodeType', 'modifyGlobalReplicationGroup_cacheNodeType' - A valid cache node type that you want to scale this Global datastore to.
+--
+-- 'cacheParameterGroupName', 'modifyGlobalReplicationGroup_cacheParameterGroupName' - The name of the cache parameter group to use with the Global datastore.
+-- It must be compatible with the major engine version used by the Global
+-- datastore.
 --
 -- 'globalReplicationGroupDescription', 'modifyGlobalReplicationGroup_globalReplicationGroupDescription' - A description of the Global datastore
 --
@@ -118,9 +118,9 @@ newModifyGlobalReplicationGroup
     ModifyGlobalReplicationGroup'
       { automaticFailoverEnabled =
           Prelude.Nothing,
-        cacheParameterGroupName = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
         cacheNodeType = Prelude.Nothing,
+        cacheParameterGroupName = Prelude.Nothing,
         globalReplicationGroupDescription =
           Prelude.Nothing,
         globalReplicationGroupId =
@@ -133,12 +133,6 @@ newModifyGlobalReplicationGroup
 modifyGlobalReplicationGroup_automaticFailoverEnabled :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyGlobalReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyGlobalReplicationGroup' {automaticFailoverEnabled} -> automaticFailoverEnabled) (\s@ModifyGlobalReplicationGroup' {} a -> s {automaticFailoverEnabled = a} :: ModifyGlobalReplicationGroup)
 
--- | The name of the cache parameter group to use with the Global datastore.
--- It must be compatible with the major engine version used by the Global
--- datastore.
-modifyGlobalReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyGlobalReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyGlobalReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyGlobalReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyGlobalReplicationGroup)
-
 -- | The upgraded version of the cache engine to be run on the clusters in
 -- the Global datastore.
 modifyGlobalReplicationGroup_engineVersion :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
@@ -147,6 +141,12 @@ modifyGlobalReplicationGroup_engineVersion = Lens.lens (\ModifyGlobalReplication
 -- | A valid cache node type that you want to scale this Global datastore to.
 modifyGlobalReplicationGroup_cacheNodeType :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyGlobalReplicationGroup_cacheNodeType = Lens.lens (\ModifyGlobalReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@ModifyGlobalReplicationGroup' {} a -> s {cacheNodeType = a} :: ModifyGlobalReplicationGroup)
+
+-- | The name of the cache parameter group to use with the Global datastore.
+-- It must be compatible with the major engine version used by the Global
+-- datastore.
+modifyGlobalReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyGlobalReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyGlobalReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyGlobalReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyGlobalReplicationGroup)
 
 -- | A description of the Global datastore
 modifyGlobalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' ModifyGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
@@ -200,10 +200,10 @@ instance Core.ToQuery ModifyGlobalReplicationGroup where
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "AutomaticFailoverEnabled"
           Core.=: automaticFailoverEnabled,
-        "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
         "EngineVersion" Core.=: engineVersion,
         "CacheNodeType" Core.=: cacheNodeType,
+        "CacheParameterGroupName"
+          Core.=: cacheParameterGroupName,
         "GlobalReplicationGroupDescription"
           Core.=: globalReplicationGroupDescription,
         "GlobalReplicationGroupId"

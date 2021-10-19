@@ -30,8 +30,8 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     newDescribeEngineDefaultParameters,
 
     -- * Request Lenses
-    describeEngineDefaultParameters_maxRecords,
     describeEngineDefaultParameters_marker,
+    describeEngineDefaultParameters_maxRecords,
     describeEngineDefaultParameters_cacheParameterGroupFamily,
 
     -- * Destructuring the Response
@@ -55,7 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-  { -- | The maximum number of records to include in the response. If more
+  { -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
     --
@@ -63,11 +68,6 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     --
     -- Constraints: minimum 20; maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group family.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
@@ -85,6 +85,11 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeEngineDefaultParameters_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeEngineDefaultParameters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -92,11 +97,6 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
--- 'marker', 'describeEngineDefaultParameters_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
 --
 -- 'cacheParameterGroupFamily', 'describeEngineDefaultParameters_cacheParameterGroupFamily' - The name of the cache parameter group family.
 --
@@ -110,12 +110,19 @@ newDescribeEngineDefaultParameters ::
 newDescribeEngineDefaultParameters
   pCacheParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
-      { maxRecords =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        maxRecords = Prelude.Nothing,
         cacheParameterGroupFamily =
           pCacheParameterGroupFamily_
       }
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
+describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -126,13 +133,6 @@ newDescribeEngineDefaultParameters
 -- Constraints: minimum 20; maximum 100.
 describeEngineDefaultParameters_maxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Int)
 describeEngineDefaultParameters_maxRecords = Lens.lens (\DescribeEngineDefaultParameters' {maxRecords} -> maxRecords) (\s@DescribeEngineDefaultParameters' {} a -> s {maxRecords = a} :: DescribeEngineDefaultParameters)
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeEngineDefaultParameters_marker :: Lens.Lens' DescribeEngineDefaultParameters (Prelude.Maybe Prelude.Text)
-describeEngineDefaultParameters_marker = Lens.lens (\DescribeEngineDefaultParameters' {marker} -> marker) (\s@DescribeEngineDefaultParameters' {} a -> s {marker = a} :: DescribeEngineDefaultParameters)
 
 -- | The name of the cache parameter group family.
 --
@@ -213,8 +213,8 @@ instance Core.ToQuery DescribeEngineDefaultParameters where
                   ),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "MaxRecords" Core.=: maxRecords,
         "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
         "CacheParameterGroupFamily"
           Core.=: cacheParameterGroupFamily
       ]

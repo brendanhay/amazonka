@@ -133,7 +133,7 @@ newDecreaseNodeGroupsInGlobalReplicationGroup
 -- from the cluster. ElastiCache for Redis will attempt to remove all node
 -- groups listed by GlobalNodeGroupsToRemove from the cluster.
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Prelude.Maybe [Prelude.Text])
-decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRemove} -> globalNodeGroupsToRemove) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRemove = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRemove} -> globalNodeGroupsToRemove) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRemove = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the value of NodeGroupCount is less than the current number of node
 -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
@@ -141,7 +141,7 @@ decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove = Lens.lens 
 -- from the cluster. ElastiCache for Redis will attempt to retain all node
 -- groups listed by GlobalNodeGroupsToRetain from the cluster.
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Prelude.Maybe [Prelude.Text])
-decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRetain} -> globalNodeGroupsToRetain) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRetain = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRetain} -> globalNodeGroupsToRetain) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRetain = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Global datastore
 decreaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Prelude.Text

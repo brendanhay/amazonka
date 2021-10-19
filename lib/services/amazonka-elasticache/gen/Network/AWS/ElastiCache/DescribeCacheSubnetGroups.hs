@@ -33,16 +33,16 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 
     -- * Request Lenses
     describeCacheSubnetGroups_cacheSubnetGroupName,
-    describeCacheSubnetGroups_maxRecords,
     describeCacheSubnetGroups_marker,
+    describeCacheSubnetGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeCacheSubnetGroupsResponse (..),
     newDescribeCacheSubnetGroupsResponse,
 
     -- * Response Lenses
-    describeCacheSubnetGroupsResponse_cacheSubnetGroups,
     describeCacheSubnetGroupsResponse_marker,
+    describeCacheSubnetGroupsResponse_cacheSubnetGroups,
     describeCacheSubnetGroupsResponse_httpStatus,
   )
 where
@@ -60,6 +60,11 @@ import qualified Network.AWS.Response as Response
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
   { -- | The name of the cache subnet group to return details for.
     cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -67,12 +72,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,6 +86,11 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
 --
 -- 'cacheSubnetGroupName', 'describeCacheSubnetGroups_cacheSubnetGroupName' - The name of the cache subnet group to return details for.
 --
+-- 'marker', 'describeCacheSubnetGroups_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeCacheSubnetGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -93,24 +98,26 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
--- 'marker', 'describeCacheSubnetGroups_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
 newDescribeCacheSubnetGroups ::
   DescribeCacheSubnetGroups
 newDescribeCacheSubnetGroups =
   DescribeCacheSubnetGroups'
     { cacheSubnetGroupName =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of the cache subnet group to return details for.
 describeCacheSubnetGroups_cacheSubnetGroupName :: Lens.Lens' DescribeCacheSubnetGroups (Prelude.Maybe Prelude.Text)
 describeCacheSubnetGroups_cacheSubnetGroupName = Lens.lens (\DescribeCacheSubnetGroups' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@DescribeCacheSubnetGroups' {} a -> s {cacheSubnetGroupName = a} :: DescribeCacheSubnetGroups)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheSubnetGroups_marker :: Lens.Lens' DescribeCacheSubnetGroups (Prelude.Maybe Prelude.Text)
+describeCacheSubnetGroups_marker = Lens.lens (\DescribeCacheSubnetGroups' {marker} -> marker) (\s@DescribeCacheSubnetGroups' {} a -> s {marker = a} :: DescribeCacheSubnetGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -121,13 +128,6 @@ describeCacheSubnetGroups_cacheSubnetGroupName = Lens.lens (\DescribeCacheSubnet
 -- Constraints: minimum 20; maximum 100.
 describeCacheSubnetGroups_maxRecords :: Lens.Lens' DescribeCacheSubnetGroups (Prelude.Maybe Prelude.Int)
 describeCacheSubnetGroups_maxRecords = Lens.lens (\DescribeCacheSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeCacheSubnetGroups' {} a -> s {maxRecords = a} :: DescribeCacheSubnetGroups)
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeCacheSubnetGroups_marker :: Lens.Lens' DescribeCacheSubnetGroups (Prelude.Maybe Prelude.Text)
-describeCacheSubnetGroups_marker = Lens.lens (\DescribeCacheSubnetGroups' {marker} -> marker) (\s@DescribeCacheSubnetGroups' {} a -> s {marker = a} :: DescribeCacheSubnetGroups)
 
 instance Core.AWSPager DescribeCacheSubnetGroups where
   page rq rs
@@ -161,11 +161,11 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
       "DescribeCacheSubnetGroupsResult"
       ( \s h x ->
           DescribeCacheSubnetGroupsResponse'
-            Prelude.<$> ( x Core..@? "CacheSubnetGroups"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "CacheSubnetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "CacheSubnetGroup")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,19 +187,19 @@ instance Core.ToQuery DescribeCacheSubnetGroups where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSubnetGroups@ operation.
 --
 -- /See:/ 'newDescribeCacheSubnetGroupsResponse' smart constructor.
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
-  { -- | A list of cache subnet groups. Each element in the list contains
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of cache subnet groups. Each element in the list contains
     -- detailed information about one group.
     cacheSubnetGroups :: Prelude.Maybe [CacheSubnetGroup],
-    -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeCacheSubnetGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
 -- 'cacheSubnetGroups', 'describeCacheSubnetGroupsResponse_cacheSubnetGroups' - A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
---
--- 'marker', 'describeCacheSubnetGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
 --
 -- 'httpStatus', 'describeCacheSubnetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeCacheSubnetGroupsResponse ::
@@ -225,20 +225,20 @@ newDescribeCacheSubnetGroupsResponse ::
   DescribeCacheSubnetGroupsResponse
 newDescribeCacheSubnetGroupsResponse pHttpStatus_ =
   DescribeCacheSubnetGroupsResponse'
-    { cacheSubnetGroups =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      cacheSubnetGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of cache subnet groups. Each element in the list contains
--- detailed information about one group.
-describeCacheSubnetGroupsResponse_cacheSubnetGroups :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe [CacheSubnetGroup])
-describeCacheSubnetGroupsResponse_cacheSubnetGroups = Lens.lens (\DescribeCacheSubnetGroupsResponse' {cacheSubnetGroups} -> cacheSubnetGroups) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {cacheSubnetGroups = a} :: DescribeCacheSubnetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
 describeCacheSubnetGroupsResponse_marker :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeCacheSubnetGroupsResponse_marker = Lens.lens (\DescribeCacheSubnetGroupsResponse' {marker} -> marker) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeCacheSubnetGroupsResponse)
+
+-- | A list of cache subnet groups. Each element in the list contains
+-- detailed information about one group.
+describeCacheSubnetGroupsResponse_cacheSubnetGroups :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe [CacheSubnetGroup])
+describeCacheSubnetGroupsResponse_cacheSubnetGroups = Lens.lens (\DescribeCacheSubnetGroupsResponse' {cacheSubnetGroups} -> cacheSubnetGroups) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {cacheSubnetGroups = a} :: DescribeCacheSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCacheSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeCacheSubnetGroupsResponse Prelude.Int

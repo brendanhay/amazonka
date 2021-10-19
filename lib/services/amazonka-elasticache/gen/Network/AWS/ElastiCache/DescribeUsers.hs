@@ -29,11 +29,11 @@ module Network.AWS.ElastiCache.DescribeUsers
     newDescribeUsers,
 
     -- * Request Lenses
-    describeUsers_userId,
-    describeUsers_engine,
     describeUsers_filters,
-    describeUsers_maxRecords,
+    describeUsers_engine,
+    describeUsers_userId,
     describeUsers_marker,
+    describeUsers_maxRecords,
 
     -- * Destructuring the Response
     DescribeUsersResponse (..),
@@ -55,21 +55,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | The ID of the user.
-    userId :: Prelude.Maybe Prelude.Text,
+  { -- | Filter to determine the list of User IDs to return.
+    filters :: Prelude.Maybe [Filter],
     -- | The Redis engine.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | Filter to determine the list of User IDs to return.
-    filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified MaxRecords value, a marker is included
-    -- in the response so that the remaining results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the user.
+    userId :: Prelude.Maybe Prelude.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by MaxRecords. >
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxRecords value, a marker is included
+    -- in the response so that the remaining results can be retrieved.
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,48 +81,42 @@ data DescribeUsers = DescribeUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userId', 'describeUsers_userId' - The ID of the user.
+-- 'filters', 'describeUsers_filters' - Filter to determine the list of User IDs to return.
 --
 -- 'engine', 'describeUsers_engine' - The Redis engine.
 --
--- 'filters', 'describeUsers_filters' - Filter to determine the list of User IDs to return.
---
--- 'maxRecords', 'describeUsers_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
+-- 'userId', 'describeUsers_userId' - The ID of the user.
 --
 -- 'marker', 'describeUsers_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords. >
+--
+-- 'maxRecords', 'describeUsers_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
 newDescribeUsers ::
   DescribeUsers
 newDescribeUsers =
   DescribeUsers'
-    { userId = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       engine = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      userId = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
--- | The ID of the user.
-describeUsers_userId :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
-describeUsers_userId = Lens.lens (\DescribeUsers' {userId} -> userId) (\s@DescribeUsers' {} a -> s {userId = a} :: DescribeUsers)
+-- | Filter to determine the list of User IDs to return.
+describeUsers_filters :: Lens.Lens' DescribeUsers (Prelude.Maybe [Filter])
+describeUsers_filters = Lens.lens (\DescribeUsers' {filters} -> filters) (\s@DescribeUsers' {} a -> s {filters = a} :: DescribeUsers) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Redis engine.
 describeUsers_engine :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_engine = Lens.lens (\DescribeUsers' {engine} -> engine) (\s@DescribeUsers' {} a -> s {engine = a} :: DescribeUsers)
 
--- | Filter to determine the list of User IDs to return.
-describeUsers_filters :: Lens.Lens' DescribeUsers (Prelude.Maybe [Filter])
-describeUsers_filters = Lens.lens (\DescribeUsers' {filters} -> filters) (\s@DescribeUsers' {} a -> s {filters = a} :: DescribeUsers) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
-describeUsers_maxRecords :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
-describeUsers_maxRecords = Lens.lens (\DescribeUsers' {maxRecords} -> maxRecords) (\s@DescribeUsers' {} a -> s {maxRecords = a} :: DescribeUsers)
+-- | The ID of the user.
+describeUsers_userId :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
+describeUsers_userId = Lens.lens (\DescribeUsers' {userId} -> userId) (\s@DescribeUsers' {} a -> s {userId = a} :: DescribeUsers)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -130,6 +124,12 @@ describeUsers_maxRecords = Lens.lens (\DescribeUsers' {maxRecords} -> maxRecords
 -- the value specified by MaxRecords. >
 describeUsers_marker :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_marker = Lens.lens (\DescribeUsers' {marker} -> marker) (\s@DescribeUsers' {} a -> s {marker = a} :: DescribeUsers)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
+describeUsers_maxRecords :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Int)
+describeUsers_maxRecords = Lens.lens (\DescribeUsers' {maxRecords} -> maxRecords) (\s@DescribeUsers' {} a -> s {maxRecords = a} :: DescribeUsers)
 
 instance Core.AWSPager DescribeUsers where
   page rq rs
@@ -184,13 +184,13 @@ instance Core.ToQuery DescribeUsers where
           Core.=: ("DescribeUsers" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "UserId" Core.=: userId,
-        "Engine" Core.=: engine,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Engine" Core.=: engine,
+        "UserId" Core.=: userId,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.
@@ -236,7 +236,7 @@ newDescribeUsersResponse pHttpStatus_ =
 
 -- | A list of users.
 describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe [User])
-describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is

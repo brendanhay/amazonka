@@ -126,7 +126,7 @@ increaseReplicaCount_newReplicaCount = Lens.lens (\IncreaseReplicaCount' {newRep
 -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
 -- and @PreferredAvailabilityZones@.
 increaseReplicaCount_replicaConfiguration :: Lens.Lens' IncreaseReplicaCount (Prelude.Maybe [ConfigureShard])
-increaseReplicaCount_replicaConfiguration = Lens.lens (\IncreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@IncreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: IncreaseReplicaCount) Prelude.. Lens.mapping Lens._Coerce
+increaseReplicaCount_replicaConfiguration = Lens.lens (\IncreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@IncreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: IncreaseReplicaCount) Prelude.. Lens.mapping Lens.coerced
 
 -- | The id of the replication group to which you want to add replica nodes.
 increaseReplicaCount_replicationGroupId :: Lens.Lens' IncreaseReplicaCount Prelude.Text

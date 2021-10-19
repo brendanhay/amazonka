@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key for the tag. May not be null.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The tag\'s value. May be null.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The tag\'s value. May be null.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key for the tag. May not be null.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key for the tag. May not be null.
---
 -- 'value', 'tag_value' - The tag\'s value. May be null.
+--
+-- 'key', 'tag_key' - The key for the tag. May not be null.
 newTag ::
   Tag
 newTag =
   Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key for the tag. May not be null.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The tag\'s value. May be null.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
+-- | The key for the tag. May not be null.
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
+
 instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Core..@? "Key") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Key")
 
 instance Prelude.Hashable Tag
 
@@ -78,4 +78,4 @@ instance Prelude.NFData Tag
 instance Core.ToQuery Tag where
   toQuery Tag' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Value" Core.=: value, "Key" Core.=: key]

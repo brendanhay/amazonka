@@ -50,7 +50,7 @@ newTagListMessage =
 
 -- | A list of tags as key-value pairs.
 tagListMessage_tagList :: Lens.Lens' TagListMessage (Prelude.Maybe [Tag])
-tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Prelude.. Lens.mapping Lens._Coerce
+tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML TagListMessage where
   parseXML x =

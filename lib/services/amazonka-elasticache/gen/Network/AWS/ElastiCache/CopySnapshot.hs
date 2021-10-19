@@ -226,7 +226,7 @@ copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@Co
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 copySnapshot_tags :: Lens.Lens' CopySnapshot (Prelude.Maybe [Tag])
-copySnapshot_tags = Lens.lens (\CopySnapshot' {tags} -> tags) (\s@CopySnapshot' {} a -> s {tags = a} :: CopySnapshot) Prelude.. Lens.mapping Lens._Coerce
+copySnapshot_tags = Lens.lens (\CopySnapshot' {tags} -> tags) (\s@CopySnapshot' {} a -> s {tags = a} :: CopySnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of an existing snapshot from which to make a copy.
 copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text

@@ -110,7 +110,7 @@ rebootCacheCluster_cacheClusterId = Lens.lens (\RebootCacheCluster' {cacheCluste
 -- (0001, 0002, etc.). To reboot an entire cluster, specify all of the
 -- cache node IDs.
 rebootCacheCluster_cacheNodeIdsToReboot :: Lens.Lens' RebootCacheCluster [Prelude.Text]
-rebootCacheCluster_cacheNodeIdsToReboot = Lens.lens (\RebootCacheCluster' {cacheNodeIdsToReboot} -> cacheNodeIdsToReboot) (\s@RebootCacheCluster' {} a -> s {cacheNodeIdsToReboot = a} :: RebootCacheCluster) Prelude.. Lens._Coerce
+rebootCacheCluster_cacheNodeIdsToReboot = Lens.lens (\RebootCacheCluster' {cacheNodeIdsToReboot} -> cacheNodeIdsToReboot) (\s@RebootCacheCluster' {} a -> s {cacheNodeIdsToReboot = a} :: RebootCacheCluster) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RebootCacheCluster where
   type

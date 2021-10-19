@@ -33,8 +33,8 @@ module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
     newListAllowedNodeTypeModifications,
 
     -- * Request Lenses
-    listAllowedNodeTypeModifications_replicationGroupId,
     listAllowedNodeTypeModifications_cacheClusterId,
+    listAllowedNodeTypeModifications_replicationGroupId,
 
     -- * Destructuring the Response
     ListAllowedNodeTypeModificationsResponse (..),
@@ -59,22 +59,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListAllowedNodeTypeModifications' smart constructor.
 data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
-  { -- | The name of the replication group want to scale up to a larger node
-    -- type. ElastiCache uses the replication group id to identify the current
-    -- node type being used by this replication group, and from that to create
-    -- a list of node types you can scale up to.
-    --
-    -- You must provide a value for either the @CacheClusterId@ or the
-    -- @ReplicationGroupId@.
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cluster you want to scale up to a larger node instanced
+  { -- | The name of the cluster you want to scale up to a larger node instanced
     -- type. ElastiCache uses the cluster id to identify the current node type
     -- of this cluster and from that to create a list of node types you can
     -- scale up to.
     --
     -- You must provide a value for either the @CacheClusterId@ or the
     -- @ReplicationGroupId@.
-    cacheClusterId :: Prelude.Maybe Prelude.Text
+    cacheClusterId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the replication group want to scale up to a larger node
+    -- type. ElastiCache uses the replication group id to identify the current
+    -- node type being used by this replication group, and from that to create
+    -- a list of node types you can scale up to.
+    --
+    -- You must provide a value for either the @CacheClusterId@ or the
+    -- @ReplicationGroupId@.
+    replicationGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,14 +86,6 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationGroupId', 'listAllowedNodeTypeModifications_replicationGroupId' - The name of the replication group want to scale up to a larger node
--- type. ElastiCache uses the replication group id to identify the current
--- node type being used by this replication group, and from that to create
--- a list of node types you can scale up to.
---
--- You must provide a value for either the @CacheClusterId@ or the
--- @ReplicationGroupId@.
---
 -- 'cacheClusterId', 'listAllowedNodeTypeModifications_cacheClusterId' - The name of the cluster you want to scale up to a larger node instanced
 -- type. ElastiCache uses the cluster id to identify the current node type
 -- of this cluster and from that to create a list of node types you can
@@ -101,24 +93,22 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
 --
 -- You must provide a value for either the @CacheClusterId@ or the
 -- @ReplicationGroupId@.
-newListAllowedNodeTypeModifications ::
-  ListAllowedNodeTypeModifications
-newListAllowedNodeTypeModifications =
-  ListAllowedNodeTypeModifications'
-    { replicationGroupId =
-        Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing
-    }
-
--- | The name of the replication group want to scale up to a larger node
+--
+-- 'replicationGroupId', 'listAllowedNodeTypeModifications_replicationGroupId' - The name of the replication group want to scale up to a larger node
 -- type. ElastiCache uses the replication group id to identify the current
 -- node type being used by this replication group, and from that to create
 -- a list of node types you can scale up to.
 --
 -- You must provide a value for either the @CacheClusterId@ or the
 -- @ReplicationGroupId@.
-listAllowedNodeTypeModifications_replicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Prelude.Maybe Prelude.Text)
-listAllowedNodeTypeModifications_replicationGroupId = Lens.lens (\ListAllowedNodeTypeModifications' {replicationGroupId} -> replicationGroupId) (\s@ListAllowedNodeTypeModifications' {} a -> s {replicationGroupId = a} :: ListAllowedNodeTypeModifications)
+newListAllowedNodeTypeModifications ::
+  ListAllowedNodeTypeModifications
+newListAllowedNodeTypeModifications =
+  ListAllowedNodeTypeModifications'
+    { cacheClusterId =
+        Prelude.Nothing,
+      replicationGroupId = Prelude.Nothing
+    }
 
 -- | The name of the cluster you want to scale up to a larger node instanced
 -- type. ElastiCache uses the cluster id to identify the current node type
@@ -129,6 +119,16 @@ listAllowedNodeTypeModifications_replicationGroupId = Lens.lens (\ListAllowedNod
 -- @ReplicationGroupId@.
 listAllowedNodeTypeModifications_cacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Prelude.Maybe Prelude.Text)
 listAllowedNodeTypeModifications_cacheClusterId = Lens.lens (\ListAllowedNodeTypeModifications' {cacheClusterId} -> cacheClusterId) (\s@ListAllowedNodeTypeModifications' {} a -> s {cacheClusterId = a} :: ListAllowedNodeTypeModifications)
+
+-- | The name of the replication group want to scale up to a larger node
+-- type. ElastiCache uses the replication group id to identify the current
+-- node type being used by this replication group, and from that to create
+-- a list of node types you can scale up to.
+--
+-- You must provide a value for either the @CacheClusterId@ or the
+-- @ReplicationGroupId@.
+listAllowedNodeTypeModifications_replicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Prelude.Maybe Prelude.Text)
+listAllowedNodeTypeModifications_replicationGroupId = Lens.lens (\ListAllowedNodeTypeModifications' {replicationGroupId} -> replicationGroupId) (\s@ListAllowedNodeTypeModifications' {} a -> s {replicationGroupId = a} :: ListAllowedNodeTypeModifications)
 
 instance
   Core.AWSRequest
@@ -183,8 +183,8 @@ instance
                   ),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "ReplicationGroupId" Core.=: replicationGroupId,
-        "CacheClusterId" Core.=: cacheClusterId
+        "CacheClusterId" Core.=: cacheClusterId,
+        "ReplicationGroupId" Core.=: replicationGroupId
       ]
 
 -- | Represents the allowed node types you can use to modify your cluster or
@@ -253,7 +253,7 @@ newListAllowedNodeTypeModificationsResponse
 -- @ModifyCacheCluster@ or @ModifyReplicationGroup@, use a value from this
 -- list for the @CacheNodeType@ parameter.
 listAllowedNodeTypeModificationsResponse_scaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
-listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleUpModifications} -> scaleUpModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleUpModifications} -> scaleUpModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string list, each element of which specifies a cache node type which
 -- you can use to scale your cluster or replication group. When scaling
@@ -261,7 +261,7 @@ listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\List
 -- ModifyReplicationGroup, use a value from this list for the CacheNodeType
 -- parameter.
 listAllowedNodeTypeModificationsResponse_scaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
-listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAllowedNodeTypeModificationsResponse_httpStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Prelude.Int

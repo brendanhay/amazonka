@@ -124,7 +124,7 @@ addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToResource where
   type AWSResponse AddTagsToResource = TagListMessage

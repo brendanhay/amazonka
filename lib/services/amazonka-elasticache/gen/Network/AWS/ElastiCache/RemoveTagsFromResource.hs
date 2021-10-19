@@ -113,7 +113,7 @@ removeTagsFromResource_resourceName = Lens.lens (\RemoveTagsFromResource' {resou
 -- | A list of @TagKeys@ identifying the tags you want removed from the named
 -- resource.
 removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
-removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Lens._Coerce
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTagsFromResource where
   type

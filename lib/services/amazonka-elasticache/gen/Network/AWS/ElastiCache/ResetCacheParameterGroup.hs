@@ -117,7 +117,7 @@ resetCacheParameterGroup_resetAllParameters = Lens.lens (\ResetCacheParameterGro
 -- @ResetAllParameters@ is @false@, you must specify the name of at least
 -- one parameter to reset.
 resetCacheParameterGroup_parameterNameValues :: Lens.Lens' ResetCacheParameterGroup (Prelude.Maybe [ParameterNameValue])
-resetCacheParameterGroup_parameterNameValues = Lens.lens (\ResetCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ResetCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ResetCacheParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+resetCacheParameterGroup_parameterNameValues = Lens.lens (\ResetCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ResetCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ResetCacheParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cache parameter group to reset.
 resetCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' ResetCacheParameterGroup Prelude.Text

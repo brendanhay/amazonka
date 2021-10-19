@@ -55,7 +55,7 @@ newFilter ::
 newFilter pName_ pValues_ =
   Filter'
     { name = pName_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The property being filtered. For example, UserId.
@@ -64,7 +64,7 @@ filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = 
 
 -- | The property values to filter on. For example, \"user-123\".
 filter_values :: Lens.Lens' Filter (Prelude.NonEmpty Prelude.Text)
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Filter
 

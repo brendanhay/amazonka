@@ -113,7 +113,7 @@ newCreateCacheSecurityGroup
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createCacheSecurityGroup_tags :: Lens.Lens' CreateCacheSecurityGroup (Prelude.Maybe [Tag])
-createCacheSecurityGroup_tags = Lens.lens (\CreateCacheSecurityGroup' {tags} -> tags) (\s@CreateCacheSecurityGroup' {} a -> s {tags = a} :: CreateCacheSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+createCacheSecurityGroup_tags = Lens.lens (\CreateCacheSecurityGroup' {tags} -> tags) (\s@CreateCacheSecurityGroup' {} a -> s {tags = a} :: CreateCacheSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string.

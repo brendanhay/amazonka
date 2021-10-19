@@ -34,8 +34,8 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 
     -- * Request Lenses
     purchaseReservedCacheNodesOffering_cacheNodeCount,
-    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_reservedCacheNodeId,
+    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId,
 
     -- * Destructuring the Response
@@ -64,9 +64,6 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     --
     -- Default: @1@
     cacheNodeCount :: Prelude.Maybe Prelude.Int,
-    -- | A list of tags to be added to this resource. A tag is a key-value pair.
-    -- A tag key must be accompanied by a tag value, although null is accepted.
-    tags :: Prelude.Maybe [Tag],
     -- | A customer-specified identifier to track this reservation.
     --
     -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -75,6 +72,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     --
     -- Example: myreservationID
     reservedCacheNodeId :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the reserved cache node offering to purchase.
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
@@ -94,9 +94,6 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 --
 -- Default: @1@
 --
--- 'tags', 'purchaseReservedCacheNodesOffering_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
---
 -- 'reservedCacheNodeId', 'purchaseReservedCacheNodesOffering_reservedCacheNodeId' - A customer-specified identifier to track this reservation.
 --
 -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -104,6 +101,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 -- automatically generates an identifier for the reservation.
 --
 -- Example: myreservationID
+--
+-- 'tags', 'purchaseReservedCacheNodesOffering_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 --
 -- 'reservedCacheNodesOfferingId', 'purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId' - The ID of the reserved cache node offering to purchase.
 --
@@ -117,8 +117,8 @@ newPurchaseReservedCacheNodesOffering
     PurchaseReservedCacheNodesOffering'
       { cacheNodeCount =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
         reservedCacheNodeId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         reservedCacheNodesOfferingId =
           pReservedCacheNodesOfferingId_
       }
@@ -129,11 +129,6 @@ newPurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering_cacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
 purchaseReservedCacheNodesOffering_cacheNodeCount = Lens.lens (\PurchaseReservedCacheNodesOffering' {cacheNodeCount} -> cacheNodeCount) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {cacheNodeCount = a} :: PurchaseReservedCacheNodesOffering)
 
--- | A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
-purchaseReservedCacheNodesOffering_tags :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe [Tag])
-purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodesOffering' {tags} -> tags) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {tags = a} :: PurchaseReservedCacheNodesOffering) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A customer-specified identifier to track this reservation.
 --
 -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -143,6 +138,11 @@ purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodes
 -- Example: myreservationID
 purchaseReservedCacheNodesOffering_reservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
 purchaseReservedCacheNodesOffering_reservedCacheNodeId = Lens.lens (\PurchaseReservedCacheNodesOffering' {reservedCacheNodeId} -> reservedCacheNodeId) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {reservedCacheNodeId = a} :: PurchaseReservedCacheNodesOffering)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+purchaseReservedCacheNodesOffering_tags :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe [Tag])
+purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodesOffering' {tags} -> tags) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {tags = a} :: PurchaseReservedCacheNodesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the reserved cache node offering to purchase.
 --
@@ -200,10 +200,10 @@ instance
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheNodeCount" Core.=: cacheNodeCount,
+        "ReservedCacheNodeId" Core.=: reservedCacheNodeId,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ReservedCacheNodeId" Core.=: reservedCacheNodeId,
         "ReservedCacheNodesOfferingId"
           Core.=: reservedCacheNodesOfferingId
       ]

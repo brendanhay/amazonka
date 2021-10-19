@@ -40,12 +40,12 @@ module Network.AWS.ElastiCache.CreateUserGroup
 
     -- * Response Lenses
     userGroup_status,
-    userGroup_replicationGroups,
-    userGroup_arn,
     userGroup_userIds,
-    userGroup_engine,
+    userGroup_arn,
     userGroup_userGroupId,
+    userGroup_engine,
     userGroup_pendingChanges,
+    userGroup_replicationGroups,
   )
 where
 
@@ -102,12 +102,12 @@ newCreateUserGroup pUserGroupId_ pEngine_ =
 
 -- | The list of user IDs that belong to the user group.
 createUserGroup_userIds :: Lens.Lens' CreateUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createUserGroup_userIds = Lens.lens (\CreateUserGroup' {userIds} -> userIds) (\s@CreateUserGroup' {} a -> s {userIds = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens._Coerce
+createUserGroup_userIds = Lens.lens (\CreateUserGroup' {userIds} -> userIds) (\s@CreateUserGroup' {} a -> s {userIds = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createUserGroup_tags :: Lens.Lens' CreateUserGroup (Prelude.Maybe [Tag])
-createUserGroup_tags = Lens.lens (\CreateUserGroup' {tags} -> tags) (\s@CreateUserGroup' {} a -> s {tags = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens._Coerce
+createUserGroup_tags = Lens.lens (\CreateUserGroup' {tags} -> tags) (\s@CreateUserGroup' {} a -> s {tags = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the user group.
 createUserGroup_userGroupId :: Lens.Lens' CreateUserGroup Prelude.Text

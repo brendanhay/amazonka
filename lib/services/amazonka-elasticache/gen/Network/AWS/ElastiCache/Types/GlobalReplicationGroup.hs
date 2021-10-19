@@ -36,17 +36,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGlobalReplicationGroup' smart constructor.
 data GlobalReplicationGroup = GlobalReplicationGroup'
-  { -- | A flag that indicates whether the Global datastore is cluster enabled.
-    clusterEnabled :: Prelude.Maybe Prelude.Bool,
+  { -- | The Elasticache Redis engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The status of the Global datastore
     status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Global datastore
-    globalReplicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the global replication group.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the slot configuration and global identifier for each slice
-    -- group.
-    globalNodeGroups :: Prelude.Maybe [GlobalNodeGroup],
+    -- | The cache node type of the Global datastore
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether the Global datastore is cluster enabled.
+    clusterEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A flag that enables encryption at rest when set to @true@.
     --
     -- You cannot modify the value of @AtRestEncryptionEnabled@ after the
@@ -57,21 +54,8 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
     -- __Required:__ Only available when creating a replication group in an
     -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Elasticache Redis engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The cache node type of the Global datastore
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | The optional description of the Global datastore
-    globalReplicationGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The Elasticache engine. For Redis only.
-    engine :: Prelude.Maybe Prelude.Text,
-    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
-    -- commands.
-    --
-    -- Default: @false@
-    authTokenEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The replication groups that comprise the Global datastore.
-    members :: Prelude.Maybe [GlobalReplicationGroupMember],
+    -- | The ARN (Amazon Resource Name) of the global replication group.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A flag that enables in-transit encryption when set to true. You cannot
     -- modify the value of @TransitEncryptionEnabled@ after the cluster is
     -- created. To enable in-transit encryption on a cluster you must set
@@ -79,7 +63,23 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
     --
     -- __Required:__ Only available when creating a replication group in an
     -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
-    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The replication groups that comprise the Global datastore.
+    members :: Prelude.Maybe [GlobalReplicationGroupMember],
+    -- | The Elasticache engine. For Redis only.
+    engine :: Prelude.Maybe Prelude.Text,
+    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
+    -- commands.
+    --
+    -- Default: @false@
+    authTokenEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the slot configuration and global identifier for each slice
+    -- group.
+    globalNodeGroups :: Prelude.Maybe [GlobalNodeGroup],
+    -- | The name of the Global datastore
+    globalReplicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The optional description of the Global datastore
+    globalReplicationGroupDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,16 +91,13 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterEnabled', 'globalReplicationGroup_clusterEnabled' - A flag that indicates whether the Global datastore is cluster enabled.
+-- 'engineVersion', 'globalReplicationGroup_engineVersion' - The Elasticache Redis engine version.
 --
 -- 'status', 'globalReplicationGroup_status' - The status of the Global datastore
 --
--- 'globalReplicationGroupId', 'globalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
+-- 'cacheNodeType', 'globalReplicationGroup_cacheNodeType' - The cache node type of the Global datastore
 --
--- 'arn', 'globalReplicationGroup_arn' - The ARN (Amazon Resource Name) of the global replication group.
---
--- 'globalNodeGroups', 'globalReplicationGroup_globalNodeGroups' - Indicates the slot configuration and global identifier for each slice
--- group.
+-- 'clusterEnabled', 'globalReplicationGroup_clusterEnabled' - A flag that indicates whether the Global datastore is cluster enabled.
 --
 -- 'atRestEncryptionEnabled', 'globalReplicationGroup_atRestEncryptionEnabled' - A flag that enables encryption at rest when set to @true@.
 --
@@ -112,20 +109,7 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
 --
--- 'engineVersion', 'globalReplicationGroup_engineVersion' - The Elasticache Redis engine version.
---
--- 'cacheNodeType', 'globalReplicationGroup_cacheNodeType' - The cache node type of the Global datastore
---
--- 'globalReplicationGroupDescription', 'globalReplicationGroup_globalReplicationGroupDescription' - The optional description of the Global datastore
---
--- 'engine', 'globalReplicationGroup_engine' - The Elasticache engine. For Redis only.
---
--- 'authTokenEnabled', 'globalReplicationGroup_authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis
--- commands.
---
--- Default: @false@
---
--- 'members', 'globalReplicationGroup_members' - The replication groups that comprise the Global datastore.
+-- 'arn', 'globalReplicationGroup_arn' - The ARN (Amazon Resource Name) of the global replication group.
 --
 -- 'transitEncryptionEnabled', 'globalReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot
 -- modify the value of @TransitEncryptionEnabled@ after the cluster is
@@ -134,46 +118,57 @@ data GlobalReplicationGroup = GlobalReplicationGroup'
 --
 -- __Required:__ Only available when creating a replication group in an
 -- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
+--
+-- 'members', 'globalReplicationGroup_members' - The replication groups that comprise the Global datastore.
+--
+-- 'engine', 'globalReplicationGroup_engine' - The Elasticache engine. For Redis only.
+--
+-- 'authTokenEnabled', 'globalReplicationGroup_authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis
+-- commands.
+--
+-- Default: @false@
+--
+-- 'globalNodeGroups', 'globalReplicationGroup_globalNodeGroups' - Indicates the slot configuration and global identifier for each slice
+-- group.
+--
+-- 'globalReplicationGroupId', 'globalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
+--
+-- 'globalReplicationGroupDescription', 'globalReplicationGroup_globalReplicationGroupDescription' - The optional description of the Global datastore
 newGlobalReplicationGroup ::
   GlobalReplicationGroup
 newGlobalReplicationGroup =
   GlobalReplicationGroup'
-    { clusterEnabled =
+    { engineVersion =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      globalReplicationGroupId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      globalNodeGroups = Prelude.Nothing,
-      atRestEncryptionEnabled = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
-      globalReplicationGroupDescription = Prelude.Nothing,
+      clusterEnabled = Prelude.Nothing,
+      atRestEncryptionEnabled = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      transitEncryptionEnabled = Prelude.Nothing,
+      members = Prelude.Nothing,
       engine = Prelude.Nothing,
       authTokenEnabled = Prelude.Nothing,
-      members = Prelude.Nothing,
-      transitEncryptionEnabled = Prelude.Nothing
+      globalNodeGroups = Prelude.Nothing,
+      globalReplicationGroupId = Prelude.Nothing,
+      globalReplicationGroupDescription = Prelude.Nothing
     }
 
--- | A flag that indicates whether the Global datastore is cluster enabled.
-globalReplicationGroup_clusterEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
-globalReplicationGroup_clusterEnabled = Lens.lens (\GlobalReplicationGroup' {clusterEnabled} -> clusterEnabled) (\s@GlobalReplicationGroup' {} a -> s {clusterEnabled = a} :: GlobalReplicationGroup)
+-- | The Elasticache Redis engine version.
+globalReplicationGroup_engineVersion :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+globalReplicationGroup_engineVersion = Lens.lens (\GlobalReplicationGroup' {engineVersion} -> engineVersion) (\s@GlobalReplicationGroup' {} a -> s {engineVersion = a} :: GlobalReplicationGroup)
 
 -- | The status of the Global datastore
 globalReplicationGroup_status :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
 globalReplicationGroup_status = Lens.lens (\GlobalReplicationGroup' {status} -> status) (\s@GlobalReplicationGroup' {} a -> s {status = a} :: GlobalReplicationGroup)
 
--- | The name of the Global datastore
-globalReplicationGroup_globalReplicationGroupId :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-globalReplicationGroup_globalReplicationGroupId = Lens.lens (\GlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@GlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: GlobalReplicationGroup)
+-- | The cache node type of the Global datastore
+globalReplicationGroup_cacheNodeType :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+globalReplicationGroup_cacheNodeType = Lens.lens (\GlobalReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@GlobalReplicationGroup' {} a -> s {cacheNodeType = a} :: GlobalReplicationGroup)
 
--- | The ARN (Amazon Resource Name) of the global replication group.
-globalReplicationGroup_arn :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-globalReplicationGroup_arn = Lens.lens (\GlobalReplicationGroup' {arn} -> arn) (\s@GlobalReplicationGroup' {} a -> s {arn = a} :: GlobalReplicationGroup)
-
--- | Indicates the slot configuration and global identifier for each slice
--- group.
-globalReplicationGroup_globalNodeGroups :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe [GlobalNodeGroup])
-globalReplicationGroup_globalNodeGroups = Lens.lens (\GlobalReplicationGroup' {globalNodeGroups} -> globalNodeGroups) (\s@GlobalReplicationGroup' {} a -> s {globalNodeGroups = a} :: GlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+-- | A flag that indicates whether the Global datastore is cluster enabled.
+globalReplicationGroup_clusterEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
+globalReplicationGroup_clusterEnabled = Lens.lens (\GlobalReplicationGroup' {clusterEnabled} -> clusterEnabled) (\s@GlobalReplicationGroup' {} a -> s {clusterEnabled = a} :: GlobalReplicationGroup)
 
 -- | A flag that enables encryption at rest when set to @true@.
 --
@@ -187,17 +182,23 @@ globalReplicationGroup_globalNodeGroups = Lens.lens (\GlobalReplicationGroup' {g
 globalReplicationGroup_atRestEncryptionEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
 globalReplicationGroup_atRestEncryptionEnabled = Lens.lens (\GlobalReplicationGroup' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@GlobalReplicationGroup' {} a -> s {atRestEncryptionEnabled = a} :: GlobalReplicationGroup)
 
--- | The Elasticache Redis engine version.
-globalReplicationGroup_engineVersion :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-globalReplicationGroup_engineVersion = Lens.lens (\GlobalReplicationGroup' {engineVersion} -> engineVersion) (\s@GlobalReplicationGroup' {} a -> s {engineVersion = a} :: GlobalReplicationGroup)
+-- | The ARN (Amazon Resource Name) of the global replication group.
+globalReplicationGroup_arn :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+globalReplicationGroup_arn = Lens.lens (\GlobalReplicationGroup' {arn} -> arn) (\s@GlobalReplicationGroup' {} a -> s {arn = a} :: GlobalReplicationGroup)
 
--- | The cache node type of the Global datastore
-globalReplicationGroup_cacheNodeType :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-globalReplicationGroup_cacheNodeType = Lens.lens (\GlobalReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@GlobalReplicationGroup' {} a -> s {cacheNodeType = a} :: GlobalReplicationGroup)
+-- | A flag that enables in-transit encryption when set to true. You cannot
+-- modify the value of @TransitEncryptionEnabled@ after the cluster is
+-- created. To enable in-transit encryption on a cluster you must set
+-- @TransitEncryptionEnabled@ to true when you create a cluster.
+--
+-- __Required:__ Only available when creating a replication group in an
+-- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
+globalReplicationGroup_transitEncryptionEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
+globalReplicationGroup_transitEncryptionEnabled = Lens.lens (\GlobalReplicationGroup' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@GlobalReplicationGroup' {} a -> s {transitEncryptionEnabled = a} :: GlobalReplicationGroup)
 
--- | The optional description of the Global datastore
-globalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
-globalReplicationGroup_globalReplicationGroupDescription = Lens.lens (\GlobalReplicationGroup' {globalReplicationGroupDescription} -> globalReplicationGroupDescription) (\s@GlobalReplicationGroup' {} a -> s {globalReplicationGroupDescription = a} :: GlobalReplicationGroup)
+-- | The replication groups that comprise the Global datastore.
+globalReplicationGroup_members :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe [GlobalReplicationGroupMember])
+globalReplicationGroup_members = Lens.lens (\GlobalReplicationGroup' {members} -> members) (\s@GlobalReplicationGroup' {} a -> s {members = a} :: GlobalReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Elasticache engine. For Redis only.
 globalReplicationGroup_engine :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
@@ -210,42 +211,41 @@ globalReplicationGroup_engine = Lens.lens (\GlobalReplicationGroup' {engine} -> 
 globalReplicationGroup_authTokenEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
 globalReplicationGroup_authTokenEnabled = Lens.lens (\GlobalReplicationGroup' {authTokenEnabled} -> authTokenEnabled) (\s@GlobalReplicationGroup' {} a -> s {authTokenEnabled = a} :: GlobalReplicationGroup)
 
--- | The replication groups that comprise the Global datastore.
-globalReplicationGroup_members :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe [GlobalReplicationGroupMember])
-globalReplicationGroup_members = Lens.lens (\GlobalReplicationGroup' {members} -> members) (\s@GlobalReplicationGroup' {} a -> s {members = a} :: GlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+-- | Indicates the slot configuration and global identifier for each slice
+-- group.
+globalReplicationGroup_globalNodeGroups :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe [GlobalNodeGroup])
+globalReplicationGroup_globalNodeGroups = Lens.lens (\GlobalReplicationGroup' {globalNodeGroups} -> globalNodeGroups) (\s@GlobalReplicationGroup' {} a -> s {globalNodeGroups = a} :: GlobalReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag that enables in-transit encryption when set to true. You cannot
--- modify the value of @TransitEncryptionEnabled@ after the cluster is
--- created. To enable in-transit encryption on a cluster you must set
--- @TransitEncryptionEnabled@ to true when you create a cluster.
---
--- __Required:__ Only available when creating a replication group in an
--- Amazon VPC using redis version @3.2.6@, @4.x@ or later.
-globalReplicationGroup_transitEncryptionEnabled :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Bool)
-globalReplicationGroup_transitEncryptionEnabled = Lens.lens (\GlobalReplicationGroup' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@GlobalReplicationGroup' {} a -> s {transitEncryptionEnabled = a} :: GlobalReplicationGroup)
+-- | The name of the Global datastore
+globalReplicationGroup_globalReplicationGroupId :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+globalReplicationGroup_globalReplicationGroupId = Lens.lens (\GlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@GlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: GlobalReplicationGroup)
+
+-- | The optional description of the Global datastore
+globalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' GlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+globalReplicationGroup_globalReplicationGroupDescription = Lens.lens (\GlobalReplicationGroup' {globalReplicationGroupDescription} -> globalReplicationGroupDescription) (\s@GlobalReplicationGroup' {} a -> s {globalReplicationGroupDescription = a} :: GlobalReplicationGroup)
 
 instance Core.FromXML GlobalReplicationGroup where
   parseXML x =
     GlobalReplicationGroup'
-      Prelude.<$> (x Core..@? "ClusterEnabled")
+      Prelude.<$> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
-      Prelude.<*> (x Core..@? "ARN")
-      Prelude.<*> ( x Core..@? "GlobalNodeGroups"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "GlobalNodeGroup")
-                  )
-      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
-      Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "GlobalReplicationGroupDescription")
-      Prelude.<*> (x Core..@? "Engine")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
+      Prelude.<*> (x Core..@? "ClusterEnabled")
+      Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
+      Prelude.<*> (x Core..@? "ARN")
+      Prelude.<*> (x Core..@? "TransitEncryptionEnabled")
       Prelude.<*> ( x Core..@? "Members" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Core.parseXMLList "GlobalReplicationGroupMember")
                   )
-      Prelude.<*> (x Core..@? "TransitEncryptionEnabled")
+      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "AuthTokenEnabled")
+      Prelude.<*> ( x Core..@? "GlobalNodeGroups"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "GlobalNodeGroup")
+                  )
+      Prelude.<*> (x Core..@? "GlobalReplicationGroupId")
+      Prelude.<*> (x Core..@? "GlobalReplicationGroupDescription")
 
 instance Prelude.Hashable GlobalReplicationGroup
 

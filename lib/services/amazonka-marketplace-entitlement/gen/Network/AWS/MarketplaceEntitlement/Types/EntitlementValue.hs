@@ -28,7 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntitlementValue' smart constructor.
 data EntitlementValue = EntitlementValue'
-  { -- | The DoubleValue field will be populated with a double value when the
+  { -- | The IntegerValue field will be populated with an integer value when the
+    -- entitlement is an integer type. Otherwise, the field will not be set.
+    integerValue :: Prelude.Maybe Prelude.Int,
+    -- | The DoubleValue field will be populated with a double value when the
     -- entitlement is a double type. Otherwise, the field will not be set.
     doubleValue :: Prelude.Maybe Prelude.Double,
     -- | The StringValue field will be populated with a string value when the
@@ -36,10 +39,7 @@ data EntitlementValue = EntitlementValue'
     stringValue :: Prelude.Maybe Prelude.Text,
     -- | The BooleanValue field will be populated with a boolean value when the
     -- entitlement is a boolean type. Otherwise, the field will not be set.
-    booleanValue :: Prelude.Maybe Prelude.Bool,
-    -- | The IntegerValue field will be populated with an integer value when the
-    -- entitlement is an integer type. Otherwise, the field will not be set.
-    integerValue :: Prelude.Maybe Prelude.Int
+    booleanValue :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,6 +51,9 @@ data EntitlementValue = EntitlementValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'integerValue', 'entitlementValue_integerValue' - The IntegerValue field will be populated with an integer value when the
+-- entitlement is an integer type. Otherwise, the field will not be set.
+--
 -- 'doubleValue', 'entitlementValue_doubleValue' - The DoubleValue field will be populated with a double value when the
 -- entitlement is a double type. Otherwise, the field will not be set.
 --
@@ -59,18 +62,20 @@ data EntitlementValue = EntitlementValue'
 --
 -- 'booleanValue', 'entitlementValue_booleanValue' - The BooleanValue field will be populated with a boolean value when the
 -- entitlement is a boolean type. Otherwise, the field will not be set.
---
--- 'integerValue', 'entitlementValue_integerValue' - The IntegerValue field will be populated with an integer value when the
--- entitlement is an integer type. Otherwise, the field will not be set.
 newEntitlementValue ::
   EntitlementValue
 newEntitlementValue =
   EntitlementValue'
-    { doubleValue = Prelude.Nothing,
+    { integerValue = Prelude.Nothing,
+      doubleValue = Prelude.Nothing,
       stringValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
-      integerValue = Prelude.Nothing
+      booleanValue = Prelude.Nothing
     }
+
+-- | The IntegerValue field will be populated with an integer value when the
+-- entitlement is an integer type. Otherwise, the field will not be set.
+entitlementValue_integerValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Int)
+entitlementValue_integerValue = Lens.lens (\EntitlementValue' {integerValue} -> integerValue) (\s@EntitlementValue' {} a -> s {integerValue = a} :: EntitlementValue)
 
 -- | The DoubleValue field will be populated with a double value when the
 -- entitlement is a double type. Otherwise, the field will not be set.
@@ -87,21 +92,16 @@ entitlementValue_stringValue = Lens.lens (\EntitlementValue' {stringValue} -> st
 entitlementValue_booleanValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Bool)
 entitlementValue_booleanValue = Lens.lens (\EntitlementValue' {booleanValue} -> booleanValue) (\s@EntitlementValue' {} a -> s {booleanValue = a} :: EntitlementValue)
 
--- | The IntegerValue field will be populated with an integer value when the
--- entitlement is an integer type. Otherwise, the field will not be set.
-entitlementValue_integerValue :: Lens.Lens' EntitlementValue (Prelude.Maybe Prelude.Int)
-entitlementValue_integerValue = Lens.lens (\EntitlementValue' {integerValue} -> integerValue) (\s@EntitlementValue' {} a -> s {integerValue = a} :: EntitlementValue)
-
 instance Core.FromJSON EntitlementValue where
   parseJSON =
     Core.withObject
       "EntitlementValue"
       ( \x ->
           EntitlementValue'
-            Prelude.<$> (x Core..:? "DoubleValue")
+            Prelude.<$> (x Core..:? "IntegerValue")
+            Prelude.<*> (x Core..:? "DoubleValue")
             Prelude.<*> (x Core..:? "StringValue")
             Prelude.<*> (x Core..:? "BooleanValue")
-            Prelude.<*> (x Core..:? "IntegerValue")
       )
 
 instance Prelude.Hashable EntitlementValue

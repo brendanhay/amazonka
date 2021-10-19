@@ -31,7 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntitlement' smart constructor.
 data Entitlement = Entitlement'
-  { -- | The expiration date represents the minimum date through which this
+  { -- | The dimension for which the given entitlement applies. Dimensions
+    -- represent categories of capacity in a product and are specified when the
+    -- product is listed in AWS Marketplace.
+    dimension :: Prelude.Maybe Prelude.Text,
+    -- | The EntitlementValue represents the amount of capacity that the customer
+    -- is entitled to for the product.
+    value :: Prelude.Maybe EntitlementValue,
+    -- | The expiration date represents the minimum date through which this
     -- entitlement is expected to remain valid. For contractual products listed
     -- on AWS Marketplace, the expiration date is the date at which the
     -- customer will renew or cancel their contract. Customers who are opting
@@ -44,14 +51,7 @@ data Entitlement = Entitlement'
     customerIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The product code for which the given entitlement applies. Product codes
     -- are provided by AWS Marketplace when the product listing is created.
-    productCode :: Prelude.Maybe Prelude.Text,
-    -- | The EntitlementValue represents the amount of capacity that the customer
-    -- is entitled to for the product.
-    value :: Prelude.Maybe EntitlementValue,
-    -- | The dimension for which the given entitlement applies. Dimensions
-    -- represent categories of capacity in a product and are specified when the
-    -- product is listed in AWS Marketplace.
-    dimension :: Prelude.Maybe Prelude.Text
+    productCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,13 @@ data Entitlement = Entitlement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dimension', 'entitlement_dimension' - The dimension for which the given entitlement applies. Dimensions
+-- represent categories of capacity in a product and are specified when the
+-- product is listed in AWS Marketplace.
+--
+-- 'value', 'entitlement_value' - The EntitlementValue represents the amount of capacity that the customer
+-- is entitled to for the product.
 --
 -- 'expirationDate', 'entitlement_expirationDate' - The expiration date represents the minimum date through which this
 -- entitlement is expected to remain valid. For contractual products listed
@@ -76,23 +83,27 @@ data Entitlement = Entitlement'
 --
 -- 'productCode', 'entitlement_productCode' - The product code for which the given entitlement applies. Product codes
 -- are provided by AWS Marketplace when the product listing is created.
---
--- 'value', 'entitlement_value' - The EntitlementValue represents the amount of capacity that the customer
--- is entitled to for the product.
---
--- 'dimension', 'entitlement_dimension' - The dimension for which the given entitlement applies. Dimensions
--- represent categories of capacity in a product and are specified when the
--- product is listed in AWS Marketplace.
 newEntitlement ::
   Entitlement
 newEntitlement =
   Entitlement'
-    { expirationDate = Prelude.Nothing,
-      customerIdentifier = Prelude.Nothing,
-      productCode = Prelude.Nothing,
+    { dimension = Prelude.Nothing,
       value = Prelude.Nothing,
-      dimension = Prelude.Nothing
+      expirationDate = Prelude.Nothing,
+      customerIdentifier = Prelude.Nothing,
+      productCode = Prelude.Nothing
     }
+
+-- | The dimension for which the given entitlement applies. Dimensions
+-- represent categories of capacity in a product and are specified when the
+-- product is listed in AWS Marketplace.
+entitlement_dimension :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_dimension = Lens.lens (\Entitlement' {dimension} -> dimension) (\s@Entitlement' {} a -> s {dimension = a} :: Entitlement)
+
+-- | The EntitlementValue represents the amount of capacity that the customer
+-- is entitled to for the product.
+entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementValue)
+entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
 
 -- | The expiration date represents the minimum date through which this
 -- entitlement is expected to remain valid. For contractual products listed
@@ -114,28 +125,17 @@ entitlement_customerIdentifier = Lens.lens (\Entitlement' {customerIdentifier} -
 entitlement_productCode :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
 entitlement_productCode = Lens.lens (\Entitlement' {productCode} -> productCode) (\s@Entitlement' {} a -> s {productCode = a} :: Entitlement)
 
--- | The EntitlementValue represents the amount of capacity that the customer
--- is entitled to for the product.
-entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementValue)
-entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
-
--- | The dimension for which the given entitlement applies. Dimensions
--- represent categories of capacity in a product and are specified when the
--- product is listed in AWS Marketplace.
-entitlement_dimension :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
-entitlement_dimension = Lens.lens (\Entitlement' {dimension} -> dimension) (\s@Entitlement' {} a -> s {dimension = a} :: Entitlement)
-
 instance Core.FromJSON Entitlement where
   parseJSON =
     Core.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Core..:? "ExpirationDate")
+            Prelude.<$> (x Core..:? "Dimension")
+            Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "ExpirationDate")
             Prelude.<*> (x Core..:? "CustomerIdentifier")
             Prelude.<*> (x Core..:? "ProductCode")
-            Prelude.<*> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Dimension")
       )
 
 instance Prelude.Hashable Entitlement

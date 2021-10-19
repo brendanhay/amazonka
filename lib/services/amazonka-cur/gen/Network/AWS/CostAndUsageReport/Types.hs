@@ -17,10 +17,10 @@ module Network.AWS.CostAndUsageReport.Types
     defaultService,
 
     -- * Errors
-    _DuplicateReportNameException,
-    _InternalErrorException,
-    _ReportLimitReachedException,
     _ValidationException,
+    _InternalErrorException,
+    _DuplicateReportNameException,
+    _ReportLimitReachedException,
 
     -- * AWSRegion
     AWSRegion (..),
@@ -47,8 +47,8 @@ module Network.AWS.CostAndUsageReport.Types
     ReportDefinition (..),
     newReportDefinition,
     reportDefinition_reportVersioning,
-    reportDefinition_additionalArtifacts,
     reportDefinition_billingViewArn,
+    reportDefinition_additionalArtifacts,
     reportDefinition_refreshClosedReports,
     reportDefinition_reportName,
     reportDefinition_timeUnit,
@@ -101,37 +101,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -144,15 +121,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | A report with the specified name already exists in the account. Specify
--- a different report name.
-_DuplicateReportNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateReportNameException =
+-- | The input fails to satisfy the constraints specified by an AWS service.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "DuplicateReportNameException"
+    "ValidationException"
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
@@ -162,6 +161,14 @@ _InternalErrorException =
     defaultService
     "InternalErrorException"
 
+-- | A report with the specified name already exists in the account. Specify
+-- a different report name.
+_DuplicateReportNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateReportNameException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateReportNameException"
+
 -- | This account already has five reports defined. To define a new report,
 -- you must delete an existing report.
 _ReportLimitReachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -169,10 +176,3 @@ _ReportLimitReachedException =
   Core._MatchServiceError
     defaultService
     "ReportLimitReachedException"
-
--- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"

@@ -203,7 +203,7 @@ describeReportDefinitionsResponse_nextToken = Lens.lens (\DescribeReportDefiniti
 
 -- | A list of AWS Cost and Usage reports owned by the account.
 describeReportDefinitionsResponse_reportDefinitions :: Lens.Lens' DescribeReportDefinitionsResponse (Prelude.Maybe [ReportDefinition])
-describeReportDefinitionsResponse_reportDefinitions = Lens.lens (\DescribeReportDefinitionsResponse' {reportDefinitions} -> reportDefinitions) (\s@DescribeReportDefinitionsResponse' {} a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeReportDefinitionsResponse_reportDefinitions = Lens.lens (\DescribeReportDefinitionsResponse' {reportDefinitions} -> reportDefinitions) (\s@DescribeReportDefinitionsResponse' {} a -> s {reportDefinitions = a} :: DescribeReportDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeReportDefinitionsResponse_httpStatus :: Lens.Lens' DescribeReportDefinitionsResponse Prelude.Int

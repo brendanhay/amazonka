@@ -27,55 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestModifyReportDefinition $
---             newModifyReportDefinition
+--         [ requestPutReportDefinition $
+--             newPutReportDefinition
 --
 --         , requestDeleteReportDefinition $
 --             newDeleteReportDefinition
 --
+--         , requestModifyReportDefinition $
+--             newModifyReportDefinition
+--
 --         , requestDescribeReportDefinitions $
 --             newDescribeReportDefinitions
---
---         , requestPutReportDefinition $
---             newPutReportDefinition
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseModifyReportDefinition $
---             newModifyReportDefinitionResponse
+--         [ responsePutReportDefinition $
+--             newPutReportDefinitionResponse
 --
 --         , responseDeleteReportDefinition $
 --             newDeleteReportDefinitionResponse
 --
+--         , responseModifyReportDefinition $
+--             newModifyReportDefinitionResponse
+--
 --         , responseDescribeReportDefinitions $
 --             newDescribeReportDefinitionsResponse
---
---         , responsePutReportDefinition $
---             newPutReportDefinitionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestModifyReportDefinition :: ModifyReportDefinition -> TestTree
-requestModifyReportDefinition =
-  req
-    "ModifyReportDefinition"
-    "fixture/ModifyReportDefinition.yaml"
-
-requestDeleteReportDefinition :: DeleteReportDefinition -> TestTree
-requestDeleteReportDefinition =
-  req
-    "DeleteReportDefinition"
-    "fixture/DeleteReportDefinition.yaml"
-
-requestDescribeReportDefinitions :: DescribeReportDefinitions -> TestTree
-requestDescribeReportDefinitions =
-  req
-    "DescribeReportDefinitions"
-    "fixture/DescribeReportDefinitions.yaml"
 
 requestPutReportDefinition :: PutReportDefinition -> TestTree
 requestPutReportDefinition =
@@ -83,15 +65,33 @@ requestPutReportDefinition =
     "PutReportDefinition"
     "fixture/PutReportDefinition.yaml"
 
+requestDeleteReportDefinition :: DeleteReportDefinition -> TestTree
+requestDeleteReportDefinition =
+  req
+    "DeleteReportDefinition"
+    "fixture/DeleteReportDefinition.yaml"
+
+requestModifyReportDefinition :: ModifyReportDefinition -> TestTree
+requestModifyReportDefinition =
+  req
+    "ModifyReportDefinition"
+    "fixture/ModifyReportDefinition.yaml"
+
+requestDescribeReportDefinitions :: DescribeReportDefinitions -> TestTree
+requestDescribeReportDefinitions =
+  req
+    "DescribeReportDefinitions"
+    "fixture/DescribeReportDefinitions.yaml"
+
 -- Responses
 
-responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
-responseModifyReportDefinition =
+responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
+responsePutReportDefinition =
   res
-    "ModifyReportDefinitionResponse"
-    "fixture/ModifyReportDefinitionResponse.proto"
+    "PutReportDefinitionResponse"
+    "fixture/PutReportDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ModifyReportDefinition)
+    (Proxy :: Proxy PutReportDefinition)
 
 responseDeleteReportDefinition :: DeleteReportDefinitionResponse -> TestTree
 responseDeleteReportDefinition =
@@ -101,6 +101,14 @@ responseDeleteReportDefinition =
     defaultService
     (Proxy :: Proxy DeleteReportDefinition)
 
+responseModifyReportDefinition :: ModifyReportDefinitionResponse -> TestTree
+responseModifyReportDefinition =
+  res
+    "ModifyReportDefinitionResponse"
+    "fixture/ModifyReportDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy ModifyReportDefinition)
+
 responseDescribeReportDefinitions :: DescribeReportDefinitionsResponse -> TestTree
 responseDescribeReportDefinitions =
   res
@@ -108,11 +116,3 @@ responseDescribeReportDefinitions =
     "fixture/DescribeReportDefinitionsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeReportDefinitions)
-
-responsePutReportDefinition :: PutReportDefinitionResponse -> TestTree
-responsePutReportDefinition =
-  res
-    "PutReportDefinitionResponse"
-    "fixture/PutReportDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutReportDefinition)

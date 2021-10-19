@@ -27,43 +27,31 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetProducts $
---             newGetProducts
+--         [ requestGetAttributeValues $
+--             newGetAttributeValues
 --
 --         , requestDescribeServices $
 --             newDescribeServices
 --
---         , requestGetAttributeValues $
---             newGetAttributeValues
+--         , requestGetProducts $
+--             newGetProducts
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetProducts $
---             newGetProductsResponse
+--         [ responseGetAttributeValues $
+--             newGetAttributeValuesResponse
 --
 --         , responseDescribeServices $
 --             newDescribeServicesResponse
 --
---         , responseGetAttributeValues $
---             newGetAttributeValuesResponse
+--         , responseGetProducts $
+--             newGetProductsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetProducts :: GetProducts -> TestTree
-requestGetProducts =
-  req
-    "GetProducts"
-    "fixture/GetProducts.yaml"
-
-requestDescribeServices :: DescribeServices -> TestTree
-requestDescribeServices =
-  req
-    "DescribeServices"
-    "fixture/DescribeServices.yaml"
 
 requestGetAttributeValues :: GetAttributeValues -> TestTree
 requestGetAttributeValues =
@@ -71,15 +59,27 @@ requestGetAttributeValues =
     "GetAttributeValues"
     "fixture/GetAttributeValues.yaml"
 
+requestDescribeServices :: DescribeServices -> TestTree
+requestDescribeServices =
+  req
+    "DescribeServices"
+    "fixture/DescribeServices.yaml"
+
+requestGetProducts :: GetProducts -> TestTree
+requestGetProducts =
+  req
+    "GetProducts"
+    "fixture/GetProducts.yaml"
+
 -- Responses
 
-responseGetProducts :: GetProductsResponse -> TestTree
-responseGetProducts =
+responseGetAttributeValues :: GetAttributeValuesResponse -> TestTree
+responseGetAttributeValues =
   res
-    "GetProductsResponse"
-    "fixture/GetProductsResponse.proto"
+    "GetAttributeValuesResponse"
+    "fixture/GetAttributeValuesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetProducts)
+    (Proxy :: Proxy GetAttributeValues)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices =
@@ -89,10 +89,10 @@ responseDescribeServices =
     defaultService
     (Proxy :: Proxy DescribeServices)
 
-responseGetAttributeValues :: GetAttributeValuesResponse -> TestTree
-responseGetAttributeValues =
+responseGetProducts :: GetProductsResponse -> TestTree
+responseGetProducts =
   res
-    "GetAttributeValuesResponse"
-    "fixture/GetAttributeValuesResponse.proto"
+    "GetProductsResponse"
+    "fixture/GetProductsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAttributeValues)
+    (Proxy :: Proxy GetProducts)

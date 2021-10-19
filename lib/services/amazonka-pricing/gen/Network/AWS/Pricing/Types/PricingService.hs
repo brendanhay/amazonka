@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPricingService' smart constructor.
 data PricingService = PricingService'
-  { -- | The code for the Amazon Web Services service.
-    serviceCode :: Prelude.Maybe Prelude.Text,
-    -- | The attributes that are available for this service.
-    attributeNames :: Prelude.Maybe [Prelude.Text]
+  { -- | The attributes that are available for this service.
+    attributeNames :: Prelude.Maybe [Prelude.Text],
+    -- | The code for the Amazon Web Services service.
+    serviceCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data PricingService = PricingService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceCode', 'pricingService_serviceCode' - The code for the Amazon Web Services service.
---
 -- 'attributeNames', 'pricingService_attributeNames' - The attributes that are available for this service.
+--
+-- 'serviceCode', 'pricingService_serviceCode' - The code for the Amazon Web Services service.
 newPricingService ::
   PricingService
 newPricingService =
   PricingService'
-    { serviceCode = Prelude.Nothing,
-      attributeNames = Prelude.Nothing
+    { attributeNames = Prelude.Nothing,
+      serviceCode = Prelude.Nothing
     }
+
+-- | The attributes that are available for this service.
+pricingService_attributeNames :: Lens.Lens' PricingService (Prelude.Maybe [Prelude.Text])
+pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> attributeNames) (\s@PricingService' {} a -> s {attributeNames = a} :: PricingService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The code for the Amazon Web Services service.
 pricingService_serviceCode :: Lens.Lens' PricingService (Prelude.Maybe Prelude.Text)
 pricingService_serviceCode = Lens.lens (\PricingService' {serviceCode} -> serviceCode) (\s@PricingService' {} a -> s {serviceCode = a} :: PricingService)
-
--- | The attributes that are available for this service.
-pricingService_attributeNames :: Lens.Lens' PricingService (Prelude.Maybe [Prelude.Text])
-pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> attributeNames) (\s@PricingService' {} a -> s {attributeNames = a} :: PricingService) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON PricingService where
   parseJSON =
@@ -68,10 +68,8 @@ instance Core.FromJSON PricingService where
       "PricingService"
       ( \x ->
           PricingService'
-            Prelude.<$> (x Core..:? "ServiceCode")
-            Prelude.<*> ( x Core..:? "AttributeNames"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ServiceCode")
       )
 
 instance Prelude.Hashable PricingService

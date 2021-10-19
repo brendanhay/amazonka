@@ -64,8 +64,8 @@ data PutConfigurationSetSuppressionOptions = PutConfigurationSetSuppressionOptio
     --     for your account when a message sent to that address results in a
     --     hard bounce.
     suppressedReasons :: Prelude.Maybe [SuppressionListReason],
-    -- | The name of the configuration set that you want to change the
-    -- suppression list preferences for.
+    -- | The name of the configuration set to change the suppression list
+    -- preferences for.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,8 +90,8 @@ data PutConfigurationSetSuppressionOptions = PutConfigurationSetSuppressionOptio
 --     for your account when a message sent to that address results in a
 --     hard bounce.
 --
--- 'configurationSetName', 'putConfigurationSetSuppressionOptions_configurationSetName' - The name of the configuration set that you want to change the
--- suppression list preferences for.
+-- 'configurationSetName', 'putConfigurationSetSuppressionOptions_configurationSetName' - The name of the configuration set to change the suppression list
+-- preferences for.
 newPutConfigurationSetSuppressionOptions ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -117,10 +117,10 @@ newPutConfigurationSetSuppressionOptions
 --     for your account when a message sent to that address results in a
 --     hard bounce.
 putConfigurationSetSuppressionOptions_suppressedReasons :: Lens.Lens' PutConfigurationSetSuppressionOptions (Prelude.Maybe [SuppressionListReason])
-putConfigurationSetSuppressionOptions_suppressedReasons = Lens.lens (\PutConfigurationSetSuppressionOptions' {suppressedReasons} -> suppressedReasons) (\s@PutConfigurationSetSuppressionOptions' {} a -> s {suppressedReasons = a} :: PutConfigurationSetSuppressionOptions) Prelude.. Lens.mapping Lens._Coerce
+putConfigurationSetSuppressionOptions_suppressedReasons = Lens.lens (\PutConfigurationSetSuppressionOptions' {suppressedReasons} -> suppressedReasons) (\s@PutConfigurationSetSuppressionOptions' {} a -> s {suppressedReasons = a} :: PutConfigurationSetSuppressionOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the configuration set that you want to change the
--- suppression list preferences for.
+-- | The name of the configuration set to change the suppression list
+-- preferences for.
 putConfigurationSetSuppressionOptions_configurationSetName :: Lens.Lens' PutConfigurationSetSuppressionOptions Prelude.Text
 putConfigurationSetSuppressionOptions_configurationSetName = Lens.lens (\PutConfigurationSetSuppressionOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetSuppressionOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetSuppressionOptions)
 

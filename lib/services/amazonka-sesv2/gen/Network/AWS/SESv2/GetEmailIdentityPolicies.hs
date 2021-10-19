@@ -63,7 +63,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newGetEmailIdentityPolicies' smart constructor.
 data GetEmailIdentityPolicies = GetEmailIdentityPolicies'
-  { -- | The email identity that you want to retrieve policies for.
+  { -- | The email identity.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data GetEmailIdentityPolicies = GetEmailIdentityPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentity', 'getEmailIdentityPolicies_emailIdentity' - The email identity that you want to retrieve policies for.
+-- 'emailIdentity', 'getEmailIdentityPolicies_emailIdentity' - The email identity.
 newGetEmailIdentityPolicies ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -87,7 +87,7 @@ newGetEmailIdentityPolicies pEmailIdentity_ =
         pEmailIdentity_
     }
 
--- | The email identity that you want to retrieve policies for.
+-- | The email identity.
 getEmailIdentityPolicies_emailIdentity :: Lens.Lens' GetEmailIdentityPolicies Prelude.Text
 getEmailIdentityPolicies_emailIdentity = Lens.lens (\GetEmailIdentityPolicies' {emailIdentity} -> emailIdentity) (\s@GetEmailIdentityPolicies' {} a -> s {emailIdentity = a} :: GetEmailIdentityPolicies)
 
@@ -165,7 +165,7 @@ newGetEmailIdentityPoliciesResponse pHttpStatus_ =
 
 -- | A map of policy names to policies.
 getEmailIdentityPoliciesResponse_policies :: Lens.Lens' GetEmailIdentityPoliciesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEmailIdentityPoliciesResponse_policies = Lens.lens (\GetEmailIdentityPoliciesResponse' {policies} -> policies) (\s@GetEmailIdentityPoliciesResponse' {} a -> s {policies = a} :: GetEmailIdentityPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+getEmailIdentityPoliciesResponse_policies = Lens.lens (\GetEmailIdentityPoliciesResponse' {policies} -> policies) (\s@GetEmailIdentityPoliciesResponse' {} a -> s {policies = a} :: GetEmailIdentityPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEmailIdentityPoliciesResponse_httpStatus :: Lens.Lens' GetEmailIdentityPoliciesResponse Prelude.Int

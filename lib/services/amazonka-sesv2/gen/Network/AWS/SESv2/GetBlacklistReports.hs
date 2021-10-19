@@ -82,7 +82,7 @@ newGetBlacklistReports =
 -- about. You can only specify the dedicated IP addresses that you use to
 -- send email using Amazon SES or Amazon Pinpoint.
 getBlacklistReports_blacklistItemNames :: Lens.Lens' GetBlacklistReports [Prelude.Text]
-getBlacklistReports_blacklistItemNames = Lens.lens (\GetBlacklistReports' {blacklistItemNames} -> blacklistItemNames) (\s@GetBlacklistReports' {} a -> s {blacklistItemNames = a} :: GetBlacklistReports) Prelude.. Lens._Coerce
+getBlacklistReports_blacklistItemNames = Lens.lens (\GetBlacklistReports' {blacklistItemNames} -> blacklistItemNames) (\s@GetBlacklistReports' {} a -> s {blacklistItemNames = a} :: GetBlacklistReports) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetBlacklistReports where
   type
@@ -168,6 +168,6 @@ getBlacklistReportsResponse_httpStatus = Lens.lens (\GetBlacklistReportsResponse
 -- | An object that contains information about a blacklist that one of your
 -- dedicated IP addresses appears on.
 getBlacklistReportsResponse_blacklistReport :: Lens.Lens' GetBlacklistReportsResponse (Prelude.HashMap Prelude.Text [BlacklistEntry])
-getBlacklistReportsResponse_blacklistReport = Lens.lens (\GetBlacklistReportsResponse' {blacklistReport} -> blacklistReport) (\s@GetBlacklistReportsResponse' {} a -> s {blacklistReport = a} :: GetBlacklistReportsResponse) Prelude.. Lens._Coerce
+getBlacklistReportsResponse_blacklistReport = Lens.lens (\GetBlacklistReportsResponse' {blacklistReport} -> blacklistReport) (\s@GetBlacklistReportsResponse' {} a -> s {blacklistReport = a} :: GetBlacklistReportsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetBlacklistReportsResponse

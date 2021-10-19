@@ -30,8 +30,8 @@ import Network.AWS.SESv2.Types.ContactListImportAction
 data ContactListDestination = ContactListDestination'
   { -- | The name of the contact list.
     contactListName :: Prelude.Text,
-    -- | >The type of action that you want to perform on the addresses.
-    -- Acceptable values:
+    -- | >The type of action to perform on the addresses. The following are the
+    -- possible values:
     --
     -- -   PUT: add the addresses to the contact list. If the record already
     --     exists, it will override it with the new value.
@@ -51,8 +51,8 @@ data ContactListDestination = ContactListDestination'
 --
 -- 'contactListName', 'contactListDestination_contactListName' - The name of the contact list.
 --
--- 'contactListImportAction', 'contactListDestination_contactListImportAction' - >The type of action that you want to perform on the addresses.
--- Acceptable values:
+-- 'contactListImportAction', 'contactListDestination_contactListImportAction' - >The type of action to perform on the addresses. The following are the
+-- possible values:
 --
 -- -   PUT: add the addresses to the contact list. If the record already
 --     exists, it will override it with the new value.
@@ -77,8 +77,8 @@ newContactListDestination
 contactListDestination_contactListName :: Lens.Lens' ContactListDestination Prelude.Text
 contactListDestination_contactListName = Lens.lens (\ContactListDestination' {contactListName} -> contactListName) (\s@ContactListDestination' {} a -> s {contactListName = a} :: ContactListDestination)
 
--- | >The type of action that you want to perform on the addresses.
--- Acceptable values:
+-- | >The type of action to perform on the addresses. The following are the
+-- possible values:
 --
 -- -   PUT: add the addresses to the contact list. If the record already
 --     exists, it will override it with the new value.

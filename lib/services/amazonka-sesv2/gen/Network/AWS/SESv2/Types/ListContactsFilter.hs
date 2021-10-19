@@ -29,10 +29,10 @@ import Network.AWS.SESv2.Types.TopicFilter
 --
 -- /See:/ 'newListContactsFilter' smart constructor.
 data ListContactsFilter = ListContactsFilter'
-  { -- | Used for filtering by a specific topic preference.
-    topicFilter :: Prelude.Maybe TopicFilter,
-    -- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.
-    filteredStatus :: Prelude.Maybe SubscriptionStatus
+  { -- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.
+    filteredStatus :: Prelude.Maybe SubscriptionStatus,
+    -- | Used for filtering by a specific topic preference.
+    topicFilter :: Prelude.Maybe TopicFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,25 @@ data ListContactsFilter = ListContactsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topicFilter', 'listContactsFilter_topicFilter' - Used for filtering by a specific topic preference.
---
 -- 'filteredStatus', 'listContactsFilter_filteredStatus' - The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.
+--
+-- 'topicFilter', 'listContactsFilter_topicFilter' - Used for filtering by a specific topic preference.
 newListContactsFilter ::
   ListContactsFilter
 newListContactsFilter =
   ListContactsFilter'
-    { topicFilter = Prelude.Nothing,
-      filteredStatus = Prelude.Nothing
+    { filteredStatus =
+        Prelude.Nothing,
+      topicFilter = Prelude.Nothing
     }
-
--- | Used for filtering by a specific topic preference.
-listContactsFilter_topicFilter :: Lens.Lens' ListContactsFilter (Prelude.Maybe TopicFilter)
-listContactsFilter_topicFilter = Lens.lens (\ListContactsFilter' {topicFilter} -> topicFilter) (\s@ListContactsFilter' {} a -> s {topicFilter = a} :: ListContactsFilter)
 
 -- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.
 listContactsFilter_filteredStatus :: Lens.Lens' ListContactsFilter (Prelude.Maybe SubscriptionStatus)
 listContactsFilter_filteredStatus = Lens.lens (\ListContactsFilter' {filteredStatus} -> filteredStatus) (\s@ListContactsFilter' {} a -> s {filteredStatus = a} :: ListContactsFilter)
+
+-- | Used for filtering by a specific topic preference.
+listContactsFilter_topicFilter :: Lens.Lens' ListContactsFilter (Prelude.Maybe TopicFilter)
+listContactsFilter_topicFilter = Lens.lens (\ListContactsFilter' {topicFilter} -> topicFilter) (\s@ListContactsFilter' {} a -> s {topicFilter = a} :: ListContactsFilter)
 
 instance Prelude.Hashable ListContactsFilter
 
@@ -71,8 +72,8 @@ instance Core.ToJSON ListContactsFilter where
   toJSON ListContactsFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TopicFilter" Core..=) Prelude.<$> topicFilter,
-            ("FilteredStatus" Core..=)
-              Prelude.<$> filteredStatus
+          [ ("FilteredStatus" Core..=)
+              Prelude.<$> filteredStatus,
+            ("TopicFilter" Core..=) Prelude.<$> topicFilter
           ]
       )

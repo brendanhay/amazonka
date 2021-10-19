@@ -57,7 +57,7 @@ data PutEmailIdentityDkimAttributes = PutEmailIdentityDkimAttributes'
     -- identity are signed using DKIM. If you set this value to @false@, your
     -- messages are sent without DKIM signing.
     signingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The email identity that you want to change the DKIM settings for.
+    -- | The email identity.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data PutEmailIdentityDkimAttributes = PutEmailIdentityDkimAttributes'
 -- identity are signed using DKIM. If you set this value to @false@, your
 -- messages are sent without DKIM signing.
 --
--- 'emailIdentity', 'putEmailIdentityDkimAttributes_emailIdentity' - The email identity that you want to change the DKIM settings for.
+-- 'emailIdentity', 'putEmailIdentityDkimAttributes_emailIdentity' - The email identity.
 newPutEmailIdentityDkimAttributes ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -96,7 +96,7 @@ newPutEmailIdentityDkimAttributes pEmailIdentity_ =
 putEmailIdentityDkimAttributes_signingEnabled :: Lens.Lens' PutEmailIdentityDkimAttributes (Prelude.Maybe Prelude.Bool)
 putEmailIdentityDkimAttributes_signingEnabled = Lens.lens (\PutEmailIdentityDkimAttributes' {signingEnabled} -> signingEnabled) (\s@PutEmailIdentityDkimAttributes' {} a -> s {signingEnabled = a} :: PutEmailIdentityDkimAttributes)
 
--- | The email identity that you want to change the DKIM settings for.
+-- | The email identity.
 putEmailIdentityDkimAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityDkimAttributes Prelude.Text
 putEmailIdentityDkimAttributes_emailIdentity = Lens.lens (\PutEmailIdentityDkimAttributes' {emailIdentity} -> emailIdentity) (\s@PutEmailIdentityDkimAttributes' {} a -> s {emailIdentity = a} :: PutEmailIdentityDkimAttributes)
 

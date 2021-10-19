@@ -30,11 +30,6 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The email identity type. The identity type can be one of the following:
---
--- -   @EMAIL_ADDRESS@ – The identity is an email address.
---
--- -   @DOMAIN@ – The identity is a domain.
 newtype IdentityType = IdentityType'
   { fromIdentityType ::
       Core.Text

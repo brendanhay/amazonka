@@ -24,9 +24,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information about the inbox placement data
--- settings for a verified domain that’s associated with your AWS account.
--- This data is available only if you enabled the Deliverability dashboard
--- for the domain.
+-- settings for a verified domain that’s associated with your Amazon Web
+-- Services account. This data is available only if you enabled the
+-- Deliverability dashboard for the domain.
 --
 -- /See:/ 'newInboxPlacementTrackingOption' smart constructor.
 data InboxPlacementTrackingOption = InboxPlacementTrackingOption'
@@ -62,7 +62,7 @@ newInboxPlacementTrackingOption =
 -- | An array of strings, one for each major email provider that the inbox
 -- placement data applies to.
 inboxPlacementTrackingOption_trackedIsps :: Lens.Lens' InboxPlacementTrackingOption (Prelude.Maybe [Prelude.Text])
-inboxPlacementTrackingOption_trackedIsps = Lens.lens (\InboxPlacementTrackingOption' {trackedIsps} -> trackedIsps) (\s@InboxPlacementTrackingOption' {} a -> s {trackedIsps = a} :: InboxPlacementTrackingOption) Prelude.. Lens.mapping Lens._Coerce
+inboxPlacementTrackingOption_trackedIsps = Lens.lens (\InboxPlacementTrackingOption' {trackedIsps} -> trackedIsps) (\s@InboxPlacementTrackingOption' {} a -> s {trackedIsps = a} :: InboxPlacementTrackingOption) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether inbox placement data is being tracked for the domain.
 inboxPlacementTrackingOption_global :: Lens.Lens' InboxPlacementTrackingOption (Prelude.Maybe Prelude.Bool)

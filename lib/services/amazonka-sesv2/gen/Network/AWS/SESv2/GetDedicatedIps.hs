@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the dedicated IP addresses that are associated with your AWS
--- account.
+-- List the dedicated IP addresses that are associated with your Amazon Web
+-- Services account.
 module Network.AWS.SESv2.GetDedicatedIps
   ( -- * Creating a Request
     GetDedicatedIps (..),
     newGetDedicatedIps,
 
     -- * Request Lenses
+    getDedicatedIps_poolName,
     getDedicatedIps_nextToken,
     getDedicatedIps_pageSize,
-    getDedicatedIps_poolName,
 
     -- * Destructuring the Response
     GetDedicatedIpsResponse (..),
@@ -54,17 +54,17 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newGetDedicatedIps' smart constructor.
 data GetDedicatedIps = GetDedicatedIps'
-  { -- | A token returned from a previous call to @GetDedicatedIps@ to indicate
+  { -- | The name of the IP pool that the dedicated IP address is associated
+    -- with.
+    poolName :: Prelude.Maybe Prelude.Text,
+    -- | A token returned from a previous call to @GetDedicatedIps@ to indicate
     -- the position of the dedicated IP pool in the list of IP pools.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of results to show in a single call to
     -- @GetDedicatedIpsRequest@. If the number of results is larger than the
     -- number you specified in this parameter, then the response includes a
     -- @NextToken@ element, which you can use to obtain additional results.
-    pageSize :: Prelude.Maybe Prelude.Int,
-    -- | The name of the IP pool that the dedicated IP address is associated
-    -- with.
-    poolName :: Prelude.Maybe Prelude.Text
+    pageSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,6 +76,9 @@ data GetDedicatedIps = GetDedicatedIps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'poolName', 'getDedicatedIps_poolName' - The name of the IP pool that the dedicated IP address is associated
+-- with.
+--
 -- 'nextToken', 'getDedicatedIps_nextToken' - A token returned from a previous call to @GetDedicatedIps@ to indicate
 -- the position of the dedicated IP pool in the list of IP pools.
 --
@@ -83,17 +86,19 @@ data GetDedicatedIps = GetDedicatedIps'
 -- @GetDedicatedIpsRequest@. If the number of results is larger than the
 -- number you specified in this parameter, then the response includes a
 -- @NextToken@ element, which you can use to obtain additional results.
---
--- 'poolName', 'getDedicatedIps_poolName' - The name of the IP pool that the dedicated IP address is associated
--- with.
 newGetDedicatedIps ::
   GetDedicatedIps
 newGetDedicatedIps =
   GetDedicatedIps'
-    { nextToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      poolName = Prelude.Nothing
+    { poolName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
+
+-- | The name of the IP pool that the dedicated IP address is associated
+-- with.
+getDedicatedIps_poolName :: Lens.Lens' GetDedicatedIps (Prelude.Maybe Prelude.Text)
+getDedicatedIps_poolName = Lens.lens (\GetDedicatedIps' {poolName} -> poolName) (\s@GetDedicatedIps' {} a -> s {poolName = a} :: GetDedicatedIps)
 
 -- | A token returned from a previous call to @GetDedicatedIps@ to indicate
 -- the position of the dedicated IP pool in the list of IP pools.
@@ -106,11 +111,6 @@ getDedicatedIps_nextToken = Lens.lens (\GetDedicatedIps' {nextToken} -> nextToke
 -- @NextToken@ element, which you can use to obtain additional results.
 getDedicatedIps_pageSize :: Lens.Lens' GetDedicatedIps (Prelude.Maybe Prelude.Int)
 getDedicatedIps_pageSize = Lens.lens (\GetDedicatedIps' {pageSize} -> pageSize) (\s@GetDedicatedIps' {} a -> s {pageSize = a} :: GetDedicatedIps)
-
--- | The name of the IP pool that the dedicated IP address is associated
--- with.
-getDedicatedIps_poolName :: Lens.Lens' GetDedicatedIps (Prelude.Maybe Prelude.Text)
-getDedicatedIps_poolName = Lens.lens (\GetDedicatedIps' {poolName} -> poolName) (\s@GetDedicatedIps' {} a -> s {poolName = a} :: GetDedicatedIps)
 
 instance Core.AWSRequest GetDedicatedIps where
   type
@@ -147,13 +147,13 @@ instance Core.ToPath GetDedicatedIps where
 instance Core.ToQuery GetDedicatedIps where
   toQuery GetDedicatedIps' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "PageSize" Core.=: pageSize,
-        "PoolName" Core.=: poolName
+      [ "PoolName" Core.=: poolName,
+        "NextToken" Core.=: nextToken,
+        "PageSize" Core.=: pageSize
       ]
 
 -- | Information about the dedicated IP addresses that are associated with
--- your AWS account.
+-- your Amazon Web Services account.
 --
 -- /See:/ 'newGetDedicatedIpsResponse' smart constructor.
 data GetDedicatedIpsResponse = GetDedicatedIpsResponse'
@@ -161,8 +161,8 @@ data GetDedicatedIpsResponse = GetDedicatedIpsResponse'
     -- to list. To view additional addresses, issue another request to
     -- @GetDedicatedIps@, passing this token in the @NextToken@ parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of dedicated IP addresses that are associated with your AWS
-    -- account.
+    -- | A list of dedicated IP addresses that are associated with your Amazon
+    -- Web Services account.
     dedicatedIps :: Prelude.Maybe [DedicatedIp],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,8 +181,8 @@ data GetDedicatedIpsResponse = GetDedicatedIpsResponse'
 -- to list. To view additional addresses, issue another request to
 -- @GetDedicatedIps@, passing this token in the @NextToken@ parameter.
 --
--- 'dedicatedIps', 'getDedicatedIpsResponse_dedicatedIps' - A list of dedicated IP addresses that are associated with your AWS
--- account.
+-- 'dedicatedIps', 'getDedicatedIpsResponse_dedicatedIps' - A list of dedicated IP addresses that are associated with your Amazon
+-- Web Services account.
 --
 -- 'httpStatus', 'getDedicatedIpsResponse_httpStatus' - The response's http status code.
 newGetDedicatedIpsResponse ::
@@ -203,10 +203,10 @@ newGetDedicatedIpsResponse pHttpStatus_ =
 getDedicatedIpsResponse_nextToken :: Lens.Lens' GetDedicatedIpsResponse (Prelude.Maybe Prelude.Text)
 getDedicatedIpsResponse_nextToken = Lens.lens (\GetDedicatedIpsResponse' {nextToken} -> nextToken) (\s@GetDedicatedIpsResponse' {} a -> s {nextToken = a} :: GetDedicatedIpsResponse)
 
--- | A list of dedicated IP addresses that are associated with your AWS
--- account.
+-- | A list of dedicated IP addresses that are associated with your Amazon
+-- Web Services account.
 getDedicatedIpsResponse_dedicatedIps :: Lens.Lens' GetDedicatedIpsResponse (Prelude.Maybe [DedicatedIp])
-getDedicatedIpsResponse_dedicatedIps = Lens.lens (\GetDedicatedIpsResponse' {dedicatedIps} -> dedicatedIps) (\s@GetDedicatedIpsResponse' {} a -> s {dedicatedIps = a} :: GetDedicatedIpsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDedicatedIpsResponse_dedicatedIps = Lens.lens (\GetDedicatedIpsResponse' {dedicatedIps} -> dedicatedIps) (\s@GetDedicatedIpsResponse' {} a -> s {dedicatedIps = a} :: GetDedicatedIpsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDedicatedIpsResponse_httpStatus :: Lens.Lens' GetDedicatedIpsResponse Prelude.Int

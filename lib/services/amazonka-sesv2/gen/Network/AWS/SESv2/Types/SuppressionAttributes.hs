@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SESv2.Types.SuppressionListReason
 
 -- | An object that contains information about the email address suppression
--- preferences for your account in the current AWS Region.
+-- preferences for your account in the current Amazon Web Services Region.
 --
 -- /See:/ 'newSuppressionAttributes' smart constructor.
 data SuppressionAttributes = SuppressionAttributes'
@@ -83,7 +83,7 @@ newSuppressionAttributes =
 --     for your account when a message sent to that address results in a
 --     hard bounce.
 suppressionAttributes_suppressedReasons :: Lens.Lens' SuppressionAttributes (Prelude.Maybe [SuppressionListReason])
-suppressionAttributes_suppressedReasons = Lens.lens (\SuppressionAttributes' {suppressedReasons} -> suppressedReasons) (\s@SuppressionAttributes' {} a -> s {suppressedReasons = a} :: SuppressionAttributes) Prelude.. Lens.mapping Lens._Coerce
+suppressionAttributes_suppressedReasons = Lens.lens (\SuppressionAttributes' {suppressedReasons} -> suppressedReasons) (\s@SuppressionAttributes' {} a -> s {suppressedReasons = a} :: SuppressionAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SuppressionAttributes where
   parseJSON =

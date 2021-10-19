@@ -223,7 +223,7 @@ getDomainStatisticsReportResponse_overallVolume = Lens.lens (\GetDomainStatistic
 -- specified. This object contains data for each day, starting on the
 -- @StartDate@ and ending on the @EndDate@.
 getDomainStatisticsReportResponse_dailyVolumes :: Lens.Lens' GetDomainStatisticsReportResponse [DailyVolume]
-getDomainStatisticsReportResponse_dailyVolumes = Lens.lens (\GetDomainStatisticsReportResponse' {dailyVolumes} -> dailyVolumes) (\s@GetDomainStatisticsReportResponse' {} a -> s {dailyVolumes = a} :: GetDomainStatisticsReportResponse) Prelude.. Lens._Coerce
+getDomainStatisticsReportResponse_dailyVolumes = Lens.lens (\GetDomainStatisticsReportResponse' {dailyVolumes} -> dailyVolumes) (\s@GetDomainStatisticsReportResponse' {} a -> s {dailyVolumes = a} :: GetDomainStatisticsReportResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

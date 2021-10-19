@@ -67,7 +67,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newUpdateEmailIdentityPolicy' smart constructor.
 data UpdateEmailIdentityPolicy = UpdateEmailIdentityPolicy'
-  { -- | The email identity for which you want to update policy.
+  { -- | The email identity.
     emailIdentity :: Prelude.Text,
     -- | The name of the policy.
     --
@@ -91,7 +91,7 @@ data UpdateEmailIdentityPolicy = UpdateEmailIdentityPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentity', 'updateEmailIdentityPolicy_emailIdentity' - The email identity for which you want to update policy.
+-- 'emailIdentity', 'updateEmailIdentityPolicy_emailIdentity' - The email identity.
 --
 -- 'policyName', 'updateEmailIdentityPolicy_policyName' - The name of the policy.
 --
@@ -122,7 +122,7 @@ newUpdateEmailIdentityPolicy
         policy = pPolicy_
       }
 
--- | The email identity for which you want to update policy.
+-- | The email identity.
 updateEmailIdentityPolicy_emailIdentity :: Lens.Lens' UpdateEmailIdentityPolicy Prelude.Text
 updateEmailIdentityPolicy_emailIdentity = Lens.lens (\UpdateEmailIdentityPolicy' {emailIdentity} -> emailIdentity) (\s@UpdateEmailIdentityPolicy' {} a -> s {emailIdentity = a} :: UpdateEmailIdentityPolicy)
 

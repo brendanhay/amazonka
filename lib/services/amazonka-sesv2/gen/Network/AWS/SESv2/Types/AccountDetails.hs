@@ -30,8 +30,8 @@ import Network.AWS.SESv2.Types.ReviewDetails
 --
 -- /See:/ 'newAccountDetails' smart constructor.
 data AccountDetails = AccountDetails'
-  { -- | A description of the types of email that you plan to send.
-    useCaseDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | Information about the review of the latest details you submitted.
+    reviewDetails :: Prelude.Maybe ReviewDetails,
     -- | The type of email your account is sending. The mail type can be one of
     -- the following:
     --
@@ -41,17 +41,17 @@ data AccountDetails = AccountDetails'
     -- -   @TRANSACTIONAL@ – Most of your sending traffic is to communicate
     --     during a transaction with a customer.
     mailType :: Prelude.Maybe MailType,
+    -- | A description of the types of email that you plan to send.
+    useCaseDescription :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The language you would prefer for the case. The contact language can be
     -- one of @ENGLISH@ or @JAPANESE@.
     contactLanguage :: Prelude.Maybe ContactLanguage,
-    -- | The URL of your website. This information helps us better understand the
-    -- type of content that you plan to send.
-    websiteURL :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Information about the review of the latest details you submitted.
-    reviewDetails :: Prelude.Maybe ReviewDetails,
     -- | Additional email addresses where updates are sent about your account
     -- review process.
-    additionalContactEmailAddresses :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)))
+    additionalContactEmailAddresses :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))),
+    -- | The URL of your website. This information helps us better understand the
+    -- type of content that you plan to send.
+    websiteURL :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,7 +63,7 @@ data AccountDetails = AccountDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useCaseDescription', 'accountDetails_useCaseDescription' - A description of the types of email that you plan to send.
+-- 'reviewDetails', 'accountDetails_reviewDetails' - Information about the review of the latest details you submitted.
 --
 -- 'mailType', 'accountDetails_mailType' - The type of email your account is sending. The mail type can be one of
 -- the following:
@@ -74,32 +74,31 @@ data AccountDetails = AccountDetails'
 -- -   @TRANSACTIONAL@ – Most of your sending traffic is to communicate
 --     during a transaction with a customer.
 --
+-- 'useCaseDescription', 'accountDetails_useCaseDescription' - A description of the types of email that you plan to send.
+--
 -- 'contactLanguage', 'accountDetails_contactLanguage' - The language you would prefer for the case. The contact language can be
 -- one of @ENGLISH@ or @JAPANESE@.
 --
--- 'websiteURL', 'accountDetails_websiteURL' - The URL of your website. This information helps us better understand the
--- type of content that you plan to send.
---
--- 'reviewDetails', 'accountDetails_reviewDetails' - Information about the review of the latest details you submitted.
---
 -- 'additionalContactEmailAddresses', 'accountDetails_additionalContactEmailAddresses' - Additional email addresses where updates are sent about your account
 -- review process.
+--
+-- 'websiteURL', 'accountDetails_websiteURL' - The URL of your website. This information helps us better understand the
+-- type of content that you plan to send.
 newAccountDetails ::
   AccountDetails
 newAccountDetails =
   AccountDetails'
-    { useCaseDescription =
-        Prelude.Nothing,
+    { reviewDetails = Prelude.Nothing,
       mailType = Prelude.Nothing,
+      useCaseDescription = Prelude.Nothing,
       contactLanguage = Prelude.Nothing,
-      websiteURL = Prelude.Nothing,
-      reviewDetails = Prelude.Nothing,
-      additionalContactEmailAddresses = Prelude.Nothing
+      additionalContactEmailAddresses = Prelude.Nothing,
+      websiteURL = Prelude.Nothing
     }
 
--- | A description of the types of email that you plan to send.
-accountDetails_useCaseDescription :: Lens.Lens' AccountDetails (Prelude.Maybe Prelude.Text)
-accountDetails_useCaseDescription = Lens.lens (\AccountDetails' {useCaseDescription} -> useCaseDescription) (\s@AccountDetails' {} a -> s {useCaseDescription = a} :: AccountDetails) Prelude.. Lens.mapping Core._Sensitive
+-- | Information about the review of the latest details you submitted.
+accountDetails_reviewDetails :: Lens.Lens' AccountDetails (Prelude.Maybe ReviewDetails)
+accountDetails_reviewDetails = Lens.lens (\AccountDetails' {reviewDetails} -> reviewDetails) (\s@AccountDetails' {} a -> s {reviewDetails = a} :: AccountDetails)
 
 -- | The type of email your account is sending. The mail type can be one of
 -- the following:
@@ -112,24 +111,24 @@ accountDetails_useCaseDescription = Lens.lens (\AccountDetails' {useCaseDescript
 accountDetails_mailType :: Lens.Lens' AccountDetails (Prelude.Maybe MailType)
 accountDetails_mailType = Lens.lens (\AccountDetails' {mailType} -> mailType) (\s@AccountDetails' {} a -> s {mailType = a} :: AccountDetails)
 
+-- | A description of the types of email that you plan to send.
+accountDetails_useCaseDescription :: Lens.Lens' AccountDetails (Prelude.Maybe Prelude.Text)
+accountDetails_useCaseDescription = Lens.lens (\AccountDetails' {useCaseDescription} -> useCaseDescription) (\s@AccountDetails' {} a -> s {useCaseDescription = a} :: AccountDetails) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The language you would prefer for the case. The contact language can be
 -- one of @ENGLISH@ or @JAPANESE@.
 accountDetails_contactLanguage :: Lens.Lens' AccountDetails (Prelude.Maybe ContactLanguage)
 accountDetails_contactLanguage = Lens.lens (\AccountDetails' {contactLanguage} -> contactLanguage) (\s@AccountDetails' {} a -> s {contactLanguage = a} :: AccountDetails)
 
+-- | Additional email addresses where updates are sent about your account
+-- review process.
+accountDetails_additionalContactEmailAddresses :: Lens.Lens' AccountDetails (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+accountDetails_additionalContactEmailAddresses = Lens.lens (\AccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@AccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: AccountDetails) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
 -- | The URL of your website. This information helps us better understand the
 -- type of content that you plan to send.
 accountDetails_websiteURL :: Lens.Lens' AccountDetails (Prelude.Maybe Prelude.Text)
 accountDetails_websiteURL = Lens.lens (\AccountDetails' {websiteURL} -> websiteURL) (\s@AccountDetails' {} a -> s {websiteURL = a} :: AccountDetails) Prelude.. Lens.mapping Core._Sensitive
-
--- | Information about the review of the latest details you submitted.
-accountDetails_reviewDetails :: Lens.Lens' AccountDetails (Prelude.Maybe ReviewDetails)
-accountDetails_reviewDetails = Lens.lens (\AccountDetails' {reviewDetails} -> reviewDetails) (\s@AccountDetails' {} a -> s {reviewDetails = a} :: AccountDetails)
-
--- | Additional email addresses where updates are sent about your account
--- review process.
-accountDetails_additionalContactEmailAddresses :: Lens.Lens' AccountDetails (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-accountDetails_additionalContactEmailAddresses = Lens.lens (\AccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@AccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: AccountDetails) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 instance Core.FromJSON AccountDetails where
   parseJSON =
@@ -137,12 +136,12 @@ instance Core.FromJSON AccountDetails where
       "AccountDetails"
       ( \x ->
           AccountDetails'
-            Prelude.<$> (x Core..:? "UseCaseDescription")
+            Prelude.<$> (x Core..:? "ReviewDetails")
             Prelude.<*> (x Core..:? "MailType")
+            Prelude.<*> (x Core..:? "UseCaseDescription")
             Prelude.<*> (x Core..:? "ContactLanguage")
-            Prelude.<*> (x Core..:? "WebsiteURL")
-            Prelude.<*> (x Core..:? "ReviewDetails")
             Prelude.<*> (x Core..:? "AdditionalContactEmailAddresses")
+            Prelude.<*> (x Core..:? "WebsiteURL")
       )
 
 instance Prelude.Hashable AccountDetails

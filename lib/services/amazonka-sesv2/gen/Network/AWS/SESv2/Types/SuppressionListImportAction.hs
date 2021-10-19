@@ -29,7 +29,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The type of action that you want to perform on the address. Acceptable
+-- | The type of action to perform on the address. The following are possible
 -- values:
 --
 -- -   PUT: add the addresses to the suppression list.

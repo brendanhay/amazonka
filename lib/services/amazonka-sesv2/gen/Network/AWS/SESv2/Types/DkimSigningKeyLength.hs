@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SESv2.Types.BehaviorOnMxFailure
+-- Module      : Network.AWS.SESv2.Types.DkimSigningKeyLength
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SESv2.Types.BehaviorOnMxFailure
-  ( BehaviorOnMxFailure
+module Network.AWS.SESv2.Types.DkimSigningKeyLength
+  ( DkimSigningKeyLength
       ( ..,
-        BehaviorOnMxFailure_REJECT_MESSAGE,
-        BehaviorOnMxFailure_USE_DEFAULT_VALUE
+        DkimSigningKeyLength_RSA_1024_BIT,
+        DkimSigningKeyLength_RSA_2048_BIT
       ),
   )
 where
@@ -29,17 +29,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The action to take if the required MX record can\'t be found when you
--- send an email. When you set this value to @UseDefaultValue@, the mail is
--- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
--- value to @RejectMessage@, the Amazon SES API v2 returns a
--- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
--- email.
---
--- These behaviors are taken when the custom MAIL FROM domain configuration
--- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
-newtype BehaviorOnMxFailure = BehaviorOnMxFailure'
-  { fromBehaviorOnMxFailure ::
+newtype DkimSigningKeyLength = DkimSigningKeyLength'
+  { fromDkimSigningKeyLength ::
       Core.Text
   }
   deriving stock
@@ -66,14 +57,14 @@ newtype BehaviorOnMxFailure = BehaviorOnMxFailure'
       Core.ToXML
     )
 
-pattern BehaviorOnMxFailure_REJECT_MESSAGE :: BehaviorOnMxFailure
-pattern BehaviorOnMxFailure_REJECT_MESSAGE = BehaviorOnMxFailure' "REJECT_MESSAGE"
+pattern DkimSigningKeyLength_RSA_1024_BIT :: DkimSigningKeyLength
+pattern DkimSigningKeyLength_RSA_1024_BIT = DkimSigningKeyLength' "RSA_1024_BIT"
 
-pattern BehaviorOnMxFailure_USE_DEFAULT_VALUE :: BehaviorOnMxFailure
-pattern BehaviorOnMxFailure_USE_DEFAULT_VALUE = BehaviorOnMxFailure' "USE_DEFAULT_VALUE"
+pattern DkimSigningKeyLength_RSA_2048_BIT :: DkimSigningKeyLength
+pattern DkimSigningKeyLength_RSA_2048_BIT = DkimSigningKeyLength' "RSA_2048_BIT"
 
 {-# COMPLETE
-  BehaviorOnMxFailure_REJECT_MESSAGE,
-  BehaviorOnMxFailure_USE_DEFAULT_VALUE,
-  BehaviorOnMxFailure'
+  DkimSigningKeyLength_RSA_1024_BIT,
+  DkimSigningKeyLength_RSA_2048_BIT,
+  DkimSigningKeyLength'
   #-}

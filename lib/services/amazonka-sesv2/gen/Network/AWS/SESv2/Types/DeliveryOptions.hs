@@ -28,8 +28,8 @@ import Network.AWS.SESv2.Types.TlsPolicy
 --
 -- /See:/ 'newDeliveryOptions' smart constructor.
 data DeliveryOptions = DeliveryOptions'
-  { -- | The name of the dedicated IP pool that you want to associate with the
-    -- configuration set.
+  { -- | The name of the dedicated IP pool to associate with the configuration
+    -- set.
     sendingPoolName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether messages that use the configuration set are required
     -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -48,8 +48,8 @@ data DeliveryOptions = DeliveryOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the
--- configuration set.
+-- 'sendingPoolName', 'deliveryOptions_sendingPoolName' - The name of the dedicated IP pool to associate with the configuration
+-- set.
 --
 -- 'tlsPolicy', 'deliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -64,8 +64,8 @@ newDeliveryOptions =
       tlsPolicy = Prelude.Nothing
     }
 
--- | The name of the dedicated IP pool that you want to associate with the
--- configuration set.
+-- | The name of the dedicated IP pool to associate with the configuration
+-- set.
 deliveryOptions_sendingPoolName :: Lens.Lens' DeliveryOptions (Prelude.Maybe Prelude.Text)
 deliveryOptions_sendingPoolName = Lens.lens (\DeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@DeliveryOptions' {} a -> s {sendingPoolName = a} :: DeliveryOptions)
 

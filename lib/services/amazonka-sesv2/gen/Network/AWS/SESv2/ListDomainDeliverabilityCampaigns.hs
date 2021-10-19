@@ -285,7 +285,7 @@ listDomainDeliverabilityCampaignsResponse_httpStatus = Lens.lens (\ListDomainDel
 -- | An array of responses, one for each campaign that used the domain to
 -- send email during the specified time range.
 listDomainDeliverabilityCampaignsResponse_domainDeliverabilityCampaigns :: Lens.Lens' ListDomainDeliverabilityCampaignsResponse [DomainDeliverabilityCampaign]
-listDomainDeliverabilityCampaignsResponse_domainDeliverabilityCampaigns = Lens.lens (\ListDomainDeliverabilityCampaignsResponse' {domainDeliverabilityCampaigns} -> domainDeliverabilityCampaigns) (\s@ListDomainDeliverabilityCampaignsResponse' {} a -> s {domainDeliverabilityCampaigns = a} :: ListDomainDeliverabilityCampaignsResponse) Prelude.. Lens._Coerce
+listDomainDeliverabilityCampaignsResponse_domainDeliverabilityCampaigns = Lens.lens (\ListDomainDeliverabilityCampaignsResponse' {domainDeliverabilityCampaigns} -> domainDeliverabilityCampaigns) (\s@ListDomainDeliverabilityCampaignsResponse' {} a -> s {domainDeliverabilityCampaigns = a} :: ListDomainDeliverabilityCampaignsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

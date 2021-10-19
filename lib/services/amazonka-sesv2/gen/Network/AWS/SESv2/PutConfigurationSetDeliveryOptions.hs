@@ -53,8 +53,8 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newPutConfigurationSetDeliveryOptions' smart constructor.
 data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
-  { -- | The name of the dedicated IP pool that you want to associate with the
-    -- configuration set.
+  { -- | The name of the dedicated IP pool to associate with the configuration
+    -- set.
     sendingPoolName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether messages that use the configuration set are required
     -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -62,8 +62,7 @@ data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
     -- the value is @Optional@, messages can be delivered in plain text if a
     -- TLS connection can\'t be established.
     tlsPolicy :: Prelude.Maybe TlsPolicy,
-    -- | The name of the configuration set that you want to associate with a
-    -- dedicated IP pool.
+    -- | The name of the configuration set to associate with a dedicated IP pool.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,8 +75,8 @@ data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sendingPoolName', 'putConfigurationSetDeliveryOptions_sendingPoolName' - The name of the dedicated IP pool that you want to associate with the
--- configuration set.
+-- 'sendingPoolName', 'putConfigurationSetDeliveryOptions_sendingPoolName' - The name of the dedicated IP pool to associate with the configuration
+-- set.
 --
 -- 'tlsPolicy', 'putConfigurationSetDeliveryOptions_tlsPolicy' - Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS). If the value is @Require@,
@@ -85,8 +84,7 @@ data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
 -- the value is @Optional@, messages can be delivered in plain text if a
 -- TLS connection can\'t be established.
 --
--- 'configurationSetName', 'putConfigurationSetDeliveryOptions_configurationSetName' - The name of the configuration set that you want to associate with a
--- dedicated IP pool.
+-- 'configurationSetName', 'putConfigurationSetDeliveryOptions_configurationSetName' - The name of the configuration set to associate with a dedicated IP pool.
 newPutConfigurationSetDeliveryOptions ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -101,8 +99,8 @@ newPutConfigurationSetDeliveryOptions
           pConfigurationSetName_
       }
 
--- | The name of the dedicated IP pool that you want to associate with the
--- configuration set.
+-- | The name of the dedicated IP pool to associate with the configuration
+-- set.
 putConfigurationSetDeliveryOptions_sendingPoolName :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe Prelude.Text)
 putConfigurationSetDeliveryOptions_sendingPoolName = Lens.lens (\PutConfigurationSetDeliveryOptions' {sendingPoolName} -> sendingPoolName) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {sendingPoolName = a} :: PutConfigurationSetDeliveryOptions)
 
@@ -114,8 +112,7 @@ putConfigurationSetDeliveryOptions_sendingPoolName = Lens.lens (\PutConfiguratio
 putConfigurationSetDeliveryOptions_tlsPolicy :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe TlsPolicy)
 putConfigurationSetDeliveryOptions_tlsPolicy = Lens.lens (\PutConfigurationSetDeliveryOptions' {tlsPolicy} -> tlsPolicy) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {tlsPolicy = a} :: PutConfigurationSetDeliveryOptions)
 
--- | The name of the configuration set that you want to associate with a
--- dedicated IP pool.
+-- | The name of the configuration set to associate with a dedicated IP pool.
 putConfigurationSetDeliveryOptions_configurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Prelude.Text
 putConfigurationSetDeliveryOptions_configurationSetName = Lens.lens (\PutConfigurationSetDeliveryOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetDeliveryOptions)
 

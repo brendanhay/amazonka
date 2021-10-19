@@ -23,7 +23,7 @@
 -- Move a dedicated IP address to an existing dedicated IP pool.
 --
 -- The dedicated IP address that you specify must already exist, and must
--- be associated with your AWS account.
+-- be associated with your Amazon Web Services account.
 --
 -- The dedicated IP pool you specify must already exist. You can create a
 -- new pool by using the @CreateDedicatedIpPool@ operation.
@@ -58,7 +58,7 @@ import Network.AWS.SESv2.Types
 data PutDedicatedIpInPool = PutDedicatedIpInPool'
   { -- | The IP address that you want to move to the dedicated IP pool. The value
     -- you specify has to be a dedicated IP address that\'s associated with
-    -- your AWS account.
+    -- your Amazon Web Services account.
     ip :: Prelude.Text,
     -- | The name of the IP pool that you want to add the dedicated IP address
     -- to. You have to specify an IP pool that already exists.
@@ -76,7 +76,7 @@ data PutDedicatedIpInPool = PutDedicatedIpInPool'
 --
 -- 'ip', 'putDedicatedIpInPool_ip' - The IP address that you want to move to the dedicated IP pool. The value
 -- you specify has to be a dedicated IP address that\'s associated with
--- your AWS account.
+-- your Amazon Web Services account.
 --
 -- 'destinationPoolName', 'putDedicatedIpInPool_destinationPoolName' - The name of the IP pool that you want to add the dedicated IP address
 -- to. You have to specify an IP pool that already exists.
@@ -94,7 +94,7 @@ newPutDedicatedIpInPool pIp_ pDestinationPoolName_ =
 
 -- | The IP address that you want to move to the dedicated IP pool. The value
 -- you specify has to be a dedicated IP address that\'s associated with
--- your AWS account.
+-- your Amazon Web Services account.
 putDedicatedIpInPool_ip :: Lens.Lens' PutDedicatedIpInPool Prelude.Text
 putDedicatedIpInPool_ip = Lens.lens (\PutDedicatedIpInPool' {ip} -> ip) (\s@PutDedicatedIpInPool' {} a -> s {ip = a} :: PutDedicatedIpInPool)
 

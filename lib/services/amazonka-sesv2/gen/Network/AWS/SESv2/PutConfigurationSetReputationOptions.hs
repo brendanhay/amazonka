@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enable or disable collection of reputation metrics for emails that you
--- send using a particular configuration set in a specific AWS Region.
+-- send using a particular configuration set in a specific Amazon Web
+-- Services Region.
 module Network.AWS.SESv2.PutConfigurationSetReputationOptions
   ( -- * Creating a Request
     PutConfigurationSetReputationOptions (..),
@@ -56,8 +57,7 @@ data PutConfigurationSetReputationOptions = PutConfigurationSetReputationOptions
     -- configuration set. If @false@, tracking of reputation metrics is
     -- disabled for the configuration set.
     reputationMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the configuration set that you want to enable or disable
-    -- reputation metric tracking for.
+    -- | The name of the configuration set.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +74,7 @@ data PutConfigurationSetReputationOptions = PutConfigurationSetReputationOptions
 -- configuration set. If @false@, tracking of reputation metrics is
 -- disabled for the configuration set.
 --
--- 'configurationSetName', 'putConfigurationSetReputationOptions_configurationSetName' - The name of the configuration set that you want to enable or disable
--- reputation metric tracking for.
+-- 'configurationSetName', 'putConfigurationSetReputationOptions_configurationSetName' - The name of the configuration set.
 newPutConfigurationSetReputationOptions ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -95,8 +94,7 @@ newPutConfigurationSetReputationOptions
 putConfigurationSetReputationOptions_reputationMetricsEnabled :: Lens.Lens' PutConfigurationSetReputationOptions (Prelude.Maybe Prelude.Bool)
 putConfigurationSetReputationOptions_reputationMetricsEnabled = Lens.lens (\PutConfigurationSetReputationOptions' {reputationMetricsEnabled} -> reputationMetricsEnabled) (\s@PutConfigurationSetReputationOptions' {} a -> s {reputationMetricsEnabled = a} :: PutConfigurationSetReputationOptions)
 
--- | The name of the configuration set that you want to enable or disable
--- reputation metric tracking for.
+-- | The name of the configuration set.
 putConfigurationSetReputationOptions_configurationSetName :: Lens.Lens' PutConfigurationSetReputationOptions Prelude.Text
 putConfigurationSetReputationOptions_configurationSetName = Lens.lens (\PutConfigurationSetReputationOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetReputationOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetReputationOptions)
 

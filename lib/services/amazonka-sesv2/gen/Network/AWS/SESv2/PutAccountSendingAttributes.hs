@@ -52,8 +52,9 @@ data PutAccountSendingAttributes = PutAccountSendingAttributes'
   { -- | Enables or disables your account\'s ability to send email. Set to @true@
     -- to enable email sending, or set to @false@ to disable email sending.
     --
-    -- If AWS paused your account\'s ability to send email, you can\'t use this
-    -- operation to resume your account\'s ability to send email.
+    -- If Amazon Web Services paused your account\'s ability to send email, you
+    -- can\'t use this operation to resume your account\'s ability to send
+    -- email.
     sendingEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +70,9 @@ data PutAccountSendingAttributes = PutAccountSendingAttributes'
 -- 'sendingEnabled', 'putAccountSendingAttributes_sendingEnabled' - Enables or disables your account\'s ability to send email. Set to @true@
 -- to enable email sending, or set to @false@ to disable email sending.
 --
--- If AWS paused your account\'s ability to send email, you can\'t use this
--- operation to resume your account\'s ability to send email.
+-- If Amazon Web Services paused your account\'s ability to send email, you
+-- can\'t use this operation to resume your account\'s ability to send
+-- email.
 newPutAccountSendingAttributes ::
   PutAccountSendingAttributes
 newPutAccountSendingAttributes =
@@ -82,8 +84,9 @@ newPutAccountSendingAttributes =
 -- | Enables or disables your account\'s ability to send email. Set to @true@
 -- to enable email sending, or set to @false@ to disable email sending.
 --
--- If AWS paused your account\'s ability to send email, you can\'t use this
--- operation to resume your account\'s ability to send email.
+-- If Amazon Web Services paused your account\'s ability to send email, you
+-- can\'t use this operation to resume your account\'s ability to send
+-- email.
 putAccountSendingAttributes_sendingEnabled :: Lens.Lens' PutAccountSendingAttributes (Prelude.Maybe Prelude.Bool)
 putAccountSendingAttributes_sendingEnabled = Lens.lens (\PutAccountSendingAttributes' {sendingEnabled} -> sendingEnabled) (\s@PutAccountSendingAttributes' {} a -> s {sendingEnabled = a} :: PutAccountSendingAttributes)
 

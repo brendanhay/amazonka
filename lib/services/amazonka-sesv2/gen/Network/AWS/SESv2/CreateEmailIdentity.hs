@@ -45,8 +45,7 @@
 -- @CreateEmailIdentity@ operation has to include the
 -- @DkimSigningAttributes@ object. When you specify this object, you
 -- provide a selector (a component of the DNS record name that identifies
--- the public key that you want to use for DKIM authentication) and a
--- private key.
+-- the public key to use for DKIM authentication) and a private key.
 --
 -- When you verify a domain, this operation provides a set of DKIM tokens,
 -- which you can convert into CNAME tokens. You add these CNAME tokens to
@@ -63,9 +62,9 @@ module Network.AWS.SESv2.CreateEmailIdentity
     newCreateEmailIdentity,
 
     -- * Request Lenses
+    createEmailIdentity_configurationSetName,
     createEmailIdentity_dkimSigningAttributes,
     createEmailIdentity_tags,
-    createEmailIdentity_configurationSetName,
     createEmailIdentity_emailIdentity,
 
     -- * Destructuring the Response
@@ -74,8 +73,8 @@ module Network.AWS.SESv2.CreateEmailIdentity
 
     -- * Response Lenses
     createEmailIdentityResponse_dkimAttributes,
-    createEmailIdentityResponse_identityType,
     createEmailIdentityResponse_verifiedForSendingStatus,
+    createEmailIdentityResponse_identityType,
     createEmailIdentityResponse_httpStatus,
   )
 where
@@ -92,22 +91,22 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newCreateEmailIdentity' smart constructor.
 data CreateEmailIdentity = CreateEmailIdentity'
-  { -- | If your request includes this object, Amazon SES configures the identity
+  { -- | The configuration set to use by default when sending from this identity.
+    -- Note that any configuration set defined in the email sending request
+    -- takes precedence.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | If your request includes this object, Amazon SES configures the identity
     -- to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes,
-    -- as opposed to the default method,
+    -- or, configures the key length to be used for
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
     --
     -- You can only specify this object if the email identity is a domain, as
     -- opposed to an address.
     dkimSigningAttributes :: Prelude.Maybe DkimSigningAttributes,
-    -- | An array of objects that define the tags (keys and values) that you want
-    -- to associate with the email identity.
+    -- | An array of objects that define the tags (keys and values) to associate
+    -- with the email identity.
     tags :: Prelude.Maybe [Tag],
-    -- | The configuration set to use by default when sending from this identity.
-    -- Note that any configuration set defined in the email sending request
-    -- takes precedence.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The email address or domain that you want to verify.
+    -- | The email address or domain to verify.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -120,49 +119,34 @@ data CreateEmailIdentity = CreateEmailIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSetName', 'createEmailIdentity_configurationSetName' - The configuration set to use by default when sending from this identity.
+-- Note that any configuration set defined in the email sending request
+-- takes precedence.
+--
 -- 'dkimSigningAttributes', 'createEmailIdentity_dkimSigningAttributes' - If your request includes this object, Amazon SES configures the identity
 -- to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes,
--- as opposed to the default method,
+-- or, configures the key length to be used for
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
 --
 -- You can only specify this object if the email identity is a domain, as
 -- opposed to an address.
 --
--- 'tags', 'createEmailIdentity_tags' - An array of objects that define the tags (keys and values) that you want
--- to associate with the email identity.
+-- 'tags', 'createEmailIdentity_tags' - An array of objects that define the tags (keys and values) to associate
+-- with the email identity.
 --
--- 'configurationSetName', 'createEmailIdentity_configurationSetName' - The configuration set to use by default when sending from this identity.
--- Note that any configuration set defined in the email sending request
--- takes precedence.
---
--- 'emailIdentity', 'createEmailIdentity_emailIdentity' - The email address or domain that you want to verify.
+-- 'emailIdentity', 'createEmailIdentity_emailIdentity' - The email address or domain to verify.
 newCreateEmailIdentity ::
   -- | 'emailIdentity'
   Prelude.Text ->
   CreateEmailIdentity
 newCreateEmailIdentity pEmailIdentity_ =
   CreateEmailIdentity'
-    { dkimSigningAttributes =
+    { configurationSetName =
         Prelude.Nothing,
+      dkimSigningAttributes = Prelude.Nothing,
       tags = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
       emailIdentity = pEmailIdentity_
     }
-
--- | If your request includes this object, Amazon SES configures the identity
--- to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes,
--- as opposed to the default method,
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
---
--- You can only specify this object if the email identity is a domain, as
--- opposed to an address.
-createEmailIdentity_dkimSigningAttributes :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe DkimSigningAttributes)
-createEmailIdentity_dkimSigningAttributes = Lens.lens (\CreateEmailIdentity' {dkimSigningAttributes} -> dkimSigningAttributes) (\s@CreateEmailIdentity' {} a -> s {dkimSigningAttributes = a} :: CreateEmailIdentity)
-
--- | An array of objects that define the tags (keys and values) that you want
--- to associate with the email identity.
-createEmailIdentity_tags :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe [Tag])
-createEmailIdentity_tags = Lens.lens (\CreateEmailIdentity' {tags} -> tags) (\s@CreateEmailIdentity' {} a -> s {tags = a} :: CreateEmailIdentity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The configuration set to use by default when sending from this identity.
 -- Note that any configuration set defined in the email sending request
@@ -170,7 +154,22 @@ createEmailIdentity_tags = Lens.lens (\CreateEmailIdentity' {tags} -> tags) (\s@
 createEmailIdentity_configurationSetName :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe Prelude.Text)
 createEmailIdentity_configurationSetName = Lens.lens (\CreateEmailIdentity' {configurationSetName} -> configurationSetName) (\s@CreateEmailIdentity' {} a -> s {configurationSetName = a} :: CreateEmailIdentity)
 
--- | The email address or domain that you want to verify.
+-- | If your request includes this object, Amazon SES configures the identity
+-- to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes,
+-- or, configures the key length to be used for
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
+--
+-- You can only specify this object if the email identity is a domain, as
+-- opposed to an address.
+createEmailIdentity_dkimSigningAttributes :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe DkimSigningAttributes)
+createEmailIdentity_dkimSigningAttributes = Lens.lens (\CreateEmailIdentity' {dkimSigningAttributes} -> dkimSigningAttributes) (\s@CreateEmailIdentity' {} a -> s {dkimSigningAttributes = a} :: CreateEmailIdentity)
+
+-- | An array of objects that define the tags (keys and values) to associate
+-- with the email identity.
+createEmailIdentity_tags :: Lens.Lens' CreateEmailIdentity (Prelude.Maybe [Tag])
+createEmailIdentity_tags = Lens.lens (\CreateEmailIdentity' {tags} -> tags) (\s@CreateEmailIdentity' {} a -> s {tags = a} :: CreateEmailIdentity) Prelude.. Lens.mapping Lens.coerced
+
+-- | The email address or domain to verify.
 createEmailIdentity_emailIdentity :: Lens.Lens' CreateEmailIdentity Prelude.Text
 createEmailIdentity_emailIdentity = Lens.lens (\CreateEmailIdentity' {emailIdentity} -> emailIdentity) (\s@CreateEmailIdentity' {} a -> s {emailIdentity = a} :: CreateEmailIdentity)
 
@@ -184,8 +183,8 @@ instance Core.AWSRequest CreateEmailIdentity where
       ( \s h x ->
           CreateEmailIdentityResponse'
             Prelude.<$> (x Core..?> "DkimAttributes")
-            Prelude.<*> (x Core..?> "IdentityType")
             Prelude.<*> (x Core..?> "VerifiedForSendingStatus")
+            Prelude.<*> (x Core..?> "IdentityType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,11 +207,11 @@ instance Core.ToJSON CreateEmailIdentity where
   toJSON CreateEmailIdentity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DkimSigningAttributes" Core..=)
+          [ ("ConfigurationSetName" Core..=)
+              Prelude.<$> configurationSetName,
+            ("DkimSigningAttributes" Core..=)
               Prelude.<$> dkimSigningAttributes,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("ConfigurationSetName" Core..=)
-              Prelude.<$> configurationSetName,
             Prelude.Just
               ("EmailIdentity" Core..= emailIdentity)
           ]
@@ -234,13 +233,14 @@ data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
   { -- | An object that contains information about the DKIM attributes for the
     -- identity.
     dkimAttributes :: Prelude.Maybe DkimAttributes,
-    -- | The email identity type.
-    identityType :: Prelude.Maybe IdentityType,
     -- | Specifies whether or not the identity is verified. You can only send
     -- email from verified email addresses or domains. For more information
     -- about verifying identities, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
     verifiedForSendingStatus :: Prelude.Maybe Prelude.Bool,
+    -- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
+    -- supported.
+    identityType :: Prelude.Maybe IdentityType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -257,12 +257,13 @@ data CreateEmailIdentityResponse = CreateEmailIdentityResponse'
 -- 'dkimAttributes', 'createEmailIdentityResponse_dkimAttributes' - An object that contains information about the DKIM attributes for the
 -- identity.
 --
--- 'identityType', 'createEmailIdentityResponse_identityType' - The email identity type.
---
 -- 'verifiedForSendingStatus', 'createEmailIdentityResponse_verifiedForSendingStatus' - Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
 -- about verifying identities, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
+--
+-- 'identityType', 'createEmailIdentityResponse_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
+-- supported.
 --
 -- 'httpStatus', 'createEmailIdentityResponse_httpStatus' - The response's http status code.
 newCreateEmailIdentityResponse ::
@@ -273,8 +274,8 @@ newCreateEmailIdentityResponse pHttpStatus_ =
   CreateEmailIdentityResponse'
     { dkimAttributes =
         Prelude.Nothing,
-      identityType = Prelude.Nothing,
       verifiedForSendingStatus = Prelude.Nothing,
+      identityType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -283,16 +284,17 @@ newCreateEmailIdentityResponse pHttpStatus_ =
 createEmailIdentityResponse_dkimAttributes :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe DkimAttributes)
 createEmailIdentityResponse_dkimAttributes = Lens.lens (\CreateEmailIdentityResponse' {dkimAttributes} -> dkimAttributes) (\s@CreateEmailIdentityResponse' {} a -> s {dkimAttributes = a} :: CreateEmailIdentityResponse)
 
--- | The email identity type.
-createEmailIdentityResponse_identityType :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe IdentityType)
-createEmailIdentityResponse_identityType = Lens.lens (\CreateEmailIdentityResponse' {identityType} -> identityType) (\s@CreateEmailIdentityResponse' {} a -> s {identityType = a} :: CreateEmailIdentityResponse)
-
 -- | Specifies whether or not the identity is verified. You can only send
 -- email from verified email addresses or domains. For more information
 -- about verifying identities, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html Amazon Pinpoint User Guide>.
 createEmailIdentityResponse_verifiedForSendingStatus :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe Prelude.Bool)
 createEmailIdentityResponse_verifiedForSendingStatus = Lens.lens (\CreateEmailIdentityResponse' {verifiedForSendingStatus} -> verifiedForSendingStatus) (\s@CreateEmailIdentityResponse' {} a -> s {verifiedForSendingStatus = a} :: CreateEmailIdentityResponse)
+
+-- | The email identity type. Note: the @MANAGED_DOMAIN@ identity type is not
+-- supported.
+createEmailIdentityResponse_identityType :: Lens.Lens' CreateEmailIdentityResponse (Prelude.Maybe IdentityType)
+createEmailIdentityResponse_identityType = Lens.lens (\CreateEmailIdentityResponse' {identityType} -> identityType) (\s@CreateEmailIdentityResponse' {} a -> s {identityType = a} :: CreateEmailIdentityResponse)
 
 -- | The response's http status code.
 createEmailIdentityResponse_httpStatus :: Lens.Lens' CreateEmailIdentityResponse Prelude.Int

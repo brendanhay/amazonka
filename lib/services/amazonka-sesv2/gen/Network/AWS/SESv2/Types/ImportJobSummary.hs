@@ -29,11 +29,11 @@ import Network.AWS.SESv2.Types.JobStatus
 --
 -- /See:/ 'newImportJobSummary' smart constructor.
 data ImportJobSummary = ImportJobSummary'
-  { -- | The date and time when the import job was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
-    jobStatus :: Prelude.Maybe JobStatus,
+  { jobId :: Prelude.Maybe Prelude.Text,
     importDestination :: Prelude.Maybe ImportDestination,
-    jobId :: Prelude.Maybe Prelude.Text
+    jobStatus :: Prelude.Maybe JobStatus,
+    -- | The date and time when the import job was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,39 +45,38 @@ data ImportJobSummary = ImportJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'importJobSummary_createdTimestamp' - The date and time when the import job was created.
---
--- 'jobStatus', 'importJobSummary_jobStatus' - Undocumented member.
+-- 'jobId', 'importJobSummary_jobId' - Undocumented member.
 --
 -- 'importDestination', 'importJobSummary_importDestination' - Undocumented member.
 --
--- 'jobId', 'importJobSummary_jobId' - Undocumented member.
+-- 'jobStatus', 'importJobSummary_jobStatus' - Undocumented member.
+--
+-- 'createdTimestamp', 'importJobSummary_createdTimestamp' - The date and time when the import job was created.
 newImportJobSummary ::
   ImportJobSummary
 newImportJobSummary =
   ImportJobSummary'
-    { createdTimestamp =
-        Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
       importDestination = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobStatus = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing
     }
 
--- | The date and time when the import job was created.
-importJobSummary_createdTimestamp :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-importJobSummary_createdTimestamp = Lens.lens (\ImportJobSummary' {createdTimestamp} -> createdTimestamp) (\s@ImportJobSummary' {} a -> s {createdTimestamp = a} :: ImportJobSummary) Prelude.. Lens.mapping Core._Time
-
 -- | Undocumented member.
-importJobSummary_jobStatus :: Lens.Lens' ImportJobSummary (Prelude.Maybe JobStatus)
-importJobSummary_jobStatus = Lens.lens (\ImportJobSummary' {jobStatus} -> jobStatus) (\s@ImportJobSummary' {} a -> s {jobStatus = a} :: ImportJobSummary)
+importJobSummary_jobId :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Text)
+importJobSummary_jobId = Lens.lens (\ImportJobSummary' {jobId} -> jobId) (\s@ImportJobSummary' {} a -> s {jobId = a} :: ImportJobSummary)
 
 -- | Undocumented member.
 importJobSummary_importDestination :: Lens.Lens' ImportJobSummary (Prelude.Maybe ImportDestination)
 importJobSummary_importDestination = Lens.lens (\ImportJobSummary' {importDestination} -> importDestination) (\s@ImportJobSummary' {} a -> s {importDestination = a} :: ImportJobSummary)
 
 -- | Undocumented member.
-importJobSummary_jobId :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Text)
-importJobSummary_jobId = Lens.lens (\ImportJobSummary' {jobId} -> jobId) (\s@ImportJobSummary' {} a -> s {jobId = a} :: ImportJobSummary)
+importJobSummary_jobStatus :: Lens.Lens' ImportJobSummary (Prelude.Maybe JobStatus)
+importJobSummary_jobStatus = Lens.lens (\ImportJobSummary' {jobStatus} -> jobStatus) (\s@ImportJobSummary' {} a -> s {jobStatus = a} :: ImportJobSummary)
+
+-- | The date and time when the import job was created.
+importJobSummary_createdTimestamp :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.UTCTime)
+importJobSummary_createdTimestamp = Lens.lens (\ImportJobSummary' {createdTimestamp} -> createdTimestamp) (\s@ImportJobSummary' {} a -> s {createdTimestamp = a} :: ImportJobSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ImportJobSummary where
   parseJSON =
@@ -85,10 +84,10 @@ instance Core.FromJSON ImportJobSummary where
       "ImportJobSummary"
       ( \x ->
           ImportJobSummary'
-            Prelude.<$> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<$> (x Core..:? "JobId")
             Prelude.<*> (x Core..:? "ImportDestination")
-            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "JobStatus")
+            Prelude.<*> (x Core..:? "CreatedTimestamp")
       )
 
 instance Prelude.Hashable ImportJobSummary

@@ -28,17 +28,17 @@ import Network.AWS.SESv2.Types.TopicPreference
 --
 -- /See:/ 'newContact' smart constructor.
 data Contact = Contact'
-  { -- | The default topic preferences applied to the contact.
-    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
-    -- | A boolean value status noting if the contact is unsubscribed from all
+  { -- | A boolean value status noting if the contact is unsubscribed from all
     -- contact list topics.
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
-    -- | The contact\'s preference for being opted-in to or opted-out of a topic.
-    topicPreferences :: Prelude.Maybe [TopicPreference],
+    -- | The default topic preferences applied to the contact.
+    topicDefaultPreferences :: Prelude.Maybe [TopicPreference],
+    -- | The contact\'s email address.
+    emailAddress :: Prelude.Maybe Prelude.Text,
     -- | A timestamp noting the last time the contact\'s information was updated.
     lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The contact\'s email address.
-    emailAddress :: Prelude.Maybe Prelude.Text
+    -- | The contact\'s preference for being opted-in to or opted-out of a topic.
+    topicPreferences :: Prelude.Maybe [TopicPreference]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,47 +50,47 @@ data Contact = Contact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topicDefaultPreferences', 'contact_topicDefaultPreferences' - The default topic preferences applied to the contact.
---
 -- 'unsubscribeAll', 'contact_unsubscribeAll' - A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
 --
--- 'topicPreferences', 'contact_topicPreferences' - The contact\'s preference for being opted-in to or opted-out of a topic.
+-- 'topicDefaultPreferences', 'contact_topicDefaultPreferences' - The default topic preferences applied to the contact.
+--
+-- 'emailAddress', 'contact_emailAddress' - The contact\'s email address.
 --
 -- 'lastUpdatedTimestamp', 'contact_lastUpdatedTimestamp' - A timestamp noting the last time the contact\'s information was updated.
 --
--- 'emailAddress', 'contact_emailAddress' - The contact\'s email address.
+-- 'topicPreferences', 'contact_topicPreferences' - The contact\'s preference for being opted-in to or opted-out of a topic.
 newContact ::
   Contact
 newContact =
   Contact'
-    { topicDefaultPreferences = Prelude.Nothing,
-      unsubscribeAll = Prelude.Nothing,
-      topicPreferences = Prelude.Nothing,
+    { unsubscribeAll = Prelude.Nothing,
+      topicDefaultPreferences = Prelude.Nothing,
+      emailAddress = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
-      emailAddress = Prelude.Nothing
+      topicPreferences = Prelude.Nothing
     }
-
--- | The default topic preferences applied to the contact.
-contact_topicDefaultPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
-contact_topicDefaultPreferences = Lens.lens (\Contact' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@Contact' {} a -> s {topicDefaultPreferences = a} :: Contact) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A boolean value status noting if the contact is unsubscribed from all
 -- contact list topics.
 contact_unsubscribeAll :: Lens.Lens' Contact (Prelude.Maybe Prelude.Bool)
 contact_unsubscribeAll = Lens.lens (\Contact' {unsubscribeAll} -> unsubscribeAll) (\s@Contact' {} a -> s {unsubscribeAll = a} :: Contact)
 
--- | The contact\'s preference for being opted-in to or opted-out of a topic.
-contact_topicPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
-contact_topicPreferences = Lens.lens (\Contact' {topicPreferences} -> topicPreferences) (\s@Contact' {} a -> s {topicPreferences = a} :: Contact) Prelude.. Lens.mapping Lens._Coerce
+-- | The default topic preferences applied to the contact.
+contact_topicDefaultPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
+contact_topicDefaultPreferences = Lens.lens (\Contact' {topicDefaultPreferences} -> topicDefaultPreferences) (\s@Contact' {} a -> s {topicDefaultPreferences = a} :: Contact) Prelude.. Lens.mapping Lens.coerced
+
+-- | The contact\'s email address.
+contact_emailAddress :: Lens.Lens' Contact (Prelude.Maybe Prelude.Text)
+contact_emailAddress = Lens.lens (\Contact' {emailAddress} -> emailAddress) (\s@Contact' {} a -> s {emailAddress = a} :: Contact)
 
 -- | A timestamp noting the last time the contact\'s information was updated.
 contact_lastUpdatedTimestamp :: Lens.Lens' Contact (Prelude.Maybe Prelude.UTCTime)
 contact_lastUpdatedTimestamp = Lens.lens (\Contact' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@Contact' {} a -> s {lastUpdatedTimestamp = a} :: Contact) Prelude.. Lens.mapping Core._Time
 
--- | The contact\'s email address.
-contact_emailAddress :: Lens.Lens' Contact (Prelude.Maybe Prelude.Text)
-contact_emailAddress = Lens.lens (\Contact' {emailAddress} -> emailAddress) (\s@Contact' {} a -> s {emailAddress = a} :: Contact)
+-- | The contact\'s preference for being opted-in to or opted-out of a topic.
+contact_topicPreferences :: Lens.Lens' Contact (Prelude.Maybe [TopicPreference])
+contact_topicPreferences = Lens.lens (\Contact' {topicPreferences} -> topicPreferences) (\s@Contact' {} a -> s {topicPreferences = a} :: Contact) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Contact where
   parseJSON =
@@ -98,15 +98,15 @@ instance Core.FromJSON Contact where
       "Contact"
       ( \x ->
           Contact'
-            Prelude.<$> ( x Core..:? "TopicDefaultPreferences"
+            Prelude.<$> (x Core..:? "UnsubscribeAll")
+            Prelude.<*> ( x Core..:? "TopicDefaultPreferences"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "UnsubscribeAll")
+            Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
             Prelude.<*> ( x Core..:? "TopicPreferences"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "EmailAddress")
       )
 
 instance Prelude.Hashable Contact

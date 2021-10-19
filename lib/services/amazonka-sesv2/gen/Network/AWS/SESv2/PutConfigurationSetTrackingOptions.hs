@@ -52,10 +52,9 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newPutConfigurationSetTrackingOptions' smart constructor.
 data PutConfigurationSetTrackingOptions = PutConfigurationSetTrackingOptions'
-  { -- | The domain that you want to use to track open and click events.
+  { -- | The domain to use to track open and click events.
     customRedirectDomain :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set that you want to add a custom tracking
-    -- domain to.
+    -- | The name of the configuration set.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,10 +67,9 @@ data PutConfigurationSetTrackingOptions = PutConfigurationSetTrackingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customRedirectDomain', 'putConfigurationSetTrackingOptions_customRedirectDomain' - The domain that you want to use to track open and click events.
+-- 'customRedirectDomain', 'putConfigurationSetTrackingOptions_customRedirectDomain' - The domain to use to track open and click events.
 --
--- 'configurationSetName', 'putConfigurationSetTrackingOptions_configurationSetName' - The name of the configuration set that you want to add a custom tracking
--- domain to.
+-- 'configurationSetName', 'putConfigurationSetTrackingOptions_configurationSetName' - The name of the configuration set.
 newPutConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -85,12 +83,11 @@ newPutConfigurationSetTrackingOptions
           pConfigurationSetName_
       }
 
--- | The domain that you want to use to track open and click events.
+-- | The domain to use to track open and click events.
 putConfigurationSetTrackingOptions_customRedirectDomain :: Lens.Lens' PutConfigurationSetTrackingOptions (Prelude.Maybe Prelude.Text)
 putConfigurationSetTrackingOptions_customRedirectDomain = Lens.lens (\PutConfigurationSetTrackingOptions' {customRedirectDomain} -> customRedirectDomain) (\s@PutConfigurationSetTrackingOptions' {} a -> s {customRedirectDomain = a} :: PutConfigurationSetTrackingOptions)
 
--- | The name of the configuration set that you want to add a custom tracking
--- domain to.
+-- | The name of the configuration set.
 putConfigurationSetTrackingOptions_configurationSetName :: Lens.Lens' PutConfigurationSetTrackingOptions Prelude.Text
 putConfigurationSetTrackingOptions_configurationSetName = Lens.lens (\PutConfigurationSetTrackingOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetTrackingOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetTrackingOptions)
 

@@ -28,8 +28,8 @@ module Network.AWS.SESv2.ListContacts
 
     -- * Request Lenses
     listContacts_nextToken,
-    listContacts_pageSize,
     listContacts_filter,
+    listContacts_pageSize,
     listContacts_contactListName,
 
     -- * Destructuring the Response
@@ -57,6 +57,8 @@ data ListContacts = ListContacts'
     -- the subsequent call to ListContacts with the same parameters to retrieve
     -- the next page of contacts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter that can be applied to a list of contacts.
+    filter' :: Prelude.Maybe ListContactsFilter,
     -- | The number of contacts that may be returned at once, which is dependent
     -- on if there are more or less contacts than the value of the PageSize.
     -- Use this parameter to paginate results. If additional contacts exist
@@ -64,8 +66,6 @@ data ListContacts = ListContacts'
     -- response. Use the @NextToken@ value in subsequent requests to retrieve
     -- additional contacts.
     pageSize :: Prelude.Maybe Prelude.Int,
-    -- | A filter that can be applied to a list of contacts.
-    filter' :: Prelude.Maybe ListContactsFilter,
     -- | The name of the contact list.
     contactListName :: Prelude.Text
   }
@@ -84,14 +84,14 @@ data ListContacts = ListContacts'
 -- the subsequent call to ListContacts with the same parameters to retrieve
 -- the next page of contacts.
 --
+-- 'filter'', 'listContacts_filter' - A filter that can be applied to a list of contacts.
+--
 -- 'pageSize', 'listContacts_pageSize' - The number of contacts that may be returned at once, which is dependent
 -- on if there are more or less contacts than the value of the PageSize.
 -- Use this parameter to paginate results. If additional contacts exist
 -- beyond the specified limit, the @NextToken@ element is sent in the
 -- response. Use the @NextToken@ value in subsequent requests to retrieve
 -- additional contacts.
---
--- 'filter'', 'listContacts_filter' - A filter that can be applied to a list of contacts.
 --
 -- 'contactListName', 'listContacts_contactListName' - The name of the contact list.
 newListContacts ::
@@ -101,8 +101,8 @@ newListContacts ::
 newListContacts pContactListName_ =
   ListContacts'
     { nextToken = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       contactListName = pContactListName_
     }
 
@@ -113,6 +113,10 @@ newListContacts pContactListName_ =
 listContacts_nextToken :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Text)
 listContacts_nextToken = Lens.lens (\ListContacts' {nextToken} -> nextToken) (\s@ListContacts' {} a -> s {nextToken = a} :: ListContacts)
 
+-- | A filter that can be applied to a list of contacts.
+listContacts_filter :: Lens.Lens' ListContacts (Prelude.Maybe ListContactsFilter)
+listContacts_filter = Lens.lens (\ListContacts' {filter'} -> filter') (\s@ListContacts' {} a -> s {filter' = a} :: ListContacts)
+
 -- | The number of contacts that may be returned at once, which is dependent
 -- on if there are more or less contacts than the value of the PageSize.
 -- Use this parameter to paginate results. If additional contacts exist
@@ -121,10 +125,6 @@ listContacts_nextToken = Lens.lens (\ListContacts' {nextToken} -> nextToken) (\s
 -- additional contacts.
 listContacts_pageSize :: Lens.Lens' ListContacts (Prelude.Maybe Prelude.Int)
 listContacts_pageSize = Lens.lens (\ListContacts' {pageSize} -> pageSize) (\s@ListContacts' {} a -> s {pageSize = a} :: ListContacts)
-
--- | A filter that can be applied to a list of contacts.
-listContacts_filter :: Lens.Lens' ListContacts (Prelude.Maybe ListContactsFilter)
-listContacts_filter = Lens.lens (\ListContacts' {filter'} -> filter') (\s@ListContacts' {} a -> s {filter' = a} :: ListContacts)
 
 -- | The name of the contact list.
 listContacts_contactListName :: Lens.Lens' ListContacts Prelude.Text
@@ -222,7 +222,7 @@ listContactsResponse_nextToken = Lens.lens (\ListContactsResponse' {nextToken} -
 
 -- | The contacts present in a specific contact list.
 listContactsResponse_contacts :: Lens.Lens' ListContactsResponse (Prelude.Maybe [Contact])
-listContactsResponse_contacts = Lens.lens (\ListContactsResponse' {contacts} -> contacts) (\s@ListContactsResponse' {} a -> s {contacts = a} :: ListContactsResponse) Prelude.. Lens.mapping Lens._Coerce
+listContactsResponse_contacts = Lens.lens (\ListContactsResponse' {contacts} -> contacts) (\s@ListContactsResponse' {} a -> s {contacts = a} :: ListContactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContactsResponse_httpStatus :: Lens.Lens' ListContactsResponse Prelude.Int

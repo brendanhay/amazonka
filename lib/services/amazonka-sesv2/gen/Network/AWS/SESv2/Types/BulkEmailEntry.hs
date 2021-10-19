@@ -28,13 +28,13 @@ import Network.AWS.SESv2.Types.ReplacementEmailContent
 
 -- | /See:/ 'newBulkEmailEntry' smart constructor.
 data BulkEmailEntry = BulkEmailEntry'
-  { -- | A list of tags, in the form of name\/value pairs, to apply to an email
+  { -- | The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
+    replacementEmailContent :: Prelude.Maybe ReplacementEmailContent,
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send using the @SendBulkTemplatedEmail@ operation. Tags
     -- correspond to characteristics of the email that you define, so that you
     -- can publish email sending events.
     replacementTags :: Prelude.Maybe [MessageTag],
-    -- | The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
-    replacementEmailContent :: Prelude.Maybe ReplacementEmailContent,
     -- | Represents the destination of the message, consisting of To:, CC:, and
     -- BCC: fields.
     --
@@ -58,12 +58,12 @@ data BulkEmailEntry = BulkEmailEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replacementEmailContent', 'bulkEmailEntry_replacementEmailContent' - The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
+--
 -- 'replacementTags', 'bulkEmailEntry_replacementTags' - A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using the @SendBulkTemplatedEmail@ operation. Tags
 -- correspond to characteristics of the email that you define, so that you
 -- can publish email sending events.
---
--- 'replacementEmailContent', 'bulkEmailEntry_replacementEmailContent' - The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
 --
 -- 'destination', 'bulkEmailEntry_destination' - Represents the destination of the message, consisting of To:, CC:, and
 -- BCC: fields.
@@ -82,21 +82,22 @@ newBulkEmailEntry ::
   BulkEmailEntry
 newBulkEmailEntry pDestination_ =
   BulkEmailEntry'
-    { replacementTags = Prelude.Nothing,
-      replacementEmailContent = Prelude.Nothing,
+    { replacementEmailContent =
+        Prelude.Nothing,
+      replacementTags = Prelude.Nothing,
       destination = pDestination_
     }
+
+-- | The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
+bulkEmailEntry_replacementEmailContent :: Lens.Lens' BulkEmailEntry (Prelude.Maybe ReplacementEmailContent)
+bulkEmailEntry_replacementEmailContent = Lens.lens (\BulkEmailEntry' {replacementEmailContent} -> replacementEmailContent) (\s@BulkEmailEntry' {} a -> s {replacementEmailContent = a} :: BulkEmailEntry)
 
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using the @SendBulkTemplatedEmail@ operation. Tags
 -- correspond to characteristics of the email that you define, so that you
 -- can publish email sending events.
 bulkEmailEntry_replacementTags :: Lens.Lens' BulkEmailEntry (Prelude.Maybe [MessageTag])
-bulkEmailEntry_replacementTags = Lens.lens (\BulkEmailEntry' {replacementTags} -> replacementTags) (\s@BulkEmailEntry' {} a -> s {replacementTags = a} :: BulkEmailEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | The @ReplacementEmailContent@ associated with a @BulkEmailEntry@.
-bulkEmailEntry_replacementEmailContent :: Lens.Lens' BulkEmailEntry (Prelude.Maybe ReplacementEmailContent)
-bulkEmailEntry_replacementEmailContent = Lens.lens (\BulkEmailEntry' {replacementEmailContent} -> replacementEmailContent) (\s@BulkEmailEntry' {} a -> s {replacementEmailContent = a} :: BulkEmailEntry)
+bulkEmailEntry_replacementTags = Lens.lens (\BulkEmailEntry' {replacementTags} -> replacementTags) (\s@BulkEmailEntry' {} a -> s {replacementTags = a} :: BulkEmailEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | Represents the destination of the message, consisting of To:, CC:, and
 -- BCC: fields.
@@ -120,10 +121,10 @@ instance Core.ToJSON BulkEmailEntry where
   toJSON BulkEmailEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplacementTags" Core..=)
-              Prelude.<$> replacementTags,
-            ("ReplacementEmailContent" Core..=)
+          [ ("ReplacementEmailContent" Core..=)
               Prelude.<$> replacementEmailContent,
+            ("ReplacementTags" Core..=)
+              Prelude.<$> replacementTags,
             Prelude.Just ("Destination" Core..= destination)
           ]
       )

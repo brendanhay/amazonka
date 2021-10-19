@@ -55,7 +55,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newDeleteConfigurationSet' smart constructor.
 data DeleteConfigurationSet = DeleteConfigurationSet'
-  { -- | The name of the configuration set that you want to delete.
+  { -- | The name of the configuration set.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data DeleteConfigurationSet = DeleteConfigurationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'deleteConfigurationSet_configurationSetName' - The name of the configuration set that you want to delete.
+-- 'configurationSetName', 'deleteConfigurationSet_configurationSetName' - The name of the configuration set.
 newDeleteConfigurationSet ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -79,7 +79,7 @@ newDeleteConfigurationSet pConfigurationSetName_ =
         pConfigurationSetName_
     }
 
--- | The name of the configuration set that you want to delete.
+-- | The name of the configuration set.
 deleteConfigurationSet_configurationSetName :: Lens.Lens' DeleteConfigurationSet Prelude.Text
 deleteConfigurationSet_configurationSetName = Lens.lens (\DeleteConfigurationSet' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSet' {} a -> s {configurationSetName = a} :: DeleteConfigurationSet)
 

@@ -27,8 +27,9 @@
 --
 -- When you use the Deliverability dashboard, you pay a monthly
 -- subscription charge, in addition to any other fees that you accrue by
--- using Amazon SES and other AWS services. For more information about the
--- features and cost of a Deliverability dashboard subscription, see
+-- using Amazon SES and other Amazon Web Services services. For more
+-- information about the features and cost of a Deliverability dashboard
+-- subscription, see
 -- <http://aws.amazon.com/ses/pricing/ Amazon SES Pricing>.
 module Network.AWS.SESv2.PutDeliverabilityDashboardOption
   ( -- * Creating a Request
@@ -63,8 +64,9 @@ import Network.AWS.SESv2.Types
 --
 -- When you use the Deliverability dashboard, you pay a monthly
 -- subscription charge, in addition to any other fees that you accrue by
--- using Amazon SES and other AWS services. For more information about the
--- features and cost of a Deliverability dashboard subscription, see
+-- using Amazon SES and other Amazon Web Services services. For more
+-- information about the features and cost of a Deliverability dashboard
+-- subscription, see
 -- <http://aws.amazon.com/pinpoint/pricing/ Amazon Pinpoint Pricing>.
 --
 -- /See:/ 'newPutDeliverabilityDashboardOption' smart constructor.
@@ -106,7 +108,7 @@ newPutDeliverabilityDashboardOption
 -- | An array of objects, one for each verified domain that you use to send
 -- email and enabled the Deliverability dashboard for.
 putDeliverabilityDashboardOption_subscribedDomains :: Lens.Lens' PutDeliverabilityDashboardOption (Prelude.Maybe [DomainDeliverabilityTrackingOption])
-putDeliverabilityDashboardOption_subscribedDomains = Lens.lens (\PutDeliverabilityDashboardOption' {subscribedDomains} -> subscribedDomains) (\s@PutDeliverabilityDashboardOption' {} a -> s {subscribedDomains = a} :: PutDeliverabilityDashboardOption) Prelude.. Lens.mapping Lens._Coerce
+putDeliverabilityDashboardOption_subscribedDomains = Lens.lens (\PutDeliverabilityDashboardOption' {subscribedDomains} -> subscribedDomains) (\s@PutDeliverabilityDashboardOption' {} a -> s {subscribedDomains = a} :: PutDeliverabilityDashboardOption) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether to enable the Deliverability dashboard. To enable the
 -- dashboard, set this value to @true@.

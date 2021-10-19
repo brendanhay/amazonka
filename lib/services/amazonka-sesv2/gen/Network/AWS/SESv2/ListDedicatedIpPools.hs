@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all of the dedicated IP pools that exist in your AWS account in the
--- current Region.
+-- List all of the dedicated IP pools that exist in your Amazon Web
+-- Services account in the current Region.
 module Network.AWS.SESv2.ListDedicatedIpPools
   ( -- * Creating a Request
     ListDedicatedIpPools (..),
@@ -36,8 +36,8 @@ module Network.AWS.SESv2.ListDedicatedIpPools
     newListDedicatedIpPoolsResponse,
 
     -- * Response Lenses
-    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_dedicatedIpPools,
+    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_httpStatus,
   )
 where
@@ -108,10 +108,10 @@ instance Core.AWSRequest ListDedicatedIpPools where
     Response.receiveJSON
       ( \s h x ->
           ListDedicatedIpPoolsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DedicatedIpPools"
+            Prelude.<$> ( x Core..?> "DedicatedIpPools"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,13 +144,13 @@ instance Core.ToQuery ListDedicatedIpPools where
 --
 -- /See:/ 'newListDedicatedIpPoolsResponse' smart constructor.
 data ListDedicatedIpPoolsResponse = ListDedicatedIpPoolsResponse'
-  { -- | A token that indicates that there are additional IP pools to list. To
+  { -- | A list of all of the dedicated IP pools that are associated with your
+    -- Amazon Web Services account in the current Region.
+    dedicatedIpPools :: Prelude.Maybe [Prelude.Text],
+    -- | A token that indicates that there are additional IP pools to list. To
     -- view additional IP pools, issue another request to
     -- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of all of the dedicated IP pools that are associated with your
-    -- AWS account in the current Region.
-    dedicatedIpPools :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,12 +164,12 @@ data ListDedicatedIpPoolsResponse = ListDedicatedIpPoolsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dedicatedIpPools', 'listDedicatedIpPoolsResponse_dedicatedIpPools' - A list of all of the dedicated IP pools that are associated with your
+-- Amazon Web Services account in the current Region.
+--
 -- 'nextToken', 'listDedicatedIpPoolsResponse_nextToken' - A token that indicates that there are additional IP pools to list. To
 -- view additional IP pools, issue another request to
 -- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.
---
--- 'dedicatedIpPools', 'listDedicatedIpPoolsResponse_dedicatedIpPools' - A list of all of the dedicated IP pools that are associated with your
--- AWS account in the current Region.
 --
 -- 'httpStatus', 'listDedicatedIpPoolsResponse_httpStatus' - The response's http status code.
 newListDedicatedIpPoolsResponse ::
@@ -178,22 +178,22 @@ newListDedicatedIpPoolsResponse ::
   ListDedicatedIpPoolsResponse
 newListDedicatedIpPoolsResponse pHttpStatus_ =
   ListDedicatedIpPoolsResponse'
-    { nextToken =
+    { dedicatedIpPools =
         Prelude.Nothing,
-      dedicatedIpPools = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of all of the dedicated IP pools that are associated with your
+-- Amazon Web Services account in the current Region.
+listDedicatedIpPoolsResponse_dedicatedIpPools :: Lens.Lens' ListDedicatedIpPoolsResponse (Prelude.Maybe [Prelude.Text])
+listDedicatedIpPoolsResponse_dedicatedIpPools = Lens.lens (\ListDedicatedIpPoolsResponse' {dedicatedIpPools} -> dedicatedIpPools) (\s@ListDedicatedIpPoolsResponse' {} a -> s {dedicatedIpPools = a} :: ListDedicatedIpPoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there are additional IP pools to list. To
 -- view additional IP pools, issue another request to
 -- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.
 listDedicatedIpPoolsResponse_nextToken :: Lens.Lens' ListDedicatedIpPoolsResponse (Prelude.Maybe Prelude.Text)
 listDedicatedIpPoolsResponse_nextToken = Lens.lens (\ListDedicatedIpPoolsResponse' {nextToken} -> nextToken) (\s@ListDedicatedIpPoolsResponse' {} a -> s {nextToken = a} :: ListDedicatedIpPoolsResponse)
-
--- | A list of all of the dedicated IP pools that are associated with your
--- AWS account in the current Region.
-listDedicatedIpPoolsResponse_dedicatedIpPools :: Lens.Lens' ListDedicatedIpPoolsResponse (Prelude.Maybe [Prelude.Text])
-listDedicatedIpPoolsResponse_dedicatedIpPools = Lens.lens (\ListDedicatedIpPoolsResponse' {dedicatedIpPools} -> dedicatedIpPools) (\s@ListDedicatedIpPoolsResponse' {} a -> s {dedicatedIpPools = a} :: ListDedicatedIpPoolsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDedicatedIpPoolsResponse_httpStatus :: Lens.Lens' ListDedicatedIpPoolsResponse Prelude.Int

@@ -53,8 +53,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newDeleteEmailIdentity' smart constructor.
 data DeleteEmailIdentity = DeleteEmailIdentity'
-  { -- | The identity (that is, the email address or domain) that you want to
-    -- delete.
+  { -- | The identity (that is, the email address or domain) to delete.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,8 +66,7 @@ data DeleteEmailIdentity = DeleteEmailIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentity', 'deleteEmailIdentity_emailIdentity' - The identity (that is, the email address or domain) that you want to
--- delete.
+-- 'emailIdentity', 'deleteEmailIdentity_emailIdentity' - The identity (that is, the email address or domain) to delete.
 newDeleteEmailIdentity ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -79,8 +77,7 @@ newDeleteEmailIdentity pEmailIdentity_ =
         pEmailIdentity_
     }
 
--- | The identity (that is, the email address or domain) that you want to
--- delete.
+-- | The identity (that is, the email address or domain) to delete.
 deleteEmailIdentity_emailIdentity :: Lens.Lens' DeleteEmailIdentity Prelude.Text
 deleteEmailIdentity_emailIdentity = Lens.lens (\DeleteEmailIdentity' {emailIdentity} -> emailIdentity) (\s@DeleteEmailIdentity' {} a -> s {emailIdentity = a} :: DeleteEmailIdentity)
 

@@ -111,7 +111,7 @@ updateContact_attributesData = Lens.lens (\UpdateContact' {attributesData} -> at
 
 -- | The contact\'s preference for being opted-in to or opted-out of a topic.
 updateContact_topicPreferences :: Lens.Lens' UpdateContact (Prelude.Maybe [TopicPreference])
-updateContact_topicPreferences = Lens.lens (\UpdateContact' {topicPreferences} -> topicPreferences) (\s@UpdateContact' {} a -> s {topicPreferences = a} :: UpdateContact) Prelude.. Lens.mapping Lens._Coerce
+updateContact_topicPreferences = Lens.lens (\UpdateContact' {topicPreferences} -> topicPreferences) (\s@UpdateContact' {} a -> s {topicPreferences = a} :: UpdateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the contact list.
 updateContact_contactListName :: Lens.Lens' UpdateContact Prelude.Text

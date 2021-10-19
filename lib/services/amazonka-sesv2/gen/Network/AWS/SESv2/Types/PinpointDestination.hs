@@ -32,8 +32,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPinpointDestination' smart constructor.
 data PinpointDestination = PinpointDestination'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you
-    -- want to send email events to.
+  { -- | The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send
+    -- email events to.
     applicationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data PinpointDestination = PinpointDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationArn', 'pinpointDestination_applicationArn' - The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you
--- want to send email events to.
+-- 'applicationArn', 'pinpointDestination_applicationArn' - The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send
+-- email events to.
 newPinpointDestination ::
   PinpointDestination
 newPinpointDestination =
@@ -56,8 +56,8 @@ newPinpointDestination =
         Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you
--- want to send email events to.
+-- | The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send
+-- email events to.
 pinpointDestination_applicationArn :: Lens.Lens' PinpointDestination (Prelude.Maybe Prelude.Text)
 pinpointDestination_applicationArn = Lens.lens (\PinpointDestination' {applicationArn} -> applicationArn) (\s@PinpointDestination' {} a -> s {applicationArn = a} :: PinpointDestination)
 

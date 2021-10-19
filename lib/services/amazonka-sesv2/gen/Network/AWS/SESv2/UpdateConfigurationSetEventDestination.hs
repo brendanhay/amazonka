@@ -60,10 +60,10 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newUpdateConfigurationSetEventDestination' smart constructor.
 data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestination'
-  { -- | The name of the configuration set that contains the event destination
-    -- that you want to modify.
+  { -- | The name of the configuration set that contains the event destination to
+    -- modify.
     configurationSetName :: Prelude.Text,
-    -- | The name of the event destination that you want to modify.
+    -- | The name of the event destination.
     eventDestinationName :: Prelude.Text,
     -- | An object that defines the event destination.
     eventDestination :: EventDestinationDefinition
@@ -78,10 +78,10 @@ data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestina
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'updateConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination
--- that you want to modify.
+-- 'configurationSetName', 'updateConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination to
+-- modify.
 --
--- 'eventDestinationName', 'updateConfigurationSetEventDestination_eventDestinationName' - The name of the event destination that you want to modify.
+-- 'eventDestinationName', 'updateConfigurationSetEventDestination_eventDestinationName' - The name of the event destination.
 --
 -- 'eventDestination', 'updateConfigurationSetEventDestination_eventDestination' - An object that defines the event destination.
 newUpdateConfigurationSetEventDestination ::
@@ -105,12 +105,12 @@ newUpdateConfigurationSetEventDestination
           pEventDestination_
       }
 
--- | The name of the configuration set that contains the event destination
--- that you want to modify.
+-- | The name of the configuration set that contains the event destination to
+-- modify.
 updateConfigurationSetEventDestination_configurationSetName :: Lens.Lens' UpdateConfigurationSetEventDestination Prelude.Text
 updateConfigurationSetEventDestination_configurationSetName = Lens.lens (\UpdateConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetEventDestination)
 
--- | The name of the event destination that you want to modify.
+-- | The name of the event destination.
 updateConfigurationSetEventDestination_eventDestinationName :: Lens.Lens' UpdateConfigurationSetEventDestination Prelude.Text
 updateConfigurationSetEventDestination_eventDestinationName = Lens.lens (\UpdateConfigurationSetEventDestination' {eventDestinationName} -> eventDestinationName) (\s@UpdateConfigurationSetEventDestination' {} a -> s {eventDestinationName = a} :: UpdateConfigurationSetEventDestination)
 

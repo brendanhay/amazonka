@@ -58,8 +58,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newCreateConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-  { -- | The name of the configuration set that you want to add an event
-    -- destination to.
+  { -- | The name of the configuration set .
     configurationSetName :: Prelude.Text,
     -- | A name that identifies the event destination within the configuration
     -- set.
@@ -77,8 +76,7 @@ data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestina
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'createConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that you want to add an event
--- destination to.
+-- 'configurationSetName', 'createConfigurationSetEventDestination_configurationSetName' - The name of the configuration set .
 --
 -- 'eventDestinationName', 'createConfigurationSetEventDestination_eventDestinationName' - A name that identifies the event destination within the configuration
 -- set.
@@ -105,8 +103,7 @@ newCreateConfigurationSetEventDestination
           pEventDestination_
       }
 
--- | The name of the configuration set that you want to add an event
--- destination to.
+-- | The name of the configuration set .
 createConfigurationSetEventDestination_configurationSetName :: Lens.Lens' CreateConfigurationSetEventDestination Prelude.Text
 createConfigurationSetEventDestination_configurationSetName = Lens.lens (\CreateConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@CreateConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: CreateConfigurationSetEventDestination)
 

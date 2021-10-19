@@ -27,8 +27,8 @@ module Network.AWS.SESv2.PutAccountDetails
     newPutAccountDetails,
 
     -- * Request Lenses
-    putAccountDetails_productionAccessEnabled,
     putAccountDetails_contactLanguage,
+    putAccountDetails_productionAccessEnabled,
     putAccountDetails_additionalContactEmailAddresses,
     putAccountDetails_mailType,
     putAccountDetails_websiteURL,
@@ -54,8 +54,10 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newPutAccountDetails' smart constructor.
 data PutAccountDetails = PutAccountDetails'
-  { -- | Indicates whether or not your account should have production access in
-    -- the current AWS Region.
+  { -- | The language you would prefer to be contacted with.
+    contactLanguage :: Prelude.Maybe ContactLanguage,
+    -- | Indicates whether or not your account should have production access in
+    -- the current Amazon Web Services Region.
     --
     -- If the value is @false@, then your account is in the /sandbox/. When
     -- your account is in the sandbox, you can only send email to verified
@@ -68,8 +70,6 @@ data PutAccountDetails = PutAccountDetails'
     -- The sending quota and maximum sending rate for your account vary based
     -- on your specific use case.
     productionAccessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The language you would prefer to be contacted with.
-    contactLanguage :: Prelude.Maybe ContactLanguage,
     -- | Additional email addresses that you would like to be notified regarding
     -- Amazon SES matters.
     additionalContactEmailAddresses :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))),
@@ -91,8 +91,10 @@ data PutAccountDetails = PutAccountDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactLanguage', 'putAccountDetails_contactLanguage' - The language you would prefer to be contacted with.
+--
 -- 'productionAccessEnabled', 'putAccountDetails_productionAccessEnabled' - Indicates whether or not your account should have production access in
--- the current AWS Region.
+-- the current Amazon Web Services Region.
 --
 -- If the value is @false@, then your account is in the /sandbox/. When
 -- your account is in the sandbox, you can only send email to verified
@@ -104,8 +106,6 @@ data PutAccountDetails = PutAccountDetails'
 -- your account has production access, you can send email to any address.
 -- The sending quota and maximum sending rate for your account vary based
 -- on your specific use case.
---
--- 'contactLanguage', 'putAccountDetails_contactLanguage' - The language you would prefer to be contacted with.
 --
 -- 'additionalContactEmailAddresses', 'putAccountDetails_additionalContactEmailAddresses' - Additional email addresses that you would like to be notified regarding
 -- Amazon SES matters.
@@ -129,9 +129,9 @@ newPutAccountDetails
   pWebsiteURL_
   pUseCaseDescription_ =
     PutAccountDetails'
-      { productionAccessEnabled =
+      { contactLanguage =
           Prelude.Nothing,
-        contactLanguage = Prelude.Nothing,
+        productionAccessEnabled = Prelude.Nothing,
         additionalContactEmailAddresses = Prelude.Nothing,
         mailType = pMailType_,
         websiteURL = Core._Sensitive Lens.# pWebsiteURL_,
@@ -139,8 +139,12 @@ newPutAccountDetails
           Core._Sensitive Lens.# pUseCaseDescription_
       }
 
+-- | The language you would prefer to be contacted with.
+putAccountDetails_contactLanguage :: Lens.Lens' PutAccountDetails (Prelude.Maybe ContactLanguage)
+putAccountDetails_contactLanguage = Lens.lens (\PutAccountDetails' {contactLanguage} -> contactLanguage) (\s@PutAccountDetails' {} a -> s {contactLanguage = a} :: PutAccountDetails)
+
 -- | Indicates whether or not your account should have production access in
--- the current AWS Region.
+-- the current Amazon Web Services Region.
 --
 -- If the value is @false@, then your account is in the /sandbox/. When
 -- your account is in the sandbox, you can only send email to verified
@@ -155,14 +159,10 @@ newPutAccountDetails
 putAccountDetails_productionAccessEnabled :: Lens.Lens' PutAccountDetails (Prelude.Maybe Prelude.Bool)
 putAccountDetails_productionAccessEnabled = Lens.lens (\PutAccountDetails' {productionAccessEnabled} -> productionAccessEnabled) (\s@PutAccountDetails' {} a -> s {productionAccessEnabled = a} :: PutAccountDetails)
 
--- | The language you would prefer to be contacted with.
-putAccountDetails_contactLanguage :: Lens.Lens' PutAccountDetails (Prelude.Maybe ContactLanguage)
-putAccountDetails_contactLanguage = Lens.lens (\PutAccountDetails' {contactLanguage} -> contactLanguage) (\s@PutAccountDetails' {} a -> s {contactLanguage = a} :: PutAccountDetails)
-
 -- | Additional email addresses that you would like to be notified regarding
 -- Amazon SES matters.
 putAccountDetails_additionalContactEmailAddresses :: Lens.Lens' PutAccountDetails (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-putAccountDetails_additionalContactEmailAddresses = Lens.lens (\PutAccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@PutAccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: PutAccountDetails) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
+putAccountDetails_additionalContactEmailAddresses = Lens.lens (\PutAccountDetails' {additionalContactEmailAddresses} -> additionalContactEmailAddresses) (\s@PutAccountDetails' {} a -> s {additionalContactEmailAddresses = a} :: PutAccountDetails) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The type of email your account will send.
 putAccountDetails_mailType :: Lens.Lens' PutAccountDetails MailType
@@ -208,10 +208,10 @@ instance Core.ToJSON PutAccountDetails where
   toJSON PutAccountDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProductionAccessEnabled" Core..=)
-              Prelude.<$> productionAccessEnabled,
-            ("ContactLanguage" Core..=)
+          [ ("ContactLanguage" Core..=)
               Prelude.<$> contactLanguage,
+            ("ProductionAccessEnabled" Core..=)
+              Prelude.<$> productionAccessEnabled,
             ("AdditionalContactEmailAddresses" Core..=)
               Prelude.<$> additionalContactEmailAddresses,
             Prelude.Just ("MailType" Core..= mailType),

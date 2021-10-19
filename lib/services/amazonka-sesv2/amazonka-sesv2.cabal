@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-sesv2
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Simple Email Service SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -151,6 +151,7 @@ library
     Network.AWS.SESv2.Types.DkimAttributes
     Network.AWS.SESv2.Types.DkimSigningAttributes
     Network.AWS.SESv2.Types.DkimSigningAttributesOrigin
+    Network.AWS.SESv2.Types.DkimSigningKeyLength
     Network.AWS.SESv2.Types.DkimStatus
     Network.AWS.SESv2.Types.DomainDeliverabilityCampaign
     Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption
@@ -220,8 +221,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-sesv2-test
   type:             exitcode-stdio-1.0
@@ -239,9 +240,9 @@ test-suite amazonka-sesv2-test
     Test.AWS.SESv2.Internal
 
   build-depends:
-    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka              ^>=2.0
     , amazonka-sesv2
-    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka-test         ^>=2.0
     , base
     , bytestring
     , case-insensitive

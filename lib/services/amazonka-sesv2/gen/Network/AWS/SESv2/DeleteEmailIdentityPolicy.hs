@@ -66,7 +66,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newDeleteEmailIdentityPolicy' smart constructor.
 data DeleteEmailIdentityPolicy = DeleteEmailIdentityPolicy'
-  { -- | The email identity for which you want to delete a policy.
+  { -- | The email identity.
     emailIdentity :: Prelude.Text,
     -- | The name of the policy.
     --
@@ -84,7 +84,7 @@ data DeleteEmailIdentityPolicy = DeleteEmailIdentityPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentity', 'deleteEmailIdentityPolicy_emailIdentity' - The email identity for which you want to delete a policy.
+-- 'emailIdentity', 'deleteEmailIdentityPolicy_emailIdentity' - The email identity.
 --
 -- 'policyName', 'deleteEmailIdentityPolicy_policyName' - The name of the policy.
 --
@@ -105,7 +105,7 @@ newDeleteEmailIdentityPolicy
         policyName = pPolicyName_
       }
 
--- | The email identity for which you want to delete a policy.
+-- | The email identity.
 deleteEmailIdentityPolicy_emailIdentity :: Lens.Lens' DeleteEmailIdentityPolicy Prelude.Text
 deleteEmailIdentityPolicy_emailIdentity = Lens.lens (\DeleteEmailIdentityPolicy' {emailIdentity} -> emailIdentity) (\s@DeleteEmailIdentityPolicy' {} a -> s {emailIdentity = a} :: DeleteEmailIdentityPolicy)
 

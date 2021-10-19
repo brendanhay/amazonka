@@ -137,7 +137,7 @@ newGetAccountSummaryResponse pHttpStatus_ =
 -- | A set of key–value pairs containing information about IAM entity usage
 -- and IAM quotas.
 getAccountSummaryResponse_summaryMap :: Lens.Lens' GetAccountSummaryResponse (Prelude.Maybe (Prelude.HashMap SummaryKeyType Prelude.Int))
-getAccountSummaryResponse_summaryMap = Lens.lens (\GetAccountSummaryResponse' {summaryMap} -> summaryMap) (\s@GetAccountSummaryResponse' {} a -> s {summaryMap = a} :: GetAccountSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
+getAccountSummaryResponse_summaryMap = Lens.lens (\GetAccountSummaryResponse' {summaryMap} -> summaryMap) (\s@GetAccountSummaryResponse' {} a -> s {summaryMap = a} :: GetAccountSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAccountSummaryResponse_httpStatus :: Lens.Lens' GetAccountSummaryResponse Prelude.Int

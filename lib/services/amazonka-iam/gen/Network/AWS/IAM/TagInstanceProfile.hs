@@ -128,7 +128,7 @@ tagInstanceProfile_instanceProfileName = Lens.lens (\TagInstanceProfile' {instan
 -- | The list of tags that you want to attach to the IAM instance profile.
 -- Each tag consists of a key name and an associated value.
 tagInstanceProfile_tags :: Lens.Lens' TagInstanceProfile [Tag]
-tagInstanceProfile_tags = Lens.lens (\TagInstanceProfile' {tags} -> tags) (\s@TagInstanceProfile' {} a -> s {tags = a} :: TagInstanceProfile) Prelude.. Lens._Coerce
+tagInstanceProfile_tags = Lens.lens (\TagInstanceProfile' {tags} -> tags) (\s@TagInstanceProfile' {} a -> s {tags = a} :: TagInstanceProfile) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagInstanceProfile where
   type

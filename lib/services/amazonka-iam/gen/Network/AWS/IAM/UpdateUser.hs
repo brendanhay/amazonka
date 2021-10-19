@@ -41,8 +41,8 @@ module Network.AWS.IAM.UpdateUser
     newUpdateUser,
 
     -- * Request Lenses
-    updateUser_newPath,
     updateUser_newUserName,
+    updateUser_newPath,
     updateUser_userName,
 
     -- * Destructuring the Response
@@ -60,7 +60,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | New path for the IAM user. Include this parameter only if you\'re
+  { -- | New name for the user. Include this parameter only if you\'re changing
+    -- the user\'s name.
+    --
+    -- IAM user, group, role, and policy names must be unique within the
+    -- account. Names are not distinguished by case. For example, you cannot
+    -- create resources named both \"MyResource\" and \"myresource\".
+    newUserName' :: Prelude.Maybe Prelude.Text,
+    -- | New path for the IAM user. Include this parameter only if you\'re
     -- changing the user\'s path.
     --
     -- This parameter allows (through its
@@ -71,13 +78,6 @@ data UpdateUser = UpdateUser'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     newPath' :: Prelude.Maybe Prelude.Text,
-    -- | New name for the user. Include this parameter only if you\'re changing
-    -- the user\'s name.
-    --
-    -- IAM user, group, role, and policy names must be unique within the
-    -- account. Names are not distinguished by case. For example, you cannot
-    -- create resources named both \"MyResource\" and \"myresource\".
-    newUserName' :: Prelude.Maybe Prelude.Text,
     -- | Name of the user to update. If you\'re changing the name of the user,
     -- this is the original user name.
     --
@@ -97,6 +97,13 @@ data UpdateUser = UpdateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'newUserName'', 'updateUser_newUserName' - New name for the user. Include this parameter only if you\'re changing
+-- the user\'s name.
+--
+-- IAM user, group, role, and policy names must be unique within the
+-- account. Names are not distinguished by case. For example, you cannot
+-- create resources named both \"MyResource\" and \"myresource\".
+--
 -- 'newPath'', 'updateUser_newPath' - New path for the IAM user. Include this parameter only if you\'re
 -- changing the user\'s path.
 --
@@ -107,13 +114,6 @@ data UpdateUser = UpdateUser'
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
---
--- 'newUserName'', 'updateUser_newUserName' - New name for the user. Include this parameter only if you\'re changing
--- the user\'s name.
---
--- IAM user, group, role, and policy names must be unique within the
--- account. Names are not distinguished by case. For example, you cannot
--- create resources named both \"MyResource\" and \"myresource\".
 --
 -- 'userName', 'updateUser_userName' - Name of the user to update. If you\'re changing the name of the user,
 -- this is the original user name.
@@ -128,10 +128,19 @@ newUpdateUser ::
   UpdateUser
 newUpdateUser pUserName_ =
   UpdateUser'
-    { newPath' = Prelude.Nothing,
-      newUserName' = Prelude.Nothing,
+    { newUserName' = Prelude.Nothing,
+      newPath' = Prelude.Nothing,
       userName = pUserName_
     }
+
+-- | New name for the user. Include this parameter only if you\'re changing
+-- the user\'s name.
+--
+-- IAM user, group, role, and policy names must be unique within the
+-- account. Names are not distinguished by case. For example, you cannot
+-- create resources named both \"MyResource\" and \"myresource\".
+updateUser_newUserName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
+updateUser_newUserName = Lens.lens (\UpdateUser' {newUserName'} -> newUserName') (\s@UpdateUser' {} a -> s {newUserName' = a} :: UpdateUser)
 
 -- | New path for the IAM user. Include this parameter only if you\'re
 -- changing the user\'s path.
@@ -145,15 +154,6 @@ newUpdateUser pUserName_ =
 -- and lowercased letters.
 updateUser_newPath :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_newPath = Lens.lens (\UpdateUser' {newPath'} -> newPath') (\s@UpdateUser' {} a -> s {newPath' = a} :: UpdateUser)
-
--- | New name for the user. Include this parameter only if you\'re changing
--- the user\'s name.
---
--- IAM user, group, role, and policy names must be unique within the
--- account. Names are not distinguished by case. For example, you cannot
--- create resources named both \"MyResource\" and \"myresource\".
-updateUser_newUserName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_newUserName = Lens.lens (\UpdateUser' {newUserName'} -> newUserName') (\s@UpdateUser' {} a -> s {newUserName' = a} :: UpdateUser)
 
 -- | Name of the user to update. If you\'re changing the name of the user,
 -- this is the original user name.
@@ -187,8 +187,8 @@ instance Core.ToQuery UpdateUser where
           Core.=: ("UpdateUser" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "NewPath" Core.=: newPath',
         "NewUserName" Core.=: newUserName',
+        "NewPath" Core.=: newPath',
         "UserName" Core.=: userName
       ]
 

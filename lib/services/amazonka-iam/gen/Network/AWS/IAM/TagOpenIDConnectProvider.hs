@@ -133,7 +133,7 @@ tagOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\TagOpenIDConnect
 -- | The list of tags that you want to attach to the OIDC identity provider
 -- in IAM. Each tag consists of a key name and an associated value.
 tagOpenIDConnectProvider_tags :: Lens.Lens' TagOpenIDConnectProvider [Tag]
-tagOpenIDConnectProvider_tags = Lens.lens (\TagOpenIDConnectProvider' {tags} -> tags) (\s@TagOpenIDConnectProvider' {} a -> s {tags = a} :: TagOpenIDConnectProvider) Prelude.. Lens._Coerce
+tagOpenIDConnectProvider_tags = Lens.lens (\TagOpenIDConnectProvider' {tags} -> tags) (\s@TagOpenIDConnectProvider' {} a -> s {tags = a} :: TagOpenIDConnectProvider) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagOpenIDConnectProvider where
   type

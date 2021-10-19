@@ -33,14 +33,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStatement' smart constructor.
 data Statement = Statement'
-  { -- | The row and column of the beginning of the @Statement@ in an IAM policy.
-    startPosition :: Prelude.Maybe Position,
-    -- | The type of the policy.
+  { -- | The type of the policy.
     sourcePolicyType :: Prelude.Maybe PolicySourceType,
+    -- | The identifier of the policy that was provided as an input.
+    sourcePolicyId :: Prelude.Maybe Prelude.Text,
     -- | The row and column of the end of a @Statement@ in an IAM policy.
     endPosition :: Prelude.Maybe Position,
-    -- | The identifier of the policy that was provided as an input.
-    sourcePolicyId :: Prelude.Maybe Prelude.Text
+    -- | The row and column of the beginning of the @Statement@ in an IAM policy.
+    startPosition :: Prelude.Maybe Position
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,46 +52,46 @@ data Statement = Statement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startPosition', 'statement_startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.
---
 -- 'sourcePolicyType', 'statement_sourcePolicyType' - The type of the policy.
+--
+-- 'sourcePolicyId', 'statement_sourcePolicyId' - The identifier of the policy that was provided as an input.
 --
 -- 'endPosition', 'statement_endPosition' - The row and column of the end of a @Statement@ in an IAM policy.
 --
--- 'sourcePolicyId', 'statement_sourcePolicyId' - The identifier of the policy that was provided as an input.
+-- 'startPosition', 'statement_startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.
 newStatement ::
   Statement
 newStatement =
   Statement'
-    { startPosition = Prelude.Nothing,
-      sourcePolicyType = Prelude.Nothing,
+    { sourcePolicyType = Prelude.Nothing,
+      sourcePolicyId = Prelude.Nothing,
       endPosition = Prelude.Nothing,
-      sourcePolicyId = Prelude.Nothing
+      startPosition = Prelude.Nothing
     }
-
--- | The row and column of the beginning of the @Statement@ in an IAM policy.
-statement_startPosition :: Lens.Lens' Statement (Prelude.Maybe Position)
-statement_startPosition = Lens.lens (\Statement' {startPosition} -> startPosition) (\s@Statement' {} a -> s {startPosition = a} :: Statement)
 
 -- | The type of the policy.
 statement_sourcePolicyType :: Lens.Lens' Statement (Prelude.Maybe PolicySourceType)
 statement_sourcePolicyType = Lens.lens (\Statement' {sourcePolicyType} -> sourcePolicyType) (\s@Statement' {} a -> s {sourcePolicyType = a} :: Statement)
 
--- | The row and column of the end of a @Statement@ in an IAM policy.
-statement_endPosition :: Lens.Lens' Statement (Prelude.Maybe Position)
-statement_endPosition = Lens.lens (\Statement' {endPosition} -> endPosition) (\s@Statement' {} a -> s {endPosition = a} :: Statement)
-
 -- | The identifier of the policy that was provided as an input.
 statement_sourcePolicyId :: Lens.Lens' Statement (Prelude.Maybe Prelude.Text)
 statement_sourcePolicyId = Lens.lens (\Statement' {sourcePolicyId} -> sourcePolicyId) (\s@Statement' {} a -> s {sourcePolicyId = a} :: Statement)
 
+-- | The row and column of the end of a @Statement@ in an IAM policy.
+statement_endPosition :: Lens.Lens' Statement (Prelude.Maybe Position)
+statement_endPosition = Lens.lens (\Statement' {endPosition} -> endPosition) (\s@Statement' {} a -> s {endPosition = a} :: Statement)
+
+-- | The row and column of the beginning of the @Statement@ in an IAM policy.
+statement_startPosition :: Lens.Lens' Statement (Prelude.Maybe Position)
+statement_startPosition = Lens.lens (\Statement' {startPosition} -> startPosition) (\s@Statement' {} a -> s {startPosition = a} :: Statement)
+
 instance Core.FromXML Statement where
   parseXML x =
     Statement'
-      Prelude.<$> (x Core..@? "StartPosition")
-      Prelude.<*> (x Core..@? "SourcePolicyType")
-      Prelude.<*> (x Core..@? "EndPosition")
+      Prelude.<$> (x Core..@? "SourcePolicyType")
       Prelude.<*> (x Core..@? "SourcePolicyId")
+      Prelude.<*> (x Core..@? "EndPosition")
+      Prelude.<*> (x Core..@? "StartPosition")
 
 instance Prelude.Hashable Statement
 

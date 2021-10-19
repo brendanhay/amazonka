@@ -34,9 +34,9 @@ module Network.AWS.IAM.GetCredentialReport
     newGetCredentialReportResponse,
 
     -- * Response Lenses
-    getCredentialReportResponse_reportFormat,
-    getCredentialReportResponse_generatedTime,
     getCredentialReportResponse_content,
+    getCredentialReportResponse_generatedTime,
+    getCredentialReportResponse_reportFormat,
     getCredentialReportResponse_httpStatus,
   )
 where
@@ -72,9 +72,9 @@ instance Core.AWSRequest GetCredentialReport where
       "GetCredentialReportResult"
       ( \s h x ->
           GetCredentialReportResponse'
-            Prelude.<$> (x Core..@? "ReportFormat")
+            Prelude.<$> (x Core..@? "Content")
             Prelude.<*> (x Core..@? "GeneratedTime")
-            Prelude.<*> (x Core..@? "Content")
+            Prelude.<*> (x Core..@? "ReportFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,13 +103,13 @@ instance Core.ToQuery GetCredentialReport where
 --
 -- /See:/ 'newGetCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-  { -- | The format (MIME type) of the credential report.
-    reportFormat :: Prelude.Maybe ReportFormatType,
+  { -- | Contains the credential report. The report is Base64-encoded.
+    content :: Prelude.Maybe Core.Base64,
     -- | The date and time when the credential report was created, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
     generatedTime :: Prelude.Maybe Core.ISO8601,
-    -- | Contains the credential report. The report is Base64-encoded.
-    content :: Prelude.Maybe Core.Base64,
+    -- | The format (MIME type) of the credential report.
+    reportFormat :: Prelude.Maybe ReportFormatType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -123,16 +123,16 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportFormat', 'getCredentialReportResponse_reportFormat' - The format (MIME type) of the credential report.
---
--- 'generatedTime', 'getCredentialReportResponse_generatedTime' - The date and time when the credential report was created, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
---
 -- 'content', 'getCredentialReportResponse_content' - Contains the credential report. The report is Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'generatedTime', 'getCredentialReportResponse_generatedTime' - The date and time when the credential report was created, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
+--
+-- 'reportFormat', 'getCredentialReportResponse_reportFormat' - The format (MIME type) of the credential report.
 --
 -- 'httpStatus', 'getCredentialReportResponse_httpStatus' - The response's http status code.
 newGetCredentialReportResponse ::
@@ -141,21 +141,12 @@ newGetCredentialReportResponse ::
   GetCredentialReportResponse
 newGetCredentialReportResponse pHttpStatus_ =
   GetCredentialReportResponse'
-    { reportFormat =
+    { content =
         Prelude.Nothing,
       generatedTime = Prelude.Nothing,
-      content = Prelude.Nothing,
+      reportFormat = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The format (MIME type) of the credential report.
-getCredentialReportResponse_reportFormat :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe ReportFormatType)
-getCredentialReportResponse_reportFormat = Lens.lens (\GetCredentialReportResponse' {reportFormat} -> reportFormat) (\s@GetCredentialReportResponse' {} a -> s {reportFormat = a} :: GetCredentialReportResponse)
-
--- | The date and time when the credential report was created, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
-getCredentialReportResponse_generatedTime :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.UTCTime)
-getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Contains the credential report. The report is Base64-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -164,6 +155,15 @@ getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportRespo
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 getCredentialReportResponse_content :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.ByteString)
 getCredentialReportResponse_content = Lens.lens (\GetCredentialReportResponse' {content} -> content) (\s@GetCredentialReportResponse' {} a -> s {content = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Base64
+
+-- | The date and time when the credential report was created, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.
+getCredentialReportResponse_generatedTime :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe Prelude.UTCTime)
+getCredentialReportResponse_generatedTime = Lens.lens (\GetCredentialReportResponse' {generatedTime} -> generatedTime) (\s@GetCredentialReportResponse' {} a -> s {generatedTime = a} :: GetCredentialReportResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The format (MIME type) of the credential report.
+getCredentialReportResponse_reportFormat :: Lens.Lens' GetCredentialReportResponse (Prelude.Maybe ReportFormatType)
+getCredentialReportResponse_reportFormat = Lens.lens (\GetCredentialReportResponse' {reportFormat} -> reportFormat) (\s@GetCredentialReportResponse' {} a -> s {reportFormat = a} :: GetCredentialReportResponse)
 
 -- | The response's http status code.
 getCredentialReportResponse_httpStatus :: Lens.Lens' GetCredentialReportResponse Prelude.Int

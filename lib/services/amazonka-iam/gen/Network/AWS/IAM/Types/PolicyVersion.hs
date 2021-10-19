@@ -35,15 +35,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- policy version was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
-    -- | The identifier for the policy version.
+  { -- | The identifier for the policy version.
     --
     -- Policy version identifiers always begin with @v@ (always lowercase).
     -- When a policy is created, the first policy version is @v1@.
     versionId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- policy version was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
     -- | The policy document.
     --
     -- The policy document is returned in the response to the GetPolicyVersion
@@ -71,14 +71,14 @@ data PolicyVersion = PolicyVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createDate', 'policyVersion_createDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy version was created.
---
 -- 'versionId', 'policyVersion_versionId' - The identifier for the policy version.
 --
 -- Policy version identifiers always begin with @v@ (always lowercase).
 -- When a policy is created, the first policy version is @v1@.
+--
+-- 'createDate', 'policyVersion_createDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy version was created.
 --
 -- 'document', 'policyVersion_document' - The policy document.
 --
@@ -99,17 +99,11 @@ newPolicyVersion ::
   PolicyVersion
 newPolicyVersion =
   PolicyVersion'
-    { createDate = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      createDate = Prelude.Nothing,
       document = Prelude.Nothing,
       isDefaultVersion = Prelude.Nothing
     }
-
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy version was created.
-policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
-policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
 
 -- | The identifier for the policy version.
 --
@@ -117,6 +111,12 @@ policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate
 -- When a policy is created, the first policy version is @v1@.
 policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
 policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
+
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy version was created.
+policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
+policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Core._Time
 
 -- | The policy document.
 --
@@ -141,8 +141,8 @@ policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -
 instance Core.FromXML PolicyVersion where
   parseXML x =
     PolicyVersion'
-      Prelude.<$> (x Core..@? "CreateDate")
-      Prelude.<*> (x Core..@? "VersionId")
+      Prelude.<$> (x Core..@? "VersionId")
+      Prelude.<*> (x Core..@? "CreateDate")
       Prelude.<*> (x Core..@? "Document")
       Prelude.<*> (x Core..@? "IsDefaultVersion")
 

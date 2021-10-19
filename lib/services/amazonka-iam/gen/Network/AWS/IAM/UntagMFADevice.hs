@@ -106,7 +106,7 @@ untagMFADevice_serialNumber = Lens.lens (\UntagMFADevice' {serialNumber} -> seri
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
 untagMFADevice_tagKeys :: Lens.Lens' UntagMFADevice [Prelude.Text]
-untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Prelude.. Lens._Coerce
+untagMFADevice_tagKeys = Lens.lens (\UntagMFADevice' {tagKeys} -> tagKeys) (\s@UntagMFADevice' {} a -> s {tagKeys = a} :: UntagMFADevice) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagMFADevice where
   type

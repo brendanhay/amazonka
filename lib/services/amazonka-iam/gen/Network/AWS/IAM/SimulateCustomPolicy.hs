@@ -53,15 +53,15 @@ module Network.AWS.IAM.SimulateCustomPolicy
     newSimulateCustomPolicy,
 
     -- * Request Lenses
-    simulateCustomPolicy_resourceOwner,
-    simulateCustomPolicy_contextEntries,
     simulateCustomPolicy_resourcePolicy,
-    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
-    simulateCustomPolicy_resourceArns,
-    simulateCustomPolicy_resourceHandlingOption,
     simulateCustomPolicy_callerArn,
-    simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_resourceHandlingOption,
+    simulateCustomPolicy_resourceArns,
+    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
     simulateCustomPolicy_marker,
+    simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_contextEntries,
+    simulateCustomPolicy_resourceOwner,
     simulateCustomPolicy_policyInputList,
     simulateCustomPolicy_actionNames,
 
@@ -70,9 +70,9 @@ module Network.AWS.IAM.SimulateCustomPolicy
     newSimulatePolicyResponse,
 
     -- * Response Lenses
-    simulatePolicyResponse_isTruncated,
     simulatePolicyResponse_evaluationResults,
     simulatePolicyResponse_marker,
+    simulatePolicyResponse_isTruncated,
   )
 where
 
@@ -85,28 +85,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSimulateCustomPolicy' smart constructor.
 data SimulateCustomPolicy = SimulateCustomPolicy'
-  { -- | An ARN representing the Amazon Web Services account ID that specifies
-    -- the owner of any simulated resource that does not identify its owner in
-    -- the resource ARN. Examples of resource ARNs include an S3 bucket or
-    -- object. If @ResourceOwner@ is specified, it is also used as the account
-    -- owner of any @ResourcePolicy@ included in the simulation. If the
-    -- @ResourceOwner@ parameter is not specified, then the owner of the
-    -- resources and the resource policy defaults to the account of the
-    -- identity provided in @CallerArn@. This parameter is required only if you
-    -- specify a resource-based policy and account that owns the resource is
-    -- different from the account that owns the simulated calling user
-    -- @CallerArn@.
-    --
-    -- The ARN for an account uses the following syntax:
-    -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
-    -- account with the 112233445566 ID, use the following ARN:
-    -- @arn:aws:iam::112233445566-ID:root@.
-    resourceOwner :: Prelude.Maybe Prelude.Text,
-    -- | A list of context keys and corresponding values for the simulation to
-    -- use. Whenever a context key is evaluated in one of the simulated IAM
-    -- permissions policies, the corresponding value is supplied.
-    contextEntries :: Prelude.Maybe [ContextEntry],
-    -- | A resource-based policy to include in the simulation provided as a
+  { -- | A resource-based policy to include in the simulation provided as a
     -- string. Each resource in the simulation is treated as if it had this
     -- policy attached. You can include only one resource-based policy in a
     -- simulation.
@@ -128,52 +107,14 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
     resourcePolicy :: Prelude.Maybe Prelude.Text,
-    -- | The IAM permissions boundary policy to simulate. The permissions
-    -- boundary sets the maximum permissions that an IAM entity can have. You
-    -- can input only one permissions boundary when you pass a policy to this
-    -- operation. For more information about permissions boundaries, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
-    -- in the /IAM User Guide/. The policy input is specified as a string that
-    -- contains the complete, valid JSON text of a permissions boundary policy.
+    -- | The ARN of the IAM user that you want to use as the simulated caller of
+    -- the API operations. @CallerArn@ is required if you include a
+    -- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
+    -- to use in evaluating the policy.
     --
-    -- The maximum length of the policy document that you can pass in this
-    -- operation, including whitespace, is listed below. To view the maximum
-    -- character counts of a managed policy with no whitespaces, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
-    -- this parameter is a string of characters consisting of the following:
-    --
-    -- -   Any printable ASCII character ranging from the space character
-    --     (@\\u0020@) through the end of the ASCII character range
-    --
-    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
-    --     character set (through @\\u00FF@)
-    --
-    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
-    --     carriage return (@\\u000D@)
-    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
-    -- | A list of ARNs of Amazon Web Services resources to include in the
-    -- simulation. If this parameter is not provided, then the value defaults
-    -- to @*@ (all resources). Each API in the @ActionNames@ parameter is
-    -- evaluated for each resource in this list. The simulation determines the
-    -- access result (allowed or denied) of each combination and reports it in
-    -- the response. You can simulate resources that don\'t exist in your
-    -- account.
-    --
-    -- The simulation does not automatically retrieve policies for the
-    -- specified resources. If you want to include a resource policy in the
-    -- simulation, then you must include the policy as a string in the
-    -- @ResourcePolicy@ parameter.
-    --
-    -- If you include a @ResourcePolicy@, then it must be applicable to all of
-    -- the resources included in the simulation or you receive an invalid input
-    -- error.
-    --
-    -- For more information about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /Amazon Web Services General Reference/.
-    resourceArns :: Prelude.Maybe [Prelude.Text],
+    -- You can specify only the ARN of an IAM user. You cannot specify the ARN
+    -- of an assumed role, federated user, or a service principal.
+    callerArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of simulation to run. Different API operations that
     -- support resource-based policies require different combinations of
     -- resources. By specifying the type of simulation to run, you enable the
@@ -216,14 +157,57 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     --     instance, image, security-group, network-interface, subnet, volume
     resourceHandlingOption :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM user that you want to use as the simulated caller of
-    -- the API operations. @CallerArn@ is required if you include a
-    -- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
-    -- to use in evaluating the policy.
+    -- | A list of ARNs of Amazon Web Services resources to include in the
+    -- simulation. If this parameter is not provided, then the value defaults
+    -- to @*@ (all resources). Each API in the @ActionNames@ parameter is
+    -- evaluated for each resource in this list. The simulation determines the
+    -- access result (allowed or denied) of each combination and reports it in
+    -- the response. You can simulate resources that don\'t exist in your
+    -- account.
     --
-    -- You can specify only the ARN of an IAM user. You cannot specify the ARN
-    -- of an assumed role, federated user, or a service principal.
-    callerArn :: Prelude.Maybe Prelude.Text,
+    -- The simulation does not automatically retrieve policies for the
+    -- specified resources. If you want to include a resource policy in the
+    -- simulation, then you must include the policy as a string in the
+    -- @ResourcePolicy@ parameter.
+    --
+    -- If you include a @ResourcePolicy@, then it must be applicable to all of
+    -- the resources included in the simulation or you receive an invalid input
+    -- error.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /Amazon Web Services General Reference/.
+    resourceArns :: Prelude.Maybe [Prelude.Text],
+    -- | The IAM permissions boundary policy to simulate. The permissions
+    -- boundary sets the maximum permissions that an IAM entity can have. You
+    -- can input only one permissions boundary when you pass a policy to this
+    -- operation. For more information about permissions boundaries, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+    -- in the /IAM User Guide/. The policy input is specified as a string that
+    -- contains the complete, valid JSON text of a permissions boundary policy.
+    --
+    -- The maximum length of the policy document that you can pass in this
+    -- operation, including whitespace, is listed below. To view the maximum
+    -- character counts of a managed policy with no whitespaces, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+    -- this parameter is a string of characters consisting of the following:
+    --
+    -- -   Any printable ASCII character ranging from the space character
+    --     (@\\u0020@) through the end of the ASCII character range
+    --
+    -- -   The printable characters in the Basic Latin and Latin-1 Supplement
+    --     character set (through @\\u00FF@)
+    --
+    -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+    --     carriage return (@\\u000D@)
+    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -234,11 +218,27 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of context keys and corresponding values for the simulation to
+    -- use. Whenever a context key is evaluated in one of the simulated IAM
+    -- permissions policies, the corresponding value is supplied.
+    contextEntries :: Prelude.Maybe [ContextEntry],
+    -- | An ARN representing the Amazon Web Services account ID that specifies
+    -- the owner of any simulated resource that does not identify its owner in
+    -- the resource ARN. Examples of resource ARNs include an S3 bucket or
+    -- object. If @ResourceOwner@ is specified, it is also used as the account
+    -- owner of any @ResourcePolicy@ included in the simulation. If the
+    -- @ResourceOwner@ parameter is not specified, then the owner of the
+    -- resources and the resource policy defaults to the account of the
+    -- identity provided in @CallerArn@. This parameter is required only if you
+    -- specify a resource-based policy and account that owns the resource is
+    -- different from the account that owns the simulated calling user
+    -- @CallerArn@.
+    --
+    -- The ARN for an account uses the following syntax:
+    -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+    -- account with the 112233445566 ID, use the following ARN:
+    -- @arn:aws:iam::112233445566-ID:root@.
+    resourceOwner :: Prelude.Maybe Prelude.Text,
     -- | A list of policy documents to include in the simulation. Each document
     -- is specified as a string containing the complete, valid JSON text of an
     -- IAM policy. Do not include any resource-based policies in this
@@ -284,27 +284,6 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceOwner', 'simulateCustomPolicy_resourceOwner' - An ARN representing the Amazon Web Services account ID that specifies
--- the owner of any simulated resource that does not identify its owner in
--- the resource ARN. Examples of resource ARNs include an S3 bucket or
--- object. If @ResourceOwner@ is specified, it is also used as the account
--- owner of any @ResourcePolicy@ included in the simulation. If the
--- @ResourceOwner@ parameter is not specified, then the owner of the
--- resources and the resource policy defaults to the account of the
--- identity provided in @CallerArn@. This parameter is required only if you
--- specify a resource-based policy and account that owns the resource is
--- different from the account that owns the simulated calling user
--- @CallerArn@.
---
--- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
--- account with the 112233445566 ID, use the following ARN:
--- @arn:aws:iam::112233445566-ID:root@.
---
--- 'contextEntries', 'simulateCustomPolicy_contextEntries' - A list of context keys and corresponding values for the simulation to
--- use. Whenever a context key is evaluated in one of the simulated IAM
--- permissions policies, the corresponding value is supplied.
---
 -- 'resourcePolicy', 'simulateCustomPolicy_resourcePolicy' - A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
 -- policy attached. You can include only one resource-based policy in a
@@ -327,51 +306,13 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
 --
--- 'permissionsBoundaryPolicyInputList', 'simulateCustomPolicy_permissionsBoundaryPolicyInputList' - The IAM permissions boundary policy to simulate. The permissions
--- boundary sets the maximum permissions that an IAM entity can have. You
--- can input only one permissions boundary when you pass a policy to this
--- operation. For more information about permissions boundaries, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
--- in the /IAM User Guide/. The policy input is specified as a string that
--- contains the complete, valid JSON text of a permissions boundary policy.
+-- 'callerArn', 'simulateCustomPolicy_callerArn' - The ARN of the IAM user that you want to use as the simulated caller of
+-- the API operations. @CallerArn@ is required if you include a
+-- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
+-- to use in evaluating the policy.
 --
--- The maximum length of the policy document that you can pass in this
--- operation, including whitespace, is listed below. To view the maximum
--- character counts of a managed policy with no whitespaces, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
---
--- 'resourceArns', 'simulateCustomPolicy_resourceArns' - A list of ARNs of Amazon Web Services resources to include in the
--- simulation. If this parameter is not provided, then the value defaults
--- to @*@ (all resources). Each API in the @ActionNames@ parameter is
--- evaluated for each resource in this list. The simulation determines the
--- access result (allowed or denied) of each combination and reports it in
--- the response. You can simulate resources that don\'t exist in your
--- account.
---
--- The simulation does not automatically retrieve policies for the
--- specified resources. If you want to include a resource policy in the
--- simulation, then you must include the policy as a string in the
--- @ResourcePolicy@ parameter.
---
--- If you include a @ResourcePolicy@, then it must be applicable to all of
--- the resources included in the simulation or you receive an invalid input
--- error.
---
--- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /Amazon Web Services General Reference/.
+-- You can specify only the ARN of an IAM user. You cannot specify the ARN
+-- of an assumed role, federated user, or a service principal.
 --
 -- 'resourceHandlingOption', 'simulateCustomPolicy_resourceHandlingOption' - Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
@@ -415,13 +356,56 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 --
 --     instance, image, security-group, network-interface, subnet, volume
 --
--- 'callerArn', 'simulateCustomPolicy_callerArn' - The ARN of the IAM user that you want to use as the simulated caller of
--- the API operations. @CallerArn@ is required if you include a
--- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
--- to use in evaluating the policy.
+-- 'resourceArns', 'simulateCustomPolicy_resourceArns' - A list of ARNs of Amazon Web Services resources to include in the
+-- simulation. If this parameter is not provided, then the value defaults
+-- to @*@ (all resources). Each API in the @ActionNames@ parameter is
+-- evaluated for each resource in this list. The simulation determines the
+-- access result (allowed or denied) of each combination and reports it in
+-- the response. You can simulate resources that don\'t exist in your
+-- account.
 --
--- You can specify only the ARN of an IAM user. You cannot specify the ARN
--- of an assumed role, federated user, or a service principal.
+-- The simulation does not automatically retrieve policies for the
+-- specified resources. If you want to include a resource policy in the
+-- simulation, then you must include the policy as a string in the
+-- @ResourcePolicy@ parameter.
+--
+-- If you include a @ResourcePolicy@, then it must be applicable to all of
+-- the resources included in the simulation or you receive an invalid input
+-- error.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+--
+-- 'permissionsBoundaryPolicyInputList', 'simulateCustomPolicy_permissionsBoundaryPolicyInputList' - The IAM permissions boundary policy to simulate. The permissions
+-- boundary sets the maximum permissions that an IAM entity can have. You
+-- can input only one permissions boundary when you pass a policy to this
+-- operation. For more information about permissions boundaries, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/. The policy input is specified as a string that
+-- contains the complete, valid JSON text of a permissions boundary policy.
+--
+-- The maximum length of the policy document that you can pass in this
+-- operation, including whitespace, is listed below. To view the maximum
+-- character counts of a managed policy with no whitespaces, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+--
+-- 'marker', 'simulateCustomPolicy_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
 --
 -- 'maxItems', 'simulateCustomPolicy_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -433,10 +417,26 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
 --
--- 'marker', 'simulateCustomPolicy_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
+-- 'contextEntries', 'simulateCustomPolicy_contextEntries' - A list of context keys and corresponding values for the simulation to
+-- use. Whenever a context key is evaluated in one of the simulated IAM
+-- permissions policies, the corresponding value is supplied.
+--
+-- 'resourceOwner', 'simulateCustomPolicy_resourceOwner' - An ARN representing the Amazon Web Services account ID that specifies
+-- the owner of any simulated resource that does not identify its owner in
+-- the resource ARN. Examples of resource ARNs include an S3 bucket or
+-- object. If @ResourceOwner@ is specified, it is also used as the account
+-- owner of any @ResourcePolicy@ included in the simulation. If the
+-- @ResourceOwner@ parameter is not specified, then the owner of the
+-- resources and the resource policy defaults to the account of the
+-- identity provided in @CallerArn@. This parameter is required only if you
+-- specify a resource-based policy and account that owns the resource is
+-- different from the account that owns the simulated calling user
+-- @CallerArn@.
+--
+-- The ARN for an account uses the following syntax:
+-- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- account with the 112233445566 ID, use the following ARN:
+-- @arn:aws:iam::112233445566-ID:root@.
 --
 -- 'policyInputList', 'simulateCustomPolicy_policyInputList' - A list of policy documents to include in the simulation. Each document
 -- is specified as a string containing the complete, valid JSON text of an
@@ -475,44 +475,19 @@ newSimulateCustomPolicy ::
   SimulateCustomPolicy
 newSimulateCustomPolicy =
   SimulateCustomPolicy'
-    { resourceOwner =
+    { resourcePolicy =
         Prelude.Nothing,
-      contextEntries = Prelude.Nothing,
-      resourcePolicy = Prelude.Nothing,
-      permissionsBoundaryPolicyInputList = Prelude.Nothing,
-      resourceArns = Prelude.Nothing,
-      resourceHandlingOption = Prelude.Nothing,
       callerArn = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+      resourceHandlingOption = Prelude.Nothing,
+      resourceArns = Prelude.Nothing,
+      permissionsBoundaryPolicyInputList = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      contextEntries = Prelude.Nothing,
+      resourceOwner = Prelude.Nothing,
       policyInputList = Prelude.mempty,
       actionNames = Prelude.mempty
     }
-
--- | An ARN representing the Amazon Web Services account ID that specifies
--- the owner of any simulated resource that does not identify its owner in
--- the resource ARN. Examples of resource ARNs include an S3 bucket or
--- object. If @ResourceOwner@ is specified, it is also used as the account
--- owner of any @ResourcePolicy@ included in the simulation. If the
--- @ResourceOwner@ parameter is not specified, then the owner of the
--- resources and the resource policy defaults to the account of the
--- identity provided in @CallerArn@. This parameter is required only if you
--- specify a resource-based policy and account that owns the resource is
--- different from the account that owns the simulated calling user
--- @CallerArn@.
---
--- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
--- account with the 112233445566 ID, use the following ARN:
--- @arn:aws:iam::112233445566-ID:root@.
-simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
-simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resourceOwner} -> resourceOwner) (\s@SimulateCustomPolicy' {} a -> s {resourceOwner = a} :: SimulateCustomPolicy)
-
--- | A list of context keys and corresponding values for the simulation to
--- use. Whenever a context key is evaluated in one of the simulated IAM
--- permissions policies, the corresponding value is supplied.
-simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [ContextEntry])
-simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
@@ -538,55 +513,15 @@ simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {context
 simulateCustomPolicy_resourcePolicy :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
 simulateCustomPolicy_resourcePolicy = Lens.lens (\SimulateCustomPolicy' {resourcePolicy} -> resourcePolicy) (\s@SimulateCustomPolicy' {} a -> s {resourcePolicy = a} :: SimulateCustomPolicy)
 
--- | The IAM permissions boundary policy to simulate. The permissions
--- boundary sets the maximum permissions that an IAM entity can have. You
--- can input only one permissions boundary when you pass a policy to this
--- operation. For more information about permissions boundaries, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
--- in the /IAM User Guide/. The policy input is specified as a string that
--- contains the complete, valid JSON text of a permissions boundary policy.
+-- | The ARN of the IAM user that you want to use as the simulated caller of
+-- the API operations. @CallerArn@ is required if you include a
+-- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
+-- to use in evaluating the policy.
 --
--- The maximum length of the policy document that you can pass in this
--- operation, including whitespace, is listed below. To view the maximum
--- character counts of a managed policy with no whitespaces, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
--- this parameter is a string of characters consisting of the following:
---
--- -   Any printable ASCII character ranging from the space character
---     (@\\u0020@) through the end of the ASCII character range
---
--- -   The printable characters in the Basic Latin and Latin-1 Supplement
---     character set (through @\\u00FF@)
---
--- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
---     carriage return (@\\u000D@)
-simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
-simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of ARNs of Amazon Web Services resources to include in the
--- simulation. If this parameter is not provided, then the value defaults
--- to @*@ (all resources). Each API in the @ActionNames@ parameter is
--- evaluated for each resource in this list. The simulation determines the
--- access result (allowed or denied) of each combination and reports it in
--- the response. You can simulate resources that don\'t exist in your
--- account.
---
--- The simulation does not automatically retrieve policies for the
--- specified resources. If you want to include a resource policy in the
--- simulation, then you must include the policy as a string in the
--- @ResourcePolicy@ parameter.
---
--- If you include a @ResourcePolicy@, then it must be applicable to all of
--- the resources included in the simulation or you receive an invalid input
--- error.
---
--- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /Amazon Web Services General Reference/.
-simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
-simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens._Coerce
+-- You can specify only the ARN of an IAM user. You cannot specify the ARN
+-- of an assumed role, federated user, or a service principal.
+simulateCustomPolicy_callerArn :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -> callerArn) (\s@SimulateCustomPolicy' {} a -> s {callerArn = a} :: SimulateCustomPolicy)
 
 -- | Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
@@ -632,15 +567,62 @@ simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceA
 simulateCustomPolicy_resourceHandlingOption :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
 simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' {resourceHandlingOption} -> resourceHandlingOption) (\s@SimulateCustomPolicy' {} a -> s {resourceHandlingOption = a} :: SimulateCustomPolicy)
 
--- | The ARN of the IAM user that you want to use as the simulated caller of
--- the API operations. @CallerArn@ is required if you include a
--- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
--- to use in evaluating the policy.
+-- | A list of ARNs of Amazon Web Services resources to include in the
+-- simulation. If this parameter is not provided, then the value defaults
+-- to @*@ (all resources). Each API in the @ActionNames@ parameter is
+-- evaluated for each resource in this list. The simulation determines the
+-- access result (allowed or denied) of each combination and reports it in
+-- the response. You can simulate resources that don\'t exist in your
+-- account.
 --
--- You can specify only the ARN of an IAM user. You cannot specify the ARN
--- of an assumed role, federated user, or a service principal.
-simulateCustomPolicy_callerArn :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
-simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -> callerArn) (\s@SimulateCustomPolicy' {} a -> s {callerArn = a} :: SimulateCustomPolicy)
+-- The simulation does not automatically retrieve policies for the
+-- specified resources. If you want to include a resource policy in the
+-- simulation, then you must include the policy as a string in the
+-- @ResourcePolicy@ parameter.
+--
+-- If you include a @ResourcePolicy@, then it must be applicable to all of
+-- the resources included in the simulation or you receive an invalid input
+-- error.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /Amazon Web Services General Reference/.
+simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
+simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IAM permissions boundary policy to simulate. The permissions
+-- boundary sets the maximum permissions that an IAM entity can have. You
+-- can input only one permissions boundary when you pass a policy to this
+-- operation. For more information about permissions boundaries, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/. The policy input is specified as a string that
+-- contains the complete, valid JSON text of a permissions boundary policy.
+--
+-- The maximum length of the policy document that you can pass in this
+-- operation, including whitespace, is listed below. To view the maximum
+-- character counts of a managed policy with no whitespaces, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length IAM and STS character quotas>.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
+-- this parameter is a string of characters consisting of the following:
+--
+-- -   Any printable ASCII character ranging from the space character
+--     (@\\u0020@) through the end of the ASCII character range
+--
+-- -   The printable characters in the Basic Latin and Latin-1 Supplement
+--     character set (through @\\u00FF@)
+--
+-- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
+--     carriage return (@\\u000D@)
+simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
+simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> marker) (\s@SimulateCustomPolicy' {} a -> s {marker = a} :: SimulateCustomPolicy)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -654,12 +636,30 @@ simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -
 simulateCustomPolicy_maxItems :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Natural)
 simulateCustomPolicy_maxItems = Lens.lens (\SimulateCustomPolicy' {maxItems} -> maxItems) (\s@SimulateCustomPolicy' {} a -> s {maxItems = a} :: SimulateCustomPolicy)
 
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
-simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> marker) (\s@SimulateCustomPolicy' {} a -> s {marker = a} :: SimulateCustomPolicy)
+-- | A list of context keys and corresponding values for the simulation to
+-- use. Whenever a context key is evaluated in one of the simulated IAM
+-- permissions policies, the corresponding value is supplied.
+simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [ContextEntry])
+simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
+
+-- | An ARN representing the Amazon Web Services account ID that specifies
+-- the owner of any simulated resource that does not identify its owner in
+-- the resource ARN. Examples of resource ARNs include an S3 bucket or
+-- object. If @ResourceOwner@ is specified, it is also used as the account
+-- owner of any @ResourcePolicy@ included in the simulation. If the
+-- @ResourceOwner@ parameter is not specified, then the owner of the
+-- resources and the resource policy defaults to the account of the
+-- identity provided in @CallerArn@. This parameter is required only if you
+-- specify a resource-based policy and account that owns the resource is
+-- different from the account that owns the simulated calling user
+-- @CallerArn@.
+--
+-- The ARN for an account uses the following syntax:
+-- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- account with the 112233445566 ID, use the following ARN:
+-- @arn:aws:iam::112233445566-ID:root@.
+simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resourceOwner} -> resourceOwner) (\s@SimulateCustomPolicy' {} a -> s {resourceOwner = a} :: SimulateCustomPolicy)
 
 -- | A list of policy documents to include in the simulation. Each document
 -- is specified as a string containing the complete, valid JSON text of an
@@ -690,14 +690,14 @@ simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> mark
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
 simulateCustomPolicy_policyInputList :: Lens.Lens' SimulateCustomPolicy [Prelude.Text]
-simulateCustomPolicy_policyInputList = Lens.lens (\SimulateCustomPolicy' {policyInputList} -> policyInputList) (\s@SimulateCustomPolicy' {} a -> s {policyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens._Coerce
+simulateCustomPolicy_policyInputList = Lens.lens (\SimulateCustomPolicy' {policyInputList} -> policyInputList) (\s@SimulateCustomPolicy' {} a -> s {policyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.coerced
 
 -- | A list of names of API operations to evaluate in the simulation. Each
 -- operation is evaluated against each resource. Each operation must
 -- include the service identifier, such as @iam:CreateUser@. This operation
 -- does not support using wildcards (*) in an action name.
 simulateCustomPolicy_actionNames :: Lens.Lens' SimulateCustomPolicy [Prelude.Text]
-simulateCustomPolicy_actionNames = Lens.lens (\SimulateCustomPolicy' {actionNames} -> actionNames) (\s@SimulateCustomPolicy' {} a -> s {actionNames = a} :: SimulateCustomPolicy) Prelude.. Lens._Coerce
+simulateCustomPolicy_actionNames = Lens.lens (\SimulateCustomPolicy' {actionNames} -> actionNames) (\s@SimulateCustomPolicy' {} a -> s {actionNames = a} :: SimulateCustomPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSPager SimulateCustomPolicy where
   page rq rs
@@ -746,26 +746,26 @@ instance Core.ToQuery SimulateCustomPolicy where
           Core.=: ("SimulateCustomPolicy" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "ResourceOwner" Core.=: resourceOwner,
-        "ContextEntries"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> contextEntries
-            ),
         "ResourcePolicy" Core.=: resourcePolicy,
+        "CallerArn" Core.=: callerArn,
+        "ResourceHandlingOption"
+          Core.=: resourceHandlingOption,
+        "ResourceArns"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> resourceArns),
         "PermissionsBoundaryPolicyInputList"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> permissionsBoundaryPolicyInputList
             ),
-        "ResourceArns"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> resourceArns),
-        "ResourceHandlingOption"
-          Core.=: resourceHandlingOption,
-        "CallerArn" Core.=: callerArn,
-        "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
+        "ContextEntries"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> contextEntries
+            ),
+        "ResourceOwner" Core.=: resourceOwner,
         "PolicyInputList"
           Core.=: Core.toQueryList "member" policyInputList,
         "ActionNames"

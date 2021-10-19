@@ -130,7 +130,7 @@ tagPolicy_policyArn = Lens.lens (\TagPolicy' {policyArn} -> policyArn) (\s@TagPo
 -- | The list of tags that you want to attach to the IAM customer managed
 -- policy. Each tag consists of a key name and an associated value.
 tagPolicy_tags :: Lens.Lens' TagPolicy [Tag]
-tagPolicy_tags = Lens.lens (\TagPolicy' {tags} -> tags) (\s@TagPolicy' {} a -> s {tags = a} :: TagPolicy) Prelude.. Lens._Coerce
+tagPolicy_tags = Lens.lens (\TagPolicy' {tags} -> tags) (\s@TagPolicy' {} a -> s {tags = a} :: TagPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagPolicy where
   type AWSResponse TagPolicy = TagPolicyResponse

@@ -134,7 +134,7 @@ tagUser_userName = Lens.lens (\TagUser' {userName} -> userName) (\s@TagUser' {} 
 -- | The list of tags that you want to attach to the IAM user. Each tag
 -- consists of a key name and an associated value.
 tagUser_tags :: Lens.Lens' TagUser [Tag]
-tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags = a} :: TagUser) Prelude.. Lens._Coerce
+tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags = a} :: TagUser) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagUser where
   type AWSResponse TagUser = TagUserResponse

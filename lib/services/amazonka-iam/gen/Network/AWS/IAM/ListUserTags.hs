@@ -33,8 +33,8 @@ module Network.AWS.IAM.ListUserTags
     newListUserTags,
 
     -- * Request Lenses
-    listUserTags_maxItems,
     listUserTags_marker,
+    listUserTags_maxItems,
     listUserTags_userName,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Network.AWS.IAM.ListUserTags
     newListUserTagsResponse,
 
     -- * Response Lenses
-    listUserTagsResponse_isTruncated,
     listUserTagsResponse_marker,
+    listUserTagsResponse_isTruncated,
     listUserTagsResponse_httpStatus,
     listUserTagsResponse_tags,
   )
@@ -58,7 +58,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListUserTags' smart constructor.
 data ListUserTags = ListUserTags'
-  { -- | Use this only when paginating results to indicate the maximum number of
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
@@ -68,11 +73,6 @@ data ListUserTags = ListUserTags'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM user whose tags you want to see.
     --
     -- This parameter allows (through its
@@ -91,6 +91,11 @@ data ListUserTags = ListUserTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listUserTags_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'maxItems', 'listUserTags_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -100,11 +105,6 @@ data ListUserTags = ListUserTags'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
---
--- 'marker', 'listUserTags_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'userName', 'listUserTags_userName' - The name of the IAM user whose tags you want to see.
 --
@@ -118,10 +118,17 @@ newListUserTags ::
   ListUserTags
 newListUserTags pUserName_ =
   ListUserTags'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       userName = pUserName_
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listUserTags_marker :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Text)
+listUserTags_marker = Lens.lens (\ListUserTags' {marker} -> marker) (\s@ListUserTags' {} a -> s {marker = a} :: ListUserTags)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -134,13 +141,6 @@ newListUserTags pUserName_ =
 -- subsequent call that tells the service where to continue from.
 listUserTags_maxItems :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Natural)
 listUserTags_maxItems = Lens.lens (\ListUserTags' {maxItems} -> maxItems) (\s@ListUserTags' {} a -> s {maxItems = a} :: ListUserTags)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listUserTags_marker :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Text)
-listUserTags_marker = Lens.lens (\ListUserTags' {marker} -> marker) (\s@ListUserTags' {} a -> s {marker = a} :: ListUserTags)
 
 -- | The name of the IAM user whose tags you want to see.
 --
@@ -179,8 +179,8 @@ instance Core.AWSRequest ListUserTags where
       "ListUserTagsResult"
       ( \s h x ->
           ListUserTagsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "member"
@@ -204,14 +204,18 @@ instance Core.ToQuery ListUserTags where
           Core.=: ("ListUserTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newListUserTagsResponse' smart constructor.
 data ListUserTagsResponse = ListUserTagsResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -219,10 +223,6 @@ data ListUserTagsResponse = ListUserTagsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the user. Each tag
@@ -240,6 +240,10 @@ data ListUserTagsResponse = ListUserTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listUserTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listUserTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -247,10 +251,6 @@ data ListUserTagsResponse = ListUserTagsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
---
--- 'marker', 'listUserTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 --
 -- 'httpStatus', 'listUserTagsResponse_httpStatus' - The response's http status code.
 --
@@ -263,12 +263,17 @@ newListUserTagsResponse ::
   ListUserTagsResponse
 newListUserTagsResponse pHttpStatus_ =
   ListUserTagsResponse'
-    { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       tags = Prelude.mempty
     }
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listUserTagsResponse_marker :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Text)
+listUserTagsResponse_marker = Lens.lens (\ListUserTagsResponse' {marker} -> marker) (\s@ListUserTagsResponse' {} a -> s {marker = a} :: ListUserTagsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -280,12 +285,6 @@ newListUserTagsResponse pHttpStatus_ =
 listUserTagsResponse_isTruncated :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Bool)
 listUserTagsResponse_isTruncated = Lens.lens (\ListUserTagsResponse' {isTruncated} -> isTruncated) (\s@ListUserTagsResponse' {} a -> s {isTruncated = a} :: ListUserTagsResponse)
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listUserTagsResponse_marker :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Text)
-listUserTagsResponse_marker = Lens.lens (\ListUserTagsResponse' {marker} -> marker) (\s@ListUserTagsResponse' {} a -> s {marker = a} :: ListUserTagsResponse)
-
 -- | The response's http status code.
 listUserTagsResponse_httpStatus :: Lens.Lens' ListUserTagsResponse Prelude.Int
 listUserTagsResponse_httpStatus = Lens.lens (\ListUserTagsResponse' {httpStatus} -> httpStatus) (\s@ListUserTagsResponse' {} a -> s {httpStatus = a} :: ListUserTagsResponse)
@@ -294,6 +293,6 @@ listUserTagsResponse_httpStatus = Lens.lens (\ListUserTagsResponse' {httpStatus}
 -- consists of a key name and an associated value. If no tags are attached
 -- to the specified resource, the response contains an empty list.
 listUserTagsResponse_tags :: Lens.Lens' ListUserTagsResponse [Tag]
-listUserTagsResponse_tags = Lens.lens (\ListUserTagsResponse' {tags} -> tags) (\s@ListUserTagsResponse' {} a -> s {tags = a} :: ListUserTagsResponse) Prelude.. Lens._Coerce
+listUserTagsResponse_tags = Lens.lens (\ListUserTagsResponse' {tags} -> tags) (\s@ListUserTagsResponse' {} a -> s {tags = a} :: ListUserTagsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListUserTagsResponse

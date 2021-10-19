@@ -31,10 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTrackedActionLastAccessed' smart constructor.
 data TrackedActionLastAccessed = TrackedActionLastAccessed'
-  { -- | The name of the tracked action to which access was attempted. Tracked
-    -- actions are actions that report activity to IAM.
-    actionName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time,
+  { -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
     -- authenticated entity most recently attempted to access the tracked
     -- service. Amazon Web Services does not report unauthenticated requests.
@@ -43,6 +40,10 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
     lastAccessedTime :: Prelude.Maybe Core.ISO8601,
+    -- | The name of the tracked action to which access was attempted. Tracked
+    -- actions are actions that report activity to IAM.
+    actionName :: Prelude.Maybe Prelude.Text,
+    lastAccessedEntity :: Prelude.Maybe Prelude.Text,
     -- | The Region from which the authenticated entity (user or role) last
     -- attempted to access the tracked action. Amazon Web Services does not
     -- report unauthenticated requests.
@@ -50,8 +51,7 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-    lastAccessedRegion :: Prelude.Maybe Prelude.Text,
-    lastAccessedEntity :: Prelude.Maybe Prelude.Text
+    lastAccessedRegion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +63,6 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionName', 'trackedActionLastAccessed_actionName' - The name of the tracked action to which access was attempted. Tracked
--- actions are actions that report activity to IAM.
---
 -- 'lastAccessedTime', 'trackedActionLastAccessed_lastAccessedTime' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
 -- authenticated entity most recently attempted to access the tracked
@@ -75,6 +72,11 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
 --
+-- 'actionName', 'trackedActionLastAccessed_actionName' - The name of the tracked action to which access was attempted. Tracked
+-- actions are actions that report activity to IAM.
+--
+-- 'lastAccessedEntity', 'trackedActionLastAccessed_lastAccessedEntity' - Undocumented member.
+--
 -- 'lastAccessedRegion', 'trackedActionLastAccessed_lastAccessedRegion' - The Region from which the authenticated entity (user or role) last
 -- attempted to access the tracked action. Amazon Web Services does not
 -- report unauthenticated requests.
@@ -82,23 +84,16 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
---
--- 'lastAccessedEntity', 'trackedActionLastAccessed_lastAccessedEntity' - Undocumented member.
 newTrackedActionLastAccessed ::
   TrackedActionLastAccessed
 newTrackedActionLastAccessed =
   TrackedActionLastAccessed'
-    { actionName =
+    { lastAccessedTime =
         Prelude.Nothing,
-      lastAccessedTime = Prelude.Nothing,
-      lastAccessedRegion = Prelude.Nothing,
-      lastAccessedEntity = Prelude.Nothing
+      actionName = Prelude.Nothing,
+      lastAccessedEntity = Prelude.Nothing,
+      lastAccessedRegion = Prelude.Nothing
     }
-
--- | The name of the tracked action to which access was attempted. Tracked
--- actions are actions that report activity to IAM.
-trackedActionLastAccessed_actionName :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
-trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {actionName} -> actionName) (\s@TrackedActionLastAccessed' {} a -> s {actionName = a} :: TrackedActionLastAccessed)
 
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
@@ -111,6 +106,15 @@ trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {a
 trackedActionLastAccessed_lastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.UTCTime)
 trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the tracked action to which access was attempted. Tracked
+-- actions are actions that report activity to IAM.
+trackedActionLastAccessed_actionName :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
+trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {actionName} -> actionName) (\s@TrackedActionLastAccessed' {} a -> s {actionName = a} :: TrackedActionLastAccessed)
+
+-- | Undocumented member.
+trackedActionLastAccessed_lastAccessedEntity :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
+trackedActionLastAccessed_lastAccessedEntity = Lens.lens (\TrackedActionLastAccessed' {lastAccessedEntity} -> lastAccessedEntity) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedEntity = a} :: TrackedActionLastAccessed)
+
 -- | The Region from which the authenticated entity (user or role) last
 -- attempted to access the tracked action. Amazon Web Services does not
 -- report unauthenticated requests.
@@ -121,17 +125,13 @@ trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccess
 trackedActionLastAccessed_lastAccessedRegion :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
 trackedActionLastAccessed_lastAccessedRegion = Lens.lens (\TrackedActionLastAccessed' {lastAccessedRegion} -> lastAccessedRegion) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedRegion = a} :: TrackedActionLastAccessed)
 
--- | Undocumented member.
-trackedActionLastAccessed_lastAccessedEntity :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
-trackedActionLastAccessed_lastAccessedEntity = Lens.lens (\TrackedActionLastAccessed' {lastAccessedEntity} -> lastAccessedEntity) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedEntity = a} :: TrackedActionLastAccessed)
-
 instance Core.FromXML TrackedActionLastAccessed where
   parseXML x =
     TrackedActionLastAccessed'
-      Prelude.<$> (x Core..@? "ActionName")
-      Prelude.<*> (x Core..@? "LastAccessedTime")
-      Prelude.<*> (x Core..@? "LastAccessedRegion")
+      Prelude.<$> (x Core..@? "LastAccessedTime")
+      Prelude.<*> (x Core..@? "ActionName")
       Prelude.<*> (x Core..@? "LastAccessedEntity")
+      Prelude.<*> (x Core..@? "LastAccessedRegion")
 
 instance Prelude.Hashable TrackedActionLastAccessed
 

@@ -124,7 +124,7 @@ newGetContextKeysForCustomPolicy =
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
 getContextKeysForCustomPolicy_policyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Prelude.Text]
-getContextKeysForCustomPolicy_policyInputList = Lens.lens (\GetContextKeysForCustomPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForCustomPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy) Prelude.. Lens._Coerce
+getContextKeysForCustomPolicy_policyInputList = Lens.lens (\GetContextKeysForCustomPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForCustomPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

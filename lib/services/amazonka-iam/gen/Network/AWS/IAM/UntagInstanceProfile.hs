@@ -101,7 +101,7 @@ untagInstanceProfile_instanceProfileName = Lens.lens (\UntagInstanceProfile' {in
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
 untagInstanceProfile_tagKeys :: Lens.Lens' UntagInstanceProfile [Prelude.Text]
-untagInstanceProfile_tagKeys = Lens.lens (\UntagInstanceProfile' {tagKeys} -> tagKeys) (\s@UntagInstanceProfile' {} a -> s {tagKeys = a} :: UntagInstanceProfile) Prelude.. Lens._Coerce
+untagInstanceProfile_tagKeys = Lens.lens (\UntagInstanceProfile' {tagKeys} -> tagKeys) (\s@UntagInstanceProfile' {} a -> s {tagKeys = a} :: UntagInstanceProfile) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagInstanceProfile where
   type

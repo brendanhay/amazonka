@@ -135,7 +135,7 @@ tagRole_roleName = Lens.lens (\TagRole' {roleName} -> roleName) (\s@TagRole' {} 
 -- | The list of tags that you want to attach to the IAM role. Each tag
 -- consists of a key name and an associated value.
 tagRole_tags :: Lens.Lens' TagRole [Tag]
-tagRole_tags = Lens.lens (\TagRole' {tags} -> tags) (\s@TagRole' {} a -> s {tags = a} :: TagRole) Prelude.. Lens._Coerce
+tagRole_tags = Lens.lens (\TagRole' {tags} -> tags) (\s@TagRole' {} a -> s {tags = a} :: TagRole) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagRole where
   type AWSResponse TagRole = TagRoleResponse

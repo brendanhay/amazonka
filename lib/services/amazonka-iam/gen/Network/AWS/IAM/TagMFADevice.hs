@@ -133,7 +133,7 @@ tagMFADevice_serialNumber = Lens.lens (\TagMFADevice' {serialNumber} -> serialNu
 -- | The list of tags that you want to attach to the IAM virtual MFA device.
 -- Each tag consists of a key name and an associated value.
 tagMFADevice_tags :: Lens.Lens' TagMFADevice [Tag]
-tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Prelude.. Lens._Coerce
+tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagMFADevice where
   type AWSResponse TagMFADevice = TagMFADeviceResponse

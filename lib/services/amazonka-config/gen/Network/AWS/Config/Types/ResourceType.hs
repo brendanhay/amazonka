@@ -86,6 +86,7 @@ module Network.AWS.Config.Types.ResourceType
         ResourceType_AWS__NetworkFirewall__Firewall,
         ResourceType_AWS__NetworkFirewall__FirewallPolicy,
         ResourceType_AWS__NetworkFirewall__RuleGroup,
+        ResourceType_AWS__OpenSearch__Domain,
         ResourceType_AWS__QLDB__Ledger,
         ResourceType_AWS__RDS__DBCluster,
         ResourceType_AWS__RDS__DBClusterSnapshot,
@@ -361,6 +362,9 @@ pattern ResourceType_AWS__NetworkFirewall__FirewallPolicy = ResourceType' "AWS::
 pattern ResourceType_AWS__NetworkFirewall__RuleGroup :: ResourceType
 pattern ResourceType_AWS__NetworkFirewall__RuleGroup = ResourceType' "AWS::NetworkFirewall::RuleGroup"
 
+pattern ResourceType_AWS__OpenSearch__Domain :: ResourceType
+pattern ResourceType_AWS__OpenSearch__Domain = ResourceType' "AWS::OpenSearch::Domain"
+
 pattern ResourceType_AWS__QLDB__Ledger :: ResourceType
 pattern ResourceType_AWS__QLDB__Ledger = ResourceType' "AWS::QLDB::Ledger"
 
@@ -554,6 +558,7 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__NetworkFirewall__Firewall,
   ResourceType_AWS__NetworkFirewall__FirewallPolicy,
   ResourceType_AWS__NetworkFirewall__RuleGroup,
+  ResourceType_AWS__OpenSearch__Domain,
   ResourceType_AWS__QLDB__Ledger,
   ResourceType_AWS__RDS__DBCluster,
   ResourceType_AWS__RDS__DBClusterSnapshot,

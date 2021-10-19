@@ -64,16 +64,16 @@ module Network.AWS.Config.GetDiscoveredResourceCounts
 
     -- * Request Lenses
     getDiscoveredResourceCounts_nextToken,
-    getDiscoveredResourceCounts_resourceTypes,
     getDiscoveredResourceCounts_limit,
+    getDiscoveredResourceCounts_resourceTypes,
 
     -- * Destructuring the Response
     GetDiscoveredResourceCountsResponse (..),
     newGetDiscoveredResourceCountsResponse,
 
     -- * Response Lenses
-    getDiscoveredResourceCountsResponse_nextToken,
     getDiscoveredResourceCountsResponse_totalDiscoveredResources,
+    getDiscoveredResourceCountsResponse_nextToken,
     getDiscoveredResourceCountsResponse_resourceCounts,
     getDiscoveredResourceCountsResponse_httpStatus,
   )
@@ -91,6 +91,10 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of ResourceCount objects returned on each page. The
+    -- default is 100. You cannot specify a number greater than 100. If you
+    -- specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The comma-separated list that specifies the resource types that you want
     -- Config to return (for example, @\"AWS::EC2::Instance\"@,
     -- @\"AWS::IAM::User\"@).
@@ -102,11 +106,7 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
     -- list of ResourceCount objects. If the configuration recorder is not
     -- recording a specific resource type (for example, S3 buckets), that
     -- resource type is not returned in the list of ResourceCount objects.
-    resourceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of ResourceCount objects returned on each page. The
-    -- default is 100. You cannot specify a number greater than 100. If you
-    -- specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    resourceTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,6 +121,10 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 -- 'nextToken', 'getDiscoveredResourceCounts_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
+-- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+--
 -- 'resourceTypes', 'getDiscoveredResourceCounts_resourceTypes' - The comma-separated list that specifies the resource types that you want
 -- Config to return (for example, @\"AWS::EC2::Instance\"@,
 -- @\"AWS::IAM::User\"@).
@@ -132,24 +136,26 @@ data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
 -- list of ResourceCount objects. If the configuration recorder is not
 -- recording a specific resource type (for example, S3 buckets), that
 -- resource type is not returned in the list of ResourceCount objects.
---
--- 'limit', 'getDiscoveredResourceCounts_limit' - The maximum number of ResourceCount objects returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
 newGetDiscoveredResourceCounts ::
   GetDiscoveredResourceCounts
 newGetDiscoveredResourceCounts =
   GetDiscoveredResourceCounts'
     { nextToken =
         Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 getDiscoveredResourceCounts_nextToken :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Text)
 getDiscoveredResourceCounts_nextToken = Lens.lens (\GetDiscoveredResourceCounts' {nextToken} -> nextToken) (\s@GetDiscoveredResourceCounts' {} a -> s {nextToken = a} :: GetDiscoveredResourceCounts)
+
+-- | The maximum number of ResourceCount objects returned on each page. The
+-- default is 100. You cannot specify a number greater than 100. If you
+-- specify 0, Config uses the default.
+getDiscoveredResourceCounts_limit :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
+getDiscoveredResourceCounts_limit = Lens.lens (\GetDiscoveredResourceCounts' {limit} -> limit) (\s@GetDiscoveredResourceCounts' {} a -> s {limit = a} :: GetDiscoveredResourceCounts)
 
 -- | The comma-separated list that specifies the resource types that you want
 -- Config to return (for example, @\"AWS::EC2::Instance\"@,
@@ -163,13 +169,7 @@ getDiscoveredResourceCounts_nextToken = Lens.lens (\GetDiscoveredResourceCounts'
 -- recording a specific resource type (for example, S3 buckets), that
 -- resource type is not returned in the list of ResourceCount objects.
 getDiscoveredResourceCounts_resourceTypes :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe [Prelude.Text])
-getDiscoveredResourceCounts_resourceTypes = Lens.lens (\GetDiscoveredResourceCounts' {resourceTypes} -> resourceTypes) (\s@GetDiscoveredResourceCounts' {} a -> s {resourceTypes = a} :: GetDiscoveredResourceCounts) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of ResourceCount objects returned on each page. The
--- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, Config uses the default.
-getDiscoveredResourceCounts_limit :: Lens.Lens' GetDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
-getDiscoveredResourceCounts_limit = Lens.lens (\GetDiscoveredResourceCounts' {limit} -> limit) (\s@GetDiscoveredResourceCounts' {} a -> s {limit = a} :: GetDiscoveredResourceCounts)
+getDiscoveredResourceCounts_resourceTypes = Lens.lens (\GetDiscoveredResourceCounts' {resourceTypes} -> resourceTypes) (\s@GetDiscoveredResourceCounts' {} a -> s {resourceTypes = a} :: GetDiscoveredResourceCounts) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest GetDiscoveredResourceCounts where
   type
@@ -180,8 +180,8 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
     Response.receiveJSON
       ( \s h x ->
           GetDiscoveredResourceCountsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "totalDiscoveredResources")
+            Prelude.<$> (x Core..?> "totalDiscoveredResources")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "resourceCounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -210,8 +210,8 @@ instance Core.ToJSON GetDiscoveredResourceCounts where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
-            ("limit" Core..=) Prelude.<$> limit
+            ("limit" Core..=) Prelude.<$> limit,
+            ("resourceTypes" Core..=) Prelude.<$> resourceTypes
           ]
       )
 
@@ -223,10 +223,7 @@ instance Core.ToQuery GetDiscoveredResourceCounts where
 
 -- | /See:/ 'newGetDiscoveredResourceCountsResponse' smart constructor.
 data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
-  { -- | The string that you use in a subsequent request to get the next page of
-    -- results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of resources that Config is recording in the region for
+  { -- | The total number of resources that Config is recording in the region for
     -- your account. If you specify resource types in the request, Config
     -- returns only the total number of resources for those resource types.
     --
@@ -242,6 +239,9 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
     --
     -- 3.  Config returns 25 for @totalDiscoveredResources@.
     totalDiscoveredResources :: Prelude.Maybe Prelude.Integer,
+    -- | The string that you use in a subsequent request to get the next page of
+    -- results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of @ResourceCount@ objects. Each object is listed in descending
     -- order by the number of resources.
     resourceCounts :: Prelude.Maybe [ResourceCount],
@@ -257,9 +257,6 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'getDiscoveredResourceCountsResponse_nextToken' - The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
 --
 -- 'totalDiscoveredResources', 'getDiscoveredResourceCountsResponse_totalDiscoveredResources' - The total number of resources that Config is recording in the region for
 -- your account. If you specify resource types in the request, Config
@@ -277,6 +274,9 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 --
 -- 3.  Config returns 25 for @totalDiscoveredResources@.
 --
+-- 'nextToken', 'getDiscoveredResourceCountsResponse_nextToken' - The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+--
 -- 'resourceCounts', 'getDiscoveredResourceCountsResponse_resourceCounts' - The list of @ResourceCount@ objects. Each object is listed in descending
 -- order by the number of resources.
 --
@@ -287,18 +287,12 @@ newGetDiscoveredResourceCountsResponse ::
   GetDiscoveredResourceCountsResponse
 newGetDiscoveredResourceCountsResponse pHttpStatus_ =
   GetDiscoveredResourceCountsResponse'
-    { nextToken =
+    { totalDiscoveredResources =
         Prelude.Nothing,
-      totalDiscoveredResources =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceCounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
-getDiscoveredResourceCountsResponse_nextToken :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Text)
-getDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetDiscoveredResourceCountsResponse' {nextToken} -> nextToken) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {nextToken = a} :: GetDiscoveredResourceCountsResponse)
 
 -- | The total number of resources that Config is recording in the region for
 -- your account. If you specify resource types in the request, Config
@@ -318,10 +312,15 @@ getDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetDiscoveredResourc
 getDiscoveredResourceCountsResponse_totalDiscoveredResources :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Integer)
 getDiscoveredResourceCountsResponse_totalDiscoveredResources = Lens.lens (\GetDiscoveredResourceCountsResponse' {totalDiscoveredResources} -> totalDiscoveredResources) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {totalDiscoveredResources = a} :: GetDiscoveredResourceCountsResponse)
 
+-- | The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
+getDiscoveredResourceCountsResponse_nextToken :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Text)
+getDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetDiscoveredResourceCountsResponse' {nextToken} -> nextToken) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {nextToken = a} :: GetDiscoveredResourceCountsResponse)
+
 -- | The list of @ResourceCount@ objects. Each object is listed in descending
 -- order by the number of resources.
 getDiscoveredResourceCountsResponse_resourceCounts :: Lens.Lens' GetDiscoveredResourceCountsResponse (Prelude.Maybe [ResourceCount])
-getDiscoveredResourceCountsResponse_resourceCounts = Lens.lens (\GetDiscoveredResourceCountsResponse' {resourceCounts} -> resourceCounts) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {resourceCounts = a} :: GetDiscoveredResourceCountsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDiscoveredResourceCountsResponse_resourceCounts = Lens.lens (\GetDiscoveredResourceCountsResponse' {resourceCounts} -> resourceCounts) (\s@GetDiscoveredResourceCountsResponse' {} a -> s {resourceCounts = a} :: GetDiscoveredResourceCountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDiscoveredResourceCountsResponse_httpStatus :: Lens.Lens' GetDiscoveredResourceCountsResponse Prelude.Int

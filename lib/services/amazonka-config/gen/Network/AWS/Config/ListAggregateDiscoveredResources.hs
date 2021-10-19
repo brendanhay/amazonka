@@ -39,8 +39,8 @@ module Network.AWS.Config.ListAggregateDiscoveredResources
     newListAggregateDiscoveredResources,
 
     -- * Request Lenses
-    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_filters,
+    listAggregateDiscoveredResources_nextToken,
     listAggregateDiscoveredResources_limit,
     listAggregateDiscoveredResources_configurationAggregatorName,
     listAggregateDiscoveredResources_resourceType,
@@ -65,11 +65,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAggregateDiscoveredResources' smart constructor.
 data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | Filters the results based on the @ResourceFilters@ object.
+    filters :: Prelude.Maybe ResourceFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results based on the @ResourceFilters@ object.
-    filters :: Prelude.Maybe ResourceFilters,
     -- | The maximum number of resource identifiers returned on each page. You
     -- cannot specify a number greater than 100. If you specify 0, Config uses
     -- the default.
@@ -89,10 +89,10 @@ data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.
+--
 -- 'nextToken', 'listAggregateDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
---
--- 'filters', 'listAggregateDiscoveredResources_filters' - Filters the results based on the @ResourceFilters@ object.
 --
 -- 'limit', 'listAggregateDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. You
 -- cannot specify a number greater than 100. If you specify 0, Config uses
@@ -111,23 +111,23 @@ newListAggregateDiscoveredResources
   pConfigurationAggregatorName_
   pResourceType_ =
     ListAggregateDiscoveredResources'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         limit = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_,
         resourceType = pResourceType_
       }
 
+-- | Filters the results based on the @ResourceFilters@ object.
+listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe ResourceFilters)
+listAggregateDiscoveredResources_filters = Lens.lens (\ListAggregateDiscoveredResources' {filters} -> filters) (\s@ListAggregateDiscoveredResources' {} a -> s {filters = a} :: ListAggregateDiscoveredResources)
+
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 listAggregateDiscoveredResources_nextToken :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Text)
 listAggregateDiscoveredResources_nextToken = Lens.lens (\ListAggregateDiscoveredResources' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResources' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResources)
-
--- | Filters the results based on the @ResourceFilters@ object.
-listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe ResourceFilters)
-listAggregateDiscoveredResources_filters = Lens.lens (\ListAggregateDiscoveredResources' {filters} -> filters) (\s@ListAggregateDiscoveredResources' {} a -> s {filters = a} :: ListAggregateDiscoveredResources)
 
 -- | The maximum number of resource identifiers returned on each page. You
 -- cannot specify a number greater than 100. If you specify 0, Config uses
@@ -217,8 +217,8 @@ instance Core.ToJSON ListAggregateDiscoveredResources where
   toJSON ListAggregateDiscoveredResources' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ( "ConfigurationAggregatorName"
@@ -284,7 +284,7 @@ listAggregateDiscoveredResourcesResponse_nextToken = Lens.lens (\ListAggregateDi
 
 -- | Returns a list of @ResourceIdentifiers@ objects.
 listAggregateDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe [AggregateResourceIdentifier])
-listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAggregateDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Prelude.Int

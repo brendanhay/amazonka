@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccountAggregationSource' smart constructor.
 data AccountAggregationSource = AccountAggregationSource'
-  { -- | If true, aggregate existing Config regions and future regions.
-    allAwsRegions :: Prelude.Maybe Prelude.Bool,
-    -- | The source regions being aggregated.
+  { -- | The source regions being aggregated.
     awsRegions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | If true, aggregate existing Config regions and future regions.
+    allAwsRegions :: Prelude.Maybe Prelude.Bool,
     -- | The 12-digit account ID of the account being aggregated.
     accountIds :: Prelude.NonEmpty Prelude.Text
   }
@@ -44,9 +44,9 @@ data AccountAggregationSource = AccountAggregationSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.
---
 -- 'awsRegions', 'accountAggregationSource_awsRegions' - The source regions being aggregated.
+--
+-- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.
 --
 -- 'accountIds', 'accountAggregationSource_accountIds' - The 12-digit account ID of the account being aggregated.
 newAccountAggregationSource ::
@@ -55,23 +55,23 @@ newAccountAggregationSource ::
   AccountAggregationSource
 newAccountAggregationSource pAccountIds_ =
   AccountAggregationSource'
-    { allAwsRegions =
+    { awsRegions =
         Prelude.Nothing,
-      awsRegions = Prelude.Nothing,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      allAwsRegions = Prelude.Nothing,
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
+
+-- | The source regions being aggregated.
+accountAggregationSource_awsRegions :: Lens.Lens' AccountAggregationSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+accountAggregationSource_awsRegions = Lens.lens (\AccountAggregationSource' {awsRegions} -> awsRegions) (\s@AccountAggregationSource' {} a -> s {awsRegions = a} :: AccountAggregationSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If true, aggregate existing Config regions and future regions.
 accountAggregationSource_allAwsRegions :: Lens.Lens' AccountAggregationSource (Prelude.Maybe Prelude.Bool)
 accountAggregationSource_allAwsRegions = Lens.lens (\AccountAggregationSource' {allAwsRegions} -> allAwsRegions) (\s@AccountAggregationSource' {} a -> s {allAwsRegions = a} :: AccountAggregationSource)
 
--- | The source regions being aggregated.
-accountAggregationSource_awsRegions :: Lens.Lens' AccountAggregationSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-accountAggregationSource_awsRegions = Lens.lens (\AccountAggregationSource' {awsRegions} -> awsRegions) (\s@AccountAggregationSource' {} a -> s {awsRegions = a} :: AccountAggregationSource) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The 12-digit account ID of the account being aggregated.
 accountAggregationSource_accountIds :: Lens.Lens' AccountAggregationSource (Prelude.NonEmpty Prelude.Text)
-accountAggregationSource_accountIds = Lens.lens (\AccountAggregationSource' {accountIds} -> accountIds) (\s@AccountAggregationSource' {} a -> s {accountIds = a} :: AccountAggregationSource) Prelude.. Lens._Coerce
+accountAggregationSource_accountIds = Lens.lens (\AccountAggregationSource' {accountIds} -> accountIds) (\s@AccountAggregationSource' {} a -> s {accountIds = a} :: AccountAggregationSource) Prelude.. Lens.coerced
 
 instance Core.FromJSON AccountAggregationSource where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON AccountAggregationSource where
       "AccountAggregationSource"
       ( \x ->
           AccountAggregationSource'
-            Prelude.<$> (x Core..:? "AllAwsRegions")
-            Prelude.<*> (x Core..:? "AwsRegions")
+            Prelude.<$> (x Core..:? "AwsRegions")
+            Prelude.<*> (x Core..:? "AllAwsRegions")
             Prelude.<*> (x Core..: "AccountIds")
       )
 
@@ -92,8 +92,8 @@ instance Core.ToJSON AccountAggregationSource where
   toJSON AccountAggregationSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AllAwsRegions" Core..=) Prelude.<$> allAwsRegions,
-            ("AwsRegions" Core..=) Prelude.<$> awsRegions,
+          [ ("AwsRegions" Core..=) Prelude.<$> awsRegions,
+            ("AllAwsRegions" Core..=) Prelude.<$> allAwsRegions,
             Prelude.Just ("AccountIds" Core..= accountIds)
           ]
       )

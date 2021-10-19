@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAggregateConformancePackComplianceSummary' smart constructor.
 data AggregateConformancePackComplianceSummary = AggregateConformancePackComplianceSummary'
-  { -- | Returns an @AggregateConformancePackComplianceCount@ object.
-    complianceSummary :: Prelude.Maybe AggregateConformancePackComplianceCount,
-    -- | Groups the result based on Amazon Web Services account ID or Amazon Web
+  { -- | Groups the result based on Amazon Web Services account ID or Amazon Web
     -- Services Region.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | Returns an @AggregateConformancePackComplianceCount@ object.
+    complianceSummary :: Prelude.Maybe AggregateConformancePackComplianceCount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,28 @@ data AggregateConformancePackComplianceSummary = AggregateConformancePackComplia
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceSummary', 'aggregateConformancePackComplianceSummary_complianceSummary' - Returns an @AggregateConformancePackComplianceCount@ object.
---
 -- 'groupName', 'aggregateConformancePackComplianceSummary_groupName' - Groups the result based on Amazon Web Services account ID or Amazon Web
 -- Services Region.
+--
+-- 'complianceSummary', 'aggregateConformancePackComplianceSummary_complianceSummary' - Returns an @AggregateConformancePackComplianceCount@ object.
 newAggregateConformancePackComplianceSummary ::
   AggregateConformancePackComplianceSummary
 newAggregateConformancePackComplianceSummary =
   AggregateConformancePackComplianceSummary'
-    { complianceSummary =
+    { groupName =
         Prelude.Nothing,
-      groupName = Prelude.Nothing
+      complianceSummary =
+        Prelude.Nothing
     }
-
--- | Returns an @AggregateConformancePackComplianceCount@ object.
-aggregateConformancePackComplianceSummary_complianceSummary :: Lens.Lens' AggregateConformancePackComplianceSummary (Prelude.Maybe AggregateConformancePackComplianceCount)
-aggregateConformancePackComplianceSummary_complianceSummary = Lens.lens (\AggregateConformancePackComplianceSummary' {complianceSummary} -> complianceSummary) (\s@AggregateConformancePackComplianceSummary' {} a -> s {complianceSummary = a} :: AggregateConformancePackComplianceSummary)
 
 -- | Groups the result based on Amazon Web Services account ID or Amazon Web
 -- Services Region.
 aggregateConformancePackComplianceSummary_groupName :: Lens.Lens' AggregateConformancePackComplianceSummary (Prelude.Maybe Prelude.Text)
 aggregateConformancePackComplianceSummary_groupName = Lens.lens (\AggregateConformancePackComplianceSummary' {groupName} -> groupName) (\s@AggregateConformancePackComplianceSummary' {} a -> s {groupName = a} :: AggregateConformancePackComplianceSummary)
+
+-- | Returns an @AggregateConformancePackComplianceCount@ object.
+aggregateConformancePackComplianceSummary_complianceSummary :: Lens.Lens' AggregateConformancePackComplianceSummary (Prelude.Maybe AggregateConformancePackComplianceCount)
+aggregateConformancePackComplianceSummary_complianceSummary = Lens.lens (\AggregateConformancePackComplianceSummary' {complianceSummary} -> complianceSummary) (\s@AggregateConformancePackComplianceSummary' {} a -> s {complianceSummary = a} :: AggregateConformancePackComplianceSummary)
 
 instance
   Core.FromJSON
@@ -75,8 +76,8 @@ instance
       "AggregateConformancePackComplianceSummary"
       ( \x ->
           AggregateConformancePackComplianceSummary'
-            Prelude.<$> (x Core..:? "ComplianceSummary")
-              Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<$> (x Core..:? "GroupName")
+              Prelude.<*> (x Core..:? "ComplianceSummary")
       )
 
 instance

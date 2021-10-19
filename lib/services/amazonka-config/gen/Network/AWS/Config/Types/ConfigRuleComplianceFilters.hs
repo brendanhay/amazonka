@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConfigRuleComplianceFilters' smart constructor.
 data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
-  { -- | The 12-digit account ID of the source account.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Config rule.
+  { -- | The name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | The 12-digit account ID of the source account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The rule compliance status.
     --
     -- For the @ConfigRuleComplianceFilters@ data type, Config supports only
@@ -52,9 +52,9 @@ data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'configRuleComplianceFilters_accountId' - The 12-digit account ID of the source account.
---
 -- 'configRuleName', 'configRuleComplianceFilters_configRuleName' - The name of the Config rule.
+--
+-- 'accountId', 'configRuleComplianceFilters_accountId' - The 12-digit account ID of the source account.
 --
 -- 'complianceType', 'configRuleComplianceFilters_complianceType' - The rule compliance status.
 --
@@ -67,20 +67,20 @@ newConfigRuleComplianceFilters ::
   ConfigRuleComplianceFilters
 newConfigRuleComplianceFilters =
   ConfigRuleComplianceFilters'
-    { accountId =
+    { configRuleName =
         Prelude.Nothing,
-      configRuleName = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       complianceType = Prelude.Nothing,
       awsRegion = Prelude.Nothing
     }
 
--- | The 12-digit account ID of the source account.
-configRuleComplianceFilters_accountId :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
-configRuleComplianceFilters_accountId = Lens.lens (\ConfigRuleComplianceFilters' {accountId} -> accountId) (\s@ConfigRuleComplianceFilters' {} a -> s {accountId = a} :: ConfigRuleComplianceFilters)
-
 -- | The name of the Config rule.
 configRuleComplianceFilters_configRuleName :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
 configRuleComplianceFilters_configRuleName = Lens.lens (\ConfigRuleComplianceFilters' {configRuleName} -> configRuleName) (\s@ConfigRuleComplianceFilters' {} a -> s {configRuleName = a} :: ConfigRuleComplianceFilters)
+
+-- | The 12-digit account ID of the source account.
+configRuleComplianceFilters_accountId :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
+configRuleComplianceFilters_accountId = Lens.lens (\ConfigRuleComplianceFilters' {accountId} -> accountId) (\s@ConfigRuleComplianceFilters' {} a -> s {accountId = a} :: ConfigRuleComplianceFilters)
 
 -- | The rule compliance status.
 --
@@ -102,9 +102,9 @@ instance Core.ToJSON ConfigRuleComplianceFilters where
   toJSON ConfigRuleComplianceFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("ConfigRuleName" Core..=)
+          [ ("ConfigRuleName" Core..=)
               Prelude.<$> configRuleName,
+            ("AccountId" Core..=) Prelude.<$> accountId,
             ("ComplianceType" Core..=)
               Prelude.<$> complianceType,
             ("AwsRegion" Core..=) Prelude.<$> awsRegion

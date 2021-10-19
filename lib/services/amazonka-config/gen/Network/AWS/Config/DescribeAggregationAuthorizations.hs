@@ -38,8 +38,8 @@ module Network.AWS.Config.DescribeAggregationAuthorizations
     newDescribeAggregationAuthorizationsResponse,
 
     -- * Response Lenses
-    describeAggregationAuthorizationsResponse_nextToken,
     describeAggregationAuthorizationsResponse_aggregationAuthorizations,
+    describeAggregationAuthorizationsResponse_nextToken,
     describeAggregationAuthorizationsResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAggregationAuthorizationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "AggregationAuthorizations"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "AggregationAuthorizations"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,12 +190,12 @@ instance
 
 -- | /See:/ 'newDescribeAggregationAuthorizationsResponse' smart constructor.
 data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list of authorizations granted to various aggregator accounts
+  { -- | Returns a list of authorizations granted to various aggregator accounts
     -- and regions.
     aggregationAuthorizations :: Prelude.Maybe [AggregationAuthorization],
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,11 +209,11 @@ data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAggregationAuthorizationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'aggregationAuthorizations', 'describeAggregationAuthorizationsResponse_aggregationAuthorizations' - Returns a list of authorizations granted to various aggregator accounts
 -- and regions.
+--
+-- 'nextToken', 'describeAggregationAuthorizationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'httpStatus', 'describeAggregationAuthorizationsResponse_httpStatus' - The response's http status code.
 newDescribeAggregationAuthorizationsResponse ::
@@ -223,22 +223,21 @@ newDescribeAggregationAuthorizationsResponse ::
 newDescribeAggregationAuthorizationsResponse
   pHttpStatus_ =
     DescribeAggregationAuthorizationsResponse'
-      { nextToken =
+      { aggregationAuthorizations =
           Prelude.Nothing,
-        aggregationAuthorizations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Returns a list of authorizations granted to various aggregator accounts
+-- and regions.
+describeAggregationAuthorizationsResponse_aggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe [AggregationAuthorization])
+describeAggregationAuthorizationsResponse_aggregationAuthorizations = Lens.lens (\DescribeAggregationAuthorizationsResponse' {aggregationAuthorizations} -> aggregationAuthorizations) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {aggregationAuthorizations = a} :: DescribeAggregationAuthorizationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeAggregationAuthorizationsResponse_nextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe Prelude.Text)
 describeAggregationAuthorizationsResponse_nextToken = Lens.lens (\DescribeAggregationAuthorizationsResponse' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizationsResponse)
-
--- | Returns a list of authorizations granted to various aggregator accounts
--- and regions.
-describeAggregationAuthorizationsResponse_aggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe [AggregationAuthorization])
-describeAggregationAuthorizationsResponse_aggregationAuthorizations = Lens.lens (\DescribeAggregationAuthorizationsResponse' {aggregationAuthorizations} -> aggregationAuthorizations) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {aggregationAuthorizations = a} :: DescribeAggregationAuthorizationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAggregationAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeAggregationAuthorizationsResponse Prelude.Int

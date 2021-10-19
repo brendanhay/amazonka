@@ -29,10 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeliveryChannel' smart constructor.
 data DeliveryChannel = DeliveryChannel'
-  { -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
-    -- key (KMS key) used to encrypt objects delivered by Config. Must belong
-    -- to the same Region as the destination S3 bucket.
-    s3KmsKeyArn :: Prelude.Maybe Prelude.Text,
+  { -- | The prefix for the specified Amazon S3 bucket.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
+    -- sends notifications about configuration changes.
+    --
+    -- If you choose a topic from another account, the topic must have policies
+    -- that grant access permissions to Config. For more information, see
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
+    -- in the Config Developer Guide.
+    snsTopicARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the delivery channel. By default, Config assigns the name
     -- \"default\" when creating the delivery channel. To change the delivery
     -- channel name, you must use the DeleteDeliveryChannel action to delete
@@ -40,8 +46,13 @@ data DeliveryChannel = DeliveryChannel'
     -- PutDeliveryChannel command to create a delivery channel that has the
     -- desired name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The prefix for the specified Amazon S3 bucket.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
+    -- key (KMS key) used to encrypt objects delivered by Config. Must belong
+    -- to the same Region as the destination S3 bucket.
+    s3KmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The options for how often Config delivers configuration snapshots to the
+    -- Amazon S3 bucket.
+    configSnapshotDeliveryProperties :: Prelude.Maybe ConfigSnapshotDeliveryProperties,
     -- | The name of the Amazon S3 bucket to which Config delivers configuration
     -- snapshots and configuration history files.
     --
@@ -50,18 +61,7 @@ data DeliveryChannel = DeliveryChannel'
     -- Config. For more information, see
     -- <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket>
     -- in the Config Developer Guide.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | The options for how often Config delivers configuration snapshots to the
-    -- Amazon S3 bucket.
-    configSnapshotDeliveryProperties :: Prelude.Maybe ConfigSnapshotDeliveryProperties,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
-    -- sends notifications about configuration changes.
-    --
-    -- If you choose a topic from another account, the topic must have policies
-    -- that grant access permissions to Config. For more information, see
-    -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
-    -- in the Config Developer Guide.
-    snsTopicARN :: Prelude.Maybe Prelude.Text
+    s3BucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,9 +73,15 @@ data DeliveryChannel = DeliveryChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KmsKeyArn', 'deliveryChannel_s3KmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
--- key (KMS key) used to encrypt objects delivered by Config. Must belong
--- to the same Region as the destination S3 bucket.
+-- 's3KeyPrefix', 'deliveryChannel_s3KeyPrefix' - The prefix for the specified Amazon S3 bucket.
+--
+-- 'snsTopicARN', 'deliveryChannel_snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
+-- sends notifications about configuration changes.
+--
+-- If you choose a topic from another account, the topic must have policies
+-- that grant access permissions to Config. For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
+-- in the Config Developer Guide.
 --
 -- 'name', 'deliveryChannel_name' - The name of the delivery channel. By default, Config assigns the name
 -- \"default\" when creating the delivery channel. To change the delivery
@@ -84,7 +90,12 @@ data DeliveryChannel = DeliveryChannel'
 -- PutDeliveryChannel command to create a delivery channel that has the
 -- desired name.
 --
--- 's3KeyPrefix', 'deliveryChannel_s3KeyPrefix' - The prefix for the specified Amazon S3 bucket.
+-- 's3KmsKeyArn', 'deliveryChannel_s3KmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
+-- key (KMS key) used to encrypt objects delivered by Config. Must belong
+-- to the same Region as the destination S3 bucket.
+--
+-- 'configSnapshotDeliveryProperties', 'deliveryChannel_configSnapshotDeliveryProperties' - The options for how often Config delivers configuration snapshots to the
+-- Amazon S3 bucket.
 --
 -- 's3BucketName', 'deliveryChannel_s3BucketName' - The name of the Amazon S3 bucket to which Config delivers configuration
 -- snapshots and configuration history files.
@@ -94,34 +105,31 @@ data DeliveryChannel = DeliveryChannel'
 -- Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket>
 -- in the Config Developer Guide.
---
--- 'configSnapshotDeliveryProperties', 'deliveryChannel_configSnapshotDeliveryProperties' - The options for how often Config delivers configuration snapshots to the
--- Amazon S3 bucket.
---
--- 'snsTopicARN', 'deliveryChannel_snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
+newDeliveryChannel ::
+  DeliveryChannel
+newDeliveryChannel =
+  DeliveryChannel'
+    { s3KeyPrefix = Prelude.Nothing,
+      snsTopicARN = Prelude.Nothing,
+      name = Prelude.Nothing,
+      s3KmsKeyArn = Prelude.Nothing,
+      configSnapshotDeliveryProperties = Prelude.Nothing,
+      s3BucketName = Prelude.Nothing
+    }
+
+-- | The prefix for the specified Amazon S3 bucket.
+deliveryChannel_s3KeyPrefix :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
+deliveryChannel_s3KeyPrefix = Lens.lens (\DeliveryChannel' {s3KeyPrefix} -> s3KeyPrefix) (\s@DeliveryChannel' {} a -> s {s3KeyPrefix = a} :: DeliveryChannel)
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
 -- sends notifications about configuration changes.
 --
 -- If you choose a topic from another account, the topic must have policies
 -- that grant access permissions to Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
 -- in the Config Developer Guide.
-newDeliveryChannel ::
-  DeliveryChannel
-newDeliveryChannel =
-  DeliveryChannel'
-    { s3KmsKeyArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
-      configSnapshotDeliveryProperties = Prelude.Nothing,
-      snsTopicARN = Prelude.Nothing
-    }
-
--- | The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
--- key (KMS key) used to encrypt objects delivered by Config. Must belong
--- to the same Region as the destination S3 bucket.
-deliveryChannel_s3KmsKeyArn :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
-deliveryChannel_s3KmsKeyArn = Lens.lens (\DeliveryChannel' {s3KmsKeyArn} -> s3KmsKeyArn) (\s@DeliveryChannel' {} a -> s {s3KmsKeyArn = a} :: DeliveryChannel)
+deliveryChannel_snsTopicARN :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
+deliveryChannel_snsTopicARN = Lens.lens (\DeliveryChannel' {snsTopicARN} -> snsTopicARN) (\s@DeliveryChannel' {} a -> s {snsTopicARN = a} :: DeliveryChannel)
 
 -- | The name of the delivery channel. By default, Config assigns the name
 -- \"default\" when creating the delivery channel. To change the delivery
@@ -132,9 +140,16 @@ deliveryChannel_s3KmsKeyArn = Lens.lens (\DeliveryChannel' {s3KmsKeyArn} -> s3Km
 deliveryChannel_name :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
 deliveryChannel_name = Lens.lens (\DeliveryChannel' {name} -> name) (\s@DeliveryChannel' {} a -> s {name = a} :: DeliveryChannel)
 
--- | The prefix for the specified Amazon S3 bucket.
-deliveryChannel_s3KeyPrefix :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
-deliveryChannel_s3KeyPrefix = Lens.lens (\DeliveryChannel' {s3KeyPrefix} -> s3KeyPrefix) (\s@DeliveryChannel' {} a -> s {s3KeyPrefix = a} :: DeliveryChannel)
+-- | The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS
+-- key (KMS key) used to encrypt objects delivered by Config. Must belong
+-- to the same Region as the destination S3 bucket.
+deliveryChannel_s3KmsKeyArn :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
+deliveryChannel_s3KmsKeyArn = Lens.lens (\DeliveryChannel' {s3KmsKeyArn} -> s3KmsKeyArn) (\s@DeliveryChannel' {} a -> s {s3KmsKeyArn = a} :: DeliveryChannel)
+
+-- | The options for how often Config delivers configuration snapshots to the
+-- Amazon S3 bucket.
+deliveryChannel_configSnapshotDeliveryProperties :: Lens.Lens' DeliveryChannel (Prelude.Maybe ConfigSnapshotDeliveryProperties)
+deliveryChannel_configSnapshotDeliveryProperties = Lens.lens (\DeliveryChannel' {configSnapshotDeliveryProperties} -> configSnapshotDeliveryProperties) (\s@DeliveryChannel' {} a -> s {configSnapshotDeliveryProperties = a} :: DeliveryChannel)
 
 -- | The name of the Amazon S3 bucket to which Config delivers configuration
 -- snapshots and configuration history files.
@@ -147,33 +162,18 @@ deliveryChannel_s3KeyPrefix = Lens.lens (\DeliveryChannel' {s3KeyPrefix} -> s3Ke
 deliveryChannel_s3BucketName :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
 deliveryChannel_s3BucketName = Lens.lens (\DeliveryChannel' {s3BucketName} -> s3BucketName) (\s@DeliveryChannel' {} a -> s {s3BucketName = a} :: DeliveryChannel)
 
--- | The options for how often Config delivers configuration snapshots to the
--- Amazon S3 bucket.
-deliveryChannel_configSnapshotDeliveryProperties :: Lens.Lens' DeliveryChannel (Prelude.Maybe ConfigSnapshotDeliveryProperties)
-deliveryChannel_configSnapshotDeliveryProperties = Lens.lens (\DeliveryChannel' {configSnapshotDeliveryProperties} -> configSnapshotDeliveryProperties) (\s@DeliveryChannel' {} a -> s {configSnapshotDeliveryProperties = a} :: DeliveryChannel)
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
--- sends notifications about configuration changes.
---
--- If you choose a topic from another account, the topic must have policies
--- that grant access permissions to Config. For more information, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
--- in the Config Developer Guide.
-deliveryChannel_snsTopicARN :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
-deliveryChannel_snsTopicARN = Lens.lens (\DeliveryChannel' {snsTopicARN} -> snsTopicARN) (\s@DeliveryChannel' {} a -> s {snsTopicARN = a} :: DeliveryChannel)
-
 instance Core.FromJSON DeliveryChannel where
   parseJSON =
     Core.withObject
       "DeliveryChannel"
       ( \x ->
           DeliveryChannel'
-            Prelude.<$> (x Core..:? "s3KmsKeyArn")
-            Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "s3KeyPrefix")
-            Prelude.<*> (x Core..:? "s3BucketName")
-            Prelude.<*> (x Core..:? "configSnapshotDeliveryProperties")
+            Prelude.<$> (x Core..:? "s3KeyPrefix")
             Prelude.<*> (x Core..:? "snsTopicARN")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "s3KmsKeyArn")
+            Prelude.<*> (x Core..:? "configSnapshotDeliveryProperties")
+            Prelude.<*> (x Core..:? "s3BucketName")
       )
 
 instance Prelude.Hashable DeliveryChannel
@@ -184,12 +184,12 @@ instance Core.ToJSON DeliveryChannel where
   toJSON DeliveryChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("s3KmsKeyArn" Core..=) Prelude.<$> s3KmsKeyArn,
+          [ ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
+            ("snsTopicARN" Core..=) Prelude.<$> snsTopicARN,
             ("name" Core..=) Prelude.<$> name,
-            ("s3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
-            ("s3BucketName" Core..=) Prelude.<$> s3BucketName,
+            ("s3KmsKeyArn" Core..=) Prelude.<$> s3KmsKeyArn,
             ("configSnapshotDeliveryProperties" Core..=)
               Prelude.<$> configSnapshotDeliveryProperties,
-            ("snsTopicARN" Core..=) Prelude.<$> snsTopicARN
+            ("s3BucketName" Core..=) Prelude.<$> s3BucketName
           ]
       )

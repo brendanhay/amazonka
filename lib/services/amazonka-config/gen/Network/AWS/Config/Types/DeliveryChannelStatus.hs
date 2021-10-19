@@ -31,17 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeliveryChannelStatus' smart constructor.
 data DeliveryChannelStatus = DeliveryChannelStatus'
-  { -- | A list containing the status of the delivery of the configuration stream
-    -- notification to the specified Amazon SNS topic.
-    configStreamDeliveryInfo :: Prelude.Maybe ConfigStreamDeliveryInfo,
-    -- | A list containing the status of the delivery of the snapshot to the
+  { -- | A list containing the status of the delivery of the snapshot to the
     -- specified Amazon S3 bucket.
     configSnapshotDeliveryInfo :: Prelude.Maybe ConfigExportDeliveryInfo,
-    -- | The name of the delivery channel.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | A list containing the status of the delivery of the configuration stream
+    -- notification to the specified Amazon SNS topic.
+    configStreamDeliveryInfo :: Prelude.Maybe ConfigStreamDeliveryInfo,
     -- | A list that contains the status of the delivery of the configuration
     -- history to the specified Amazon S3 bucket.
-    configHistoryDeliveryInfo :: Prelude.Maybe ConfigExportDeliveryInfo
+    configHistoryDeliveryInfo :: Prelude.Maybe ConfigExportDeliveryInfo,
+    -- | The name of the delivery channel.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data DeliveryChannelStatus = DeliveryChannelStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configStreamDeliveryInfo', 'deliveryChannelStatus_configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream
--- notification to the specified Amazon SNS topic.
---
 -- 'configSnapshotDeliveryInfo', 'deliveryChannelStatus_configSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the
 -- specified Amazon S3 bucket.
 --
--- 'name', 'deliveryChannelStatus_name' - The name of the delivery channel.
+-- 'configStreamDeliveryInfo', 'deliveryChannelStatus_configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream
+-- notification to the specified Amazon SNS topic.
 --
 -- 'configHistoryDeliveryInfo', 'deliveryChannelStatus_configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration
 -- history to the specified Amazon S3 bucket.
+--
+-- 'name', 'deliveryChannelStatus_name' - The name of the delivery channel.
 newDeliveryChannelStatus ::
   DeliveryChannelStatus
 newDeliveryChannelStatus =
   DeliveryChannelStatus'
-    { configStreamDeliveryInfo =
+    { configSnapshotDeliveryInfo =
         Prelude.Nothing,
-      configSnapshotDeliveryInfo = Prelude.Nothing,
-      name = Prelude.Nothing,
-      configHistoryDeliveryInfo = Prelude.Nothing
+      configStreamDeliveryInfo = Prelude.Nothing,
+      configHistoryDeliveryInfo = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | A list containing the status of the delivery of the configuration stream
--- notification to the specified Amazon SNS topic.
-deliveryChannelStatus_configStreamDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe ConfigStreamDeliveryInfo)
-deliveryChannelStatus_configStreamDeliveryInfo = Lens.lens (\DeliveryChannelStatus' {configStreamDeliveryInfo} -> configStreamDeliveryInfo) (\s@DeliveryChannelStatus' {} a -> s {configStreamDeliveryInfo = a} :: DeliveryChannelStatus)
 
 -- | A list containing the status of the delivery of the snapshot to the
 -- specified Amazon S3 bucket.
 deliveryChannelStatus_configSnapshotDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe ConfigExportDeliveryInfo)
 deliveryChannelStatus_configSnapshotDeliveryInfo = Lens.lens (\DeliveryChannelStatus' {configSnapshotDeliveryInfo} -> configSnapshotDeliveryInfo) (\s@DeliveryChannelStatus' {} a -> s {configSnapshotDeliveryInfo = a} :: DeliveryChannelStatus)
 
--- | The name of the delivery channel.
-deliveryChannelStatus_name :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe Prelude.Text)
-deliveryChannelStatus_name = Lens.lens (\DeliveryChannelStatus' {name} -> name) (\s@DeliveryChannelStatus' {} a -> s {name = a} :: DeliveryChannelStatus)
+-- | A list containing the status of the delivery of the configuration stream
+-- notification to the specified Amazon SNS topic.
+deliveryChannelStatus_configStreamDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe ConfigStreamDeliveryInfo)
+deliveryChannelStatus_configStreamDeliveryInfo = Lens.lens (\DeliveryChannelStatus' {configStreamDeliveryInfo} -> configStreamDeliveryInfo) (\s@DeliveryChannelStatus' {} a -> s {configStreamDeliveryInfo = a} :: DeliveryChannelStatus)
 
 -- | A list that contains the status of the delivery of the configuration
 -- history to the specified Amazon S3 bucket.
 deliveryChannelStatus_configHistoryDeliveryInfo :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe ConfigExportDeliveryInfo)
 deliveryChannelStatus_configHistoryDeliveryInfo = Lens.lens (\DeliveryChannelStatus' {configHistoryDeliveryInfo} -> configHistoryDeliveryInfo) (\s@DeliveryChannelStatus' {} a -> s {configHistoryDeliveryInfo = a} :: DeliveryChannelStatus)
+
+-- | The name of the delivery channel.
+deliveryChannelStatus_name :: Lens.Lens' DeliveryChannelStatus (Prelude.Maybe Prelude.Text)
+deliveryChannelStatus_name = Lens.lens (\DeliveryChannelStatus' {name} -> name) (\s@DeliveryChannelStatus' {} a -> s {name = a} :: DeliveryChannelStatus)
 
 instance Core.FromJSON DeliveryChannelStatus where
   parseJSON =
@@ -99,10 +99,10 @@ instance Core.FromJSON DeliveryChannelStatus where
       "DeliveryChannelStatus"
       ( \x ->
           DeliveryChannelStatus'
-            Prelude.<$> (x Core..:? "configStreamDeliveryInfo")
-            Prelude.<*> (x Core..:? "configSnapshotDeliveryInfo")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "configSnapshotDeliveryInfo")
+            Prelude.<*> (x Core..:? "configStreamDeliveryInfo")
             Prelude.<*> (x Core..:? "configHistoryDeliveryInfo")
+            Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable DeliveryChannelStatus

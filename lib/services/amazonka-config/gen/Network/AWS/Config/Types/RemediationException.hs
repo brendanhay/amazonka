@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRemediationException' smart constructor.
 data RemediationException = RemediationException'
-  { -- | The time when the remediation exception will be deleted.
-    expirationTime :: Prelude.Maybe Core.POSIX,
-    -- | An explanation of an remediation exception.
+  { -- | An explanation of an remediation exception.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The time when the remediation exception will be deleted.
+    expirationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of a resource.
@@ -51,9 +51,9 @@ data RemediationException = RemediationException'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationTime', 'remediationException_expirationTime' - The time when the remediation exception will be deleted.
---
 -- 'message', 'remediationException_message' - An explanation of an remediation exception.
+--
+-- 'expirationTime', 'remediationException_expirationTime' - The time when the remediation exception will be deleted.
 --
 -- 'configRuleName', 'remediationException_configRuleName' - The name of the Config rule.
 --
@@ -73,21 +73,20 @@ newRemediationException
   pResourceType_
   pResourceId_ =
     RemediationException'
-      { expirationTime =
-          Prelude.Nothing,
-        message = Prelude.Nothing,
+      { message = Prelude.Nothing,
+        expirationTime = Prelude.Nothing,
         configRuleName = pConfigRuleName_,
         resourceType = pResourceType_,
         resourceId = pResourceId_
       }
 
--- | The time when the remediation exception will be deleted.
-remediationException_expirationTime :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.UTCTime)
-remediationException_expirationTime = Lens.lens (\RemediationException' {expirationTime} -> expirationTime) (\s@RemediationException' {} a -> s {expirationTime = a} :: RemediationException) Prelude.. Lens.mapping Core._Time
-
 -- | An explanation of an remediation exception.
 remediationException_message :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.Text)
 remediationException_message = Lens.lens (\RemediationException' {message} -> message) (\s@RemediationException' {} a -> s {message = a} :: RemediationException)
+
+-- | The time when the remediation exception will be deleted.
+remediationException_expirationTime :: Lens.Lens' RemediationException (Prelude.Maybe Prelude.UTCTime)
+remediationException_expirationTime = Lens.lens (\RemediationException' {expirationTime} -> expirationTime) (\s@RemediationException' {} a -> s {expirationTime = a} :: RemediationException) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the Config rule.
 remediationException_configRuleName :: Lens.Lens' RemediationException Prelude.Text
@@ -107,8 +106,8 @@ instance Core.FromJSON RemediationException where
       "RemediationException"
       ( \x ->
           RemediationException'
-            Prelude.<$> (x Core..:? "ExpirationTime")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "ExpirationTime")
             Prelude.<*> (x Core..: "ConfigRuleName")
             Prelude.<*> (x Core..: "ResourceType")
             Prelude.<*> (x Core..: "ResourceId")

@@ -91,7 +91,7 @@ newDeleteRemediationExceptions
       { configRuleName =
           pConfigRuleName_,
         resourceKeys =
-          Lens._Coerce Lens.# pResourceKeys_
+          Lens.coerced Lens.# pResourceKeys_
       }
 
 -- | The name of the Config rule for which you want to delete remediation
@@ -103,7 +103,7 @@ deleteRemediationExceptions_configRuleName = Lens.lens (\DeleteRemediationExcept
 -- current request. Config adds exception for each resource key. For
 -- example, Config adds 3 exceptions for 3 resource keys.
 deleteRemediationExceptions_resourceKeys :: Lens.Lens' DeleteRemediationExceptions (Prelude.NonEmpty RemediationExceptionResourceKey)
-deleteRemediationExceptions_resourceKeys = Lens.lens (\DeleteRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DeleteRemediationExceptions' {} a -> s {resourceKeys = a} :: DeleteRemediationExceptions) Prelude.. Lens._Coerce
+deleteRemediationExceptions_resourceKeys = Lens.lens (\DeleteRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DeleteRemediationExceptions' {} a -> s {resourceKeys = a} :: DeleteRemediationExceptions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteRemediationExceptions where
   type
@@ -192,7 +192,7 @@ newDeleteRemediationExceptionsResponse pHttpStatus_ =
 -- Each object in the batch consists of a list of failed items and failure
 -- messages.
 deleteRemediationExceptionsResponse_failedBatches :: Lens.Lens' DeleteRemediationExceptionsResponse (Prelude.Maybe [FailedDeleteRemediationExceptionsBatch])
-deleteRemediationExceptionsResponse_failedBatches = Lens.lens (\DeleteRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@DeleteRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteRemediationExceptionsResponse_failedBatches = Lens.lens (\DeleteRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@DeleteRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: DeleteRemediationExceptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteRemediationExceptionsResponse_httpStatus :: Lens.Lens' DeleteRemediationExceptionsResponse Prelude.Int

@@ -75,7 +75,7 @@ newDescribeRemediationConfigurations =
 -- | A list of Config rule names of remediation configurations for which you
 -- want details.
 describeRemediationConfigurations_configRuleNames :: Lens.Lens' DescribeRemediationConfigurations [Prelude.Text]
-describeRemediationConfigurations_configRuleNames = Lens.lens (\DescribeRemediationConfigurations' {configRuleNames} -> configRuleNames) (\s@DescribeRemediationConfigurations' {} a -> s {configRuleNames = a} :: DescribeRemediationConfigurations) Prelude.. Lens._Coerce
+describeRemediationConfigurations_configRuleNames = Lens.lens (\DescribeRemediationConfigurations' {configRuleNames} -> configRuleNames) (\s@DescribeRemediationConfigurations' {} a -> s {configRuleNames = a} :: DescribeRemediationConfigurations) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -179,7 +179,7 @@ newDescribeRemediationConfigurationsResponse
 
 -- | Returns a remediation configuration object.
 describeRemediationConfigurationsResponse_remediationConfigurations :: Lens.Lens' DescribeRemediationConfigurationsResponse (Prelude.Maybe [RemediationConfiguration])
-describeRemediationConfigurationsResponse_remediationConfigurations = Lens.lens (\DescribeRemediationConfigurationsResponse' {remediationConfigurations} -> remediationConfigurations) (\s@DescribeRemediationConfigurationsResponse' {} a -> s {remediationConfigurations = a} :: DescribeRemediationConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRemediationConfigurationsResponse_remediationConfigurations = Lens.lens (\DescribeRemediationConfigurationsResponse' {remediationConfigurations} -> remediationConfigurations) (\s@DescribeRemediationConfigurationsResponse' {} a -> s {remediationConfigurations = a} :: DescribeRemediationConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRemediationConfigurationsResponse_httpStatus :: Lens.Lens' DescribeRemediationConfigurationsResponse Prelude.Int

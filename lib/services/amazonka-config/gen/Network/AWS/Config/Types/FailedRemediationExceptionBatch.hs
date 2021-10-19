@@ -61,7 +61,7 @@ failedRemediationExceptionBatch_failureMessage = Lens.lens (\FailedRemediationEx
 
 -- | Returns remediation exception resource key object of the failed items.
 failedRemediationExceptionBatch_failedItems :: Lens.Lens' FailedRemediationExceptionBatch (Prelude.Maybe [RemediationException])
-failedRemediationExceptionBatch_failedItems = Lens.lens (\FailedRemediationExceptionBatch' {failedItems} -> failedItems) (\s@FailedRemediationExceptionBatch' {} a -> s {failedItems = a} :: FailedRemediationExceptionBatch) Prelude.. Lens.mapping Lens._Coerce
+failedRemediationExceptionBatch_failedItems = Lens.lens (\FailedRemediationExceptionBatch' {failedItems} -> failedItems) (\s@FailedRemediationExceptionBatch' {} a -> s {failedItems = a} :: FailedRemediationExceptionBatch) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

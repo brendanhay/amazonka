@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newComplianceSummaryByResourceType' smart constructor.
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
-  { -- | The number of Amazon Web Services resources that are compliant or
+  { -- | The type of Amazon Web Services resource.
+    resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The number of Amazon Web Services resources that are compliant or
     -- noncompliant, up to a maximum of 100 for each.
-    complianceSummary :: Prelude.Maybe ComplianceSummary,
-    -- | The type of Amazon Web Services resource.
-    resourceType :: Prelude.Maybe Prelude.Text
+    complianceSummary :: Prelude.Maybe ComplianceSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceType', 'complianceSummaryByResourceType_resourceType' - The type of Amazon Web Services resource.
+--
 -- 'complianceSummary', 'complianceSummaryByResourceType_complianceSummary' - The number of Amazon Web Services resources that are compliant or
 -- noncompliant, up to a maximum of 100 for each.
---
--- 'resourceType', 'complianceSummaryByResourceType_resourceType' - The type of Amazon Web Services resource.
 newComplianceSummaryByResourceType ::
   ComplianceSummaryByResourceType
 newComplianceSummaryByResourceType =
   ComplianceSummaryByResourceType'
-    { complianceSummary =
+    { resourceType =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing
+      complianceSummary = Prelude.Nothing
     }
+
+-- | The type of Amazon Web Services resource.
+complianceSummaryByResourceType_resourceType :: Lens.Lens' ComplianceSummaryByResourceType (Prelude.Maybe Prelude.Text)
+complianceSummaryByResourceType_resourceType = Lens.lens (\ComplianceSummaryByResourceType' {resourceType} -> resourceType) (\s@ComplianceSummaryByResourceType' {} a -> s {resourceType = a} :: ComplianceSummaryByResourceType)
 
 -- | The number of Amazon Web Services resources that are compliant or
 -- noncompliant, up to a maximum of 100 for each.
 complianceSummaryByResourceType_complianceSummary :: Lens.Lens' ComplianceSummaryByResourceType (Prelude.Maybe ComplianceSummary)
 complianceSummaryByResourceType_complianceSummary = Lens.lens (\ComplianceSummaryByResourceType' {complianceSummary} -> complianceSummary) (\s@ComplianceSummaryByResourceType' {} a -> s {complianceSummary = a} :: ComplianceSummaryByResourceType)
-
--- | The type of Amazon Web Services resource.
-complianceSummaryByResourceType_resourceType :: Lens.Lens' ComplianceSummaryByResourceType (Prelude.Maybe Prelude.Text)
-complianceSummaryByResourceType_resourceType = Lens.lens (\ComplianceSummaryByResourceType' {resourceType} -> resourceType) (\s@ComplianceSummaryByResourceType' {} a -> s {resourceType = a} :: ComplianceSummaryByResourceType)
 
 instance
   Core.FromJSON
@@ -76,8 +76,8 @@ instance
       "ComplianceSummaryByResourceType"
       ( \x ->
           ComplianceSummaryByResourceType'
-            Prelude.<$> (x Core..:? "ComplianceSummary")
-            Prelude.<*> (x Core..:? "ResourceType")
+            Prelude.<$> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "ComplianceSummary")
       )
 
 instance

@@ -79,7 +79,7 @@ newDescribeConfigurationRecorders =
 
 -- | A list of configuration recorder names.
 describeConfigurationRecorders_configurationRecorderNames :: Lens.Lens' DescribeConfigurationRecorders (Prelude.Maybe [Prelude.Text])
-describeConfigurationRecorders_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorders' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorders' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorders) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationRecorders_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorders' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorders' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorders) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -179,7 +179,7 @@ newDescribeConfigurationRecordersResponse
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
 describeConfigurationRecordersResponse_configurationRecorders :: Lens.Lens' DescribeConfigurationRecordersResponse (Prelude.Maybe [ConfigurationRecorder])
-describeConfigurationRecordersResponse_configurationRecorders = Lens.lens (\DescribeConfigurationRecordersResponse' {configurationRecorders} -> configurationRecorders) (\s@DescribeConfigurationRecordersResponse' {} a -> s {configurationRecorders = a} :: DescribeConfigurationRecordersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationRecordersResponse_configurationRecorders = Lens.lens (\DescribeConfigurationRecordersResponse' {configurationRecorders} -> configurationRecorders) (\s@DescribeConfigurationRecordersResponse' {} a -> s {configurationRecorders = a} :: DescribeConfigurationRecordersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationRecordersResponse_httpStatus :: Lens.Lens' DescribeConfigurationRecordersResponse Prelude.Int

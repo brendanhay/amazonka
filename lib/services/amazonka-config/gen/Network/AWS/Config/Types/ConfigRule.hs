@@ -46,10 +46,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConfigRule' smart constructor.
 data ConfigRule = ConfigRule'
-  { -- | The Amazon Resource Name (ARN) of the Config rule.
-    configRuleArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Config rule.
-    configRuleId :: Prelude.Maybe Prelude.Text,
+  { -- | A string, in JSON format, that is passed to the Config rule Lambda
+    -- function.
+    inputParameters :: Prelude.Maybe Prelude.Text,
+    -- | The name that you assign to the Config rule. The name is required if you
+    -- are adding a new rule.
+    configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | Service principal name of the service that created the rule.
+    --
+    -- The field is populated only if the service linked rule is created by a
+    -- service. The field is empty if you create your own rule.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The maximum frequency with which Config runs evaluations for a rule. You
     -- can specify a value for @MaximumExecutionFrequency@ when:
     --
@@ -64,9 +71,17 @@ data ConfigRule = ConfigRule'
     -- To change the frequency, specify a valid value for the
     -- @MaximumExecutionFrequency@ parameter.
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
-    -- | The name that you assign to the Config rule. The name is required if you
-    -- are adding a new rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Config rule.
+    configRuleId :: Prelude.Maybe Prelude.Text,
+    -- | Defines which resources can trigger an evaluation for the rule. The
+    -- scope can include one or more resource types, a combination of one
+    -- resource type and one resource ID, or a combination of a tag key and
+    -- value. Specify a scope to constrain the resources that can trigger an
+    -- evaluation for the rule. If you do not specify a scope, evaluations are
+    -- triggered when any resource in the recording group changes.
+    --
+    -- The scope can be empty.
+    scope :: Prelude.Maybe Scope,
     -- | Indicates whether the Config rule is active or is currently being
     -- deleted by Config. It can also indicate the evaluation status for the
     -- Config rule.
@@ -84,25 +99,10 @@ data ConfigRule = ConfigRule'
     -- the rule, the rule and all of its evaluations are erased and are no
     -- longer available.
     configRuleState :: Prelude.Maybe ConfigRuleState,
-    -- | Defines which resources can trigger an evaluation for the rule. The
-    -- scope can include one or more resource types, a combination of one
-    -- resource type and one resource ID, or a combination of a tag key and
-    -- value. Specify a scope to constrain the resources that can trigger an
-    -- evaluation for the rule. If you do not specify a scope, evaluations are
-    -- triggered when any resource in the recording group changes.
-    --
-    -- The scope can be empty.
-    scope :: Prelude.Maybe Scope,
-    -- | A string, in JSON format, that is passed to the Config rule Lambda
-    -- function.
-    inputParameters :: Prelude.Maybe Prelude.Text,
     -- | The description that you provide for the Config rule.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Service principal name of the service that created the rule.
-    --
-    -- The field is populated only if the service linked rule is created by a
-    -- service. The field is empty if you create your own rule.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Config rule.
+    configRuleArn :: Prelude.Maybe Prelude.Text,
     -- | Provides the rule owner (Amazon Web Services or customer), the rule
     -- identifier, and the notifications that cause the function to evaluate
     -- your Amazon Web Services resources.
@@ -118,9 +118,16 @@ data ConfigRule = ConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleArn', 'configRule_configRuleArn' - The Amazon Resource Name (ARN) of the Config rule.
+-- 'inputParameters', 'configRule_inputParameters' - A string, in JSON format, that is passed to the Config rule Lambda
+-- function.
 --
--- 'configRuleId', 'configRule_configRuleId' - The ID of the Config rule.
+-- 'configRuleName', 'configRule_configRuleName' - The name that you assign to the Config rule. The name is required if you
+-- are adding a new rule.
+--
+-- 'createdBy', 'configRule_createdBy' - Service principal name of the service that created the rule.
+--
+-- The field is populated only if the service linked rule is created by a
+-- service. The field is empty if you create your own rule.
 --
 -- 'maximumExecutionFrequency', 'configRule_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule. You
 -- can specify a value for @MaximumExecutionFrequency@ when:
@@ -136,8 +143,16 @@ data ConfigRule = ConfigRule'
 -- To change the frequency, specify a valid value for the
 -- @MaximumExecutionFrequency@ parameter.
 --
--- 'configRuleName', 'configRule_configRuleName' - The name that you assign to the Config rule. The name is required if you
--- are adding a new rule.
+-- 'configRuleId', 'configRule_configRuleId' - The ID of the Config rule.
+--
+-- 'scope', 'configRule_scope' - Defines which resources can trigger an evaluation for the rule. The
+-- scope can include one or more resource types, a combination of one
+-- resource type and one resource ID, or a combination of a tag key and
+-- value. Specify a scope to constrain the resources that can trigger an
+-- evaluation for the rule. If you do not specify a scope, evaluations are
+-- triggered when any resource in the recording group changes.
+--
+-- The scope can be empty.
 --
 -- 'configRuleState', 'configRule_configRuleState' - Indicates whether the Config rule is active or is currently being
 -- deleted by Config. It can also indicate the evaluation status for the
@@ -156,24 +171,9 @@ data ConfigRule = ConfigRule'
 -- the rule, the rule and all of its evaluations are erased and are no
 -- longer available.
 --
--- 'scope', 'configRule_scope' - Defines which resources can trigger an evaluation for the rule. The
--- scope can include one or more resource types, a combination of one
--- resource type and one resource ID, or a combination of a tag key and
--- value. Specify a scope to constrain the resources that can trigger an
--- evaluation for the rule. If you do not specify a scope, evaluations are
--- triggered when any resource in the recording group changes.
---
--- The scope can be empty.
---
--- 'inputParameters', 'configRule_inputParameters' - A string, in JSON format, that is passed to the Config rule Lambda
--- function.
---
 -- 'description', 'configRule_description' - The description that you provide for the Config rule.
 --
--- 'createdBy', 'configRule_createdBy' - Service principal name of the service that created the rule.
---
--- The field is populated only if the service linked rule is created by a
--- service. The field is empty if you create your own rule.
+-- 'configRuleArn', 'configRule_configRuleArn' - The Amazon Resource Name (ARN) of the Config rule.
 --
 -- 'source', 'configRule_source' - Provides the rule owner (Amazon Web Services or customer), the rule
 -- identifier, and the notifications that cause the function to evaluate
@@ -184,25 +184,34 @@ newConfigRule ::
   ConfigRule
 newConfigRule pSource_ =
   ConfigRule'
-    { configRuleArn = Prelude.Nothing,
-      configRuleId = Prelude.Nothing,
-      maximumExecutionFrequency = Prelude.Nothing,
+    { inputParameters = Prelude.Nothing,
       configRuleName = Prelude.Nothing,
-      configRuleState = Prelude.Nothing,
-      scope = Prelude.Nothing,
-      inputParameters = Prelude.Nothing,
-      description = Prelude.Nothing,
       createdBy = Prelude.Nothing,
+      maximumExecutionFrequency = Prelude.Nothing,
+      configRuleId = Prelude.Nothing,
+      scope = Prelude.Nothing,
+      configRuleState = Prelude.Nothing,
+      description = Prelude.Nothing,
+      configRuleArn = Prelude.Nothing,
       source = pSource_
     }
 
--- | The Amazon Resource Name (ARN) of the Config rule.
-configRule_configRuleArn :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
-configRule_configRuleArn = Lens.lens (\ConfigRule' {configRuleArn} -> configRuleArn) (\s@ConfigRule' {} a -> s {configRuleArn = a} :: ConfigRule)
+-- | A string, in JSON format, that is passed to the Config rule Lambda
+-- function.
+configRule_inputParameters :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
+configRule_inputParameters = Lens.lens (\ConfigRule' {inputParameters} -> inputParameters) (\s@ConfigRule' {} a -> s {inputParameters = a} :: ConfigRule)
 
--- | The ID of the Config rule.
-configRule_configRuleId :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
-configRule_configRuleId = Lens.lens (\ConfigRule' {configRuleId} -> configRuleId) (\s@ConfigRule' {} a -> s {configRuleId = a} :: ConfigRule)
+-- | The name that you assign to the Config rule. The name is required if you
+-- are adding a new rule.
+configRule_configRuleName :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
+configRule_configRuleName = Lens.lens (\ConfigRule' {configRuleName} -> configRuleName) (\s@ConfigRule' {} a -> s {configRuleName = a} :: ConfigRule)
+
+-- | Service principal name of the service that created the rule.
+--
+-- The field is populated only if the service linked rule is created by a
+-- service. The field is empty if you create your own rule.
+configRule_createdBy :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
+configRule_createdBy = Lens.lens (\ConfigRule' {createdBy} -> createdBy) (\s@ConfigRule' {} a -> s {createdBy = a} :: ConfigRule)
 
 -- | The maximum frequency with which Config runs evaluations for a rule. You
 -- can specify a value for @MaximumExecutionFrequency@ when:
@@ -220,10 +229,20 @@ configRule_configRuleId = Lens.lens (\ConfigRule' {configRuleId} -> configRuleId
 configRule_maximumExecutionFrequency :: Lens.Lens' ConfigRule (Prelude.Maybe MaximumExecutionFrequency)
 configRule_maximumExecutionFrequency = Lens.lens (\ConfigRule' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@ConfigRule' {} a -> s {maximumExecutionFrequency = a} :: ConfigRule)
 
--- | The name that you assign to the Config rule. The name is required if you
--- are adding a new rule.
-configRule_configRuleName :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
-configRule_configRuleName = Lens.lens (\ConfigRule' {configRuleName} -> configRuleName) (\s@ConfigRule' {} a -> s {configRuleName = a} :: ConfigRule)
+-- | The ID of the Config rule.
+configRule_configRuleId :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
+configRule_configRuleId = Lens.lens (\ConfigRule' {configRuleId} -> configRuleId) (\s@ConfigRule' {} a -> s {configRuleId = a} :: ConfigRule)
+
+-- | Defines which resources can trigger an evaluation for the rule. The
+-- scope can include one or more resource types, a combination of one
+-- resource type and one resource ID, or a combination of a tag key and
+-- value. Specify a scope to constrain the resources that can trigger an
+-- evaluation for the rule. If you do not specify a scope, evaluations are
+-- triggered when any resource in the recording group changes.
+--
+-- The scope can be empty.
+configRule_scope :: Lens.Lens' ConfigRule (Prelude.Maybe Scope)
+configRule_scope = Lens.lens (\ConfigRule' {scope} -> scope) (\s@ConfigRule' {} a -> s {scope = a} :: ConfigRule)
 
 -- | Indicates whether the Config rule is active or is currently being
 -- deleted by Config. It can also indicate the evaluation status for the
@@ -244,32 +263,13 @@ configRule_configRuleName = Lens.lens (\ConfigRule' {configRuleName} -> configRu
 configRule_configRuleState :: Lens.Lens' ConfigRule (Prelude.Maybe ConfigRuleState)
 configRule_configRuleState = Lens.lens (\ConfigRule' {configRuleState} -> configRuleState) (\s@ConfigRule' {} a -> s {configRuleState = a} :: ConfigRule)
 
--- | Defines which resources can trigger an evaluation for the rule. The
--- scope can include one or more resource types, a combination of one
--- resource type and one resource ID, or a combination of a tag key and
--- value. Specify a scope to constrain the resources that can trigger an
--- evaluation for the rule. If you do not specify a scope, evaluations are
--- triggered when any resource in the recording group changes.
---
--- The scope can be empty.
-configRule_scope :: Lens.Lens' ConfigRule (Prelude.Maybe Scope)
-configRule_scope = Lens.lens (\ConfigRule' {scope} -> scope) (\s@ConfigRule' {} a -> s {scope = a} :: ConfigRule)
-
--- | A string, in JSON format, that is passed to the Config rule Lambda
--- function.
-configRule_inputParameters :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
-configRule_inputParameters = Lens.lens (\ConfigRule' {inputParameters} -> inputParameters) (\s@ConfigRule' {} a -> s {inputParameters = a} :: ConfigRule)
-
 -- | The description that you provide for the Config rule.
 configRule_description :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
 configRule_description = Lens.lens (\ConfigRule' {description} -> description) (\s@ConfigRule' {} a -> s {description = a} :: ConfigRule)
 
--- | Service principal name of the service that created the rule.
---
--- The field is populated only if the service linked rule is created by a
--- service. The field is empty if you create your own rule.
-configRule_createdBy :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
-configRule_createdBy = Lens.lens (\ConfigRule' {createdBy} -> createdBy) (\s@ConfigRule' {} a -> s {createdBy = a} :: ConfigRule)
+-- | The Amazon Resource Name (ARN) of the Config rule.
+configRule_configRuleArn :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
+configRule_configRuleArn = Lens.lens (\ConfigRule' {configRuleArn} -> configRuleArn) (\s@ConfigRule' {} a -> s {configRuleArn = a} :: ConfigRule)
 
 -- | Provides the rule owner (Amazon Web Services or customer), the rule
 -- identifier, and the notifications that cause the function to evaluate
@@ -283,15 +283,15 @@ instance Core.FromJSON ConfigRule where
       "ConfigRule"
       ( \x ->
           ConfigRule'
-            Prelude.<$> (x Core..:? "ConfigRuleArn")
-            Prelude.<*> (x Core..:? "ConfigRuleId")
-            Prelude.<*> (x Core..:? "MaximumExecutionFrequency")
+            Prelude.<$> (x Core..:? "InputParameters")
             Prelude.<*> (x Core..:? "ConfigRuleName")
-            Prelude.<*> (x Core..:? "ConfigRuleState")
-            Prelude.<*> (x Core..:? "Scope")
-            Prelude.<*> (x Core..:? "InputParameters")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "MaximumExecutionFrequency")
+            Prelude.<*> (x Core..:? "ConfigRuleId")
+            Prelude.<*> (x Core..:? "Scope")
+            Prelude.<*> (x Core..:? "ConfigRuleState")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ConfigRuleArn")
             Prelude.<*> (x Core..: "Source")
       )
 
@@ -303,19 +303,19 @@ instance Core.ToJSON ConfigRule where
   toJSON ConfigRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConfigRuleArn" Core..=) Prelude.<$> configRuleArn,
-            ("ConfigRuleId" Core..=) Prelude.<$> configRuleId,
-            ("MaximumExecutionFrequency" Core..=)
-              Prelude.<$> maximumExecutionFrequency,
+          [ ("InputParameters" Core..=)
+              Prelude.<$> inputParameters,
             ("ConfigRuleName" Core..=)
               Prelude.<$> configRuleName,
+            ("CreatedBy" Core..=) Prelude.<$> createdBy,
+            ("MaximumExecutionFrequency" Core..=)
+              Prelude.<$> maximumExecutionFrequency,
+            ("ConfigRuleId" Core..=) Prelude.<$> configRuleId,
+            ("Scope" Core..=) Prelude.<$> scope,
             ("ConfigRuleState" Core..=)
               Prelude.<$> configRuleState,
-            ("Scope" Core..=) Prelude.<$> scope,
-            ("InputParameters" Core..=)
-              Prelude.<$> inputParameters,
             ("Description" Core..=) Prelude.<$> description,
-            ("CreatedBy" Core..=) Prelude.<$> createdBy,
+            ("ConfigRuleArn" Core..=) Prelude.<$> configRuleArn,
             Prelude.Just ("Source" Core..= source)
           ]
       )

@@ -89,7 +89,7 @@ newBatchGetAggregateResourceConfig
       { configurationAggregatorName =
           pConfigurationAggregatorName_,
         resourceIdentifiers =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pResourceIdentifiers_
       }
 
@@ -99,7 +99,7 @@ batchGetAggregateResourceConfig_configurationAggregatorName = Lens.lens (\BatchG
 
 -- | A list of aggregate ResourceIdentifiers objects.
 batchGetAggregateResourceConfig_resourceIdentifiers :: Lens.Lens' BatchGetAggregateResourceConfig (Prelude.NonEmpty AggregateResourceIdentifier)
-batchGetAggregateResourceConfig_resourceIdentifiers = Lens.lens (\BatchGetAggregateResourceConfig' {resourceIdentifiers} -> resourceIdentifiers) (\s@BatchGetAggregateResourceConfig' {} a -> s {resourceIdentifiers = a} :: BatchGetAggregateResourceConfig) Prelude.. Lens._Coerce
+batchGetAggregateResourceConfig_resourceIdentifiers = Lens.lens (\BatchGetAggregateResourceConfig' {resourceIdentifiers} -> resourceIdentifiers) (\s@BatchGetAggregateResourceConfig' {} a -> s {resourceIdentifiers = a} :: BatchGetAggregateResourceConfig) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -209,12 +209,12 @@ newBatchGetAggregateResourceConfigResponse
 
 -- | A list that contains the current configuration of one or more resources.
 batchGetAggregateResourceConfigResponse_baseConfigurationItems :: Lens.Lens' BatchGetAggregateResourceConfigResponse (Prelude.Maybe [BaseConfigurationItem])
-batchGetAggregateResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetAggregateResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetAggregateResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetAggregateResourceConfigResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetAggregateResourceConfigResponse_baseConfigurationItems = Lens.lens (\BatchGetAggregateResourceConfigResponse' {baseConfigurationItems} -> baseConfigurationItems) (\s@BatchGetAggregateResourceConfigResponse' {} a -> s {baseConfigurationItems = a} :: BatchGetAggregateResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of resource identifiers that were not processed with current
 -- scope. The list is empty if all the resources are processed.
 batchGetAggregateResourceConfigResponse_unprocessedResourceIdentifiers :: Lens.Lens' BatchGetAggregateResourceConfigResponse (Prelude.Maybe [AggregateResourceIdentifier])
-batchGetAggregateResourceConfigResponse_unprocessedResourceIdentifiers = Lens.lens (\BatchGetAggregateResourceConfigResponse' {unprocessedResourceIdentifiers} -> unprocessedResourceIdentifiers) (\s@BatchGetAggregateResourceConfigResponse' {} a -> s {unprocessedResourceIdentifiers = a} :: BatchGetAggregateResourceConfigResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetAggregateResourceConfigResponse_unprocessedResourceIdentifiers = Lens.lens (\BatchGetAggregateResourceConfigResponse' {unprocessedResourceIdentifiers} -> unprocessedResourceIdentifiers) (\s@BatchGetAggregateResourceConfigResponse' {} a -> s {unprocessedResourceIdentifiers = a} :: BatchGetAggregateResourceConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetAggregateResourceConfigResponse_httpStatus :: Lens.Lens' BatchGetAggregateResourceConfigResponse Prelude.Int

@@ -45,14 +45,20 @@ module Network.AWS.Config
     -- * Errors
     -- $errors
 
-    -- ** NoSuchRetentionConfigurationException
-    _NoSuchRetentionConfigurationException,
+    -- ** NoSuchRemediationConfigurationException
+    _NoSuchRemediationConfigurationException,
 
-    -- ** NoSuchConfigRuleException
-    _NoSuchConfigRuleException,
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
 
     -- ** NoSuchOrganizationConformancePackException
     _NoSuchOrganizationConformancePackException,
+
+    -- ** InvalidSNSTopicARNException
+    _InvalidSNSTopicARNException,
+
+    -- ** InvalidRecordingGroupException
+    _InvalidRecordingGroupException,
 
     -- ** InvalidExpressionException
     _InvalidExpressionException,
@@ -60,47 +66,11 @@ module Network.AWS.Config
     -- ** NoAvailableOrganizationException
     _NoAvailableOrganizationException,
 
-    -- ** NoSuchOrganizationConfigRuleException
-    _NoSuchOrganizationConfigRuleException,
+    -- ** ValidationException
+    _ValidationException,
 
-    -- ** InvalidResultTokenException
-    _InvalidResultTokenException,
-
-    -- ** InvalidRecordingGroupException
-    _InvalidRecordingGroupException,
-
-    -- ** InvalidS3KeyPrefixException
-    _InvalidS3KeyPrefixException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** MaxNumberOfDeliveryChannelsExceededException
-    _MaxNumberOfDeliveryChannelsExceededException,
-
-    -- ** InvalidDeliveryChannelNameException
-    _InvalidDeliveryChannelNameException,
-
-    -- ** InvalidConfigurationRecorderNameException
-    _InvalidConfigurationRecorderNameException,
-
-    -- ** NoRunningConfigurationRecorderException
-    _NoRunningConfigurationRecorderException,
-
-    -- ** NoAvailableDeliveryChannelException
-    _NoAvailableDeliveryChannelException,
-
-    -- ** ConformancePackTemplateValidationException
-    _ConformancePackTemplateValidationException,
-
-    -- ** LastDeliveryChannelDeleteFailedException
-    _LastDeliveryChannelDeleteFailedException,
-
-    -- ** MaxNumberOfConformancePacksExceededException
-    _MaxNumberOfConformancePacksExceededException,
-
-    -- ** OversizedConfigurationItemException
-    _OversizedConfigurationItemException,
+    -- ** OrganizationAccessDeniedException
+    _OrganizationAccessDeniedException,
 
     -- ** NoSuchConfigurationAggregatorException
     _NoSuchConfigurationAggregatorException,
@@ -108,89 +78,62 @@ module Network.AWS.Config
     -- ** InvalidRoleException
     _InvalidRoleException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** OrganizationAccessDeniedException
-    _OrganizationAccessDeniedException,
-
-    -- ** NoSuchConformancePackException
-    _NoSuchConformancePackException,
-
-    -- ** InvalidSNSTopicARNException
-    _InvalidSNSTopicARNException,
-
-    -- ** NoSuchRemediationConfigurationException
-    _NoSuchRemediationConfigurationException,
-
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
-    -- ** InvalidTimeRangeException
-    _InvalidTimeRangeException,
-
-    -- ** NoSuchConfigRuleInConformancePackException
-    _NoSuchConfigRuleInConformancePackException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** NoSuchDeliveryChannelException
-    _NoSuchDeliveryChannelException,
-
-    -- ** InvalidS3KmsKeyArnException
-    _InvalidS3KmsKeyArnException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** NoSuchConfigurationRecorderException
-    _NoSuchConfigurationRecorderException,
-
-    -- ** MaxNumberOfOrganizationConfigRulesExceededException
-    _MaxNumberOfOrganizationConfigRulesExceededException,
-
-    -- ** MaxNumberOfOrganizationConformancePacksExceededException
-    _MaxNumberOfOrganizationConformancePacksExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InsufficientDeliveryPolicyException
-    _InsufficientDeliveryPolicyException,
-
-    -- ** InvalidLimitException
-    _InvalidLimitException,
-
-    -- ** OrganizationConformancePackTemplateValidationException
-    _OrganizationConformancePackTemplateValidationException,
-
-    -- ** MaxNumberOfConfigurationRecordersExceededException
-    _MaxNumberOfConfigurationRecordersExceededException,
-
-    -- ** NoSuchRemediationExceptionException
-    _NoSuchRemediationExceptionException,
+    -- ** OversizedConfigurationItemException
+    _OversizedConfigurationItemException,
 
     -- ** ResourceConcurrentModificationException
     _ResourceConcurrentModificationException,
 
-    -- ** MaxNumberOfRetentionConfigurationsExceededException
-    _MaxNumberOfRetentionConfigurationsExceededException,
+    -- ** LastDeliveryChannelDeleteFailedException
+    _LastDeliveryChannelDeleteFailedException,
 
-    -- ** NoSuchBucketException
-    _NoSuchBucketException,
+    -- ** ConformancePackTemplateValidationException
+    _ConformancePackTemplateValidationException,
 
-    -- ** MaxActiveResourcesExceededException
-    _MaxActiveResourcesExceededException,
+    -- ** NoSuchRemediationExceptionException
+    _NoSuchRemediationExceptionException,
 
-    -- ** NoAvailableConfigurationRecorderException
-    _NoAvailableConfigurationRecorderException,
+    -- ** InvalidLimitException
+    _InvalidLimitException,
 
-    -- ** MaxNumberOfConfigRulesExceededException
-    _MaxNumberOfConfigRulesExceededException,
+    -- ** MaxNumberOfOrganizationConformancePacksExceededException
+    _MaxNumberOfOrganizationConformancePacksExceededException,
+
+    -- ** InvalidDeliveryChannelNameException
+    _InvalidDeliveryChannelNameException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** InvalidS3KmsKeyArnException
+    _InvalidS3KmsKeyArnException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidResultTokenException
+    _InvalidResultTokenException,
+
+    -- ** NoSuchConfigRuleInConformancePackException
+    _NoSuchConfigRuleInConformancePackException,
+
+    -- ** NoSuchOrganizationConfigRuleException
+    _NoSuchOrganizationConfigRuleException,
+
+    -- ** NoSuchDeliveryChannelException
+    _NoSuchDeliveryChannelException,
+
+    -- ** NoSuchConfigRuleException
+    _NoSuchConfigRuleException,
+
+    -- ** NoSuchConformancePackException
+    _NoSuchConformancePackException,
+
+    -- ** NoSuchRetentionConfigurationException
+    _NoSuchRetentionConfigurationException,
+
+    -- ** RemediationInProgressException
+    _RemediationInProgressException,
 
     -- ** OrganizationAllFeaturesNotEnabledException
     _OrganizationAllFeaturesNotEnabledException,
@@ -201,8 +144,65 @@ module Network.AWS.Config
     -- ** ResourceNotDiscoveredException
     _ResourceNotDiscoveredException,
 
-    -- ** RemediationInProgressException
-    _RemediationInProgressException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** MaxNumberOfRetentionConfigurationsExceededException
+    _MaxNumberOfRetentionConfigurationsExceededException,
+
+    -- ** MaxNumberOfConformancePacksExceededException
+    _MaxNumberOfConformancePacksExceededException,
+
+    -- ** MaxNumberOfConfigRulesExceededException
+    _MaxNumberOfConfigRulesExceededException,
+
+    -- ** NoAvailableConfigurationRecorderException
+    _NoAvailableConfigurationRecorderException,
+
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
+
+    -- ** MaxActiveResourcesExceededException
+    _MaxActiveResourcesExceededException,
+
+    -- ** NoAvailableDeliveryChannelException
+    _NoAvailableDeliveryChannelException,
+
+    -- ** OrganizationConformancePackTemplateValidationException
+    _OrganizationConformancePackTemplateValidationException,
+
+    -- ** InvalidConfigurationRecorderNameException
+    _InvalidConfigurationRecorderNameException,
+
+    -- ** NoRunningConfigurationRecorderException
+    _NoRunningConfigurationRecorderException,
+
+    -- ** MaxNumberOfConfigurationRecordersExceededException
+    _MaxNumberOfConfigurationRecordersExceededException,
+
+    -- ** InsufficientDeliveryPolicyException
+    _InsufficientDeliveryPolicyException,
+
+    -- ** MaxNumberOfDeliveryChannelsExceededException
+    _MaxNumberOfDeliveryChannelsExceededException,
+
+    -- ** MaxNumberOfOrganizationConfigRulesExceededException
+    _MaxNumberOfOrganizationConfigRulesExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** NoSuchConfigurationRecorderException
+    _NoSuchConfigurationRecorderException,
+
+    -- ** InvalidS3KeyPrefixException
+    _InvalidS3KeyPrefixException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -210,41 +210,11 @@ module Network.AWS.Config
     -- * Operations
     -- $operations
 
-    -- ** DescribeComplianceByConfigRule (Paginated)
-    DescribeComplianceByConfigRule (DescribeComplianceByConfigRule'),
-    newDescribeComplianceByConfigRule,
-    DescribeComplianceByConfigRuleResponse (DescribeComplianceByConfigRuleResponse'),
-    newDescribeComplianceByConfigRuleResponse,
-
-    -- ** GetAggregateResourceConfig
-    GetAggregateResourceConfig (GetAggregateResourceConfig'),
-    newGetAggregateResourceConfig,
-    GetAggregateResourceConfigResponse (GetAggregateResourceConfigResponse'),
-    newGetAggregateResourceConfigResponse,
-
-    -- ** GetStoredQuery
-    GetStoredQuery (GetStoredQuery'),
-    newGetStoredQuery,
-    GetStoredQueryResponse (GetStoredQueryResponse'),
-    newGetStoredQueryResponse,
-
-    -- ** DescribeConfigurationAggregators (Paginated)
-    DescribeConfigurationAggregators (DescribeConfigurationAggregators'),
-    newDescribeConfigurationAggregators,
-    DescribeConfigurationAggregatorsResponse (DescribeConfigurationAggregatorsResponse'),
-    newDescribeConfigurationAggregatorsResponse,
-
-    -- ** GetAggregateComplianceDetailsByConfigRule (Paginated)
-    GetAggregateComplianceDetailsByConfigRule (GetAggregateComplianceDetailsByConfigRule'),
-    newGetAggregateComplianceDetailsByConfigRule,
-    GetAggregateComplianceDetailsByConfigRuleResponse (GetAggregateComplianceDetailsByConfigRuleResponse'),
-    newGetAggregateComplianceDetailsByConfigRuleResponse,
-
-    -- ** GetResourceConfigHistory (Paginated)
-    GetResourceConfigHistory (GetResourceConfigHistory'),
-    newGetResourceConfigHistory,
-    GetResourceConfigHistoryResponse (GetResourceConfigHistoryResponse'),
-    newGetResourceConfigHistoryResponse,
+    -- ** DescribePendingAggregationRequests (Paginated)
+    DescribePendingAggregationRequests (DescribePendingAggregationRequests'),
+    newDescribePendingAggregationRequests,
+    DescribePendingAggregationRequestsResponse (DescribePendingAggregationRequestsResponse'),
+    newDescribePendingAggregationRequestsResponse,
 
     -- ** DescribeRemediationExecutionStatus (Paginated)
     DescribeRemediationExecutionStatus (DescribeRemediationExecutionStatus'),
@@ -252,245 +222,59 @@ module Network.AWS.Config
     DescribeRemediationExecutionStatusResponse (DescribeRemediationExecutionStatusResponse'),
     newDescribeRemediationExecutionStatusResponse,
 
-    -- ** DescribePendingAggregationRequests (Paginated)
-    DescribePendingAggregationRequests (DescribePendingAggregationRequests'),
-    newDescribePendingAggregationRequests,
-    DescribePendingAggregationRequestsResponse (DescribePendingAggregationRequestsResponse'),
-    newDescribePendingAggregationRequestsResponse,
+    -- ** GetResourceConfigHistory (Paginated)
+    GetResourceConfigHistory (GetResourceConfigHistory'),
+    newGetResourceConfigHistory,
+    GetResourceConfigHistoryResponse (GetResourceConfigHistoryResponse'),
+    newGetResourceConfigHistoryResponse,
 
-    -- ** DescribeConformancePackCompliance
-    DescribeConformancePackCompliance (DescribeConformancePackCompliance'),
-    newDescribeConformancePackCompliance,
-    DescribeConformancePackComplianceResponse (DescribeConformancePackComplianceResponse'),
-    newDescribeConformancePackComplianceResponse,
+    -- ** GetStoredQuery
+    GetStoredQuery (GetStoredQuery'),
+    newGetStoredQuery,
+    GetStoredQueryResponse (GetStoredQueryResponse'),
+    newGetStoredQueryResponse,
 
-    -- ** StartConfigRulesEvaluation
-    StartConfigRulesEvaluation (StartConfigRulesEvaluation'),
-    newStartConfigRulesEvaluation,
-    StartConfigRulesEvaluationResponse (StartConfigRulesEvaluationResponse'),
-    newStartConfigRulesEvaluationResponse,
+    -- ** GetAggregateResourceConfig
+    GetAggregateResourceConfig (GetAggregateResourceConfig'),
+    newGetAggregateResourceConfig,
+    GetAggregateResourceConfigResponse (GetAggregateResourceConfigResponse'),
+    newGetAggregateResourceConfigResponse,
 
-    -- ** ListDiscoveredResources (Paginated)
-    ListDiscoveredResources (ListDiscoveredResources'),
-    newListDiscoveredResources,
-    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
-    newListDiscoveredResourcesResponse,
+    -- ** DescribeConfigurationAggregators (Paginated)
+    DescribeConfigurationAggregators (DescribeConfigurationAggregators'),
+    newDescribeConfigurationAggregators,
+    DescribeConfigurationAggregatorsResponse (DescribeConfigurationAggregatorsResponse'),
+    newDescribeConfigurationAggregatorsResponse,
 
-    -- ** DescribeAggregationAuthorizations (Paginated)
-    DescribeAggregationAuthorizations (DescribeAggregationAuthorizations'),
-    newDescribeAggregationAuthorizations,
-    DescribeAggregationAuthorizationsResponse (DescribeAggregationAuthorizationsResponse'),
-    newDescribeAggregationAuthorizationsResponse,
+    -- ** DescribeComplianceByConfigRule (Paginated)
+    DescribeComplianceByConfigRule (DescribeComplianceByConfigRule'),
+    newDescribeComplianceByConfigRule,
+    DescribeComplianceByConfigRuleResponse (DescribeComplianceByConfigRuleResponse'),
+    newDescribeComplianceByConfigRuleResponse,
 
-    -- ** DescribeComplianceByResource (Paginated)
-    DescribeComplianceByResource (DescribeComplianceByResource'),
-    newDescribeComplianceByResource,
-    DescribeComplianceByResourceResponse (DescribeComplianceByResourceResponse'),
-    newDescribeComplianceByResourceResponse,
+    -- ** DescribeRetentionConfigurations (Paginated)
+    DescribeRetentionConfigurations (DescribeRetentionConfigurations'),
+    newDescribeRetentionConfigurations,
+    DescribeRetentionConfigurationsResponse (DescribeRetentionConfigurationsResponse'),
+    newDescribeRetentionConfigurationsResponse,
 
-    -- ** DescribeOrganizationConformancePacks (Paginated)
-    DescribeOrganizationConformancePacks (DescribeOrganizationConformancePacks'),
-    newDescribeOrganizationConformancePacks,
-    DescribeOrganizationConformancePacksResponse (DescribeOrganizationConformancePacksResponse'),
-    newDescribeOrganizationConformancePacksResponse,
+    -- ** StopConfigurationRecorder
+    StopConfigurationRecorder (StopConfigurationRecorder'),
+    newStopConfigurationRecorder,
+    StopConfigurationRecorderResponse (StopConfigurationRecorderResponse'),
+    newStopConfigurationRecorderResponse,
 
-    -- ** DescribeRemediationConfigurations
-    DescribeRemediationConfigurations (DescribeRemediationConfigurations'),
-    newDescribeRemediationConfigurations,
-    DescribeRemediationConfigurationsResponse (DescribeRemediationConfigurationsResponse'),
-    newDescribeRemediationConfigurationsResponse,
+    -- ** GetAggregateConfigRuleComplianceSummary
+    GetAggregateConfigRuleComplianceSummary (GetAggregateConfigRuleComplianceSummary'),
+    newGetAggregateConfigRuleComplianceSummary,
+    GetAggregateConfigRuleComplianceSummaryResponse (GetAggregateConfigRuleComplianceSummaryResponse'),
+    newGetAggregateConfigRuleComplianceSummaryResponse,
 
-    -- ** DeleteResourceConfig
-    DeleteResourceConfig (DeleteResourceConfig'),
-    newDeleteResourceConfig,
-    DeleteResourceConfigResponse (DeleteResourceConfigResponse'),
-    newDeleteResourceConfigResponse,
-
-    -- ** DescribeConfigurationAggregatorSourcesStatus (Paginated)
-    DescribeConfigurationAggregatorSourcesStatus (DescribeConfigurationAggregatorSourcesStatus'),
-    newDescribeConfigurationAggregatorSourcesStatus,
-    DescribeConfigurationAggregatorSourcesStatusResponse (DescribeConfigurationAggregatorSourcesStatusResponse'),
-    newDescribeConfigurationAggregatorSourcesStatusResponse,
-
-    -- ** DeleteOrganizationConformancePack
-    DeleteOrganizationConformancePack (DeleteOrganizationConformancePack'),
-    newDeleteOrganizationConformancePack,
-    DeleteOrganizationConformancePackResponse (DeleteOrganizationConformancePackResponse'),
-    newDeleteOrganizationConformancePackResponse,
-
-    -- ** DeleteAggregationAuthorization
-    DeleteAggregationAuthorization (DeleteAggregationAuthorization'),
-    newDeleteAggregationAuthorization,
-    DeleteAggregationAuthorizationResponse (DeleteAggregationAuthorizationResponse'),
-    newDeleteAggregationAuthorizationResponse,
-
-    -- ** DescribeRemediationExceptions
-    DescribeRemediationExceptions (DescribeRemediationExceptions'),
-    newDescribeRemediationExceptions,
-    DescribeRemediationExceptionsResponse (DescribeRemediationExceptionsResponse'),
-    newDescribeRemediationExceptionsResponse,
-
-    -- ** DeleteRemediationConfiguration
-    DeleteRemediationConfiguration (DeleteRemediationConfiguration'),
-    newDeleteRemediationConfiguration,
-    DeleteRemediationConfigurationResponse (DeleteRemediationConfigurationResponse'),
-    newDeleteRemediationConfigurationResponse,
-
-    -- ** GetComplianceSummaryByResourceType
-    GetComplianceSummaryByResourceType (GetComplianceSummaryByResourceType'),
-    newGetComplianceSummaryByResourceType,
-    GetComplianceSummaryByResourceTypeResponse (GetComplianceSummaryByResourceTypeResponse'),
-    newGetComplianceSummaryByResourceTypeResponse,
-
-    -- ** GetComplianceDetailsByConfigRule (Paginated)
-    GetComplianceDetailsByConfigRule (GetComplianceDetailsByConfigRule'),
-    newGetComplianceDetailsByConfigRule,
-    GetComplianceDetailsByConfigRuleResponse (GetComplianceDetailsByConfigRuleResponse'),
-    newGetComplianceDetailsByConfigRuleResponse,
-
-    -- ** GetDiscoveredResourceCounts
-    GetDiscoveredResourceCounts (GetDiscoveredResourceCounts'),
-    newGetDiscoveredResourceCounts,
-    GetDiscoveredResourceCountsResponse (GetDiscoveredResourceCountsResponse'),
-    newGetDiscoveredResourceCountsResponse,
-
-    -- ** PutDeliveryChannel
-    PutDeliveryChannel (PutDeliveryChannel'),
-    newPutDeliveryChannel,
-    PutDeliveryChannelResponse (PutDeliveryChannelResponse'),
-    newPutDeliveryChannelResponse,
-
-    -- ** PutOrganizationConfigRule
-    PutOrganizationConfigRule (PutOrganizationConfigRule'),
-    newPutOrganizationConfigRule,
-    PutOrganizationConfigRuleResponse (PutOrganizationConfigRuleResponse'),
-    newPutOrganizationConfigRuleResponse,
-
-    -- ** DeleteConfigurationRecorder
-    DeleteConfigurationRecorder (DeleteConfigurationRecorder'),
-    newDeleteConfigurationRecorder,
-    DeleteConfigurationRecorderResponse (DeleteConfigurationRecorderResponse'),
-    newDeleteConfigurationRecorderResponse,
-
-    -- ** GetConformancePackComplianceSummary (Paginated)
-    GetConformancePackComplianceSummary (GetConformancePackComplianceSummary'),
-    newGetConformancePackComplianceSummary,
-    GetConformancePackComplianceSummaryResponse (GetConformancePackComplianceSummaryResponse'),
-    newGetConformancePackComplianceSummaryResponse,
-
-    -- ** DescribeConfigurationRecorderStatus
-    DescribeConfigurationRecorderStatus (DescribeConfigurationRecorderStatus'),
-    newDescribeConfigurationRecorderStatus,
-    DescribeConfigurationRecorderStatusResponse (DescribeConfigurationRecorderStatusResponse'),
-    newDescribeConfigurationRecorderStatusResponse,
-
-    -- ** DescribeConfigRuleEvaluationStatus (Paginated)
-    DescribeConfigRuleEvaluationStatus (DescribeConfigRuleEvaluationStatus'),
-    newDescribeConfigRuleEvaluationStatus,
-    DescribeConfigRuleEvaluationStatusResponse (DescribeConfigRuleEvaluationStatusResponse'),
-    newDescribeConfigRuleEvaluationStatusResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DeleteConfigurationAggregator
-    DeleteConfigurationAggregator (DeleteConfigurationAggregator'),
-    newDeleteConfigurationAggregator,
-    DeleteConfigurationAggregatorResponse (DeleteConfigurationAggregatorResponse'),
-    newDeleteConfigurationAggregatorResponse,
-
-    -- ** ListAggregateDiscoveredResources (Paginated)
-    ListAggregateDiscoveredResources (ListAggregateDiscoveredResources'),
-    newListAggregateDiscoveredResources,
-    ListAggregateDiscoveredResourcesResponse (ListAggregateDiscoveredResourcesResponse'),
-    newListAggregateDiscoveredResourcesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeOrganizationConfigRuleStatuses (Paginated)
-    DescribeOrganizationConfigRuleStatuses (DescribeOrganizationConfigRuleStatuses'),
-    newDescribeOrganizationConfigRuleStatuses,
-    DescribeOrganizationConfigRuleStatusesResponse (DescribeOrganizationConfigRuleStatusesResponse'),
-    newDescribeOrganizationConfigRuleStatusesResponse,
-
-    -- ** SelectResourceConfig (Paginated)
-    SelectResourceConfig (SelectResourceConfig'),
-    newSelectResourceConfig,
-    SelectResourceConfigResponse (SelectResourceConfigResponse'),
-    newSelectResourceConfigResponse,
-
-    -- ** DeleteStoredQuery
-    DeleteStoredQuery (DeleteStoredQuery'),
-    newDeleteStoredQuery,
-    DeleteStoredQueryResponse (DeleteStoredQueryResponse'),
-    newDeleteStoredQueryResponse,
-
-    -- ** GetComplianceDetailsByResource (Paginated)
-    GetComplianceDetailsByResource (GetComplianceDetailsByResource'),
-    newGetComplianceDetailsByResource,
-    GetComplianceDetailsByResourceResponse (GetComplianceDetailsByResourceResponse'),
-    newGetComplianceDetailsByResourceResponse,
-
-    -- ** ListStoredQueries
-    ListStoredQueries (ListStoredQueries'),
-    newListStoredQueries,
-    ListStoredQueriesResponse (ListStoredQueriesResponse'),
-    newListStoredQueriesResponse,
-
-    -- ** DescribeAggregateComplianceByConformancePacks (Paginated)
-    DescribeAggregateComplianceByConformancePacks (DescribeAggregateComplianceByConformancePacks'),
-    newDescribeAggregateComplianceByConformancePacks,
-    DescribeAggregateComplianceByConformancePacksResponse (DescribeAggregateComplianceByConformancePacksResponse'),
-    newDescribeAggregateComplianceByConformancePacksResponse,
-
-    -- ** DeleteEvaluationResults
-    DeleteEvaluationResults (DeleteEvaluationResults'),
-    newDeleteEvaluationResults,
-    DeleteEvaluationResultsResponse (DeleteEvaluationResultsResponse'),
-    newDeleteEvaluationResultsResponse,
-
-    -- ** PutRemediationConfigurations
-    PutRemediationConfigurations (PutRemediationConfigurations'),
-    newPutRemediationConfigurations,
-    PutRemediationConfigurationsResponse (PutRemediationConfigurationsResponse'),
-    newPutRemediationConfigurationsResponse,
-
-    -- ** PutConfigRule
-    PutConfigRule (PutConfigRule'),
-    newPutConfigRule,
-    PutConfigRuleResponse (PutConfigRuleResponse'),
-    newPutConfigRuleResponse,
-
-    -- ** PutRetentionConfiguration
-    PutRetentionConfiguration (PutRetentionConfiguration'),
-    newPutRetentionConfiguration,
-    PutRetentionConfigurationResponse (PutRetentionConfigurationResponse'),
-    newPutRetentionConfigurationResponse,
-
-    -- ** PutConformancePack
-    PutConformancePack (PutConformancePack'),
-    newPutConformancePack,
-    PutConformancePackResponse (PutConformancePackResponse'),
-    newPutConformancePackResponse,
-
-    -- ** GetConformancePackComplianceDetails
-    GetConformancePackComplianceDetails (GetConformancePackComplianceDetails'),
-    newGetConformancePackComplianceDetails,
-    GetConformancePackComplianceDetailsResponse (GetConformancePackComplianceDetailsResponse'),
-    newGetConformancePackComplianceDetailsResponse,
-
-    -- ** PutExternalEvaluation
-    PutExternalEvaluation (PutExternalEvaluation'),
-    newPutExternalEvaluation,
-    PutExternalEvaluationResponse (PutExternalEvaluationResponse'),
-    newPutExternalEvaluationResponse,
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** BatchGetResourceConfig
     BatchGetResourceConfig (BatchGetResourceConfig'),
@@ -498,95 +282,101 @@ module Network.AWS.Config
     BatchGetResourceConfigResponse (BatchGetResourceConfigResponse'),
     newBatchGetResourceConfigResponse,
 
-    -- ** DeleteRemediationExceptions
-    DeleteRemediationExceptions (DeleteRemediationExceptions'),
-    newDeleteRemediationExceptions,
-    DeleteRemediationExceptionsResponse (DeleteRemediationExceptionsResponse'),
-    newDeleteRemediationExceptionsResponse,
+    -- ** DescribeConfigRules (Paginated)
+    DescribeConfigRules (DescribeConfigRules'),
+    newDescribeConfigRules,
+    DescribeConfigRulesResponse (DescribeConfigRulesResponse'),
+    newDescribeConfigRulesResponse,
 
-    -- ** GetAggregateDiscoveredResourceCounts
-    GetAggregateDiscoveredResourceCounts (GetAggregateDiscoveredResourceCounts'),
-    newGetAggregateDiscoveredResourceCounts,
-    GetAggregateDiscoveredResourceCountsResponse (GetAggregateDiscoveredResourceCountsResponse'),
-    newGetAggregateDiscoveredResourceCountsResponse,
+    -- ** PutRetentionConfiguration
+    PutRetentionConfiguration (PutRetentionConfiguration'),
+    newPutRetentionConfiguration,
+    PutRetentionConfigurationResponse (PutRetentionConfigurationResponse'),
+    newPutRetentionConfigurationResponse,
 
-    -- ** PutEvaluations
-    PutEvaluations (PutEvaluations'),
-    newPutEvaluations,
-    PutEvaluationsResponse (PutEvaluationsResponse'),
-    newPutEvaluationsResponse,
+    -- ** DescribeAggregateComplianceByConformancePacks (Paginated)
+    DescribeAggregateComplianceByConformancePacks (DescribeAggregateComplianceByConformancePacks'),
+    newDescribeAggregateComplianceByConformancePacks,
+    DescribeAggregateComplianceByConformancePacksResponse (DescribeAggregateComplianceByConformancePacksResponse'),
+    newDescribeAggregateComplianceByConformancePacksResponse,
 
-    -- ** DescribeConfigurationRecorders
-    DescribeConfigurationRecorders (DescribeConfigurationRecorders'),
-    newDescribeConfigurationRecorders,
-    DescribeConfigurationRecordersResponse (DescribeConfigurationRecordersResponse'),
-    newDescribeConfigurationRecordersResponse,
+    -- ** GetOrganizationConformancePackDetailedStatus (Paginated)
+    GetOrganizationConformancePackDetailedStatus (GetOrganizationConformancePackDetailedStatus'),
+    newGetOrganizationConformancePackDetailedStatus,
+    GetOrganizationConformancePackDetailedStatusResponse (GetOrganizationConformancePackDetailedStatusResponse'),
+    newGetOrganizationConformancePackDetailedStatusResponse,
 
-    -- ** SelectAggregateResourceConfig (Paginated)
-    SelectAggregateResourceConfig (SelectAggregateResourceConfig'),
-    newSelectAggregateResourceConfig,
-    SelectAggregateResourceConfigResponse (SelectAggregateResourceConfigResponse'),
-    newSelectAggregateResourceConfigResponse,
+    -- ** DescribeAggregateComplianceByConfigRules (Paginated)
+    DescribeAggregateComplianceByConfigRules (DescribeAggregateComplianceByConfigRules'),
+    newDescribeAggregateComplianceByConfigRules,
+    DescribeAggregateComplianceByConfigRulesResponse (DescribeAggregateComplianceByConfigRulesResponse'),
+    newDescribeAggregateComplianceByConfigRulesResponse,
 
-    -- ** DescribeDeliveryChannels
-    DescribeDeliveryChannels (DescribeDeliveryChannels'),
-    newDescribeDeliveryChannels,
-    DescribeDeliveryChannelsResponse (DescribeDeliveryChannelsResponse'),
-    newDescribeDeliveryChannelsResponse,
+    -- ** DeleteEvaluationResults
+    DeleteEvaluationResults (DeleteEvaluationResults'),
+    newDeleteEvaluationResults,
+    DeleteEvaluationResultsResponse (DeleteEvaluationResultsResponse'),
+    newDeleteEvaluationResultsResponse,
 
-    -- ** PutResourceConfig
-    PutResourceConfig (PutResourceConfig'),
-    newPutResourceConfig,
-    PutResourceConfigResponse (PutResourceConfigResponse'),
-    newPutResourceConfigResponse,
+    -- ** PutConfigRule
+    PutConfigRule (PutConfigRule'),
+    newPutConfigRule,
+    PutConfigRuleResponse (PutConfigRuleResponse'),
+    newPutConfigRuleResponse,
 
-    -- ** DescribeOrganizationConfigRules (Paginated)
-    DescribeOrganizationConfigRules (DescribeOrganizationConfigRules'),
-    newDescribeOrganizationConfigRules,
-    DescribeOrganizationConfigRulesResponse (DescribeOrganizationConfigRulesResponse'),
-    newDescribeOrganizationConfigRulesResponse,
+    -- ** GetConformancePackComplianceDetails
+    GetConformancePackComplianceDetails (GetConformancePackComplianceDetails'),
+    newGetConformancePackComplianceDetails,
+    GetConformancePackComplianceDetailsResponse (GetConformancePackComplianceDetailsResponse'),
+    newGetConformancePackComplianceDetailsResponse,
 
-    -- ** DeleteDeliveryChannel
-    DeleteDeliveryChannel (DeleteDeliveryChannel'),
-    newDeleteDeliveryChannel,
-    DeleteDeliveryChannelResponse (DeleteDeliveryChannelResponse'),
-    newDeleteDeliveryChannelResponse,
+    -- ** DeleteConfigRule
+    DeleteConfigRule (DeleteConfigRule'),
+    newDeleteConfigRule,
+    DeleteConfigRuleResponse (DeleteConfigRuleResponse'),
+    newDeleteConfigRuleResponse,
 
-    -- ** PutOrganizationConformancePack
-    PutOrganizationConformancePack (PutOrganizationConformancePack'),
-    newPutOrganizationConformancePack,
-    PutOrganizationConformancePackResponse (PutOrganizationConformancePackResponse'),
-    newPutOrganizationConformancePackResponse,
+    -- ** DeleteRetentionConfiguration
+    DeleteRetentionConfiguration (DeleteRetentionConfiguration'),
+    newDeleteRetentionConfiguration,
+    DeleteRetentionConfigurationResponse (DeleteRetentionConfigurationResponse'),
+    newDeleteRetentionConfigurationResponse,
 
-    -- ** PutAggregationAuthorization
-    PutAggregationAuthorization (PutAggregationAuthorization'),
-    newPutAggregationAuthorization,
-    PutAggregationAuthorizationResponse (PutAggregationAuthorizationResponse'),
-    newPutAggregationAuthorizationResponse,
+    -- ** ListStoredQueries
+    ListStoredQueries (ListStoredQueries'),
+    newListStoredQueries,
+    ListStoredQueriesResponse (ListStoredQueriesResponse'),
+    newListStoredQueriesResponse,
 
-    -- ** DeleteOrganizationConfigRule
-    DeleteOrganizationConfigRule (DeleteOrganizationConfigRule'),
-    newDeleteOrganizationConfigRule,
-    DeleteOrganizationConfigRuleResponse (DeleteOrganizationConfigRuleResponse'),
-    newDeleteOrganizationConfigRuleResponse,
+    -- ** SelectResourceConfig (Paginated)
+    SelectResourceConfig (SelectResourceConfig'),
+    newSelectResourceConfig,
+    SelectResourceConfigResponse (SelectResourceConfigResponse'),
+    newSelectResourceConfigResponse,
 
-    -- ** DescribeDeliveryChannelStatus
-    DescribeDeliveryChannelStatus (DescribeDeliveryChannelStatus'),
-    newDescribeDeliveryChannelStatus,
-    DescribeDeliveryChannelStatusResponse (DescribeDeliveryChannelStatusResponse'),
-    newDescribeDeliveryChannelStatusResponse,
+    -- ** ListAggregateDiscoveredResources (Paginated)
+    ListAggregateDiscoveredResources (ListAggregateDiscoveredResources'),
+    newListAggregateDiscoveredResources,
+    ListAggregateDiscoveredResourcesResponse (ListAggregateDiscoveredResourcesResponse'),
+    newListAggregateDiscoveredResourcesResponse,
 
-    -- ** BatchGetAggregateResourceConfig
-    BatchGetAggregateResourceConfig (BatchGetAggregateResourceConfig'),
-    newBatchGetAggregateResourceConfig,
-    BatchGetAggregateResourceConfigResponse (BatchGetAggregateResourceConfigResponse'),
-    newBatchGetAggregateResourceConfigResponse,
+    -- ** DescribeOrganizationConfigRuleStatuses (Paginated)
+    DescribeOrganizationConfigRuleStatuses (DescribeOrganizationConfigRuleStatuses'),
+    newDescribeOrganizationConfigRuleStatuses,
+    DescribeOrganizationConfigRuleStatusesResponse (DescribeOrganizationConfigRuleStatusesResponse'),
+    newDescribeOrganizationConfigRuleStatusesResponse,
 
-    -- ** PutConfigurationRecorder
-    PutConfigurationRecorder (PutConfigurationRecorder'),
-    newPutConfigurationRecorder,
-    PutConfigurationRecorderResponse (PutConfigurationRecorderResponse'),
-    newPutConfigurationRecorderResponse,
+    -- ** DescribeOrganizationConformancePackStatuses (Paginated)
+    DescribeOrganizationConformancePackStatuses (DescribeOrganizationConformancePackStatuses'),
+    newDescribeOrganizationConformancePackStatuses,
+    DescribeOrganizationConformancePackStatusesResponse (DescribeOrganizationConformancePackStatusesResponse'),
+    newDescribeOrganizationConformancePackStatusesResponse,
+
+    -- ** GetComplianceDetailsByResource (Paginated)
+    GetComplianceDetailsByResource (GetComplianceDetailsByResource'),
+    newGetComplianceDetailsByResource,
+    GetComplianceDetailsByResourceResponse (GetComplianceDetailsByResourceResponse'),
+    newGetComplianceDetailsByResourceResponse,
 
     -- ** DeletePendingAggregationRequest
     DeletePendingAggregationRequest (DeletePendingAggregationRequest'),
@@ -600,77 +390,125 @@ module Network.AWS.Config
     DeliverConfigSnapshotResponse (DeliverConfigSnapshotResponse'),
     newDeliverConfigSnapshotResponse,
 
-    -- ** PutConfigurationAggregator
-    PutConfigurationAggregator (PutConfigurationAggregator'),
-    newPutConfigurationAggregator,
-    PutConfigurationAggregatorResponse (PutConfigurationAggregatorResponse'),
-    newPutConfigurationAggregatorResponse,
+    -- ** BatchGetAggregateResourceConfig
+    BatchGetAggregateResourceConfig (BatchGetAggregateResourceConfig'),
+    newBatchGetAggregateResourceConfig,
+    BatchGetAggregateResourceConfigResponse (BatchGetAggregateResourceConfigResponse'),
+    newBatchGetAggregateResourceConfigResponse,
 
-    -- ** PutStoredQuery
-    PutStoredQuery (PutStoredQuery'),
-    newPutStoredQuery,
-    PutStoredQueryResponse (PutStoredQueryResponse'),
-    newPutStoredQueryResponse,
+    -- ** DescribeConfigRuleEvaluationStatus (Paginated)
+    DescribeConfigRuleEvaluationStatus (DescribeConfigRuleEvaluationStatus'),
+    newDescribeConfigRuleEvaluationStatus,
+    DescribeConfigRuleEvaluationStatusResponse (DescribeConfigRuleEvaluationStatusResponse'),
+    newDescribeConfigRuleEvaluationStatusResponse,
 
-    -- ** GetComplianceSummaryByConfigRule
-    GetComplianceSummaryByConfigRule (GetComplianceSummaryByConfigRule'),
-    newGetComplianceSummaryByConfigRule,
-    GetComplianceSummaryByConfigRuleResponse (GetComplianceSummaryByConfigRuleResponse'),
-    newGetComplianceSummaryByConfigRuleResponse,
+    -- ** GetDiscoveredResourceCounts
+    GetDiscoveredResourceCounts (GetDiscoveredResourceCounts'),
+    newGetDiscoveredResourceCounts,
+    GetDiscoveredResourceCountsResponse (GetDiscoveredResourceCountsResponse'),
+    newGetDiscoveredResourceCountsResponse,
 
-    -- ** DescribeOrganizationConformancePackStatuses (Paginated)
-    DescribeOrganizationConformancePackStatuses (DescribeOrganizationConformancePackStatuses'),
-    newDescribeOrganizationConformancePackStatuses,
-    DescribeOrganizationConformancePackStatusesResponse (DescribeOrganizationConformancePackStatusesResponse'),
-    newDescribeOrganizationConformancePackStatusesResponse,
+    -- ** DescribeRemediationExceptions
+    DescribeRemediationExceptions (DescribeRemediationExceptions'),
+    newDescribeRemediationExceptions,
+    DescribeRemediationExceptionsResponse (DescribeRemediationExceptionsResponse'),
+    newDescribeRemediationExceptionsResponse,
 
-    -- ** GetOrganizationConfigRuleDetailedStatus (Paginated)
-    GetOrganizationConfigRuleDetailedStatus (GetOrganizationConfigRuleDetailedStatus'),
-    newGetOrganizationConfigRuleDetailedStatus,
-    GetOrganizationConfigRuleDetailedStatusResponse (GetOrganizationConfigRuleDetailedStatusResponse'),
-    newGetOrganizationConfigRuleDetailedStatusResponse,
+    -- ** DeleteOrganizationConformancePack
+    DeleteOrganizationConformancePack (DeleteOrganizationConformancePack'),
+    newDeleteOrganizationConformancePack,
+    DeleteOrganizationConformancePackResponse (DeleteOrganizationConformancePackResponse'),
+    newDeleteOrganizationConformancePackResponse,
 
-    -- ** DescribeAggregateComplianceByConfigRules (Paginated)
-    DescribeAggregateComplianceByConfigRules (DescribeAggregateComplianceByConfigRules'),
-    newDescribeAggregateComplianceByConfigRules,
-    DescribeAggregateComplianceByConfigRulesResponse (DescribeAggregateComplianceByConfigRulesResponse'),
-    newDescribeAggregateComplianceByConfigRulesResponse,
+    -- ** PutOrganizationConfigRule
+    PutOrganizationConfigRule (PutOrganizationConfigRule'),
+    newPutOrganizationConfigRule,
+    PutOrganizationConfigRuleResponse (PutOrganizationConfigRuleResponse'),
+    newPutOrganizationConfigRuleResponse,
 
-    -- ** DeleteConfigRule
-    DeleteConfigRule (DeleteConfigRule'),
-    newDeleteConfigRule,
-    DeleteConfigRuleResponse (DeleteConfigRuleResponse'),
-    newDeleteConfigRuleResponse,
+    -- ** PutOrganizationConformancePack
+    PutOrganizationConformancePack (PutOrganizationConformancePack'),
+    newPutOrganizationConformancePack,
+    PutOrganizationConformancePackResponse (PutOrganizationConformancePackResponse'),
+    newPutOrganizationConformancePackResponse,
 
-    -- ** DescribeConformancePackStatus (Paginated)
-    DescribeConformancePackStatus (DescribeConformancePackStatus'),
-    newDescribeConformancePackStatus,
-    DescribeConformancePackStatusResponse (DescribeConformancePackStatusResponse'),
-    newDescribeConformancePackStatusResponse,
+    -- ** DeleteOrganizationConfigRule
+    DeleteOrganizationConfigRule (DeleteOrganizationConfigRule'),
+    newDeleteOrganizationConfigRule,
+    DeleteOrganizationConfigRuleResponse (DeleteOrganizationConfigRuleResponse'),
+    newDeleteOrganizationConfigRuleResponse,
 
-    -- ** DeleteConformancePack
-    DeleteConformancePack (DeleteConformancePack'),
-    newDeleteConformancePack,
-    DeleteConformancePackResponse (DeleteConformancePackResponse'),
-    newDeleteConformancePackResponse,
+    -- ** PutResourceConfig
+    PutResourceConfig (PutResourceConfig'),
+    newPutResourceConfig,
+    PutResourceConfigResponse (PutResourceConfigResponse'),
+    newPutResourceConfigResponse,
 
-    -- ** StartRemediationExecution
-    StartRemediationExecution (StartRemediationExecution'),
-    newStartRemediationExecution,
-    StartRemediationExecutionResponse (StartRemediationExecutionResponse'),
-    newStartRemediationExecutionResponse,
+    -- ** StartConfigRulesEvaluation
+    StartConfigRulesEvaluation (StartConfigRulesEvaluation'),
+    newStartConfigRulesEvaluation,
+    StartConfigRulesEvaluationResponse (StartConfigRulesEvaluationResponse'),
+    newStartConfigRulesEvaluationResponse,
 
-    -- ** GetOrganizationConformancePackDetailedStatus (Paginated)
-    GetOrganizationConformancePackDetailedStatus (GetOrganizationConformancePackDetailedStatus'),
-    newGetOrganizationConformancePackDetailedStatus,
-    GetOrganizationConformancePackDetailedStatusResponse (GetOrganizationConformancePackDetailedStatusResponse'),
-    newGetOrganizationConformancePackDetailedStatusResponse,
+    -- ** DescribeOrganizationConfigRules (Paginated)
+    DescribeOrganizationConfigRules (DescribeOrganizationConfigRules'),
+    newDescribeOrganizationConfigRules,
+    DescribeOrganizationConfigRulesResponse (DescribeOrganizationConfigRulesResponse'),
+    newDescribeOrganizationConfigRulesResponse,
 
-    -- ** DeleteRetentionConfiguration
-    DeleteRetentionConfiguration (DeleteRetentionConfiguration'),
-    newDeleteRetentionConfiguration,
-    DeleteRetentionConfigurationResponse (DeleteRetentionConfigurationResponse'),
-    newDeleteRetentionConfigurationResponse,
+    -- ** SelectAggregateResourceConfig (Paginated)
+    SelectAggregateResourceConfig (SelectAggregateResourceConfig'),
+    newSelectAggregateResourceConfig,
+    SelectAggregateResourceConfigResponse (SelectAggregateResourceConfigResponse'),
+    newSelectAggregateResourceConfigResponse,
+
+    -- ** DescribeComplianceByResource (Paginated)
+    DescribeComplianceByResource (DescribeComplianceByResource'),
+    newDescribeComplianceByResource,
+    DescribeComplianceByResourceResponse (DescribeComplianceByResourceResponse'),
+    newDescribeComplianceByResourceResponse,
+
+    -- ** DescribeOrganizationConformancePacks (Paginated)
+    DescribeOrganizationConformancePacks (DescribeOrganizationConformancePacks'),
+    newDescribeOrganizationConformancePacks,
+    DescribeOrganizationConformancePacksResponse (DescribeOrganizationConformancePacksResponse'),
+    newDescribeOrganizationConformancePacksResponse,
+
+    -- ** DeleteResourceConfig
+    DeleteResourceConfig (DeleteResourceConfig'),
+    newDeleteResourceConfig,
+    DeleteResourceConfigResponse (DeleteResourceConfigResponse'),
+    newDeleteResourceConfigResponse,
+
+    -- ** PutEvaluations
+    PutEvaluations (PutEvaluations'),
+    newPutEvaluations,
+    PutEvaluationsResponse (PutEvaluationsResponse'),
+    newPutEvaluationsResponse,
+
+    -- ** DescribeConfigurationRecorders
+    DescribeConfigurationRecorders (DescribeConfigurationRecorders'),
+    newDescribeConfigurationRecorders,
+    DescribeConfigurationRecordersResponse (DescribeConfigurationRecordersResponse'),
+    newDescribeConfigurationRecordersResponse,
+
+    -- ** DescribeConformancePackCompliance
+    DescribeConformancePackCompliance (DescribeConformancePackCompliance'),
+    newDescribeConformancePackCompliance,
+    DescribeConformancePackComplianceResponse (DescribeConformancePackComplianceResponse'),
+    newDescribeConformancePackComplianceResponse,
+
+    -- ** GetAggregateComplianceDetailsByConfigRule (Paginated)
+    GetAggregateComplianceDetailsByConfigRule (GetAggregateComplianceDetailsByConfigRule'),
+    newGetAggregateComplianceDetailsByConfigRule,
+    GetAggregateComplianceDetailsByConfigRuleResponse (GetAggregateComplianceDetailsByConfigRuleResponse'),
+    newGetAggregateComplianceDetailsByConfigRuleResponse,
+
+    -- ** GetAggregateDiscoveredResourceCounts
+    GetAggregateDiscoveredResourceCounts (GetAggregateDiscoveredResourceCounts'),
+    newGetAggregateDiscoveredResourceCounts,
+    GetAggregateDiscoveredResourceCountsResponse (GetAggregateDiscoveredResourceCountsResponse'),
+    newGetAggregateDiscoveredResourceCountsResponse,
 
     -- ** GetAggregateConformancePackComplianceSummary
     GetAggregateConformancePackComplianceSummary (GetAggregateConformancePackComplianceSummary'),
@@ -678,53 +516,215 @@ module Network.AWS.Config
     GetAggregateConformancePackComplianceSummaryResponse (GetAggregateConformancePackComplianceSummaryResponse'),
     newGetAggregateConformancePackComplianceSummaryResponse,
 
-    -- ** PutRemediationExceptions
-    PutRemediationExceptions (PutRemediationExceptions'),
-    newPutRemediationExceptions,
-    PutRemediationExceptionsResponse (PutRemediationExceptionsResponse'),
-    newPutRemediationExceptionsResponse,
-
-    -- ** StopConfigurationRecorder
-    StopConfigurationRecorder (StopConfigurationRecorder'),
-    newStopConfigurationRecorder,
-    StopConfigurationRecorderResponse (StopConfigurationRecorderResponse'),
-    newStopConfigurationRecorderResponse,
-
-    -- ** DescribeConfigRules (Paginated)
-    DescribeConfigRules (DescribeConfigRules'),
-    newDescribeConfigRules,
-    DescribeConfigRulesResponse (DescribeConfigRulesResponse'),
-    newDescribeConfigRulesResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DescribeRetentionConfigurations (Paginated)
-    DescribeRetentionConfigurations (DescribeRetentionConfigurations'),
-    newDescribeRetentionConfigurations,
-    DescribeRetentionConfigurationsResponse (DescribeRetentionConfigurationsResponse'),
-    newDescribeRetentionConfigurationsResponse,
-
     -- ** StartConfigurationRecorder
     StartConfigurationRecorder (StartConfigurationRecorder'),
     newStartConfigurationRecorder,
     StartConfigurationRecorderResponse (StartConfigurationRecorderResponse'),
     newStartConfigurationRecorderResponse,
 
-    -- ** GetAggregateConfigRuleComplianceSummary
-    GetAggregateConfigRuleComplianceSummary (GetAggregateConfigRuleComplianceSummary'),
-    newGetAggregateConfigRuleComplianceSummary,
-    GetAggregateConfigRuleComplianceSummaryResponse (GetAggregateConfigRuleComplianceSummaryResponse'),
-    newGetAggregateConfigRuleComplianceSummaryResponse,
-
     -- ** DescribeConformancePacks (Paginated)
     DescribeConformancePacks (DescribeConformancePacks'),
     newDescribeConformancePacks,
     DescribeConformancePacksResponse (DescribeConformancePacksResponse'),
     newDescribeConformancePacksResponse,
+
+    -- ** PutExternalEvaluation
+    PutExternalEvaluation (PutExternalEvaluation'),
+    newPutExternalEvaluation,
+    PutExternalEvaluationResponse (PutExternalEvaluationResponse'),
+    newPutExternalEvaluationResponse,
+
+    -- ** DeleteRemediationExceptions
+    DeleteRemediationExceptions (DeleteRemediationExceptions'),
+    newDeleteRemediationExceptions,
+    DeleteRemediationExceptionsResponse (DeleteRemediationExceptionsResponse'),
+    newDeleteRemediationExceptionsResponse,
+
+    -- ** PutRemediationExceptions
+    PutRemediationExceptions (PutRemediationExceptions'),
+    newPutRemediationExceptions,
+    PutRemediationExceptionsResponse (PutRemediationExceptionsResponse'),
+    newPutRemediationExceptionsResponse,
+
+    -- ** GetOrganizationConfigRuleDetailedStatus (Paginated)
+    GetOrganizationConfigRuleDetailedStatus (GetOrganizationConfigRuleDetailedStatus'),
+    newGetOrganizationConfigRuleDetailedStatus,
+    GetOrganizationConfigRuleDetailedStatusResponse (GetOrganizationConfigRuleDetailedStatusResponse'),
+    newGetOrganizationConfigRuleDetailedStatusResponse,
+
+    -- ** PutRemediationConfigurations
+    PutRemediationConfigurations (PutRemediationConfigurations'),
+    newPutRemediationConfigurations,
+    PutRemediationConfigurationsResponse (PutRemediationConfigurationsResponse'),
+    newPutRemediationConfigurationsResponse,
+
+    -- ** DeleteConformancePack
+    DeleteConformancePack (DeleteConformancePack'),
+    newDeleteConformancePack,
+    DeleteConformancePackResponse (DeleteConformancePackResponse'),
+    newDeleteConformancePackResponse,
+
+    -- ** PutConformancePack
+    PutConformancePack (PutConformancePack'),
+    newPutConformancePack,
+    PutConformancePackResponse (PutConformancePackResponse'),
+    newPutConformancePackResponse,
+
+    -- ** StartRemediationExecution
+    StartRemediationExecution (StartRemediationExecution'),
+    newStartRemediationExecution,
+    StartRemediationExecutionResponse (StartRemediationExecutionResponse'),
+    newStartRemediationExecutionResponse,
+
+    -- ** DescribeConformancePackStatus (Paginated)
+    DescribeConformancePackStatus (DescribeConformancePackStatus'),
+    newDescribeConformancePackStatus,
+    DescribeConformancePackStatusResponse (DescribeConformancePackStatusResponse'),
+    newDescribeConformancePackStatusResponse,
+
+    -- ** GetComplianceSummaryByConfigRule
+    GetComplianceSummaryByConfigRule (GetComplianceSummaryByConfigRule'),
+    newGetComplianceSummaryByConfigRule,
+    GetComplianceSummaryByConfigRuleResponse (GetComplianceSummaryByConfigRuleResponse'),
+    newGetComplianceSummaryByConfigRuleResponse,
+
+    -- ** PutStoredQuery
+    PutStoredQuery (PutStoredQuery'),
+    newPutStoredQuery,
+    PutStoredQueryResponse (PutStoredQueryResponse'),
+    newPutStoredQueryResponse,
+
+    -- ** PutConfigurationAggregator
+    PutConfigurationAggregator (PutConfigurationAggregator'),
+    newPutConfigurationAggregator,
+    PutConfigurationAggregatorResponse (PutConfigurationAggregatorResponse'),
+    newPutConfigurationAggregatorResponse,
+
+    -- ** DeleteStoredQuery
+    DeleteStoredQuery (DeleteStoredQuery'),
+    newDeleteStoredQuery,
+    DeleteStoredQueryResponse (DeleteStoredQueryResponse'),
+    newDeleteStoredQueryResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DeleteConfigurationAggregator
+    DeleteConfigurationAggregator (DeleteConfigurationAggregator'),
+    newDeleteConfigurationAggregator,
+    DeleteConfigurationAggregatorResponse (DeleteConfigurationAggregatorResponse'),
+    newDeleteConfigurationAggregatorResponse,
+
+    -- ** DescribeConfigurationRecorderStatus
+    DescribeConfigurationRecorderStatus (DescribeConfigurationRecorderStatus'),
+    newDescribeConfigurationRecorderStatus,
+    DescribeConfigurationRecorderStatusResponse (DescribeConfigurationRecorderStatusResponse'),
+    newDescribeConfigurationRecorderStatusResponse,
+
+    -- ** PutConfigurationRecorder
+    PutConfigurationRecorder (PutConfigurationRecorder'),
+    newPutConfigurationRecorder,
+    PutConfigurationRecorderResponse (PutConfigurationRecorderResponse'),
+    newPutConfigurationRecorderResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteConfigurationRecorder
+    DeleteConfigurationRecorder (DeleteConfigurationRecorder'),
+    newDeleteConfigurationRecorder,
+    DeleteConfigurationRecorderResponse (DeleteConfigurationRecorderResponse'),
+    newDeleteConfigurationRecorderResponse,
+
+    -- ** GetConformancePackComplianceSummary (Paginated)
+    GetConformancePackComplianceSummary (GetConformancePackComplianceSummary'),
+    newGetConformancePackComplianceSummary,
+    GetConformancePackComplianceSummaryResponse (GetConformancePackComplianceSummaryResponse'),
+    newGetConformancePackComplianceSummaryResponse,
+
+    -- ** GetComplianceSummaryByResourceType
+    GetComplianceSummaryByResourceType (GetComplianceSummaryByResourceType'),
+    newGetComplianceSummaryByResourceType,
+    GetComplianceSummaryByResourceTypeResponse (GetComplianceSummaryByResourceTypeResponse'),
+    newGetComplianceSummaryByResourceTypeResponse,
+
+    -- ** DescribeDeliveryChannelStatus
+    DescribeDeliveryChannelStatus (DescribeDeliveryChannelStatus'),
+    newDescribeDeliveryChannelStatus,
+    DescribeDeliveryChannelStatusResponse (DescribeDeliveryChannelStatusResponse'),
+    newDescribeDeliveryChannelStatusResponse,
+
+    -- ** PutDeliveryChannel
+    PutDeliveryChannel (PutDeliveryChannel'),
+    newPutDeliveryChannel,
+    PutDeliveryChannelResponse (PutDeliveryChannelResponse'),
+    newPutDeliveryChannelResponse,
+
+    -- ** GetComplianceDetailsByConfigRule (Paginated)
+    GetComplianceDetailsByConfigRule (GetComplianceDetailsByConfigRule'),
+    newGetComplianceDetailsByConfigRule,
+    GetComplianceDetailsByConfigRuleResponse (GetComplianceDetailsByConfigRuleResponse'),
+    newGetComplianceDetailsByConfigRuleResponse,
+
+    -- ** DeleteAggregationAuthorization
+    DeleteAggregationAuthorization (DeleteAggregationAuthorization'),
+    newDeleteAggregationAuthorization,
+    DeleteAggregationAuthorizationResponse (DeleteAggregationAuthorizationResponse'),
+    newDeleteAggregationAuthorizationResponse,
+
+    -- ** DeleteDeliveryChannel
+    DeleteDeliveryChannel (DeleteDeliveryChannel'),
+    newDeleteDeliveryChannel,
+    DeleteDeliveryChannelResponse (DeleteDeliveryChannelResponse'),
+    newDeleteDeliveryChannelResponse,
+
+    -- ** DeleteRemediationConfiguration
+    DeleteRemediationConfiguration (DeleteRemediationConfiguration'),
+    newDeleteRemediationConfiguration,
+    DeleteRemediationConfigurationResponse (DeleteRemediationConfigurationResponse'),
+    newDeleteRemediationConfigurationResponse,
+
+    -- ** PutAggregationAuthorization
+    PutAggregationAuthorization (PutAggregationAuthorization'),
+    newPutAggregationAuthorization,
+    PutAggregationAuthorizationResponse (PutAggregationAuthorizationResponse'),
+    newPutAggregationAuthorizationResponse,
+
+    -- ** DescribeConfigurationAggregatorSourcesStatus (Paginated)
+    DescribeConfigurationAggregatorSourcesStatus (DescribeConfigurationAggregatorSourcesStatus'),
+    newDescribeConfigurationAggregatorSourcesStatus,
+    DescribeConfigurationAggregatorSourcesStatusResponse (DescribeConfigurationAggregatorSourcesStatusResponse'),
+    newDescribeConfigurationAggregatorSourcesStatusResponse,
+
+    -- ** ListDiscoveredResources (Paginated)
+    ListDiscoveredResources (ListDiscoveredResources'),
+    newListDiscoveredResources,
+    ListDiscoveredResourcesResponse (ListDiscoveredResourcesResponse'),
+    newListDiscoveredResourcesResponse,
+
+    -- ** DescribeRemediationConfigurations
+    DescribeRemediationConfigurations (DescribeRemediationConfigurations'),
+    newDescribeRemediationConfigurations,
+    DescribeRemediationConfigurationsResponse (DescribeRemediationConfigurationsResponse'),
+    newDescribeRemediationConfigurationsResponse,
+
+    -- ** DescribeDeliveryChannels
+    DescribeDeliveryChannels (DescribeDeliveryChannels'),
+    newDescribeDeliveryChannels,
+    DescribeDeliveryChannelsResponse (DescribeDeliveryChannelsResponse'),
+    newDescribeDeliveryChannelsResponse,
+
+    -- ** DescribeAggregationAuthorizations (Paginated)
+    DescribeAggregationAuthorizations (DescribeAggregationAuthorizations'),
+    newDescribeAggregationAuthorizations,
+    DescribeAggregationAuthorizationsResponse (DescribeAggregationAuthorizationsResponse'),
+    newDescribeAggregationAuthorizationsResponse,
 
     -- * Types
 

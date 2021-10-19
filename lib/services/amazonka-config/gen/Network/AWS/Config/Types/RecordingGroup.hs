@@ -70,21 +70,6 @@ data RecordingGroup = RecordingGroup'
     -- If you set this option to @true@, you cannot enumerate a list of
     -- @resourceTypes@.
     allSupported :: Prelude.Maybe Prelude.Bool,
-    -- | A comma-separated list that specifies the types of Amazon Web Services
-    -- resources for which Config records configuration changes (for example,
-    -- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
-    --
-    -- To record all configuration changes, you must set the @allSupported@
-    -- option to @true@.
-    --
-    -- If you set this option to @false@, when Config adds support for a new
-    -- type of resource, it will not record resources of that type unless you
-    -- manually add that type to your recording group.
-    --
-    -- For a list of valid @resourceTypes@ values, see the __resourceType
-    -- Value__ column in
-    -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
-    resourceTypes :: Prelude.Maybe [ResourceType],
     -- | Specifies whether Config includes all supported types of global
     -- resources (for example, IAM resources) with the resources that it
     -- records.
@@ -99,7 +84,22 @@ data RecordingGroup = RecordingGroup'
     -- The configuration details for any global resource are the same in all
     -- regions. To prevent duplicate configuration items, you should consider
     -- customizing Config in only one region to record global resources.
-    includeGlobalResourceTypes :: Prelude.Maybe Prelude.Bool
+    includeGlobalResourceTypes :: Prelude.Maybe Prelude.Bool,
+    -- | A comma-separated list that specifies the types of Amazon Web Services
+    -- resources for which Config records configuration changes (for example,
+    -- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
+    --
+    -- To record all configuration changes, you must set the @allSupported@
+    -- option to @true@.
+    --
+    -- If you set this option to @false@, when Config adds support for a new
+    -- type of resource, it will not record resources of that type unless you
+    -- manually add that type to your recording group.
+    --
+    -- For a list of valid @resourceTypes@ values, see the __resourceType
+    -- Value__ column in
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
+    resourceTypes :: Prelude.Maybe [ResourceType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,21 +121,6 @@ data RecordingGroup = RecordingGroup'
 -- If you set this option to @true@, you cannot enumerate a list of
 -- @resourceTypes@.
 --
--- 'resourceTypes', 'recordingGroup_resourceTypes' - A comma-separated list that specifies the types of Amazon Web Services
--- resources for which Config records configuration changes (for example,
--- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
---
--- To record all configuration changes, you must set the @allSupported@
--- option to @true@.
---
--- If you set this option to @false@, when Config adds support for a new
--- type of resource, it will not record resources of that type unless you
--- manually add that type to your recording group.
---
--- For a list of valid @resourceTypes@ values, see the __resourceType
--- Value__ column in
--- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
---
 -- 'includeGlobalResourceTypes', 'recordingGroup_includeGlobalResourceTypes' - Specifies whether Config includes all supported types of global
 -- resources (for example, IAM resources) with the resources that it
 -- records.
@@ -150,28 +135,8 @@ data RecordingGroup = RecordingGroup'
 -- The configuration details for any global resource are the same in all
 -- regions. To prevent duplicate configuration items, you should consider
 -- customizing Config in only one region to record global resources.
-newRecordingGroup ::
-  RecordingGroup
-newRecordingGroup =
-  RecordingGroup'
-    { allSupported = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      includeGlobalResourceTypes = Prelude.Nothing
-    }
-
--- | Specifies whether Config records configuration changes for every
--- supported type of regional resource.
 --
--- If you set this option to @true@, when Config adds support for a new
--- type of regional resource, it starts recording resources of that type
--- automatically.
---
--- If you set this option to @true@, you cannot enumerate a list of
--- @resourceTypes@.
-recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
-recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
-
--- | A comma-separated list that specifies the types of Amazon Web Services
+-- 'resourceTypes', 'recordingGroup_resourceTypes' - A comma-separated list that specifies the types of Amazon Web Services
 -- resources for which Config records configuration changes (for example,
 -- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
 --
@@ -185,8 +150,26 @@ recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allS
 -- For a list of valid @resourceTypes@ values, see the __resourceType
 -- Value__ column in
 -- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
-recordingGroup_resourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe [ResourceType])
-recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> resourceTypes) (\s@RecordingGroup' {} a -> s {resourceTypes = a} :: RecordingGroup) Prelude.. Lens.mapping Lens._Coerce
+newRecordingGroup ::
+  RecordingGroup
+newRecordingGroup =
+  RecordingGroup'
+    { allSupported = Prelude.Nothing,
+      includeGlobalResourceTypes = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing
+    }
+
+-- | Specifies whether Config records configuration changes for every
+-- supported type of regional resource.
+--
+-- If you set this option to @true@, when Config adds support for a new
+-- type of regional resource, it starts recording resources of that type
+-- automatically.
+--
+-- If you set this option to @true@, you cannot enumerate a list of
+-- @resourceTypes@.
+recordingGroup_allSupported :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
+recordingGroup_allSupported = Lens.lens (\RecordingGroup' {allSupported} -> allSupported) (\s@RecordingGroup' {} a -> s {allSupported = a} :: RecordingGroup)
 
 -- | Specifies whether Config includes all supported types of global
 -- resources (for example, IAM resources) with the resources that it
@@ -205,6 +188,23 @@ recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> re
 recordingGroup_includeGlobalResourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe Prelude.Bool)
 recordingGroup_includeGlobalResourceTypes = Lens.lens (\RecordingGroup' {includeGlobalResourceTypes} -> includeGlobalResourceTypes) (\s@RecordingGroup' {} a -> s {includeGlobalResourceTypes = a} :: RecordingGroup)
 
+-- | A comma-separated list that specifies the types of Amazon Web Services
+-- resources for which Config records configuration changes (for example,
+-- @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
+--
+-- To record all configuration changes, you must set the @allSupported@
+-- option to @true@.
+--
+-- If you set this option to @false@, when Config adds support for a new
+-- type of resource, it will not record resources of that type unless you
+-- manually add that type to your recording group.
+--
+-- For a list of valid @resourceTypes@ values, see the __resourceType
+-- Value__ column in
+-- <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported Amazon Web Services resource Types>.
+recordingGroup_resourceTypes :: Lens.Lens' RecordingGroup (Prelude.Maybe [ResourceType])
+recordingGroup_resourceTypes = Lens.lens (\RecordingGroup' {resourceTypes} -> resourceTypes) (\s@RecordingGroup' {} a -> s {resourceTypes = a} :: RecordingGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON RecordingGroup where
   parseJSON =
     Core.withObject
@@ -212,8 +212,8 @@ instance Core.FromJSON RecordingGroup where
       ( \x ->
           RecordingGroup'
             Prelude.<$> (x Core..:? "allSupported")
-            Prelude.<*> (x Core..:? "resourceTypes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "includeGlobalResourceTypes")
+            Prelude.<*> (x Core..:? "resourceTypes" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable RecordingGroup
@@ -225,8 +225,8 @@ instance Core.ToJSON RecordingGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("allSupported" Core..=) Prelude.<$> allSupported,
-            ("resourceTypes" Core..=) Prelude.<$> resourceTypes,
             ("includeGlobalResourceTypes" Core..=)
-              Prelude.<$> includeGlobalResourceTypes
+              Prelude.<$> includeGlobalResourceTypes,
+            ("resourceTypes" Core..=) Prelude.<$> resourceTypes
           ]
       )

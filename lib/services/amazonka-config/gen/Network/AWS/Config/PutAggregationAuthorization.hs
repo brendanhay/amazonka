@@ -91,7 +91,7 @@ newPutAggregationAuthorization
 
 -- | An array of tag object.
 putAggregationAuthorization_tags :: Lens.Lens' PutAggregationAuthorization (Prelude.Maybe [Tag])
-putAggregationAuthorization_tags = Lens.lens (\PutAggregationAuthorization' {tags} -> tags) (\s@PutAggregationAuthorization' {} a -> s {tags = a} :: PutAggregationAuthorization) Prelude.. Lens.mapping Lens._Coerce
+putAggregationAuthorization_tags = Lens.lens (\PutAggregationAuthorization' {tags} -> tags) (\s@PutAggregationAuthorization' {} a -> s {tags = a} :: PutAggregationAuthorization) Prelude.. Lens.mapping Lens.coerced
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
 putAggregationAuthorization_authorizedAccountId :: Lens.Lens' PutAggregationAuthorization Prelude.Text

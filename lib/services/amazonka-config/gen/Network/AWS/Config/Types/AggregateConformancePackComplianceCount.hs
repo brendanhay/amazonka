@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAggregateConformancePackComplianceCount' smart constructor.
 data AggregateConformancePackComplianceCount = AggregateConformancePackComplianceCount'
-  { -- | Number of noncompliant conformance packs.
-    nonCompliantConformancePackCount :: Prelude.Maybe Prelude.Int,
-    -- | Number of compliant conformance packs.
-    compliantConformancePackCount :: Prelude.Maybe Prelude.Int
+  { -- | Number of compliant conformance packs.
+    compliantConformancePackCount :: Prelude.Maybe Prelude.Int,
+    -- | Number of noncompliant conformance packs.
+    nonCompliantConformancePackCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,26 +42,26 @@ data AggregateConformancePackComplianceCount = AggregateConformancePackComplianc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nonCompliantConformancePackCount', 'aggregateConformancePackComplianceCount_nonCompliantConformancePackCount' - Number of noncompliant conformance packs.
---
 -- 'compliantConformancePackCount', 'aggregateConformancePackComplianceCount_compliantConformancePackCount' - Number of compliant conformance packs.
+--
+-- 'nonCompliantConformancePackCount', 'aggregateConformancePackComplianceCount_nonCompliantConformancePackCount' - Number of noncompliant conformance packs.
 newAggregateConformancePackComplianceCount ::
   AggregateConformancePackComplianceCount
 newAggregateConformancePackComplianceCount =
   AggregateConformancePackComplianceCount'
-    { nonCompliantConformancePackCount =
+    { compliantConformancePackCount =
         Prelude.Nothing,
-      compliantConformancePackCount =
+      nonCompliantConformancePackCount =
         Prelude.Nothing
     }
-
--- | Number of noncompliant conformance packs.
-aggregateConformancePackComplianceCount_nonCompliantConformancePackCount :: Lens.Lens' AggregateConformancePackComplianceCount (Prelude.Maybe Prelude.Int)
-aggregateConformancePackComplianceCount_nonCompliantConformancePackCount = Lens.lens (\AggregateConformancePackComplianceCount' {nonCompliantConformancePackCount} -> nonCompliantConformancePackCount) (\s@AggregateConformancePackComplianceCount' {} a -> s {nonCompliantConformancePackCount = a} :: AggregateConformancePackComplianceCount)
 
 -- | Number of compliant conformance packs.
 aggregateConformancePackComplianceCount_compliantConformancePackCount :: Lens.Lens' AggregateConformancePackComplianceCount (Prelude.Maybe Prelude.Int)
 aggregateConformancePackComplianceCount_compliantConformancePackCount = Lens.lens (\AggregateConformancePackComplianceCount' {compliantConformancePackCount} -> compliantConformancePackCount) (\s@AggregateConformancePackComplianceCount' {} a -> s {compliantConformancePackCount = a} :: AggregateConformancePackComplianceCount)
+
+-- | Number of noncompliant conformance packs.
+aggregateConformancePackComplianceCount_nonCompliantConformancePackCount :: Lens.Lens' AggregateConformancePackComplianceCount (Prelude.Maybe Prelude.Int)
+aggregateConformancePackComplianceCount_nonCompliantConformancePackCount = Lens.lens (\AggregateConformancePackComplianceCount' {nonCompliantConformancePackCount} -> nonCompliantConformancePackCount) (\s@AggregateConformancePackComplianceCount' {} a -> s {nonCompliantConformancePackCount = a} :: AggregateConformancePackComplianceCount)
 
 instance
   Core.FromJSON
@@ -72,8 +72,8 @@ instance
       "AggregateConformancePackComplianceCount"
       ( \x ->
           AggregateConformancePackComplianceCount'
-            Prelude.<$> (x Core..:? "NonCompliantConformancePackCount")
-            Prelude.<*> (x Core..:? "CompliantConformancePackCount")
+            Prelude.<$> (x Core..:? "CompliantConformancePackCount")
+            Prelude.<*> (x Core..:? "NonCompliantConformancePackCount")
       )
 
 instance

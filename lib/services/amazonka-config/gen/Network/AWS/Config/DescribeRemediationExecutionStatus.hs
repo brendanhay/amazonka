@@ -34,8 +34,8 @@ module Network.AWS.Config.DescribeRemediationExecutionStatus
 
     -- * Request Lenses
     describeRemediationExecutionStatus_nextToken,
-    describeRemediationExecutionStatus_resourceKeys,
     describeRemediationExecutionStatus_limit,
+    describeRemediationExecutionStatus_resourceKeys,
     describeRemediationExecutionStatus_configRuleName,
 
     -- * Destructuring the Response
@@ -61,12 +61,12 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of resource keys to be processed with the current request. Each
-    -- element in the list consists of the resource type and resource ID.
-    resourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
     -- | The maximum number of RemediationExecutionStatuses returned on each
     -- page. The default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | A list of resource keys to be processed with the current request. Each
+    -- element in the list consists of the resource type and resource ID.
+    resourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
     -- | A list of Config rule names.
     configRuleName :: Prelude.Text
   }
@@ -83,11 +83,11 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
 -- 'nextToken', 'describeRemediationExecutionStatus_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'resourceKeys', 'describeRemediationExecutionStatus_resourceKeys' - A list of resource keys to be processed with the current request. Each
--- element in the list consists of the resource type and resource ID.
---
 -- 'limit', 'describeRemediationExecutionStatus_limit' - The maximum number of RemediationExecutionStatuses returned on each
 -- page. The default is maximum. If you specify 0, Config uses the default.
+--
+-- 'resourceKeys', 'describeRemediationExecutionStatus_resourceKeys' - A list of resource keys to be processed with the current request. Each
+-- element in the list consists of the resource type and resource ID.
 --
 -- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of Config rule names.
 newDescribeRemediationExecutionStatus ::
@@ -99,8 +99,8 @@ newDescribeRemediationExecutionStatus
     DescribeRemediationExecutionStatus'
       { nextToken =
           Prelude.Nothing,
-        resourceKeys = Prelude.Nothing,
         limit = Prelude.Nothing,
+        resourceKeys = Prelude.Nothing,
         configRuleName = pConfigRuleName_
       }
 
@@ -109,15 +109,15 @@ newDescribeRemediationExecutionStatus
 describeRemediationExecutionStatus_nextToken :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Text)
 describeRemediationExecutionStatus_nextToken = Lens.lens (\DescribeRemediationExecutionStatus' {nextToken} -> nextToken) (\s@DescribeRemediationExecutionStatus' {} a -> s {nextToken = a} :: DescribeRemediationExecutionStatus)
 
--- | A list of resource keys to be processed with the current request. Each
--- element in the list consists of the resource type and resource ID.
-describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
-describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of RemediationExecutionStatuses returned on each
 -- page. The default is maximum. If you specify 0, Config uses the default.
 describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Natural)
 describeRemediationExecutionStatus_limit = Lens.lens (\DescribeRemediationExecutionStatus' {limit} -> limit) (\s@DescribeRemediationExecutionStatus' {} a -> s {limit = a} :: DescribeRemediationExecutionStatus)
+
+-- | A list of resource keys to be processed with the current request. Each
+-- element in the list consists of the resource type and resource ID.
+describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
+describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of Config rule names.
 describeRemediationExecutionStatus_configRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Prelude.Text
@@ -201,8 +201,8 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceKeys" Core..=) Prelude.<$> resourceKeys,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("ResourceKeys" Core..=) Prelude.<$> resourceKeys,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName)
           ]
@@ -261,7 +261,7 @@ newDescribeRemediationExecutionStatusResponse
 
 -- | Returns a list of remediation execution statuses objects.
 describeRemediationExecutionStatusResponse_remediationExecutionStatuses :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Prelude.Maybe [RemediationExecutionStatus])
-describeRemediationExecutionStatusResponse_remediationExecutionStatuses = Lens.lens (\DescribeRemediationExecutionStatusResponse' {remediationExecutionStatuses} -> remediationExecutionStatuses) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {remediationExecutionStatuses = a} :: DescribeRemediationExecutionStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRemediationExecutionStatusResponse_remediationExecutionStatuses = Lens.lens (\DescribeRemediationExecutionStatusResponse' {remediationExecutionStatuses} -> remediationExecutionStatuses) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {remediationExecutionStatuses = a} :: DescribeRemediationExecutionStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.

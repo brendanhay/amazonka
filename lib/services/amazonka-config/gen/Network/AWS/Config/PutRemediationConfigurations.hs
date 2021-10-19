@@ -84,7 +84,7 @@ newPutRemediationConfigurations =
 
 -- | A list of remediation configuration objects.
 putRemediationConfigurations_remediationConfigurations :: Lens.Lens' PutRemediationConfigurations [RemediationConfiguration]
-putRemediationConfigurations_remediationConfigurations = Lens.lens (\PutRemediationConfigurations' {remediationConfigurations} -> remediationConfigurations) (\s@PutRemediationConfigurations' {} a -> s {remediationConfigurations = a} :: PutRemediationConfigurations) Prelude.. Lens._Coerce
+putRemediationConfigurations_remediationConfigurations = Lens.lens (\PutRemediationConfigurations' {remediationConfigurations} -> remediationConfigurations) (\s@PutRemediationConfigurations' {} a -> s {remediationConfigurations = a} :: PutRemediationConfigurations) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutRemediationConfigurations where
   type
@@ -170,7 +170,7 @@ newPutRemediationConfigurationsResponse pHttpStatus_ =
 
 -- | Returns a list of failed remediation batch objects.
 putRemediationConfigurationsResponse_failedBatches :: Lens.Lens' PutRemediationConfigurationsResponse (Prelude.Maybe [FailedRemediationBatch])
-putRemediationConfigurationsResponse_failedBatches = Lens.lens (\PutRemediationConfigurationsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationConfigurationsResponse' {} a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+putRemediationConfigurationsResponse_failedBatches = Lens.lens (\PutRemediationConfigurationsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationConfigurationsResponse' {} a -> s {failedBatches = a} :: PutRemediationConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putRemediationConfigurationsResponse_httpStatus :: Lens.Lens' PutRemediationConfigurationsResponse Prelude.Int

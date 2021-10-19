@@ -30,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationConfigRule' smart constructor.
 data OrganizationConfigRule = OrganizationConfigRule'
-  { -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
-    -- | An @OrganizationManagedRuleMetadata@ object.
+  { -- | An @OrganizationManagedRuleMetadata@ object.
     organizationManagedRuleMetadata :: Prelude.Maybe OrganizationManagedRuleMetadata,
-    -- | An @OrganizationCustomRuleMetadata@ object.
-    organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
     -- | A comma-separated list of accounts excluded from organization config
     -- rule.
     excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | An @OrganizationCustomRuleMetadata@ object.
+    organizationCustomRuleMetadata :: Prelude.Maybe OrganizationCustomRuleMetadata,
+    -- | The timestamp of the last update.
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The name that you assign to organization config rule.
     organizationConfigRuleName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of organization config rule.
@@ -54,14 +54,14 @@ data OrganizationConfigRule = OrganizationConfigRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateTime', 'organizationConfigRule_lastUpdateTime' - The timestamp of the last update.
---
 -- 'organizationManagedRuleMetadata', 'organizationConfigRule_organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
---
--- 'organizationCustomRuleMetadata', 'organizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 --
 -- 'excludedAccounts', 'organizationConfigRule_excludedAccounts' - A comma-separated list of accounts excluded from organization config
 -- rule.
+--
+-- 'organizationCustomRuleMetadata', 'organizationConfigRule_organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
+--
+-- 'lastUpdateTime', 'organizationConfigRule_lastUpdateTime' - The timestamp of the last update.
 --
 -- 'organizationConfigRuleName', 'organizationConfigRule_organizationConfigRuleName' - The name that you assign to organization config rule.
 --
@@ -76,33 +76,33 @@ newOrganizationConfigRule
   pOrganizationConfigRuleName_
   pOrganizationConfigRuleArn_ =
     OrganizationConfigRule'
-      { lastUpdateTime =
+      { organizationManagedRuleMetadata =
           Prelude.Nothing,
-        organizationManagedRuleMetadata = Prelude.Nothing,
-        organizationCustomRuleMetadata = Prelude.Nothing,
         excludedAccounts = Prelude.Nothing,
+        organizationCustomRuleMetadata = Prelude.Nothing,
+        lastUpdateTime = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
         organizationConfigRuleArn =
           pOrganizationConfigRuleArn_
       }
 
--- | The timestamp of the last update.
-organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe Prelude.UTCTime)
-organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Core._Time
-
 -- | An @OrganizationManagedRuleMetadata@ object.
 organizationConfigRule_organizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationManagedRuleMetadata)
 organizationConfigRule_organizationManagedRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationManagedRuleMetadata} -> organizationManagedRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationManagedRuleMetadata = a} :: OrganizationConfigRule)
+
+-- | A comma-separated list of accounts excluded from organization config
+-- rule.
+organizationConfigRule_excludedAccounts :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe [Prelude.Text])
+organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConfigRule' {} a -> s {excludedAccounts = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | An @OrganizationCustomRuleMetadata@ object.
 organizationConfigRule_organizationCustomRuleMetadata :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe OrganizationCustomRuleMetadata)
 organizationConfigRule_organizationCustomRuleMetadata = Lens.lens (\OrganizationConfigRule' {organizationCustomRuleMetadata} -> organizationCustomRuleMetadata) (\s@OrganizationConfigRule' {} a -> s {organizationCustomRuleMetadata = a} :: OrganizationConfigRule)
 
--- | A comma-separated list of accounts excluded from organization config
--- rule.
-organizationConfigRule_excludedAccounts :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe [Prelude.Text])
-organizationConfigRule_excludedAccounts = Lens.lens (\OrganizationConfigRule' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConfigRule' {} a -> s {excludedAccounts = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Lens._Coerce
+-- | The timestamp of the last update.
+organizationConfigRule_lastUpdateTime :: Lens.Lens' OrganizationConfigRule (Prelude.Maybe Prelude.UTCTime)
+organizationConfigRule_lastUpdateTime = Lens.lens (\OrganizationConfigRule' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRule' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRule) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assign to organization config rule.
 organizationConfigRule_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Prelude.Text
@@ -118,12 +118,12 @@ instance Core.FromJSON OrganizationConfigRule where
       "OrganizationConfigRule"
       ( \x ->
           OrganizationConfigRule'
-            Prelude.<$> (x Core..:? "LastUpdateTime")
-            Prelude.<*> (x Core..:? "OrganizationManagedRuleMetadata")
-            Prelude.<*> (x Core..:? "OrganizationCustomRuleMetadata")
+            Prelude.<$> (x Core..:? "OrganizationManagedRuleMetadata")
             Prelude.<*> ( x Core..:? "ExcludedAccounts"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "OrganizationCustomRuleMetadata")
+            Prelude.<*> (x Core..:? "LastUpdateTime")
             Prelude.<*> (x Core..: "OrganizationConfigRuleName")
             Prelude.<*> (x Core..: "OrganizationConfigRuleArn")
       )

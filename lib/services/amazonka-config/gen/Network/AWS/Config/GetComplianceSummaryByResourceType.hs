@@ -95,7 +95,7 @@ newGetComplianceSummaryByResourceType =
 -- such as @AWS::EC2::Instance@. You can specify that the resource type is
 -- an Amazon Web Services account by specifying @AWS::::Account@.
 getComplianceSummaryByResourceType_resourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Prelude.Maybe [Prelude.Text])
-getComplianceSummaryByResourceType_resourceTypes = Lens.lens (\GetComplianceSummaryByResourceType' {resourceTypes} -> resourceTypes) (\s@GetComplianceSummaryByResourceType' {} a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType) Prelude.. Lens.mapping Lens._Coerce
+getComplianceSummaryByResourceType_resourceTypes = Lens.lens (\GetComplianceSummaryByResourceType' {resourceTypes} -> resourceTypes) (\s@GetComplianceSummaryByResourceType' {} a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -210,7 +210,7 @@ newGetComplianceSummaryByResourceTypeResponse
 -- request, the numbers are returned for each resource type. The maximum
 -- number returned is 100.
 getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse (Prelude.Maybe [ComplianceSummaryByResourceType])
-getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType = Lens.lens (\GetComplianceSummaryByResourceTypeResponse' {complianceSummariesByResourceType} -> complianceSummariesByResourceType) (\s@GetComplianceSummaryByResourceTypeResponse' {} a -> s {complianceSummariesByResourceType = a} :: GetComplianceSummaryByResourceTypeResponse) Prelude.. Lens.mapping Lens._Coerce
+getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType = Lens.lens (\GetComplianceSummaryByResourceTypeResponse' {complianceSummariesByResourceType} -> complianceSummariesByResourceType) (\s@GetComplianceSummaryByResourceTypeResponse' {} a -> s {complianceSummariesByResourceType = a} :: GetComplianceSummaryByResourceTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getComplianceSummaryByResourceTypeResponse_httpStatus :: Lens.Lens' GetComplianceSummaryByResourceTypeResponse Prelude.Int

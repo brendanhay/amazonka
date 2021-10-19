@@ -89,7 +89,7 @@ newGetConformancePackComplianceSummary
           Prelude.Nothing,
         limit = Prelude.Nothing,
         conformancePackNames =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pConformancePackNames_
       }
 
@@ -104,7 +104,7 @@ getConformancePackComplianceSummary_limit = Lens.lens (\GetConformancePackCompli
 
 -- | Names of conformance packs.
 getConformancePackComplianceSummary_conformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Prelude.NonEmpty Prelude.Text)
-getConformancePackComplianceSummary_conformancePackNames = Lens.lens (\GetConformancePackComplianceSummary' {conformancePackNames} -> conformancePackNames) (\s@GetConformancePackComplianceSummary' {} a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary) Prelude.. Lens._Coerce
+getConformancePackComplianceSummary_conformancePackNames = Lens.lens (\GetConformancePackComplianceSummary' {conformancePackNames} -> conformancePackNames) (\s@GetConformancePackComplianceSummary' {} a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary) Prelude.. Lens.coerced
 
 instance
   Core.AWSPager
@@ -244,7 +244,7 @@ newGetConformancePackComplianceSummaryResponse
 
 -- | A list of @ConformancePackComplianceSummary@ objects.
 getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList :: Lens.Lens' GetConformancePackComplianceSummaryResponse (Prelude.Maybe (Prelude.NonEmpty ConformancePackComplianceSummary))
-getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList = Lens.lens (\GetConformancePackComplianceSummaryResponse' {conformancePackComplianceSummaryList} -> conformancePackComplianceSummaryList) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {conformancePackComplianceSummaryList = a} :: GetConformancePackComplianceSummaryResponse) Prelude.. Lens.mapping Lens._Coerce
+getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList = Lens.lens (\GetConformancePackComplianceSummaryResponse' {conformancePackComplianceSummaryList} -> conformancePackComplianceSummaryList) (\s@GetConformancePackComplianceSummaryResponse' {} a -> s {conformancePackComplianceSummaryList = a} :: GetConformancePackComplianceSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.

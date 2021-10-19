@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationConfigRuleStatus' smart constructor.
 data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
-  { -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+  { -- | An error code that is returned when organization config rule creation or
+    -- deletion has failed.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | An error message indicating that organization config rule creation or
     -- deletion failed due to an error.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | An error code that is returned when organization config rule creation or
-    -- deletion has failed.
-    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of the last update.
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The name that you assign to organization config rule.
     organizationConfigRuleName :: Prelude.Text,
     -- | Indicates deployment status of an organization config rule. When master
@@ -88,13 +88,13 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateTime', 'organizationConfigRuleStatus_lastUpdateTime' - The timestamp of the last update.
+-- 'errorCode', 'organizationConfigRuleStatus_errorCode' - An error code that is returned when organization config rule creation or
+-- deletion has failed.
 --
 -- 'errorMessage', 'organizationConfigRuleStatus_errorMessage' - An error message indicating that organization config rule creation or
 -- deletion failed due to an error.
 --
--- 'errorCode', 'organizationConfigRuleStatus_errorCode' - An error code that is returned when organization config rule creation or
--- deletion has failed.
+-- 'lastUpdateTime', 'organizationConfigRuleStatus_lastUpdateTime' - The timestamp of the last update.
 --
 -- 'organizationConfigRuleName', 'organizationConfigRuleStatus_organizationConfigRuleName' - The name that you assign to organization config rule.
 --
@@ -146,29 +146,29 @@ newOrganizationConfigRuleStatus
   pOrganizationConfigRuleName_
   pOrganizationRuleStatus_ =
     OrganizationConfigRuleStatus'
-      { lastUpdateTime =
+      { errorCode =
           Prelude.Nothing,
         errorMessage = Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+        lastUpdateTime = Prelude.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
         organizationRuleStatus =
           pOrganizationRuleStatus_
       }
 
--- | The timestamp of the last update.
-organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.UTCTime)
-organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Prelude.. Lens.mapping Core._Time
+-- | An error code that is returned when organization config rule creation or
+-- deletion has failed.
+organizationConfigRuleStatus_errorCode :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
+organizationConfigRuleStatus_errorCode = Lens.lens (\OrganizationConfigRuleStatus' {errorCode} -> errorCode) (\s@OrganizationConfigRuleStatus' {} a -> s {errorCode = a} :: OrganizationConfigRuleStatus)
 
 -- | An error message indicating that organization config rule creation or
 -- deletion failed due to an error.
 organizationConfigRuleStatus_errorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
 organizationConfigRuleStatus_errorMessage = Lens.lens (\OrganizationConfigRuleStatus' {errorMessage} -> errorMessage) (\s@OrganizationConfigRuleStatus' {} a -> s {errorMessage = a} :: OrganizationConfigRuleStatus)
 
--- | An error code that is returned when organization config rule creation or
--- deletion has failed.
-organizationConfigRuleStatus_errorCode :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
-organizationConfigRuleStatus_errorCode = Lens.lens (\OrganizationConfigRuleStatus' {errorCode} -> errorCode) (\s@OrganizationConfigRuleStatus' {} a -> s {errorCode = a} :: OrganizationConfigRuleStatus)
+-- | The timestamp of the last update.
+organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.UTCTime)
+organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assign to organization config rule.
 organizationConfigRuleStatus_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Prelude.Text
@@ -221,9 +221,9 @@ instance Core.FromJSON OrganizationConfigRuleStatus where
       "OrganizationConfigRuleStatus"
       ( \x ->
           OrganizationConfigRuleStatus'
-            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<$> (x Core..:? "ErrorCode")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "LastUpdateTime")
             Prelude.<*> (x Core..: "OrganizationConfigRuleName")
             Prelude.<*> (x Core..: "OrganizationRuleStatus")
       )

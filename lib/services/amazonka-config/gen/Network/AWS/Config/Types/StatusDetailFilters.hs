@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStatusDetailFilters' smart constructor.
 data StatusDetailFilters = StatusDetailFilters'
-  { -- | The 12-digit account ID of the member account within an organization.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates deployment status for config rule in the member account. When
+  { -- | Indicates deployment status for config rule in the member account. When
     -- master account calls @PutOrganizationConfigRule@ action for the first
     -- time, config rule status is created in the member account. When master
     -- account calls @PutOrganizationConfigRule@ action for the second time,
@@ -67,7 +65,9 @@ data StatusDetailFilters = StatusDetailFilters'
     --
     -- -   @UPDATE_FAILED@ when config rule deletion has failed in the member
     --     account.
-    memberAccountRuleStatus :: Prelude.Maybe MemberAccountRuleStatus
+    memberAccountRuleStatus :: Prelude.Maybe MemberAccountRuleStatus,
+    -- | The 12-digit account ID of the member account within an organization.
+    accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,8 +78,6 @@ data StatusDetailFilters = StatusDetailFilters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'accountId', 'statusDetailFilters_accountId' - The 12-digit account ID of the member account within an organization.
 --
 -- 'memberAccountRuleStatus', 'statusDetailFilters_memberAccountRuleStatus' - Indicates deployment status for config rule in the member account. When
 -- master account calls @PutOrganizationConfigRule@ action for the first
@@ -117,17 +115,16 @@ data StatusDetailFilters = StatusDetailFilters'
 --
 -- -   @UPDATE_FAILED@ when config rule deletion has failed in the member
 --     account.
+--
+-- 'accountId', 'statusDetailFilters_accountId' - The 12-digit account ID of the member account within an organization.
 newStatusDetailFilters ::
   StatusDetailFilters
 newStatusDetailFilters =
   StatusDetailFilters'
-    { accountId = Prelude.Nothing,
-      memberAccountRuleStatus = Prelude.Nothing
+    { memberAccountRuleStatus =
+        Prelude.Nothing,
+      accountId = Prelude.Nothing
     }
-
--- | The 12-digit account ID of the member account within an organization.
-statusDetailFilters_accountId :: Lens.Lens' StatusDetailFilters (Prelude.Maybe Prelude.Text)
-statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> accountId) (\s@StatusDetailFilters' {} a -> s {accountId = a} :: StatusDetailFilters)
 
 -- | Indicates deployment status for config rule in the member account. When
 -- master account calls @PutOrganizationConfigRule@ action for the first
@@ -168,6 +165,10 @@ statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> 
 statusDetailFilters_memberAccountRuleStatus :: Lens.Lens' StatusDetailFilters (Prelude.Maybe MemberAccountRuleStatus)
 statusDetailFilters_memberAccountRuleStatus = Lens.lens (\StatusDetailFilters' {memberAccountRuleStatus} -> memberAccountRuleStatus) (\s@StatusDetailFilters' {} a -> s {memberAccountRuleStatus = a} :: StatusDetailFilters)
 
+-- | The 12-digit account ID of the member account within an organization.
+statusDetailFilters_accountId :: Lens.Lens' StatusDetailFilters (Prelude.Maybe Prelude.Text)
+statusDetailFilters_accountId = Lens.lens (\StatusDetailFilters' {accountId} -> accountId) (\s@StatusDetailFilters' {} a -> s {accountId = a} :: StatusDetailFilters)
+
 instance Prelude.Hashable StatusDetailFilters
 
 instance Prelude.NFData StatusDetailFilters
@@ -176,8 +177,8 @@ instance Core.ToJSON StatusDetailFilters where
   toJSON StatusDetailFilters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("MemberAccountRuleStatus" Core..=)
-              Prelude.<$> memberAccountRuleStatus
+          [ ("MemberAccountRuleStatus" Core..=)
+              Prelude.<$> memberAccountRuleStatus,
+            ("AccountId" Core..=) Prelude.<$> accountId
           ]
       )

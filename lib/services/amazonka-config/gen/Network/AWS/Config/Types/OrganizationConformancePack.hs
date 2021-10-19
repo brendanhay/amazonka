@@ -121,12 +121,12 @@ organizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\OrganizationConfor
 
 -- | A list of @ConformancePackInputParameter@ objects.
 organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
-organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
+organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
 
 -- | A comma-separated list of accounts excluded from organization
 -- conformance pack.
 organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [Prelude.Text])
-organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
+organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you assign to an organization conformance pack.
 organizationConformancePack_organizationConformancePackName :: Lens.Lens' OrganizationConformancePack Prelude.Text

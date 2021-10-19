@@ -41,8 +41,8 @@ module Network.AWS.Config.PutResourceConfig
     newPutResourceConfig,
 
     -- * Request Lenses
-    putResourceConfig_tags,
     putResourceConfig_resourceName,
+    putResourceConfig_tags,
     putResourceConfig_resourceType,
     putResourceConfig_schemaVersionId,
     putResourceConfig_resourceId,
@@ -63,10 +63,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutResourceConfig' smart constructor.
 data PutResourceConfig = PutResourceConfig'
-  { -- | Tags associated with the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name of the resource.
+  { -- | Name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
+    -- | Tags associated with the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the resource. The custom resource type must be registered
     -- with CloudFormation.
     --
@@ -94,9 +94,9 @@ data PutResourceConfig = PutResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putResourceConfig_tags' - Tags associated with the resource.
---
 -- 'resourceName', 'putResourceConfig_resourceName' - Name of the resource.
+--
+-- 'tags', 'putResourceConfig_tags' - Tags associated with the resource.
 --
 -- 'resourceType', 'putResourceConfig_resourceType' - The type of the resource. The custom resource type must be registered
 -- with CloudFormation.
@@ -129,21 +129,21 @@ newPutResourceConfig
   pResourceId_
   pConfiguration_ =
     PutResourceConfig'
-      { tags = Prelude.Nothing,
-        resourceName = Prelude.Nothing,
+      { resourceName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         resourceType = pResourceType_,
         schemaVersionId = pSchemaVersionId_,
         resourceId = pResourceId_,
         configuration = pConfiguration_
       }
 
--- | Tags associated with the resource.
-putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Name of the resource.
 putResourceConfig_resourceName :: Lens.Lens' PutResourceConfig (Prelude.Maybe Prelude.Text)
 putResourceConfig_resourceName = Lens.lens (\PutResourceConfig' {resourceName} -> resourceName) (\s@PutResourceConfig' {} a -> s {resourceName = a} :: PutResourceConfig)
+
+-- | Tags associated with the resource.
+putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of the resource. The custom resource type must be registered
 -- with CloudFormation.
@@ -200,8 +200,8 @@ instance Core.ToJSON PutResourceConfig where
   toJSON PutResourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceName" Core..=) Prelude.<$> resourceName,
+          [ ("ResourceName" Core..=) Prelude.<$> resourceName,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ResourceType" Core..= resourceType),
             Prelude.Just
               ("SchemaVersionId" Core..= schemaVersionId),

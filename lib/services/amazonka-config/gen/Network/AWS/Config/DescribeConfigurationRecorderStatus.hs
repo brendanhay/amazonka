@@ -85,7 +85,7 @@ newDescribeConfigurationRecorderStatus =
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
 describeConfigurationRecorderStatus_configurationRecorderNames :: Lens.Lens' DescribeConfigurationRecorderStatus (Prelude.Maybe [Prelude.Text])
-describeConfigurationRecorderStatus_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorderStatus' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorderStatus' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorderStatus) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationRecorderStatus_configurationRecorderNames = Lens.lens (\DescribeConfigurationRecorderStatus' {configurationRecorderNames} -> configurationRecorderNames) (\s@DescribeConfigurationRecorderStatus' {} a -> s {configurationRecorderNames = a} :: DescribeConfigurationRecorderStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -192,7 +192,7 @@ newDescribeConfigurationRecorderStatusResponse
 
 -- | A list that contains status of the specified recorders.
 describeConfigurationRecorderStatusResponse_configurationRecordersStatus :: Lens.Lens' DescribeConfigurationRecorderStatusResponse (Prelude.Maybe [ConfigurationRecorderStatus])
-describeConfigurationRecorderStatusResponse_configurationRecordersStatus = Lens.lens (\DescribeConfigurationRecorderStatusResponse' {configurationRecordersStatus} -> configurationRecordersStatus) (\s@DescribeConfigurationRecorderStatusResponse' {} a -> s {configurationRecordersStatus = a} :: DescribeConfigurationRecorderStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationRecorderStatusResponse_configurationRecordersStatus = Lens.lens (\DescribeConfigurationRecorderStatusResponse' {configurationRecordersStatus} -> configurationRecordersStatus) (\s@DescribeConfigurationRecorderStatusResponse' {} a -> s {configurationRecordersStatus = a} :: DescribeConfigurationRecorderStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationRecorderStatusResponse_httpStatus :: Lens.Lens' DescribeConfigurationRecorderStatusResponse Prelude.Int

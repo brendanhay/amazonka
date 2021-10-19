@@ -87,7 +87,7 @@ newSource pOwner_ pSourceIdentifier_ =
 -- | Provides the source and type of the event that causes Config to evaluate
 -- your Amazon Web Services resources.
 source_sourceDetails :: Lens.Lens' Source (Prelude.Maybe [SourceDetail])
-source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Lens._Coerce
+source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether Amazon Web Services or the customer owns and manages
 -- the Config rule.

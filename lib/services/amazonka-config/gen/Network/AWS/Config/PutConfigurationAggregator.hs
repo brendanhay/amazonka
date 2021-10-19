@@ -50,9 +50,9 @@ module Network.AWS.Config.PutConfigurationAggregator
     newPutConfigurationAggregator,
 
     -- * Request Lenses
-    putConfigurationAggregator_tags,
-    putConfigurationAggregator_accountAggregationSources,
     putConfigurationAggregator_organizationAggregationSource,
+    putConfigurationAggregator_accountAggregationSources,
+    putConfigurationAggregator_tags,
     putConfigurationAggregator_configurationAggregatorName,
 
     -- * Destructuring the Response
@@ -74,12 +74,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutConfigurationAggregator' smart constructor.
 data PutConfigurationAggregator = PutConfigurationAggregator'
-  { -- | An array of tag object.
-    tags :: Prelude.Maybe [Tag],
+  { -- | An OrganizationAggregationSource object.
+    organizationAggregationSource :: Prelude.Maybe OrganizationAggregationSource,
     -- | A list of AccountAggregationSource object.
     accountAggregationSources :: Prelude.Maybe [AccountAggregationSource],
-    -- | An OrganizationAggregationSource object.
-    organizationAggregationSource :: Prelude.Maybe OrganizationAggregationSource,
+    -- | An array of tag object.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
   }
@@ -93,11 +93,11 @@ data PutConfigurationAggregator = PutConfigurationAggregator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putConfigurationAggregator_tags' - An array of tag object.
+-- 'organizationAggregationSource', 'putConfigurationAggregator_organizationAggregationSource' - An OrganizationAggregationSource object.
 --
 -- 'accountAggregationSources', 'putConfigurationAggregator_accountAggregationSources' - A list of AccountAggregationSource object.
 --
--- 'organizationAggregationSource', 'putConfigurationAggregator_organizationAggregationSource' - An OrganizationAggregationSource object.
+-- 'tags', 'putConfigurationAggregator_tags' - An array of tag object.
 --
 -- 'configurationAggregatorName', 'putConfigurationAggregator_configurationAggregatorName' - The name of the configuration aggregator.
 newPutConfigurationAggregator ::
@@ -107,24 +107,25 @@ newPutConfigurationAggregator ::
 newPutConfigurationAggregator
   pConfigurationAggregatorName_ =
     PutConfigurationAggregator'
-      { tags = Prelude.Nothing,
+      { organizationAggregationSource =
+          Prelude.Nothing,
         accountAggregationSources = Prelude.Nothing,
-        organizationAggregationSource = Prelude.Nothing,
+        tags = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
--- | An array of tag object.
-putConfigurationAggregator_tags :: Lens.Lens' PutConfigurationAggregator (Prelude.Maybe [Tag])
-putConfigurationAggregator_tags = Lens.lens (\PutConfigurationAggregator' {tags} -> tags) (\s@PutConfigurationAggregator' {} a -> s {tags = a} :: PutConfigurationAggregator) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of AccountAggregationSource object.
-putConfigurationAggregator_accountAggregationSources :: Lens.Lens' PutConfigurationAggregator (Prelude.Maybe [AccountAggregationSource])
-putConfigurationAggregator_accountAggregationSources = Lens.lens (\PutConfigurationAggregator' {accountAggregationSources} -> accountAggregationSources) (\s@PutConfigurationAggregator' {} a -> s {accountAggregationSources = a} :: PutConfigurationAggregator) Prelude.. Lens.mapping Lens._Coerce
-
 -- | An OrganizationAggregationSource object.
 putConfigurationAggregator_organizationAggregationSource :: Lens.Lens' PutConfigurationAggregator (Prelude.Maybe OrganizationAggregationSource)
 putConfigurationAggregator_organizationAggregationSource = Lens.lens (\PutConfigurationAggregator' {organizationAggregationSource} -> organizationAggregationSource) (\s@PutConfigurationAggregator' {} a -> s {organizationAggregationSource = a} :: PutConfigurationAggregator)
+
+-- | A list of AccountAggregationSource object.
+putConfigurationAggregator_accountAggregationSources :: Lens.Lens' PutConfigurationAggregator (Prelude.Maybe [AccountAggregationSource])
+putConfigurationAggregator_accountAggregationSources = Lens.lens (\PutConfigurationAggregator' {accountAggregationSources} -> accountAggregationSources) (\s@PutConfigurationAggregator' {} a -> s {accountAggregationSources = a} :: PutConfigurationAggregator) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of tag object.
+putConfigurationAggregator_tags :: Lens.Lens' PutConfigurationAggregator (Prelude.Maybe [Tag])
+putConfigurationAggregator_tags = Lens.lens (\PutConfigurationAggregator' {tags} -> tags) (\s@PutConfigurationAggregator' {} a -> s {tags = a} :: PutConfigurationAggregator) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the configuration aggregator.
 putConfigurationAggregator_configurationAggregatorName :: Lens.Lens' PutConfigurationAggregator Prelude.Text
@@ -166,11 +167,11 @@ instance Core.ToJSON PutConfigurationAggregator where
   toJSON PutConfigurationAggregator' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("OrganizationAggregationSource" Core..=)
+              Prelude.<$> organizationAggregationSource,
             ("AccountAggregationSources" Core..=)
               Prelude.<$> accountAggregationSources,
-            ("OrganizationAggregationSource" Core..=)
-              Prelude.<$> organizationAggregationSource,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "ConfigurationAggregatorName"
                   Core..= configurationAggregatorName

@@ -49,7 +49,7 @@ newQueryInfo =
 
 -- | Returns a @FieldInfo@ object.
 queryInfo_selectFields :: Lens.Lens' QueryInfo (Prelude.Maybe [FieldInfo])
-queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Prelude.. Lens.mapping Lens._Coerce
+queryInfo_selectFields = Lens.lens (\QueryInfo' {selectFields} -> selectFields) (\s@QueryInfo' {} a -> s {selectFields = a} :: QueryInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON QueryInfo where
   parseJSON =

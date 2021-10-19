@@ -79,11 +79,11 @@ newRemoveTags =
 
 -- | The Amazon Resource Name (ARN) of the resource.
 removeTags_resourceArns :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_resourceArns = Lens.lens (\RemoveTags' {resourceArns} -> resourceArns) (\s@RemoveTags' {} a -> s {resourceArns = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_resourceArns = Lens.lens (\RemoveTags' {resourceArns} -> resourceArns) (\s@RemoveTags' {} a -> s {resourceArns = a} :: RemoveTags) Prelude.. Lens.coerced
 
 -- | The tag keys for the tags to remove.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse

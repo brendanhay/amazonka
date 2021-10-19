@@ -69,7 +69,7 @@ newHostHeaderConditionConfig =
 -- If you specify multiple strings, the condition is satisfied if one of
 -- the strings matches the host name.
 hostHeaderConditionConfig_values :: Lens.Lens' HostHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
-hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {values} -> values) (\s@HostHeaderConditionConfig' {} a -> s {values = a} :: HostHeaderConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+hostHeaderConditionConfig_values = Lens.lens (\HostHeaderConditionConfig' {values} -> values) (\s@HostHeaderConditionConfig' {} a -> s {values = a} :: HostHeaderConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML HostHeaderConditionConfig where
   parseXML x =

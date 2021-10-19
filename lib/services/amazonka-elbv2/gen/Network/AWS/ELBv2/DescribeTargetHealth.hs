@@ -79,7 +79,7 @@ newDescribeTargetHealth pTargetGroupArn_ =
 
 -- | The targets.
 describeTargetHealth_targets :: Lens.Lens' DescribeTargetHealth (Prelude.Maybe [TargetDescription])
-describeTargetHealth_targets = Lens.lens (\DescribeTargetHealth' {targets} -> targets) (\s@DescribeTargetHealth' {} a -> s {targets = a} :: DescribeTargetHealth) Prelude.. Lens.mapping Lens._Coerce
+describeTargetHealth_targets = Lens.lens (\DescribeTargetHealth' {targets} -> targets) (\s@DescribeTargetHealth' {} a -> s {targets = a} :: DescribeTargetHealth) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the target group.
 describeTargetHealth_targetGroupArn :: Lens.Lens' DescribeTargetHealth Prelude.Text
@@ -158,7 +158,7 @@ newDescribeTargetHealthResponse pHttpStatus_ =
 
 -- | Information about the health of the targets.
 describeTargetHealthResponse_targetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Prelude.Maybe [TargetHealthDescription])
-describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTargetHealthResponse' {targetHealthDescriptions} -> targetHealthDescriptions) (\s@DescribeTargetHealthResponse' {} a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTargetHealthResponse' {targetHealthDescriptions} -> targetHealthDescriptions) (\s@DescribeTargetHealthResponse' {} a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTargetHealthResponse_httpStatus :: Lens.Lens' DescribeTargetHealthResponse Prelude.Int

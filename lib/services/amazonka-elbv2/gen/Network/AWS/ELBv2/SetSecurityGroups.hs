@@ -89,7 +89,7 @@ setSecurityGroups_loadBalancerArn = Lens.lens (\SetSecurityGroups' {loadBalancer
 
 -- | The IDs of the security groups.
 setSecurityGroups_securityGroups :: Lens.Lens' SetSecurityGroups [Prelude.Text]
-setSecurityGroups_securityGroups = Lens.lens (\SetSecurityGroups' {securityGroups} -> securityGroups) (\s@SetSecurityGroups' {} a -> s {securityGroups = a} :: SetSecurityGroups) Prelude.. Lens._Coerce
+setSecurityGroups_securityGroups = Lens.lens (\SetSecurityGroups' {securityGroups} -> securityGroups) (\s@SetSecurityGroups' {} a -> s {securityGroups = a} :: SetSecurityGroups) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetSecurityGroups where
   type
@@ -163,7 +163,7 @@ newSetSecurityGroupsResponse pHttpStatus_ =
 
 -- | The IDs of the security groups associated with the load balancer.
 setSecurityGroupsResponse_securityGroupIds :: Lens.Lens' SetSecurityGroupsResponse (Prelude.Maybe [Prelude.Text])
-setSecurityGroupsResponse_securityGroupIds = Lens.lens (\SetSecurityGroupsResponse' {securityGroupIds} -> securityGroupIds) (\s@SetSecurityGroupsResponse' {} a -> s {securityGroupIds = a} :: SetSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+setSecurityGroupsResponse_securityGroupIds = Lens.lens (\SetSecurityGroupsResponse' {securityGroupIds} -> securityGroupIds) (\s@SetSecurityGroupsResponse' {} a -> s {securityGroupIds = a} :: SetSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 setSecurityGroupsResponse_httpStatus :: Lens.Lens' SetSecurityGroupsResponse Prelude.Int

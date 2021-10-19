@@ -97,7 +97,7 @@ addListenerCertificates_listenerArn = Lens.lens (\AddListenerCertificates' {list
 -- | The certificate to add. You can specify one certificate per call. Set
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 addListenerCertificates_certificates :: Lens.Lens' AddListenerCertificates [Certificate]
-addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Prelude.. Lens._Coerce
+addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddListenerCertificates where
   type
@@ -170,7 +170,7 @@ newAddListenerCertificatesResponse pHttpStatus_ =
 
 -- | Information about the certificates in the certificate list.
 addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Prelude.Maybe [Certificate])
-addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
+addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Prelude.Int

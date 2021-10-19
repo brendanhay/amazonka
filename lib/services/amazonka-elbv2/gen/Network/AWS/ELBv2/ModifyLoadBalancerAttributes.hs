@@ -89,7 +89,7 @@ modifyLoadBalancerAttributes_loadBalancerArn = Lens.lens (\ModifyLoadBalancerAtt
 
 -- | The load balancer attributes.
 modifyLoadBalancerAttributes_attributes :: Lens.Lens' ModifyLoadBalancerAttributes [LoadBalancerAttribute]
-modifyLoadBalancerAttributes_attributes = Lens.lens (\ModifyLoadBalancerAttributes' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributes' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributes) Prelude.. Lens._Coerce
+modifyLoadBalancerAttributes_attributes = Lens.lens (\ModifyLoadBalancerAttributes' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributes' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyLoadBalancerAttributes where
   type
@@ -166,7 +166,7 @@ newModifyLoadBalancerAttributesResponse pHttpStatus_ =
 
 -- | Information about the load balancer attributes.
 modifyLoadBalancerAttributesResponse_attributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe [LoadBalancerAttribute])
-modifyLoadBalancerAttributesResponse_attributes = Lens.lens (\ModifyLoadBalancerAttributesResponse' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyLoadBalancerAttributesResponse_attributes = Lens.lens (\ModifyLoadBalancerAttributesResponse' {attributes} -> attributes) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {attributes = a} :: ModifyLoadBalancerAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Prelude.Int

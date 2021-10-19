@@ -80,7 +80,7 @@ newHttpRequestMethodConditionConfig =
 -- GET and HEAD requests in the same way, because the response to a HEAD
 -- request may be cached.
 httpRequestMethodConditionConfig_values :: Lens.Lens' HttpRequestMethodConditionConfig (Prelude.Maybe [Prelude.Text])
-httpRequestMethodConditionConfig_values = Lens.lens (\HttpRequestMethodConditionConfig' {values} -> values) (\s@HttpRequestMethodConditionConfig' {} a -> s {values = a} :: HttpRequestMethodConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+httpRequestMethodConditionConfig_values = Lens.lens (\HttpRequestMethodConditionConfig' {values} -> values) (\s@HttpRequestMethodConditionConfig' {} a -> s {values = a} :: HttpRequestMethodConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromXML

@@ -28,7 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSslPolicy' smart constructor.
 data SslPolicy = SslPolicy'
-  { -- | The ciphers.
+  { -- | The supported load balancers.
+    supportedLoadBalancerTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The ciphers.
     ciphers :: Prelude.Maybe [Cipher],
     -- | The name of the policy.
     name :: Prelude.Maybe Prelude.Text,
@@ -45,6 +47,8 @@ data SslPolicy = SslPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'supportedLoadBalancerTypes', 'sslPolicy_supportedLoadBalancerTypes' - The supported load balancers.
+--
 -- 'ciphers', 'sslPolicy_ciphers' - The ciphers.
 --
 -- 'name', 'sslPolicy_name' - The name of the policy.
@@ -54,14 +58,20 @@ newSslPolicy ::
   SslPolicy
 newSslPolicy =
   SslPolicy'
-    { ciphers = Prelude.Nothing,
+    { supportedLoadBalancerTypes =
+        Prelude.Nothing,
+      ciphers = Prelude.Nothing,
       name = Prelude.Nothing,
       sslProtocols = Prelude.Nothing
     }
 
+-- | The supported load balancers.
+sslPolicy_supportedLoadBalancerTypes :: Lens.Lens' SslPolicy (Prelude.Maybe [Prelude.Text])
+sslPolicy_supportedLoadBalancerTypes = Lens.lens (\SslPolicy' {supportedLoadBalancerTypes} -> supportedLoadBalancerTypes) (\s@SslPolicy' {} a -> s {supportedLoadBalancerTypes = a} :: SslPolicy) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ciphers.
 sslPolicy_ciphers :: Lens.Lens' SslPolicy (Prelude.Maybe [Cipher])
-sslPolicy_ciphers = Lens.lens (\SslPolicy' {ciphers} -> ciphers) (\s@SslPolicy' {} a -> s {ciphers = a} :: SslPolicy) Prelude.. Lens.mapping Lens._Coerce
+sslPolicy_ciphers = Lens.lens (\SslPolicy' {ciphers} -> ciphers) (\s@SslPolicy' {} a -> s {ciphers = a} :: SslPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the policy.
 sslPolicy_name :: Lens.Lens' SslPolicy (Prelude.Maybe Prelude.Text)
@@ -69,12 +79,16 @@ sslPolicy_name = Lens.lens (\SslPolicy' {name} -> name) (\s@SslPolicy' {} a -> s
 
 -- | The protocols.
 sslPolicy_sslProtocols :: Lens.Lens' SslPolicy (Prelude.Maybe [Prelude.Text])
-sslPolicy_sslProtocols = Lens.lens (\SslPolicy' {sslProtocols} -> sslProtocols) (\s@SslPolicy' {} a -> s {sslProtocols = a} :: SslPolicy) Prelude.. Lens.mapping Lens._Coerce
+sslPolicy_sslProtocols = Lens.lens (\SslPolicy' {sslProtocols} -> sslProtocols) (\s@SslPolicy' {} a -> s {sslProtocols = a} :: SslPolicy) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML SslPolicy where
   parseXML x =
     SslPolicy'
-      Prelude.<$> ( x Core..@? "Ciphers" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "SupportedLoadBalancerTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
+      Prelude.<*> ( x Core..@? "Ciphers" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "Name")

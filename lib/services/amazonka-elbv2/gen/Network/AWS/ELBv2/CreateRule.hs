@@ -110,7 +110,7 @@ newCreateRule pListenerArn_ pPriority_ =
 
 -- | The tags to assign to the rule.
 createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens._Coerce
+createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the listener.
 createRule_listenerArn :: Lens.Lens' CreateRule Prelude.Text
@@ -118,7 +118,7 @@ createRule_listenerArn = Lens.lens (\CreateRule' {listenerArn} -> listenerArn) (
 
 -- | The conditions.
 createRule_conditions :: Lens.Lens' CreateRule [RuleCondition]
-createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Prelude.. Lens._Coerce
+createRule_conditions = Lens.lens (\CreateRule' {conditions} -> conditions) (\s@CreateRule' {} a -> s {conditions = a} :: CreateRule) Prelude.. Lens.coerced
 
 -- | The rule priority. A listener can\'t have multiple rules with the same
 -- priority.
@@ -127,7 +127,7 @@ createRule_priority = Lens.lens (\CreateRule' {priority} -> priority) (\s@Create
 
 -- | The actions.
 createRule_actions :: Lens.Lens' CreateRule [Action]
-createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Prelude.. Lens._Coerce
+createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRule' {} a -> s {actions = a} :: CreateRule) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
@@ -202,7 +202,7 @@ newCreateRuleResponse pHttpStatus_ =
 
 -- | Information about the rule.
 createRuleResponse_rules :: Lens.Lens' CreateRuleResponse (Prelude.Maybe [Rule])
-createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Prelude.. Lens.mapping Lens._Coerce
+createRuleResponse_rules = Lens.lens (\CreateRuleResponse' {rules} -> rules) (\s@CreateRuleResponse' {} a -> s {rules = a} :: CreateRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createRuleResponse_httpStatus :: Lens.Lens' CreateRuleResponse Prelude.Int

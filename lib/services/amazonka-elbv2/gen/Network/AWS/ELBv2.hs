@@ -52,26 +52,98 @@ module Network.AWS.ELBv2
     -- ** InvalidConfigurationRequestException
     _InvalidConfigurationRequestException,
 
-    -- ** InvalidSecurityGroupException
-    _InvalidSecurityGroupException,
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
 
-    -- ** ALPNPolicyNotSupportedException
-    _ALPNPolicyNotSupportedException,
+    -- ** TooManyTargetsException
+    _TooManyTargetsException,
 
-    -- ** HealthUnavailableException
-    _HealthUnavailableException,
+    -- ** RuleNotFoundException
+    _RuleNotFoundException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
 
-    -- ** PriorityInUseException
-    _PriorityInUseException,
+    -- ** TooManyRulesException
+    _TooManyRulesException,
+
+    -- ** TooManyTargetGroupsException
+    _TooManyTargetGroupsException,
+
+    -- ** TooManyActionsException
+    _TooManyActionsException,
+
+    -- ** DuplicateLoadBalancerNameException
+    _DuplicateLoadBalancerNameException,
+
+    -- ** IncompatibleProtocolsException
+    _IncompatibleProtocolsException,
+
+    -- ** TooManyCertificatesException
+    _TooManyCertificatesException,
 
     -- ** DuplicateTagKeysException
     _DuplicateTagKeysException,
 
-    -- ** IncompatibleProtocolsException
-    _IncompatibleProtocolsException,
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** DuplicateTargetGroupNameException
+    _DuplicateTargetGroupNameException,
+
+    -- ** HealthUnavailableException
+    _HealthUnavailableException,
+
+    -- ** AllocationIdNotFoundException
+    _AllocationIdNotFoundException,
+
+    -- ** PriorityInUseException
+    _PriorityInUseException,
+
+    -- ** TooManyLoadBalancersException
+    _TooManyLoadBalancersException,
+
+    -- ** UnsupportedProtocolException
+    _UnsupportedProtocolException,
+
+    -- ** ALPNPolicyNotSupportedException
+    _ALPNPolicyNotSupportedException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** TargetGroupNotFoundException
+    _TargetGroupNotFoundException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
+
+    -- ** InvalidLoadBalancerActionException
+    _InvalidLoadBalancerActionException,
+
+    -- ** TooManyRegistrationsForTargetIdException
+    _TooManyRegistrationsForTargetIdException,
+
+    -- ** TooManyListenersException
+    _TooManyListenersException,
+
+    -- ** TargetGroupAssociationLimitException
+    _TargetGroupAssociationLimitException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** SSLPolicyNotFoundException
+    _SSLPolicyNotFoundException,
+
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
 
     -- ** AvailabilityZoneNotSupportedException
     _AvailabilityZoneNotSupportedException,
@@ -79,86 +151,14 @@ module Network.AWS.ELBv2
     -- ** TooManyUniqueTargetGroupsPerLoadBalancerException
     _TooManyUniqueTargetGroupsPerLoadBalancerException,
 
-    -- ** TargetGroupAssociationLimitException
-    _TargetGroupAssociationLimitException,
-
-    -- ** TooManyRulesException
-    _TooManyRulesException,
-
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** TooManyActionsException
-    _TooManyActionsException,
-
-    -- ** TooManyRegistrationsForTargetIdException
-    _TooManyRegistrationsForTargetIdException,
-
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
-
-    -- ** InvalidTargetException
-    _InvalidTargetException,
-
-    -- ** SubnetNotFoundException
-    _SubnetNotFoundException,
-
-    -- ** UnsupportedProtocolException
-    _UnsupportedProtocolException,
-
-    -- ** TooManyLoadBalancersException
-    _TooManyLoadBalancersException,
-
-    -- ** AllocationIdNotFoundException
-    _AllocationIdNotFoundException,
-
-    -- ** DuplicateTargetGroupNameException
-    _DuplicateTargetGroupNameException,
-
-    -- ** CertificateNotFoundException
-    _CertificateNotFoundException,
+    -- ** LoadBalancerNotFoundException
+    _LoadBalancerNotFoundException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** LoadBalancerNotFoundException
-    _LoadBalancerNotFoundException,
-
-    -- ** TooManyCertificatesException
-    _TooManyCertificatesException,
-
-    -- ** DuplicateListenerException
-    _DuplicateListenerException,
-
-    -- ** InvalidSchemeException
-    _InvalidSchemeException,
-
-    -- ** SSLPolicyNotFoundException
-    _SSLPolicyNotFoundException,
-
-    -- ** DuplicateLoadBalancerNameException
-    _DuplicateLoadBalancerNameException,
-
-    -- ** TooManyTargetGroupsException
-    _TooManyTargetGroupsException,
-
-    -- ** TooManyListenersException
-    _TooManyListenersException,
-
-    -- ** InvalidSubnetException
-    _InvalidSubnetException,
-
-    -- ** InvalidLoadBalancerActionException
-    _InvalidLoadBalancerActionException,
-
-    -- ** RuleNotFoundException
-    _RuleNotFoundException,
-
-    -- ** TargetGroupNotFoundException
-    _TargetGroupNotFoundException,
-
-    -- ** TooManyTargetsException
-    _TooManyTargetsException,
+    -- ** CertificateNotFoundException
+    _CertificateNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -169,11 +169,11 @@ module Network.AWS.ELBv2
     -- ** TargetDeregistered
     newTargetDeregistered,
 
-    -- ** TargetInService
-    newTargetInService,
-
     -- ** LoadBalancerAvailable
     newLoadBalancerAvailable,
+
+    -- ** TargetInService
+    newTargetInService,
 
     -- ** LoadBalancerExists
     newLoadBalancerExists,
@@ -181,29 +181,11 @@ module Network.AWS.ELBv2
     -- * Operations
     -- $operations
 
-    -- ** DeleteRule
-    DeleteRule (DeleteRule'),
-    newDeleteRule,
-    DeleteRuleResponse (DeleteRuleResponse'),
-    newDeleteRuleResponse,
-
-    -- ** DescribeSSLPolicies (Paginated)
-    DescribeSSLPolicies (DescribeSSLPolicies'),
-    newDescribeSSLPolicies,
-    DescribeSSLPoliciesResponse (DescribeSSLPoliciesResponse'),
-    newDescribeSSLPoliciesResponse,
-
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
-
-    -- ** DescribeTargetGroupAttributes
-    DescribeTargetGroupAttributes (DescribeTargetGroupAttributes'),
-    newDescribeTargetGroupAttributes,
-    DescribeTargetGroupAttributesResponse (DescribeTargetGroupAttributesResponse'),
-    newDescribeTargetGroupAttributesResponse,
+    -- ** DescribeLoadBalancers (Paginated)
+    DescribeLoadBalancers (DescribeLoadBalancers'),
+    newDescribeLoadBalancers,
+    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
+    newDescribeLoadBalancersResponse,
 
     -- ** DescribeTags
     DescribeTags (DescribeTags'),
@@ -211,71 +193,29 @@ module Network.AWS.ELBv2
     DescribeTagsResponse (DescribeTagsResponse'),
     newDescribeTagsResponse,
 
-    -- ** AddListenerCertificates
-    AddListenerCertificates (AddListenerCertificates'),
-    newAddListenerCertificates,
-    AddListenerCertificatesResponse (AddListenerCertificatesResponse'),
-    newAddListenerCertificatesResponse,
+    -- ** DeleteRule
+    DeleteRule (DeleteRule'),
+    newDeleteRule,
+    DeleteRuleResponse (DeleteRuleResponse'),
+    newDeleteRuleResponse,
 
-    -- ** RemoveListenerCertificates
-    RemoveListenerCertificates (RemoveListenerCertificates'),
-    newRemoveListenerCertificates,
-    RemoveListenerCertificatesResponse (RemoveListenerCertificatesResponse'),
-    newRemoveListenerCertificatesResponse,
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
-    -- ** ModifyTargetGroup
-    ModifyTargetGroup (ModifyTargetGroup'),
-    newModifyTargetGroup,
-    ModifyTargetGroupResponse (ModifyTargetGroupResponse'),
-    newModifyTargetGroupResponse,
+    -- ** DeleteTargetGroup
+    DeleteTargetGroup (DeleteTargetGroup'),
+    newDeleteTargetGroup,
+    DeleteTargetGroupResponse (DeleteTargetGroupResponse'),
+    newDeleteTargetGroupResponse,
 
-    -- ** CreateLoadBalancer
-    CreateLoadBalancer (CreateLoadBalancer'),
-    newCreateLoadBalancer,
-    CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
-    newCreateLoadBalancerResponse,
-
-    -- ** ModifyRule
-    ModifyRule (ModifyRule'),
-    newModifyRule,
-    ModifyRuleResponse (ModifyRuleResponse'),
-    newModifyRuleResponse,
-
-    -- ** DeleteLoadBalancer
-    DeleteLoadBalancer (DeleteLoadBalancer'),
-    newDeleteLoadBalancer,
-    DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
-    newDeleteLoadBalancerResponse,
-
-    -- ** DescribeListeners (Paginated)
-    DescribeListeners (DescribeListeners'),
-    newDescribeListeners,
-    DescribeListenersResponse (DescribeListenersResponse'),
-    newDescribeListenersResponse,
-
-    -- ** DescribeTargetGroups (Paginated)
-    DescribeTargetGroups (DescribeTargetGroups'),
-    newDescribeTargetGroups,
-    DescribeTargetGroupsResponse (DescribeTargetGroupsResponse'),
-    newDescribeTargetGroupsResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** SetIpAddressType
-    SetIpAddressType (SetIpAddressType'),
-    newSetIpAddressType,
-    SetIpAddressTypeResponse (SetIpAddressTypeResponse'),
-    newSetIpAddressTypeResponse,
-
-    -- ** ModifyLoadBalancerAttributes
-    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
-    newModifyLoadBalancerAttributes,
-    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
-    newModifyLoadBalancerAttributesResponse,
+    -- ** SetSubnets
+    SetSubnets (SetSubnets'),
+    newSetSubnets,
+    SetSubnetsResponse (SetSubnetsResponse'),
+    newSetSubnetsResponse,
 
     -- ** CreateRule
     CreateRule (CreateRule'),
@@ -283,17 +223,83 @@ module Network.AWS.ELBv2
     CreateRuleResponse (CreateRuleResponse'),
     newCreateRuleResponse,
 
-    -- ** CreateTargetGroup
-    CreateTargetGroup (CreateTargetGroup'),
-    newCreateTargetGroup,
-    CreateTargetGroupResponse (CreateTargetGroupResponse'),
-    newCreateTargetGroupResponse,
+    -- ** DescribeListenerCertificates (Paginated)
+    DescribeListenerCertificates (DescribeListenerCertificates'),
+    newDescribeListenerCertificates,
+    DescribeListenerCertificatesResponse (DescribeListenerCertificatesResponse'),
+    newDescribeListenerCertificatesResponse,
 
-    -- ** SetSubnets
-    SetSubnets (SetSubnets'),
-    newSetSubnets,
-    SetSubnetsResponse (SetSubnetsResponse'),
-    newSetSubnetsResponse,
+    -- ** SetSecurityGroups
+    SetSecurityGroups (SetSecurityGroups'),
+    newSetSecurityGroups,
+    SetSecurityGroupsResponse (SetSecurityGroupsResponse'),
+    newSetSecurityGroupsResponse,
+
+    -- ** SetRulePriorities
+    SetRulePriorities (SetRulePriorities'),
+    newSetRulePriorities,
+    SetRulePrioritiesResponse (SetRulePrioritiesResponse'),
+    newSetRulePrioritiesResponse,
+
+    -- ** DescribeTargetGroups (Paginated)
+    DescribeTargetGroups (DescribeTargetGroups'),
+    newDescribeTargetGroups,
+    DescribeTargetGroupsResponse (DescribeTargetGroupsResponse'),
+    newDescribeTargetGroupsResponse,
+
+    -- ** DescribeRules (Paginated)
+    DescribeRules (DescribeRules'),
+    newDescribeRules,
+    DescribeRulesResponse (DescribeRulesResponse'),
+    newDescribeRulesResponse,
+
+    -- ** DeleteLoadBalancer
+    DeleteLoadBalancer (DeleteLoadBalancer'),
+    newDeleteLoadBalancer,
+    DeleteLoadBalancerResponse (DeleteLoadBalancerResponse'),
+    newDeleteLoadBalancerResponse,
+
+    -- ** RegisterTargets
+    RegisterTargets (RegisterTargets'),
+    newRegisterTargets,
+    RegisterTargetsResponse (RegisterTargetsResponse'),
+    newRegisterTargetsResponse,
+
+    -- ** ModifyListener
+    ModifyListener (ModifyListener'),
+    newModifyListener,
+    ModifyListenerResponse (ModifyListenerResponse'),
+    newModifyListenerResponse,
+
+    -- ** ModifyTargetGroup
+    ModifyTargetGroup (ModifyTargetGroup'),
+    newModifyTargetGroup,
+    ModifyTargetGroupResponse (ModifyTargetGroupResponse'),
+    newModifyTargetGroupResponse,
+
+    -- ** ModifyTargetGroupAttributes
+    ModifyTargetGroupAttributes (ModifyTargetGroupAttributes'),
+    newModifyTargetGroupAttributes,
+    ModifyTargetGroupAttributesResponse (ModifyTargetGroupAttributesResponse'),
+    newModifyTargetGroupAttributesResponse,
+
+    -- ** DescribeTargetGroupAttributes
+    DescribeTargetGroupAttributes (DescribeTargetGroupAttributes'),
+    newDescribeTargetGroupAttributes,
+    DescribeTargetGroupAttributesResponse (DescribeTargetGroupAttributesResponse'),
+    newDescribeTargetGroupAttributesResponse,
+
+    -- ** DeleteListener
+    DeleteListener (DeleteListener'),
+    newDeleteListener,
+    DeleteListenerResponse (DeleteListenerResponse'),
+    newDeleteListenerResponse,
+
+    -- ** DescribeSSLPolicies (Paginated)
+    DescribeSSLPolicies (DescribeSSLPolicies'),
+    newDescribeSSLPolicies,
+    DescribeSSLPoliciesResponse (DescribeSSLPoliciesResponse'),
+    newDescribeSSLPoliciesResponse,
 
     -- ** DescribeAccountLimits (Paginated)
     DescribeAccountLimits (DescribeAccountLimits'),
@@ -307,47 +313,35 @@ module Network.AWS.ELBv2
     DeregisterTargetsResponse (DeregisterTargetsResponse'),
     newDeregisterTargetsResponse,
 
-    -- ** DeleteTargetGroup
-    DeleteTargetGroup (DeleteTargetGroup'),
-    newDeleteTargetGroup,
-    DeleteTargetGroupResponse (DeleteTargetGroupResponse'),
-    newDeleteTargetGroupResponse,
+    -- ** CreateListener
+    CreateListener (CreateListener'),
+    newCreateListener,
+    CreateListenerResponse (CreateListenerResponse'),
+    newCreateListenerResponse,
 
-    -- ** DeleteListener
-    DeleteListener (DeleteListener'),
-    newDeleteListener,
-    DeleteListenerResponse (DeleteListenerResponse'),
-    newDeleteListenerResponse,
+    -- ** CreateTargetGroup
+    CreateTargetGroup (CreateTargetGroup'),
+    newCreateTargetGroup,
+    CreateTargetGroupResponse (CreateTargetGroupResponse'),
+    newCreateTargetGroupResponse,
 
-    -- ** DescribeLoadBalancers (Paginated)
-    DescribeLoadBalancers (DescribeLoadBalancers'),
-    newDescribeLoadBalancers,
-    DescribeLoadBalancersResponse (DescribeLoadBalancersResponse'),
-    newDescribeLoadBalancersResponse,
+    -- ** ModifyLoadBalancerAttributes
+    ModifyLoadBalancerAttributes (ModifyLoadBalancerAttributes'),
+    newModifyLoadBalancerAttributes,
+    ModifyLoadBalancerAttributesResponse (ModifyLoadBalancerAttributesResponse'),
+    newModifyLoadBalancerAttributesResponse,
 
-    -- ** ModifyTargetGroupAttributes
-    ModifyTargetGroupAttributes (ModifyTargetGroupAttributes'),
-    newModifyTargetGroupAttributes,
-    ModifyTargetGroupAttributesResponse (ModifyTargetGroupAttributesResponse'),
-    newModifyTargetGroupAttributesResponse,
+    -- ** SetIpAddressType
+    SetIpAddressType (SetIpAddressType'),
+    newSetIpAddressType,
+    SetIpAddressTypeResponse (SetIpAddressTypeResponse'),
+    newSetIpAddressTypeResponse,
 
-    -- ** ModifyListener
-    ModifyListener (ModifyListener'),
-    newModifyListener,
-    ModifyListenerResponse (ModifyListenerResponse'),
-    newModifyListenerResponse,
-
-    -- ** RegisterTargets
-    RegisterTargets (RegisterTargets'),
-    newRegisterTargets,
-    RegisterTargetsResponse (RegisterTargetsResponse'),
-    newRegisterTargetsResponse,
-
-    -- ** SetRulePriorities
-    SetRulePriorities (SetRulePriorities'),
-    newSetRulePriorities,
-    SetRulePrioritiesResponse (SetRulePrioritiesResponse'),
-    newSetRulePrioritiesResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
     -- ** DescribeLoadBalancerAttributes
     DescribeLoadBalancerAttributes (DescribeLoadBalancerAttributes'),
@@ -355,35 +349,41 @@ module Network.AWS.ELBv2
     DescribeLoadBalancerAttributesResponse (DescribeLoadBalancerAttributesResponse'),
     newDescribeLoadBalancerAttributesResponse,
 
+    -- ** DescribeListeners (Paginated)
+    DescribeListeners (DescribeListeners'),
+    newDescribeListeners,
+    DescribeListenersResponse (DescribeListenersResponse'),
+    newDescribeListenersResponse,
+
     -- ** DescribeTargetHealth
     DescribeTargetHealth (DescribeTargetHealth'),
     newDescribeTargetHealth,
     DescribeTargetHealthResponse (DescribeTargetHealthResponse'),
     newDescribeTargetHealthResponse,
 
-    -- ** DescribeRules (Paginated)
-    DescribeRules (DescribeRules'),
-    newDescribeRules,
-    DescribeRulesResponse (DescribeRulesResponse'),
-    newDescribeRulesResponse,
+    -- ** CreateLoadBalancer
+    CreateLoadBalancer (CreateLoadBalancer'),
+    newCreateLoadBalancer,
+    CreateLoadBalancerResponse (CreateLoadBalancerResponse'),
+    newCreateLoadBalancerResponse,
 
-    -- ** SetSecurityGroups
-    SetSecurityGroups (SetSecurityGroups'),
-    newSetSecurityGroups,
-    SetSecurityGroupsResponse (SetSecurityGroupsResponse'),
-    newSetSecurityGroupsResponse,
+    -- ** RemoveListenerCertificates
+    RemoveListenerCertificates (RemoveListenerCertificates'),
+    newRemoveListenerCertificates,
+    RemoveListenerCertificatesResponse (RemoveListenerCertificatesResponse'),
+    newRemoveListenerCertificatesResponse,
 
-    -- ** DescribeListenerCertificates (Paginated)
-    DescribeListenerCertificates (DescribeListenerCertificates'),
-    newDescribeListenerCertificates,
-    DescribeListenerCertificatesResponse (DescribeListenerCertificatesResponse'),
-    newDescribeListenerCertificatesResponse,
+    -- ** ModifyRule
+    ModifyRule (ModifyRule'),
+    newModifyRule,
+    ModifyRuleResponse (ModifyRuleResponse'),
+    newModifyRuleResponse,
 
-    -- ** CreateListener
-    CreateListener (CreateListener'),
-    newCreateListener,
-    CreateListenerResponse (CreateListenerResponse'),
-    newCreateListenerResponse,
+    -- ** AddListenerCertificates
+    AddListenerCertificates (AddListenerCertificates'),
+    newAddListenerCertificates,
+    AddListenerCertificatesResponse (AddListenerCertificatesResponse'),
+    newAddListenerCertificatesResponse,
 
     -- * Types
 
@@ -413,6 +413,9 @@ module Network.AWS.ELBv2
 
     -- ** RedirectActionStatusCodeEnum
     RedirectActionStatusCodeEnum (..),
+
+    -- ** TargetGroupIpAddressTypeEnum
+    TargetGroupIpAddressTypeEnum (..),
 
     -- ** TargetHealthReasonEnum
     TargetHealthReasonEnum (..),

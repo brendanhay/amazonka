@@ -60,7 +60,7 @@ tagDescription_resourceArn = Lens.lens (\TagDescription' {resourceArn} -> resour
 
 -- | Information about the tags.
 tagDescription_tags :: Lens.Lens' TagDescription (Prelude.Maybe (Prelude.NonEmpty Tag))
-tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Lens._Coerce
+tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML TagDescription where
   parseXML x =

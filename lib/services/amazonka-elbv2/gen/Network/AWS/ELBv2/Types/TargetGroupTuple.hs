@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetGroupTuple' smart constructor.
 data TargetGroupTuple = TargetGroupTuple'
-  { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The weight. The range is 0 to 999.
-    weight :: Prelude.Maybe Prelude.Int
+  { -- | The weight. The range is 0 to 999.
+    weight :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data TargetGroupTuple = TargetGroupTuple'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetGroupArn', 'targetGroupTuple_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
---
 -- 'weight', 'targetGroupTuple_weight' - The weight. The range is 0 to 999.
+--
+-- 'targetGroupArn', 'targetGroupTuple_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newTargetGroupTuple ::
   TargetGroupTuple
 newTargetGroupTuple =
   TargetGroupTuple'
-    { targetGroupArn = Prelude.Nothing,
-      weight = Prelude.Nothing
+    { weight = Prelude.Nothing,
+      targetGroupArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the target group.
-targetGroupTuple_targetGroupArn :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Text)
-targetGroupTuple_targetGroupArn = Lens.lens (\TargetGroupTuple' {targetGroupArn} -> targetGroupArn) (\s@TargetGroupTuple' {} a -> s {targetGroupArn = a} :: TargetGroupTuple)
 
 -- | The weight. The range is 0 to 999.
 targetGroupTuple_weight :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Int)
 targetGroupTuple_weight = Lens.lens (\TargetGroupTuple' {weight} -> weight) (\s@TargetGroupTuple' {} a -> s {weight = a} :: TargetGroupTuple)
 
+-- | The Amazon Resource Name (ARN) of the target group.
+targetGroupTuple_targetGroupArn :: Lens.Lens' TargetGroupTuple (Prelude.Maybe Prelude.Text)
+targetGroupTuple_targetGroupArn = Lens.lens (\TargetGroupTuple' {targetGroupArn} -> targetGroupArn) (\s@TargetGroupTuple' {} a -> s {targetGroupArn = a} :: TargetGroupTuple)
+
 instance Core.FromXML TargetGroupTuple where
   parseXML x =
     TargetGroupTuple'
-      Prelude.<$> (x Core..@? "TargetGroupArn")
-      Prelude.<*> (x Core..@? "Weight")
+      Prelude.<$> (x Core..@? "Weight")
+      Prelude.<*> (x Core..@? "TargetGroupArn")
 
 instance Prelude.Hashable TargetGroupTuple
 
@@ -75,6 +75,6 @@ instance Prelude.NFData TargetGroupTuple
 instance Core.ToQuery TargetGroupTuple where
   toQuery TargetGroupTuple' {..} =
     Prelude.mconcat
-      [ "TargetGroupArn" Core.=: targetGroupArn,
-        "Weight" Core.=: weight
+      [ "Weight" Core.=: weight,
+        "TargetGroupArn" Core.=: targetGroupArn
       ]

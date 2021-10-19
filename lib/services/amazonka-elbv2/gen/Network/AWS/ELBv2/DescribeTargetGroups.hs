@@ -33,11 +33,11 @@ module Network.AWS.ELBv2.DescribeTargetGroups
     newDescribeTargetGroups,
 
     -- * Request Lenses
-    describeTargetGroups_loadBalancerArn,
-    describeTargetGroups_names,
-    describeTargetGroups_pageSize,
     describeTargetGroups_targetGroupArns,
+    describeTargetGroups_names,
+    describeTargetGroups_loadBalancerArn,
     describeTargetGroups_marker,
+    describeTargetGroups_pageSize,
 
     -- * Destructuring the Response
     DescribeTargetGroupsResponse (..),
@@ -59,17 +59,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTargetGroups' smart constructor.
 data DescribeTargetGroups = DescribeTargetGroups'
-  { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Names (ARN) of the target groups.
+    targetGroupArns :: Prelude.Maybe [Prelude.Text],
     -- | The names of the target groups.
     names :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Names (ARN) of the target groups.
-    targetGroupArns :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Prelude.Maybe Prelude.Text,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,48 +81,48 @@ data DescribeTargetGroups = DescribeTargetGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancerArn', 'describeTargetGroups_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
+-- 'targetGroupArns', 'describeTargetGroups_targetGroupArns' - The Amazon Resource Names (ARN) of the target groups.
 --
 -- 'names', 'describeTargetGroups_names' - The names of the target groups.
 --
--- 'pageSize', 'describeTargetGroups_pageSize' - The maximum number of results to return with this call.
---
--- 'targetGroupArns', 'describeTargetGroups_targetGroupArns' - The Amazon Resource Names (ARN) of the target groups.
+-- 'loadBalancerArn', 'describeTargetGroups_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 --
 -- 'marker', 'describeTargetGroups_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'pageSize', 'describeTargetGroups_pageSize' - The maximum number of results to return with this call.
 newDescribeTargetGroups ::
   DescribeTargetGroups
 newDescribeTargetGroups =
   DescribeTargetGroups'
-    { loadBalancerArn =
+    { targetGroupArns =
         Prelude.Nothing,
       names = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      targetGroupArns = Prelude.Nothing,
-      marker = Prelude.Nothing
+      loadBalancerArn = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
+
+-- | The Amazon Resource Names (ARN) of the target groups.
+describeTargetGroups_targetGroupArns :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe [Prelude.Text])
+describeTargetGroups_targetGroupArns = Lens.lens (\DescribeTargetGroups' {targetGroupArns} -> targetGroupArns) (\s@DescribeTargetGroups' {} a -> s {targetGroupArns = a} :: DescribeTargetGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the target groups.
+describeTargetGroups_names :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe [Prelude.Text])
+describeTargetGroups_names = Lens.lens (\DescribeTargetGroups' {names} -> names) (\s@DescribeTargetGroups' {} a -> s {names = a} :: DescribeTargetGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 describeTargetGroups_loadBalancerArn :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe Prelude.Text)
 describeTargetGroups_loadBalancerArn = Lens.lens (\DescribeTargetGroups' {loadBalancerArn} -> loadBalancerArn) (\s@DescribeTargetGroups' {} a -> s {loadBalancerArn = a} :: DescribeTargetGroups)
 
--- | The names of the target groups.
-describeTargetGroups_names :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe [Prelude.Text])
-describeTargetGroups_names = Lens.lens (\DescribeTargetGroups' {names} -> names) (\s@DescribeTargetGroups' {} a -> s {names = a} :: DescribeTargetGroups) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return with this call.
-describeTargetGroups_pageSize :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe Prelude.Natural)
-describeTargetGroups_pageSize = Lens.lens (\DescribeTargetGroups' {pageSize} -> pageSize) (\s@DescribeTargetGroups' {} a -> s {pageSize = a} :: DescribeTargetGroups)
-
--- | The Amazon Resource Names (ARN) of the target groups.
-describeTargetGroups_targetGroupArns :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe [Prelude.Text])
-describeTargetGroups_targetGroupArns = Lens.lens (\DescribeTargetGroups' {targetGroupArns} -> targetGroupArns) (\s@DescribeTargetGroups' {} a -> s {targetGroupArns = a} :: DescribeTargetGroups) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeTargetGroups_marker :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe Prelude.Text)
 describeTargetGroups_marker = Lens.lens (\DescribeTargetGroups' {marker} -> marker) (\s@DescribeTargetGroups' {} a -> s {marker = a} :: DescribeTargetGroups)
+
+-- | The maximum number of results to return with this call.
+describeTargetGroups_pageSize :: Lens.Lens' DescribeTargetGroups (Prelude.Maybe Prelude.Natural)
+describeTargetGroups_pageSize = Lens.lens (\DescribeTargetGroups' {pageSize} -> pageSize) (\s@DescribeTargetGroups' {} a -> s {pageSize = a} :: DescribeTargetGroups)
 
 instance Core.AWSPager DescribeTargetGroups where
   page rq rs
@@ -180,17 +180,17 @@ instance Core.ToQuery DescribeTargetGroups where
           Core.=: ("DescribeTargetGroups" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Core.=: loadBalancerArn,
-        "Names"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> names),
-        "PageSize" Core.=: pageSize,
         "TargetGroupArns"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> targetGroupArns
             ),
-        "Marker" Core.=: marker
+        "Names"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> names),
+        "LoadBalancerArn" Core.=: loadBalancerArn,
+        "Marker" Core.=: marker,
+        "PageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeTargetGroupsResponse' smart constructor.
@@ -238,7 +238,7 @@ describeTargetGroupsResponse_nextMarker = Lens.lens (\DescribeTargetGroupsRespon
 
 -- | Information about the target groups.
 describeTargetGroupsResponse_targetGroups :: Lens.Lens' DescribeTargetGroupsResponse (Prelude.Maybe [TargetGroup])
-describeTargetGroupsResponse_targetGroups = Lens.lens (\DescribeTargetGroupsResponse' {targetGroups} -> targetGroups) (\s@DescribeTargetGroupsResponse' {} a -> s {targetGroups = a} :: DescribeTargetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTargetGroupsResponse_targetGroups = Lens.lens (\DescribeTargetGroupsResponse' {targetGroups} -> targetGroups) (\s@DescribeTargetGroupsResponse' {} a -> s {targetGroups = a} :: DescribeTargetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTargetGroupsResponse_httpStatus :: Lens.Lens' DescribeTargetGroupsResponse Prelude.Int

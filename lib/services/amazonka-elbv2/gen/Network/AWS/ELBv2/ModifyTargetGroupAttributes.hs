@@ -84,7 +84,7 @@ modifyTargetGroupAttributes_targetGroupArn = Lens.lens (\ModifyTargetGroupAttrib
 
 -- | The attributes.
 modifyTargetGroupAttributes_attributes :: Lens.Lens' ModifyTargetGroupAttributes [TargetGroupAttribute]
-modifyTargetGroupAttributes_attributes = Lens.lens (\ModifyTargetGroupAttributes' {attributes} -> attributes) (\s@ModifyTargetGroupAttributes' {} a -> s {attributes = a} :: ModifyTargetGroupAttributes) Prelude.. Lens._Coerce
+modifyTargetGroupAttributes_attributes = Lens.lens (\ModifyTargetGroupAttributes' {attributes} -> attributes) (\s@ModifyTargetGroupAttributes' {} a -> s {attributes = a} :: ModifyTargetGroupAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyTargetGroupAttributes where
   type
@@ -159,7 +159,7 @@ newModifyTargetGroupAttributesResponse pHttpStatus_ =
 
 -- | Information about the attributes.
 modifyTargetGroupAttributesResponse_attributes :: Lens.Lens' ModifyTargetGroupAttributesResponse (Prelude.Maybe [TargetGroupAttribute])
-modifyTargetGroupAttributesResponse_attributes = Lens.lens (\ModifyTargetGroupAttributesResponse' {attributes} -> attributes) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyTargetGroupAttributesResponse_attributes = Lens.lens (\ModifyTargetGroupAttributesResponse' {attributes} -> attributes) (\s@ModifyTargetGroupAttributesResponse' {} a -> s {attributes = a} :: ModifyTargetGroupAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyTargetGroupAttributesResponse_httpStatus :: Lens.Lens' ModifyTargetGroupAttributesResponse Prelude.Int

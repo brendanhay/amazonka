@@ -79,33 +79,6 @@ newTargetDeregistered =
         ]
     }
 
--- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newTargetInService :: Core.Wait DescribeTargetHealth
-newTargetInService =
-  Core.Wait
-    { Core._waitName = "TargetInService",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "healthy"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeTargetHealthResponse_targetHealthDescriptions
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. targetHealthDescription_targetHealth
-                Prelude.. Lens._Just
-                Prelude.. targetHealth_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError "InvalidInstance" Core.AcceptRetry
-        ]
-    }
-
 -- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newLoadBalancerAvailable :: Core.Wait DescribeLoadBalancers
 newLoadBalancerAvailable =
@@ -147,6 +120,33 @@ newLoadBalancerAvailable =
           Core.matchError
             "LoadBalancerNotFound"
             Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newTargetInService :: Core.Wait DescribeTargetHealth
+newTargetInService =
+  Core.Wait
+    { Core._waitName = "TargetInService",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "healthy"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeTargetHealthResponse_targetHealthDescriptions
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. targetHealthDescription_targetHealth
+                Prelude.. Lens._Just
+                Prelude.. targetHealth_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError "InvalidInstance" Core.AcceptRetry
         ]
     }
 

@@ -78,16 +78,16 @@ newAddTags ::
 newAddTags pTags_ =
   AddTags'
     { resourceArns = Prelude.mempty,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
 addTags_resourceArns :: Lens.Lens' AddTags [Prelude.Text]
-addTags_resourceArns = Lens.lens (\AddTags' {resourceArns} -> resourceArns) (\s@AddTags' {} a -> s {resourceArns = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_resourceArns = Lens.lens (\AddTags' {resourceArns} -> resourceArns) (\s@AddTags' {} a -> s {resourceArns = a} :: AddTags) Prelude.. Lens.coerced
 
 -- | The tags.
 addTags_tags :: Lens.Lens' AddTags (Prelude.NonEmpty Tag)
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse

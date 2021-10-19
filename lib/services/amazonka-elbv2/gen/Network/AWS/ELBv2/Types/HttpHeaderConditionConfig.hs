@@ -99,7 +99,7 @@ newHttpHeaderConditionConfig =
 -- the strings matches the value of the HTTP header. To require that all of
 -- the strings are a match, create one condition per string.
 httpHeaderConditionConfig_values :: Lens.Lens' HttpHeaderConditionConfig (Prelude.Maybe [Prelude.Text])
-httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {values} -> values) (\s@HttpHeaderConditionConfig' {} a -> s {values = a} :: HttpHeaderConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+httpHeaderConditionConfig_values = Lens.lens (\HttpHeaderConditionConfig' {values} -> values) (\s@HttpHeaderConditionConfig' {} a -> s {values = a} :: HttpHeaderConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the HTTP header field. The maximum size is 40 characters.
 -- The header name is case insensitive. The allowed characters are

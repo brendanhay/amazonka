@@ -90,11 +90,11 @@ newModifyRule pRuleArn_ =
 
 -- | The actions.
 modifyRule_actions :: Lens.Lens' ModifyRule (Prelude.Maybe [Action])
-modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Prelude.. Lens.mapping Lens._Coerce
+modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The conditions.
 modifyRule_conditions :: Lens.Lens' ModifyRule (Prelude.Maybe [RuleCondition])
-modifyRule_conditions = Lens.lens (\ModifyRule' {conditions} -> conditions) (\s@ModifyRule' {} a -> s {conditions = a} :: ModifyRule) Prelude.. Lens.mapping Lens._Coerce
+modifyRule_conditions = Lens.lens (\ModifyRule' {conditions} -> conditions) (\s@ModifyRule' {} a -> s {conditions = a} :: ModifyRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the rule.
 modifyRule_ruleArn :: Lens.Lens' ModifyRule Prelude.Text
@@ -172,7 +172,7 @@ newModifyRuleResponse pHttpStatus_ =
 
 -- | Information about the modified rule.
 modifyRuleResponse_rules :: Lens.Lens' ModifyRuleResponse (Prelude.Maybe [Rule])
-modifyRuleResponse_rules = Lens.lens (\ModifyRuleResponse' {rules} -> rules) (\s@ModifyRuleResponse' {} a -> s {rules = a} :: ModifyRuleResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyRuleResponse_rules = Lens.lens (\ModifyRuleResponse' {rules} -> rules) (\s@ModifyRuleResponse' {} a -> s {rules = a} :: ModifyRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyRuleResponse_httpStatus :: Lens.Lens' ModifyRuleResponse Prelude.Int

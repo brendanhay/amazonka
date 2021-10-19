@@ -29,21 +29,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
-  { -- | Indicates whether this is the default rule.
-    isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The priority.
+    priority :: Prelude.Maybe Prelude.Text,
     -- | The actions. Each rule must include exactly one of the following types
     -- of actions: @forward@, @redirect@, or @fixed-response@, and it must be
     -- the last action to be performed.
     actions :: Prelude.Maybe [Action],
-    -- | The priority.
-    priority :: Prelude.Maybe Prelude.Text,
     -- | The conditions. Each rule can include zero or one of the following
     -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
     -- @source-ip@, and zero or more of the following conditions: @http-header@
     -- and @query-string@.
-    conditions :: Prelude.Maybe [RuleCondition]
+    conditions :: Prelude.Maybe [RuleCondition],
+    -- | The Amazon Resource Name (ARN) of the rule.
+    ruleArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether this is the default rule.
+    isDefault :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,68 +55,68 @@ data Rule = Rule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isDefault', 'rule_isDefault' - Indicates whether this is the default rule.
---
--- 'ruleArn', 'rule_ruleArn' - The Amazon Resource Name (ARN) of the rule.
+-- 'priority', 'rule_priority' - The priority.
 --
 -- 'actions', 'rule_actions' - The actions. Each rule must include exactly one of the following types
 -- of actions: @forward@, @redirect@, or @fixed-response@, and it must be
 -- the last action to be performed.
 --
--- 'priority', 'rule_priority' - The priority.
---
 -- 'conditions', 'rule_conditions' - The conditions. Each rule can include zero or one of the following
 -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
 -- @source-ip@, and zero or more of the following conditions: @http-header@
 -- and @query-string@.
+--
+-- 'ruleArn', 'rule_ruleArn' - The Amazon Resource Name (ARN) of the rule.
+--
+-- 'isDefault', 'rule_isDefault' - Indicates whether this is the default rule.
 newRule ::
   Rule
 newRule =
   Rule'
-    { isDefault = Prelude.Nothing,
-      ruleArn = Prelude.Nothing,
+    { priority = Prelude.Nothing,
       actions = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      conditions = Prelude.Nothing
+      conditions = Prelude.Nothing,
+      ruleArn = Prelude.Nothing,
+      isDefault = Prelude.Nothing
     }
 
--- | Indicates whether this is the default rule.
-rule_isDefault :: Lens.Lens' Rule (Prelude.Maybe Prelude.Bool)
-rule_isDefault = Lens.lens (\Rule' {isDefault} -> isDefault) (\s@Rule' {} a -> s {isDefault = a} :: Rule)
-
--- | The Amazon Resource Name (ARN) of the rule.
-rule_ruleArn :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
-rule_ruleArn = Lens.lens (\Rule' {ruleArn} -> ruleArn) (\s@Rule' {} a -> s {ruleArn = a} :: Rule)
+-- | The priority.
+rule_priority :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_priority = Lens.lens (\Rule' {priority} -> priority) (\s@Rule' {} a -> s {priority = a} :: Rule)
 
 -- | The actions. Each rule must include exactly one of the following types
 -- of actions: @forward@, @redirect@, or @fixed-response@, and it must be
 -- the last action to be performed.
 rule_actions :: Lens.Lens' Rule (Prelude.Maybe [Action])
-rule_actions = Lens.lens (\Rule' {actions} -> actions) (\s@Rule' {} a -> s {actions = a} :: Rule) Prelude.. Lens.mapping Lens._Coerce
-
--- | The priority.
-rule_priority :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
-rule_priority = Lens.lens (\Rule' {priority} -> priority) (\s@Rule' {} a -> s {priority = a} :: Rule)
+rule_actions = Lens.lens (\Rule' {actions} -> actions) (\s@Rule' {} a -> s {actions = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The conditions. Each rule can include zero or one of the following
 -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
 -- @source-ip@, and zero or more of the following conditions: @http-header@
 -- and @query-string@.
 rule_conditions :: Lens.Lens' Rule (Prelude.Maybe [RuleCondition])
-rule_conditions = Lens.lens (\Rule' {conditions} -> conditions) (\s@Rule' {} a -> s {conditions = a} :: Rule) Prelude.. Lens.mapping Lens._Coerce
+rule_conditions = Lens.lens (\Rule' {conditions} -> conditions) (\s@Rule' {} a -> s {conditions = a} :: Rule) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the rule.
+rule_ruleArn :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_ruleArn = Lens.lens (\Rule' {ruleArn} -> ruleArn) (\s@Rule' {} a -> s {ruleArn = a} :: Rule)
+
+-- | Indicates whether this is the default rule.
+rule_isDefault :: Lens.Lens' Rule (Prelude.Maybe Prelude.Bool)
+rule_isDefault = Lens.lens (\Rule' {isDefault} -> isDefault) (\s@Rule' {} a -> s {isDefault = a} :: Rule)
 
 instance Core.FromXML Rule where
   parseXML x =
     Rule'
-      Prelude.<$> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "RuleArn")
+      Prelude.<$> (x Core..@? "Priority")
       Prelude.<*> ( x Core..@? "Actions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Priority")
       Prelude.<*> ( x Core..@? "Conditions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "RuleArn")
+      Prelude.<*> (x Core..@? "IsDefault")
 
 instance Prelude.Hashable Rule
 

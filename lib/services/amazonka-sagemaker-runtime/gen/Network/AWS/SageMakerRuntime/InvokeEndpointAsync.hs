@@ -45,11 +45,11 @@ module Network.AWS.SageMakerRuntime.InvokeEndpointAsync
     newInvokeEndpointAsync,
 
     -- * Request Lenses
-    invokeEndpointAsync_contentType,
     invokeEndpointAsync_accept,
     invokeEndpointAsync_customAttributes,
-    invokeEndpointAsync_requestTTLSeconds,
     invokeEndpointAsync_inferenceId,
+    invokeEndpointAsync_requestTTLSeconds,
+    invokeEndpointAsync_contentType,
     invokeEndpointAsync_endpointName,
     invokeEndpointAsync_inputLocation,
 
@@ -58,8 +58,8 @@ module Network.AWS.SageMakerRuntime.InvokeEndpointAsync
     newInvokeEndpointAsyncResponse,
 
     -- * Response Lenses
-    invokeEndpointAsyncResponse_inferenceId,
     invokeEndpointAsyncResponse_outputLocation,
+    invokeEndpointAsyncResponse_inferenceId,
     invokeEndpointAsyncResponse_httpStatus,
   )
 where
@@ -73,9 +73,7 @@ import Network.AWS.SageMakerRuntime.Types
 
 -- | /See:/ 'newInvokeEndpointAsync' smart constructor.
 data InvokeEndpointAsync = InvokeEndpointAsync'
-  { -- | The MIME type of the input data in the request body.
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | The desired MIME type of the inference in the response.
+  { -- | The desired MIME type of the inference in the response.
     accept :: Prelude.Maybe Prelude.Text,
     -- | Provides additional information about a request for an inference
     -- submitted to a model hosted at an Amazon SageMaker endpoint. The
@@ -96,12 +94,14 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
     -- This feature is currently supported in the AWS SDKs but not in the
     -- Amazon SageMaker Python SDK.
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Maximum age in seconds a request can be in the queue before it is marked
-    -- as expired.
-    requestTTLSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The identifier for the inference request. Amazon SageMaker will generate
     -- an identifier for you if none is specified.
     inferenceId :: Prelude.Maybe Prelude.Text,
+    -- | Maximum age in seconds a request can be in the queue before it is marked
+    -- as expired.
+    requestTTLSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The MIME type of the input data in the request body.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The name of the endpoint that you specified when you created the
     -- endpoint using the
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
@@ -119,8 +119,6 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'contentType', 'invokeEndpointAsync_contentType' - The MIME type of the input data in the request body.
 --
 -- 'accept', 'invokeEndpointAsync_accept' - The desired MIME type of the inference in the response.
 --
@@ -143,11 +141,13 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
 -- This feature is currently supported in the AWS SDKs but not in the
 -- Amazon SageMaker Python SDK.
 --
+-- 'inferenceId', 'invokeEndpointAsync_inferenceId' - The identifier for the inference request. Amazon SageMaker will generate
+-- an identifier for you if none is specified.
+--
 -- 'requestTTLSeconds', 'invokeEndpointAsync_requestTTLSeconds' - Maximum age in seconds a request can be in the queue before it is marked
 -- as expired.
 --
--- 'inferenceId', 'invokeEndpointAsync_inferenceId' - The identifier for the inference request. Amazon SageMaker will generate
--- an identifier for you if none is specified.
+-- 'contentType', 'invokeEndpointAsync_contentType' - The MIME type of the input data in the request body.
 --
 -- 'endpointName', 'invokeEndpointAsync_endpointName' - The name of the endpoint that you specified when you created the
 -- endpoint using the
@@ -163,18 +163,14 @@ newInvokeEndpointAsync ::
   InvokeEndpointAsync
 newInvokeEndpointAsync pEndpointName_ pInputLocation_ =
   InvokeEndpointAsync'
-    { contentType = Prelude.Nothing,
-      accept = Prelude.Nothing,
+    { accept = Prelude.Nothing,
       customAttributes = Prelude.Nothing,
-      requestTTLSeconds = Prelude.Nothing,
       inferenceId = Prelude.Nothing,
+      requestTTLSeconds = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       endpointName = pEndpointName_,
       inputLocation = pInputLocation_
     }
-
--- | The MIME type of the input data in the request body.
-invokeEndpointAsync_contentType :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
-invokeEndpointAsync_contentType = Lens.lens (\InvokeEndpointAsync' {contentType} -> contentType) (\s@InvokeEndpointAsync' {} a -> s {contentType = a} :: InvokeEndpointAsync)
 
 -- | The desired MIME type of the inference in the response.
 invokeEndpointAsync_accept :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
@@ -201,15 +197,19 @@ invokeEndpointAsync_accept = Lens.lens (\InvokeEndpointAsync' {accept} -> accept
 invokeEndpointAsync_customAttributes :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
 invokeEndpointAsync_customAttributes = Lens.lens (\InvokeEndpointAsync' {customAttributes} -> customAttributes) (\s@InvokeEndpointAsync' {} a -> s {customAttributes = a} :: InvokeEndpointAsync) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The identifier for the inference request. Amazon SageMaker will generate
+-- an identifier for you if none is specified.
+invokeEndpointAsync_inferenceId :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
+invokeEndpointAsync_inferenceId = Lens.lens (\InvokeEndpointAsync' {inferenceId} -> inferenceId) (\s@InvokeEndpointAsync' {} a -> s {inferenceId = a} :: InvokeEndpointAsync)
+
 -- | Maximum age in seconds a request can be in the queue before it is marked
 -- as expired.
 invokeEndpointAsync_requestTTLSeconds :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Natural)
 invokeEndpointAsync_requestTTLSeconds = Lens.lens (\InvokeEndpointAsync' {requestTTLSeconds} -> requestTTLSeconds) (\s@InvokeEndpointAsync' {} a -> s {requestTTLSeconds = a} :: InvokeEndpointAsync)
 
--- | The identifier for the inference request. Amazon SageMaker will generate
--- an identifier for you if none is specified.
-invokeEndpointAsync_inferenceId :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
-invokeEndpointAsync_inferenceId = Lens.lens (\InvokeEndpointAsync' {inferenceId} -> inferenceId) (\s@InvokeEndpointAsync' {} a -> s {inferenceId = a} :: InvokeEndpointAsync)
+-- | The MIME type of the input data in the request body.
+invokeEndpointAsync_contentType :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
+invokeEndpointAsync_contentType = Lens.lens (\InvokeEndpointAsync' {contentType} -> contentType) (\s@InvokeEndpointAsync' {} a -> s {contentType = a} :: InvokeEndpointAsync)
 
 -- | The name of the endpoint that you specified when you created the
 -- endpoint using the
@@ -231,8 +231,8 @@ instance Core.AWSRequest InvokeEndpointAsync where
     Response.receiveJSON
       ( \s h x ->
           InvokeEndpointAsyncResponse'
-            Prelude.<$> (x Core..?> "InferenceId")
-            Prelude.<*> (h Core..#? "X-Amzn-SageMaker-OutputLocation")
+            Prelude.<$> (h Core..#? "X-Amzn-SageMaker-OutputLocation")
+            Prelude.<*> (x Core..?> "InferenceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,13 +243,13 @@ instance Prelude.NFData InvokeEndpointAsync
 instance Core.ToHeaders InvokeEndpointAsync where
   toHeaders InvokeEndpointAsync' {..} =
     Prelude.mconcat
-      [ "X-Amzn-SageMaker-Content-Type" Core.=# contentType,
-        "X-Amzn-SageMaker-Accept" Core.=# accept,
+      [ "X-Amzn-SageMaker-Accept" Core.=# accept,
         "X-Amzn-SageMaker-Custom-Attributes"
           Core.=# customAttributes,
+        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
         "X-Amzn-SageMaker-RequestTTLSeconds"
           Core.=# requestTTLSeconds,
-        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
+        "X-Amzn-SageMaker-Content-Type" Core.=# contentType,
         "X-Amzn-SageMaker-InputLocation"
           Core.=# inputLocation,
         "Content-Type"
@@ -272,12 +272,12 @@ instance Core.ToQuery InvokeEndpointAsync where
 
 -- | /See:/ 'newInvokeEndpointAsyncResponse' smart constructor.
 data InvokeEndpointAsyncResponse = InvokeEndpointAsyncResponse'
-  { -- | Identifier for an inference request. This will be the same as the
+  { -- | The Amazon S3 URI where the inference response payload is stored.
+    outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | Identifier for an inference request. This will be the same as the
     -- @InferenceId@ specified in the input. Amazon SageMaker will generate an
     -- identifier for you if you do not specify one.
     inferenceId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 URI where the inference response payload is stored.
-    outputLocation :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -291,11 +291,11 @@ data InvokeEndpointAsyncResponse = InvokeEndpointAsyncResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputLocation', 'invokeEndpointAsyncResponse_outputLocation' - The Amazon S3 URI where the inference response payload is stored.
+--
 -- 'inferenceId', 'invokeEndpointAsyncResponse_inferenceId' - Identifier for an inference request. This will be the same as the
 -- @InferenceId@ specified in the input. Amazon SageMaker will generate an
 -- identifier for you if you do not specify one.
---
--- 'outputLocation', 'invokeEndpointAsyncResponse_outputLocation' - The Amazon S3 URI where the inference response payload is stored.
 --
 -- 'httpStatus', 'invokeEndpointAsyncResponse_httpStatus' - The response's http status code.
 newInvokeEndpointAsyncResponse ::
@@ -304,21 +304,21 @@ newInvokeEndpointAsyncResponse ::
   InvokeEndpointAsyncResponse
 newInvokeEndpointAsyncResponse pHttpStatus_ =
   InvokeEndpointAsyncResponse'
-    { inferenceId =
+    { outputLocation =
         Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
+      inferenceId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon S3 URI where the inference response payload is stored.
+invokeEndpointAsyncResponse_outputLocation :: Lens.Lens' InvokeEndpointAsyncResponse (Prelude.Maybe Prelude.Text)
+invokeEndpointAsyncResponse_outputLocation = Lens.lens (\InvokeEndpointAsyncResponse' {outputLocation} -> outputLocation) (\s@InvokeEndpointAsyncResponse' {} a -> s {outputLocation = a} :: InvokeEndpointAsyncResponse)
 
 -- | Identifier for an inference request. This will be the same as the
 -- @InferenceId@ specified in the input. Amazon SageMaker will generate an
 -- identifier for you if you do not specify one.
 invokeEndpointAsyncResponse_inferenceId :: Lens.Lens' InvokeEndpointAsyncResponse (Prelude.Maybe Prelude.Text)
 invokeEndpointAsyncResponse_inferenceId = Lens.lens (\InvokeEndpointAsyncResponse' {inferenceId} -> inferenceId) (\s@InvokeEndpointAsyncResponse' {} a -> s {inferenceId = a} :: InvokeEndpointAsyncResponse)
-
--- | The Amazon S3 URI where the inference response payload is stored.
-invokeEndpointAsyncResponse_outputLocation :: Lens.Lens' InvokeEndpointAsyncResponse (Prelude.Maybe Prelude.Text)
-invokeEndpointAsyncResponse_outputLocation = Lens.lens (\InvokeEndpointAsyncResponse' {outputLocation} -> outputLocation) (\s@InvokeEndpointAsyncResponse' {} a -> s {outputLocation = a} :: InvokeEndpointAsyncResponse)
 
 -- | The response's http status code.
 invokeEndpointAsyncResponse_httpStatus :: Lens.Lens' InvokeEndpointAsyncResponse Prelude.Int

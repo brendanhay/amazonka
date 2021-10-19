@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-sagemaker-runtime
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon SageMaker Runtime SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -54,8 +54,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-sagemaker-runtime-test
   type:             exitcode-stdio-1.0
@@ -73,9 +73,9 @@ test-suite amazonka-sagemaker-runtime-test
     Test.AWS.SageMakerRuntime.Internal
 
   build-depends:
-    , amazonka                    >=1.6.1 && <1.6.2
+    , amazonka                    ^>=2.0
     , amazonka-sagemaker-runtime
-    , amazonka-test               >=1.6.1 && <1.6.2
+    , amazonka-test               ^>=2.0
     , base
     , bytestring
     , case-insensitive

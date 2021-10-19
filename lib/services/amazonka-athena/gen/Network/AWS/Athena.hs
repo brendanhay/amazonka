@@ -40,149 +40,23 @@ module Network.AWS.Athena
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
     -- ** MetadataException
     _MetadataException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** CreateDataCatalog
-    CreateDataCatalog (CreateDataCatalog'),
-    newCreateDataCatalog,
-    CreateDataCatalogResponse (CreateDataCatalogResponse'),
-    newCreateDataCatalogResponse,
-
-    -- ** ListQueryExecutions (Paginated)
-    ListQueryExecutions (ListQueryExecutions'),
-    newListQueryExecutions,
-    ListQueryExecutionsResponse (ListQueryExecutionsResponse'),
-    newListQueryExecutionsResponse,
-
-    -- ** DeletePreparedStatement
-    DeletePreparedStatement (DeletePreparedStatement'),
-    newDeletePreparedStatement,
-    DeletePreparedStatementResponse (DeletePreparedStatementResponse'),
-    newDeletePreparedStatementResponse,
-
-    -- ** ListTableMetadata (Paginated)
-    ListTableMetadata (ListTableMetadata'),
-    newListTableMetadata,
-    ListTableMetadataResponse (ListTableMetadataResponse'),
-    newListTableMetadataResponse,
-
-    -- ** UpdatePreparedStatement
-    UpdatePreparedStatement (UpdatePreparedStatement'),
-    newUpdatePreparedStatement,
-    UpdatePreparedStatementResponse (UpdatePreparedStatementResponse'),
-    newUpdatePreparedStatementResponse,
-
-    -- ** ListPreparedStatements
-    ListPreparedStatements (ListPreparedStatements'),
-    newListPreparedStatements,
-    ListPreparedStatementsResponse (ListPreparedStatementsResponse'),
-    newListPreparedStatementsResponse,
-
-    -- ** GetPreparedStatement
-    GetPreparedStatement (GetPreparedStatement'),
-    newGetPreparedStatement,
-    GetPreparedStatementResponse (GetPreparedStatementResponse'),
-    newGetPreparedStatementResponse,
-
-    -- ** GetQueryExecution
-    GetQueryExecution (GetQueryExecution'),
-    newGetQueryExecution,
-    GetQueryExecutionResponse (GetQueryExecutionResponse'),
-    newGetQueryExecutionResponse,
-
-    -- ** GetDatabase
-    GetDatabase (GetDatabase'),
-    newGetDatabase,
-    GetDatabaseResponse (GetDatabaseResponse'),
-    newGetDatabaseResponse,
-
-    -- ** BatchGetNamedQuery
-    BatchGetNamedQuery (BatchGetNamedQuery'),
-    newBatchGetNamedQuery,
-    BatchGetNamedQueryResponse (BatchGetNamedQueryResponse'),
-    newBatchGetNamedQueryResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteNamedQuery
-    DeleteNamedQuery (DeleteNamedQuery'),
-    newDeleteNamedQuery,
-    DeleteNamedQueryResponse (DeleteNamedQueryResponse'),
-    newDeleteNamedQueryResponse,
-
-    -- ** GetDataCatalog
-    GetDataCatalog (GetDataCatalog'),
-    newGetDataCatalog,
-    GetDataCatalogResponse (GetDataCatalogResponse'),
-    newGetDataCatalogResponse,
-
-    -- ** ListEngineVersions
-    ListEngineVersions (ListEngineVersions'),
-    newListEngineVersions,
-    ListEngineVersionsResponse (ListEngineVersionsResponse'),
-    newListEngineVersionsResponse,
-
-    -- ** CreateWorkGroup
-    CreateWorkGroup (CreateWorkGroup'),
-    newCreateWorkGroup,
-    CreateWorkGroupResponse (CreateWorkGroupResponse'),
-    newCreateWorkGroupResponse,
-
-    -- ** ListDataCatalogs (Paginated)
-    ListDataCatalogs (ListDataCatalogs'),
-    newListDataCatalogs,
-    ListDataCatalogsResponse (ListDataCatalogsResponse'),
-    newListDataCatalogsResponse,
-
-    -- ** UpdateWorkGroup
-    UpdateWorkGroup (UpdateWorkGroup'),
-    newUpdateWorkGroup,
-    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
-    newUpdateWorkGroupResponse,
-
-    -- ** GetNamedQuery
-    GetNamedQuery (GetNamedQuery'),
-    newGetNamedQuery,
-    GetNamedQueryResponse (GetNamedQueryResponse'),
-    newGetNamedQueryResponse,
-
-    -- ** ListWorkGroups
-    ListWorkGroups (ListWorkGroups'),
-    newListWorkGroups,
-    ListWorkGroupsResponse (ListWorkGroupsResponse'),
-    newListWorkGroupsResponse,
-
-    -- ** DeleteWorkGroup
-    DeleteWorkGroup (DeleteWorkGroup'),
-    newDeleteWorkGroup,
-    DeleteWorkGroupResponse (DeleteWorkGroupResponse'),
-    newDeleteWorkGroupResponse,
 
     -- ** ListDatabases (Paginated)
     ListDatabases (ListDatabases'),
@@ -196,59 +70,23 @@ module Network.AWS.Athena
     CreatePreparedStatementResponse (CreatePreparedStatementResponse'),
     newCreatePreparedStatementResponse,
 
-    -- ** GetQueryResults (Paginated)
-    GetQueryResults (GetQueryResults'),
-    newGetQueryResults,
-    GetQueryResultsResponse (GetQueryResultsResponse'),
-    newGetQueryResultsResponse,
+    -- ** DeleteWorkGroup
+    DeleteWorkGroup (DeleteWorkGroup'),
+    newDeleteWorkGroup,
+    DeleteWorkGroupResponse (DeleteWorkGroupResponse'),
+    newDeleteWorkGroupResponse,
 
-    -- ** GetWorkGroup
-    GetWorkGroup (GetWorkGroup'),
-    newGetWorkGroup,
-    GetWorkGroupResponse (GetWorkGroupResponse'),
-    newGetWorkGroupResponse,
+    -- ** UpdateWorkGroup
+    UpdateWorkGroup (UpdateWorkGroup'),
+    newUpdateWorkGroup,
+    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
+    newUpdateWorkGroupResponse,
 
-    -- ** StopQueryExecution
-    StopQueryExecution (StopQueryExecution'),
-    newStopQueryExecution,
-    StopQueryExecutionResponse (StopQueryExecutionResponse'),
-    newStopQueryExecutionResponse,
-
-    -- ** StartQueryExecution
-    StartQueryExecution (StartQueryExecution'),
-    newStartQueryExecution,
-    StartQueryExecutionResponse (StartQueryExecutionResponse'),
-    newStartQueryExecutionResponse,
-
-    -- ** ListNamedQueries (Paginated)
-    ListNamedQueries (ListNamedQueries'),
-    newListNamedQueries,
-    ListNamedQueriesResponse (ListNamedQueriesResponse'),
-    newListNamedQueriesResponse,
-
-    -- ** GetTableMetadata
-    GetTableMetadata (GetTableMetadata'),
-    newGetTableMetadata,
-    GetTableMetadataResponse (GetTableMetadataResponse'),
-    newGetTableMetadataResponse,
-
-    -- ** CreateNamedQuery
-    CreateNamedQuery (CreateNamedQuery'),
-    newCreateNamedQuery,
-    CreateNamedQueryResponse (CreateNamedQueryResponse'),
-    newCreateNamedQueryResponse,
-
-    -- ** BatchGetQueryExecution
-    BatchGetQueryExecution (BatchGetQueryExecution'),
-    newBatchGetQueryExecution,
-    BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
-    newBatchGetQueryExecutionResponse,
-
-    -- ** DeleteDataCatalog
-    DeleteDataCatalog (DeleteDataCatalog'),
-    newDeleteDataCatalog,
-    DeleteDataCatalogResponse (DeleteDataCatalogResponse'),
-    newDeleteDataCatalogResponse,
+    -- ** GetNamedQuery
+    GetNamedQuery (GetNamedQuery'),
+    newGetNamedQuery,
+    GetNamedQueryResponse (GetNamedQueryResponse'),
+    newGetNamedQueryResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
@@ -256,11 +94,173 @@ module Network.AWS.Athena
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** DeleteDataCatalog
+    DeleteDataCatalog (DeleteDataCatalog'),
+    newDeleteDataCatalog,
+    DeleteDataCatalogResponse (DeleteDataCatalogResponse'),
+    newDeleteDataCatalogResponse,
+
     -- ** UpdateDataCatalog
     UpdateDataCatalog (UpdateDataCatalog'),
     newUpdateDataCatalog,
     UpdateDataCatalogResponse (UpdateDataCatalogResponse'),
     newUpdateDataCatalogResponse,
+
+    -- ** ListDataCatalogs (Paginated)
+    ListDataCatalogs (ListDataCatalogs'),
+    newListDataCatalogs,
+    ListDataCatalogsResponse (ListDataCatalogsResponse'),
+    newListDataCatalogsResponse,
+
+    -- ** CreateNamedQuery
+    CreateNamedQuery (CreateNamedQuery'),
+    newCreateNamedQuery,
+    CreateNamedQueryResponse (CreateNamedQueryResponse'),
+    newCreateNamedQueryResponse,
+
+    -- ** GetTableMetadata
+    GetTableMetadata (GetTableMetadata'),
+    newGetTableMetadata,
+    GetTableMetadataResponse (GetTableMetadataResponse'),
+    newGetTableMetadataResponse,
+
+    -- ** ListNamedQueries (Paginated)
+    ListNamedQueries (ListNamedQueries'),
+    newListNamedQueries,
+    ListNamedQueriesResponse (ListNamedQueriesResponse'),
+    newListNamedQueriesResponse,
+
+    -- ** DeleteNamedQuery
+    DeleteNamedQuery (DeleteNamedQuery'),
+    newDeleteNamedQuery,
+    DeleteNamedQueryResponse (DeleteNamedQueryResponse'),
+    newDeleteNamedQueryResponse,
+
+    -- ** StartQueryExecution
+    StartQueryExecution (StartQueryExecution'),
+    newStartQueryExecution,
+    StartQueryExecutionResponse (StartQueryExecutionResponse'),
+    newStartQueryExecutionResponse,
+
+    -- ** BatchGetNamedQuery
+    BatchGetNamedQuery (BatchGetNamedQuery'),
+    newBatchGetNamedQuery,
+    BatchGetNamedQueryResponse (BatchGetNamedQueryResponse'),
+    newBatchGetNamedQueryResponse,
+
+    -- ** GetQueryExecution
+    GetQueryExecution (GetQueryExecution'),
+    newGetQueryExecution,
+    GetQueryExecutionResponse (GetQueryExecutionResponse'),
+    newGetQueryExecutionResponse,
+
+    -- ** ListPreparedStatements
+    ListPreparedStatements (ListPreparedStatements'),
+    newListPreparedStatements,
+    ListPreparedStatementsResponse (ListPreparedStatementsResponse'),
+    newListPreparedStatementsResponse,
+
+    -- ** CreateDataCatalog
+    CreateDataCatalog (CreateDataCatalog'),
+    newCreateDataCatalog,
+    CreateDataCatalogResponse (CreateDataCatalogResponse'),
+    newCreateDataCatalogResponse,
+
+    -- ** ListWorkGroups
+    ListWorkGroups (ListWorkGroups'),
+    newListWorkGroups,
+    ListWorkGroupsResponse (ListWorkGroupsResponse'),
+    newListWorkGroupsResponse,
+
+    -- ** CreateWorkGroup
+    CreateWorkGroup (CreateWorkGroup'),
+    newCreateWorkGroup,
+    CreateWorkGroupResponse (CreateWorkGroupResponse'),
+    newCreateWorkGroupResponse,
+
+    -- ** BatchGetQueryExecution
+    BatchGetQueryExecution (BatchGetQueryExecution'),
+    newBatchGetQueryExecution,
+    BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
+    newBatchGetQueryExecutionResponse,
+
+    -- ** ListEngineVersions
+    ListEngineVersions (ListEngineVersions'),
+    newListEngineVersions,
+    ListEngineVersionsResponse (ListEngineVersionsResponse'),
+    newListEngineVersionsResponse,
+
+    -- ** GetDataCatalog
+    GetDataCatalog (GetDataCatalog'),
+    newGetDataCatalog,
+    GetDataCatalogResponse (GetDataCatalogResponse'),
+    newGetDataCatalogResponse,
+
+    -- ** StopQueryExecution
+    StopQueryExecution (StopQueryExecution'),
+    newStopQueryExecution,
+    StopQueryExecutionResponse (StopQueryExecutionResponse'),
+    newStopQueryExecutionResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetWorkGroup
+    GetWorkGroup (GetWorkGroup'),
+    newGetWorkGroup,
+    GetWorkGroupResponse (GetWorkGroupResponse'),
+    newGetWorkGroupResponse,
+
+    -- ** GetDatabase
+    GetDatabase (GetDatabase'),
+    newGetDatabase,
+    GetDatabaseResponse (GetDatabaseResponse'),
+    newGetDatabaseResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** GetPreparedStatement
+    GetPreparedStatement (GetPreparedStatement'),
+    newGetPreparedStatement,
+    GetPreparedStatementResponse (GetPreparedStatementResponse'),
+    newGetPreparedStatementResponse,
+
+    -- ** GetQueryResults (Paginated)
+    GetQueryResults (GetQueryResults'),
+    newGetQueryResults,
+    GetQueryResultsResponse (GetQueryResultsResponse'),
+    newGetQueryResultsResponse,
+
+    -- ** ListTableMetadata (Paginated)
+    ListTableMetadata (ListTableMetadata'),
+    newListTableMetadata,
+    ListTableMetadataResponse (ListTableMetadataResponse'),
+    newListTableMetadataResponse,
+
+    -- ** ListQueryExecutions (Paginated)
+    ListQueryExecutions (ListQueryExecutions'),
+    newListQueryExecutions,
+    ListQueryExecutionsResponse (ListQueryExecutionsResponse'),
+    newListQueryExecutionsResponse,
+
+    -- ** DeletePreparedStatement
+    DeletePreparedStatement (DeletePreparedStatement'),
+    newDeletePreparedStatement,
+    DeletePreparedStatementResponse (DeletePreparedStatementResponse'),
+    newDeletePreparedStatementResponse,
+
+    -- ** UpdatePreparedStatement
+    UpdatePreparedStatement (UpdatePreparedStatement'),
+    newUpdatePreparedStatement,
+    UpdatePreparedStatementResponse (UpdatePreparedStatementResponse'),
+    newUpdatePreparedStatementResponse,
 
     -- * Types
 

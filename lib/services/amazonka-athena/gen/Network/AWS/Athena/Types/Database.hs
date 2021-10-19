@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatabase' smart constructor.
 data Database = Database'
-  { -- | An optional description of the database.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A set of custom key\/value pairs.
+  { -- | A set of custom key\/value pairs.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description of the database.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the database.
     name :: Prelude.Text
   }
@@ -44,9 +44,9 @@ data Database = Database'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'database_description' - An optional description of the database.
---
 -- 'parameters', 'database_parameters' - A set of custom key\/value pairs.
+--
+-- 'description', 'database_description' - An optional description of the database.
 --
 -- 'name', 'database_name' - The name of the database.
 newDatabase ::
@@ -55,18 +55,18 @@ newDatabase ::
   Database
 newDatabase pName_ =
   Database'
-    { description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { parameters = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
+
+-- | A set of custom key\/value pairs.
+database_parameters :: Lens.Lens' Database (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional description of the database.
 database_description :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_description = Lens.lens (\Database' {description} -> description) (\s@Database' {} a -> s {description = a} :: Database)
-
--- | A set of custom key\/value pairs.
-database_parameters :: Lens.Lens' Database (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the database.
 database_name :: Lens.Lens' Database Prelude.Text
@@ -78,8 +78,8 @@ instance Core.FromJSON Database where
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..: "Name")
       )
 

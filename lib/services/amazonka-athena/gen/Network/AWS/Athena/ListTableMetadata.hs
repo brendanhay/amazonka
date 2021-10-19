@@ -31,8 +31,8 @@ module Network.AWS.Athena.ListTableMetadata
 
     -- * Request Lenses
     listTableMetadata_nextToken,
-    listTableMetadata_maxResults,
     listTableMetadata_expression,
+    listTableMetadata_maxResults,
     listTableMetadata_catalogName,
     listTableMetadata_databaseName,
 
@@ -61,11 +61,11 @@ data ListTableMetadata = ListTableMetadata'
     -- of pages, pass in the NextToken from the response object of the previous
     -- page call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A regex filter that pattern-matches table names. If no expression is
     -- supplied, metadata for all tables are listed.
     expression :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the data catalog for which table metadata should be
     -- returned.
     catalogName :: Prelude.Text,
@@ -87,10 +87,10 @@ data ListTableMetadata = ListTableMetadata'
 -- of pages, pass in the NextToken from the response object of the previous
 -- page call.
 --
--- 'maxResults', 'listTableMetadata_maxResults' - Specifies the maximum number of results to return.
---
 -- 'expression', 'listTableMetadata_expression' - A regex filter that pattern-matches table names. If no expression is
 -- supplied, metadata for all tables are listed.
+--
+-- 'maxResults', 'listTableMetadata_maxResults' - Specifies the maximum number of results to return.
 --
 -- 'catalogName', 'listTableMetadata_catalogName' - The name of the data catalog for which table metadata should be
 -- returned.
@@ -105,8 +105,8 @@ newListTableMetadata ::
 newListTableMetadata pCatalogName_ pDatabaseName_ =
   ListTableMetadata'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       expression = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       catalogName = pCatalogName_,
       databaseName = pDatabaseName_
     }
@@ -118,14 +118,14 @@ newListTableMetadata pCatalogName_ pDatabaseName_ =
 listTableMetadata_nextToken :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Text)
 listTableMetadata_nextToken = Lens.lens (\ListTableMetadata' {nextToken} -> nextToken) (\s@ListTableMetadata' {} a -> s {nextToken = a} :: ListTableMetadata)
 
--- | Specifies the maximum number of results to return.
-listTableMetadata_maxResults :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Natural)
-listTableMetadata_maxResults = Lens.lens (\ListTableMetadata' {maxResults} -> maxResults) (\s@ListTableMetadata' {} a -> s {maxResults = a} :: ListTableMetadata)
-
 -- | A regex filter that pattern-matches table names. If no expression is
 -- supplied, metadata for all tables are listed.
 listTableMetadata_expression :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Text)
 listTableMetadata_expression = Lens.lens (\ListTableMetadata' {expression} -> expression) (\s@ListTableMetadata' {} a -> s {expression = a} :: ListTableMetadata)
+
+-- | Specifies the maximum number of results to return.
+listTableMetadata_maxResults :: Lens.Lens' ListTableMetadata (Prelude.Maybe Prelude.Natural)
+listTableMetadata_maxResults = Lens.lens (\ListTableMetadata' {maxResults} -> maxResults) (\s@ListTableMetadata' {} a -> s {maxResults = a} :: ListTableMetadata)
 
 -- | The name of the data catalog for which table metadata should be
 -- returned.
@@ -198,8 +198,8 @@ instance Core.ToJSON ListTableMetadata where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Expression" Core..=) Prelude.<$> expression,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("CatalogName" Core..= catalogName),
             Prelude.Just ("DatabaseName" Core..= databaseName)
           ]
@@ -262,7 +262,7 @@ listTableMetadataResponse_nextToken = Lens.lens (\ListTableMetadataResponse' {ne
 
 -- | A list of table metadata.
 listTableMetadataResponse_tableMetadataList :: Lens.Lens' ListTableMetadataResponse (Prelude.Maybe [TableMetadata])
-listTableMetadataResponse_tableMetadataList = Lens.lens (\ListTableMetadataResponse' {tableMetadataList} -> tableMetadataList) (\s@ListTableMetadataResponse' {} a -> s {tableMetadataList = a} :: ListTableMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
+listTableMetadataResponse_tableMetadataList = Lens.lens (\ListTableMetadataResponse' {tableMetadataList} -> tableMetadataList) (\s@ListTableMetadataResponse' {} a -> s {tableMetadataList = a} :: ListTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTableMetadataResponse_httpStatus :: Lens.Lens' ListTableMetadataResponse Prelude.Int

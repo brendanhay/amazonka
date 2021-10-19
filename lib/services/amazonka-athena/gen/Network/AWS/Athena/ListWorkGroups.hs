@@ -195,7 +195,7 @@ listWorkGroupsResponse_nextToken = Lens.lens (\ListWorkGroupsResponse' {nextToke
 -- | A list of WorkGroupSummary objects that include the names, descriptions,
 -- creation times, and states for each workgroup.
 listWorkGroupsResponse_workGroups :: Lens.Lens' ListWorkGroupsResponse (Prelude.Maybe [WorkGroupSummary])
-listWorkGroupsResponse_workGroups = Lens.lens (\ListWorkGroupsResponse' {workGroups} -> workGroups) (\s@ListWorkGroupsResponse' {} a -> s {workGroups = a} :: ListWorkGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+listWorkGroupsResponse_workGroups = Lens.lens (\ListWorkGroupsResponse' {workGroups} -> workGroups) (\s@ListWorkGroupsResponse' {} a -> s {workGroups = a} :: ListWorkGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWorkGroupsResponse_httpStatus :: Lens.Lens' ListWorkGroupsResponse Prelude.Int

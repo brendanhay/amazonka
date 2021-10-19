@@ -32,9 +32,9 @@ module Network.AWS.Athena.CreateNamedQuery
     newCreateNamedQuery,
 
     -- * Request Lenses
+    createNamedQuery_clientRequestToken,
     createNamedQuery_description,
     createNamedQuery_workGroup,
-    createNamedQuery_clientRequestToken,
     createNamedQuery_name,
     createNamedQuery_database,
     createNamedQuery_queryString,
@@ -58,11 +58,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNamedQuery' smart constructor.
 data CreateNamedQuery = CreateNamedQuery'
-  { -- | The query description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the workgroup in which the named query is being created.
-    workGroup :: Prelude.Maybe Prelude.Text,
-    -- | A unique case-sensitive string used to ensure the request to create the
+  { -- | A unique case-sensitive string used to ensure the request to create the
     -- query is idempotent (executes only once). If another @CreateNamedQuery@
     -- request is received, the same response is returned and another query is
     -- not created. If a parameter has changed, for example, the @QueryString@,
@@ -74,6 +70,10 @@ data CreateNamedQuery = CreateNamedQuery'
     -- Amazon Web Services CLI, you must provide this token or the action will
     -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The query description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup in which the named query is being created.
+    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query name.
     name :: Prelude.Text,
     -- | The database to which the query belongs.
@@ -91,10 +91,6 @@ data CreateNamedQuery = CreateNamedQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createNamedQuery_description' - The query description.
---
--- 'workGroup', 'createNamedQuery_workGroup' - The name of the workgroup in which the named query is being created.
---
 -- 'clientRequestToken', 'createNamedQuery_clientRequestToken' - A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another @CreateNamedQuery@
 -- request is received, the same response is returned and another query is
@@ -106,6 +102,10 @@ data CreateNamedQuery = CreateNamedQuery'
 -- token for users. If you are not using the Amazon Web Services SDK or the
 -- Amazon Web Services CLI, you must provide this token or the action will
 -- fail.
+--
+-- 'description', 'createNamedQuery_description' - The query description.
+--
+-- 'workGroup', 'createNamedQuery_workGroup' - The name of the workgroup in which the named query is being created.
 --
 -- 'name', 'createNamedQuery_name' - The query name.
 --
@@ -122,21 +122,14 @@ newCreateNamedQuery ::
   CreateNamedQuery
 newCreateNamedQuery pName_ pDatabase_ pQueryString_ =
   CreateNamedQuery'
-    { description = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      description = Prelude.Nothing,
       workGroup = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       name = pName_,
       database = pDatabase_,
       queryString = pQueryString_
     }
-
--- | The query description.
-createNamedQuery_description :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
-createNamedQuery_description = Lens.lens (\CreateNamedQuery' {description} -> description) (\s@CreateNamedQuery' {} a -> s {description = a} :: CreateNamedQuery)
-
--- | The name of the workgroup in which the named query is being created.
-createNamedQuery_workGroup :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
-createNamedQuery_workGroup = Lens.lens (\CreateNamedQuery' {workGroup} -> workGroup) (\s@CreateNamedQuery' {} a -> s {workGroup = a} :: CreateNamedQuery)
 
 -- | A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another @CreateNamedQuery@
@@ -151,6 +144,14 @@ createNamedQuery_workGroup = Lens.lens (\CreateNamedQuery' {workGroup} -> workGr
 -- fail.
 createNamedQuery_clientRequestToken :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
 createNamedQuery_clientRequestToken = Lens.lens (\CreateNamedQuery' {clientRequestToken} -> clientRequestToken) (\s@CreateNamedQuery' {} a -> s {clientRequestToken = a} :: CreateNamedQuery)
+
+-- | The query description.
+createNamedQuery_description :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
+createNamedQuery_description = Lens.lens (\CreateNamedQuery' {description} -> description) (\s@CreateNamedQuery' {} a -> s {description = a} :: CreateNamedQuery)
+
+-- | The name of the workgroup in which the named query is being created.
+createNamedQuery_workGroup :: Lens.Lens' CreateNamedQuery (Prelude.Maybe Prelude.Text)
+createNamedQuery_workGroup = Lens.lens (\CreateNamedQuery' {workGroup} -> workGroup) (\s@CreateNamedQuery' {} a -> s {workGroup = a} :: CreateNamedQuery)
 
 -- | The query name.
 createNamedQuery_name :: Lens.Lens' CreateNamedQuery Prelude.Text
@@ -200,10 +201,10 @@ instance Core.ToJSON CreateNamedQuery where
   toJSON CreateNamedQuery' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Core..=) Prelude.<$> description,
+            ("WorkGroup" Core..=) Prelude.<$> workGroup,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Database" Core..= database),
             Prelude.Just ("QueryString" Core..= queryString)

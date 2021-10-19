@@ -61,7 +61,7 @@ newResultSet =
 
 -- | The rows in the table.
 resultSet_rows :: Lens.Lens' ResultSet (Prelude.Maybe [Row])
-resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Lens._Coerce
+resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata that describes the column structure and data types of a
 -- table of query results.

@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPreparedStatement' smart constructor.
 data PreparedStatement = PreparedStatement'
-  { -- | The name of the workgroup to which the prepared statement belongs.
-    workGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the prepared statement.
-    statementName :: Prelude.Maybe Prelude.Text,
+  { -- | The last modified time of the prepared statement.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The query string for the prepared statement.
     queryStatement :: Prelude.Maybe Prelude.Text,
-    -- | The last modified time of the prepared statement.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the prepared statement.
+    statementName :: Prelude.Maybe Prelude.Text,
     -- | The description of the prepared statement.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup to which the prepared statement belongs.
+    workGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,45 +48,46 @@ data PreparedStatement = PreparedStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workGroupName', 'preparedStatement_workGroupName' - The name of the workgroup to which the prepared statement belongs.
---
--- 'statementName', 'preparedStatement_statementName' - The name of the prepared statement.
+-- 'lastModifiedTime', 'preparedStatement_lastModifiedTime' - The last modified time of the prepared statement.
 --
 -- 'queryStatement', 'preparedStatement_queryStatement' - The query string for the prepared statement.
 --
--- 'lastModifiedTime', 'preparedStatement_lastModifiedTime' - The last modified time of the prepared statement.
+-- 'statementName', 'preparedStatement_statementName' - The name of the prepared statement.
 --
 -- 'description', 'preparedStatement_description' - The description of the prepared statement.
+--
+-- 'workGroupName', 'preparedStatement_workGroupName' - The name of the workgroup to which the prepared statement belongs.
 newPreparedStatement ::
   PreparedStatement
 newPreparedStatement =
   PreparedStatement'
-    { workGroupName = Prelude.Nothing,
-      statementName = Prelude.Nothing,
+    { lastModifiedTime =
+        Prelude.Nothing,
       queryStatement = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      description = Prelude.Nothing
+      statementName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      workGroupName = Prelude.Nothing
     }
-
--- | The name of the workgroup to which the prepared statement belongs.
-preparedStatement_workGroupName :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
-preparedStatement_workGroupName = Lens.lens (\PreparedStatement' {workGroupName} -> workGroupName) (\s@PreparedStatement' {} a -> s {workGroupName = a} :: PreparedStatement)
-
--- | The name of the prepared statement.
-preparedStatement_statementName :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
-preparedStatement_statementName = Lens.lens (\PreparedStatement' {statementName} -> statementName) (\s@PreparedStatement' {} a -> s {statementName = a} :: PreparedStatement)
-
--- | The query string for the prepared statement.
-preparedStatement_queryStatement :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
-preparedStatement_queryStatement = Lens.lens (\PreparedStatement' {queryStatement} -> queryStatement) (\s@PreparedStatement' {} a -> s {queryStatement = a} :: PreparedStatement)
 
 -- | The last modified time of the prepared statement.
 preparedStatement_lastModifiedTime :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.UTCTime)
 preparedStatement_lastModifiedTime = Lens.lens (\PreparedStatement' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatement' {} a -> s {lastModifiedTime = a} :: PreparedStatement) Prelude.. Lens.mapping Core._Time
 
+-- | The query string for the prepared statement.
+preparedStatement_queryStatement :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
+preparedStatement_queryStatement = Lens.lens (\PreparedStatement' {queryStatement} -> queryStatement) (\s@PreparedStatement' {} a -> s {queryStatement = a} :: PreparedStatement)
+
+-- | The name of the prepared statement.
+preparedStatement_statementName :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
+preparedStatement_statementName = Lens.lens (\PreparedStatement' {statementName} -> statementName) (\s@PreparedStatement' {} a -> s {statementName = a} :: PreparedStatement)
+
 -- | The description of the prepared statement.
 preparedStatement_description :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
 preparedStatement_description = Lens.lens (\PreparedStatement' {description} -> description) (\s@PreparedStatement' {} a -> s {description = a} :: PreparedStatement)
+
+-- | The name of the workgroup to which the prepared statement belongs.
+preparedStatement_workGroupName :: Lens.Lens' PreparedStatement (Prelude.Maybe Prelude.Text)
+preparedStatement_workGroupName = Lens.lens (\PreparedStatement' {workGroupName} -> workGroupName) (\s@PreparedStatement' {} a -> s {workGroupName = a} :: PreparedStatement)
 
 instance Core.FromJSON PreparedStatement where
   parseJSON =
@@ -94,11 +95,11 @@ instance Core.FromJSON PreparedStatement where
       "PreparedStatement"
       ( \x ->
           PreparedStatement'
-            Prelude.<$> (x Core..:? "WorkGroupName")
-            Prelude.<*> (x Core..:? "StatementName")
+            Prelude.<$> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "QueryStatement")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "StatementName")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "WorkGroupName")
       )
 
 instance Prelude.Hashable PreparedStatement

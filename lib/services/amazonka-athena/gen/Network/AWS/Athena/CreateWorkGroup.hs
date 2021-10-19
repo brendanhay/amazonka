@@ -28,8 +28,8 @@ module Network.AWS.Athena.CreateWorkGroup
 
     -- * Request Lenses
     createWorkGroup_configuration,
-    createWorkGroup_tags,
     createWorkGroup_description,
+    createWorkGroup_tags,
     createWorkGroup_name,
 
     -- * Destructuring the Response
@@ -59,10 +59,10 @@ data CreateWorkGroup = CreateWorkGroup'
     -- @WorkGroupConfiguration@ override client-side settings. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
-    -- | A list of comma separated tags to add to the workgroup that is created.
-    tags :: Prelude.Maybe [Tag],
     -- | The workgroup description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A list of comma separated tags to add to the workgroup that is created.
+    tags :: Prelude.Maybe [Tag],
     -- | The workgroup name.
     name :: Prelude.Text
   }
@@ -85,9 +85,9 @@ data CreateWorkGroup = CreateWorkGroup'
 -- @WorkGroupConfiguration@ override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
--- 'tags', 'createWorkGroup_tags' - A list of comma separated tags to add to the workgroup that is created.
---
 -- 'description', 'createWorkGroup_description' - The workgroup description.
+--
+-- 'tags', 'createWorkGroup_tags' - A list of comma separated tags to add to the workgroup that is created.
 --
 -- 'name', 'createWorkGroup_name' - The workgroup name.
 newCreateWorkGroup ::
@@ -97,8 +97,8 @@ newCreateWorkGroup ::
 newCreateWorkGroup pName_ =
   CreateWorkGroup'
     { configuration = Prelude.Nothing,
-      tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
@@ -113,13 +113,13 @@ newCreateWorkGroup pName_ =
 createWorkGroup_configuration :: Lens.Lens' CreateWorkGroup (Prelude.Maybe WorkGroupConfiguration)
 createWorkGroup_configuration = Lens.lens (\CreateWorkGroup' {configuration} -> configuration) (\s@CreateWorkGroup' {} a -> s {configuration = a} :: CreateWorkGroup)
 
--- | A list of comma separated tags to add to the workgroup that is created.
-createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Prelude.Maybe [Tag])
-createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The workgroup description.
 createWorkGroup_description :: Lens.Lens' CreateWorkGroup (Prelude.Maybe Prelude.Text)
 createWorkGroup_description = Lens.lens (\CreateWorkGroup' {description} -> description) (\s@CreateWorkGroup' {} a -> s {description = a} :: CreateWorkGroup)
+
+-- | A list of comma separated tags to add to the workgroup that is created.
+createWorkGroup_tags :: Lens.Lens' CreateWorkGroup (Prelude.Maybe [Tag])
+createWorkGroup_tags = Lens.lens (\CreateWorkGroup' {tags} -> tags) (\s@CreateWorkGroup' {} a -> s {tags = a} :: CreateWorkGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The workgroup name.
 createWorkGroup_name :: Lens.Lens' CreateWorkGroup Prelude.Text
@@ -161,8 +161,8 @@ instance Core.ToJSON CreateWorkGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("Configuration" Core..=) Prelude.<$> configuration,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

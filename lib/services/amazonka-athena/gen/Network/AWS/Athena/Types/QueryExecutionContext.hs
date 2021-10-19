@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
-  { -- | The name of the data catalog used in the query execution.
-    catalog :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database used in the query execution. The database must
+  { -- | The name of the database used in the query execution. The database must
     -- exist in the catalog.
-    database :: Prelude.Maybe Prelude.Text
+    database :: Prelude.Maybe Prelude.Text,
+    -- | The name of the data catalog used in the query execution.
+    catalog :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data QueryExecutionContext = QueryExecutionContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalog', 'queryExecutionContext_catalog' - The name of the data catalog used in the query execution.
---
 -- 'database', 'queryExecutionContext_database' - The name of the database used in the query execution. The database must
 -- exist in the catalog.
+--
+-- 'catalog', 'queryExecutionContext_catalog' - The name of the data catalog used in the query execution.
 newQueryExecutionContext ::
   QueryExecutionContext
 newQueryExecutionContext =
   QueryExecutionContext'
-    { catalog = Prelude.Nothing,
-      database = Prelude.Nothing
+    { database = Prelude.Nothing,
+      catalog = Prelude.Nothing
     }
-
--- | The name of the data catalog used in the query execution.
-queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
-queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> catalog) (\s@QueryExecutionContext' {} a -> s {catalog = a} :: QueryExecutionContext)
 
 -- | The name of the database used in the query execution. The database must
 -- exist in the catalog.
 queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
 queryExecutionContext_database = Lens.lens (\QueryExecutionContext' {database} -> database) (\s@QueryExecutionContext' {} a -> s {database = a} :: QueryExecutionContext)
+
+-- | The name of the data catalog used in the query execution.
+queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
+queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> catalog) (\s@QueryExecutionContext' {} a -> s {catalog = a} :: QueryExecutionContext)
 
 instance Core.FromJSON QueryExecutionContext where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON QueryExecutionContext where
       "QueryExecutionContext"
       ( \x ->
           QueryExecutionContext'
-            Prelude.<$> (x Core..:? "Catalog")
-            Prelude.<*> (x Core..:? "Database")
+            Prelude.<$> (x Core..:? "Database")
+            Prelude.<*> (x Core..:? "Catalog")
       )
 
 instance Prelude.Hashable QueryExecutionContext
@@ -83,7 +83,7 @@ instance Core.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Catalog" Core..=) Prelude.<$> catalog,
-            ("Database" Core..=) Prelude.<$> database
+          [ ("Database" Core..=) Prelude.<$> database,
+            ("Catalog" Core..=) Prelude.<$> catalog
           ]
       )

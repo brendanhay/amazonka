@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetModels
     newGetModels,
 
     -- * Request Lenses
-    getModels_position,
     getModels_limit,
+    getModels_position,
     getModels_restApiId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetModels' smart constructor.
 data GetModels = GetModels'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data GetModels = GetModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getModels_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getModels_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getModels_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getModels_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetModels ::
@@ -85,19 +85,19 @@ newGetModels ::
   GetModels
 newGetModels pRestApiId_ =
   GetModels'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getModels_position :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
-getModels_position = Lens.lens (\GetModels' {position} -> position) (\s@GetModels' {} a -> s {position = a} :: GetModels)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getModels_limit :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Int)
 getModels_limit = Lens.lens (\GetModels' {limit} -> limit) (\s@GetModels' {} a -> s {limit = a} :: GetModels)
+
+-- | The current pagination position in the paged result set.
+getModels_position :: Lens.Lens' GetModels (Prelude.Maybe Prelude.Text)
+getModels_position = Lens.lens (\GetModels' {position} -> position) (\s@GetModels' {} a -> s {position = a} :: GetModels)
 
 -- | [Required] The string identifier of the associated RestApi.
 getModels_restApiId :: Lens.Lens' GetModels Prelude.Text
@@ -155,7 +155,7 @@ instance Core.ToPath GetModels where
 instance Core.ToQuery GetModels where
   toQuery GetModels' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of Model resources.
 --
@@ -198,7 +198,7 @@ newGetModelsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getModelsResponse_items :: Lens.Lens' GetModelsResponse (Prelude.Maybe [Model])
-getModelsResponse_items = Lens.lens (\GetModelsResponse' {items} -> items) (\s@GetModelsResponse' {} a -> s {items = a} :: GetModelsResponse) Prelude.. Lens.mapping Lens._Coerce
+getModelsResponse_items = Lens.lens (\GetModelsResponse' {items} -> items) (\s@GetModelsResponse' {} a -> s {items = a} :: GetModelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getModelsResponse_position :: Lens.Lens' GetModelsResponse (Prelude.Maybe Prelude.Text)

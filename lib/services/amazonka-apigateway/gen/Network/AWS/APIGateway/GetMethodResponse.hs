@@ -38,8 +38,8 @@ module Network.AWS.APIGateway.GetMethodResponse
 
     -- * Response Lenses
     methodResponse_responseModels,
-    methodResponse_responseParameters,
     methodResponse_statusCode,
+    methodResponse_responseParameters,
   )
 where
 

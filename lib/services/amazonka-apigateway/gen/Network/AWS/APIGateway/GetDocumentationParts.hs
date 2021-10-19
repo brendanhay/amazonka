@@ -29,12 +29,12 @@ module Network.AWS.APIGateway.GetDocumentationParts
     newGetDocumentationParts,
 
     -- * Request Lenses
-    getDocumentationParts_locationStatus,
-    getDocumentationParts_position,
-    getDocumentationParts_type,
     getDocumentationParts_path,
+    getDocumentationParts_locationStatus,
     getDocumentationParts_nameQuery,
     getDocumentationParts_limit,
+    getDocumentationParts_type,
+    getDocumentationParts_position,
     getDocumentationParts_restApiId,
 
     -- * Destructuring the Response
@@ -60,21 +60,21 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-  { -- | The status of the API documentation parts to retrieve. Valid values are
+  { -- | The path of API entities of the to-be-retrieved documentation parts.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The status of the API documentation parts to retrieve. Valid values are
     -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
     -- @UNDOCUMENTED@ for DocumentationPart resources without content.
     locationStatus :: Prelude.Maybe LocationStatusType,
-    -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The type of API entities of the to-be-retrieved documentation parts.
-    type' :: Prelude.Maybe DocumentationPartType,
-    -- | The path of API entities of the to-be-retrieved documentation parts.
-    path :: Prelude.Maybe Prelude.Text,
     -- | The name of API entities of the to-be-retrieved documentation parts.
     nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The type of API entities of the to-be-retrieved documentation parts.
+    type' :: Prelude.Maybe DocumentationPartType,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -88,20 +88,20 @@ data GetDocumentationParts = GetDocumentationParts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'path', 'getDocumentationParts_path' - The path of API entities of the to-be-retrieved documentation parts.
+--
 -- 'locationStatus', 'getDocumentationParts_locationStatus' - The status of the API documentation parts to retrieve. Valid values are
 -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
 -- @UNDOCUMENTED@ for DocumentationPart resources without content.
---
--- 'position', 'getDocumentationParts_position' - The current pagination position in the paged result set.
---
--- 'type'', 'getDocumentationParts_type' - The type of API entities of the to-be-retrieved documentation parts.
---
--- 'path', 'getDocumentationParts_path' - The path of API entities of the to-be-retrieved documentation parts.
 --
 -- 'nameQuery', 'getDocumentationParts_nameQuery' - The name of API entities of the to-be-retrieved documentation parts.
 --
 -- 'limit', 'getDocumentationParts_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'type'', 'getDocumentationParts_type' - The type of API entities of the to-be-retrieved documentation parts.
+--
+-- 'position', 'getDocumentationParts_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDocumentationParts ::
@@ -110,33 +110,24 @@ newGetDocumentationParts ::
   GetDocumentationParts
 newGetDocumentationParts pRestApiId_ =
   GetDocumentationParts'
-    { locationStatus =
-        Prelude.Nothing,
-      position = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { path = Prelude.Nothing,
+      locationStatus = Prelude.Nothing,
       nameQuery = Prelude.Nothing,
       limit = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
+
+-- | The path of API entities of the to-be-retrieved documentation parts.
+getDocumentationParts_path :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
+getDocumentationParts_path = Lens.lens (\GetDocumentationParts' {path} -> path) (\s@GetDocumentationParts' {} a -> s {path = a} :: GetDocumentationParts)
 
 -- | The status of the API documentation parts to retrieve. Valid values are
 -- @DOCUMENTED@ for retrieving DocumentationPart resources with content and
 -- @UNDOCUMENTED@ for DocumentationPart resources without content.
 getDocumentationParts_locationStatus :: Lens.Lens' GetDocumentationParts (Prelude.Maybe LocationStatusType)
 getDocumentationParts_locationStatus = Lens.lens (\GetDocumentationParts' {locationStatus} -> locationStatus) (\s@GetDocumentationParts' {} a -> s {locationStatus = a} :: GetDocumentationParts)
-
--- | The current pagination position in the paged result set.
-getDocumentationParts_position :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
-getDocumentationParts_position = Lens.lens (\GetDocumentationParts' {position} -> position) (\s@GetDocumentationParts' {} a -> s {position = a} :: GetDocumentationParts)
-
--- | The type of API entities of the to-be-retrieved documentation parts.
-getDocumentationParts_type :: Lens.Lens' GetDocumentationParts (Prelude.Maybe DocumentationPartType)
-getDocumentationParts_type = Lens.lens (\GetDocumentationParts' {type'} -> type') (\s@GetDocumentationParts' {} a -> s {type' = a} :: GetDocumentationParts)
-
--- | The path of API entities of the to-be-retrieved documentation parts.
-getDocumentationParts_path :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
-getDocumentationParts_path = Lens.lens (\GetDocumentationParts' {path} -> path) (\s@GetDocumentationParts' {} a -> s {path = a} :: GetDocumentationParts)
 
 -- | The name of API entities of the to-be-retrieved documentation parts.
 getDocumentationParts_nameQuery :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
@@ -146,6 +137,14 @@ getDocumentationParts_nameQuery = Lens.lens (\GetDocumentationParts' {nameQuery}
 -- and the maximum value is 500.
 getDocumentationParts_limit :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Int)
 getDocumentationParts_limit = Lens.lens (\GetDocumentationParts' {limit} -> limit) (\s@GetDocumentationParts' {} a -> s {limit = a} :: GetDocumentationParts)
+
+-- | The type of API entities of the to-be-retrieved documentation parts.
+getDocumentationParts_type :: Lens.Lens' GetDocumentationParts (Prelude.Maybe DocumentationPartType)
+getDocumentationParts_type = Lens.lens (\GetDocumentationParts' {type'} -> type') (\s@GetDocumentationParts' {} a -> s {type' = a} :: GetDocumentationParts)
+
+-- | The current pagination position in the paged result set.
+getDocumentationParts_position :: Lens.Lens' GetDocumentationParts (Prelude.Maybe Prelude.Text)
+getDocumentationParts_position = Lens.lens (\GetDocumentationParts' {position} -> position) (\s@GetDocumentationParts' {} a -> s {position = a} :: GetDocumentationParts)
 
 -- | [Required] The string identifier of the associated RestApi.
 getDocumentationParts_restApiId :: Lens.Lens' GetDocumentationParts Prelude.Text
@@ -211,12 +210,12 @@ instance Core.ToPath GetDocumentationParts where
 instance Core.ToQuery GetDocumentationParts where
   toQuery GetDocumentationParts' {..} =
     Prelude.mconcat
-      [ "locationStatus" Core.=: locationStatus,
-        "position" Core.=: position,
-        "type" Core.=: type',
-        "path" Core.=: path,
+      [ "path" Core.=: path,
+        "locationStatus" Core.=: locationStatus,
         "name" Core.=: nameQuery,
-        "limit" Core.=: limit
+        "limit" Core.=: limit,
+        "type" Core.=: type',
+        "position" Core.=: position
       ]
 
 -- | The collection of documentation parts of an API.
@@ -261,7 +260,7 @@ newGetDocumentationPartsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getDocumentationPartsResponse_items :: Lens.Lens' GetDocumentationPartsResponse (Prelude.Maybe [DocumentationPart])
-getDocumentationPartsResponse_items = Lens.lens (\GetDocumentationPartsResponse' {items} -> items) (\s@GetDocumentationPartsResponse' {} a -> s {items = a} :: GetDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDocumentationPartsResponse_items = Lens.lens (\GetDocumentationPartsResponse' {items} -> items) (\s@GetDocumentationPartsResponse' {} a -> s {items = a} :: GetDocumentationPartsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getDocumentationPartsResponse_position :: Lens.Lens' GetDocumentationPartsResponse (Prelude.Maybe Prelude.Text)

@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetSdkTypes
     newGetSdkTypes,
 
     -- * Request Lenses
-    getSdkTypes_position,
     getSdkTypes_limit,
+    getSdkTypes_position,
 
     -- * Destructuring the Response
     GetSdkTypesResponse (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetSdkTypes' smart constructor.
 data GetSdkTypes = GetSdkTypes'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data GetSdkTypes = GetSdkTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getSdkTypes_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getSdkTypes_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getSdkTypes_position' - The current pagination position in the paged result set.
 newGetSdkTypes ::
   GetSdkTypes
 newGetSdkTypes =
   GetSdkTypes'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The current pagination position in the paged result set.
-getSdkTypes_position :: Lens.Lens' GetSdkTypes (Prelude.Maybe Prelude.Text)
-getSdkTypes_position = Lens.lens (\GetSdkTypes' {position} -> position) (\s@GetSdkTypes' {} a -> s {position = a} :: GetSdkTypes)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getSdkTypes_limit :: Lens.Lens' GetSdkTypes (Prelude.Maybe Prelude.Int)
 getSdkTypes_limit = Lens.lens (\GetSdkTypes' {limit} -> limit) (\s@GetSdkTypes' {} a -> s {limit = a} :: GetSdkTypes)
+
+-- | The current pagination position in the paged result set.
+getSdkTypes_position :: Lens.Lens' GetSdkTypes (Prelude.Maybe Prelude.Text)
+getSdkTypes_position = Lens.lens (\GetSdkTypes' {position} -> position) (\s@GetSdkTypes' {} a -> s {position = a} :: GetSdkTypes)
 
 instance Core.AWSPager GetSdkTypes where
   page rq rs
@@ -141,7 +141,7 @@ instance Core.ToPath GetSdkTypes where
 instance Core.ToQuery GetSdkTypes where
   toQuery GetSdkTypes' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of SdkType instances.
 --
@@ -181,7 +181,7 @@ newGetSdkTypesResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getSdkTypesResponse_items :: Lens.Lens' GetSdkTypesResponse (Prelude.Maybe [SdkType])
-getSdkTypesResponse_items = Lens.lens (\GetSdkTypesResponse' {items} -> items) (\s@GetSdkTypesResponse' {} a -> s {items = a} :: GetSdkTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+getSdkTypesResponse_items = Lens.lens (\GetSdkTypesResponse' {items} -> items) (\s@GetSdkTypesResponse' {} a -> s {items = a} :: GetSdkTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getSdkTypesResponse_position :: Lens.Lens' GetSdkTypesResponse (Prelude.Maybe Prelude.Text)

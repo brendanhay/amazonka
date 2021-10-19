@@ -36,20 +36,6 @@ data PatchOperation = PatchOperation'
     -- depends on specific operational contexts. Attempts to apply an
     -- unsupported operation on a resource will return an error message.
     op :: Prelude.Maybe Op,
-    -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
-    -- value referencing the location within the targeted resource to copy the
-    -- value from. For example, to promote a canary deployment, you copy the
-    -- canary deployment ID to the affiliated deployment ID by calling a PATCH
-    -- request on a Stage resource with @\"op\":\"copy\"@,
-    -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
-    -- @\"path\":\"\/deploymentId\"@.
-    from :: Prelude.Maybe Prelude.Text,
-    -- | The new target value of the update operation. It is applicable for the
-    -- @add@ or @replace@ operation. When using AWS CLI to update a property of
-    -- a JSON value, enclose the JSON object with a pair of single quotes in a
-    -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
-    value :: Prelude.Maybe Prelude.Text,
     -- | The @op@ operation\'s target, as identified by a
     -- <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08 JSON Pointer>
     -- value that references a location within the targeted resource. For
@@ -61,7 +47,21 @@ data PatchOperation = PatchOperation'
     -- character appearing in path names must be escaped with \"~1\", as shown
     -- in the example above. Each @op@ operation can have only one @path@
     -- associated with it.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The new target value of the update operation. It is applicable for the
+    -- @add@ or @replace@ operation. When using AWS CLI to update a property of
+    -- a JSON value, enclose the JSON object with a pair of single quotes in a
+    -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+    -- value referencing the location within the targeted resource to copy the
+    -- value from. For example, to promote a canary deployment, you copy the
+    -- canary deployment ID to the affiliated deployment ID by calling a PATCH
+    -- request on a Stage resource with @\"op\":\"copy\"@,
+    -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
+    -- @\"path\":\"\/deploymentId\"@.
+    from :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,20 +79,6 @@ data PatchOperation = PatchOperation'
 -- depends on specific operational contexts. Attempts to apply an
 -- unsupported operation on a resource will return an error message.
 --
--- 'from', 'patchOperation_from' - The @copy@ update operation\'s source as identified by a @JSON-Pointer@
--- value referencing the location within the targeted resource to copy the
--- value from. For example, to promote a canary deployment, you copy the
--- canary deployment ID to the affiliated deployment ID by calling a PATCH
--- request on a Stage resource with @\"op\":\"copy\"@,
--- @\"from\":\"\/canarySettings\/deploymentId\"@ and
--- @\"path\":\"\/deploymentId\"@.
---
--- 'value', 'patchOperation_value' - The new target value of the update operation. It is applicable for the
--- @add@ or @replace@ operation. When using AWS CLI to update a property of
--- a JSON value, enclose the JSON object with a pair of single quotes in a
--- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
---
 -- 'path', 'patchOperation_path' - The @op@ operation\'s target, as identified by a
 -- <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08 JSON Pointer>
 -- value that references a location within the targeted resource. For
@@ -104,14 +90,28 @@ data PatchOperation = PatchOperation'
 -- character appearing in path names must be escaped with \"~1\", as shown
 -- in the example above. Each @op@ operation can have only one @path@
 -- associated with it.
+--
+-- 'value', 'patchOperation_value' - The new target value of the update operation. It is applicable for the
+-- @add@ or @replace@ operation. When using AWS CLI to update a property of
+-- a JSON value, enclose the JSON object with a pair of single quotes in a
+-- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
+--
+-- 'from', 'patchOperation_from' - The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+-- value referencing the location within the targeted resource to copy the
+-- value from. For example, to promote a canary deployment, you copy the
+-- canary deployment ID to the affiliated deployment ID by calling a PATCH
+-- request on a Stage resource with @\"op\":\"copy\"@,
+-- @\"from\":\"\/canarySettings\/deploymentId\"@ and
+-- @\"path\":\"\/deploymentId\"@.
 newPatchOperation ::
   PatchOperation
 newPatchOperation =
   PatchOperation'
     { op = Prelude.Nothing,
-      from = Prelude.Nothing,
+      path = Prelude.Nothing,
       value = Prelude.Nothing,
-      path = Prelude.Nothing
+      from = Prelude.Nothing
     }
 
 -- | An update operation to be performed with this PATCH request. The valid
@@ -121,24 +121,6 @@ newPatchOperation =
 -- unsupported operation on a resource will return an error message.
 patchOperation_op :: Lens.Lens' PatchOperation (Prelude.Maybe Op)
 patchOperation_op = Lens.lens (\PatchOperation' {op} -> op) (\s@PatchOperation' {} a -> s {op = a} :: PatchOperation)
-
--- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
--- value referencing the location within the targeted resource to copy the
--- value from. For example, to promote a canary deployment, you copy the
--- canary deployment ID to the affiliated deployment ID by calling a PATCH
--- request on a Stage resource with @\"op\":\"copy\"@,
--- @\"from\":\"\/canarySettings\/deploymentId\"@ and
--- @\"path\":\"\/deploymentId\"@.
-patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
-patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
-
--- | The new target value of the update operation. It is applicable for the
--- @add@ or @replace@ operation. When using AWS CLI to update a property of
--- a JSON value, enclose the JSON object with a pair of single quotes in a
--- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
-patchOperation_value :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
-patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOperation' {} a -> s {value = a} :: PatchOperation)
 
 -- | The @op@ operation\'s target, as identified by a
 -- <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08 JSON Pointer>
@@ -154,6 +136,24 @@ patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOp
 patchOperation_path :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
 patchOperation_path = Lens.lens (\PatchOperation' {path} -> path) (\s@PatchOperation' {} a -> s {path = a} :: PatchOperation)
 
+-- | The new target value of the update operation. It is applicable for the
+-- @add@ or @replace@ operation. When using AWS CLI to update a property of
+-- a JSON value, enclose the JSON object with a pair of single quotes in a
+-- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
+patchOperation_value :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOperation' {} a -> s {value = a} :: PatchOperation)
+
+-- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
+-- value referencing the location within the targeted resource to copy the
+-- value from. For example, to promote a canary deployment, you copy the
+-- canary deployment ID to the affiliated deployment ID by calling a PATCH
+-- request on a Stage resource with @\"op\":\"copy\"@,
+-- @\"from\":\"\/canarySettings\/deploymentId\"@ and
+-- @\"path\":\"\/deploymentId\"@.
+patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
+
 instance Prelude.Hashable PatchOperation
 
 instance Prelude.NFData PatchOperation
@@ -163,8 +163,8 @@ instance Core.ToJSON PatchOperation where
     Core.object
       ( Prelude.catMaybes
           [ ("op" Core..=) Prelude.<$> op,
-            ("from" Core..=) Prelude.<$> from,
+            ("path" Core..=) Prelude.<$> path,
             ("value" Core..=) Prelude.<$> value,
-            ("path" Core..=) Prelude.<$> path
+            ("from" Core..=) Prelude.<$> from
           ]
       )

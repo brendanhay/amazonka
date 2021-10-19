@@ -37,9 +37,9 @@ module Network.AWS.APIGateway.GetSdk
     newGetSdkResponse,
 
     -- * Response Lenses
-    getSdkResponse_contentType,
-    getSdkResponse_contentDisposition,
     getSdkResponse_body,
+    getSdkResponse_contentDisposition,
+    getSdkResponse_contentType,
     getSdkResponse_httpStatus,
   )
 where
@@ -118,7 +118,7 @@ newGetSdk pRestApiId_ pStageName_ pSdkType_ =
 -- @invokerPackage@ are required. For @sdkType@ of @java@, parameters named
 -- @serviceName@ and @javaPackageName@ are required.
 getSdk_parameters :: Lens.Lens' GetSdk (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSdk_parameters = Lens.lens (\GetSdk' {parameters} -> parameters) (\s@GetSdk' {} a -> s {parameters = a} :: GetSdk) Prelude.. Lens.mapping Lens._Coerce
+getSdk_parameters = Lens.lens (\GetSdk' {parameters} -> parameters) (\s@GetSdk' {} a -> s {parameters = a} :: GetSdk) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 getSdk_restApiId :: Lens.Lens' GetSdk Prelude.Text
@@ -141,9 +141,9 @@ instance Core.AWSRequest GetSdk where
     Response.receiveBytes
       ( \s h x ->
           GetSdkResponse'
-            Prelude.<$> (h Core..#? "Content-Type")
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,12 +185,12 @@ instance Core.ToQuery GetSdk where
 --
 -- /See:/ 'newGetSdkResponse' smart constructor.
 data GetSdkResponse = GetSdkResponse'
-  { -- | The content-type header value in the HTTP response.
-    contentType :: Prelude.Maybe Prelude.Text,
+  { -- | The binary blob response to GetSdk, which contains the generated SDK.
+    body :: Prelude.Maybe Prelude.ByteString,
     -- | The content-disposition header value in the HTTP response.
     contentDisposition :: Prelude.Maybe Prelude.Text,
-    -- | The binary blob response to GetSdk, which contains the generated SDK.
-    body :: Prelude.Maybe Prelude.ByteString,
+    -- | The content-type header value in the HTTP response.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,11 +204,11 @@ data GetSdkResponse = GetSdkResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentType', 'getSdkResponse_contentType' - The content-type header value in the HTTP response.
+-- 'body', 'getSdkResponse_body' - The binary blob response to GetSdk, which contains the generated SDK.
 --
 -- 'contentDisposition', 'getSdkResponse_contentDisposition' - The content-disposition header value in the HTTP response.
 --
--- 'body', 'getSdkResponse_body' - The binary blob response to GetSdk, which contains the generated SDK.
+-- 'contentType', 'getSdkResponse_contentType' - The content-type header value in the HTTP response.
 --
 -- 'httpStatus', 'getSdkResponse_httpStatus' - The response's http status code.
 newGetSdkResponse ::
@@ -217,23 +217,23 @@ newGetSdkResponse ::
   GetSdkResponse
 newGetSdkResponse pHttpStatus_ =
   GetSdkResponse'
-    { contentType = Prelude.Nothing,
+    { body = Prelude.Nothing,
       contentDisposition = Prelude.Nothing,
-      body = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The content-type header value in the HTTP response.
-getSdkResponse_contentType :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.Text)
-getSdkResponse_contentType = Lens.lens (\GetSdkResponse' {contentType} -> contentType) (\s@GetSdkResponse' {} a -> s {contentType = a} :: GetSdkResponse)
+-- | The binary blob response to GetSdk, which contains the generated SDK.
+getSdkResponse_body :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.ByteString)
+getSdkResponse_body = Lens.lens (\GetSdkResponse' {body} -> body) (\s@GetSdkResponse' {} a -> s {body = a} :: GetSdkResponse)
 
 -- | The content-disposition header value in the HTTP response.
 getSdkResponse_contentDisposition :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.Text)
 getSdkResponse_contentDisposition = Lens.lens (\GetSdkResponse' {contentDisposition} -> contentDisposition) (\s@GetSdkResponse' {} a -> s {contentDisposition = a} :: GetSdkResponse)
 
--- | The binary blob response to GetSdk, which contains the generated SDK.
-getSdkResponse_body :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.ByteString)
-getSdkResponse_body = Lens.lens (\GetSdkResponse' {body} -> body) (\s@GetSdkResponse' {} a -> s {body = a} :: GetSdkResponse)
+-- | The content-type header value in the HTTP response.
+getSdkResponse_contentType :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.Text)
+getSdkResponse_contentType = Lens.lens (\GetSdkResponse' {contentType} -> contentType) (\s@GetSdkResponse' {} a -> s {contentType = a} :: GetSdkResponse)
 
 -- | The response's http status code.
 getSdkResponse_httpStatus :: Lens.Lens' GetSdkResponse Prelude.Int

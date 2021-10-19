@@ -39,10 +39,10 @@ module Network.AWS.APIGateway.CreateModel
 
     -- * Response Lenses
     model_schema,
-    model_contentType,
-    model_id,
     model_name,
+    model_id,
     model_description,
+    model_contentType,
   )
 where
 

@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMutualTlsAuthenticationInput' smart constructor.
 data MutualTlsAuthenticationInput = MutualTlsAuthenticationInput'
-  { -- | The version of the S3 object that contains your truststore. To specify a
-    -- version, you must have versioning enabled for the S3 bucket.
-    truststoreVersion :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
+  { -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
     -- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
     -- truststore can contain certificates from public or private certificate
     -- authorities. To update the truststore, upload a new version to S3, and
     -- then update your custom domain name to use the new version. To update
     -- the truststore, you must have permissions to access the S3 object.
-    truststoreUri :: Prelude.Maybe Prelude.Text
+    truststoreUri :: Prelude.Maybe Prelude.Text,
+    -- | The version of the S3 object that contains your truststore. To specify a
+    -- version, you must have versioning enabled for the S3 bucket.
+    truststoreVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,23 @@ data MutualTlsAuthenticationInput = MutualTlsAuthenticationInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'truststoreVersion', 'mutualTlsAuthenticationInput_truststoreVersion' - The version of the S3 object that contains your truststore. To specify a
--- version, you must have versioning enabled for the S3 bucket.
---
 -- 'truststoreUri', 'mutualTlsAuthenticationInput_truststoreUri' - An Amazon S3 resource ARN that specifies the truststore for mutual TLS
 -- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
 -- truststore can contain certificates from public or private certificate
 -- authorities. To update the truststore, upload a new version to S3, and
 -- then update your custom domain name to use the new version. To update
 -- the truststore, you must have permissions to access the S3 object.
+--
+-- 'truststoreVersion', 'mutualTlsAuthenticationInput_truststoreVersion' - The version of the S3 object that contains your truststore. To specify a
+-- version, you must have versioning enabled for the S3 bucket.
 newMutualTlsAuthenticationInput ::
   MutualTlsAuthenticationInput
 newMutualTlsAuthenticationInput =
   MutualTlsAuthenticationInput'
-    { truststoreVersion =
+    { truststoreUri =
         Prelude.Nothing,
-      truststoreUri = Prelude.Nothing
+      truststoreVersion = Prelude.Nothing
     }
-
--- | The version of the S3 object that contains your truststore. To specify a
--- version, you must have versioning enabled for the S3 bucket.
-mutualTlsAuthenticationInput_truststoreVersion :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
-mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthenticationInput' {truststoreVersion} -> truststoreVersion) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreVersion = a} :: MutualTlsAuthenticationInput)
 
 -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
 -- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
@@ -81,6 +76,11 @@ mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthentica
 -- the truststore, you must have permissions to access the S3 object.
 mutualTlsAuthenticationInput_truststoreUri :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
 mutualTlsAuthenticationInput_truststoreUri = Lens.lens (\MutualTlsAuthenticationInput' {truststoreUri} -> truststoreUri) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreUri = a} :: MutualTlsAuthenticationInput)
+
+-- | The version of the S3 object that contains your truststore. To specify a
+-- version, you must have versioning enabled for the S3 bucket.
+mutualTlsAuthenticationInput_truststoreVersion :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
+mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthenticationInput' {truststoreVersion} -> truststoreVersion) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreVersion = a} :: MutualTlsAuthenticationInput)
 
 instance
   Prelude.Hashable
@@ -92,8 +92,8 @@ instance Core.ToJSON MutualTlsAuthenticationInput where
   toJSON MutualTlsAuthenticationInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("truststoreVersion" Core..=)
-              Prelude.<$> truststoreVersion,
-            ("truststoreUri" Core..=) Prelude.<$> truststoreUri
+          [ ("truststoreUri" Core..=) Prelude.<$> truststoreUri,
+            ("truststoreVersion" Core..=)
+              Prelude.<$> truststoreVersion
           ]
       )

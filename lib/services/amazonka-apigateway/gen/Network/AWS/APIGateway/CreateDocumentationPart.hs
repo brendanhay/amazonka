@@ -36,9 +36,9 @@ module Network.AWS.APIGateway.CreateDocumentationPart
     newDocumentationPart,
 
     -- * Response Lenses
+    documentationPart_location,
     documentationPart_id,
     documentationPart_properties,
-    documentationPart_location,
   )
 where
 

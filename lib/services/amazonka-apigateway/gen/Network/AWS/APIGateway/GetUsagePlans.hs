@@ -29,9 +29,9 @@ module Network.AWS.APIGateway.GetUsagePlans
     newGetUsagePlans,
 
     -- * Request Lenses
-    getUsagePlans_position,
-    getUsagePlans_limit,
     getUsagePlans_keyId,
+    getUsagePlans_limit,
+    getUsagePlans_position,
 
     -- * Destructuring the Response
     GetUsagePlansResponse (..),
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the API key associated with the usage plans.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the API key associated with the usage plans.
-    keyId :: Prelude.Maybe Prelude.Text
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,33 +73,33 @@ data GetUsagePlans = GetUsagePlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getUsagePlans_position' - The current pagination position in the paged result set.
+-- 'keyId', 'getUsagePlans_keyId' - The identifier of the API key associated with the usage plans.
 --
 -- 'limit', 'getUsagePlans_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 --
--- 'keyId', 'getUsagePlans_keyId' - The identifier of the API key associated with the usage plans.
+-- 'position', 'getUsagePlans_position' - The current pagination position in the paged result set.
 newGetUsagePlans ::
   GetUsagePlans
 newGetUsagePlans =
   GetUsagePlans'
-    { position = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
       limit = Prelude.Nothing,
-      keyId = Prelude.Nothing
+      position = Prelude.Nothing
     }
 
--- | The current pagination position in the paged result set.
-getUsagePlans_position :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
-getUsagePlans_position = Lens.lens (\GetUsagePlans' {position} -> position) (\s@GetUsagePlans' {} a -> s {position = a} :: GetUsagePlans)
+-- | The identifier of the API key associated with the usage plans.
+getUsagePlans_keyId :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
+getUsagePlans_keyId = Lens.lens (\GetUsagePlans' {keyId} -> keyId) (\s@GetUsagePlans' {} a -> s {keyId = a} :: GetUsagePlans)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getUsagePlans_limit :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Int)
 getUsagePlans_limit = Lens.lens (\GetUsagePlans' {limit} -> limit) (\s@GetUsagePlans' {} a -> s {limit = a} :: GetUsagePlans)
 
--- | The identifier of the API key associated with the usage plans.
-getUsagePlans_keyId :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
-getUsagePlans_keyId = Lens.lens (\GetUsagePlans' {keyId} -> keyId) (\s@GetUsagePlans' {} a -> s {keyId = a} :: GetUsagePlans)
+-- | The current pagination position in the paged result set.
+getUsagePlans_position :: Lens.Lens' GetUsagePlans (Prelude.Maybe Prelude.Text)
+getUsagePlans_position = Lens.lens (\GetUsagePlans' {position} -> position) (\s@GetUsagePlans' {} a -> s {position = a} :: GetUsagePlans)
 
 instance Core.AWSPager GetUsagePlans where
   page rq rs
@@ -153,9 +153,9 @@ instance Core.ToPath GetUsagePlans where
 instance Core.ToQuery GetUsagePlans where
   toQuery GetUsagePlans' {..} =
     Prelude.mconcat
-      [ "position" Core.=: position,
+      [ "keyId" Core.=: keyId,
         "limit" Core.=: limit,
-        "keyId" Core.=: keyId
+        "position" Core.=: position
       ]
 
 -- | Represents a collection of usage plans for an AWS account.
@@ -198,7 +198,7 @@ newGetUsagePlansResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getUsagePlansResponse_items :: Lens.Lens' GetUsagePlansResponse (Prelude.Maybe [UsagePlan])
-getUsagePlansResponse_items = Lens.lens (\GetUsagePlansResponse' {items} -> items) (\s@GetUsagePlansResponse' {} a -> s {items = a} :: GetUsagePlansResponse) Prelude.. Lens.mapping Lens._Coerce
+getUsagePlansResponse_items = Lens.lens (\GetUsagePlansResponse' {items} -> items) (\s@GetUsagePlansResponse' {} a -> s {items = a} :: GetUsagePlansResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getUsagePlansResponse_position :: Lens.Lens' GetUsagePlansResponse (Prelude.Maybe Prelude.Text)

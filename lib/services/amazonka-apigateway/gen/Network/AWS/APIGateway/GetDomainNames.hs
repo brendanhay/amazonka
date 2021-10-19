@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetDomainNames
     newGetDomainNames,
 
     -- * Request Lenses
-    getDomainNames_position,
     getDomainNames_limit,
+    getDomainNames_position,
 
     -- * Destructuring the Response
     GetDomainNamesResponse (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetDomainNames' smart constructor.
 data GetDomainNames = GetDomainNames'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data GetDomainNames = GetDomainNames'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getDomainNames_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getDomainNames_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getDomainNames_position' - The current pagination position in the paged result set.
 newGetDomainNames ::
   GetDomainNames
 newGetDomainNames =
   GetDomainNames'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The current pagination position in the paged result set.
-getDomainNames_position :: Lens.Lens' GetDomainNames (Prelude.Maybe Prelude.Text)
-getDomainNames_position = Lens.lens (\GetDomainNames' {position} -> position) (\s@GetDomainNames' {} a -> s {position = a} :: GetDomainNames)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getDomainNames_limit :: Lens.Lens' GetDomainNames (Prelude.Maybe Prelude.Int)
 getDomainNames_limit = Lens.lens (\GetDomainNames' {limit} -> limit) (\s@GetDomainNames' {} a -> s {limit = a} :: GetDomainNames)
+
+-- | The current pagination position in the paged result set.
+getDomainNames_position :: Lens.Lens' GetDomainNames (Prelude.Maybe Prelude.Text)
+getDomainNames_position = Lens.lens (\GetDomainNames' {position} -> position) (\s@GetDomainNames' {} a -> s {position = a} :: GetDomainNames)
 
 instance Core.AWSPager GetDomainNames where
   page rq rs
@@ -143,7 +143,7 @@ instance Core.ToPath GetDomainNames where
 instance Core.ToQuery GetDomainNames where
   toQuery GetDomainNames' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of DomainName resources.
 --
@@ -185,7 +185,7 @@ newGetDomainNamesResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getDomainNamesResponse_items :: Lens.Lens' GetDomainNamesResponse (Prelude.Maybe [DomainName])
-getDomainNamesResponse_items = Lens.lens (\GetDomainNamesResponse' {items} -> items) (\s@GetDomainNamesResponse' {} a -> s {items = a} :: GetDomainNamesResponse) Prelude.. Lens.mapping Lens._Coerce
+getDomainNamesResponse_items = Lens.lens (\GetDomainNamesResponse' {items} -> items) (\s@GetDomainNamesResponse' {} a -> s {items = a} :: GetDomainNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getDomainNamesResponse_position :: Lens.Lens' GetDomainNamesResponse (Prelude.Maybe Prelude.Text)

@@ -29,9 +29,9 @@ module Network.AWS.APIGateway.GetUsage
     newGetUsage,
 
     -- * Request Lenses
-    getUsage_position,
-    getUsage_limit,
     getUsage_keyId,
+    getUsage_limit,
+    getUsage_position,
     getUsage_usagePlanId,
     getUsage_startDate,
     getUsage_endDate,
@@ -41,11 +41,11 @@ module Network.AWS.APIGateway.GetUsage
     newUsage,
 
     -- * Response Lenses
-    usage_startDate,
-    usage_items,
-    usage_position,
-    usage_endDate,
     usage_usagePlanId,
+    usage_endDate,
+    usage_items,
+    usage_startDate,
+    usage_position,
   )
 where
 
@@ -61,13 +61,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetUsage' smart constructor.
 data GetUsage = GetUsage'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+  { -- | The Id of the API key associated with the resultant usage data.
+    keyId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
-    -- | The Id of the API key associated with the resultant usage data.
-    keyId :: Prelude.Maybe Prelude.Text,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The Id of the usage plan associated with the usage data.
     usagePlanId :: Prelude.Text,
     -- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
@@ -85,12 +85,12 @@ data GetUsage = GetUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getUsage_position' - The current pagination position in the paged result set.
+-- 'keyId', 'getUsage_keyId' - The Id of the API key associated with the resultant usage data.
 --
 -- 'limit', 'getUsage_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 --
--- 'keyId', 'getUsage_keyId' - The Id of the API key associated with the resultant usage data.
+-- 'position', 'getUsage_position' - The current pagination position in the paged result set.
 --
 -- 'usagePlanId', 'getUsage_usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
 --
@@ -107,26 +107,26 @@ newGetUsage ::
   GetUsage
 newGetUsage pUsagePlanId_ pStartDate_ pEndDate_ =
   GetUsage'
-    { position = Prelude.Nothing,
+    { keyId = Prelude.Nothing,
       limit = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+      position = Prelude.Nothing,
       usagePlanId = pUsagePlanId_,
       startDate = pStartDate_,
       endDate = pEndDate_
     }
 
--- | The current pagination position in the paged result set.
-getUsage_position :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
-getUsage_position = Lens.lens (\GetUsage' {position} -> position) (\s@GetUsage' {} a -> s {position = a} :: GetUsage)
+-- | The Id of the API key associated with the resultant usage data.
+getUsage_keyId :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
+getUsage_keyId = Lens.lens (\GetUsage' {keyId} -> keyId) (\s@GetUsage' {} a -> s {keyId = a} :: GetUsage)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getUsage_limit :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Int)
 getUsage_limit = Lens.lens (\GetUsage' {limit} -> limit) (\s@GetUsage' {} a -> s {limit = a} :: GetUsage)
 
--- | The Id of the API key associated with the resultant usage data.
-getUsage_keyId :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
-getUsage_keyId = Lens.lens (\GetUsage' {keyId} -> keyId) (\s@GetUsage' {} a -> s {keyId = a} :: GetUsage)
+-- | The current pagination position in the paged result set.
+getUsage_position :: Lens.Lens' GetUsage (Prelude.Maybe Prelude.Text)
+getUsage_position = Lens.lens (\GetUsage' {position} -> position) (\s@GetUsage' {} a -> s {position = a} :: GetUsage)
 
 -- | [Required] The Id of the usage plan associated with the usage data.
 getUsage_usagePlanId :: Lens.Lens' GetUsage Prelude.Text
@@ -182,9 +182,9 @@ instance Core.ToPath GetUsage where
 instance Core.ToQuery GetUsage where
   toQuery GetUsage' {..} =
     Prelude.mconcat
-      [ "position" Core.=: position,
+      [ "keyId" Core.=: keyId,
         "limit" Core.=: limit,
-        "keyId" Core.=: keyId,
+        "position" Core.=: position,
         "startDate" Core.=: startDate,
         "endDate" Core.=: endDate
       ]

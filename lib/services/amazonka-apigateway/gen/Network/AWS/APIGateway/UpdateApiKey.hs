@@ -35,16 +35,16 @@ module Network.AWS.APIGateway.UpdateApiKey
     newApiKey,
 
     -- * Response Lenses
-    apiKey_createdDate,
-    apiKey_customerId,
-    apiKey_lastUpdatedDate,
-    apiKey_stageKeys,
-    apiKey_id,
     apiKey_enabled,
-    apiKey_name,
-    apiKey_tags,
-    apiKey_description,
     apiKey_value,
+    apiKey_customerId,
+    apiKey_createdDate,
+    apiKey_name,
+    apiKey_id,
+    apiKey_stageKeys,
+    apiKey_lastUpdatedDate,
+    apiKey_description,
+    apiKey_tags,
   )
 where
 
@@ -92,7 +92,7 @@ newUpdateApiKey pApiKey_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Prelude.Maybe [PatchOperation])
-updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Prelude.. Lens.mapping Lens._Coerce
+updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The identifier of the ApiKey resource to be updated.
 updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Prelude.Text

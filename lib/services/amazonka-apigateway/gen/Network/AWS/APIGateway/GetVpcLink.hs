@@ -34,13 +34,13 @@ module Network.AWS.APIGateway.GetVpcLink
     newVpcLink,
 
     -- * Response Lenses
-    vpcLink_statusMessage,
     vpcLink_status,
-    vpcLink_id,
     vpcLink_targetArns,
     vpcLink_name,
-    vpcLink_tags,
+    vpcLink_statusMessage,
+    vpcLink_id,
     vpcLink_description,
+    vpcLink_tags,
   )
 where
 

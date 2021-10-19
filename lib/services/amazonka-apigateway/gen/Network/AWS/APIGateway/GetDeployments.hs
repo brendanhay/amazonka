@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetDeployments
     newGetDeployments,
 
     -- * Request Lenses
-    getDeployments_position,
     getDeployments_limit,
+    getDeployments_position,
     getDeployments_restApiId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetDeployments' smart constructor.
 data GetDeployments = GetDeployments'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data GetDeployments = GetDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getDeployments_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getDeployments_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getDeployments_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getDeployments_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDeployments ::
@@ -85,19 +85,19 @@ newGetDeployments ::
   GetDeployments
 newGetDeployments pRestApiId_ =
   GetDeployments'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getDeployments_position :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Text)
-getDeployments_position = Lens.lens (\GetDeployments' {position} -> position) (\s@GetDeployments' {} a -> s {position = a} :: GetDeployments)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getDeployments_limit :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Int)
 getDeployments_limit = Lens.lens (\GetDeployments' {limit} -> limit) (\s@GetDeployments' {} a -> s {limit = a} :: GetDeployments)
+
+-- | The current pagination position in the paged result set.
+getDeployments_position :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Text)
+getDeployments_position = Lens.lens (\GetDeployments' {position} -> position) (\s@GetDeployments' {} a -> s {position = a} :: GetDeployments)
 
 -- | [Required] The string identifier of the associated RestApi.
 getDeployments_restApiId :: Lens.Lens' GetDeployments Prelude.Text
@@ -157,7 +157,7 @@ instance Core.ToPath GetDeployments where
 instance Core.ToQuery GetDeployments where
   toQuery GetDeployments' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection resource that contains zero or more references
 -- to your existing deployments, and links that guide you on how to
@@ -209,7 +209,7 @@ newGetDeploymentsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getDeploymentsResponse_items :: Lens.Lens' GetDeploymentsResponse (Prelude.Maybe [Deployment])
-getDeploymentsResponse_items = Lens.lens (\GetDeploymentsResponse' {items} -> items) (\s@GetDeploymentsResponse' {} a -> s {items = a} :: GetDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDeploymentsResponse_items = Lens.lens (\GetDeploymentsResponse' {items} -> items) (\s@GetDeploymentsResponse' {} a -> s {items = a} :: GetDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getDeploymentsResponse_position :: Lens.Lens' GetDeploymentsResponse (Prelude.Maybe Prelude.Text)

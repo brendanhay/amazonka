@@ -35,16 +35,16 @@ module Network.AWS.APIGateway.GetApiKey
     newApiKey,
 
     -- * Response Lenses
-    apiKey_createdDate,
-    apiKey_customerId,
-    apiKey_lastUpdatedDate,
-    apiKey_stageKeys,
-    apiKey_id,
     apiKey_enabled,
-    apiKey_name,
-    apiKey_tags,
-    apiKey_description,
     apiKey_value,
+    apiKey_customerId,
+    apiKey_createdDate,
+    apiKey_name,
+    apiKey_id,
+    apiKey_stageKeys,
+    apiKey_lastUpdatedDate,
+    apiKey_description,
+    apiKey_tags,
   )
 where
 

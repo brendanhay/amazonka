@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The resource\'s identifier.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The last path segment for this resource.
+  { -- | The last path segment for this resource.
     pathPart :: Prelude.Maybe Prelude.Text,
-    -- | The parent resource\'s identifier.
-    parentId :: Prelude.Maybe Prelude.Text,
+    -- | The full path for this resource.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The resource\'s identifier.
+    id :: Prelude.Maybe Prelude.Text,
     -- | Gets an API resource\'s method of a given HTTP verb.
     --
     -- The resource methods are a map of methods indexed by methods\' HTTP
@@ -59,8 +59,8 @@ data Resource = Resource'
     -- here to get that method. Just replace the @GET@ of the last path segment
     -- in the request URL with @OPTIONS@.
     resourceMethods :: Prelude.Maybe (Prelude.HashMap Prelude.Text Method),
-    -- | The full path for this resource.
-    path :: Prelude.Maybe Prelude.Text
+    -- | The parent resource\'s identifier.
+    parentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,11 +72,11 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'resource_id' - The resource\'s identifier.
---
 -- 'pathPart', 'resource_pathPart' - The last path segment for this resource.
 --
--- 'parentId', 'resource_parentId' - The parent resource\'s identifier.
+-- 'path', 'resource_path' - The full path for this resource.
+--
+-- 'id', 'resource_id' - The resource\'s identifier.
 --
 -- 'resourceMethods', 'resource_resourceMethods' - Gets an API resource\'s method of a given HTTP verb.
 --
@@ -101,29 +101,29 @@ data Resource = Resource'
 -- here to get that method. Just replace the @GET@ of the last path segment
 -- in the request URL with @OPTIONS@.
 --
--- 'path', 'resource_path' - The full path for this resource.
+-- 'parentId', 'resource_parentId' - The parent resource\'s identifier.
 newResource ::
   Resource
 newResource =
   Resource'
-    { id = Prelude.Nothing,
-      pathPart = Prelude.Nothing,
-      parentId = Prelude.Nothing,
+    { pathPart = Prelude.Nothing,
+      path = Prelude.Nothing,
+      id = Prelude.Nothing,
       resourceMethods = Prelude.Nothing,
-      path = Prelude.Nothing
+      parentId = Prelude.Nothing
     }
-
--- | The resource\'s identifier.
-resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 -- | The last path segment for this resource.
 resource_pathPart :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_pathPart = Lens.lens (\Resource' {pathPart} -> pathPart) (\s@Resource' {} a -> s {pathPart = a} :: Resource)
 
--- | The parent resource\'s identifier.
-resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
+-- | The full path for this resource.
+resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
+
+-- | The resource\'s identifier.
+resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 -- | Gets an API resource\'s method of a given HTTP verb.
 --
@@ -148,11 +148,11 @@ resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' 
 -- here to get that method. Just replace the @GET@ of the last path segment
 -- in the request URL with @OPTIONS@.
 resource_resourceMethods :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Method))
-resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Prelude.. Lens.mapping Lens._Coerce
+resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
 
--- | The full path for this resource.
-resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
+-- | The parent resource\'s identifier.
+resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
 
 instance Core.FromJSON Resource where
   parseJSON =
@@ -160,13 +160,13 @@ instance Core.FromJSON Resource where
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "pathPart")
-            Prelude.<*> (x Core..:? "parentId")
+            Prelude.<$> (x Core..:? "pathPart")
+            Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> ( x Core..:? "resourceMethods"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "path")
+            Prelude.<*> (x Core..:? "parentId")
       )
 
 instance Prelude.Hashable Resource

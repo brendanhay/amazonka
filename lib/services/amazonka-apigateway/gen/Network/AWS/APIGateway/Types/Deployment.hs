@@ -39,13 +39,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The date and time that the deployment resource was created.
+  { -- | A summary of the RestApi at the date and time that the deployment
+    -- resource was created.
+    apiSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)),
+    -- | The date and time that the deployment resource was created.
     createdDate :: Prelude.Maybe Core.POSIX,
     -- | The identifier for the deployment resource.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A summary of the RestApi at the date and time that the deployment
-    -- resource was created.
-    apiSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)),
     -- | The description for the deployment resource.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -59,23 +59,28 @@ data Deployment = Deployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apiSummary', 'deployment_apiSummary' - A summary of the RestApi at the date and time that the deployment
+-- resource was created.
+--
 -- 'createdDate', 'deployment_createdDate' - The date and time that the deployment resource was created.
 --
 -- 'id', 'deployment_id' - The identifier for the deployment resource.
---
--- 'apiSummary', 'deployment_apiSummary' - A summary of the RestApi at the date and time that the deployment
--- resource was created.
 --
 -- 'description', 'deployment_description' - The description for the deployment resource.
 newDeployment ::
   Deployment
 newDeployment =
   Deployment'
-    { createdDate = Prelude.Nothing,
+    { apiSummary = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       id = Prelude.Nothing,
-      apiSummary = Prelude.Nothing,
       description = Prelude.Nothing
     }
+
+-- | A summary of the RestApi at the date and time that the deployment
+-- resource was created.
+deployment_apiSummary :: Lens.Lens' Deployment (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)))
+deployment_apiSummary = Lens.lens (\Deployment' {apiSummary} -> apiSummary) (\s@Deployment' {} a -> s {apiSummary = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time that the deployment resource was created.
 deployment_createdDate :: Lens.Lens' Deployment (Prelude.Maybe Prelude.UTCTime)
@@ -84,11 +89,6 @@ deployment_createdDate = Lens.lens (\Deployment' {createdDate} -> createdDate) (
 -- | The identifier for the deployment resource.
 deployment_id :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_id = Lens.lens (\Deployment' {id} -> id) (\s@Deployment' {} a -> s {id = a} :: Deployment)
-
--- | A summary of the RestApi at the date and time that the deployment
--- resource was created.
-deployment_apiSummary :: Lens.Lens' Deployment (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text MethodSnapshot)))
-deployment_apiSummary = Lens.lens (\Deployment' {apiSummary} -> apiSummary) (\s@Deployment' {} a -> s {apiSummary = a} :: Deployment) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The description for the deployment resource.
 deployment_description :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
@@ -100,9 +100,9 @@ instance Core.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> (x Core..:? "createdDate")
+            Prelude.<$> (x Core..:? "apiSummary" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "createdDate")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "apiSummary" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
       )
 

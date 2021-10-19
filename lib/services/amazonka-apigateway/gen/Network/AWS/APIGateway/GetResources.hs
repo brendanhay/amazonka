@@ -29,9 +29,9 @@ module Network.AWS.APIGateway.GetResources
     newGetResources,
 
     -- * Request Lenses
-    getResources_position,
     getResources_embed,
     getResources_limit,
+    getResources_position,
     getResources_restApiId,
 
     -- * Destructuring the Response
@@ -56,9 +56,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetResources' smart constructor.
 data GetResources = GetResources'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | A query parameter used to retrieve the specified resources embedded in
+  { -- | A query parameter used to retrieve the specified resources embedded in
     -- the returned Resources resource in the response. This @embed@ parameter
     -- value is a list of comma-separated strings. Currently, the request
     -- supports only retrieval of the embedded Method resources this way. The
@@ -69,6 +67,8 @@ data GetResources = GetResources'
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -82,8 +82,6 @@ data GetResources = GetResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getResources_position' - The current pagination position in the paged result set.
---
 -- 'embed', 'getResources_embed' - A query parameter used to retrieve the specified resources embedded in
 -- the returned Resources resource in the response. This @embed@ parameter
 -- value is a list of comma-separated strings. Currently, the request
@@ -95,6 +93,8 @@ data GetResources = GetResources'
 -- 'limit', 'getResources_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 --
+-- 'position', 'getResources_position' - The current pagination position in the paged result set.
+--
 -- 'restApiId', 'getResources_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetResources ::
   -- | 'restApiId'
@@ -102,15 +102,11 @@ newGetResources ::
   GetResources
 newGetResources pRestApiId_ =
   GetResources'
-    { position = Prelude.Nothing,
-      embed = Prelude.Nothing,
+    { embed = Prelude.Nothing,
       limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getResources_position :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
-getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@GetResources' {} a -> s {position = a} :: GetResources)
 
 -- | A query parameter used to retrieve the specified resources embedded in
 -- the returned Resources resource in the response. This @embed@ parameter
@@ -120,12 +116,16 @@ getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@Ge
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
 getResources_embed :: Lens.Lens' GetResources (Prelude.Maybe [Prelude.Text])
-getResources_embed = Lens.lens (\GetResources' {embed} -> embed) (\s@GetResources' {} a -> s {embed = a} :: GetResources) Prelude.. Lens.mapping Lens._Coerce
+getResources_embed = Lens.lens (\GetResources' {embed} -> embed) (\s@GetResources' {} a -> s {embed = a} :: GetResources) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getResources_limit :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Int)
 getResources_limit = Lens.lens (\GetResources' {limit} -> limit) (\s@GetResources' {} a -> s {limit = a} :: GetResources)
+
+-- | The current pagination position in the paged result set.
+getResources_position :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
+getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@GetResources' {} a -> s {position = a} :: GetResources)
 
 -- | [Required] The string identifier of the associated RestApi.
 getResources_restApiId :: Lens.Lens' GetResources Prelude.Text
@@ -183,11 +183,11 @@ instance Core.ToPath GetResources where
 instance Core.ToQuery GetResources where
   toQuery GetResources' {..} =
     Prelude.mconcat
-      [ "position" Core.=: position,
-        "embed"
+      [ "embed"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> embed),
-        "limit" Core.=: limit
+        "limit" Core.=: limit,
+        "position" Core.=: position
       ]
 
 -- | Represents a collection of Resource resources.
@@ -230,7 +230,7 @@ newGetResourcesResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getResourcesResponse_items :: Lens.Lens' GetResourcesResponse (Prelude.Maybe [Resource])
-getResourcesResponse_items = Lens.lens (\GetResourcesResponse' {items} -> items) (\s@GetResourcesResponse' {} a -> s {items = a} :: GetResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+getResourcesResponse_items = Lens.lens (\GetResourcesResponse' {items} -> items) (\s@GetResourcesResponse' {} a -> s {items = a} :: GetResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getResourcesResponse_position :: Lens.Lens' GetResourcesResponse (Prelude.Maybe Prelude.Text)

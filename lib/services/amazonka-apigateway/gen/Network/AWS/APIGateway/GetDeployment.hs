@@ -36,9 +36,9 @@ module Network.AWS.APIGateway.GetDeployment
     newDeployment,
 
     -- * Response Lenses
+    deployment_apiSummary,
     deployment_createdDate,
     deployment_id,
-    deployment_apiSummary,
     deployment_description,
   )
 where
@@ -120,7 +120,7 @@ newGetDeployment pRestApiId_ pDeploymentId_ =
 -- example,
 -- @GET \/restapis\/{restapi_id}\/deployments\/{deployment_id}?embed=apisummary@.
 getDeployment_embed :: Lens.Lens' GetDeployment (Prelude.Maybe [Prelude.Text])
-getDeployment_embed = Lens.lens (\GetDeployment' {embed} -> embed) (\s@GetDeployment' {} a -> s {embed = a} :: GetDeployment) Prelude.. Lens.mapping Lens._Coerce
+getDeployment_embed = Lens.lens (\GetDeployment' {embed} -> embed) (\s@GetDeployment' {} a -> s {embed = a} :: GetDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 getDeployment_restApiId :: Lens.Lens' GetDeployment Prelude.Text

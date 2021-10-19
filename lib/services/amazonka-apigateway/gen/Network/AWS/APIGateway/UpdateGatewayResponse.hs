@@ -37,11 +37,11 @@ module Network.AWS.APIGateway.UpdateGatewayResponse
     newGatewayResponse,
 
     -- * Response Lenses
-    gatewayResponse_responseTemplates,
-    gatewayResponse_responseParameters,
-    gatewayResponse_statusCode,
-    gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_responseType,
+    gatewayResponse_statusCode,
+    gatewayResponse_responseParameters,
   )
 where
 
@@ -102,7 +102,7 @@ newUpdateGatewayResponse pRestApiId_ pResponseType_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateGatewayResponse_patchOperations :: Lens.Lens' UpdateGatewayResponse (Prelude.Maybe [PatchOperation])
-updateGatewayResponse_patchOperations = Lens.lens (\UpdateGatewayResponse' {patchOperations} -> patchOperations) (\s@UpdateGatewayResponse' {} a -> s {patchOperations = a} :: UpdateGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
+updateGatewayResponse_patchOperations = Lens.lens (\UpdateGatewayResponse' {patchOperations} -> patchOperations) (\s@UpdateGatewayResponse' {} a -> s {patchOperations = a} :: UpdateGatewayResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateGatewayResponse_restApiId :: Lens.Lens' UpdateGatewayResponse Prelude.Text

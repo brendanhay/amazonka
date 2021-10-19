@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetDocumentationVersions
     newGetDocumentationVersions,
 
     -- * Request Lenses
-    getDocumentationVersions_position,
     getDocumentationVersions_limit,
+    getDocumentationVersions_position,
     getDocumentationVersions_restApiId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetDocumentationVersions' smart constructor.
 data GetDocumentationVersions = GetDocumentationVersions'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data GetDocumentationVersions = GetDocumentationVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getDocumentationVersions_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getDocumentationVersions_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getDocumentationVersions_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getDocumentationVersions_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDocumentationVersions ::
@@ -85,20 +85,19 @@ newGetDocumentationVersions ::
   GetDocumentationVersions
 newGetDocumentationVersions pRestApiId_ =
   GetDocumentationVersions'
-    { position =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Text)
-getDocumentationVersions_position = Lens.lens (\GetDocumentationVersions' {position} -> position) (\s@GetDocumentationVersions' {} a -> s {position = a} :: GetDocumentationVersions)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getDocumentationVersions_limit :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Int)
 getDocumentationVersions_limit = Lens.lens (\GetDocumentationVersions' {limit} -> limit) (\s@GetDocumentationVersions' {} a -> s {limit = a} :: GetDocumentationVersions)
+
+-- | The current pagination position in the paged result set.
+getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Text)
+getDocumentationVersions_position = Lens.lens (\GetDocumentationVersions' {position} -> position) (\s@GetDocumentationVersions' {} a -> s {position = a} :: GetDocumentationVersions)
 
 -- | [Required] The string identifier of the associated RestApi.
 getDocumentationVersions_restApiId :: Lens.Lens' GetDocumentationVersions Prelude.Text
@@ -164,7 +163,7 @@ instance Core.ToPath GetDocumentationVersions where
 instance Core.ToQuery GetDocumentationVersions where
   toQuery GetDocumentationVersions' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of documentation snapshots of an API.
 --
@@ -211,7 +210,7 @@ newGetDocumentationVersionsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getDocumentationVersionsResponse_items :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe [DocumentationVersion])
-getDocumentationVersionsResponse_items = Lens.lens (\GetDocumentationVersionsResponse' {items} -> items) (\s@GetDocumentationVersionsResponse' {} a -> s {items = a} :: GetDocumentationVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDocumentationVersionsResponse_items = Lens.lens (\GetDocumentationVersionsResponse' {items} -> items) (\s@GetDocumentationVersionsResponse' {} a -> s {items = a} :: GetDocumentationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getDocumentationVersionsResponse_position :: Lens.Lens' GetDocumentationVersionsResponse (Prelude.Maybe Prelude.Text)

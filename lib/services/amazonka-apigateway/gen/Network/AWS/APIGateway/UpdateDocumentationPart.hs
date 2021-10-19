@@ -36,9 +36,9 @@ module Network.AWS.APIGateway.UpdateDocumentationPart
     newDocumentationPart,
 
     -- * Response Lenses
+    documentationPart_location,
     documentationPart_id,
     documentationPart_properties,
-    documentationPart_location,
   )
 where
 
@@ -96,7 +96,7 @@ newUpdateDocumentationPart
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateDocumentationPart_patchOperations :: Lens.Lens' UpdateDocumentationPart (Prelude.Maybe [PatchOperation])
-updateDocumentationPart_patchOperations = Lens.lens (\UpdateDocumentationPart' {patchOperations} -> patchOperations) (\s@UpdateDocumentationPart' {} a -> s {patchOperations = a} :: UpdateDocumentationPart) Prelude.. Lens.mapping Lens._Coerce
+updateDocumentationPart_patchOperations = Lens.lens (\UpdateDocumentationPart' {patchOperations} -> patchOperations) (\s@UpdateDocumentationPart' {} a -> s {patchOperations = a} :: UpdateDocumentationPart) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateDocumentationPart_restApiId :: Lens.Lens' UpdateDocumentationPart Prelude.Text

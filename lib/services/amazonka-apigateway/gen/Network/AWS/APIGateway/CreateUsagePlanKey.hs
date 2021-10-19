@@ -36,9 +36,9 @@ module Network.AWS.APIGateway.CreateUsagePlanKey
     newUsagePlanKey,
 
     -- * Response Lenses
-    usagePlanKey_id,
-    usagePlanKey_name,
     usagePlanKey_value,
+    usagePlanKey_name,
+    usagePlanKey_id,
     usagePlanKey_type,
   )
 where

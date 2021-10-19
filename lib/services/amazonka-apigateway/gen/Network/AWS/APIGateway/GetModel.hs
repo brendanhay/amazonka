@@ -37,10 +37,10 @@ module Network.AWS.APIGateway.GetModel
 
     -- * Response Lenses
     model_schema,
-    model_contentType,
-    model_id,
     model_name,
+    model_id,
     model_description,
+    model_contentType,
   )
 where
 

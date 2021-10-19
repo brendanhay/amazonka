@@ -17,13 +17,13 @@ module Network.AWS.APIGateway.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _BadRequestException,
-    _UnauthorizedException,
-    _ServiceUnavailableException,
     _ConflictException,
-    _LimitExceededException,
+    _NotFoundException,
     _TooManyRequestsException,
+    _ServiceUnavailableException,
+    _UnauthorizedException,
+    _BadRequestException,
+    _LimitExceededException,
 
     -- * ApiKeySourceType
     ApiKeySourceType (..),
@@ -85,106 +85,106 @@ module Network.AWS.APIGateway.Types
     -- * AccessLogSettings
     AccessLogSettings (..),
     newAccessLogSettings,
-    accessLogSettings_destinationArn,
     accessLogSettings_format,
+    accessLogSettings_destinationArn,
 
     -- * Account
     Account (..),
     newAccount,
-    account_throttleSettings,
     account_apiKeyVersion,
-    account_features,
     account_cloudwatchRoleArn,
+    account_features,
+    account_throttleSettings,
 
     -- * ApiKey
     ApiKey (..),
     newApiKey,
-    apiKey_createdDate,
-    apiKey_customerId,
-    apiKey_lastUpdatedDate,
-    apiKey_stageKeys,
-    apiKey_id,
     apiKey_enabled,
-    apiKey_name,
-    apiKey_tags,
-    apiKey_description,
     apiKey_value,
+    apiKey_customerId,
+    apiKey_createdDate,
+    apiKey_name,
+    apiKey_id,
+    apiKey_stageKeys,
+    apiKey_lastUpdatedDate,
+    apiKey_description,
+    apiKey_tags,
 
     -- * ApiStage
     ApiStage (..),
     newApiStage,
-    apiStage_apiId,
     apiStage_stage,
+    apiStage_apiId,
     apiStage_throttle,
 
     -- * Authorizer
     Authorizer (..),
     newAuthorizer,
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
     authorizer_authorizerUri,
+    authorizer_identityValidationExpression,
     authorizer_providerARNs,
     authorizer_name,
-    authorizer_identitySource,
+    authorizer_id,
     authorizer_authorizerResultTtlInSeconds,
     authorizer_authType,
     authorizer_type,
+    authorizer_identitySource,
+    authorizer_authorizerCredentials,
 
     -- * BasePathMapping
     BasePathMapping (..),
     newBasePathMapping,
-    basePathMapping_basePath,
     basePathMapping_stage,
+    basePathMapping_basePath,
     basePathMapping_restApiId,
 
     -- * CanarySettings
     CanarySettings (..),
     newCanarySettings,
     canarySettings_deploymentId,
-    canarySettings_percentTraffic,
-    canarySettings_useStageCache,
     canarySettings_stageVariableOverrides,
+    canarySettings_useStageCache,
+    canarySettings_percentTraffic,
 
     -- * ClientCertificate
     ClientCertificate (..),
     newClientCertificate,
-    clientCertificate_createdDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
-    clientCertificate_tags,
+    clientCertificate_createdDate,
+    clientCertificate_expirationDate,
     clientCertificate_description,
+    clientCertificate_tags,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
+    deployment_apiSummary,
     deployment_createdDate,
     deployment_id,
-    deployment_apiSummary,
     deployment_description,
 
     -- * DeploymentCanarySettings
     DeploymentCanarySettings (..),
     newDeploymentCanarySettings,
-    deploymentCanarySettings_percentTraffic,
-    deploymentCanarySettings_useStageCache,
     deploymentCanarySettings_stageVariableOverrides,
+    deploymentCanarySettings_useStageCache,
+    deploymentCanarySettings_percentTraffic,
 
     -- * DocumentationPart
     DocumentationPart (..),
     newDocumentationPart,
+    documentationPart_location,
     documentationPart_id,
     documentationPart_properties,
-    documentationPart_location,
 
     -- * DocumentationPartLocation
     DocumentationPartLocation (..),
     newDocumentationPartLocation,
-    documentationPartLocation_method,
-    documentationPartLocation_name,
-    documentationPartLocation_statusCode,
     documentationPartLocation_path,
+    documentationPartLocation_name,
+    documentationPartLocation_method,
+    documentationPartLocation_statusCode,
     documentationPartLocation_type,
 
     -- * DocumentationVersion
@@ -198,22 +198,22 @@ module Network.AWS.APIGateway.Types
     DomainName (..),
     newDomainName,
     domainName_regionalHostedZoneId,
-    domainName_regionalCertificateName,
-    domainName_mutualTlsAuthentication,
-    domainName_endpointConfiguration,
+    domainName_certificateName,
+    domainName_ownershipVerificationCertificateArn,
+    domainName_regionalCertificateArn,
     domainName_certificateArn,
     domainName_distributionHostedZoneId,
-    domainName_domainNameStatusMessage,
-    domainName_distributionDomainName,
-    domainName_certificateUploadDate,
-    domainName_domainName,
-    domainName_tags,
     domainName_securityPolicy,
-    domainName_domainNameStatus,
-    domainName_regionalCertificateArn,
-    domainName_ownershipVerificationCertificateArn,
-    domainName_certificateName,
+    domainName_domainName,
+    domainName_mutualTlsAuthentication,
+    domainName_regionalCertificateName,
     domainName_regionalDomainName,
+    domainName_certificateUploadDate,
+    domainName_distributionDomainName,
+    domainName_domainNameStatusMessage,
+    domainName_endpointConfiguration,
+    domainName_domainNameStatus,
+    domainName_tags,
 
     -- * EndpointConfiguration
     EndpointConfiguration (..),
@@ -224,196 +224,196 @@ module Network.AWS.APIGateway.Types
     -- * GatewayResponse
     GatewayResponse (..),
     newGatewayResponse,
-    gatewayResponse_responseTemplates,
-    gatewayResponse_responseParameters,
-    gatewayResponse_statusCode,
-    gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_responseType,
+    gatewayResponse_statusCode,
+    gatewayResponse_responseParameters,
 
     -- * Integration
     Integration (..),
     newIntegration,
     integration_httpMethod,
-    integration_contentHandling,
-    integration_uri,
-    integration_connectionType,
-    integration_passthroughBehavior,
-    integration_connectionId,
-    integration_timeoutInMillis,
     integration_requestTemplates,
-    integration_cacheNamespace,
-    integration_tlsConfig,
-    integration_cacheKeyParameters,
-    integration_integrationResponses,
-    integration_requestParameters,
     integration_credentials,
+    integration_connectionId,
+    integration_requestParameters,
+    integration_contentHandling,
+    integration_passthroughBehavior,
+    integration_uri,
+    integration_integrationResponses,
+    integration_tlsConfig,
+    integration_cacheNamespace,
+    integration_timeoutInMillis,
     integration_type,
+    integration_connectionType,
+    integration_cacheKeyParameters,
 
     -- * IntegrationResponse
     IntegrationResponse (..),
     newIntegrationResponse,
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_responseParameters,
-    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
+    integrationResponse_statusCode,
+    integrationResponse_responseParameters,
 
     -- * Method
     Method (..),
     newMethod,
-    method_httpMethod,
-    method_methodIntegration,
-    method_apiKeyRequired,
-    method_authorizationType,
-    method_requestModels,
-    method_requestValidatorId,
-    method_operationName,
     method_methodResponses,
-    method_authorizerId,
-    method_requestParameters,
+    method_httpMethod,
     method_authorizationScopes,
+    method_requestValidatorId,
+    method_requestModels,
+    method_requestParameters,
+    method_authorizerId,
+    method_operationName,
+    method_authorizationType,
+    method_apiKeyRequired,
+    method_methodIntegration,
 
     -- * MethodResponse
     MethodResponse (..),
     newMethodResponse,
     methodResponse_responseModels,
-    methodResponse_responseParameters,
     methodResponse_statusCode,
+    methodResponse_responseParameters,
 
     -- * MethodSetting
     MethodSetting (..),
     newMethodSetting,
+    methodSetting_cacheTtlInSeconds,
     methodSetting_dataTraceEnabled,
-    methodSetting_requireAuthorizationForCacheControl,
-    methodSetting_throttlingRateLimit,
     methodSetting_throttlingBurstLimit,
     methodSetting_cacheDataEncrypted,
-    methodSetting_cacheTtlInSeconds,
-    methodSetting_cachingEnabled,
-    methodSetting_unauthorizedCacheControlHeaderStrategy,
     methodSetting_loggingLevel,
+    methodSetting_requireAuthorizationForCacheControl,
+    methodSetting_cachingEnabled,
     methodSetting_metricsEnabled,
+    methodSetting_throttlingRateLimit,
+    methodSetting_unauthorizedCacheControlHeaderStrategy,
 
     -- * MethodSnapshot
     MethodSnapshot (..),
     newMethodSnapshot,
-    methodSnapshot_apiKeyRequired,
     methodSnapshot_authorizationType,
+    methodSnapshot_apiKeyRequired,
 
     -- * Model
     Model (..),
     newModel,
     model_schema,
-    model_contentType,
-    model_id,
     model_name,
+    model_id,
     model_description,
+    model_contentType,
 
     -- * MutualTlsAuthentication
     MutualTlsAuthentication (..),
     newMutualTlsAuthentication,
-    mutualTlsAuthentication_truststoreVersion,
-    mutualTlsAuthentication_truststoreUri,
     mutualTlsAuthentication_truststoreWarnings,
+    mutualTlsAuthentication_truststoreUri,
+    mutualTlsAuthentication_truststoreVersion,
 
     -- * MutualTlsAuthenticationInput
     MutualTlsAuthenticationInput (..),
     newMutualTlsAuthenticationInput,
-    mutualTlsAuthenticationInput_truststoreVersion,
     mutualTlsAuthenticationInput_truststoreUri,
+    mutualTlsAuthenticationInput_truststoreVersion,
 
     -- * PatchOperation
     PatchOperation (..),
     newPatchOperation,
     patchOperation_op,
-    patchOperation_from,
-    patchOperation_value,
     patchOperation_path,
+    patchOperation_value,
+    patchOperation_from,
 
     -- * QuotaSettings
     QuotaSettings (..),
     newQuotaSettings,
-    quotaSettings_limit,
-    quotaSettings_period,
     quotaSettings_offset,
+    quotaSettings_period,
+    quotaSettings_limit,
 
     -- * RequestValidator
     RequestValidator (..),
     newRequestValidator,
-    requestValidator_validateRequestBody,
-    requestValidator_id,
     requestValidator_validateRequestParameters,
     requestValidator_name,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
 
     -- * Resource
     Resource (..),
     newResource,
-    resource_id,
     resource_pathPart,
-    resource_parentId,
-    resource_resourceMethods,
     resource_path,
+    resource_id,
+    resource_resourceMethods,
+    resource_parentId,
 
     -- * RestApi
     RestApi (..),
     newRestApi,
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_policy,
-    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
+    restApi_disableExecuteApiEndpoint,
+    restApi_binaryMediaTypes,
+    restApi_warnings,
+    restApi_createdDate,
+    restApi_name,
+    restApi_version,
     restApi_apiKeySource,
+    restApi_id,
+    restApi_policy,
+    restApi_endpointConfiguration,
+    restApi_description,
+    restApi_tags,
 
     -- * SdkConfigurationProperty
     SdkConfigurationProperty (..),
     newSdkConfigurationProperty,
-    sdkConfigurationProperty_required,
     sdkConfigurationProperty_friendlyName,
+    sdkConfigurationProperty_required,
     sdkConfigurationProperty_name,
-    sdkConfigurationProperty_description,
     sdkConfigurationProperty_defaultValue,
+    sdkConfigurationProperty_description,
 
     -- * SdkType
     SdkType (..),
     newSdkType,
     sdkType_friendlyName,
-    sdkType_id,
     sdkType_configurationProperties,
+    sdkType_id,
     sdkType_description,
 
     -- * Stage
     Stage (..),
     newStage,
-    stage_createdDate,
     stage_deploymentId,
-    stage_tracingEnabled,
-    stage_lastUpdatedDate,
-    stage_cacheClusterEnabled,
-    stage_stageName,
-    stage_webAclArn,
-    stage_documentationVersion,
-    stage_accessLogSettings,
     stage_variables,
+    stage_accessLogSettings,
+    stage_documentationVersion,
     stage_clientCertificateId,
-    stage_tags,
-    stage_description,
-    stage_cacheClusterSize,
-    stage_canarySettings,
+    stage_tracingEnabled,
+    stage_createdDate,
     stage_cacheClusterStatus,
     stage_methodSettings,
+    stage_lastUpdatedDate,
+    stage_cacheClusterSize,
+    stage_webAclArn,
+    stage_canarySettings,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_description,
+    stage_tags,
 
     -- * StageKey
     StageKey (..),
     newStageKey,
-    stageKey_stageName,
     stageKey_restApiId,
+    stageKey_stageName,
 
     -- * ThrottleSettings
     ThrottleSettings (..),
@@ -429,42 +429,42 @@ module Network.AWS.APIGateway.Types
     -- * Usage
     Usage (..),
     newUsage,
-    usage_startDate,
-    usage_items,
-    usage_position,
-    usage_endDate,
     usage_usagePlanId,
+    usage_endDate,
+    usage_items,
+    usage_startDate,
+    usage_position,
 
     -- * UsagePlan
     UsagePlan (..),
     newUsagePlan,
-    usagePlan_id,
     usagePlan_apiStages,
     usagePlan_name,
-    usagePlan_tags,
-    usagePlan_productCode,
-    usagePlan_description,
-    usagePlan_quota,
+    usagePlan_id,
     usagePlan_throttle,
+    usagePlan_quota,
+    usagePlan_description,
+    usagePlan_productCode,
+    usagePlan_tags,
 
     -- * UsagePlanKey
     UsagePlanKey (..),
     newUsagePlanKey,
-    usagePlanKey_id,
-    usagePlanKey_name,
     usagePlanKey_value,
+    usagePlanKey_name,
+    usagePlanKey_id,
     usagePlanKey_type,
 
     -- * VpcLink
     VpcLink (..),
     newVpcLink,
-    vpcLink_statusMessage,
     vpcLink_status,
-    vpcLink_id,
     vpcLink_targetArns,
     vpcLink_name,
-    vpcLink_tags,
+    vpcLink_statusMessage,
+    vpcLink_id,
     vpcLink_description,
+    vpcLink_tags,
   )
 where
 
@@ -558,37 +558,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -601,42 +578,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The requested resource is not found. Make sure that the request URI is
--- correct.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The submitted request is not valid, for example, the input is incomplete
--- or incorrect. See the accompanying error message for details.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
-
--- | The request is denied because the caller has insufficient permissions.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | The requested service is not available. For details see the accompanying
--- error message. Retry after the specified time period.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
 
 -- | The request configuration has conflicts. For details, see the
 -- accompanying error message.
@@ -647,14 +612,14 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The request exceeded the rate limit. Retry after the specified time
--- period.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The requested resource is not found. Make sure that the request URI is
+-- correct.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The request has reached its throttling limit. Retry after the specified
 -- time period.
@@ -663,4 +628,39 @@ _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
+
+-- | The requested service is not available. For details see the accompanying
+-- error message. Retry after the specified time period.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
+
+-- | The request is denied because the caller has insufficient permissions.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401
+
+-- | The submitted request is not valid, for example, the input is incomplete
+-- or incorrect. See the accompanying error message for details.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request exceeded the rate limit. Retry after the specified time
+-- period.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
     Prelude.. Core.hasStatus 429

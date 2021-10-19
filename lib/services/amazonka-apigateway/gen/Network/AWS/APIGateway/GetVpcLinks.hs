@@ -30,8 +30,8 @@ module Network.AWS.APIGateway.GetVpcLinks
     newGetVpcLinks,
 
     -- * Request Lenses
-    getVpcLinks_position,
     getVpcLinks_limit,
+    getVpcLinks_position,
 
     -- * Destructuring the Response
     GetVpcLinksResponse (..),
@@ -56,11 +56,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetVpcLinks' smart constructor.
 data GetVpcLinks = GetVpcLinks'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,26 +72,26 @@ data GetVpcLinks = GetVpcLinks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getVpcLinks_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getVpcLinks_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getVpcLinks_position' - The current pagination position in the paged result set.
 newGetVpcLinks ::
   GetVpcLinks
 newGetVpcLinks =
   GetVpcLinks'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The current pagination position in the paged result set.
-getVpcLinks_position :: Lens.Lens' GetVpcLinks (Prelude.Maybe Prelude.Text)
-getVpcLinks_position = Lens.lens (\GetVpcLinks' {position} -> position) (\s@GetVpcLinks' {} a -> s {position = a} :: GetVpcLinks)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getVpcLinks_limit :: Lens.Lens' GetVpcLinks (Prelude.Maybe Prelude.Int)
 getVpcLinks_limit = Lens.lens (\GetVpcLinks' {limit} -> limit) (\s@GetVpcLinks' {} a -> s {limit = a} :: GetVpcLinks)
+
+-- | The current pagination position in the paged result set.
+getVpcLinks_position :: Lens.Lens' GetVpcLinks (Prelude.Maybe Prelude.Text)
+getVpcLinks_position = Lens.lens (\GetVpcLinks' {position} -> position) (\s@GetVpcLinks' {} a -> s {position = a} :: GetVpcLinks)
 
 instance Core.AWSPager GetVpcLinks where
   page rq rs
@@ -143,7 +143,7 @@ instance Core.ToPath GetVpcLinks where
 instance Core.ToQuery GetVpcLinks where
   toQuery GetVpcLinks' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of VPC links under the caller\'s account in a region.
 --
@@ -186,7 +186,7 @@ newGetVpcLinksResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getVpcLinksResponse_items :: Lens.Lens' GetVpcLinksResponse (Prelude.Maybe [VpcLink])
-getVpcLinksResponse_items = Lens.lens (\GetVpcLinksResponse' {items} -> items) (\s@GetVpcLinksResponse' {} a -> s {items = a} :: GetVpcLinksResponse) Prelude.. Lens.mapping Lens._Coerce
+getVpcLinksResponse_items = Lens.lens (\GetVpcLinksResponse' {items} -> items) (\s@GetVpcLinksResponse' {} a -> s {items = a} :: GetVpcLinksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getVpcLinksResponse_position :: Lens.Lens' GetVpcLinksResponse (Prelude.Maybe Prelude.Text)

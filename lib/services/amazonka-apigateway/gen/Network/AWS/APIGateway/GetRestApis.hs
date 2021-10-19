@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetRestApis
     newGetRestApis,
 
     -- * Request Lenses
-    getRestApis_position,
     getRestApis_limit,
+    getRestApis_position,
 
     -- * Destructuring the Response
     GetRestApisResponse (..),
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetRestApis' smart constructor.
 data GetRestApis = GetRestApis'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,26 +70,26 @@ data GetRestApis = GetRestApis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getRestApis_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getRestApis_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getRestApis_position' - The current pagination position in the paged result set.
 newGetRestApis ::
   GetRestApis
 newGetRestApis =
   GetRestApis'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The current pagination position in the paged result set.
-getRestApis_position :: Lens.Lens' GetRestApis (Prelude.Maybe Prelude.Text)
-getRestApis_position = Lens.lens (\GetRestApis' {position} -> position) (\s@GetRestApis' {} a -> s {position = a} :: GetRestApis)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getRestApis_limit :: Lens.Lens' GetRestApis (Prelude.Maybe Prelude.Int)
 getRestApis_limit = Lens.lens (\GetRestApis' {limit} -> limit) (\s@GetRestApis' {} a -> s {limit = a} :: GetRestApis)
+
+-- | The current pagination position in the paged result set.
+getRestApis_position :: Lens.Lens' GetRestApis (Prelude.Maybe Prelude.Text)
+getRestApis_position = Lens.lens (\GetRestApis' {position} -> position) (\s@GetRestApis' {} a -> s {position = a} :: GetRestApis)
 
 instance Core.AWSPager GetRestApis where
   page rq rs
@@ -141,7 +141,7 @@ instance Core.ToPath GetRestApis where
 instance Core.ToQuery GetRestApis where
   toQuery GetRestApis' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Contains references to your APIs and links that guide you in how to
 -- interact with your collection. A collection offers a paginated view of
@@ -185,7 +185,7 @@ newGetRestApisResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getRestApisResponse_items :: Lens.Lens' GetRestApisResponse (Prelude.Maybe [RestApi])
-getRestApisResponse_items = Lens.lens (\GetRestApisResponse' {items} -> items) (\s@GetRestApisResponse' {} a -> s {items = a} :: GetRestApisResponse) Prelude.. Lens.mapping Lens._Coerce
+getRestApisResponse_items = Lens.lens (\GetRestApisResponse' {items} -> items) (\s@GetRestApisResponse' {} a -> s {items = a} :: GetRestApisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getRestApisResponse_position :: Lens.Lens' GetRestApisResponse (Prelude.Maybe Prelude.Text)

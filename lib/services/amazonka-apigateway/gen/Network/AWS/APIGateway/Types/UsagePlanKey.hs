@@ -34,12 +34,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUsagePlanKey' smart constructor.
 data UsagePlanKey = UsagePlanKey'
-  { -- | The Id of a usage plan key.
-    id :: Prelude.Maybe Prelude.Text,
+  { -- | The value of a usage plan key.
+    value :: Prelude.Maybe Prelude.Text,
     -- | The name of a usage plan key.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The value of a usage plan key.
-    value :: Prelude.Maybe Prelude.Text,
+    -- | The Id of a usage plan key.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The type of a usage plan key. Currently, the valid key type is
     -- @API_KEY@.
     type' :: Prelude.Maybe Prelude.Text
@@ -54,11 +54,11 @@ data UsagePlanKey = UsagePlanKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'usagePlanKey_id' - The Id of a usage plan key.
+-- 'value', 'usagePlanKey_value' - The value of a usage plan key.
 --
 -- 'name', 'usagePlanKey_name' - The name of a usage plan key.
 --
--- 'value', 'usagePlanKey_value' - The value of a usage plan key.
+-- 'id', 'usagePlanKey_id' - The Id of a usage plan key.
 --
 -- 'type'', 'usagePlanKey_type' - The type of a usage plan key. Currently, the valid key type is
 -- @API_KEY@.
@@ -66,23 +66,23 @@ newUsagePlanKey ::
   UsagePlanKey
 newUsagePlanKey =
   UsagePlanKey'
-    { id = Prelude.Nothing,
+    { value = Prelude.Nothing,
       name = Prelude.Nothing,
-      value = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
--- | The Id of a usage plan key.
-usagePlanKey_id :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
-usagePlanKey_id = Lens.lens (\UsagePlanKey' {id} -> id) (\s@UsagePlanKey' {} a -> s {id = a} :: UsagePlanKey)
+-- | The value of a usage plan key.
+usagePlanKey_value :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
+usagePlanKey_value = Lens.lens (\UsagePlanKey' {value} -> value) (\s@UsagePlanKey' {} a -> s {value = a} :: UsagePlanKey)
 
 -- | The name of a usage plan key.
 usagePlanKey_name :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
 usagePlanKey_name = Lens.lens (\UsagePlanKey' {name} -> name) (\s@UsagePlanKey' {} a -> s {name = a} :: UsagePlanKey)
 
--- | The value of a usage plan key.
-usagePlanKey_value :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
-usagePlanKey_value = Lens.lens (\UsagePlanKey' {value} -> value) (\s@UsagePlanKey' {} a -> s {value = a} :: UsagePlanKey)
+-- | The Id of a usage plan key.
+usagePlanKey_id :: Lens.Lens' UsagePlanKey (Prelude.Maybe Prelude.Text)
+usagePlanKey_id = Lens.lens (\UsagePlanKey' {id} -> id) (\s@UsagePlanKey' {} a -> s {id = a} :: UsagePlanKey)
 
 -- | The type of a usage plan key. Currently, the valid key type is
 -- @API_KEY@.
@@ -95,9 +95,9 @@ instance Core.FromJSON UsagePlanKey where
       "UsagePlanKey"
       ( \x ->
           UsagePlanKey'
-            Prelude.<$> (x Core..:? "id")
+            Prelude.<$> (x Core..:? "value")
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "type")
       )
 

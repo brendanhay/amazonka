@@ -39,9 +39,9 @@ module Network.AWS.APIGateway.GetIntegrationResponse
     -- * Response Lenses
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_responseParameters,
-    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
+    integrationResponse_statusCode,
+    integrationResponse_responseParameters,
   )
 where
 

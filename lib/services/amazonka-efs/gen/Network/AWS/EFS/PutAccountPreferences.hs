@@ -21,12 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Use this operation to set the account preference in the current Amazon
--- Web Services Region to use either long 17 character (63 bit) or short 8
--- character (32 bit) IDs for new EFS file systems and mount targets
--- created. All existing resource IDs are not affected by any changes you
+-- Web Services Region to use long 17 character (63 bit) or short 8
+-- character (32 bit) resource IDs for new EFS file system and mount target
+-- resources. All existing resource IDs are not affected by any changes you
 -- make. You can set the ID preference during the opt-in period as EFS
 -- transitions to long resource IDs. For more information, see
--- <efs/latest/ug/manage-efs-resource-ids.html Managing Amazon EFS resource IDs>.
+-- <https://docs.aws.amazon.com/efs/latest/ug/manage-efs-resource-ids.html Managing Amazon EFS resource IDs>.
+--
+-- Starting in October, 2021, you will receive an error if you try to set
+-- the account preference to use the short 8 character format resource ID.
+-- Contact Amazon Web Services support if you receive an error and need to
+-- use short IDs for file system and mount target resources.
 module Network.AWS.EFS.PutAccountPreferences
   ( -- * Creating a Request
     PutAccountPreferences (..),
@@ -57,6 +62,11 @@ data PutAccountPreferences = PutAccountPreferences'
   { -- | Specifies the EFS resource ID preference to set for the user\'s Amazon
     -- Web Services account, in the current Amazon Web Services Region, either
     -- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).
+    --
+    -- Starting in October, 2021, you will receive an error when setting the
+    -- account preference to @SHORT_ID@. Contact Amazon Web Services support if
+    -- you receive an error and need to use short IDs for file system and mount
+    -- target resources.
     resourceIdType :: ResourceIdType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,6 +82,11 @@ data PutAccountPreferences = PutAccountPreferences'
 -- 'resourceIdType', 'putAccountPreferences_resourceIdType' - Specifies the EFS resource ID preference to set for the user\'s Amazon
 -- Web Services account, in the current Amazon Web Services Region, either
 -- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).
+--
+-- Starting in October, 2021, you will receive an error when setting the
+-- account preference to @SHORT_ID@. Contact Amazon Web Services support if
+-- you receive an error and need to use short IDs for file system and mount
+-- target resources.
 newPutAccountPreferences ::
   -- | 'resourceIdType'
   ResourceIdType ->
@@ -85,6 +100,11 @@ newPutAccountPreferences pResourceIdType_ =
 -- | Specifies the EFS resource ID preference to set for the user\'s Amazon
 -- Web Services account, in the current Amazon Web Services Region, either
 -- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).
+--
+-- Starting in October, 2021, you will receive an error when setting the
+-- account preference to @SHORT_ID@. Contact Amazon Web Services support if
+-- you receive an error and need to use short IDs for file system and mount
+-- target resources.
 putAccountPreferences_resourceIdType :: Lens.Lens' PutAccountPreferences ResourceIdType
 putAccountPreferences_resourceIdType = Lens.lens (\PutAccountPreferences' {resourceIdType} -> resourceIdType) (\s@PutAccountPreferences' {} a -> s {resourceIdType = a} :: PutAccountPreferences)
 

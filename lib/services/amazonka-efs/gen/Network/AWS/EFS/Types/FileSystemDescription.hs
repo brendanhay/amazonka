@@ -32,18 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
-  { -- | Displays the file system\'s throughput mode. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
-    -- in the /Amazon EFS User Guide/.
-    throughputMode :: Prelude.Maybe ThroughputMode,
-    -- | A Boolean value that, if true, indicates that the file system is
-    -- encrypted.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) for the EFS file system, in the format
-    -- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
-    -- Example with sample data:
-    -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
-    fileSystemArn :: Prelude.Maybe Prelude.Text,
+  { -- | The unique and consistent identifier of the Availability Zone in which
+    -- the file system\'s One Zone storage classes exist. For example,
+    -- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+    -- Services Region, and it has the same location in every Amazon Web
+    -- Services account.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The amount of provisioned throughput, measured in MiB\/s, for the file
     -- system. Valid for file systems using @ThroughputMode@ set to
     -- @provisioned@.
@@ -54,12 +48,18 @@ data FileSystemDescription = FileSystemDescription'
     -- <https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html Using EFS storage classes>
     -- in the /Amazon EFS User Guide/.
     availabilityZoneName :: Prelude.Maybe Prelude.Text,
-    -- | The unique and consistent identifier of the Availability Zone in which
-    -- the file system\'s One Zone storage classes exist. For example,
-    -- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
-    -- Services Region, and it has the same location in every Amazon Web
-    -- Services account.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the EFS file system, in the format
+    -- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+    -- Example with sample data:
+    -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
+    fileSystemArn :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that, if true, indicates that the file system is
+    -- encrypted.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Displays the file system\'s throughput mode. For more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+    -- in the /Amazon EFS User Guide/.
+    throughputMode :: Prelude.Maybe ThroughputMode,
     -- | The ID of an Key Management Service customer master key (CMK) that was
     -- used to protect the encrypted file system.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -110,17 +110,11 @@ data FileSystemDescription = FileSystemDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throughputMode', 'fileSystemDescription_throughputMode' - Displays the file system\'s throughput mode. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
--- in the /Amazon EFS User Guide/.
---
--- 'encrypted', 'fileSystemDescription_encrypted' - A Boolean value that, if true, indicates that the file system is
--- encrypted.
---
--- 'fileSystemArn', 'fileSystemDescription_fileSystemArn' - The Amazon Resource Name (ARN) for the EFS file system, in the format
--- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
--- Example with sample data:
--- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
+-- 'availabilityZoneId', 'fileSystemDescription_availabilityZoneId' - The unique and consistent identifier of the Availability Zone in which
+-- the file system\'s One Zone storage classes exist. For example,
+-- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+-- Services Region, and it has the same location in every Amazon Web
+-- Services account.
 --
 -- 'provisionedThroughputInMibps', 'fileSystemDescription_provisionedThroughputInMibps' - The amount of provisioned throughput, measured in MiB\/s, for the file
 -- system. Valid for file systems using @ThroughputMode@ set to
@@ -132,11 +126,17 @@ data FileSystemDescription = FileSystemDescription'
 -- <https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html Using EFS storage classes>
 -- in the /Amazon EFS User Guide/.
 --
--- 'availabilityZoneId', 'fileSystemDescription_availabilityZoneId' - The unique and consistent identifier of the Availability Zone in which
--- the file system\'s One Zone storage classes exist. For example,
--- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
--- Services Region, and it has the same location in every Amazon Web
--- Services account.
+-- 'fileSystemArn', 'fileSystemDescription_fileSystemArn' - The Amazon Resource Name (ARN) for the EFS file system, in the format
+-- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+-- Example with sample data:
+-- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
+--
+-- 'encrypted', 'fileSystemDescription_encrypted' - A Boolean value that, if true, indicates that the file system is
+-- encrypted.
+--
+-- 'throughputMode', 'fileSystemDescription_throughputMode' - Displays the file system\'s throughput mode. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+-- in the /Amazon EFS User Guide/.
 --
 -- 'kmsKeyId', 'fileSystemDescription_kmsKeyId' - The ID of an Key Management Service customer master key (CMK) that was
 -- used to protect the encrypted file system.
@@ -204,13 +204,13 @@ newFileSystemDescription
   pSizeInBytes_
   pPerformanceMode_ =
     FileSystemDescription'
-      { throughputMode =
+      { availabilityZoneId =
           Prelude.Nothing,
-        encrypted = Prelude.Nothing,
-        fileSystemArn = Prelude.Nothing,
         provisionedThroughputInMibps = Prelude.Nothing,
         availabilityZoneName = Prelude.Nothing,
-        availabilityZoneId = Prelude.Nothing,
+        fileSystemArn = Prelude.Nothing,
+        encrypted = Prelude.Nothing,
+        throughputMode = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         name = Prelude.Nothing,
         ownerId = pOwnerId_,
@@ -224,23 +224,13 @@ newFileSystemDescription
         tags = Prelude.mempty
       }
 
--- | Displays the file system\'s throughput mode. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
--- in the /Amazon EFS User Guide/.
-fileSystemDescription_throughputMode :: Lens.Lens' FileSystemDescription (Prelude.Maybe ThroughputMode)
-fileSystemDescription_throughputMode = Lens.lens (\FileSystemDescription' {throughputMode} -> throughputMode) (\s@FileSystemDescription' {} a -> s {throughputMode = a} :: FileSystemDescription)
-
--- | A Boolean value that, if true, indicates that the file system is
--- encrypted.
-fileSystemDescription_encrypted :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Bool)
-fileSystemDescription_encrypted = Lens.lens (\FileSystemDescription' {encrypted} -> encrypted) (\s@FileSystemDescription' {} a -> s {encrypted = a} :: FileSystemDescription)
-
--- | The Amazon Resource Name (ARN) for the EFS file system, in the format
--- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
--- Example with sample data:
--- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
-fileSystemDescription_fileSystemArn :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
-fileSystemDescription_fileSystemArn = Lens.lens (\FileSystemDescription' {fileSystemArn} -> fileSystemArn) (\s@FileSystemDescription' {} a -> s {fileSystemArn = a} :: FileSystemDescription)
+-- | The unique and consistent identifier of the Availability Zone in which
+-- the file system\'s One Zone storage classes exist. For example,
+-- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+-- Services Region, and it has the same location in every Amazon Web
+-- Services account.
+fileSystemDescription_availabilityZoneId :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
+fileSystemDescription_availabilityZoneId = Lens.lens (\FileSystemDescription' {availabilityZoneId} -> availabilityZoneId) (\s@FileSystemDescription' {} a -> s {availabilityZoneId = a} :: FileSystemDescription)
 
 -- | The amount of provisioned throughput, measured in MiB\/s, for the file
 -- system. Valid for file systems using @ThroughputMode@ set to
@@ -256,13 +246,23 @@ fileSystemDescription_provisionedThroughputInMibps = Lens.lens (\FileSystemDescr
 fileSystemDescription_availabilityZoneName :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
 fileSystemDescription_availabilityZoneName = Lens.lens (\FileSystemDescription' {availabilityZoneName} -> availabilityZoneName) (\s@FileSystemDescription' {} a -> s {availabilityZoneName = a} :: FileSystemDescription)
 
--- | The unique and consistent identifier of the Availability Zone in which
--- the file system\'s One Zone storage classes exist. For example,
--- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
--- Services Region, and it has the same location in every Amazon Web
--- Services account.
-fileSystemDescription_availabilityZoneId :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
-fileSystemDescription_availabilityZoneId = Lens.lens (\FileSystemDescription' {availabilityZoneId} -> availabilityZoneId) (\s@FileSystemDescription' {} a -> s {availabilityZoneId = a} :: FileSystemDescription)
+-- | The Amazon Resource Name (ARN) for the EFS file system, in the format
+-- @arn:aws:elasticfilesystem:region:account-id:file-system\/file-system-id @.
+-- Example with sample data:
+-- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
+fileSystemDescription_fileSystemArn :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
+fileSystemDescription_fileSystemArn = Lens.lens (\FileSystemDescription' {fileSystemArn} -> fileSystemArn) (\s@FileSystemDescription' {} a -> s {fileSystemArn = a} :: FileSystemDescription)
+
+-- | A Boolean value that, if true, indicates that the file system is
+-- encrypted.
+fileSystemDescription_encrypted :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Bool)
+fileSystemDescription_encrypted = Lens.lens (\FileSystemDescription' {encrypted} -> encrypted) (\s@FileSystemDescription' {} a -> s {encrypted = a} :: FileSystemDescription)
+
+-- | Displays the file system\'s throughput mode. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+-- in the /Amazon EFS User Guide/.
+fileSystemDescription_throughputMode :: Lens.Lens' FileSystemDescription (Prelude.Maybe ThroughputMode)
+fileSystemDescription_throughputMode = Lens.lens (\FileSystemDescription' {throughputMode} -> throughputMode) (\s@FileSystemDescription' {} a -> s {throughputMode = a} :: FileSystemDescription)
 
 -- | The ID of an Key Management Service customer master key (CMK) that was
 -- used to protect the encrypted file system.
@@ -323,7 +323,7 @@ fileSystemDescription_performanceMode = Lens.lens (\FileSystemDescription' {perf
 -- | The tags associated with the file system, presented as an array of @Tag@
 -- objects.
 fileSystemDescription_tags :: Lens.Lens' FileSystemDescription [Tag]
-fileSystemDescription_tags = Lens.lens (\FileSystemDescription' {tags} -> tags) (\s@FileSystemDescription' {} a -> s {tags = a} :: FileSystemDescription) Prelude.. Lens._Coerce
+fileSystemDescription_tags = Lens.lens (\FileSystemDescription' {tags} -> tags) (\s@FileSystemDescription' {} a -> s {tags = a} :: FileSystemDescription) Prelude.. Lens.coerced
 
 instance Core.FromJSON FileSystemDescription where
   parseJSON =
@@ -331,12 +331,12 @@ instance Core.FromJSON FileSystemDescription where
       "FileSystemDescription"
       ( \x ->
           FileSystemDescription'
-            Prelude.<$> (x Core..:? "ThroughputMode")
-            Prelude.<*> (x Core..:? "Encrypted")
-            Prelude.<*> (x Core..:? "FileSystemArn")
+            Prelude.<$> (x Core..:? "AvailabilityZoneId")
             Prelude.<*> (x Core..:? "ProvisionedThroughputInMibps")
             Prelude.<*> (x Core..:? "AvailabilityZoneName")
-            Prelude.<*> (x Core..:? "AvailabilityZoneId")
+            Prelude.<*> (x Core..:? "FileSystemArn")
+            Prelude.<*> (x Core..:? "Encrypted")
+            Prelude.<*> (x Core..:? "ThroughputMode")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..: "OwnerId")

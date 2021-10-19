@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceIdPreference' smart constructor.
 data ResourceIdPreference = ResourceIdPreference'
-  { -- | Identifies the EFS resource ID preference, either @LONG_ID@ (17
-    -- characters) or @SHORT_ID@ (8 characters).
-    resourceIdType :: Prelude.Maybe ResourceIdType,
-    -- | Identifies the Amazon EFS resources to which the ID preference setting
+  { -- | Identifies the Amazon EFS resources to which the ID preference setting
     -- applies, @FILE_SYSTEM@ and @MOUNT_TARGET@.
-    resources :: Prelude.Maybe [Resource]
+    resources :: Prelude.Maybe [Resource],
+    -- | Identifies the EFS resource ID preference, either @LONG_ID@ (17
+    -- characters) or @SHORT_ID@ (8 characters).
+    resourceIdType :: Prelude.Maybe ResourceIdType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,28 @@ data ResourceIdPreference = ResourceIdPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIdType', 'resourceIdPreference_resourceIdType' - Identifies the EFS resource ID preference, either @LONG_ID@ (17
--- characters) or @SHORT_ID@ (8 characters).
---
 -- 'resources', 'resourceIdPreference_resources' - Identifies the Amazon EFS resources to which the ID preference setting
 -- applies, @FILE_SYSTEM@ and @MOUNT_TARGET@.
+--
+-- 'resourceIdType', 'resourceIdPreference_resourceIdType' - Identifies the EFS resource ID preference, either @LONG_ID@ (17
+-- characters) or @SHORT_ID@ (8 characters).
 newResourceIdPreference ::
   ResourceIdPreference
 newResourceIdPreference =
   ResourceIdPreference'
-    { resourceIdType =
-        Prelude.Nothing,
-      resources = Prelude.Nothing
+    { resources = Prelude.Nothing,
+      resourceIdType = Prelude.Nothing
     }
+
+-- | Identifies the Amazon EFS resources to which the ID preference setting
+-- applies, @FILE_SYSTEM@ and @MOUNT_TARGET@.
+resourceIdPreference_resources :: Lens.Lens' ResourceIdPreference (Prelude.Maybe [Resource])
+resourceIdPreference_resources = Lens.lens (\ResourceIdPreference' {resources} -> resources) (\s@ResourceIdPreference' {} a -> s {resources = a} :: ResourceIdPreference) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the EFS resource ID preference, either @LONG_ID@ (17
 -- characters) or @SHORT_ID@ (8 characters).
 resourceIdPreference_resourceIdType :: Lens.Lens' ResourceIdPreference (Prelude.Maybe ResourceIdType)
 resourceIdPreference_resourceIdType = Lens.lens (\ResourceIdPreference' {resourceIdType} -> resourceIdType) (\s@ResourceIdPreference' {} a -> s {resourceIdType = a} :: ResourceIdPreference)
-
--- | Identifies the Amazon EFS resources to which the ID preference setting
--- applies, @FILE_SYSTEM@ and @MOUNT_TARGET@.
-resourceIdPreference_resources :: Lens.Lens' ResourceIdPreference (Prelude.Maybe [Resource])
-resourceIdPreference_resources = Lens.lens (\ResourceIdPreference' {resources} -> resources) (\s@ResourceIdPreference' {} a -> s {resources = a} :: ResourceIdPreference) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResourceIdPreference where
   parseJSON =
@@ -77,8 +76,8 @@ instance Core.FromJSON ResourceIdPreference where
       "ResourceIdPreference"
       ( \x ->
           ResourceIdPreference'
-            Prelude.<$> (x Core..:? "ResourceIdType")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ResourceIdType")
       )
 
 instance Prelude.Hashable ResourceIdPreference

@@ -28,15 +28,13 @@
 -- @AFTER_1_ACCESS@. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html EFS Lifecycle Management>.
 --
--- A @LifecycleConfiguration@ applies to all files in a file system.
---
 -- Each Amazon EFS file system supports one lifecycle configuration, which
 -- applies to all files in the file system. If a @LifecycleConfiguration@
 -- object already exists for the specified file system, a
 -- @PutLifecycleConfiguration@ call modifies the existing configuration. A
 -- @PutLifecycleConfiguration@ call with an empty @LifecyclePolicies@ array
 -- in the request body deletes any existing @LifecycleConfiguration@ and
--- disables lifecycle management.
+-- turns off lifecycle management for the file system.
 --
 -- In the request, specify the following:
 --
@@ -44,8 +42,11 @@
 --     modifying lifecycle management.
 --
 -- -   A @LifecyclePolicies@ array of @LifecyclePolicy@ objects that define
---     when files are moved to the IA storage class. The array can contain
---     only one @LifecyclePolicy@ item.
+--     when files are moved to the IA storage class. Amazon EFS requires
+--     that each @LifecyclePolicy@ object have only have a single
+--     transition, so the @LifecyclePolicies@ array needs to be structured
+--     with separate @LifecyclePolicy@ objects. See the example requests in
+--     the following section for more information.
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:PutLifecycleConfiguration@ operation.
@@ -84,9 +85,22 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
     -- @LifecycleConfiguration@ object (String).
     fileSystemId :: Prelude.Text,
     -- | An array of @LifecyclePolicy@ objects that define the file system\'s
-    -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells
-    -- lifecycle management when to transition files from the Standard storage
-    -- class to the Infrequent Access storage class.
+    -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
+    -- informs EFS lifecycle management and intelligent tiering of the
+    -- following:
+    --
+    -- -   When to move files in the file system from primary storage to the IA
+    --     storage class.
+    --
+    -- -   When to move files that are in IA storage to primary storage.
+    --
+    -- When using the @put-lifecycle-configuration@ CLI command or the
+    -- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
+    -- @LifecyclePolicy@ object have only a single transition. This means that
+    -- in a request body, @LifecyclePolicies@ needs to be structured as an
+    -- array of @LifecyclePolicy@ objects, one object for each transition,
+    -- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
+    -- requests in the following section for more information.
     lifecyclePolicies :: [LifecyclePolicy]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,9 +117,22 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
 -- @LifecycleConfiguration@ object (String).
 --
 -- 'lifecyclePolicies', 'putLifecycleConfiguration_lifecyclePolicies' - An array of @LifecyclePolicy@ objects that define the file system\'s
--- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells
--- lifecycle management when to transition files from the Standard storage
--- class to the Infrequent Access storage class.
+-- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
+-- informs EFS lifecycle management and intelligent tiering of the
+-- following:
+--
+-- -   When to move files in the file system from primary storage to the IA
+--     storage class.
+--
+-- -   When to move files that are in IA storage to primary storage.
+--
+-- When using the @put-lifecycle-configuration@ CLI command or the
+-- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
+-- @LifecyclePolicy@ object have only a single transition. This means that
+-- in a request body, @LifecyclePolicies@ needs to be structured as an
+-- array of @LifecyclePolicy@ objects, one object for each transition,
+-- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
+-- requests in the following section for more information.
 newPutLifecycleConfiguration ::
   -- | 'fileSystemId'
   Prelude.Text ->
@@ -123,11 +150,24 @@ putLifecycleConfiguration_fileSystemId :: Lens.Lens' PutLifecycleConfiguration P
 putLifecycleConfiguration_fileSystemId = Lens.lens (\PutLifecycleConfiguration' {fileSystemId} -> fileSystemId) (\s@PutLifecycleConfiguration' {} a -> s {fileSystemId = a} :: PutLifecycleConfiguration)
 
 -- | An array of @LifecyclePolicy@ objects that define the file system\'s
--- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells
--- lifecycle management when to transition files from the Standard storage
--- class to the Infrequent Access storage class.
+-- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object
+-- informs EFS lifecycle management and intelligent tiering of the
+-- following:
+--
+-- -   When to move files in the file system from primary storage to the IA
+--     storage class.
+--
+-- -   When to move files that are in IA storage to primary storage.
+--
+-- When using the @put-lifecycle-configuration@ CLI command or the
+-- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
+-- @LifecyclePolicy@ object have only a single transition. This means that
+-- in a request body, @LifecyclePolicies@ needs to be structured as an
+-- array of @LifecyclePolicy@ objects, one object for each transition,
+-- @TransitionToIA@, @TransitionToPrimaryStorageClass@. See the example
+-- requests in the following section for more information.
 putLifecycleConfiguration_lifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [LifecyclePolicy]
-putLifecycleConfiguration_lifecyclePolicies = Lens.lens (\PutLifecycleConfiguration' {lifecyclePolicies} -> lifecyclePolicies) (\s@PutLifecycleConfiguration' {} a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration) Prelude.. Lens._Coerce
+putLifecycleConfiguration_lifecyclePolicies = Lens.lens (\PutLifecycleConfiguration' {lifecyclePolicies} -> lifecyclePolicies) (\s@PutLifecycleConfiguration' {} a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutLifecycleConfiguration where
   type

@@ -55,7 +55,7 @@ newDataRetrievalPolicy =
 -- only one rule, which contains a Strategy field and optionally a
 -- BytesPerHour field.
 dataRetrievalPolicy_rules :: Lens.Lens' DataRetrievalPolicy (Prelude.Maybe [DataRetrievalRule])
-dataRetrievalPolicy_rules = Lens.lens (\DataRetrievalPolicy' {rules} -> rules) (\s@DataRetrievalPolicy' {} a -> s {rules = a} :: DataRetrievalPolicy) Prelude.. Lens.mapping Lens._Coerce
+dataRetrievalPolicy_rules = Lens.lens (\DataRetrievalPolicy' {rules} -> rules) (\s@DataRetrievalPolicy' {} a -> s {rules = a} :: DataRetrievalPolicy) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DataRetrievalPolicy where
   parseJSON =

@@ -61,8 +61,8 @@ module Network.AWS.Glacier.ListMultipartUploads
     newListMultipartUploads,
 
     -- * Request Lenses
-    listMultipartUploads_limit,
     listMultipartUploads_marker,
+    listMultipartUploads_limit,
     listMultipartUploads_accountId,
     listMultipartUploads_vaultName,
 
@@ -89,16 +89,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { -- | Specifies the maximum number of uploads returned in the response body.
-    -- If this value is not specified, the List Uploads operation returns up to
-    -- 50 uploads.
-    limit :: Prelude.Maybe Prelude.Text,
-    -- | An opaque string used for pagination. This value specifies the upload at
+  { -- | An opaque string used for pagination. This value specifies the upload at
     -- which the listing of uploads should begin. Get the marker value from a
     -- previous List Uploads response. You need only include the marker if you
     -- are continuing the pagination of results started in a previous List
     -- Uploads request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the maximum number of uploads returned in the response body.
+    -- If this value is not specified, the List Uploads operation returns up to
+    -- 50 uploads.
+    limit :: Prelude.Maybe Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
@@ -118,15 +118,15 @@ data ListMultipartUploads = ListMultipartUploads'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listMultipartUploads_limit' - Specifies the maximum number of uploads returned in the response body.
--- If this value is not specified, the List Uploads operation returns up to
--- 50 uploads.
---
 -- 'marker', 'listMultipartUploads_marker' - An opaque string used for pagination. This value specifies the upload at
 -- which the listing of uploads should begin. Get the marker value from a
 -- previous List Uploads response. You need only include the marker if you
 -- are continuing the pagination of results started in a previous List
 -- Uploads request.
+--
+-- 'limit', 'listMultipartUploads_limit' - Specifies the maximum number of uploads returned in the response body.
+-- If this value is not specified, the List Uploads operation returns up to
+-- 50 uploads.
 --
 -- 'accountId', 'listMultipartUploads_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -143,17 +143,11 @@ newListMultipartUploads ::
   ListMultipartUploads
 newListMultipartUploads pAccountId_ pVaultName_ =
   ListMultipartUploads'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
-
--- | Specifies the maximum number of uploads returned in the response body.
--- If this value is not specified, the List Uploads operation returns up to
--- 50 uploads.
-listMultipartUploads_limit :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
-listMultipartUploads_limit = Lens.lens (\ListMultipartUploads' {limit} -> limit) (\s@ListMultipartUploads' {} a -> s {limit = a} :: ListMultipartUploads)
 
 -- | An opaque string used for pagination. This value specifies the upload at
 -- which the listing of uploads should begin. Get the marker value from a
@@ -162,6 +156,12 @@ listMultipartUploads_limit = Lens.lens (\ListMultipartUploads' {limit} -> limit)
 -- Uploads request.
 listMultipartUploads_marker :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
 listMultipartUploads_marker = Lens.lens (\ListMultipartUploads' {marker} -> marker) (\s@ListMultipartUploads' {} a -> s {marker = a} :: ListMultipartUploads)
+
+-- | Specifies the maximum number of uploads returned in the response body.
+-- If this value is not specified, the List Uploads operation returns up to
+-- 50 uploads.
+listMultipartUploads_limit :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
+listMultipartUploads_limit = Lens.lens (\ListMultipartUploads' {limit} -> limit) (\s@ListMultipartUploads' {} a -> s {limit = a} :: ListMultipartUploads)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -233,7 +233,7 @@ instance Core.ToPath ListMultipartUploads where
 instance Core.ToQuery ListMultipartUploads where
   toQuery ListMultipartUploads' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "marker" Core.=: marker]
+      ["marker" Core.=: marker, "limit" Core.=: limit]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -281,7 +281,7 @@ newListMultipartUploadsResponse pHttpStatus_ =
 
 -- | A list of in-progress multipart uploads.
 listMultipartUploadsResponse_uploadsList :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe [UploadListElement])
-listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Prelude.. Lens.mapping Lens._Coerce
+listMultipartUploadsResponse_uploadsList = Lens.lens (\ListMultipartUploadsResponse' {uploadsList} -> uploadsList) (\s@ListMultipartUploadsResponse' {} a -> s {uploadsList = a} :: ListMultipartUploadsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to

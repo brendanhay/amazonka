@@ -176,7 +176,7 @@ newListTagsForVaultResponse pHttpStatus_ =
 -- | The tags attached to the vault. Each tag is composed of a key and a
 -- value.
 listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Prelude.Int

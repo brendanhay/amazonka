@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
-  { -- | The maximum number of bytes that can be retrieved in an hour.
+  { -- | The type of data retrieval policy to set.
+    --
+    -- Valid values: BytesPerHour|FreeTier|None
+    strategy :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of bytes that can be retrieved in an hour.
     --
     -- This field is required only if the value of the Strategy field is
     -- @BytesPerHour@. Your PUT operation will be rejected if the Strategy
     -- field is not set to @BytesPerHour@ and you set this field.
-    bytesPerHour :: Prelude.Maybe Prelude.Integer,
-    -- | The type of data retrieval policy to set.
-    --
-    -- Valid values: BytesPerHour|FreeTier|None
-    strategy :: Prelude.Maybe Prelude.Text
+    bytesPerHour :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +48,28 @@ data DataRetrievalRule = DataRetrievalRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'strategy', 'dataRetrievalRule_strategy' - The type of data retrieval policy to set.
+--
+-- Valid values: BytesPerHour|FreeTier|None
+--
 -- 'bytesPerHour', 'dataRetrievalRule_bytesPerHour' - The maximum number of bytes that can be retrieved in an hour.
 --
 -- This field is required only if the value of the Strategy field is
 -- @BytesPerHour@. Your PUT operation will be rejected if the Strategy
 -- field is not set to @BytesPerHour@ and you set this field.
---
--- 'strategy', 'dataRetrievalRule_strategy' - The type of data retrieval policy to set.
---
--- Valid values: BytesPerHour|FreeTier|None
 newDataRetrievalRule ::
   DataRetrievalRule
 newDataRetrievalRule =
   DataRetrievalRule'
-    { bytesPerHour = Prelude.Nothing,
-      strategy = Prelude.Nothing
+    { strategy = Prelude.Nothing,
+      bytesPerHour = Prelude.Nothing
     }
+
+-- | The type of data retrieval policy to set.
+--
+-- Valid values: BytesPerHour|FreeTier|None
+dataRetrievalRule_strategy :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Text)
+dataRetrievalRule_strategy = Lens.lens (\DataRetrievalRule' {strategy} -> strategy) (\s@DataRetrievalRule' {} a -> s {strategy = a} :: DataRetrievalRule)
 
 -- | The maximum number of bytes that can be retrieved in an hour.
 --
@@ -73,20 +79,14 @@ newDataRetrievalRule =
 dataRetrievalRule_bytesPerHour :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Integer)
 dataRetrievalRule_bytesPerHour = Lens.lens (\DataRetrievalRule' {bytesPerHour} -> bytesPerHour) (\s@DataRetrievalRule' {} a -> s {bytesPerHour = a} :: DataRetrievalRule)
 
--- | The type of data retrieval policy to set.
---
--- Valid values: BytesPerHour|FreeTier|None
-dataRetrievalRule_strategy :: Lens.Lens' DataRetrievalRule (Prelude.Maybe Prelude.Text)
-dataRetrievalRule_strategy = Lens.lens (\DataRetrievalRule' {strategy} -> strategy) (\s@DataRetrievalRule' {} a -> s {strategy = a} :: DataRetrievalRule)
-
 instance Core.FromJSON DataRetrievalRule where
   parseJSON =
     Core.withObject
       "DataRetrievalRule"
       ( \x ->
           DataRetrievalRule'
-            Prelude.<$> (x Core..:? "BytesPerHour")
-            Prelude.<*> (x Core..:? "Strategy")
+            Prelude.<$> (x Core..:? "Strategy")
+            Prelude.<*> (x Core..:? "BytesPerHour")
       )
 
 instance Prelude.Hashable DataRetrievalRule
@@ -97,7 +97,7 @@ instance Core.ToJSON DataRetrievalRule where
   toJSON DataRetrievalRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BytesPerHour" Core..=) Prelude.<$> bytesPerHour,
-            ("Strategy" Core..=) Prelude.<$> strategy
+          [ ("Strategy" Core..=) Prelude.<$> strategy,
+            ("BytesPerHour" Core..=) Prelude.<$> bytesPerHour
           ]
       )

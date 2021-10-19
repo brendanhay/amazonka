@@ -97,7 +97,7 @@ newRemoveTagsFromVault pAccountId_ pVaultName_ =
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
 removeTagsFromVault_tagKeys :: Lens.Lens' RemoveTagsFromVault (Prelude.Maybe [Prelude.Text])
-removeTagsFromVault_tagKeys = Lens.lens (\RemoveTagsFromVault' {tagKeys} -> tagKeys) (\s@RemoveTagsFromVault' {} a -> s {tagKeys = a} :: RemoveTagsFromVault) Prelude.. Lens.mapping Lens._Coerce
+removeTagsFromVault_tagKeys = Lens.lens (\RemoveTagsFromVault' {tagKeys} -> tagKeys) (\s@RemoveTagsFromVault' {} a -> s {tagKeys = a} :: RemoveTagsFromVault) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single

@@ -34,10 +34,10 @@ data SelectParameters = SelectParameters'
     expressionType :: Prelude.Maybe ExpressionType,
     -- | Describes how the results of the select job are serialized.
     outputSerialization :: Prelude.Maybe OutputSerialization,
-    -- | Describes the serialization format of the object.
-    inputSerialization :: Prelude.Maybe InputSerialization,
     -- | The expression that is used to select the object.
-    expression :: Prelude.Maybe Prelude.Text
+    expression :: Prelude.Maybe Prelude.Text,
+    -- | Describes the serialization format of the object.
+    inputSerialization :: Prelude.Maybe InputSerialization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,17 +53,17 @@ data SelectParameters = SelectParameters'
 --
 -- 'outputSerialization', 'selectParameters_outputSerialization' - Describes how the results of the select job are serialized.
 --
--- 'inputSerialization', 'selectParameters_inputSerialization' - Describes the serialization format of the object.
---
 -- 'expression', 'selectParameters_expression' - The expression that is used to select the object.
+--
+-- 'inputSerialization', 'selectParameters_inputSerialization' - Describes the serialization format of the object.
 newSelectParameters ::
   SelectParameters
 newSelectParameters =
   SelectParameters'
     { expressionType = Prelude.Nothing,
       outputSerialization = Prelude.Nothing,
-      inputSerialization = Prelude.Nothing,
-      expression = Prelude.Nothing
+      expression = Prelude.Nothing,
+      inputSerialization = Prelude.Nothing
     }
 
 -- | The type of the provided expression, for example @SQL@.
@@ -74,13 +74,13 @@ selectParameters_expressionType = Lens.lens (\SelectParameters' {expressionType}
 selectParameters_outputSerialization :: Lens.Lens' SelectParameters (Prelude.Maybe OutputSerialization)
 selectParameters_outputSerialization = Lens.lens (\SelectParameters' {outputSerialization} -> outputSerialization) (\s@SelectParameters' {} a -> s {outputSerialization = a} :: SelectParameters)
 
--- | Describes the serialization format of the object.
-selectParameters_inputSerialization :: Lens.Lens' SelectParameters (Prelude.Maybe InputSerialization)
-selectParameters_inputSerialization = Lens.lens (\SelectParameters' {inputSerialization} -> inputSerialization) (\s@SelectParameters' {} a -> s {inputSerialization = a} :: SelectParameters)
-
 -- | The expression that is used to select the object.
 selectParameters_expression :: Lens.Lens' SelectParameters (Prelude.Maybe Prelude.Text)
 selectParameters_expression = Lens.lens (\SelectParameters' {expression} -> expression) (\s@SelectParameters' {} a -> s {expression = a} :: SelectParameters)
+
+-- | Describes the serialization format of the object.
+selectParameters_inputSerialization :: Lens.Lens' SelectParameters (Prelude.Maybe InputSerialization)
+selectParameters_inputSerialization = Lens.lens (\SelectParameters' {inputSerialization} -> inputSerialization) (\s@SelectParameters' {} a -> s {inputSerialization = a} :: SelectParameters)
 
 instance Core.FromJSON SelectParameters where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON SelectParameters where
           SelectParameters'
             Prelude.<$> (x Core..:? "ExpressionType")
             Prelude.<*> (x Core..:? "OutputSerialization")
-            Prelude.<*> (x Core..:? "InputSerialization")
             Prelude.<*> (x Core..:? "Expression")
+            Prelude.<*> (x Core..:? "InputSerialization")
       )
 
 instance Prelude.Hashable SelectParameters
@@ -106,8 +106,8 @@ instance Core.ToJSON SelectParameters where
               Prelude.<$> expressionType,
             ("OutputSerialization" Core..=)
               Prelude.<$> outputSerialization,
+            ("Expression" Core..=) Prelude.<$> expression,
             ("InputSerialization" Core..=)
-              Prelude.<$> inputSerialization,
-            ("Expression" Core..=) Prelude.<$> expression
+              Prelude.<$> inputSerialization
           ]
       )

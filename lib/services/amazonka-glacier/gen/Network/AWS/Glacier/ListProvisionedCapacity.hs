@@ -151,7 +151,7 @@ newListProvisionedCapacityResponse pHttpStatus_ =
 
 -- | The response body contains the following JSON fields.
 listProvisionedCapacityResponse_provisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Prelude.Maybe [ProvisionedCapacityDescription])
-listProvisionedCapacityResponse_provisionedCapacityList = Lens.lens (\ListProvisionedCapacityResponse' {provisionedCapacityList} -> provisionedCapacityList) (\s@ListProvisionedCapacityResponse' {} a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse) Prelude.. Lens.mapping Lens._Coerce
+listProvisionedCapacityResponse_provisionedCapacityList = Lens.lens (\ListProvisionedCapacityResponse' {provisionedCapacityList} -> provisionedCapacityList) (\s@ListProvisionedCapacityResponse' {} a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProvisionedCapacityResponse_httpStatus :: Lens.Lens' ListProvisionedCapacityResponse Prelude.Int

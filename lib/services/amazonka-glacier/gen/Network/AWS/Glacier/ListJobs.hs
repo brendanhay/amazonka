@@ -65,10 +65,10 @@ module Network.AWS.Glacier.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_statuscode,
+    listJobs_marker,
     listJobs_completed,
     listJobs_limit,
-    listJobs_marker,
+    listJobs_statuscode,
     listJobs_accountId,
     listJobs_vaultName,
 
@@ -77,8 +77,8 @@ module Network.AWS.Glacier.ListJobs
     newListJobsResponse,
 
     -- * Response Lenses
-    listJobsResponse_jobList,
     listJobsResponse_marker,
+    listJobsResponse_jobList,
     listJobsResponse_httpStatus,
   )
 where
@@ -95,21 +95,21 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The type of job status to return. You can specify the following values:
-    -- @InProgress@, @Succeeded@, or @Failed@.
-    statuscode :: Prelude.Maybe Prelude.Text,
+  { -- | An opaque string used for pagination. This value specifies the job at
+    -- which the listing of jobs should begin. Get the marker value from a
+    -- previous List Jobs response. You only need to include the marker if you
+    -- are continuing the pagination of results started in a previous List Jobs
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The state of the jobs to return. You can specify @true@ or @false@.
     completed :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to be returned. The default limit is 50. The
     -- number of jobs returned might be fewer than the specified limit, but the
     -- number of returned jobs never exceeds the limit.
     limit :: Prelude.Maybe Prelude.Text,
-    -- | An opaque string used for pagination. This value specifies the job at
-    -- which the listing of jobs should begin. Get the marker value from a
-    -- previous List Jobs response. You only need to include the marker if you
-    -- are continuing the pagination of results started in a previous List Jobs
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | The type of job status to return. You can specify the following values:
+    -- @InProgress@, @Succeeded@, or @Failed@.
+    statuscode :: Prelude.Maybe Prelude.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
@@ -129,8 +129,11 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statuscode', 'listJobs_statuscode' - The type of job status to return. You can specify the following values:
--- @InProgress@, @Succeeded@, or @Failed@.
+-- 'marker', 'listJobs_marker' - An opaque string used for pagination. This value specifies the job at
+-- which the listing of jobs should begin. Get the marker value from a
+-- previous List Jobs response. You only need to include the marker if you
+-- are continuing the pagination of results started in a previous List Jobs
+-- request.
 --
 -- 'completed', 'listJobs_completed' - The state of the jobs to return. You can specify @true@ or @false@.
 --
@@ -138,11 +141,8 @@ data ListJobs = ListJobs'
 -- number of jobs returned might be fewer than the specified limit, but the
 -- number of returned jobs never exceeds the limit.
 --
--- 'marker', 'listJobs_marker' - An opaque string used for pagination. This value specifies the job at
--- which the listing of jobs should begin. Get the marker value from a
--- previous List Jobs response. You only need to include the marker if you
--- are continuing the pagination of results started in a previous List Jobs
--- request.
+-- 'statuscode', 'listJobs_statuscode' - The type of job status to return. You can specify the following values:
+-- @InProgress@, @Succeeded@, or @Failed@.
 --
 -- 'accountId', 'listJobs_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -159,18 +159,21 @@ newListJobs ::
   ListJobs
 newListJobs pAccountId_ pVaultName_ =
   ListJobs'
-    { statuscode = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       completed = Prelude.Nothing,
       limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      statuscode = Prelude.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
--- | The type of job status to return. You can specify the following values:
--- @InProgress@, @Succeeded@, or @Failed@.
-listJobs_statuscode :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_statuscode = Lens.lens (\ListJobs' {statuscode} -> statuscode) (\s@ListJobs' {} a -> s {statuscode = a} :: ListJobs)
+-- | An opaque string used for pagination. This value specifies the job at
+-- which the listing of jobs should begin. Get the marker value from a
+-- previous List Jobs response. You only need to include the marker if you
+-- are continuing the pagination of results started in a previous List Jobs
+-- request.
+listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
 
 -- | The state of the jobs to return. You can specify @true@ or @false@.
 listJobs_completed :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
@@ -182,13 +185,10 @@ listJobs_completed = Lens.lens (\ListJobs' {completed} -> completed) (\s@ListJob
 listJobs_limit :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_limit = Lens.lens (\ListJobs' {limit} -> limit) (\s@ListJobs' {} a -> s {limit = a} :: ListJobs)
 
--- | An opaque string used for pagination. This value specifies the job at
--- which the listing of jobs should begin. Get the marker value from a
--- previous List Jobs response. You only need to include the marker if you
--- are continuing the pagination of results started in a previous List Jobs
--- request.
-listJobs_marker :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_marker = Lens.lens (\ListJobs' {marker} -> marker) (\s@ListJobs' {} a -> s {marker = a} :: ListJobs)
+-- | The type of job status to return. You can specify the following values:
+-- @InProgress@, @Succeeded@, or @Failed@.
+listJobs_statuscode :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_statuscode = Lens.lens (\ListJobs' {statuscode} -> statuscode) (\s@ListJobs' {} a -> s {statuscode = a} :: ListJobs)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -230,8 +230,8 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "JobList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "JobList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -255,25 +255,25 @@ instance Core.ToPath ListJobs where
 instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "statuscode" Core.=: statuscode,
+      [ "marker" Core.=: marker,
         "completed" Core.=: completed,
         "limit" Core.=: limit,
-        "marker" Core.=: marker
+        "statuscode" Core.=: statuscode
       ]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | A list of job objects. Each job object contains metadata describing the
-    -- job.
-    jobList :: Prelude.Maybe [GlacierJobDescription],
-    -- | An opaque string used for pagination that specifies the job at which the
+  { -- | An opaque string used for pagination that specifies the job at which the
     -- listing of jobs should begin. You get the @marker@ value from a previous
     -- List Jobs response. You only need to include the marker if you are
     -- continuing the pagination of the results started in a previous List Jobs
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of job objects. Each job object contains metadata describing the
+    -- job.
+    jobList :: Prelude.Maybe [GlacierJobDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -287,14 +287,14 @@ data ListJobsResponse = ListJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobList', 'listJobsResponse_jobList' - A list of job objects. Each job object contains metadata describing the
--- job.
---
 -- 'marker', 'listJobsResponse_marker' - An opaque string used for pagination that specifies the job at which the
 -- listing of jobs should begin. You get the @marker@ value from a previous
 -- List Jobs response. You only need to include the marker if you are
 -- continuing the pagination of the results started in a previous List Jobs
 -- request.
+--
+-- 'jobList', 'listJobsResponse_jobList' - A list of job objects. Each job object contains metadata describing the
+-- job.
 --
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
@@ -303,15 +303,10 @@ newListJobsResponse ::
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { jobList = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      jobList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of job objects. Each job object contains metadata describing the
--- job.
-listJobsResponse_jobList :: Lens.Lens' ListJobsResponse (Prelude.Maybe [GlacierJobDescription])
-listJobsResponse_jobList = Lens.lens (\ListJobsResponse' {jobList} -> jobList) (\s@ListJobsResponse' {} a -> s {jobList = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An opaque string used for pagination that specifies the job at which the
 -- listing of jobs should begin. You get the @marker@ value from a previous
@@ -320,6 +315,11 @@ listJobsResponse_jobList = Lens.lens (\ListJobsResponse' {jobList} -> jobList) (
 -- request.
 listJobsResponse_marker :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
 listJobsResponse_marker = Lens.lens (\ListJobsResponse' {marker} -> marker) (\s@ListJobsResponse' {} a -> s {marker = a} :: ListJobsResponse)
+
+-- | A list of job objects. Each job object contains metadata describing the
+-- job.
+listJobsResponse_jobList :: Lens.Lens' ListJobsResponse (Prelude.Maybe [GlacierJobDescription])
+listJobsResponse_jobList = Lens.lens (\ListJobsResponse' {jobList} -> jobList) (\s@ListJobsResponse' {} a -> s {jobList = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int

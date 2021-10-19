@@ -164,6 +164,8 @@ genrule(
     cmd = """
 printf 'packages:\n' >>$(OUTS)
 
+declare -a pkgs
+declare -A dirs
 for dir in $(SRCS); do
   dir="$${dir##*/}"
   pkg="$${dir#libZS}"
@@ -174,6 +176,14 @@ for dir in $(SRCS); do
      continue
   fi
 
+  pkgs+=($$pkg)
+  dirs[$$pkg]=$$dir
+done
+
+IFS=$$'\n' pkgs=($$(sort <<<"$${pkgs[*]}")); unset IFS
+
+for pkg in "$${pkgs[@]}"; do
+  dir=$${dirs[$$pkg]}
   printf '  - name: "%s"\n'  "$$pkg" >>$(OUTS)
   printf '    link: "/docs/%s"\n' "$$dir" >>$(OUTS)
 done

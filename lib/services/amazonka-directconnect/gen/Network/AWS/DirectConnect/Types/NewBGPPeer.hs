@@ -28,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNewBGPPeer' smart constructor.
 data NewBGPPeer = NewBGPPeer'
-  { -- | The authentication key for BGP configuration. This string has a minimum
-    -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Prelude.Maybe Prelude.Text,
-    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
-    -- configuration.
-    asn :: Prelude.Maybe Prelude.Int,
+  { -- | The IP address assigned to the customer interface.
+    customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The address family for the BGP peer.
     addressFamily :: Prelude.Maybe AddressFamily,
-    -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text
+    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
+    -- configuration.
+    asn :: Prelude.Maybe Prelude.Int,
+    -- | The authentication key for BGP configuration. This string has a minimum
+    -- length of 6 characters and and a maximun lenth of 80 characters.
+    authKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,37 +51,31 @@ data NewBGPPeer = NewBGPPeer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authKey', 'newBGPPeer_authKey' - The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
---
--- 'asn', 'newBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)
--- configuration.
+-- 'customerAddress', 'newBGPPeer_customerAddress' - The IP address assigned to the customer interface.
 --
 -- 'amazonAddress', 'newBGPPeer_amazonAddress' - The IP address assigned to the Amazon interface.
 --
 -- 'addressFamily', 'newBGPPeer_addressFamily' - The address family for the BGP peer.
 --
--- 'customerAddress', 'newBGPPeer_customerAddress' - The IP address assigned to the customer interface.
+-- 'asn', 'newBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)
+-- configuration.
+--
+-- 'authKey', 'newBGPPeer_authKey' - The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
 newNewBGPPeer ::
   NewBGPPeer
 newNewBGPPeer =
   NewBGPPeer'
-    { authKey = Prelude.Nothing,
-      asn = Prelude.Nothing,
+    { customerAddress = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
       addressFamily = Prelude.Nothing,
-      customerAddress = Prelude.Nothing
+      asn = Prelude.Nothing,
+      authKey = Prelude.Nothing
     }
 
--- | The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
-newBGPPeer_authKey :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
-newBGPPeer_authKey = Lens.lens (\NewBGPPeer' {authKey} -> authKey) (\s@NewBGPPeer' {} a -> s {authKey = a} :: NewBGPPeer)
-
--- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
--- configuration.
-newBGPPeer_asn :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Int)
-newBGPPeer_asn = Lens.lens (\NewBGPPeer' {asn} -> asn) (\s@NewBGPPeer' {} a -> s {asn = a} :: NewBGPPeer)
+-- | The IP address assigned to the customer interface.
+newBGPPeer_customerAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
+newBGPPeer_customerAddress = Lens.lens (\NewBGPPeer' {customerAddress} -> customerAddress) (\s@NewBGPPeer' {} a -> s {customerAddress = a} :: NewBGPPeer)
 
 -- | The IP address assigned to the Amazon interface.
 newBGPPeer_amazonAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
@@ -91,9 +85,15 @@ newBGPPeer_amazonAddress = Lens.lens (\NewBGPPeer' {amazonAddress} -> amazonAddr
 newBGPPeer_addressFamily :: Lens.Lens' NewBGPPeer (Prelude.Maybe AddressFamily)
 newBGPPeer_addressFamily = Lens.lens (\NewBGPPeer' {addressFamily} -> addressFamily) (\s@NewBGPPeer' {} a -> s {addressFamily = a} :: NewBGPPeer)
 
--- | The IP address assigned to the customer interface.
-newBGPPeer_customerAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
-newBGPPeer_customerAddress = Lens.lens (\NewBGPPeer' {customerAddress} -> customerAddress) (\s@NewBGPPeer' {} a -> s {customerAddress = a} :: NewBGPPeer)
+-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
+-- configuration.
+newBGPPeer_asn :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Int)
+newBGPPeer_asn = Lens.lens (\NewBGPPeer' {asn} -> asn) (\s@NewBGPPeer' {} a -> s {asn = a} :: NewBGPPeer)
+
+-- | The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
+newBGPPeer_authKey :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
+newBGPPeer_authKey = Lens.lens (\NewBGPPeer' {authKey} -> authKey) (\s@NewBGPPeer' {} a -> s {authKey = a} :: NewBGPPeer)
 
 instance Prelude.Hashable NewBGPPeer
 
@@ -103,11 +103,11 @@ instance Core.ToJSON NewBGPPeer where
   toJSON NewBGPPeer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authKey" Core..=) Prelude.<$> authKey,
-            ("asn" Core..=) Prelude.<$> asn,
+          [ ("customerAddress" Core..=)
+              Prelude.<$> customerAddress,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
             ("addressFamily" Core..=) Prelude.<$> addressFamily,
-            ("customerAddress" Core..=)
-              Prelude.<$> customerAddress
+            ("asn" Core..=) Prelude.<$> asn,
+            ("authKey" Core..=) Prelude.<$> authKey
           ]
       )

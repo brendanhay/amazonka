@@ -37,8 +37,8 @@ module Network.AWS.DirectConnect.AssociateMacSecKey
 
     -- * Request Lenses
     associateMacSecKey_ckn,
-    associateMacSecKey_secretARN,
     associateMacSecKey_cak,
+    associateMacSecKey_secretARN,
     associateMacSecKey_connectionId,
 
     -- * Destructuring the Response
@@ -46,8 +46,8 @@ module Network.AWS.DirectConnect.AssociateMacSecKey
     newAssociateMacSecKeyResponse,
 
     -- * Response Lenses
-    associateMacSecKeyResponse_macSecKeys,
     associateMacSecKeyResponse_connectionId,
+    associateMacSecKeyResponse_macSecKeys,
     associateMacSecKeyResponse_httpStatus,
   )
 where
@@ -71,15 +71,6 @@ data AssociateMacSecKey = AssociateMacSecKey'
     -- If you use this request parameter, you must use the @cak@ request
     -- parameter and not use the @secretARN@ request parameter.
     ckn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
-    -- to associate with the dedicated connection.
-    --
-    -- You can use DescribeConnections or DescribeLags to retrieve the MAC
-    -- Security (MACsec) secret key.
-    --
-    -- If you use this request parameter, you do not use the @ckn@ and @cak@
-    -- request parameters.
-    secretARN :: Prelude.Maybe Prelude.Text,
     -- | The MAC Security (MACsec) CAK to associate with the dedicated
     -- connection.
     --
@@ -90,6 +81,15 @@ data AssociateMacSecKey = AssociateMacSecKey'
     -- If you use this request parameter, you must use the @ckn@ request
     -- parameter and not use the @secretARN@ request parameter.
     cak :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
+    -- to associate with the dedicated connection.
+    --
+    -- You can use DescribeConnections or DescribeLags to retrieve the MAC
+    -- Security (MACsec) secret key.
+    --
+    -- If you use this request parameter, you do not use the @ckn@ and @cak@
+    -- request parameters.
+    secretARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
     -- (dxlag-xxxx).
     --
@@ -117,15 +117,6 @@ data AssociateMacSecKey = AssociateMacSecKey'
 -- If you use this request parameter, you must use the @cak@ request
 -- parameter and not use the @secretARN@ request parameter.
 --
--- 'secretARN', 'associateMacSecKey_secretARN' - The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
--- to associate with the dedicated connection.
---
--- You can use DescribeConnections or DescribeLags to retrieve the MAC
--- Security (MACsec) secret key.
---
--- If you use this request parameter, you do not use the @ckn@ and @cak@
--- request parameters.
---
 -- 'cak', 'associateMacSecKey_cak' - The MAC Security (MACsec) CAK to associate with the dedicated
 -- connection.
 --
@@ -135,6 +126,15 @@ data AssociateMacSecKey = AssociateMacSecKey'
 --
 -- If you use this request parameter, you must use the @ckn@ request
 -- parameter and not use the @secretARN@ request parameter.
+--
+-- 'secretARN', 'associateMacSecKey_secretARN' - The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
+-- to associate with the dedicated connection.
+--
+-- You can use DescribeConnections or DescribeLags to retrieve the MAC
+-- Security (MACsec) secret key.
+--
+-- If you use this request parameter, you do not use the @ckn@ and @cak@
+-- request parameters.
 --
 -- 'connectionId', 'associateMacSecKey_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
@@ -148,8 +148,8 @@ newAssociateMacSecKey ::
 newAssociateMacSecKey pConnectionId_ =
   AssociateMacSecKey'
     { ckn = Prelude.Nothing,
-      secretARN = Prelude.Nothing,
       cak = Prelude.Nothing,
+      secretARN = Prelude.Nothing,
       connectionId = pConnectionId_
     }
 
@@ -165,17 +165,6 @@ newAssociateMacSecKey pConnectionId_ =
 associateMacSecKey_ckn :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
 associateMacSecKey_ckn = Lens.lens (\AssociateMacSecKey' {ckn} -> ckn) (\s@AssociateMacSecKey' {} a -> s {ckn = a} :: AssociateMacSecKey)
 
--- | The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
--- to associate with the dedicated connection.
---
--- You can use DescribeConnections or DescribeLags to retrieve the MAC
--- Security (MACsec) secret key.
---
--- If you use this request parameter, you do not use the @ckn@ and @cak@
--- request parameters.
-associateMacSecKey_secretARN :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
-associateMacSecKey_secretARN = Lens.lens (\AssociateMacSecKey' {secretARN} -> secretARN) (\s@AssociateMacSecKey' {} a -> s {secretARN = a} :: AssociateMacSecKey)
-
 -- | The MAC Security (MACsec) CAK to associate with the dedicated
 -- connection.
 --
@@ -187,6 +176,17 @@ associateMacSecKey_secretARN = Lens.lens (\AssociateMacSecKey' {secretARN} -> se
 -- parameter and not use the @secretARN@ request parameter.
 associateMacSecKey_cak :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
 associateMacSecKey_cak = Lens.lens (\AssociateMacSecKey' {cak} -> cak) (\s@AssociateMacSecKey' {} a -> s {cak = a} :: AssociateMacSecKey)
+
+-- | The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key
+-- to associate with the dedicated connection.
+--
+-- You can use DescribeConnections or DescribeLags to retrieve the MAC
+-- Security (MACsec) secret key.
+--
+-- If you use this request parameter, you do not use the @ckn@ and @cak@
+-- request parameters.
+associateMacSecKey_secretARN :: Lens.Lens' AssociateMacSecKey (Prelude.Maybe Prelude.Text)
+associateMacSecKey_secretARN = Lens.lens (\AssociateMacSecKey' {secretARN} -> secretARN) (\s@AssociateMacSecKey' {} a -> s {secretARN = a} :: AssociateMacSecKey)
 
 -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
@@ -205,8 +205,8 @@ instance Core.AWSRequest AssociateMacSecKey where
     Response.receiveJSON
       ( \s h x ->
           AssociateMacSecKeyResponse'
-            Prelude.<$> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "connectionId")
+            Prelude.<$> (x Core..?> "connectionId")
+            Prelude.<*> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,8 +234,8 @@ instance Core.ToJSON AssociateMacSecKey where
     Core.object
       ( Prelude.catMaybes
           [ ("ckn" Core..=) Prelude.<$> ckn,
-            ("secretARN" Core..=) Prelude.<$> secretARN,
             ("cak" Core..=) Prelude.<$> cak,
+            ("secretARN" Core..=) Prelude.<$> secretARN,
             Prelude.Just ("connectionId" Core..= connectionId)
           ]
       )
@@ -248,12 +248,12 @@ instance Core.ToQuery AssociateMacSecKey where
 
 -- | /See:/ 'newAssociateMacSecKeyResponse' smart constructor.
 data AssociateMacSecKeyResponse = AssociateMacSecKeyResponse'
-  { -- | The MAC Security (MACsec) security keys associated with the dedicated
-    -- connection.
-    macSecKeys :: Prelude.Maybe [MacSecKey],
-    -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
+  { -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
     -- (dxlag-xxxx).
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The MAC Security (MACsec) security keys associated with the dedicated
+    -- connection.
+    macSecKeys :: Prelude.Maybe [MacSecKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -267,11 +267,11 @@ data AssociateMacSecKeyResponse = AssociateMacSecKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'macSecKeys', 'associateMacSecKeyResponse_macSecKeys' - The MAC Security (MACsec) security keys associated with the dedicated
--- connection.
---
 -- 'connectionId', 'associateMacSecKeyResponse_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
+--
+-- 'macSecKeys', 'associateMacSecKeyResponse_macSecKeys' - The MAC Security (MACsec) security keys associated with the dedicated
+-- connection.
 --
 -- 'httpStatus', 'associateMacSecKeyResponse_httpStatus' - The response's http status code.
 newAssociateMacSecKeyResponse ::
@@ -280,21 +280,21 @@ newAssociateMacSecKeyResponse ::
   AssociateMacSecKeyResponse
 newAssociateMacSecKeyResponse pHttpStatus_ =
   AssociateMacSecKeyResponse'
-    { macSecKeys =
+    { connectionId =
         Prelude.Nothing,
-      connectionId = Prelude.Nothing,
+      macSecKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The MAC Security (MACsec) security keys associated with the dedicated
--- connection.
-associateMacSecKeyResponse_macSecKeys :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe [MacSecKey])
-associateMacSecKeyResponse_macSecKeys = Lens.lens (\AssociateMacSecKeyResponse' {macSecKeys} -> macSecKeys) (\s@AssociateMacSecKeyResponse' {} a -> s {macSecKeys = a} :: AssociateMacSecKeyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
 associateMacSecKeyResponse_connectionId :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe Prelude.Text)
 associateMacSecKeyResponse_connectionId = Lens.lens (\AssociateMacSecKeyResponse' {connectionId} -> connectionId) (\s@AssociateMacSecKeyResponse' {} a -> s {connectionId = a} :: AssociateMacSecKeyResponse)
+
+-- | The MAC Security (MACsec) security keys associated with the dedicated
+-- connection.
+associateMacSecKeyResponse_macSecKeys :: Lens.Lens' AssociateMacSecKeyResponse (Prelude.Maybe [MacSecKey])
+associateMacSecKeyResponse_macSecKeys = Lens.lens (\AssociateMacSecKeyResponse' {macSecKeys} -> macSecKeys) (\s@AssociateMacSecKeyResponse' {} a -> s {macSecKeys = a} :: AssociateMacSecKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 associateMacSecKeyResponse_httpStatus :: Lens.Lens' AssociateMacSecKeyResponse Prelude.Int

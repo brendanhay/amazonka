@@ -30,20 +30,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNewPrivateVirtualInterfaceAllocation' smart constructor.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-  { -- | The authentication key for BGP configuration. This string has a minimum
-    -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Prelude.Maybe Prelude.Text,
-    -- | The maximum transmission unit (MTU), in bytes. The supported values are
+  { -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
     mtu :: Prelude.Maybe Prelude.Int,
-    -- | The tags associated with the private virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
     -- | The address family for the BGP peer.
     addressFamily :: Prelude.Maybe AddressFamily,
-    -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text,
+    -- | The authentication key for BGP configuration. This string has a minimum
+    -- length of 6 characters and and a maximun lenth of 80 characters.
+    authKey :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with the private virtual interface.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -66,19 +66,19 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authKey', 'newPrivateVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
---
 -- 'mtu', 'newPrivateVirtualInterfaceAllocation_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
 --
--- 'tags', 'newPrivateVirtualInterfaceAllocation_tags' - The tags associated with the private virtual interface.
+-- 'customerAddress', 'newPrivateVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
 --
 -- 'amazonAddress', 'newPrivateVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
 --
 -- 'addressFamily', 'newPrivateVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
 --
--- 'customerAddress', 'newPrivateVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
+-- 'authKey', 'newPrivateVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
+--
+-- 'tags', 'newPrivateVirtualInterfaceAllocation_tags' - The tags associated with the private virtual interface.
 --
 -- 'virtualInterfaceName', 'newPrivateVirtualInterfaceAllocation_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -103,32 +103,27 @@ newNewPrivateVirtualInterfaceAllocation
   pVlan_
   pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
-      { authKey =
+      { mtu =
           Prelude.Nothing,
-        mtu = Prelude.Nothing,
-        tags = Prelude.Nothing,
+        customerAddress = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
         addressFamily = Prelude.Nothing,
-        customerAddress = Prelude.Nothing,
+        authKey = Prelude.Nothing,
+        tags = Prelude.Nothing,
         virtualInterfaceName =
           pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
       }
 
--- | The authentication key for BGP configuration. This string has a minimum
--- length of 6 characters and and a maximun lenth of 80 characters.
-newPrivateVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterfaceAllocation_authKey = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {authKey} -> authKey) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {authKey = a} :: NewPrivateVirtualInterfaceAllocation)
-
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
 newPrivateVirtualInterfaceAllocation_mtu :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
 newPrivateVirtualInterfaceAllocation_mtu = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {mtu} -> mtu) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {mtu = a} :: NewPrivateVirtualInterfaceAllocation)
 
--- | The tags associated with the private virtual interface.
-newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
-newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens._Coerce
+-- | The IP address assigned to the customer interface.
+newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The IP address assigned to the Amazon interface.
 newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
@@ -138,9 +133,14 @@ newPrivateVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPrivateVirtu
 newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
 newPrivateVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterfaceAllocation)
 
--- | The IP address assigned to the customer interface.
-newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
-newPrivateVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewPrivateVirtualInterfaceAllocation)
+-- | The authentication key for BGP configuration. This string has a minimum
+-- length of 6 characters and and a maximun lenth of 80 characters.
+newPrivateVirtualInterfaceAllocation_authKey :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
+newPrivateVirtualInterfaceAllocation_authKey = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {authKey} -> authKey) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {authKey = a} :: NewPrivateVirtualInterfaceAllocation)
+
+-- | The tags associated with the private virtual interface.
+newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
+newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
@@ -174,13 +174,13 @@ instance
   toJSON NewPrivateVirtualInterfaceAllocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("authKey" Core..=) Prelude.<$> authKey,
-            ("mtu" Core..=) Prelude.<$> mtu,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+          [ ("mtu" Core..=) Prelude.<$> mtu,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
+            ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
+            ("authKey" Core..=) Prelude.<$> authKey,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "virtualInterfaceName"
                   Core..= virtualInterfaceName

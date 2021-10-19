@@ -36,10 +36,10 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAttachments
     newDescribeDirectConnectGatewayAttachments,
 
     -- * Request Lenses
+    describeDirectConnectGatewayAttachments_directConnectGatewayId,
     describeDirectConnectGatewayAttachments_nextToken,
     describeDirectConnectGatewayAttachments_maxResults,
     describeDirectConnectGatewayAttachments_virtualInterfaceId,
-    describeDirectConnectGatewayAttachments_directConnectGatewayId,
 
     -- * Destructuring the Response
     DescribeDirectConnectGatewayAttachmentsResponse (..),
@@ -61,7 +61,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
-  { -- | The token provided in the previous call to retrieve the next page.
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The token provided in the previous call to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
@@ -71,9 +73,7 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
     -- returned.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text
+    virtualInterfaceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,8 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'directConnectGatewayId', 'describeDirectConnectGatewayAttachments_directConnectGatewayId' - The ID of the Direct Connect gateway.
+--
 -- 'nextToken', 'describeDirectConnectGatewayAttachments_nextToken' - The token provided in the previous call to retrieve the next page.
 --
 -- 'maxResults', 'describeDirectConnectGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
@@ -95,20 +97,21 @@ data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttac
 -- returned.
 --
 -- 'virtualInterfaceId', 'describeDirectConnectGatewayAttachments_virtualInterfaceId' - The ID of the virtual interface.
---
--- 'directConnectGatewayId', 'describeDirectConnectGatewayAttachments_directConnectGatewayId' - The ID of the Direct Connect gateway.
 newDescribeDirectConnectGatewayAttachments ::
   DescribeDirectConnectGatewayAttachments
 newDescribeDirectConnectGatewayAttachments =
   DescribeDirectConnectGatewayAttachments'
-    { nextToken =
+    { directConnectGatewayId =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       virtualInterfaceId =
-        Prelude.Nothing,
-      directConnectGatewayId =
         Prelude.Nothing
     }
+
+-- | The ID of the Direct Connect gateway.
+describeDirectConnectGatewayAttachments_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
+describeDirectConnectGatewayAttachments_directConnectGatewayId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {directConnectGatewayId} -> directConnectGatewayId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAttachments)
 
 -- | The token provided in the previous call to retrieve the next page.
 describeDirectConnectGatewayAttachments_nextToken :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
@@ -126,10 +129,6 @@ describeDirectConnectGatewayAttachments_maxResults = Lens.lens (\DescribeDirectC
 -- | The ID of the virtual interface.
 describeDirectConnectGatewayAttachments_virtualInterfaceId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
 describeDirectConnectGatewayAttachments_virtualInterfaceId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {virtualInterfaceId} -> virtualInterfaceId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {virtualInterfaceId = a} :: DescribeDirectConnectGatewayAttachments)
-
--- | The ID of the Direct Connect gateway.
-describeDirectConnectGatewayAttachments_directConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAttachments (Prelude.Maybe Prelude.Text)
-describeDirectConnectGatewayAttachments_directConnectGatewayId = Lens.lens (\DescribeDirectConnectGatewayAttachments' {directConnectGatewayId} -> directConnectGatewayId) (\s@DescribeDirectConnectGatewayAttachments' {} a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAttachments)
 
 instance
   Core.AWSPager
@@ -209,12 +208,12 @@ instance
   toJSON DescribeDirectConnectGatewayAttachments' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("directConnectGatewayId" Core..=)
+              Prelude.<$> directConnectGatewayId,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("virtualInterfaceId" Core..=)
-              Prelude.<$> virtualInterfaceId,
-            ("directConnectGatewayId" Core..=)
-              Prelude.<$> directConnectGatewayId
+              Prelude.<$> virtualInterfaceId
           ]
       )
 
@@ -274,7 +273,7 @@ describeDirectConnectGatewayAttachmentsResponse_nextToken = Lens.lens (\Describe
 
 -- | The attachments.
 describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse (Prelude.Maybe [DirectConnectGatewayAttachment])
-describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {directConnectGatewayAttachments} -> directConnectGatewayAttachments) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {directConnectGatewayAttachments = a} :: DescribeDirectConnectGatewayAttachmentsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDirectConnectGatewayAttachmentsResponse_directConnectGatewayAttachments = Lens.lens (\DescribeDirectConnectGatewayAttachmentsResponse' {directConnectGatewayAttachments} -> directConnectGatewayAttachments) (\s@DescribeDirectConnectGatewayAttachmentsResponse' {} a -> s {directConnectGatewayAttachments = a} :: DescribeDirectConnectGatewayAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDirectConnectGatewayAttachmentsResponse_httpStatus :: Lens.Lens' DescribeDirectConnectGatewayAttachmentsResponse Prelude.Int

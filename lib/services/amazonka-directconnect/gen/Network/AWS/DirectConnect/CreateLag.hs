@@ -52,11 +52,11 @@ module Network.AWS.DirectConnect.CreateLag
     newCreateLag,
 
     -- * Request Lenses
-    createLag_providerName,
-    createLag_connectionId,
     createLag_childConnectionTags,
-    createLag_tags,
+    createLag_connectionId,
     createLag_requestMACSec,
+    createLag_providerName,
+    createLag_tags,
     createLag_numberOfConnections,
     createLag_location,
     createLag_connectionsBandwidth,
@@ -67,27 +67,27 @@ module Network.AWS.DirectConnect.CreateLag
     newLag,
 
     -- * Response Lenses
-    lag_numberOfConnections,
-    lag_awsDeviceV2,
-    lag_allowsHostedConnections,
-    lag_macSecKeys,
-    lag_providerName,
-    lag_awsLogicalDeviceId,
-    lag_hasLogicalRedundancy,
+    lag_lagId,
+    lag_macSecCapable,
+    lag_connectionsBandwidth,
+    lag_minimumLinks,
     lag_lagName,
+    lag_location,
     lag_connections,
     lag_awsDevice,
-    lag_lagState,
-    lag_jumboFrameCapable,
-    lag_connectionsBandwidth,
-    lag_lagId,
+    lag_hasLogicalRedundancy,
+    lag_awsLogicalDeviceId,
+    lag_allowsHostedConnections,
     lag_encryptionMode,
-    lag_tags,
+    lag_numberOfConnections,
+    lag_jumboFrameCapable,
+    lag_lagState,
     lag_ownerAccount,
     lag_region,
-    lag_location,
-    lag_minimumLinks,
-    lag_macSecCapable,
+    lag_macSecKeys,
+    lag_providerName,
+    lag_awsDeviceV2,
+    lag_tags,
   )
 where
 
@@ -100,14 +100,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLag' smart constructor.
 data CreateLag = CreateLag'
-  { -- | The name of the service provider associated with the LAG.
-    providerName :: Prelude.Maybe Prelude.Text,
+  { -- | The tags to associate with the automtically created LAGs.
+    childConnectionTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of an existing dedicated connection to migrate to the LAG.
     connectionId :: Prelude.Maybe Prelude.Text,
-    -- | The tags to associate with the automtically created LAGs.
-    childConnectionTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The tags to associate with the LAG.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Indicates whether the connection will support MAC Security (MACsec).
     --
     -- All connections in the LAG must be capable of supporting MAC Security
@@ -115,6 +111,10 @@ data CreateLag = CreateLag'
     -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
     -- in the /Direct Connect User Guide/.
     requestMACSec :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the service provider associated with the LAG.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the LAG.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The number of physical dedicated connections initially provisioned and
     -- bundled by the LAG.
     numberOfConnections :: Prelude.Int,
@@ -136,13 +136,9 @@ data CreateLag = CreateLag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'createLag_providerName' - The name of the service provider associated with the LAG.
---
--- 'connectionId', 'createLag_connectionId' - The ID of an existing dedicated connection to migrate to the LAG.
---
 -- 'childConnectionTags', 'createLag_childConnectionTags' - The tags to associate with the automtically created LAGs.
 --
--- 'tags', 'createLag_tags' - The tags to associate with the LAG.
+-- 'connectionId', 'createLag_connectionId' - The ID of an existing dedicated connection to migrate to the LAG.
 --
 -- 'requestMACSec', 'createLag_requestMACSec' - Indicates whether the connection will support MAC Security (MACsec).
 --
@@ -150,6 +146,10 @@ data CreateLag = CreateLag'
 -- (MACsec). For information about MAC Security (MACsec) prerequisties, see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
 -- in the /Direct Connect User Guide/.
+--
+-- 'providerName', 'createLag_providerName' - The name of the service provider associated with the LAG.
+--
+-- 'tags', 'createLag_tags' - The tags to associate with the LAG.
 --
 -- 'numberOfConnections', 'createLag_numberOfConnections' - The number of physical dedicated connections initially provisioned and
 -- bundled by the LAG.
@@ -176,32 +176,24 @@ newCreateLag
   pConnectionsBandwidth_
   pLagName_ =
     CreateLag'
-      { providerName = Prelude.Nothing,
+      { childConnectionTags = Prelude.Nothing,
         connectionId = Prelude.Nothing,
-        childConnectionTags = Prelude.Nothing,
-        tags = Prelude.Nothing,
         requestMACSec = Prelude.Nothing,
+        providerName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         numberOfConnections = pNumberOfConnections_,
         location = pLocation_,
         connectionsBandwidth = pConnectionsBandwidth_,
         lagName = pLagName_
       }
 
--- | The name of the service provider associated with the LAG.
-createLag_providerName :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
-createLag_providerName = Lens.lens (\CreateLag' {providerName} -> providerName) (\s@CreateLag' {} a -> s {providerName = a} :: CreateLag)
+-- | The tags to associate with the automtically created LAGs.
+createLag_childConnectionTags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLag_childConnectionTags = Lens.lens (\CreateLag' {childConnectionTags} -> childConnectionTags) (\s@CreateLag' {} a -> s {childConnectionTags = a} :: CreateLag) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of an existing dedicated connection to migrate to the LAG.
 createLag_connectionId :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
 createLag_connectionId = Lens.lens (\CreateLag' {connectionId} -> connectionId) (\s@CreateLag' {} a -> s {connectionId = a} :: CreateLag)
-
--- | The tags to associate with the automtically created LAGs.
-createLag_childConnectionTags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLag_childConnectionTags = Lens.lens (\CreateLag' {childConnectionTags} -> childConnectionTags) (\s@CreateLag' {} a -> s {childConnectionTags = a} :: CreateLag) Prelude.. Lens.mapping Lens._Coerce
-
--- | The tags to associate with the LAG.
-createLag_tags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the connection will support MAC Security (MACsec).
 --
@@ -211,6 +203,14 @@ createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s
 -- in the /Direct Connect User Guide/.
 createLag_requestMACSec :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Bool)
 createLag_requestMACSec = Lens.lens (\CreateLag' {requestMACSec} -> requestMACSec) (\s@CreateLag' {} a -> s {requestMACSec = a} :: CreateLag)
+
+-- | The name of the service provider associated with the LAG.
+createLag_providerName :: Lens.Lens' CreateLag (Prelude.Maybe Prelude.Text)
+createLag_providerName = Lens.lens (\CreateLag' {providerName} -> providerName) (\s@CreateLag' {} a -> s {providerName = a} :: CreateLag)
+
+-- | The tags to associate with the LAG.
+createLag_tags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
+createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of physical dedicated connections initially provisioned and
 -- bundled by the LAG.
@@ -258,12 +258,12 @@ instance Core.ToJSON CreateLag where
   toJSON CreateLag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("providerName" Core..=) Prelude.<$> providerName,
-            ("connectionId" Core..=) Prelude.<$> connectionId,
-            ("childConnectionTags" Core..=)
+          [ ("childConnectionTags" Core..=)
               Prelude.<$> childConnectionTags,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("connectionId" Core..=) Prelude.<$> connectionId,
             ("requestMACSec" Core..=) Prelude.<$> requestMACSec,
+            ("providerName" Core..=) Prelude.<$> providerName,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("numberOfConnections" Core..= numberOfConnections),
             Prelude.Just ("location" Core..= location),

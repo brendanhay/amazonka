@@ -47,7 +47,7 @@ newConnections =
 
 -- | The connections.
 connections_connections :: Lens.Lens' Connections (Prelude.Maybe [Connection])
-connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Prelude.. Lens.mapping Lens._Coerce
+connections_connections = Lens.lens (\Connections' {connections} -> connections) (\s@Connections' {} a -> s {connections = a} :: Connections) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Connections where
   parseJSON =

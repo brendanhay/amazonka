@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AssociatedGateway = AssociatedGateway'
   { -- | The ID of the associated gateway.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The type of associated gateway.
-    type' :: Prelude.Maybe GatewayType,
     -- | The ID of the account that owns the associated virtual private gateway
     -- or transit gateway.
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The Region where the associated gateway is located.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The type of associated gateway.
+    type' :: Prelude.Maybe GatewayType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,29 +50,25 @@ data AssociatedGateway = AssociatedGateway'
 --
 -- 'id', 'associatedGateway_id' - The ID of the associated gateway.
 --
--- 'type'', 'associatedGateway_type' - The type of associated gateway.
---
 -- 'ownerAccount', 'associatedGateway_ownerAccount' - The ID of the account that owns the associated virtual private gateway
 -- or transit gateway.
 --
 -- 'region', 'associatedGateway_region' - The Region where the associated gateway is located.
+--
+-- 'type'', 'associatedGateway_type' - The type of associated gateway.
 newAssociatedGateway ::
   AssociatedGateway
 newAssociatedGateway =
   AssociatedGateway'
     { id = Prelude.Nothing,
-      type' = Prelude.Nothing,
       ownerAccount = Prelude.Nothing,
-      region = Prelude.Nothing
+      region = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The ID of the associated gateway.
 associatedGateway_id :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_id = Lens.lens (\AssociatedGateway' {id} -> id) (\s@AssociatedGateway' {} a -> s {id = a} :: AssociatedGateway)
-
--- | The type of associated gateway.
-associatedGateway_type :: Lens.Lens' AssociatedGateway (Prelude.Maybe GatewayType)
-associatedGateway_type = Lens.lens (\AssociatedGateway' {type'} -> type') (\s@AssociatedGateway' {} a -> s {type' = a} :: AssociatedGateway)
 
 -- | The ID of the account that owns the associated virtual private gateway
 -- or transit gateway.
@@ -83,6 +79,10 @@ associatedGateway_ownerAccount = Lens.lens (\AssociatedGateway' {ownerAccount} -
 associatedGateway_region :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
 associatedGateway_region = Lens.lens (\AssociatedGateway' {region} -> region) (\s@AssociatedGateway' {} a -> s {region = a} :: AssociatedGateway)
 
+-- | The type of associated gateway.
+associatedGateway_type :: Lens.Lens' AssociatedGateway (Prelude.Maybe GatewayType)
+associatedGateway_type = Lens.lens (\AssociatedGateway' {type'} -> type') (\s@AssociatedGateway' {} a -> s {type' = a} :: AssociatedGateway)
+
 instance Core.FromJSON AssociatedGateway where
   parseJSON =
     Core.withObject
@@ -90,9 +90,9 @@ instance Core.FromJSON AssociatedGateway where
       ( \x ->
           AssociatedGateway'
             Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..:? "ownerAccount")
             Prelude.<*> (x Core..:? "region")
+            Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable AssociatedGateway

@@ -50,8 +50,8 @@ module Network.AWS.DirectConnect.CreateInterconnect
     newCreateInterconnect,
 
     -- * Request Lenses
-    createInterconnect_providerName,
     createInterconnect_lagId,
+    createInterconnect_providerName,
     createInterconnect_tags,
     createInterconnect_interconnectName,
     createInterconnect_bandwidth,
@@ -62,21 +62,21 @@ module Network.AWS.DirectConnect.CreateInterconnect
     newInterconnect,
 
     -- * Response Lenses
-    interconnect_interconnectId,
-    interconnect_bandwidth,
-    interconnect_awsDeviceV2,
-    interconnect_providerName,
-    interconnect_awsLogicalDeviceId,
-    interconnect_hasLogicalRedundancy,
-    interconnect_awsDevice,
-    interconnect_jumboFrameCapable,
     interconnect_lagId,
-    interconnect_tags,
-    interconnect_loaIssueTime,
-    interconnect_region,
-    interconnect_interconnectName,
-    interconnect_interconnectState,
+    interconnect_interconnectId,
     interconnect_location,
+    interconnect_interconnectName,
+    interconnect_awsDevice,
+    interconnect_hasLogicalRedundancy,
+    interconnect_awsLogicalDeviceId,
+    interconnect_loaIssueTime,
+    interconnect_bandwidth,
+    interconnect_jumboFrameCapable,
+    interconnect_interconnectState,
+    interconnect_region,
+    interconnect_providerName,
+    interconnect_awsDeviceV2,
+    interconnect_tags,
   )
 where
 
@@ -89,10 +89,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-  { -- | The name of the service provider associated with the interconnect.
-    providerName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the LAG.
+  { -- | The ID of the LAG.
     lagId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the service provider associated with the interconnect.
+    providerName :: Prelude.Maybe Prelude.Text,
     -- | The tags to associate with the interconnect.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the interconnect.
@@ -112,9 +112,9 @@ data CreateInterconnect = CreateInterconnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'createInterconnect_providerName' - The name of the service provider associated with the interconnect.
---
 -- 'lagId', 'createInterconnect_lagId' - The ID of the LAG.
+--
+-- 'providerName', 'createInterconnect_providerName' - The name of the service provider associated with the interconnect.
 --
 -- 'tags', 'createInterconnect_tags' - The tags to associate with the interconnect.
 --
@@ -136,25 +136,25 @@ newCreateInterconnect
   pBandwidth_
   pLocation_ =
     CreateInterconnect'
-      { providerName = Prelude.Nothing,
-        lagId = Prelude.Nothing,
+      { lagId = Prelude.Nothing,
+        providerName = Prelude.Nothing,
         tags = Prelude.Nothing,
         interconnectName = pInterconnectName_,
         bandwidth = pBandwidth_,
         location = pLocation_
       }
 
--- | The name of the service provider associated with the interconnect.
-createInterconnect_providerName :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
-createInterconnect_providerName = Lens.lens (\CreateInterconnect' {providerName} -> providerName) (\s@CreateInterconnect' {} a -> s {providerName = a} :: CreateInterconnect)
-
 -- | The ID of the LAG.
 createInterconnect_lagId :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
 createInterconnect_lagId = Lens.lens (\CreateInterconnect' {lagId} -> lagId) (\s@CreateInterconnect' {} a -> s {lagId = a} :: CreateInterconnect)
 
+-- | The name of the service provider associated with the interconnect.
+createInterconnect_providerName :: Lens.Lens' CreateInterconnect (Prelude.Maybe Prelude.Text)
+createInterconnect_providerName = Lens.lens (\CreateInterconnect' {providerName} -> providerName) (\s@CreateInterconnect' {} a -> s {providerName = a} :: CreateInterconnect)
+
 -- | The tags to associate with the interconnect.
 createInterconnect_tags :: Lens.Lens' CreateInterconnect (Prelude.Maybe (Prelude.NonEmpty Tag))
-createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Prelude.. Lens.mapping Lens._Coerce
+createInterconnect_tags = Lens.lens (\CreateInterconnect' {tags} -> tags) (\s@CreateInterconnect' {} a -> s {tags = a} :: CreateInterconnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the interconnect.
 createInterconnect_interconnectName :: Lens.Lens' CreateInterconnect Prelude.Text
@@ -198,8 +198,8 @@ instance Core.ToJSON CreateInterconnect where
   toJSON CreateInterconnect' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("providerName" Core..=) Prelude.<$> providerName,
-            ("lagId" Core..=) Prelude.<$> lagId,
+          [ ("lagId" Core..=) Prelude.<$> lagId,
+            ("providerName" Core..=) Prelude.<$> providerName,
             ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("interconnectName" Core..= interconnectName),

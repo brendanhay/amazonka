@@ -27,41 +27,74 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateConnection $
+--         [ requestDescribeDirectConnectGatewayAssociations $
+--             newDescribeDirectConnectGatewayAssociations
+--
+--         , requestDescribeInterconnects $
+--             newDescribeInterconnects
+--
+--         , requestDescribeTags $
+--             newDescribeTags
+--
+--         , requestCreateTransitVirtualInterface $
+--             newCreateTransitVirtualInterface
+--
+--         , requestDescribeLoa $
+--             newDescribeLoa
+--
+--         , requestDisassociateMacSecKey $
+--             newDisassociateMacSecKey
+--
+--         , requestDeleteConnection $
+--             newDeleteConnection
+--
+--         , requestUpdateConnection $
 --             newUpdateConnection
 --
 --         , requestStartBgpFailoverTest $
 --             newStartBgpFailoverTest
 --
---         , requestDeleteDirectConnectGatewayAssociationProposal $
---             newDeleteDirectConnectGatewayAssociationProposal
+--         , requestUpdateVirtualInterfaceAttributes $
+--             newUpdateVirtualInterfaceAttributes
 --
---         , requestDescribeVirtualGateways $
---             newDescribeVirtualGateways
+--         , requestAssociateConnectionWithLag $
+--             newAssociateConnectionWithLag
 --
---         , requestStopBgpFailoverTest $
---             newStopBgpFailoverTest
+--         , requestCreateDirectConnectGatewayAssociationProposal $
+--             newCreateDirectConnectGatewayAssociationProposal
 --
---         , requestDeleteConnection $
---             newDeleteConnection
+--         , requestCreateConnection $
+--             newCreateConnection
 --
---         , requestConfirmPublicVirtualInterface $
---             newConfirmPublicVirtualInterface
+--         , requestDescribeDirectConnectGateways $
+--             newDescribeDirectConnectGateways
 --
---         , requestAllocatePrivateVirtualInterface $
---             newAllocatePrivateVirtualInterface
+--         , requestAssociateVirtualInterface $
+--             newAssociateVirtualInterface
 --
---         , requestDescribeDirectConnectGatewayAssociations $
---             newDescribeDirectConnectGatewayAssociations
+--         , requestDescribeConnections $
+--             newDescribeConnections
 --
---         , requestConfirmConnection $
---             newConfirmConnection
+--         , requestDeleteInterconnect $
+--             newDeleteInterconnect
 --
---         , requestDescribeTags $
---             newDescribeTags
+--         , requestConfirmPrivateVirtualInterface $
+--             newConfirmPrivateVirtualInterface
 --
---         , requestDescribeDirectConnectGatewayAttachments $
---             newDescribeDirectConnectGatewayAttachments
+--         , requestUpdateDirectConnectGatewayAssociation $
+--             newUpdateDirectConnectGatewayAssociation
+--
+--         , requestDeleteDirectConnectGatewayAssociation $
+--             newDeleteDirectConnectGatewayAssociation
+--
+--         , requestDescribeLocations $
+--             newDescribeLocations
+--
+--         , requestCreateDirectConnectGatewayAssociation $
+--             newCreateDirectConnectGatewayAssociation
+--
+--         , requestAcceptDirectConnectGatewayAssociationProposal $
+--             newAcceptDirectConnectGatewayAssociationProposal
 --
 --         , requestCreatePublicVirtualInterface $
 --             newCreatePublicVirtualInterface
@@ -69,38 +102,56 @@ import Test.Tasty
 --         , requestAssociateMacSecKey $
 --             newAssociateMacSecKey
 --
---         , requestDescribeHostedConnections $
---             newDescribeHostedConnections
+--         , requestAllocatePrivateVirtualInterface $
+--             newAllocatePrivateVirtualInterface
 --
---         , requestAcceptDirectConnectGatewayAssociationProposal $
---             newAcceptDirectConnectGatewayAssociationProposal
+--         , requestDescribeLags $
+--             newDescribeLags
 --
---         , requestCreateInterconnect $
---             newCreateInterconnect
+--         , requestConfirmConnection $
+--             newConfirmConnection
 --
---         , requestCreateDirectConnectGatewayAssociation $
---             newCreateDirectConnectGatewayAssociation
+--         , requestDescribeDirectConnectGatewayAttachments $
+--             newDescribeDirectConnectGatewayAttachments
 --
---         , requestDeleteLag $
---             newDeleteLag
+--         , requestConfirmPublicVirtualInterface $
+--             newConfirmPublicVirtualInterface
 --
---         , requestDeleteInterconnect $
---             newDeleteInterconnect
+--         , requestDescribeVirtualGateways $
+--             newDescribeVirtualGateways
 --
---         , requestAssociateHostedConnection $
---             newAssociateHostedConnection
+--         , requestDeleteDirectConnectGatewayAssociationProposal $
+--             newDeleteDirectConnectGatewayAssociationProposal
 --
---         , requestCreateBGPPeer $
---             newCreateBGPPeer
+--         , requestStopBgpFailoverTest $
+--             newStopBgpFailoverTest
 --
---         , requestUpdateLag $
---             newUpdateLag
+--         , requestCreateDirectConnectGateway $
+--             newCreateDirectConnectGateway
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestDeleteDirectConnectGateway $
+--             newDeleteDirectConnectGateway
 --
---         , requestConfirmPrivateVirtualInterface $
---             newConfirmPrivateVirtualInterface
+--         , requestDescribeVirtualInterfaces $
+--             newDescribeVirtualInterfaces
+--
+--         , requestListVirtualInterfaceTestHistory $
+--             newListVirtualInterfaceTestHistory
+--
+--         , requestAllocateHostedConnection $
+--             newAllocateHostedConnection
+--
+--         , requestDeleteVirtualInterface $
+--             newDeleteVirtualInterface
+--
+--         , requestCreatePrivateVirtualInterface $
+--             newCreatePrivateVirtualInterface
+--
+--         , requestAllocatePublicVirtualInterface $
+--             newAllocatePublicVirtualInterface
+--
+--         , requestDescribeDirectConnectGatewayAssociationProposals $
+--             newDescribeDirectConnectGatewayAssociationProposals
 --
 --         , requestDisassociateConnectionFromLag $
 --             newDisassociateConnectionFromLag
@@ -108,50 +159,23 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestDeleteVirtualInterface $
---             newDeleteVirtualInterface
+--         , requestDeleteLag $
+--             newDeleteLag
 --
---         , requestDescribeDirectConnectGateways $
---             newDescribeDirectConnectGateways
+--         , requestUpdateLag $
+--             newUpdateLag
 --
---         , requestDescribeVirtualInterfaces $
---             newDescribeVirtualInterfaces
+--         , requestUntagResource $
+--             newUntagResource
 --
---         , requestUpdateVirtualInterfaceAttributes $
---             newUpdateVirtualInterfaceAttributes
+--         , requestCreateBGPPeer $
+--             newCreateBGPPeer
 --
---         , requestCreateConnection $
---             newCreateConnection
+--         , requestAssociateHostedConnection $
+--             newAssociateHostedConnection
 --
---         , requestAssociateConnectionWithLag $
---             newAssociateConnectionWithLag
---
---         , requestListVirtualInterfaceTestHistory $
---             newListVirtualInterfaceTestHistory
---
---         , requestDisassociateMacSecKey $
---             newDisassociateMacSecKey
---
---         , requestDescribeLoa $
---             newDescribeLoa
---
---         , requestCreateTransitVirtualInterface $
---             newCreateTransitVirtualInterface
---
---         , requestCreateDirectConnectGateway $
---             newCreateDirectConnectGateway
---
---         , requestDescribeInterconnects $
---             newDescribeInterconnects
---
---         , requestDescribeLags $
---             newDescribeLags
---
---         , requestConfirmTransitVirtualInterface $
---             newConfirmTransitVirtualInterface
---
---         , requestCreateLag $
---             newCreateLag
+--         , requestCreateInterconnect $
+--             newCreateInterconnect
 --
 --         , requestDeleteBGPPeer $
 --             newDeleteBGPPeer
@@ -159,77 +183,86 @@ import Test.Tasty
 --         , requestAllocateTransitVirtualInterface $
 --             newAllocateTransitVirtualInterface
 --
---         , requestDeleteDirectConnectGatewayAssociation $
---             newDeleteDirectConnectGatewayAssociation
+--         , requestCreateLag $
+--             newCreateLag
 --
---         , requestUpdateDirectConnectGatewayAssociation $
---             newUpdateDirectConnectGatewayAssociation
+--         , requestConfirmTransitVirtualInterface $
+--             newConfirmTransitVirtualInterface
 --
---         , requestDescribeLocations $
---             newDescribeLocations
---
---         , requestDescribeConnections $
---             newDescribeConnections
---
---         , requestAllocatePublicVirtualInterface $
---             newAllocatePublicVirtualInterface
---
---         , requestAssociateVirtualInterface $
---             newAssociateVirtualInterface
---
---         , requestDescribeDirectConnectGatewayAssociationProposals $
---             newDescribeDirectConnectGatewayAssociationProposals
---
---         , requestCreatePrivateVirtualInterface $
---             newCreatePrivateVirtualInterface
---
---         , requestCreateDirectConnectGatewayAssociationProposal $
---             newCreateDirectConnectGatewayAssociationProposal
---
---         , requestDeleteDirectConnectGateway $
---             newDeleteDirectConnectGateway
---
---         , requestAllocateHostedConnection $
---             newAllocateHostedConnection
+--         , requestDescribeHostedConnections $
+--             newDescribeHostedConnections
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateConnection $
+--         [ responseDescribeDirectConnectGatewayAssociations $
+--             newDescribeDirectConnectGatewayAssociationsResponse
+--
+--         , responseDescribeInterconnects $
+--             newDescribeInterconnectsResponse
+--
+--         , responseDescribeTags $
+--             newDescribeTagsResponse
+--
+--         , responseCreateTransitVirtualInterface $
+--             newCreateTransitVirtualInterfaceResponse
+--
+--         , responseDescribeLoa $
+--             newDescribeLoaResponse
+--
+--         , responseDisassociateMacSecKey $
+--             newDisassociateMacSecKeyResponse
+--
+--         , responseDeleteConnection $
+--             newConnection
+--
+--         , responseUpdateConnection $
 --             newConnection
 --
 --         , responseStartBgpFailoverTest $
 --             newStartBgpFailoverTestResponse
 --
---         , responseDeleteDirectConnectGatewayAssociationProposal $
---             newDeleteDirectConnectGatewayAssociationProposalResponse
---
---         , responseDescribeVirtualGateways $
---             newDescribeVirtualGatewaysResponse
---
---         , responseStopBgpFailoverTest $
---             newStopBgpFailoverTestResponse
---
---         , responseDeleteConnection $
---             newConnection
---
---         , responseConfirmPublicVirtualInterface $
---             newConfirmPublicVirtualInterfaceResponse
---
---         , responseAllocatePrivateVirtualInterface $
+--         , responseUpdateVirtualInterfaceAttributes $
 --             newVirtualInterface
 --
---         , responseDescribeDirectConnectGatewayAssociations $
---             newDescribeDirectConnectGatewayAssociationsResponse
+--         , responseAssociateConnectionWithLag $
+--             newConnection
 --
---         , responseConfirmConnection $
---             newConfirmConnectionResponse
+--         , responseCreateDirectConnectGatewayAssociationProposal $
+--             newCreateDirectConnectGatewayAssociationProposalResponse
 --
---         , responseDescribeTags $
---             newDescribeTagsResponse
+--         , responseCreateConnection $
+--             newConnection
 --
---         , responseDescribeDirectConnectGatewayAttachments $
---             newDescribeDirectConnectGatewayAttachmentsResponse
+--         , responseDescribeDirectConnectGateways $
+--             newDescribeDirectConnectGatewaysResponse
+--
+--         , responseAssociateVirtualInterface $
+--             newVirtualInterface
+--
+--         , responseDescribeConnections $
+--             newConnections
+--
+--         , responseDeleteInterconnect $
+--             newDeleteInterconnectResponse
+--
+--         , responseConfirmPrivateVirtualInterface $
+--             newConfirmPrivateVirtualInterfaceResponse
+--
+--         , responseUpdateDirectConnectGatewayAssociation $
+--             newUpdateDirectConnectGatewayAssociationResponse
+--
+--         , responseDeleteDirectConnectGatewayAssociation $
+--             newDeleteDirectConnectGatewayAssociationResponse
+--
+--         , responseDescribeLocations $
+--             newDescribeLocationsResponse
+--
+--         , responseCreateDirectConnectGatewayAssociation $
+--             newCreateDirectConnectGatewayAssociationResponse
+--
+--         , responseAcceptDirectConnectGatewayAssociationProposal $
+--             newAcceptDirectConnectGatewayAssociationProposalResponse
 --
 --         , responseCreatePublicVirtualInterface $
 --             newVirtualInterface
@@ -237,38 +270,56 @@ import Test.Tasty
 --         , responseAssociateMacSecKey $
 --             newAssociateMacSecKeyResponse
 --
---         , responseDescribeHostedConnections $
---             newConnections
+--         , responseAllocatePrivateVirtualInterface $
+--             newVirtualInterface
 --
---         , responseAcceptDirectConnectGatewayAssociationProposal $
---             newAcceptDirectConnectGatewayAssociationProposalResponse
+--         , responseDescribeLags $
+--             newDescribeLagsResponse
 --
---         , responseCreateInterconnect $
---             newInterconnect
+--         , responseConfirmConnection $
+--             newConfirmConnectionResponse
 --
---         , responseCreateDirectConnectGatewayAssociation $
---             newCreateDirectConnectGatewayAssociationResponse
+--         , responseDescribeDirectConnectGatewayAttachments $
+--             newDescribeDirectConnectGatewayAttachmentsResponse
 --
---         , responseDeleteLag $
---             newLag
+--         , responseConfirmPublicVirtualInterface $
+--             newConfirmPublicVirtualInterfaceResponse
 --
---         , responseDeleteInterconnect $
---             newDeleteInterconnectResponse
+--         , responseDescribeVirtualGateways $
+--             newDescribeVirtualGatewaysResponse
 --
---         , responseAssociateHostedConnection $
+--         , responseDeleteDirectConnectGatewayAssociationProposal $
+--             newDeleteDirectConnectGatewayAssociationProposalResponse
+--
+--         , responseStopBgpFailoverTest $
+--             newStopBgpFailoverTestResponse
+--
+--         , responseCreateDirectConnectGateway $
+--             newCreateDirectConnectGatewayResponse
+--
+--         , responseDeleteDirectConnectGateway $
+--             newDeleteDirectConnectGatewayResponse
+--
+--         , responseDescribeVirtualInterfaces $
+--             newDescribeVirtualInterfacesResponse
+--
+--         , responseListVirtualInterfaceTestHistory $
+--             newListVirtualInterfaceTestHistoryResponse
+--
+--         , responseAllocateHostedConnection $
 --             newConnection
 --
---         , responseCreateBGPPeer $
---             newCreateBGPPeerResponse
+--         , responseDeleteVirtualInterface $
+--             newDeleteVirtualInterfaceResponse
 --
---         , responseUpdateLag $
---             newLag
+--         , responseCreatePrivateVirtualInterface $
+--             newVirtualInterface
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseAllocatePublicVirtualInterface $
+--             newVirtualInterface
 --
---         , responseConfirmPrivateVirtualInterface $
---             newConfirmPrivateVirtualInterfaceResponse
+--         , responseDescribeDirectConnectGatewayAssociationProposals $
+--             newDescribeDirectConnectGatewayAssociationProposalsResponse
 --
 --         , responseDisassociateConnectionFromLag $
 --             newConnection
@@ -276,50 +327,23 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseDeleteVirtualInterface $
---             newDeleteVirtualInterfaceResponse
---
---         , responseDescribeDirectConnectGateways $
---             newDescribeDirectConnectGatewaysResponse
---
---         , responseDescribeVirtualInterfaces $
---             newDescribeVirtualInterfacesResponse
---
---         , responseUpdateVirtualInterfaceAttributes $
---             newVirtualInterface
---
---         , responseCreateConnection $
---             newConnection
---
---         , responseAssociateConnectionWithLag $
---             newConnection
---
---         , responseListVirtualInterfaceTestHistory $
---             newListVirtualInterfaceTestHistoryResponse
---
---         , responseDisassociateMacSecKey $
---             newDisassociateMacSecKeyResponse
---
---         , responseDescribeLoa $
---             newDescribeLoaResponse
---
---         , responseCreateTransitVirtualInterface $
---             newCreateTransitVirtualInterfaceResponse
---
---         , responseCreateDirectConnectGateway $
---             newCreateDirectConnectGatewayResponse
---
---         , responseDescribeInterconnects $
---             newDescribeInterconnectsResponse
---
---         , responseDescribeLags $
---             newDescribeLagsResponse
---
---         , responseConfirmTransitVirtualInterface $
---             newConfirmTransitVirtualInterfaceResponse
---
---         , responseCreateLag $
+--         , responseDeleteLag $
 --             newLag
+--
+--         , responseUpdateLag $
+--             newLag
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseCreateBGPPeer $
+--             newCreateBGPPeerResponse
+--
+--         , responseAssociateHostedConnection $
+--             newConnection
+--
+--         , responseCreateInterconnect $
+--             newInterconnect
 --
 --         , responseDeleteBGPPeer $
 --             newDeleteBGPPeerResponse
@@ -327,43 +351,61 @@ import Test.Tasty
 --         , responseAllocateTransitVirtualInterface $
 --             newAllocateTransitVirtualInterfaceResponse
 --
---         , responseDeleteDirectConnectGatewayAssociation $
---             newDeleteDirectConnectGatewayAssociationResponse
+--         , responseCreateLag $
+--             newLag
 --
---         , responseUpdateDirectConnectGatewayAssociation $
---             newUpdateDirectConnectGatewayAssociationResponse
+--         , responseConfirmTransitVirtualInterface $
+--             newConfirmTransitVirtualInterfaceResponse
 --
---         , responseDescribeLocations $
---             newDescribeLocationsResponse
---
---         , responseDescribeConnections $
+--         , responseDescribeHostedConnections $
 --             newConnections
---
---         , responseAllocatePublicVirtualInterface $
---             newVirtualInterface
---
---         , responseAssociateVirtualInterface $
---             newVirtualInterface
---
---         , responseDescribeDirectConnectGatewayAssociationProposals $
---             newDescribeDirectConnectGatewayAssociationProposalsResponse
---
---         , responseCreatePrivateVirtualInterface $
---             newVirtualInterface
---
---         , responseCreateDirectConnectGatewayAssociationProposal $
---             newCreateDirectConnectGatewayAssociationProposalResponse
---
---         , responseDeleteDirectConnectGateway $
---             newDeleteDirectConnectGatewayResponse
---
---         , responseAllocateHostedConnection $
---             newConnection
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociations -> TestTree
+requestDescribeDirectConnectGatewayAssociations =
+  req
+    "DescribeDirectConnectGatewayAssociations"
+    "fixture/DescribeDirectConnectGatewayAssociations.yaml"
+
+requestDescribeInterconnects :: DescribeInterconnects -> TestTree
+requestDescribeInterconnects =
+  req
+    "DescribeInterconnects"
+    "fixture/DescribeInterconnects.yaml"
+
+requestDescribeTags :: DescribeTags -> TestTree
+requestDescribeTags =
+  req
+    "DescribeTags"
+    "fixture/DescribeTags.yaml"
+
+requestCreateTransitVirtualInterface :: CreateTransitVirtualInterface -> TestTree
+requestCreateTransitVirtualInterface =
+  req
+    "CreateTransitVirtualInterface"
+    "fixture/CreateTransitVirtualInterface.yaml"
+
+requestDescribeLoa :: DescribeLoa -> TestTree
+requestDescribeLoa =
+  req
+    "DescribeLoa"
+    "fixture/DescribeLoa.yaml"
+
+requestDisassociateMacSecKey :: DisassociateMacSecKey -> TestTree
+requestDisassociateMacSecKey =
+  req
+    "DisassociateMacSecKey"
+    "fixture/DisassociateMacSecKey.yaml"
+
+requestDeleteConnection :: DeleteConnection -> TestTree
+requestDeleteConnection =
+  req
+    "DeleteConnection"
+    "fixture/DeleteConnection.yaml"
 
 requestUpdateConnection :: UpdateConnection -> TestTree
 requestUpdateConnection =
@@ -377,65 +419,89 @@ requestStartBgpFailoverTest =
     "StartBgpFailoverTest"
     "fixture/StartBgpFailoverTest.yaml"
 
-requestDeleteDirectConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposal -> TestTree
-requestDeleteDirectConnectGatewayAssociationProposal =
+requestUpdateVirtualInterfaceAttributes :: UpdateVirtualInterfaceAttributes -> TestTree
+requestUpdateVirtualInterfaceAttributes =
   req
-    "DeleteDirectConnectGatewayAssociationProposal"
-    "fixture/DeleteDirectConnectGatewayAssociationProposal.yaml"
+    "UpdateVirtualInterfaceAttributes"
+    "fixture/UpdateVirtualInterfaceAttributes.yaml"
 
-requestDescribeVirtualGateways :: DescribeVirtualGateways -> TestTree
-requestDescribeVirtualGateways =
+requestAssociateConnectionWithLag :: AssociateConnectionWithLag -> TestTree
+requestAssociateConnectionWithLag =
   req
-    "DescribeVirtualGateways"
-    "fixture/DescribeVirtualGateways.yaml"
+    "AssociateConnectionWithLag"
+    "fixture/AssociateConnectionWithLag.yaml"
 
-requestStopBgpFailoverTest :: StopBgpFailoverTest -> TestTree
-requestStopBgpFailoverTest =
+requestCreateDirectConnectGatewayAssociationProposal :: CreateDirectConnectGatewayAssociationProposal -> TestTree
+requestCreateDirectConnectGatewayAssociationProposal =
   req
-    "StopBgpFailoverTest"
-    "fixture/StopBgpFailoverTest.yaml"
+    "CreateDirectConnectGatewayAssociationProposal"
+    "fixture/CreateDirectConnectGatewayAssociationProposal.yaml"
 
-requestDeleteConnection :: DeleteConnection -> TestTree
-requestDeleteConnection =
+requestCreateConnection :: CreateConnection -> TestTree
+requestCreateConnection =
   req
-    "DeleteConnection"
-    "fixture/DeleteConnection.yaml"
+    "CreateConnection"
+    "fixture/CreateConnection.yaml"
 
-requestConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterface -> TestTree
-requestConfirmPublicVirtualInterface =
+requestDescribeDirectConnectGateways :: DescribeDirectConnectGateways -> TestTree
+requestDescribeDirectConnectGateways =
   req
-    "ConfirmPublicVirtualInterface"
-    "fixture/ConfirmPublicVirtualInterface.yaml"
+    "DescribeDirectConnectGateways"
+    "fixture/DescribeDirectConnectGateways.yaml"
 
-requestAllocatePrivateVirtualInterface :: AllocatePrivateVirtualInterface -> TestTree
-requestAllocatePrivateVirtualInterface =
+requestAssociateVirtualInterface :: AssociateVirtualInterface -> TestTree
+requestAssociateVirtualInterface =
   req
-    "AllocatePrivateVirtualInterface"
-    "fixture/AllocatePrivateVirtualInterface.yaml"
+    "AssociateVirtualInterface"
+    "fixture/AssociateVirtualInterface.yaml"
 
-requestDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociations -> TestTree
-requestDescribeDirectConnectGatewayAssociations =
+requestDescribeConnections :: DescribeConnections -> TestTree
+requestDescribeConnections =
   req
-    "DescribeDirectConnectGatewayAssociations"
-    "fixture/DescribeDirectConnectGatewayAssociations.yaml"
+    "DescribeConnections"
+    "fixture/DescribeConnections.yaml"
 
-requestConfirmConnection :: ConfirmConnection -> TestTree
-requestConfirmConnection =
+requestDeleteInterconnect :: DeleteInterconnect -> TestTree
+requestDeleteInterconnect =
   req
-    "ConfirmConnection"
-    "fixture/ConfirmConnection.yaml"
+    "DeleteInterconnect"
+    "fixture/DeleteInterconnect.yaml"
 
-requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
+requestConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterface -> TestTree
+requestConfirmPrivateVirtualInterface =
   req
-    "DescribeTags"
-    "fixture/DescribeTags.yaml"
+    "ConfirmPrivateVirtualInterface"
+    "fixture/ConfirmPrivateVirtualInterface.yaml"
 
-requestDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachments -> TestTree
-requestDescribeDirectConnectGatewayAttachments =
+requestUpdateDirectConnectGatewayAssociation :: UpdateDirectConnectGatewayAssociation -> TestTree
+requestUpdateDirectConnectGatewayAssociation =
   req
-    "DescribeDirectConnectGatewayAttachments"
-    "fixture/DescribeDirectConnectGatewayAttachments.yaml"
+    "UpdateDirectConnectGatewayAssociation"
+    "fixture/UpdateDirectConnectGatewayAssociation.yaml"
+
+requestDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociation -> TestTree
+requestDeleteDirectConnectGatewayAssociation =
+  req
+    "DeleteDirectConnectGatewayAssociation"
+    "fixture/DeleteDirectConnectGatewayAssociation.yaml"
+
+requestDescribeLocations :: DescribeLocations -> TestTree
+requestDescribeLocations =
+  req
+    "DescribeLocations"
+    "fixture/DescribeLocations.yaml"
+
+requestCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociation -> TestTree
+requestCreateDirectConnectGatewayAssociation =
+  req
+    "CreateDirectConnectGatewayAssociation"
+    "fixture/CreateDirectConnectGatewayAssociation.yaml"
+
+requestAcceptDirectConnectGatewayAssociationProposal :: AcceptDirectConnectGatewayAssociationProposal -> TestTree
+requestAcceptDirectConnectGatewayAssociationProposal =
+  req
+    "AcceptDirectConnectGatewayAssociationProposal"
+    "fixture/AcceptDirectConnectGatewayAssociationProposal.yaml"
 
 requestCreatePublicVirtualInterface :: CreatePublicVirtualInterface -> TestTree
 requestCreatePublicVirtualInterface =
@@ -449,71 +515,107 @@ requestAssociateMacSecKey =
     "AssociateMacSecKey"
     "fixture/AssociateMacSecKey.yaml"
 
-requestDescribeHostedConnections :: DescribeHostedConnections -> TestTree
-requestDescribeHostedConnections =
+requestAllocatePrivateVirtualInterface :: AllocatePrivateVirtualInterface -> TestTree
+requestAllocatePrivateVirtualInterface =
   req
-    "DescribeHostedConnections"
-    "fixture/DescribeHostedConnections.yaml"
+    "AllocatePrivateVirtualInterface"
+    "fixture/AllocatePrivateVirtualInterface.yaml"
 
-requestAcceptDirectConnectGatewayAssociationProposal :: AcceptDirectConnectGatewayAssociationProposal -> TestTree
-requestAcceptDirectConnectGatewayAssociationProposal =
+requestDescribeLags :: DescribeLags -> TestTree
+requestDescribeLags =
   req
-    "AcceptDirectConnectGatewayAssociationProposal"
-    "fixture/AcceptDirectConnectGatewayAssociationProposal.yaml"
+    "DescribeLags"
+    "fixture/DescribeLags.yaml"
 
-requestCreateInterconnect :: CreateInterconnect -> TestTree
-requestCreateInterconnect =
+requestConfirmConnection :: ConfirmConnection -> TestTree
+requestConfirmConnection =
   req
-    "CreateInterconnect"
-    "fixture/CreateInterconnect.yaml"
+    "ConfirmConnection"
+    "fixture/ConfirmConnection.yaml"
 
-requestCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociation -> TestTree
-requestCreateDirectConnectGatewayAssociation =
+requestDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachments -> TestTree
+requestDescribeDirectConnectGatewayAttachments =
   req
-    "CreateDirectConnectGatewayAssociation"
-    "fixture/CreateDirectConnectGatewayAssociation.yaml"
+    "DescribeDirectConnectGatewayAttachments"
+    "fixture/DescribeDirectConnectGatewayAttachments.yaml"
 
-requestDeleteLag :: DeleteLag -> TestTree
-requestDeleteLag =
+requestConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterface -> TestTree
+requestConfirmPublicVirtualInterface =
   req
-    "DeleteLag"
-    "fixture/DeleteLag.yaml"
+    "ConfirmPublicVirtualInterface"
+    "fixture/ConfirmPublicVirtualInterface.yaml"
 
-requestDeleteInterconnect :: DeleteInterconnect -> TestTree
-requestDeleteInterconnect =
+requestDescribeVirtualGateways :: DescribeVirtualGateways -> TestTree
+requestDescribeVirtualGateways =
   req
-    "DeleteInterconnect"
-    "fixture/DeleteInterconnect.yaml"
+    "DescribeVirtualGateways"
+    "fixture/DescribeVirtualGateways.yaml"
 
-requestAssociateHostedConnection :: AssociateHostedConnection -> TestTree
-requestAssociateHostedConnection =
+requestDeleteDirectConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposal -> TestTree
+requestDeleteDirectConnectGatewayAssociationProposal =
   req
-    "AssociateHostedConnection"
-    "fixture/AssociateHostedConnection.yaml"
+    "DeleteDirectConnectGatewayAssociationProposal"
+    "fixture/DeleteDirectConnectGatewayAssociationProposal.yaml"
 
-requestCreateBGPPeer :: CreateBGPPeer -> TestTree
-requestCreateBGPPeer =
+requestStopBgpFailoverTest :: StopBgpFailoverTest -> TestTree
+requestStopBgpFailoverTest =
   req
-    "CreateBGPPeer"
-    "fixture/CreateBGPPeer.yaml"
+    "StopBgpFailoverTest"
+    "fixture/StopBgpFailoverTest.yaml"
 
-requestUpdateLag :: UpdateLag -> TestTree
-requestUpdateLag =
+requestCreateDirectConnectGateway :: CreateDirectConnectGateway -> TestTree
+requestCreateDirectConnectGateway =
   req
-    "UpdateLag"
-    "fixture/UpdateLag.yaml"
+    "CreateDirectConnectGateway"
+    "fixture/CreateDirectConnectGateway.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestDeleteDirectConnectGateway :: DeleteDirectConnectGateway -> TestTree
+requestDeleteDirectConnectGateway =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "DeleteDirectConnectGateway"
+    "fixture/DeleteDirectConnectGateway.yaml"
 
-requestConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterface -> TestTree
-requestConfirmPrivateVirtualInterface =
+requestDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
+requestDescribeVirtualInterfaces =
   req
-    "ConfirmPrivateVirtualInterface"
-    "fixture/ConfirmPrivateVirtualInterface.yaml"
+    "DescribeVirtualInterfaces"
+    "fixture/DescribeVirtualInterfaces.yaml"
+
+requestListVirtualInterfaceTestHistory :: ListVirtualInterfaceTestHistory -> TestTree
+requestListVirtualInterfaceTestHistory =
+  req
+    "ListVirtualInterfaceTestHistory"
+    "fixture/ListVirtualInterfaceTestHistory.yaml"
+
+requestAllocateHostedConnection :: AllocateHostedConnection -> TestTree
+requestAllocateHostedConnection =
+  req
+    "AllocateHostedConnection"
+    "fixture/AllocateHostedConnection.yaml"
+
+requestDeleteVirtualInterface :: DeleteVirtualInterface -> TestTree
+requestDeleteVirtualInterface =
+  req
+    "DeleteVirtualInterface"
+    "fixture/DeleteVirtualInterface.yaml"
+
+requestCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
+requestCreatePrivateVirtualInterface =
+  req
+    "CreatePrivateVirtualInterface"
+    "fixture/CreatePrivateVirtualInterface.yaml"
+
+requestAllocatePublicVirtualInterface :: AllocatePublicVirtualInterface -> TestTree
+requestAllocatePublicVirtualInterface =
+  req
+    "AllocatePublicVirtualInterface"
+    "fixture/AllocatePublicVirtualInterface.yaml"
+
+requestDescribeDirectConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposals -> TestTree
+requestDescribeDirectConnectGatewayAssociationProposals =
+  req
+    "DescribeDirectConnectGatewayAssociationProposals"
+    "fixture/DescribeDirectConnectGatewayAssociationProposals.yaml"
 
 requestDisassociateConnectionFromLag :: DisassociateConnectionFromLag -> TestTree
 requestDisassociateConnectionFromLag =
@@ -527,95 +629,41 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestDeleteVirtualInterface :: DeleteVirtualInterface -> TestTree
-requestDeleteVirtualInterface =
+requestDeleteLag :: DeleteLag -> TestTree
+requestDeleteLag =
   req
-    "DeleteVirtualInterface"
-    "fixture/DeleteVirtualInterface.yaml"
+    "DeleteLag"
+    "fixture/DeleteLag.yaml"
 
-requestDescribeDirectConnectGateways :: DescribeDirectConnectGateways -> TestTree
-requestDescribeDirectConnectGateways =
+requestUpdateLag :: UpdateLag -> TestTree
+requestUpdateLag =
   req
-    "DescribeDirectConnectGateways"
-    "fixture/DescribeDirectConnectGateways.yaml"
+    "UpdateLag"
+    "fixture/UpdateLag.yaml"
 
-requestDescribeVirtualInterfaces :: DescribeVirtualInterfaces -> TestTree
-requestDescribeVirtualInterfaces =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "DescribeVirtualInterfaces"
-    "fixture/DescribeVirtualInterfaces.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
-requestUpdateVirtualInterfaceAttributes :: UpdateVirtualInterfaceAttributes -> TestTree
-requestUpdateVirtualInterfaceAttributes =
+requestCreateBGPPeer :: CreateBGPPeer -> TestTree
+requestCreateBGPPeer =
   req
-    "UpdateVirtualInterfaceAttributes"
-    "fixture/UpdateVirtualInterfaceAttributes.yaml"
+    "CreateBGPPeer"
+    "fixture/CreateBGPPeer.yaml"
 
-requestCreateConnection :: CreateConnection -> TestTree
-requestCreateConnection =
+requestAssociateHostedConnection :: AssociateHostedConnection -> TestTree
+requestAssociateHostedConnection =
   req
-    "CreateConnection"
-    "fixture/CreateConnection.yaml"
+    "AssociateHostedConnection"
+    "fixture/AssociateHostedConnection.yaml"
 
-requestAssociateConnectionWithLag :: AssociateConnectionWithLag -> TestTree
-requestAssociateConnectionWithLag =
+requestCreateInterconnect :: CreateInterconnect -> TestTree
+requestCreateInterconnect =
   req
-    "AssociateConnectionWithLag"
-    "fixture/AssociateConnectionWithLag.yaml"
-
-requestListVirtualInterfaceTestHistory :: ListVirtualInterfaceTestHistory -> TestTree
-requestListVirtualInterfaceTestHistory =
-  req
-    "ListVirtualInterfaceTestHistory"
-    "fixture/ListVirtualInterfaceTestHistory.yaml"
-
-requestDisassociateMacSecKey :: DisassociateMacSecKey -> TestTree
-requestDisassociateMacSecKey =
-  req
-    "DisassociateMacSecKey"
-    "fixture/DisassociateMacSecKey.yaml"
-
-requestDescribeLoa :: DescribeLoa -> TestTree
-requestDescribeLoa =
-  req
-    "DescribeLoa"
-    "fixture/DescribeLoa.yaml"
-
-requestCreateTransitVirtualInterface :: CreateTransitVirtualInterface -> TestTree
-requestCreateTransitVirtualInterface =
-  req
-    "CreateTransitVirtualInterface"
-    "fixture/CreateTransitVirtualInterface.yaml"
-
-requestCreateDirectConnectGateway :: CreateDirectConnectGateway -> TestTree
-requestCreateDirectConnectGateway =
-  req
-    "CreateDirectConnectGateway"
-    "fixture/CreateDirectConnectGateway.yaml"
-
-requestDescribeInterconnects :: DescribeInterconnects -> TestTree
-requestDescribeInterconnects =
-  req
-    "DescribeInterconnects"
-    "fixture/DescribeInterconnects.yaml"
-
-requestDescribeLags :: DescribeLags -> TestTree
-requestDescribeLags =
-  req
-    "DescribeLags"
-    "fixture/DescribeLags.yaml"
-
-requestConfirmTransitVirtualInterface :: ConfirmTransitVirtualInterface -> TestTree
-requestConfirmTransitVirtualInterface =
-  req
-    "ConfirmTransitVirtualInterface"
-    "fixture/ConfirmTransitVirtualInterface.yaml"
-
-requestCreateLag :: CreateLag -> TestTree
-requestCreateLag =
-  req
-    "CreateLag"
-    "fixture/CreateLag.yaml"
+    "CreateInterconnect"
+    "fixture/CreateInterconnect.yaml"
 
 requestDeleteBGPPeer :: DeleteBGPPeer -> TestTree
 requestDeleteBGPPeer =
@@ -629,73 +677,81 @@ requestAllocateTransitVirtualInterface =
     "AllocateTransitVirtualInterface"
     "fixture/AllocateTransitVirtualInterface.yaml"
 
-requestDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociation -> TestTree
-requestDeleteDirectConnectGatewayAssociation =
+requestCreateLag :: CreateLag -> TestTree
+requestCreateLag =
   req
-    "DeleteDirectConnectGatewayAssociation"
-    "fixture/DeleteDirectConnectGatewayAssociation.yaml"
+    "CreateLag"
+    "fixture/CreateLag.yaml"
 
-requestUpdateDirectConnectGatewayAssociation :: UpdateDirectConnectGatewayAssociation -> TestTree
-requestUpdateDirectConnectGatewayAssociation =
+requestConfirmTransitVirtualInterface :: ConfirmTransitVirtualInterface -> TestTree
+requestConfirmTransitVirtualInterface =
   req
-    "UpdateDirectConnectGatewayAssociation"
-    "fixture/UpdateDirectConnectGatewayAssociation.yaml"
+    "ConfirmTransitVirtualInterface"
+    "fixture/ConfirmTransitVirtualInterface.yaml"
 
-requestDescribeLocations :: DescribeLocations -> TestTree
-requestDescribeLocations =
+requestDescribeHostedConnections :: DescribeHostedConnections -> TestTree
+requestDescribeHostedConnections =
   req
-    "DescribeLocations"
-    "fixture/DescribeLocations.yaml"
-
-requestDescribeConnections :: DescribeConnections -> TestTree
-requestDescribeConnections =
-  req
-    "DescribeConnections"
-    "fixture/DescribeConnections.yaml"
-
-requestAllocatePublicVirtualInterface :: AllocatePublicVirtualInterface -> TestTree
-requestAllocatePublicVirtualInterface =
-  req
-    "AllocatePublicVirtualInterface"
-    "fixture/AllocatePublicVirtualInterface.yaml"
-
-requestAssociateVirtualInterface :: AssociateVirtualInterface -> TestTree
-requestAssociateVirtualInterface =
-  req
-    "AssociateVirtualInterface"
-    "fixture/AssociateVirtualInterface.yaml"
-
-requestDescribeDirectConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposals -> TestTree
-requestDescribeDirectConnectGatewayAssociationProposals =
-  req
-    "DescribeDirectConnectGatewayAssociationProposals"
-    "fixture/DescribeDirectConnectGatewayAssociationProposals.yaml"
-
-requestCreatePrivateVirtualInterface :: CreatePrivateVirtualInterface -> TestTree
-requestCreatePrivateVirtualInterface =
-  req
-    "CreatePrivateVirtualInterface"
-    "fixture/CreatePrivateVirtualInterface.yaml"
-
-requestCreateDirectConnectGatewayAssociationProposal :: CreateDirectConnectGatewayAssociationProposal -> TestTree
-requestCreateDirectConnectGatewayAssociationProposal =
-  req
-    "CreateDirectConnectGatewayAssociationProposal"
-    "fixture/CreateDirectConnectGatewayAssociationProposal.yaml"
-
-requestDeleteDirectConnectGateway :: DeleteDirectConnectGateway -> TestTree
-requestDeleteDirectConnectGateway =
-  req
-    "DeleteDirectConnectGateway"
-    "fixture/DeleteDirectConnectGateway.yaml"
-
-requestAllocateHostedConnection :: AllocateHostedConnection -> TestTree
-requestAllocateHostedConnection =
-  req
-    "AllocateHostedConnection"
-    "fixture/AllocateHostedConnection.yaml"
+    "DescribeHostedConnections"
+    "fixture/DescribeHostedConnections.yaml"
 
 -- Responses
+
+responseDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociationsResponse -> TestTree
+responseDescribeDirectConnectGatewayAssociations =
+  res
+    "DescribeDirectConnectGatewayAssociationsResponse"
+    "fixture/DescribeDirectConnectGatewayAssociationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDirectConnectGatewayAssociations)
+
+responseDescribeInterconnects :: DescribeInterconnectsResponse -> TestTree
+responseDescribeInterconnects =
+  res
+    "DescribeInterconnectsResponse"
+    "fixture/DescribeInterconnectsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeInterconnects)
+
+responseDescribeTags :: DescribeTagsResponse -> TestTree
+responseDescribeTags =
+  res
+    "DescribeTagsResponse"
+    "fixture/DescribeTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeTags)
+
+responseCreateTransitVirtualInterface :: CreateTransitVirtualInterfaceResponse -> TestTree
+responseCreateTransitVirtualInterface =
+  res
+    "CreateTransitVirtualInterfaceResponse"
+    "fixture/CreateTransitVirtualInterfaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTransitVirtualInterface)
+
+responseDescribeLoa :: DescribeLoaResponse -> TestTree
+responseDescribeLoa =
+  res
+    "DescribeLoaResponse"
+    "fixture/DescribeLoaResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeLoa)
+
+responseDisassociateMacSecKey :: DisassociateMacSecKeyResponse -> TestTree
+responseDisassociateMacSecKey =
+  res
+    "DisassociateMacSecKeyResponse"
+    "fixture/DisassociateMacSecKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateMacSecKey)
+
+responseDeleteConnection :: Connection -> TestTree
+responseDeleteConnection =
+  res
+    "DeleteConnectionResponse"
+    "fixture/DeleteConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConnection)
 
 responseUpdateConnection :: Connection -> TestTree
 responseUpdateConnection =
@@ -713,85 +769,117 @@ responseStartBgpFailoverTest =
     defaultService
     (Proxy :: Proxy StartBgpFailoverTest)
 
-responseDeleteDirectConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposalResponse -> TestTree
-responseDeleteDirectConnectGatewayAssociationProposal =
+responseUpdateVirtualInterfaceAttributes :: VirtualInterface -> TestTree
+responseUpdateVirtualInterfaceAttributes =
   res
-    "DeleteDirectConnectGatewayAssociationProposalResponse"
-    "fixture/DeleteDirectConnectGatewayAssociationProposalResponse.proto"
+    "UpdateVirtualInterfaceAttributesResponse"
+    "fixture/UpdateVirtualInterfaceAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectConnectGatewayAssociationProposal)
+    (Proxy :: Proxy UpdateVirtualInterfaceAttributes)
 
-responseDescribeVirtualGateways :: DescribeVirtualGatewaysResponse -> TestTree
-responseDescribeVirtualGateways =
+responseAssociateConnectionWithLag :: Connection -> TestTree
+responseAssociateConnectionWithLag =
   res
-    "DescribeVirtualGatewaysResponse"
-    "fixture/DescribeVirtualGatewaysResponse.proto"
+    "AssociateConnectionWithLagResponse"
+    "fixture/AssociateConnectionWithLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualGateways)
+    (Proxy :: Proxy AssociateConnectionWithLag)
 
-responseStopBgpFailoverTest :: StopBgpFailoverTestResponse -> TestTree
-responseStopBgpFailoverTest =
+responseCreateDirectConnectGatewayAssociationProposal :: CreateDirectConnectGatewayAssociationProposalResponse -> TestTree
+responseCreateDirectConnectGatewayAssociationProposal =
   res
-    "StopBgpFailoverTestResponse"
-    "fixture/StopBgpFailoverTestResponse.proto"
+    "CreateDirectConnectGatewayAssociationProposalResponse"
+    "fixture/CreateDirectConnectGatewayAssociationProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy StopBgpFailoverTest)
+    (Proxy :: Proxy CreateDirectConnectGatewayAssociationProposal)
 
-responseDeleteConnection :: Connection -> TestTree
-responseDeleteConnection =
+responseCreateConnection :: Connection -> TestTree
+responseCreateConnection =
   res
-    "DeleteConnectionResponse"
-    "fixture/DeleteConnectionResponse.proto"
+    "CreateConnectionResponse"
+    "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConnection)
+    (Proxy :: Proxy CreateConnection)
 
-responseConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterfaceResponse -> TestTree
-responseConfirmPublicVirtualInterface =
+responseDescribeDirectConnectGateways :: DescribeDirectConnectGatewaysResponse -> TestTree
+responseDescribeDirectConnectGateways =
   res
-    "ConfirmPublicVirtualInterfaceResponse"
-    "fixture/ConfirmPublicVirtualInterfaceResponse.proto"
+    "DescribeDirectConnectGatewaysResponse"
+    "fixture/DescribeDirectConnectGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmPublicVirtualInterface)
+    (Proxy :: Proxy DescribeDirectConnectGateways)
 
-responseAllocatePrivateVirtualInterface :: VirtualInterface -> TestTree
-responseAllocatePrivateVirtualInterface =
+responseAssociateVirtualInterface :: VirtualInterface -> TestTree
+responseAssociateVirtualInterface =
   res
-    "AllocatePrivateVirtualInterfaceResponse"
-    "fixture/AllocatePrivateVirtualInterfaceResponse.proto"
+    "AssociateVirtualInterfaceResponse"
+    "fixture/AssociateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy AllocatePrivateVirtualInterface)
+    (Proxy :: Proxy AssociateVirtualInterface)
 
-responseDescribeDirectConnectGatewayAssociations :: DescribeDirectConnectGatewayAssociationsResponse -> TestTree
-responseDescribeDirectConnectGatewayAssociations =
+responseDescribeConnections :: Connections -> TestTree
+responseDescribeConnections =
   res
-    "DescribeDirectConnectGatewayAssociationsResponse"
-    "fixture/DescribeDirectConnectGatewayAssociationsResponse.proto"
+    "DescribeConnectionsResponse"
+    "fixture/DescribeConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAssociations)
+    (Proxy :: Proxy DescribeConnections)
 
-responseConfirmConnection :: ConfirmConnectionResponse -> TestTree
-responseConfirmConnection =
+responseDeleteInterconnect :: DeleteInterconnectResponse -> TestTree
+responseDeleteInterconnect =
   res
-    "ConfirmConnectionResponse"
-    "fixture/ConfirmConnectionResponse.proto"
+    "DeleteInterconnectResponse"
+    "fixture/DeleteInterconnectResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmConnection)
+    (Proxy :: Proxy DeleteInterconnect)
 
-responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
+responseConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
+responseConfirmPrivateVirtualInterface =
   res
-    "DescribeTagsResponse"
-    "fixture/DescribeTagsResponse.proto"
+    "ConfirmPrivateVirtualInterfaceResponse"
+    "fixture/ConfirmPrivateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTags)
+    (Proxy :: Proxy ConfirmPrivateVirtualInterface)
 
-responseDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachmentsResponse -> TestTree
-responseDescribeDirectConnectGatewayAttachments =
+responseUpdateDirectConnectGatewayAssociation :: UpdateDirectConnectGatewayAssociationResponse -> TestTree
+responseUpdateDirectConnectGatewayAssociation =
   res
-    "DescribeDirectConnectGatewayAttachmentsResponse"
-    "fixture/DescribeDirectConnectGatewayAttachmentsResponse.proto"
+    "UpdateDirectConnectGatewayAssociationResponse"
+    "fixture/UpdateDirectConnectGatewayAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAttachments)
+    (Proxy :: Proxy UpdateDirectConnectGatewayAssociation)
+
+responseDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociationResponse -> TestTree
+responseDeleteDirectConnectGatewayAssociation =
+  res
+    "DeleteDirectConnectGatewayAssociationResponse"
+    "fixture/DeleteDirectConnectGatewayAssociationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDirectConnectGatewayAssociation)
+
+responseDescribeLocations :: DescribeLocationsResponse -> TestTree
+responseDescribeLocations =
+  res
+    "DescribeLocationsResponse"
+    "fixture/DescribeLocationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeLocations)
+
+responseCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociationResponse -> TestTree
+responseCreateDirectConnectGatewayAssociation =
+  res
+    "CreateDirectConnectGatewayAssociationResponse"
+    "fixture/CreateDirectConnectGatewayAssociationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDirectConnectGatewayAssociation)
+
+responseAcceptDirectConnectGatewayAssociationProposal :: AcceptDirectConnectGatewayAssociationProposalResponse -> TestTree
+responseAcceptDirectConnectGatewayAssociationProposal =
+  res
+    "AcceptDirectConnectGatewayAssociationProposalResponse"
+    "fixture/AcceptDirectConnectGatewayAssociationProposalResponse.proto"
+    defaultService
+    (Proxy :: Proxy AcceptDirectConnectGatewayAssociationProposal)
 
 responseCreatePublicVirtualInterface :: VirtualInterface -> TestTree
 responseCreatePublicVirtualInterface =
@@ -809,93 +897,141 @@ responseAssociateMacSecKey =
     defaultService
     (Proxy :: Proxy AssociateMacSecKey)
 
-responseDescribeHostedConnections :: Connections -> TestTree
-responseDescribeHostedConnections =
+responseAllocatePrivateVirtualInterface :: VirtualInterface -> TestTree
+responseAllocatePrivateVirtualInterface =
   res
-    "DescribeHostedConnectionsResponse"
-    "fixture/DescribeHostedConnectionsResponse.proto"
+    "AllocatePrivateVirtualInterfaceResponse"
+    "fixture/AllocatePrivateVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeHostedConnections)
+    (Proxy :: Proxy AllocatePrivateVirtualInterface)
 
-responseAcceptDirectConnectGatewayAssociationProposal :: AcceptDirectConnectGatewayAssociationProposalResponse -> TestTree
-responseAcceptDirectConnectGatewayAssociationProposal =
+responseDescribeLags :: DescribeLagsResponse -> TestTree
+responseDescribeLags =
   res
-    "AcceptDirectConnectGatewayAssociationProposalResponse"
-    "fixture/AcceptDirectConnectGatewayAssociationProposalResponse.proto"
+    "DescribeLagsResponse"
+    "fixture/DescribeLagsResponse.proto"
     defaultService
-    (Proxy :: Proxy AcceptDirectConnectGatewayAssociationProposal)
+    (Proxy :: Proxy DescribeLags)
 
-responseCreateInterconnect :: Interconnect -> TestTree
-responseCreateInterconnect =
+responseConfirmConnection :: ConfirmConnectionResponse -> TestTree
+responseConfirmConnection =
   res
-    "CreateInterconnectResponse"
-    "fixture/CreateInterconnectResponse.proto"
+    "ConfirmConnectionResponse"
+    "fixture/ConfirmConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateInterconnect)
+    (Proxy :: Proxy ConfirmConnection)
 
-responseCreateDirectConnectGatewayAssociation :: CreateDirectConnectGatewayAssociationResponse -> TestTree
-responseCreateDirectConnectGatewayAssociation =
+responseDescribeDirectConnectGatewayAttachments :: DescribeDirectConnectGatewayAttachmentsResponse -> TestTree
+responseDescribeDirectConnectGatewayAttachments =
   res
-    "CreateDirectConnectGatewayAssociationResponse"
-    "fixture/CreateDirectConnectGatewayAssociationResponse.proto"
+    "DescribeDirectConnectGatewayAttachmentsResponse"
+    "fixture/DescribeDirectConnectGatewayAttachmentsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDirectConnectGatewayAssociation)
+    (Proxy :: Proxy DescribeDirectConnectGatewayAttachments)
 
-responseDeleteLag :: Lag -> TestTree
-responseDeleteLag =
+responseConfirmPublicVirtualInterface :: ConfirmPublicVirtualInterfaceResponse -> TestTree
+responseConfirmPublicVirtualInterface =
   res
-    "DeleteLagResponse"
-    "fixture/DeleteLagResponse.proto"
+    "ConfirmPublicVirtualInterfaceResponse"
+    "fixture/ConfirmPublicVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteLag)
+    (Proxy :: Proxy ConfirmPublicVirtualInterface)
 
-responseDeleteInterconnect :: DeleteInterconnectResponse -> TestTree
-responseDeleteInterconnect =
+responseDescribeVirtualGateways :: DescribeVirtualGatewaysResponse -> TestTree
+responseDescribeVirtualGateways =
   res
-    "DeleteInterconnectResponse"
-    "fixture/DeleteInterconnectResponse.proto"
+    "DescribeVirtualGatewaysResponse"
+    "fixture/DescribeVirtualGatewaysResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteInterconnect)
+    (Proxy :: Proxy DescribeVirtualGateways)
 
-responseAssociateHostedConnection :: Connection -> TestTree
-responseAssociateHostedConnection =
+responseDeleteDirectConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposalResponse -> TestTree
+responseDeleteDirectConnectGatewayAssociationProposal =
   res
-    "AssociateHostedConnectionResponse"
-    "fixture/AssociateHostedConnectionResponse.proto"
+    "DeleteDirectConnectGatewayAssociationProposalResponse"
+    "fixture/DeleteDirectConnectGatewayAssociationProposalResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateHostedConnection)
+    (Proxy :: Proxy DeleteDirectConnectGatewayAssociationProposal)
 
-responseCreateBGPPeer :: CreateBGPPeerResponse -> TestTree
-responseCreateBGPPeer =
+responseStopBgpFailoverTest :: StopBgpFailoverTestResponse -> TestTree
+responseStopBgpFailoverTest =
   res
-    "CreateBGPPeerResponse"
-    "fixture/CreateBGPPeerResponse.proto"
+    "StopBgpFailoverTestResponse"
+    "fixture/StopBgpFailoverTestResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateBGPPeer)
+    (Proxy :: Proxy StopBgpFailoverTest)
 
-responseUpdateLag :: Lag -> TestTree
-responseUpdateLag =
+responseCreateDirectConnectGateway :: CreateDirectConnectGatewayResponse -> TestTree
+responseCreateDirectConnectGateway =
   res
-    "UpdateLagResponse"
-    "fixture/UpdateLagResponse.proto"
+    "CreateDirectConnectGatewayResponse"
+    "fixture/CreateDirectConnectGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateLag)
+    (Proxy :: Proxy CreateDirectConnectGateway)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseDeleteDirectConnectGateway :: DeleteDirectConnectGatewayResponse -> TestTree
+responseDeleteDirectConnectGateway =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "DeleteDirectConnectGatewayResponse"
+    "fixture/DeleteDirectConnectGatewayResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy :: Proxy DeleteDirectConnectGateway)
 
-responseConfirmPrivateVirtualInterface :: ConfirmPrivateVirtualInterfaceResponse -> TestTree
-responseConfirmPrivateVirtualInterface =
+responseDescribeVirtualInterfaces :: DescribeVirtualInterfacesResponse -> TestTree
+responseDescribeVirtualInterfaces =
   res
-    "ConfirmPrivateVirtualInterfaceResponse"
-    "fixture/ConfirmPrivateVirtualInterfaceResponse.proto"
+    "DescribeVirtualInterfacesResponse"
+    "fixture/DescribeVirtualInterfacesResponse.proto"
     defaultService
-    (Proxy :: Proxy ConfirmPrivateVirtualInterface)
+    (Proxy :: Proxy DescribeVirtualInterfaces)
+
+responseListVirtualInterfaceTestHistory :: ListVirtualInterfaceTestHistoryResponse -> TestTree
+responseListVirtualInterfaceTestHistory =
+  res
+    "ListVirtualInterfaceTestHistoryResponse"
+    "fixture/ListVirtualInterfaceTestHistoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListVirtualInterfaceTestHistory)
+
+responseAllocateHostedConnection :: Connection -> TestTree
+responseAllocateHostedConnection =
+  res
+    "AllocateHostedConnectionResponse"
+    "fixture/AllocateHostedConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy AllocateHostedConnection)
+
+responseDeleteVirtualInterface :: DeleteVirtualInterfaceResponse -> TestTree
+responseDeleteVirtualInterface =
+  res
+    "DeleteVirtualInterfaceResponse"
+    "fixture/DeleteVirtualInterfaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVirtualInterface)
+
+responseCreatePrivateVirtualInterface :: VirtualInterface -> TestTree
+responseCreatePrivateVirtualInterface =
+  res
+    "CreatePrivateVirtualInterfaceResponse"
+    "fixture/CreatePrivateVirtualInterfaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePrivateVirtualInterface)
+
+responseAllocatePublicVirtualInterface :: VirtualInterface -> TestTree
+responseAllocatePublicVirtualInterface =
+  res
+    "AllocatePublicVirtualInterfaceResponse"
+    "fixture/AllocatePublicVirtualInterfaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy AllocatePublicVirtualInterface)
+
+responseDescribeDirectConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposalsResponse -> TestTree
+responseDescribeDirectConnectGatewayAssociationProposals =
+  res
+    "DescribeDirectConnectGatewayAssociationProposalsResponse"
+    "fixture/DescribeDirectConnectGatewayAssociationProposalsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDirectConnectGatewayAssociationProposals)
 
 responseDisassociateConnectionFromLag :: Connection -> TestTree
 responseDisassociateConnectionFromLag =
@@ -913,125 +1049,53 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseDeleteVirtualInterface :: DeleteVirtualInterfaceResponse -> TestTree
-responseDeleteVirtualInterface =
+responseDeleteLag :: Lag -> TestTree
+responseDeleteLag =
   res
-    "DeleteVirtualInterfaceResponse"
-    "fixture/DeleteVirtualInterfaceResponse.proto"
+    "DeleteLagResponse"
+    "fixture/DeleteLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVirtualInterface)
+    (Proxy :: Proxy DeleteLag)
 
-responseDescribeDirectConnectGateways :: DescribeDirectConnectGatewaysResponse -> TestTree
-responseDescribeDirectConnectGateways =
+responseUpdateLag :: Lag -> TestTree
+responseUpdateLag =
   res
-    "DescribeDirectConnectGatewaysResponse"
-    "fixture/DescribeDirectConnectGatewaysResponse.proto"
+    "UpdateLagResponse"
+    "fixture/UpdateLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDirectConnectGateways)
+    (Proxy :: Proxy UpdateLag)
 
-responseDescribeVirtualInterfaces :: DescribeVirtualInterfacesResponse -> TestTree
-responseDescribeVirtualInterfaces =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "DescribeVirtualInterfacesResponse"
-    "fixture/DescribeVirtualInterfacesResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeVirtualInterfaces)
+    (Proxy :: Proxy UntagResource)
 
-responseUpdateVirtualInterfaceAttributes :: VirtualInterface -> TestTree
-responseUpdateVirtualInterfaceAttributes =
+responseCreateBGPPeer :: CreateBGPPeerResponse -> TestTree
+responseCreateBGPPeer =
   res
-    "UpdateVirtualInterfaceAttributesResponse"
-    "fixture/UpdateVirtualInterfaceAttributesResponse.proto"
+    "CreateBGPPeerResponse"
+    "fixture/CreateBGPPeerResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateVirtualInterfaceAttributes)
+    (Proxy :: Proxy CreateBGPPeer)
 
-responseCreateConnection :: Connection -> TestTree
-responseCreateConnection =
+responseAssociateHostedConnection :: Connection -> TestTree
+responseAssociateHostedConnection =
   res
-    "CreateConnectionResponse"
-    "fixture/CreateConnectionResponse.proto"
+    "AssociateHostedConnectionResponse"
+    "fixture/AssociateHostedConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy :: Proxy AssociateHostedConnection)
 
-responseAssociateConnectionWithLag :: Connection -> TestTree
-responseAssociateConnectionWithLag =
+responseCreateInterconnect :: Interconnect -> TestTree
+responseCreateInterconnect =
   res
-    "AssociateConnectionWithLagResponse"
-    "fixture/AssociateConnectionWithLagResponse.proto"
+    "CreateInterconnectResponse"
+    "fixture/CreateInterconnectResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateConnectionWithLag)
-
-responseListVirtualInterfaceTestHistory :: ListVirtualInterfaceTestHistoryResponse -> TestTree
-responseListVirtualInterfaceTestHistory =
-  res
-    "ListVirtualInterfaceTestHistoryResponse"
-    "fixture/ListVirtualInterfaceTestHistoryResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListVirtualInterfaceTestHistory)
-
-responseDisassociateMacSecKey :: DisassociateMacSecKeyResponse -> TestTree
-responseDisassociateMacSecKey =
-  res
-    "DisassociateMacSecKeyResponse"
-    "fixture/DisassociateMacSecKeyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateMacSecKey)
-
-responseDescribeLoa :: DescribeLoaResponse -> TestTree
-responseDescribeLoa =
-  res
-    "DescribeLoaResponse"
-    "fixture/DescribeLoaResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeLoa)
-
-responseCreateTransitVirtualInterface :: CreateTransitVirtualInterfaceResponse -> TestTree
-responseCreateTransitVirtualInterface =
-  res
-    "CreateTransitVirtualInterfaceResponse"
-    "fixture/CreateTransitVirtualInterfaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTransitVirtualInterface)
-
-responseCreateDirectConnectGateway :: CreateDirectConnectGatewayResponse -> TestTree
-responseCreateDirectConnectGateway =
-  res
-    "CreateDirectConnectGatewayResponse"
-    "fixture/CreateDirectConnectGatewayResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDirectConnectGateway)
-
-responseDescribeInterconnects :: DescribeInterconnectsResponse -> TestTree
-responseDescribeInterconnects =
-  res
-    "DescribeInterconnectsResponse"
-    "fixture/DescribeInterconnectsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeInterconnects)
-
-responseDescribeLags :: DescribeLagsResponse -> TestTree
-responseDescribeLags =
-  res
-    "DescribeLagsResponse"
-    "fixture/DescribeLagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeLags)
-
-responseConfirmTransitVirtualInterface :: ConfirmTransitVirtualInterfaceResponse -> TestTree
-responseConfirmTransitVirtualInterface =
-  res
-    "ConfirmTransitVirtualInterfaceResponse"
-    "fixture/ConfirmTransitVirtualInterfaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ConfirmTransitVirtualInterface)
-
-responseCreateLag :: Lag -> TestTree
-responseCreateLag =
-  res
-    "CreateLagResponse"
-    "fixture/CreateLagResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateLag)
+    (Proxy :: Proxy CreateInterconnect)
 
 responseDeleteBGPPeer :: DeleteBGPPeerResponse -> TestTree
 responseDeleteBGPPeer =
@@ -1049,90 +1113,26 @@ responseAllocateTransitVirtualInterface =
     defaultService
     (Proxy :: Proxy AllocateTransitVirtualInterface)
 
-responseDeleteDirectConnectGatewayAssociation :: DeleteDirectConnectGatewayAssociationResponse -> TestTree
-responseDeleteDirectConnectGatewayAssociation =
+responseCreateLag :: Lag -> TestTree
+responseCreateLag =
   res
-    "DeleteDirectConnectGatewayAssociationResponse"
-    "fixture/DeleteDirectConnectGatewayAssociationResponse.proto"
+    "CreateLagResponse"
+    "fixture/CreateLagResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDirectConnectGatewayAssociation)
+    (Proxy :: Proxy CreateLag)
 
-responseUpdateDirectConnectGatewayAssociation :: UpdateDirectConnectGatewayAssociationResponse -> TestTree
-responseUpdateDirectConnectGatewayAssociation =
+responseConfirmTransitVirtualInterface :: ConfirmTransitVirtualInterfaceResponse -> TestTree
+responseConfirmTransitVirtualInterface =
   res
-    "UpdateDirectConnectGatewayAssociationResponse"
-    "fixture/UpdateDirectConnectGatewayAssociationResponse.proto"
+    "ConfirmTransitVirtualInterfaceResponse"
+    "fixture/ConfirmTransitVirtualInterfaceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDirectConnectGatewayAssociation)
+    (Proxy :: Proxy ConfirmTransitVirtualInterface)
 
-responseDescribeLocations :: DescribeLocationsResponse -> TestTree
-responseDescribeLocations =
+responseDescribeHostedConnections :: Connections -> TestTree
+responseDescribeHostedConnections =
   res
-    "DescribeLocationsResponse"
-    "fixture/DescribeLocationsResponse.proto"
+    "DescribeHostedConnectionsResponse"
+    "fixture/DescribeHostedConnectionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeLocations)
-
-responseDescribeConnections :: Connections -> TestTree
-responseDescribeConnections =
-  res
-    "DescribeConnectionsResponse"
-    "fixture/DescribeConnectionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConnections)
-
-responseAllocatePublicVirtualInterface :: VirtualInterface -> TestTree
-responseAllocatePublicVirtualInterface =
-  res
-    "AllocatePublicVirtualInterfaceResponse"
-    "fixture/AllocatePublicVirtualInterfaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy AllocatePublicVirtualInterface)
-
-responseAssociateVirtualInterface :: VirtualInterface -> TestTree
-responseAssociateVirtualInterface =
-  res
-    "AssociateVirtualInterfaceResponse"
-    "fixture/AssociateVirtualInterfaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateVirtualInterface)
-
-responseDescribeDirectConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposalsResponse -> TestTree
-responseDescribeDirectConnectGatewayAssociationProposals =
-  res
-    "DescribeDirectConnectGatewayAssociationProposalsResponse"
-    "fixture/DescribeDirectConnectGatewayAssociationProposalsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDirectConnectGatewayAssociationProposals)
-
-responseCreatePrivateVirtualInterface :: VirtualInterface -> TestTree
-responseCreatePrivateVirtualInterface =
-  res
-    "CreatePrivateVirtualInterfaceResponse"
-    "fixture/CreatePrivateVirtualInterfaceResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreatePrivateVirtualInterface)
-
-responseCreateDirectConnectGatewayAssociationProposal :: CreateDirectConnectGatewayAssociationProposalResponse -> TestTree
-responseCreateDirectConnectGatewayAssociationProposal =
-  res
-    "CreateDirectConnectGatewayAssociationProposalResponse"
-    "fixture/CreateDirectConnectGatewayAssociationProposalResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDirectConnectGatewayAssociationProposal)
-
-responseDeleteDirectConnectGateway :: DeleteDirectConnectGatewayResponse -> TestTree
-responseDeleteDirectConnectGateway =
-  res
-    "DeleteDirectConnectGatewayResponse"
-    "fixture/DeleteDirectConnectGatewayResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDirectConnectGateway)
-
-responseAllocateHostedConnection :: Connection -> TestTree
-responseAllocateHostedConnection =
-  res
-    "AllocateHostedConnectionResponse"
-    "fixture/AllocateHostedConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy AllocateHostedConnection)
+    (Proxy :: Proxy DescribeHostedConnections)

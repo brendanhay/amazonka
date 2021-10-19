@@ -40,10 +40,10 @@ module Network.AWS.DirectConnect.CreateConnection
     newCreateConnection,
 
     -- * Request Lenses
-    createConnection_providerName,
     createConnection_lagId,
-    createConnection_tags,
     createConnection_requestMACSec,
+    createConnection_providerName,
+    createConnection_tags,
     createConnection_location,
     createConnection_bandwidth,
     createConnection_connectionName,
@@ -53,28 +53,28 @@ module Network.AWS.DirectConnect.CreateConnection
     newConnection,
 
     -- * Response Lenses
-    connection_bandwidth,
-    connection_awsDeviceV2,
-    connection_connectionState,
-    connection_connectionName,
-    connection_macSecKeys,
-    connection_providerName,
-    connection_connectionId,
-    connection_awsLogicalDeviceId,
-    connection_hasLogicalRedundancy,
-    connection_awsDevice,
-    connection_jumboFrameCapable,
-    connection_portEncryptionStatus,
     connection_lagId,
-    connection_encryptionMode,
-    connection_partnerName,
-    connection_tags,
-    connection_loaIssueTime,
-    connection_ownerAccount,
-    connection_region,
+    connection_macSecCapable,
+    connection_portEncryptionStatus,
     connection_vlan,
     connection_location,
-    connection_macSecCapable,
+    connection_awsDevice,
+    connection_hasLogicalRedundancy,
+    connection_connectionId,
+    connection_awsLogicalDeviceId,
+    connection_loaIssueTime,
+    connection_partnerName,
+    connection_connectionName,
+    connection_encryptionMode,
+    connection_bandwidth,
+    connection_jumboFrameCapable,
+    connection_ownerAccount,
+    connection_region,
+    connection_macSecKeys,
+    connection_providerName,
+    connection_awsDeviceV2,
+    connection_connectionState,
+    connection_tags,
   )
 where
 
@@ -87,13 +87,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { -- | The name of the service provider associated with the requested
-    -- connection.
-    providerName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the LAG.
+  { -- | The ID of the LAG.
     lagId :: Prelude.Maybe Prelude.Text,
-    -- | The tags to associate with the lag.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Indicates whether you want the connection to support MAC Security
     -- (MACsec).
     --
@@ -102,6 +97,11 @@ data CreateConnection = CreateConnection'
     -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
     -- in the /Direct Connect User Guide/.
     requestMACSec :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the service provider associated with the requested
+    -- connection.
+    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the lag.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The location of the connection.
     location :: Prelude.Text,
     -- | The bandwidth of the connection.
@@ -119,12 +119,7 @@ data CreateConnection = CreateConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'createConnection_providerName' - The name of the service provider associated with the requested
--- connection.
---
 -- 'lagId', 'createConnection_lagId' - The ID of the LAG.
---
--- 'tags', 'createConnection_tags' - The tags to associate with the lag.
 --
 -- 'requestMACSec', 'createConnection_requestMACSec' - Indicates whether you want the connection to support MAC Security
 -- (MACsec).
@@ -133,6 +128,11 @@ data CreateConnection = CreateConnection'
 -- information about MAC Security (MACsec) prerequisties, see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites MACsec prerequisties>
 -- in the /Direct Connect User Guide/.
+--
+-- 'providerName', 'createConnection_providerName' - The name of the service provider associated with the requested
+-- connection.
+--
+-- 'tags', 'createConnection_tags' - The tags to associate with the lag.
 --
 -- 'location', 'createConnection_location' - The location of the connection.
 --
@@ -152,27 +152,18 @@ newCreateConnection
   pBandwidth_
   pConnectionName_ =
     CreateConnection'
-      { providerName = Prelude.Nothing,
-        lagId = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { lagId = Prelude.Nothing,
         requestMACSec = Prelude.Nothing,
+        providerName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         location = pLocation_,
         bandwidth = pBandwidth_,
         connectionName = pConnectionName_
       }
 
--- | The name of the service provider associated with the requested
--- connection.
-createConnection_providerName :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
-createConnection_providerName = Lens.lens (\CreateConnection' {providerName} -> providerName) (\s@CreateConnection' {} a -> s {providerName = a} :: CreateConnection)
-
 -- | The ID of the LAG.
 createConnection_lagId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_lagId = Lens.lens (\CreateConnection' {lagId} -> lagId) (\s@CreateConnection' {} a -> s {lagId = a} :: CreateConnection)
-
--- | The tags to associate with the lag.
-createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
-createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether you want the connection to support MAC Security
 -- (MACsec).
@@ -183,6 +174,15 @@ createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@Create
 -- in the /Direct Connect User Guide/.
 createConnection_requestMACSec :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Bool)
 createConnection_requestMACSec = Lens.lens (\CreateConnection' {requestMACSec} -> requestMACSec) (\s@CreateConnection' {} a -> s {requestMACSec = a} :: CreateConnection)
+
+-- | The name of the service provider associated with the requested
+-- connection.
+createConnection_providerName :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
+createConnection_providerName = Lens.lens (\CreateConnection' {providerName} -> providerName) (\s@CreateConnection' {} a -> s {providerName = a} :: CreateConnection)
+
+-- | The tags to associate with the lag.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The location of the connection.
 createConnection_location :: Lens.Lens' CreateConnection Prelude.Text
@@ -226,10 +226,10 @@ instance Core.ToJSON CreateConnection where
   toJSON CreateConnection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("providerName" Core..=) Prelude.<$> providerName,
-            ("lagId" Core..=) Prelude.<$> lagId,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("lagId" Core..=) Prelude.<$> lagId,
             ("requestMACSec" Core..=) Prelude.<$> requestMACSec,
+            ("providerName" Core..=) Prelude.<$> providerName,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("location" Core..= location),
             Prelude.Just ("bandwidth" Core..= bandwidth),
             Prelude.Just

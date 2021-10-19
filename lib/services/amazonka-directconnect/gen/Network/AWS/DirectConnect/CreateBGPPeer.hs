@@ -42,8 +42,8 @@ module Network.AWS.DirectConnect.CreateBGPPeer
     newCreateBGPPeer,
 
     -- * Request Lenses
-    createBGPPeer_virtualInterfaceId,
     createBGPPeer_newBGPPeer,
+    createBGPPeer_virtualInterfaceId,
 
     -- * Destructuring the Response
     CreateBGPPeerResponse (..),
@@ -64,10 +64,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-  { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the BGP peer.
-    newBGPPeer' :: Prelude.Maybe NewBGPPeer
+  { -- | Information about the BGP peer.
+    newBGPPeer' :: Prelude.Maybe NewBGPPeer,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,25 +79,24 @@ data CreateBGPPeer = CreateBGPPeer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'virtualInterfaceId', 'createBGPPeer_virtualInterfaceId' - The ID of the virtual interface.
---
 -- 'newBGPPeer'', 'createBGPPeer_newBGPPeer' - Information about the BGP peer.
+--
+-- 'virtualInterfaceId', 'createBGPPeer_virtualInterfaceId' - The ID of the virtual interface.
 newCreateBGPPeer ::
   CreateBGPPeer
 newCreateBGPPeer =
   CreateBGPPeer'
-    { virtualInterfaceId =
-        Prelude.Nothing,
-      newBGPPeer' = Prelude.Nothing
+    { newBGPPeer' = Prelude.Nothing,
+      virtualInterfaceId = Prelude.Nothing
     }
-
--- | The ID of the virtual interface.
-createBGPPeer_virtualInterfaceId :: Lens.Lens' CreateBGPPeer (Prelude.Maybe Prelude.Text)
-createBGPPeer_virtualInterfaceId = Lens.lens (\CreateBGPPeer' {virtualInterfaceId} -> virtualInterfaceId) (\s@CreateBGPPeer' {} a -> s {virtualInterfaceId = a} :: CreateBGPPeer)
 
 -- | Information about the BGP peer.
 createBGPPeer_newBGPPeer :: Lens.Lens' CreateBGPPeer (Prelude.Maybe NewBGPPeer)
 createBGPPeer_newBGPPeer = Lens.lens (\CreateBGPPeer' {newBGPPeer'} -> newBGPPeer') (\s@CreateBGPPeer' {} a -> s {newBGPPeer' = a} :: CreateBGPPeer)
+
+-- | The ID of the virtual interface.
+createBGPPeer_virtualInterfaceId :: Lens.Lens' CreateBGPPeer (Prelude.Maybe Prelude.Text)
+createBGPPeer_virtualInterfaceId = Lens.lens (\CreateBGPPeer' {virtualInterfaceId} -> virtualInterfaceId) (\s@CreateBGPPeer' {} a -> s {virtualInterfaceId = a} :: CreateBGPPeer)
 
 instance Core.AWSRequest CreateBGPPeer where
   type
@@ -135,9 +134,9 @@ instance Core.ToJSON CreateBGPPeer where
   toJSON CreateBGPPeer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("virtualInterfaceId" Core..=)
-              Prelude.<$> virtualInterfaceId,
-            ("newBGPPeer" Core..=) Prelude.<$> newBGPPeer'
+          [ ("newBGPPeer" Core..=) Prelude.<$> newBGPPeer',
+            ("virtualInterfaceId" Core..=)
+              Prelude.<$> virtualInterfaceId
           ]
       )
 

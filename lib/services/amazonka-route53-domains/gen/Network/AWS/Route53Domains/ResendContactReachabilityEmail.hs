@@ -37,9 +37,9 @@ module Network.AWS.Route53Domains.ResendContactReachabilityEmail
     newResendContactReachabilityEmailResponse,
 
     -- * Response Lenses
-    resendContactReachabilityEmailResponse_isAlreadyVerified,
     resendContactReachabilityEmailResponse_domainName,
     resendContactReachabilityEmailResponse_emailAddress,
+    resendContactReachabilityEmailResponse_isAlreadyVerified,
     resendContactReachabilityEmailResponse_httpStatus,
   )
 where
@@ -94,9 +94,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ResendContactReachabilityEmailResponse'
-            Prelude.<$> (x Core..?> "isAlreadyVerified")
-            Prelude.<*> (x Core..?> "domainName")
+            Prelude.<$> (x Core..?> "domainName")
             Prelude.<*> (x Core..?> "emailAddress")
+            Prelude.<*> (x Core..?> "isAlreadyVerified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,15 +141,15 @@ instance Core.ToQuery ResendContactReachabilityEmail where
 
 -- | /See:/ 'newResendContactReachabilityEmailResponse' smart constructor.
 data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
-  { -- | @True@ if the email address for the registrant contact has already been
-    -- verified, and @false@ otherwise. If the email address has already been
-    -- verified, we don\'t send another confirmation email.
-    isAlreadyVerified :: Prelude.Maybe Prelude.Bool,
-    -- | The domain name for which you requested a confirmation email.
+  { -- | The domain name for which you requested a confirmation email.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The email address for the registrant contact at the time that we sent
     -- the verification email.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | @True@ if the email address for the registrant contact has already been
+    -- verified, and @false@ otherwise. If the email address has already been
+    -- verified, we don\'t send another confirmation email.
+    isAlreadyVerified :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,14 +163,14 @@ data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isAlreadyVerified', 'resendContactReachabilityEmailResponse_isAlreadyVerified' - @True@ if the email address for the registrant contact has already been
--- verified, and @false@ otherwise. If the email address has already been
--- verified, we don\'t send another confirmation email.
---
 -- 'domainName', 'resendContactReachabilityEmailResponse_domainName' - The domain name for which you requested a confirmation email.
 --
 -- 'emailAddress', 'resendContactReachabilityEmailResponse_emailAddress' - The email address for the registrant contact at the time that we sent
 -- the verification email.
+--
+-- 'isAlreadyVerified', 'resendContactReachabilityEmailResponse_isAlreadyVerified' - @True@ if the email address for the registrant contact has already been
+-- verified, and @false@ otherwise. If the email address has already been
+-- verified, we don\'t send another confirmation email.
 --
 -- 'httpStatus', 'resendContactReachabilityEmailResponse_httpStatus' - The response's http status code.
 newResendContactReachabilityEmailResponse ::
@@ -180,18 +180,12 @@ newResendContactReachabilityEmailResponse ::
 newResendContactReachabilityEmailResponse
   pHttpStatus_ =
     ResendContactReachabilityEmailResponse'
-      { isAlreadyVerified =
+      { domainName =
           Prelude.Nothing,
-        domainName = Prelude.Nothing,
         emailAddress = Prelude.Nothing,
+        isAlreadyVerified = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | @True@ if the email address for the registrant contact has already been
--- verified, and @false@ otherwise. If the email address has already been
--- verified, we don\'t send another confirmation email.
-resendContactReachabilityEmailResponse_isAlreadyVerified :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Bool)
-resendContactReachabilityEmailResponse_isAlreadyVerified = Lens.lens (\ResendContactReachabilityEmailResponse' {isAlreadyVerified} -> isAlreadyVerified) (\s@ResendContactReachabilityEmailResponse' {} a -> s {isAlreadyVerified = a} :: ResendContactReachabilityEmailResponse)
 
 -- | The domain name for which you requested a confirmation email.
 resendContactReachabilityEmailResponse_domainName :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Text)
@@ -201,6 +195,12 @@ resendContactReachabilityEmailResponse_domainName = Lens.lens (\ResendContactRea
 -- the verification email.
 resendContactReachabilityEmailResponse_emailAddress :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Text)
 resendContactReachabilityEmailResponse_emailAddress = Lens.lens (\ResendContactReachabilityEmailResponse' {emailAddress} -> emailAddress) (\s@ResendContactReachabilityEmailResponse' {} a -> s {emailAddress = a} :: ResendContactReachabilityEmailResponse)
+
+-- | @True@ if the email address for the registrant contact has already been
+-- verified, and @false@ otherwise. If the email address has already been
+-- verified, we don\'t send another confirmation email.
+resendContactReachabilityEmailResponse_isAlreadyVerified :: Lens.Lens' ResendContactReachabilityEmailResponse (Prelude.Maybe Prelude.Bool)
+resendContactReachabilityEmailResponse_isAlreadyVerified = Lens.lens (\ResendContactReachabilityEmailResponse' {isAlreadyVerified} -> isAlreadyVerified) (\s@ResendContactReachabilityEmailResponse' {} a -> s {isAlreadyVerified = a} :: ResendContactReachabilityEmailResponse)
 
 -- | The response's http status code.
 resendContactReachabilityEmailResponse_httpStatus :: Lens.Lens' ResendContactReachabilityEmailResponse Prelude.Int

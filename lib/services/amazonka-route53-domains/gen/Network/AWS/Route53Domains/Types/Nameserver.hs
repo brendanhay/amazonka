@@ -79,7 +79,7 @@ newNameserver pName_ =
 --
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 nameserver_glueIps :: Lens.Lens' Nameserver (Prelude.Maybe [Prelude.Text])
-nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Prelude.. Lens.mapping Lens._Coerce
+nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified host name of the name server.
 --

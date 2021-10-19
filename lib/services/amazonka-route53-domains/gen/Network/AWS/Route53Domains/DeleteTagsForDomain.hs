@@ -87,7 +87,7 @@ deleteTagsForDomain_domainName = Lens.lens (\DeleteTagsForDomain' {domainName} -
 
 -- | A list of tag keys to delete.
 deleteTagsForDomain_tagsToDelete :: Lens.Lens' DeleteTagsForDomain [Prelude.Text]
-deleteTagsForDomain_tagsToDelete = Lens.lens (\DeleteTagsForDomain' {tagsToDelete} -> tagsToDelete) (\s@DeleteTagsForDomain' {} a -> s {tagsToDelete = a} :: DeleteTagsForDomain) Prelude.. Lens._Coerce
+deleteTagsForDomain_tagsToDelete = Lens.lens (\DeleteTagsForDomain' {tagsToDelete} -> tagsToDelete) (\s@DeleteTagsForDomain' {} a -> s {tagsToDelete = a} :: DeleteTagsForDomain) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTagsForDomain where
   type

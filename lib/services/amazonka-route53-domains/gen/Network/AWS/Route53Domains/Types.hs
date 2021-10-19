@@ -18,11 +18,11 @@ module Network.AWS.Route53Domains.Types
 
     -- * Errors
     _InvalidInput,
-    _UnsupportedTLD,
-    _DuplicateRequest,
-    _DomainLimitExceeded,
     _OperationLimitExceeded,
+    _DomainLimitExceeded,
+    _UnsupportedTLD,
     _TLDRulesViolation,
+    _DuplicateRequest,
 
     -- * ContactType
     ContactType (..),
@@ -51,29 +51,29 @@ module Network.AWS.Route53Domains.Types
     -- * BillingRecord
     BillingRecord (..),
     newBillingRecord,
-    billingRecord_invoiceId,
     billingRecord_operation,
-    billingRecord_billDate,
+    billingRecord_invoiceId,
     billingRecord_domainName,
+    billingRecord_billDate,
     billingRecord_price,
 
     -- * ContactDetail
     ContactDetail (..),
     newContactDetail,
-    contactDetail_phoneNumber,
     contactDetail_organizationName,
-    contactDetail_addressLine1,
+    contactDetail_email,
+    contactDetail_state,
+    contactDetail_fax,
+    contactDetail_lastName,
     contactDetail_extraParams,
     contactDetail_zipCode,
-    contactDetail_contactType,
-    contactDetail_fax,
+    contactDetail_addressLine1,
     contactDetail_city,
-    contactDetail_state,
-    contactDetail_email,
-    contactDetail_lastName,
+    contactDetail_phoneNumber,
+    contactDetail_addressLine2,
     contactDetail_firstName,
     contactDetail_countryCode,
-    contactDetail_addressLine2,
+    contactDetail_contactType,
 
     -- * DomainSuggestion
     DomainSuggestion (..),
@@ -85,8 +85,8 @@ module Network.AWS.Route53Domains.Types
     DomainSummary (..),
     newDomainSummary,
     domainSummary_expiry,
-    domainSummary_autoRenew,
     domainSummary_transferLock,
+    domainSummary_autoRenew,
     domainSummary_domainName,
 
     -- * DomainTransferability
@@ -117,8 +117,8 @@ module Network.AWS.Route53Domains.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
   )
 where
 
@@ -171,37 +171,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -214,6 +191,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested item is not acceptable. For example, for APIs that accept
@@ -227,19 +227,13 @@ _InvalidInput =
     defaultService
     "InvalidInput"
 
--- | Amazon Route 53 does not support this top-level domain (TLD).
-_UnsupportedTLD :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedTLD =
+-- | The number of operations or jobs running exceeded the allowed threshold
+-- for the account.
+_OperationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "UnsupportedTLD"
-
--- | The request is already in progress for the domain.
-_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateRequest =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateRequest"
+    "OperationLimitExceeded"
 
 -- | The number of domains has exceeded the allowed threshold for the
 -- account.
@@ -249,13 +243,12 @@ _DomainLimitExceeded =
     defaultService
     "DomainLimitExceeded"
 
--- | The number of operations or jobs running exceeded the allowed threshold
--- for the account.
-_OperationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationLimitExceeded =
+-- | Amazon Route 53 does not support this top-level domain (TLD).
+_UnsupportedTLD :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedTLD =
   Core._MatchServiceError
     defaultService
-    "OperationLimitExceeded"
+    "UnsupportedTLD"
 
 -- | The top-level domain does not support this operation.
 _TLDRulesViolation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -263,3 +256,10 @@ _TLDRulesViolation =
   Core._MatchServiceError
     defaultService
     "TLDRulesViolation"
+
+-- | The request is already in progress for the domain.
+_DuplicateRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateRequest =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateRequest"

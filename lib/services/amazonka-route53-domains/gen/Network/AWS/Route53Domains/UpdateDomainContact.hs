@@ -35,8 +35,8 @@ module Network.AWS.Route53Domains.UpdateDomainContact
 
     -- * Request Lenses
     updateDomainContact_registrantContact,
-    updateDomainContact_techContact,
     updateDomainContact_adminContact,
+    updateDomainContact_techContact,
     updateDomainContact_domainName,
 
     -- * Destructuring the Response
@@ -63,9 +63,9 @@ data UpdateDomainContact = UpdateDomainContact'
   { -- | Provides detailed contact information.
     registrantContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
     -- | Provides detailed contact information.
-    techContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
-    -- | Provides detailed contact information.
     adminContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
+    -- | Provides detailed contact information.
+    techContact :: Prelude.Maybe (Core.Sensitive ContactDetail),
     -- | The name of the domain that you want to update contact information for.
     domainName :: Prelude.Text
   }
@@ -81,9 +81,9 @@ data UpdateDomainContact = UpdateDomainContact'
 --
 -- 'registrantContact', 'updateDomainContact_registrantContact' - Provides detailed contact information.
 --
--- 'techContact', 'updateDomainContact_techContact' - Provides detailed contact information.
---
 -- 'adminContact', 'updateDomainContact_adminContact' - Provides detailed contact information.
+--
+-- 'techContact', 'updateDomainContact_techContact' - Provides detailed contact information.
 --
 -- 'domainName', 'updateDomainContact_domainName' - The name of the domain that you want to update contact information for.
 newUpdateDomainContact ::
@@ -94,8 +94,8 @@ newUpdateDomainContact pDomainName_ =
   UpdateDomainContact'
     { registrantContact =
         Prelude.Nothing,
-      techContact = Prelude.Nothing,
       adminContact = Prelude.Nothing,
+      techContact = Prelude.Nothing,
       domainName = pDomainName_
     }
 
@@ -104,12 +104,12 @@ updateDomainContact_registrantContact :: Lens.Lens' UpdateDomainContact (Prelude
 updateDomainContact_registrantContact = Lens.lens (\UpdateDomainContact' {registrantContact} -> registrantContact) (\s@UpdateDomainContact' {} a -> s {registrantContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Provides detailed contact information.
-updateDomainContact_techContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
-updateDomainContact_techContact = Lens.lens (\UpdateDomainContact' {techContact} -> techContact) (\s@UpdateDomainContact' {} a -> s {techContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
-
--- | Provides detailed contact information.
 updateDomainContact_adminContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
 updateDomainContact_adminContact = Lens.lens (\UpdateDomainContact' {adminContact} -> adminContact) (\s@UpdateDomainContact' {} a -> s {adminContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Provides detailed contact information.
+updateDomainContact_techContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
+updateDomainContact_techContact = Lens.lens (\UpdateDomainContact' {techContact} -> techContact) (\s@UpdateDomainContact' {} a -> s {techContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the domain that you want to update contact information for.
 updateDomainContact_domainName :: Lens.Lens' UpdateDomainContact Prelude.Text
@@ -153,8 +153,8 @@ instance Core.ToJSON UpdateDomainContact where
       ( Prelude.catMaybes
           [ ("RegistrantContact" Core..=)
               Prelude.<$> registrantContact,
-            ("TechContact" Core..=) Prelude.<$> techContact,
             ("AdminContact" Core..=) Prelude.<$> adminContact,
+            ("TechContact" Core..=) Prelude.<$> techContact,
             Prelude.Just ("DomainName" Core..= domainName)
           ]
       )

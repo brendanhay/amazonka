@@ -30,11 +30,11 @@ data DomainSummary = DomainSummary'
   { -- | Expiration date of the domain in Unix time format and Coordinated
     -- Universal Time (UTC).
     expiry :: Prelude.Maybe Core.POSIX,
-    -- | Indicates whether the domain is automatically renewed upon expiration.
-    autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether a domain is locked from unauthorized transfer to
     -- another party.
     transferLock :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the domain is automatically renewed upon expiration.
+    autoRenew :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that the summary information applies to.
     domainName :: Prelude.Text
   }
@@ -51,10 +51,10 @@ data DomainSummary = DomainSummary'
 -- 'expiry', 'domainSummary_expiry' - Expiration date of the domain in Unix time format and Coordinated
 -- Universal Time (UTC).
 --
--- 'autoRenew', 'domainSummary_autoRenew' - Indicates whether the domain is automatically renewed upon expiration.
---
 -- 'transferLock', 'domainSummary_transferLock' - Indicates whether a domain is locked from unauthorized transfer to
 -- another party.
+--
+-- 'autoRenew', 'domainSummary_autoRenew' - Indicates whether the domain is automatically renewed upon expiration.
 --
 -- 'domainName', 'domainSummary_domainName' - The name of the domain that the summary information applies to.
 newDomainSummary ::
@@ -64,8 +64,8 @@ newDomainSummary ::
 newDomainSummary pDomainName_ =
   DomainSummary'
     { expiry = Prelude.Nothing,
-      autoRenew = Prelude.Nothing,
       transferLock = Prelude.Nothing,
+      autoRenew = Prelude.Nothing,
       domainName = pDomainName_
     }
 
@@ -74,14 +74,14 @@ newDomainSummary pDomainName_ =
 domainSummary_expiry :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
 domainSummary_expiry = Lens.lens (\DomainSummary' {expiry} -> expiry) (\s@DomainSummary' {} a -> s {expiry = a} :: DomainSummary) Prelude.. Lens.mapping Core._Time
 
--- | Indicates whether the domain is automatically renewed upon expiration.
-domainSummary_autoRenew :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Bool)
-domainSummary_autoRenew = Lens.lens (\DomainSummary' {autoRenew} -> autoRenew) (\s@DomainSummary' {} a -> s {autoRenew = a} :: DomainSummary)
-
 -- | Indicates whether a domain is locked from unauthorized transfer to
 -- another party.
 domainSummary_transferLock :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Bool)
 domainSummary_transferLock = Lens.lens (\DomainSummary' {transferLock} -> transferLock) (\s@DomainSummary' {} a -> s {transferLock = a} :: DomainSummary)
+
+-- | Indicates whether the domain is automatically renewed upon expiration.
+domainSummary_autoRenew :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Bool)
+domainSummary_autoRenew = Lens.lens (\DomainSummary' {autoRenew} -> autoRenew) (\s@DomainSummary' {} a -> s {autoRenew = a} :: DomainSummary)
 
 -- | The name of the domain that the summary information applies to.
 domainSummary_domainName :: Lens.Lens' DomainSummary Prelude.Text
@@ -94,8 +94,8 @@ instance Core.FromJSON DomainSummary where
       ( \x ->
           DomainSummary'
             Prelude.<$> (x Core..:? "Expiry")
-            Prelude.<*> (x Core..:? "AutoRenew")
             Prelude.<*> (x Core..:? "TransferLock")
+            Prelude.<*> (x Core..:? "AutoRenew")
             Prelude.<*> (x Core..: "DomainName")
       )
 

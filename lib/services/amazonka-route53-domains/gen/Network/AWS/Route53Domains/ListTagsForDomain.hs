@@ -163,6 +163,6 @@ listTagsForDomainResponse_httpStatus = Lens.lens (\ListTagsForDomainResponse' {h
 
 -- | A list of the tags that are associated with the specified domain.
 listTagsForDomainResponse_tagList :: Lens.Lens' ListTagsForDomainResponse [Tag]
-listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Prelude.. Lens._Coerce
+listTagsForDomainResponse_tagList = Lens.lens (\ListTagsForDomainResponse' {tagList} -> tagList) (\s@ListTagsForDomainResponse' {} a -> s {tagList = a} :: ListTagsForDomainResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListTagsForDomainResponse

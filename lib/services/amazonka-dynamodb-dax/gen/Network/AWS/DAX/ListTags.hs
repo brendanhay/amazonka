@@ -205,7 +205,7 @@ listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextTo
 
 -- | A list of tags currently associated with the DAX cluster.
 listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int

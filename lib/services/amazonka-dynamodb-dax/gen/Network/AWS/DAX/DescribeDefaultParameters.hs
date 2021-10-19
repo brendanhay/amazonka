@@ -221,7 +221,7 @@ describeDefaultParametersResponse_nextToken = Lens.lens (\DescribeDefaultParamet
 
 -- | A list of parameters. Each element in the list represents one parameter.
 describeDefaultParametersResponse_parameters :: Lens.Lens' DescribeDefaultParametersResponse (Prelude.Maybe [Parameter])
-describeDefaultParametersResponse_parameters = Lens.lens (\DescribeDefaultParametersResponse' {parameters} -> parameters) (\s@DescribeDefaultParametersResponse' {} a -> s {parameters = a} :: DescribeDefaultParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDefaultParametersResponse_parameters = Lens.lens (\DescribeDefaultParametersResponse' {parameters} -> parameters) (\s@DescribeDefaultParametersResponse' {} a -> s {parameters = a} :: DescribeDefaultParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDefaultParametersResponse_httpStatus :: Lens.Lens' DescribeDefaultParametersResponse Prelude.Int

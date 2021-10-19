@@ -32,15 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSubnetGroup' smart constructor.
 data SubnetGroup = SubnetGroup'
-  { -- | The description of the subnet group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the subnet group.
-    subnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
+  { -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
     -- group.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | A list of subnets associated with the subnet group.
-    subnets :: Prelude.Maybe [Subnet]
+    subnets :: Prelude.Maybe [Subnet],
+    -- | The name of the subnet group.
+    subnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the subnet group.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,31 +52,23 @@ data SubnetGroup = SubnetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'subnetGroup_description' - The description of the subnet group.
---
--- 'subnetGroupName', 'subnetGroup_subnetGroupName' - The name of the subnet group.
---
 -- 'vpcId', 'subnetGroup_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
 --
 -- 'subnets', 'subnetGroup_subnets' - A list of subnets associated with the subnet group.
+--
+-- 'subnetGroupName', 'subnetGroup_subnetGroupName' - The name of the subnet group.
+--
+-- 'description', 'subnetGroup_description' - The description of the subnet group.
 newSubnetGroup ::
   SubnetGroup
 newSubnetGroup =
   SubnetGroup'
-    { description = Prelude.Nothing,
+    { vpcId = Prelude.Nothing,
+      subnets = Prelude.Nothing,
       subnetGroupName = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      subnets = Prelude.Nothing
+      description = Prelude.Nothing
     }
-
--- | The description of the subnet group.
-subnetGroup_description :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
-subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description) (\s@SubnetGroup' {} a -> s {description = a} :: SubnetGroup)
-
--- | The name of the subnet group.
-subnetGroup_subnetGroupName :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
-subnetGroup_subnetGroupName = Lens.lens (\SubnetGroup' {subnetGroupName} -> subnetGroupName) (\s@SubnetGroup' {} a -> s {subnetGroupName = a} :: SubnetGroup)
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet
 -- group.
@@ -85,7 +77,15 @@ subnetGroup_vpcId = Lens.lens (\SubnetGroup' {vpcId} -> vpcId) (\s@SubnetGroup' 
 
 -- | A list of subnets associated with the subnet group.
 subnetGroup_subnets :: Lens.Lens' SubnetGroup (Prelude.Maybe [Subnet])
-subnetGroup_subnets = Lens.lens (\SubnetGroup' {subnets} -> subnets) (\s@SubnetGroup' {} a -> s {subnets = a} :: SubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+subnetGroup_subnets = Lens.lens (\SubnetGroup' {subnets} -> subnets) (\s@SubnetGroup' {} a -> s {subnets = a} :: SubnetGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the subnet group.
+subnetGroup_subnetGroupName :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
+subnetGroup_subnetGroupName = Lens.lens (\SubnetGroup' {subnetGroupName} -> subnetGroupName) (\s@SubnetGroup' {} a -> s {subnetGroupName = a} :: SubnetGroup)
+
+-- | The description of the subnet group.
+subnetGroup_description :: Lens.Lens' SubnetGroup (Prelude.Maybe Prelude.Text)
+subnetGroup_description = Lens.lens (\SubnetGroup' {description} -> description) (\s@SubnetGroup' {} a -> s {description = a} :: SubnetGroup)
 
 instance Core.FromJSON SubnetGroup where
   parseJSON =
@@ -93,10 +93,10 @@ instance Core.FromJSON SubnetGroup where
       "SubnetGroup"
       ( \x ->
           SubnetGroup'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "SubnetGroupName")
-            Prelude.<*> (x Core..:? "VpcId")
+            Prelude.<$> (x Core..:? "VpcId")
             Prelude.<*> (x Core..:? "Subnets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SubnetGroupName")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable SubnetGroup

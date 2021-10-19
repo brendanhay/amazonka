@@ -14,75 +14,34 @@
 module Network.AWS.DAX.Lens
   ( -- * Operations
 
+    -- ** DescribeClusters
+    describeClusters_clusterNames,
+    describeClusters_nextToken,
+    describeClusters_maxResults,
+    describeClustersResponse_nextToken,
+    describeClustersResponse_clusters,
+    describeClustersResponse_httpStatus,
+
     -- ** DescribeParameters
     describeParameters_nextToken,
-    describeParameters_maxResults,
     describeParameters_source,
+    describeParameters_maxResults,
     describeParameters_parameterGroupName,
     describeParametersResponse_nextToken,
     describeParametersResponse_parameters,
     describeParametersResponse_httpStatus,
 
-    -- ** DescribeClusters
-    describeClusters_nextToken,
-    describeClusters_maxResults,
-    describeClusters_clusterNames,
-    describeClustersResponse_nextToken,
-    describeClustersResponse_clusters,
-    describeClustersResponse_httpStatus,
-
-    -- ** DescribeDefaultParameters
-    describeDefaultParameters_nextToken,
-    describeDefaultParameters_maxResults,
-    describeDefaultParametersResponse_nextToken,
-    describeDefaultParametersResponse_parameters,
-    describeDefaultParametersResponse_httpStatus,
-
-    -- ** CreateCluster
-    createCluster_securityGroupIds,
-    createCluster_availabilityZones,
-    createCluster_clusterEndpointEncryptionType,
-    createCluster_sSESpecification,
-    createCluster_preferredMaintenanceWindow,
-    createCluster_tags,
-    createCluster_parameterGroupName,
-    createCluster_notificationTopicArn,
-    createCluster_description,
-    createCluster_subnetGroupName,
-    createCluster_clusterName,
-    createCluster_nodeType,
-    createCluster_replicationFactor,
-    createCluster_iamRoleArn,
-    createClusterResponse_cluster,
-    createClusterResponse_httpStatus,
-
-    -- ** DecreaseReplicationFactor
-    decreaseReplicationFactor_availabilityZones,
-    decreaseReplicationFactor_nodeIdsToRemove,
-    decreaseReplicationFactor_clusterName,
-    decreaseReplicationFactor_newReplicationFactor,
-    decreaseReplicationFactorResponse_cluster,
-    decreaseReplicationFactorResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceName,
-    untagResource_tagKeys,
-    untagResourceResponse_tags,
-    untagResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceName,
-    tagResource_tags,
-    tagResourceResponse_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DescribeParameterGroups
-    describeParameterGroups_nextToken,
-    describeParameterGroups_maxResults,
-    describeParameterGroups_parameterGroupNames,
-    describeParameterGroupsResponse_nextToken,
-    describeParameterGroupsResponse_parameterGroups,
-    describeParameterGroupsResponse_httpStatus,
+    -- ** DescribeEvents
+    describeEvents_sourceName,
+    describeEvents_startTime,
+    describeEvents_sourceType,
+    describeEvents_nextToken,
+    describeEvents_endTime,
+    describeEvents_duration,
+    describeEvents_maxResults,
+    describeEventsResponse_nextToken,
+    describeEventsResponse_events,
+    describeEventsResponse_httpStatus,
 
     -- ** IncreaseReplicationFactor
     increaseReplicationFactor_availabilityZones,
@@ -91,17 +50,58 @@ module Network.AWS.DAX.Lens
     increaseReplicationFactorResponse_cluster,
     increaseReplicationFactorResponse_httpStatus,
 
-    -- ** DescribeEvents
-    describeEvents_nextToken,
-    describeEvents_maxResults,
-    describeEvents_duration,
-    describeEvents_startTime,
-    describeEvents_endTime,
-    describeEvents_sourceName,
-    describeEvents_sourceType,
-    describeEventsResponse_nextToken,
-    describeEventsResponse_events,
-    describeEventsResponse_httpStatus,
+    -- ** CreateSubnetGroup
+    createSubnetGroup_description,
+    createSubnetGroup_subnetGroupName,
+    createSubnetGroup_subnetIds,
+    createSubnetGroupResponse_subnetGroup,
+    createSubnetGroupResponse_httpStatus,
+
+    -- ** DeleteCluster
+    deleteCluster_clusterName,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
+
+    -- ** UpdateCluster
+    updateCluster_securityGroupIds,
+    updateCluster_preferredMaintenanceWindow,
+    updateCluster_notificationTopicStatus,
+    updateCluster_description,
+    updateCluster_notificationTopicArn,
+    updateCluster_parameterGroupName,
+    updateCluster_clusterName,
+    updateClusterResponse_cluster,
+    updateClusterResponse_httpStatus,
+
+    -- ** CreateCluster
+    createCluster_securityGroupIds,
+    createCluster_sSESpecification,
+    createCluster_subnetGroupName,
+    createCluster_clusterEndpointEncryptionType,
+    createCluster_preferredMaintenanceWindow,
+    createCluster_availabilityZones,
+    createCluster_description,
+    createCluster_notificationTopicArn,
+    createCluster_tags,
+    createCluster_parameterGroupName,
+    createCluster_clusterName,
+    createCluster_nodeType,
+    createCluster_replicationFactor,
+    createCluster_iamRoleArn,
+    createClusterResponse_cluster,
+    createClusterResponse_httpStatus,
+
+    -- ** DescribeDefaultParameters
+    describeDefaultParameters_nextToken,
+    describeDefaultParameters_maxResults,
+    describeDefaultParametersResponse_nextToken,
+    describeDefaultParametersResponse_parameters,
+    describeDefaultParametersResponse_httpStatus,
+
+    -- ** DeleteParameterGroup
+    deleteParameterGroup_parameterGroupName,
+    deleteParameterGroupResponse_deletionMessage,
+    deleteParameterGroupResponse_httpStatus,
 
     -- ** UpdateParameterGroup
     updateParameterGroup_parameterGroupName,
@@ -109,46 +109,19 @@ module Network.AWS.DAX.Lens
     updateParameterGroupResponse_parameterGroup,
     updateParameterGroupResponse_httpStatus,
 
-    -- ** DeleteParameterGroup
-    deleteParameterGroup_parameterGroupName,
-    deleteParameterGroupResponse_deletionMessage,
-    deleteParameterGroupResponse_httpStatus,
+    -- ** DescribeSubnetGroups
+    describeSubnetGroups_subnetGroupNames,
+    describeSubnetGroups_nextToken,
+    describeSubnetGroups_maxResults,
+    describeSubnetGroupsResponse_subnetGroups,
+    describeSubnetGroupsResponse_nextToken,
+    describeSubnetGroupsResponse_httpStatus,
 
-    -- ** RebootNode
-    rebootNode_clusterName,
-    rebootNode_nodeId,
-    rebootNodeResponse_cluster,
-    rebootNodeResponse_httpStatus,
-
-    -- ** ListTags
-    listTags_nextToken,
-    listTags_resourceName,
-    listTagsResponse_nextToken,
-    listTagsResponse_tags,
-    listTagsResponse_httpStatus,
-
-    -- ** UpdateCluster
-    updateCluster_securityGroupIds,
-    updateCluster_notificationTopicStatus,
-    updateCluster_preferredMaintenanceWindow,
-    updateCluster_parameterGroupName,
-    updateCluster_notificationTopicArn,
-    updateCluster_description,
-    updateCluster_clusterName,
-    updateClusterResponse_cluster,
-    updateClusterResponse_httpStatus,
-
-    -- ** DeleteCluster
-    deleteCluster_clusterName,
-    deleteClusterResponse_cluster,
-    deleteClusterResponse_httpStatus,
-
-    -- ** CreateSubnetGroup
-    createSubnetGroup_description,
-    createSubnetGroup_subnetGroupName,
-    createSubnetGroup_subnetIds,
-    createSubnetGroupResponse_subnetGroup,
-    createSubnetGroupResponse_httpStatus,
+    -- ** CreateParameterGroup
+    createParameterGroup_description,
+    createParameterGroup_parameterGroupName,
+    createParameterGroupResponse_parameterGroup,
+    createParameterGroupResponse_httpStatus,
 
     -- ** UpdateSubnetGroup
     updateSubnetGroup_subnetIds,
@@ -162,60 +135,87 @@ module Network.AWS.DAX.Lens
     deleteSubnetGroupResponse_deletionMessage,
     deleteSubnetGroupResponse_httpStatus,
 
-    -- ** DescribeSubnetGroups
-    describeSubnetGroups_nextToken,
-    describeSubnetGroups_maxResults,
-    describeSubnetGroups_subnetGroupNames,
-    describeSubnetGroupsResponse_subnetGroups,
-    describeSubnetGroupsResponse_nextToken,
-    describeSubnetGroupsResponse_httpStatus,
+    -- ** DescribeParameterGroups
+    describeParameterGroups_nextToken,
+    describeParameterGroups_parameterGroupNames,
+    describeParameterGroups_maxResults,
+    describeParameterGroupsResponse_nextToken,
+    describeParameterGroupsResponse_parameterGroups,
+    describeParameterGroupsResponse_httpStatus,
 
-    -- ** CreateParameterGroup
-    createParameterGroup_description,
-    createParameterGroup_parameterGroupName,
-    createParameterGroupResponse_parameterGroup,
-    createParameterGroupResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceName,
+    tagResource_tags,
+    tagResourceResponse_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** ListTags
+    listTags_nextToken,
+    listTags_resourceName,
+    listTagsResponse_nextToken,
+    listTagsResponse_tags,
+    listTagsResponse_httpStatus,
+
+    -- ** DecreaseReplicationFactor
+    decreaseReplicationFactor_nodeIdsToRemove,
+    decreaseReplicationFactor_availabilityZones,
+    decreaseReplicationFactor_clusterName,
+    decreaseReplicationFactor_newReplicationFactor,
+    decreaseReplicationFactorResponse_cluster,
+    decreaseReplicationFactorResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceName,
+    untagResource_tagKeys,
+    untagResourceResponse_tags,
+    untagResourceResponse_httpStatus,
+
+    -- ** RebootNode
+    rebootNode_clusterName,
+    rebootNode_nodeId,
+    rebootNodeResponse_cluster,
+    rebootNodeResponse_httpStatus,
 
     -- * Types
 
     -- ** Cluster
-    cluster_clusterArn,
     cluster_status,
     cluster_iamRoleArn,
-    cluster_subnetGroup,
-    cluster_totalNodes,
-    cluster_parameterGroup,
-    cluster_clusterEndpointEncryptionType,
-    cluster_nodes,
-    cluster_notificationConfiguration,
-    cluster_securityGroups,
+    cluster_clusterArn,
     cluster_activeNodes,
-    cluster_preferredMaintenanceWindow,
-    cluster_description,
-    cluster_sSEDescription,
+    cluster_securityGroups,
+    cluster_notificationConfiguration,
     cluster_nodeIdsToRemove,
-    cluster_clusterDiscoveryEndpoint,
-    cluster_nodeType,
+    cluster_clusterEndpointEncryptionType,
+    cluster_totalNodes,
+    cluster_preferredMaintenanceWindow,
+    cluster_subnetGroup,
     cluster_clusterName,
+    cluster_nodeType,
+    cluster_nodes,
+    cluster_clusterDiscoveryEndpoint,
+    cluster_sSEDescription,
+    cluster_description,
+    cluster_parameterGroup,
 
     -- ** Endpoint
+    endpoint_url,
     endpoint_address,
     endpoint_port,
-    endpoint_url,
 
     -- ** Event
-    event_message,
     event_sourceName,
-    event_date,
     event_sourceType,
+    event_date,
+    event_message,
 
     -- ** Node
     node_nodeStatus,
-    node_nodeId,
     node_parameterGroupStatus,
     node_availabilityZone,
-    node_nodeCreateTime,
+    node_nodeId,
     node_endpoint,
+    node_nodeCreateTime,
 
     -- ** NodeTypeSpecificValue
     nodeTypeSpecificValue_value,
@@ -226,25 +226,25 @@ module Network.AWS.DAX.Lens
     notificationConfiguration_topicArn,
 
     -- ** Parameter
-    parameter_changeType,
-    parameter_allowedValues,
-    parameter_source,
     parameter_parameterValue,
     parameter_parameterType,
+    parameter_source,
+    parameter_isModifiable,
+    parameter_dataType,
+    parameter_nodeTypeSpecificValues,
+    parameter_allowedValues,
     parameter_parameterName,
     parameter_description,
-    parameter_nodeTypeSpecificValues,
-    parameter_dataType,
-    parameter_isModifiable,
+    parameter_changeType,
 
     -- ** ParameterGroup
-    parameterGroup_parameterGroupName,
     parameterGroup_description,
+    parameterGroup_parameterGroupName,
 
     -- ** ParameterGroupStatus
     parameterGroupStatus_nodeIdsToReboot,
-    parameterGroupStatus_parameterGroupName,
     parameterGroupStatus_parameterApplyStatus,
+    parameterGroupStatus_parameterGroupName,
 
     -- ** ParameterNameValue
     parameterNameValue_parameterValue,
@@ -265,14 +265,14 @@ module Network.AWS.DAX.Lens
     subnet_subnetAvailabilityZone,
 
     -- ** SubnetGroup
-    subnetGroup_description,
-    subnetGroup_subnetGroupName,
     subnetGroup_vpcId,
     subnetGroup_subnets,
+    subnetGroup_subnetGroupName,
+    subnetGroup_description,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
   )
 where
 

@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
-  { -- | A user-defined message associated with the event.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The source of the event. For example, if the event occurred at the node
+  { -- | The source of the event. For example, if the event occurred at the node
     -- level, the source would be the node ID.
     sourceName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the event occurred.
-    date :: Prelude.Maybe Core.POSIX,
     -- | Specifies the origin of this event - a cluster, a parameter group, a
     -- node ID, etc.
-    sourceType :: Prelude.Maybe SourceType
+    sourceType :: Prelude.Maybe SourceType,
+    -- | The date and time when the event occurred.
+    date :: Prelude.Maybe Core.POSIX,
+    -- | A user-defined message associated with the event.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,42 +51,42 @@ data Event = Event'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'event_message' - A user-defined message associated with the event.
---
 -- 'sourceName', 'event_sourceName' - The source of the event. For example, if the event occurred at the node
 -- level, the source would be the node ID.
 --
--- 'date', 'event_date' - The date and time when the event occurred.
---
 -- 'sourceType', 'event_sourceType' - Specifies the origin of this event - a cluster, a parameter group, a
 -- node ID, etc.
+--
+-- 'date', 'event_date' - The date and time when the event occurred.
+--
+-- 'message', 'event_message' - A user-defined message associated with the event.
 newEvent ::
   Event
 newEvent =
   Event'
-    { message = Prelude.Nothing,
-      sourceName = Prelude.Nothing,
+    { sourceName = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
       date = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | A user-defined message associated with the event.
-event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | The source of the event. For example, if the event occurred at the node
 -- level, the source would be the node ID.
 event_sourceName :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sourceName = Lens.lens (\Event' {sourceName} -> sourceName) (\s@Event' {} a -> s {sourceName = a} :: Event)
 
--- | The date and time when the event occurred.
-event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
-
 -- | Specifies the origin of this event - a cluster, a parameter group, a
 -- node ID, etc.
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
+
+-- | The date and time when the event occurred.
+event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Core._Time
+
+-- | A user-defined message associated with the event.
+event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 instance Core.FromJSON Event where
   parseJSON =
@@ -94,10 +94,10 @@ instance Core.FromJSON Event where
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "SourceName")
-            Prelude.<*> (x Core..:? "Date")
+            Prelude.<$> (x Core..:? "SourceName")
             Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..:? "Date")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable Event

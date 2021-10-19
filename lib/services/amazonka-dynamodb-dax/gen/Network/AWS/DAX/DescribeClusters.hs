@@ -45,9 +45,9 @@ module Network.AWS.DAX.DescribeClusters
     newDescribeClusters,
 
     -- * Request Lenses
+    describeClusters_clusterNames,
     describeClusters_nextToken,
     describeClusters_maxResults,
-    describeClusters_clusterNames,
 
     -- * Destructuring the Response
     DescribeClustersResponse (..),
@@ -69,7 +69,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | The names of the DAX clusters being described.
+    clusterNames :: Prelude.Maybe [Prelude.Text],
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
@@ -79,9 +81,7 @@ data DescribeClusters = DescribeClusters'
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The names of the DAX clusters being described.
-    clusterNames :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,6 +93,8 @@ data DescribeClusters = DescribeClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterNames', 'describeClusters_clusterNames' - The names of the DAX clusters being described.
+--
 -- 'nextToken', 'describeClusters_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
@@ -103,16 +105,18 @@ data DescribeClusters = DescribeClusters'
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
---
--- 'clusterNames', 'describeClusters_clusterNames' - The names of the DAX clusters being described.
 newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      clusterNames = Prelude.Nothing
+    { clusterNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The names of the DAX clusters being described.
+describeClusters_clusterNames :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
+describeClusters_clusterNames = Lens.lens (\DescribeClusters' {clusterNames} -> clusterNames) (\s@DescribeClusters' {} a -> s {clusterNames = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -128,10 +132,6 @@ describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextTo
 -- The value for @MaxResults@ must be between 20 and 100.
 describeClusters_maxResults :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Int)
 describeClusters_maxResults = Lens.lens (\DescribeClusters' {maxResults} -> maxResults) (\s@DescribeClusters' {} a -> s {maxResults = a} :: DescribeClusters)
-
--- | The names of the DAX clusters being described.
-describeClusters_clusterNames :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_clusterNames = Lens.lens (\DescribeClusters' {clusterNames} -> clusterNames) (\s@DescribeClusters' {} a -> s {clusterNames = a} :: DescribeClusters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeClusters where
   page rq rs
@@ -192,9 +192,9 @@ instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("ClusterNames" Core..=) Prelude.<$> clusterNames
+          [ ("ClusterNames" Core..=) Prelude.<$> clusterNames,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -249,7 +249,7 @@ describeClustersResponse_nextToken = Lens.lens (\DescribeClustersResponse' {next
 -- | The descriptions of your DAX clusters, in response to a
 -- /DescribeClusters/ request.
 describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
-describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int

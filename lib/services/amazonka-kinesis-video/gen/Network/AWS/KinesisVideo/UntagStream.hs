@@ -85,7 +85,7 @@ newUntagStream pTagKeyList_ =
   UntagStream'
     { streamARN = Prelude.Nothing,
       streamName = Prelude.Nothing,
-      tagKeyList = Lens._Coerce Lens.# pTagKeyList_
+      tagKeyList = Lens.coerced Lens.# pTagKeyList_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to remove
@@ -99,7 +99,7 @@ untagStream_streamName = Lens.lens (\UntagStream' {streamName} -> streamName) (\
 
 -- | A list of the keys of the tags that you want to remove.
 untagStream_tagKeyList :: Lens.Lens' UntagStream (Prelude.NonEmpty Prelude.Text)
-untagStream_tagKeyList = Lens.lens (\UntagStream' {tagKeyList} -> tagKeyList) (\s@UntagStream' {} a -> s {tagKeyList = a} :: UntagStream) Prelude.. Lens._Coerce
+untagStream_tagKeyList = Lens.lens (\UntagStream' {tagKeyList} -> tagKeyList) (\s@UntagStream' {} a -> s {tagKeyList = a} :: UntagStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagStream where
   type AWSResponse UntagStream = UntagStreamResponse

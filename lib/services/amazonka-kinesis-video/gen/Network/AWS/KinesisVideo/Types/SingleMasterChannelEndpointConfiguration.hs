@@ -80,7 +80,7 @@ newSingleMasterChannelEndpointConfiguration =
 -- returns a websocket endpoint. If @HTTPS@ is specified, this API returns
 -- an @HTTPS@ endpoint.
 singleMasterChannelEndpointConfiguration_protocols :: Lens.Lens' SingleMasterChannelEndpointConfiguration (Prelude.Maybe (Prelude.NonEmpty ChannelProtocol))
-singleMasterChannelEndpointConfiguration_protocols = Lens.lens (\SingleMasterChannelEndpointConfiguration' {protocols} -> protocols) (\s@SingleMasterChannelEndpointConfiguration' {} a -> s {protocols = a} :: SingleMasterChannelEndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
+singleMasterChannelEndpointConfiguration_protocols = Lens.lens (\SingleMasterChannelEndpointConfiguration' {protocols} -> protocols) (\s@SingleMasterChannelEndpointConfiguration' {} a -> s {protocols = a} :: SingleMasterChannelEndpointConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | This property is used to determine messaging permissions in this
 -- @SINGLE_MASTER@ signaling channel. If @MASTER@ is specified, this API

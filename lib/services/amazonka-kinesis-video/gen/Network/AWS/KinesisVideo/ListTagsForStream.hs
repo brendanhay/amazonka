@@ -30,8 +30,8 @@ module Network.AWS.KinesisVideo.ListTagsForStream
     newListTagsForStream,
 
     -- * Request Lenses
-    listTagsForStream_nextToken,
     listTagsForStream_streamARN,
+    listTagsForStream_nextToken,
     listTagsForStream_streamName,
 
     -- * Destructuring the Response
@@ -54,13 +54,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { -- | If you specify this parameter and the result of a @ListTagsForStream@
+  { -- | The Amazon Resource Name (ARN) of the stream that you want to list tags
+    -- for.
+    streamARN :: Prelude.Maybe Prelude.Text,
+    -- | If you specify this parameter and the result of a @ListTagsForStream@
     -- call is truncated, the response includes a token that you can use in the
     -- next request to fetch the next batch of tags.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the stream that you want to list tags
-    -- for.
-    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream that you want to list tags for.
     streamName :: Prelude.Maybe Prelude.Text
   }
@@ -74,33 +74,33 @@ data ListTagsForStream = ListTagsForStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamARN', 'listTagsForStream_streamARN' - The Amazon Resource Name (ARN) of the stream that you want to list tags
+-- for.
+--
 -- 'nextToken', 'listTagsForStream_nextToken' - If you specify this parameter and the result of a @ListTagsForStream@
 -- call is truncated, the response includes a token that you can use in the
 -- next request to fetch the next batch of tags.
---
--- 'streamARN', 'listTagsForStream_streamARN' - The Amazon Resource Name (ARN) of the stream that you want to list tags
--- for.
 --
 -- 'streamName', 'listTagsForStream_streamName' - The name of the stream that you want to list tags for.
 newListTagsForStream ::
   ListTagsForStream
 newListTagsForStream =
   ListTagsForStream'
-    { nextToken = Prelude.Nothing,
-      streamARN = Prelude.Nothing,
+    { streamARN = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       streamName = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to list tags
+-- for.
+listTagsForStream_streamARN :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
+listTagsForStream_streamARN = Lens.lens (\ListTagsForStream' {streamARN} -> streamARN) (\s@ListTagsForStream' {} a -> s {streamARN = a} :: ListTagsForStream)
 
 -- | If you specify this parameter and the result of a @ListTagsForStream@
 -- call is truncated, the response includes a token that you can use in the
 -- next request to fetch the next batch of tags.
 listTagsForStream_nextToken :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
 listTagsForStream_nextToken = Lens.lens (\ListTagsForStream' {nextToken} -> nextToken) (\s@ListTagsForStream' {} a -> s {nextToken = a} :: ListTagsForStream)
-
--- | The Amazon Resource Name (ARN) of the stream that you want to list tags
--- for.
-listTagsForStream_streamARN :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
-listTagsForStream_streamARN = Lens.lens (\ListTagsForStream' {streamARN} -> streamARN) (\s@ListTagsForStream' {} a -> s {streamARN = a} :: ListTagsForStream)
 
 -- | The name of the stream that you want to list tags for.
 listTagsForStream_streamName :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
@@ -131,8 +131,8 @@ instance Core.ToJSON ListTagsForStream where
   toJSON ListTagsForStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StreamARN" Core..=) Prelude.<$> streamARN,
+          [ ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("StreamName" Core..=) Prelude.<$> streamName
           ]
       )
@@ -191,7 +191,7 @@ listTagsForStreamResponse_nextToken = Lens.lens (\ListTagsForStreamResponse' {ne
 
 -- | A map of tag keys and values associated with the specified stream.
 listTagsForStreamResponse_tags :: Lens.Lens' ListTagsForStreamResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Prelude.Int

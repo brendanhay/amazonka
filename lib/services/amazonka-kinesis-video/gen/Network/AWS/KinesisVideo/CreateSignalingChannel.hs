@@ -113,7 +113,7 @@ createSignalingChannel_channelType = Lens.lens (\CreateSignalingChannel' {channe
 -- | A set of tags (key-value pairs) that you want to associate with this
 -- channel.
 createSignalingChannel_tags :: Lens.Lens' CreateSignalingChannel (Prelude.Maybe [Tag])
-createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Prelude.. Lens.mapping Lens._Coerce
+createSignalingChannel_tags = Lens.lens (\CreateSignalingChannel' {tags} -> tags) (\s@CreateSignalingChannel' {} a -> s {tags = a} :: CreateSignalingChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the signaling channel that you are creating. It must be
 -- unique for each AWS account and AWS Region.

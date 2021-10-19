@@ -38,10 +38,10 @@ module Network.AWS.KinesisVideo.CreateStream
     newCreateStream,
 
     -- * Request Lenses
+    createStream_mediaType,
     createStream_dataRetentionInHours,
     createStream_kmsKeyId,
     createStream_deviceName,
-    createStream_mediaType,
     createStream_tags,
     createStream_streamName,
 
@@ -64,7 +64,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | The number of hours that you want to retain the data in the stream.
+  { -- | The media type of the stream. Consumers of the stream can use this
+    -- information when processing the stream. For more information about media
+    -- types, see
+    -- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
+    -- If you choose to specify the @MediaType@, see
+    -- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
+    -- for guidelines.
+    --
+    -- Example valid values include \"video\/h264\" and
+    -- \"video\/h264,audio\/aac\".
+    --
+    -- This parameter is optional; the default value is @null@ (or empty in
+    -- JSON).
+    mediaType :: Prelude.Maybe Prelude.Text,
+    -- | The number of hours that you want to retain the data in the stream.
     -- Kinesis Video Streams retains the data in a data store that is
     -- associated with the stream.
     --
@@ -90,20 +104,6 @@ data CreateStream = CreateStream'
     -- In the current implementation, Kinesis Video Streams does not use this
     -- name.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The media type of the stream. Consumers of the stream can use this
-    -- information when processing the stream. For more information about media
-    -- types, see
-    -- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
-    -- If you choose to specify the @MediaType@, see
-    -- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
-    -- for guidelines.
-    --
-    -- Example valid values include \"video\/h264\" and
-    -- \"video\/h264,audio\/aac\".
-    --
-    -- This parameter is optional; the default value is @null@ (or empty in
-    -- JSON).
-    mediaType :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to associate with the specified stream. Each tag is a
     -- key-value pair (the value is optional).
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -122,6 +122,20 @@ data CreateStream = CreateStream'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'mediaType', 'createStream_mediaType' - The media type of the stream. Consumers of the stream can use this
+-- information when processing the stream. For more information about media
+-- types, see
+-- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
+-- If you choose to specify the @MediaType@, see
+-- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
+-- for guidelines.
+--
+-- Example valid values include \"video\/h264\" and
+-- \"video\/h264,audio\/aac\".
+--
+-- This parameter is optional; the default value is @null@ (or empty in
+-- JSON).
 --
 -- 'dataRetentionInHours', 'createStream_dataRetentionInHours' - The number of hours that you want to retain the data in the stream.
 -- Kinesis Video Streams retains the data in a data store that is
@@ -149,20 +163,6 @@ data CreateStream = CreateStream'
 -- In the current implementation, Kinesis Video Streams does not use this
 -- name.
 --
--- 'mediaType', 'createStream_mediaType' - The media type of the stream. Consumers of the stream can use this
--- information when processing the stream. For more information about media
--- types, see
--- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
--- If you choose to specify the @MediaType@, see
--- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
--- for guidelines.
---
--- Example valid values include \"video\/h264\" and
--- \"video\/h264,audio\/aac\".
---
--- This parameter is optional; the default value is @null@ (or empty in
--- JSON).
---
 -- 'tags', 'createStream_tags' - A list of tags to associate with the specified stream. Each tag is a
 -- key-value pair (the value is optional).
 --
@@ -176,14 +176,29 @@ newCreateStream ::
   CreateStream
 newCreateStream pStreamName_ =
   CreateStream'
-    { dataRetentionInHours =
-        Prelude.Nothing,
+    { mediaType = Prelude.Nothing,
+      dataRetentionInHours = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      mediaType = Prelude.Nothing,
       tags = Prelude.Nothing,
       streamName = pStreamName_
     }
+
+-- | The media type of the stream. Consumers of the stream can use this
+-- information when processing the stream. For more information about media
+-- types, see
+-- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
+-- If you choose to specify the @MediaType@, see
+-- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
+-- for guidelines.
+--
+-- Example valid values include \"video\/h264\" and
+-- \"video\/h264,audio\/aac\".
+--
+-- This parameter is optional; the default value is @null@ (or empty in
+-- JSON).
+createStream_mediaType :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_mediaType = Lens.lens (\CreateStream' {mediaType} -> mediaType) (\s@CreateStream' {} a -> s {mediaType = a} :: CreateStream)
 
 -- | The number of hours that you want to retain the data in the stream.
 -- Kinesis Video Streams retains the data in a data store that is
@@ -217,26 +232,10 @@ createStream_kmsKeyId = Lens.lens (\CreateStream' {kmsKeyId} -> kmsKeyId) (\s@Cr
 createStream_deviceName :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
 createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) (\s@CreateStream' {} a -> s {deviceName = a} :: CreateStream)
 
--- | The media type of the stream. Consumers of the stream can use this
--- information when processing the stream. For more information about media
--- types, see
--- <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types>.
--- If you choose to specify the @MediaType@, see
--- <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements>
--- for guidelines.
---
--- Example valid values include \"video\/h264\" and
--- \"video\/h264,audio\/aac\".
---
--- This parameter is optional; the default value is @null@ (or empty in
--- JSON).
-createStream_mediaType :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
-createStream_mediaType = Lens.lens (\CreateStream' {mediaType} -> mediaType) (\s@CreateStream' {} a -> s {mediaType = a} :: CreateStream)
-
 -- | A list of tags to associate with the specified stream. Each tag is a
 -- key-value pair (the value is optional).
 createStream_tags :: Lens.Lens' CreateStream (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Lens._Coerce
+createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the stream that you are creating.
 --
@@ -267,11 +266,11 @@ instance Core.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataRetentionInHours" Core..=)
+          [ ("MediaType" Core..=) Prelude.<$> mediaType,
+            ("DataRetentionInHours" Core..=)
               Prelude.<$> dataRetentionInHours,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("DeviceName" Core..=) Prelude.<$> deviceName,
-            ("MediaType" Core..=) Prelude.<$> mediaType,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("StreamName" Core..= streamName)
           ]

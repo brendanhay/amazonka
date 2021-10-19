@@ -14,36 +14,26 @@
 module Network.AWS.KinesisVideo.Lens
   ( -- * Operations
 
-    -- ** ListTagsForStream
-    listTagsForStream_nextToken,
-    listTagsForStream_streamARN,
-    listTagsForStream_streamName,
-    listTagsForStreamResponse_nextToken,
-    listTagsForStreamResponse_tags,
-    listTagsForStreamResponse_httpStatus,
+    -- ** ListSignalingChannels
+    listSignalingChannels_channelNameCondition,
+    listSignalingChannels_nextToken,
+    listSignalingChannels_maxResults,
+    listSignalingChannelsResponse_channelInfoList,
+    listSignalingChannelsResponse_nextToken,
+    listSignalingChannelsResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeyList,
-    untagResourceResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DeleteStream
-    deleteStream_currentVersion,
-    deleteStream_streamARN,
-    deleteStreamResponse_httpStatus,
-
-    -- ** UpdateStream
-    updateStream_deviceName,
-    updateStream_mediaType,
-    updateStream_streamARN,
-    updateStream_streamName,
-    updateStream_currentVersion,
-    updateStreamResponse_httpStatus,
+    -- ** UntagStream
+    untagStream_streamARN,
+    untagStream_streamName,
+    untagStream_tagKeyList,
+    untagStreamResponse_httpStatus,
 
     -- ** UpdateDataRetention
     updateDataRetention_streamARN,
@@ -60,11 +50,19 @@ module Network.AWS.KinesisVideo.Lens
     getDataEndpointResponse_dataEndpoint,
     getDataEndpointResponse_httpStatus,
 
-    -- ** UntagStream
-    untagStream_streamARN,
-    untagStream_streamName,
-    untagStream_tagKeyList,
-    untagStreamResponse_httpStatus,
+    -- ** GetSignalingChannelEndpoint
+    getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration,
+    getSignalingChannelEndpoint_channelARN,
+    getSignalingChannelEndpointResponse_resourceEndpointList,
+    getSignalingChannelEndpointResponse_httpStatus,
+
+    -- ** ListTagsForStream
+    listTagsForStream_streamARN,
+    listTagsForStream_nextToken,
+    listTagsForStream_streamName,
+    listTagsForStreamResponse_nextToken,
+    listTagsForStreamResponse_tags,
+    listTagsForStreamResponse_httpStatus,
 
     -- ** DeleteSignalingChannel
     deleteSignalingChannel_currentVersion,
@@ -77,13 +75,58 @@ module Network.AWS.KinesisVideo.Lens
     updateSignalingChannel_currentVersion,
     updateSignalingChannelResponse_httpStatus,
 
-    -- ** ListSignalingChannels
-    listSignalingChannels_channelNameCondition,
-    listSignalingChannels_nextToken,
-    listSignalingChannels_maxResults,
-    listSignalingChannelsResponse_nextToken,
-    listSignalingChannelsResponse_channelInfoList,
-    listSignalingChannelsResponse_httpStatus,
+    -- ** UpdateStream
+    updateStream_mediaType,
+    updateStream_streamARN,
+    updateStream_deviceName,
+    updateStream_streamName,
+    updateStream_currentVersion,
+    updateStreamResponse_httpStatus,
+
+    -- ** DeleteStream
+    deleteStream_currentVersion,
+    deleteStream_streamARN,
+    deleteStreamResponse_httpStatus,
+
+    -- ** ListStreams
+    listStreams_nextToken,
+    listStreams_streamNameCondition,
+    listStreams_maxResults,
+    listStreamsResponse_streamInfoList,
+    listStreamsResponse_nextToken,
+    listStreamsResponse_httpStatus,
+
+    -- ** CreateStream
+    createStream_mediaType,
+    createStream_dataRetentionInHours,
+    createStream_kmsKeyId,
+    createStream_deviceName,
+    createStream_tags,
+    createStream_streamName,
+    createStreamResponse_streamARN,
+    createStreamResponse_httpStatus,
+
+    -- ** DescribeSignalingChannel
+    describeSignalingChannel_channelARN,
+    describeSignalingChannel_channelName,
+    describeSignalingChannelResponse_channelInfo,
+    describeSignalingChannelResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeyList,
+    untagResourceResponse_httpStatus,
+
+    -- ** TagStream
+    tagStream_streamARN,
+    tagStream_streamName,
+    tagStream_tags,
+    tagStreamResponse_httpStatus,
 
     -- ** CreateSignalingChannel
     createSignalingChannel_singleMasterConfiguration,
@@ -99,67 +142,24 @@ module Network.AWS.KinesisVideo.Lens
     describeStreamResponse_streamInfo,
     describeStreamResponse_httpStatus,
 
-    -- ** TagStream
-    tagStream_streamARN,
-    tagStream_streamName,
-    tagStream_tags,
-    tagStreamResponse_httpStatus,
-
-    -- ** DescribeSignalingChannel
-    describeSignalingChannel_channelName,
-    describeSignalingChannel_channelARN,
-    describeSignalingChannelResponse_channelInfo,
-    describeSignalingChannelResponse_httpStatus,
-
-    -- ** GetSignalingChannelEndpoint
-    getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration,
-    getSignalingChannelEndpoint_channelARN,
-    getSignalingChannelEndpointResponse_resourceEndpointList,
-    getSignalingChannelEndpointResponse_httpStatus,
-
-    -- ** CreateStream
-    createStream_dataRetentionInHours,
-    createStream_kmsKeyId,
-    createStream_deviceName,
-    createStream_mediaType,
-    createStream_tags,
-    createStream_streamName,
-    createStreamResponse_streamARN,
-    createStreamResponse_httpStatus,
-
-    -- ** ListStreams
-    listStreams_nextToken,
-    listStreams_maxResults,
-    listStreams_streamNameCondition,
-    listStreamsResponse_nextToken,
-    listStreamsResponse_streamInfoList,
-    listStreamsResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
-
     -- * Types
 
     -- ** ChannelInfo
     channelInfo_creationTime,
-    channelInfo_channelName,
-    channelInfo_singleMasterConfiguration,
-    channelInfo_channelType,
-    channelInfo_version,
     channelInfo_channelStatus,
     channelInfo_channelARN,
+    channelInfo_singleMasterConfiguration,
+    channelInfo_channelName,
+    channelInfo_version,
+    channelInfo_channelType,
 
     -- ** ChannelNameCondition
     channelNameCondition_comparisonOperator,
     channelNameCondition_comparisonValue,
 
     -- ** ResourceEndpointListItem
-    resourceEndpointListItem_resourceEndpoint,
     resourceEndpointListItem_protocol,
+    resourceEndpointListItem_resourceEndpoint,
 
     -- ** SingleMasterChannelEndpointConfiguration
     singleMasterChannelEndpointConfiguration_protocols,
@@ -171,12 +171,12 @@ module Network.AWS.KinesisVideo.Lens
     -- ** StreamInfo
     streamInfo_creationTime,
     streamInfo_status,
+    streamInfo_mediaType,
     streamInfo_dataRetentionInHours,
-    streamInfo_version,
+    streamInfo_streamARN,
     streamInfo_kmsKeyId,
     streamInfo_deviceName,
-    streamInfo_mediaType,
-    streamInfo_streamARN,
+    streamInfo_version,
     streamInfo_streamName,
 
     -- ** StreamNameCondition

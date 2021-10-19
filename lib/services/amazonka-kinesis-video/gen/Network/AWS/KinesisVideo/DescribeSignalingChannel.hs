@@ -29,8 +29,8 @@ module Network.AWS.KinesisVideo.DescribeSignalingChannel
     newDescribeSignalingChannel,
 
     -- * Request Lenses
-    describeSignalingChannel_channelName,
     describeSignalingChannel_channelARN,
+    describeSignalingChannel_channelName,
 
     -- * Destructuring the Response
     DescribeSignalingChannelResponse (..),
@@ -51,10 +51,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSignalingChannel' smart constructor.
 data DescribeSignalingChannel = DescribeSignalingChannel'
-  { -- | The name of the signaling channel that you want to describe.
-    channelName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the signaling channel that you want to describe.
-    channelARN :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the signaling channel that you want to describe.
+    channelARN :: Prelude.Maybe Prelude.Text,
+    -- | The name of the signaling channel that you want to describe.
+    channelName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,25 +66,25 @@ data DescribeSignalingChannel = DescribeSignalingChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelName', 'describeSignalingChannel_channelName' - The name of the signaling channel that you want to describe.
---
 -- 'channelARN', 'describeSignalingChannel_channelARN' - The ARN of the signaling channel that you want to describe.
+--
+-- 'channelName', 'describeSignalingChannel_channelName' - The name of the signaling channel that you want to describe.
 newDescribeSignalingChannel ::
   DescribeSignalingChannel
 newDescribeSignalingChannel =
   DescribeSignalingChannel'
-    { channelName =
+    { channelARN =
         Prelude.Nothing,
-      channelARN = Prelude.Nothing
+      channelName = Prelude.Nothing
     }
-
--- | The name of the signaling channel that you want to describe.
-describeSignalingChannel_channelName :: Lens.Lens' DescribeSignalingChannel (Prelude.Maybe Prelude.Text)
-describeSignalingChannel_channelName = Lens.lens (\DescribeSignalingChannel' {channelName} -> channelName) (\s@DescribeSignalingChannel' {} a -> s {channelName = a} :: DescribeSignalingChannel)
 
 -- | The ARN of the signaling channel that you want to describe.
 describeSignalingChannel_channelARN :: Lens.Lens' DescribeSignalingChannel (Prelude.Maybe Prelude.Text)
 describeSignalingChannel_channelARN = Lens.lens (\DescribeSignalingChannel' {channelARN} -> channelARN) (\s@DescribeSignalingChannel' {} a -> s {channelARN = a} :: DescribeSignalingChannel)
+
+-- | The name of the signaling channel that you want to describe.
+describeSignalingChannel_channelName :: Lens.Lens' DescribeSignalingChannel (Prelude.Maybe Prelude.Text)
+describeSignalingChannel_channelName = Lens.lens (\DescribeSignalingChannel' {channelName} -> channelName) (\s@DescribeSignalingChannel' {} a -> s {channelName = a} :: DescribeSignalingChannel)
 
 instance Core.AWSRequest DescribeSignalingChannel where
   type
@@ -110,8 +110,8 @@ instance Core.ToJSON DescribeSignalingChannel where
   toJSON DescribeSignalingChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ChannelName" Core..=) Prelude.<$> channelName,
-            ("ChannelARN" Core..=) Prelude.<$> channelARN
+          [ ("ChannelARN" Core..=) Prelude.<$> channelARN,
+            ("ChannelName" Core..=) Prelude.<$> channelName
           ]
       )
 

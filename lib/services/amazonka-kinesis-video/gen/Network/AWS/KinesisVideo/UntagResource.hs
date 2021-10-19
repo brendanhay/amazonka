@@ -79,7 +79,7 @@ newUntagResource ::
 newUntagResource pResourceARN_ pTagKeyList_ =
   UntagResource'
     { resourceARN = pResourceARN_,
-      tagKeyList = Lens._Coerce Lens.# pTagKeyList_
+      tagKeyList = Lens.coerced Lens.# pTagKeyList_
     }
 
 -- | The Amazon Resource Name (ARN) of the signaling channel from which you
@@ -89,7 +89,7 @@ untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resource
 
 -- | A list of the keys of the tags that you want to remove.
 untagResource_tagKeyList :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

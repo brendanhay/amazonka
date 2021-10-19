@@ -135,7 +135,7 @@ newUpdateRegexPatternSet
     UpdateRegexPatternSet'
       { regexPatternSetId =
           pRegexPatternSetId_,
-        updates = Lens._Coerce Lens.# pUpdates_,
+        updates = Lens.coerced Lens.# pUpdates_,
         changeToken = pChangeToken_
       }
 
@@ -148,7 +148,7 @@ updateRegexPatternSet_regexPatternSetId = Lens.lens (\UpdateRegexPatternSet' {re
 -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into
 -- or delete from a RegexPatternSet.
 updateRegexPatternSet_updates :: Lens.Lens' UpdateRegexPatternSet (Prelude.NonEmpty RegexPatternSetUpdate)
-updateRegexPatternSet_updates = Lens.lens (\UpdateRegexPatternSet' {updates} -> updates) (\s@UpdateRegexPatternSet' {} a -> s {updates = a} :: UpdateRegexPatternSet) Prelude.. Lens._Coerce
+updateRegexPatternSet_updates = Lens.lens (\UpdateRegexPatternSet' {updates} -> updates) (\s@UpdateRegexPatternSet' {} a -> s {updates = a} :: UpdateRegexPatternSet) Prelude.. Lens.coerced
 
 -- | The value returned by the most recent call to GetChangeToken.
 updateRegexPatternSet_changeToken :: Lens.Lens' UpdateRegexPatternSet Prelude.Text

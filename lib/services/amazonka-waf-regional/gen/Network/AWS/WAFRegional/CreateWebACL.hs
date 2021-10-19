@@ -164,7 +164,7 @@ newCreateWebACL
 
 -- |
 createWebACL_tags :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Tag))
-createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' {} a -> s {tags = a} :: CreateWebACL) Prelude.. Lens.mapping Lens._Coerce
+createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' {} a -> s {tags = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | A friendly name or description of the WebACL. You can\'t change @Name@
 -- after you create the @WebACL@.

@@ -211,7 +211,7 @@ newListGeoMatchSetsResponse pHttpStatus_ =
 
 -- | An array of GeoMatchSetSummary objects.
 listGeoMatchSetsResponse_geoMatchSets :: Lens.Lens' ListGeoMatchSetsResponse (Prelude.Maybe [GeoMatchSetSummary])
-listGeoMatchSetsResponse_geoMatchSets = Lens.lens (\ListGeoMatchSetsResponse' {geoMatchSets} -> geoMatchSets) (\s@ListGeoMatchSetsResponse' {} a -> s {geoMatchSets = a} :: ListGeoMatchSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listGeoMatchSetsResponse_geoMatchSets = Lens.lens (\ListGeoMatchSetsResponse' {geoMatchSets} -> geoMatchSets) (\s@ListGeoMatchSetsResponse' {} a -> s {geoMatchSets = a} :: ListGeoMatchSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @GeoMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a

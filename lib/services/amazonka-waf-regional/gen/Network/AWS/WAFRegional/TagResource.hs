@@ -92,7 +92,7 @@ newTagResource ::
 newTagResource pResourceARN_ pTags_ =
   TagResource'
     { resourceARN = pResourceARN_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- |
@@ -101,7 +101,7 @@ tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN)
 
 -- |
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

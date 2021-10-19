@@ -222,7 +222,7 @@ newCreateRateBasedRule
 
 -- |
 createRateBasedRule_tags :: Lens.Lens' CreateRateBasedRule (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRateBasedRule_tags = Lens.lens (\CreateRateBasedRule' {tags} -> tags) (\s@CreateRateBasedRule' {} a -> s {tags = a} :: CreateRateBasedRule) Prelude.. Lens.mapping Lens._Coerce
+createRateBasedRule_tags = Lens.lens (\CreateRateBasedRule' {tags} -> tags) (\s@CreateRateBasedRule' {} a -> s {tags = a} :: CreateRateBasedRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A friendly name or description of the RateBasedRule. You can\'t change
 -- the name of a @RateBasedRule@ after you create it.

@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSmsMfaConfigType' smart constructor.
 data SmsMfaConfigType = SmsMfaConfigType'
-  { -- | The SMS configuration.
-    smsConfiguration :: Prelude.Maybe SmsConfigurationType,
-    -- | The SMS authentication message that will be sent to users with the code
+  { -- | The SMS authentication message that will be sent to users with the code
     -- they need to sign in. The message must contain the ‘{####}’ placeholder,
     -- which will be replaced with the code. If the message is not included,
     -- and default message will be used.
-    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text
+    smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
+    -- | The SMS configuration.
+    smsConfiguration :: Prelude.Maybe SmsConfigurationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data SmsMfaConfigType = SmsMfaConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'smsConfiguration', 'smsMfaConfigType_smsConfiguration' - The SMS configuration.
---
 -- 'smsAuthenticationMessage', 'smsMfaConfigType_smsAuthenticationMessage' - The SMS authentication message that will be sent to users with the code
 -- they need to sign in. The message must contain the ‘{####}’ placeholder,
 -- which will be replaced with the code. If the message is not included,
 -- and default message will be used.
+--
+-- 'smsConfiguration', 'smsMfaConfigType_smsConfiguration' - The SMS configuration.
 newSmsMfaConfigType ::
   SmsMfaConfigType
 newSmsMfaConfigType =
   SmsMfaConfigType'
-    { smsConfiguration =
+    { smsAuthenticationMessage =
         Prelude.Nothing,
-      smsAuthenticationMessage = Prelude.Nothing
+      smsConfiguration = Prelude.Nothing
     }
-
--- | The SMS configuration.
-smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe SmsConfigurationType)
-smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfiguration} -> smsConfiguration) (\s@SmsMfaConfigType' {} a -> s {smsConfiguration = a} :: SmsMfaConfigType)
 
 -- | The SMS authentication message that will be sent to users with the code
 -- they need to sign in. The message must contain the ‘{####}’ placeholder,
@@ -73,14 +69,18 @@ smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfigurat
 smsMfaConfigType_smsAuthenticationMessage :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe Prelude.Text)
 smsMfaConfigType_smsAuthenticationMessage = Lens.lens (\SmsMfaConfigType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@SmsMfaConfigType' {} a -> s {smsAuthenticationMessage = a} :: SmsMfaConfigType)
 
+-- | The SMS configuration.
+smsMfaConfigType_smsConfiguration :: Lens.Lens' SmsMfaConfigType (Prelude.Maybe SmsConfigurationType)
+smsMfaConfigType_smsConfiguration = Lens.lens (\SmsMfaConfigType' {smsConfiguration} -> smsConfiguration) (\s@SmsMfaConfigType' {} a -> s {smsConfiguration = a} :: SmsMfaConfigType)
+
 instance Core.FromJSON SmsMfaConfigType where
   parseJSON =
     Core.withObject
       "SmsMfaConfigType"
       ( \x ->
           SmsMfaConfigType'
-            Prelude.<$> (x Core..:? "SmsConfiguration")
-            Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
+            Prelude.<$> (x Core..:? "SmsAuthenticationMessage")
+            Prelude.<*> (x Core..:? "SmsConfiguration")
       )
 
 instance Prelude.Hashable SmsMfaConfigType
@@ -91,9 +91,9 @@ instance Core.ToJSON SmsMfaConfigType where
   toJSON SmsMfaConfigType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SmsConfiguration" Core..=)
-              Prelude.<$> smsConfiguration,
-            ("SmsAuthenticationMessage" Core..=)
-              Prelude.<$> smsAuthenticationMessage
+          [ ("SmsAuthenticationMessage" Core..=)
+              Prelude.<$> smsAuthenticationMessage,
+            ("SmsConfiguration" Core..=)
+              Prelude.<$> smsConfiguration
           ]
       )

@@ -40,8 +40,8 @@ module Network.AWS.CognitoIdentityProvider.SetUICustomization
 
     -- * Request Lenses
     setUICustomization_clientId,
-    setUICustomization_imageFile,
     setUICustomization_css,
+    setUICustomization_imageFile,
     setUICustomization_userPoolId,
 
     -- * Destructuring the Response
@@ -65,10 +65,10 @@ import qualified Network.AWS.Response as Response
 data SetUICustomization = SetUICustomization'
   { -- | The client ID for the client app.
     clientId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The uploaded logo image for the UI customization.
-    imageFile :: Prelude.Maybe Core.Base64,
     -- | The CSS values in the UI customization.
     css :: Prelude.Maybe Prelude.Text,
+    -- | The uploaded logo image for the UI customization.
+    imageFile :: Prelude.Maybe Core.Base64,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Text
   }
@@ -84,13 +84,13 @@ data SetUICustomization = SetUICustomization'
 --
 -- 'clientId', 'setUICustomization_clientId' - The client ID for the client app.
 --
+-- 'css', 'setUICustomization_css' - The CSS values in the UI customization.
+--
 -- 'imageFile', 'setUICustomization_imageFile' - The uploaded logo image for the UI customization.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'css', 'setUICustomization_css' - The CSS values in the UI customization.
 --
 -- 'userPoolId', 'setUICustomization_userPoolId' - The user pool ID for the user pool.
 newSetUICustomization ::
@@ -100,14 +100,18 @@ newSetUICustomization ::
 newSetUICustomization pUserPoolId_ =
   SetUICustomization'
     { clientId = Prelude.Nothing,
-      imageFile = Prelude.Nothing,
       css = Prelude.Nothing,
+      imageFile = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | The client ID for the client app.
 setUICustomization_clientId :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
 setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clientId) (\s@SetUICustomization' {} a -> s {clientId = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The CSS values in the UI customization.
+setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
+setUICustomization_css = Lens.lens (\SetUICustomization' {css} -> css) (\s@SetUICustomization' {} a -> s {css = a} :: SetUICustomization)
 
 -- | The uploaded logo image for the UI customization.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -116,10 +120,6 @@ setUICustomization_clientId = Lens.lens (\SetUICustomization' {clientId} -> clie
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 setUICustomization_imageFile :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.ByteString)
 setUICustomization_imageFile = Lens.lens (\SetUICustomization' {imageFile} -> imageFile) (\s@SetUICustomization' {} a -> s {imageFile = a} :: SetUICustomization) Prelude.. Lens.mapping Core._Base64
-
--- | The CSS values in the UI customization.
-setUICustomization_css :: Lens.Lens' SetUICustomization (Prelude.Maybe Prelude.Text)
-setUICustomization_css = Lens.lens (\SetUICustomization' {css} -> css) (\s@SetUICustomization' {} a -> s {css = a} :: SetUICustomization)
 
 -- | The user pool ID for the user pool.
 setUICustomization_userPoolId :: Lens.Lens' SetUICustomization Prelude.Text
@@ -162,8 +162,8 @@ instance Core.ToJSON SetUICustomization where
     Core.object
       ( Prelude.catMaybes
           [ ("ClientId" Core..=) Prelude.<$> clientId,
-            ("ImageFile" Core..=) Prelude.<$> imageFile,
             ("CSS" Core..=) Prelude.<$> css,
+            ("ImageFile" Core..=) Prelude.<$> imageFile,
             Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]
       )

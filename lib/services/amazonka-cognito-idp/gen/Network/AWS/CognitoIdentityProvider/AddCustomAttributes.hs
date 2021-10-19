@@ -82,7 +82,7 @@ newAddCustomAttributes
     AddCustomAttributes'
       { userPoolId = pUserPoolId_,
         customAttributes =
-          Lens._Coerce Lens.# pCustomAttributes_
+          Lens.coerced Lens.# pCustomAttributes_
       }
 
 -- | The user pool ID for the user pool where you want to add custom
@@ -92,7 +92,7 @@ addCustomAttributes_userPoolId = Lens.lens (\AddCustomAttributes' {userPoolId} -
 
 -- | An array of custom attributes, such as Mutable and Name.
 addCustomAttributes_customAttributes :: Lens.Lens' AddCustomAttributes (Prelude.NonEmpty SchemaAttributeType)
-addCustomAttributes_customAttributes = Lens.lens (\AddCustomAttributes' {customAttributes} -> customAttributes) (\s@AddCustomAttributes' {} a -> s {customAttributes = a} :: AddCustomAttributes) Prelude.. Lens._Coerce
+addCustomAttributes_customAttributes = Lens.lens (\AddCustomAttributes' {customAttributes} -> customAttributes) (\s@AddCustomAttributes' {} a -> s {customAttributes = a} :: AddCustomAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddCustomAttributes where
   type

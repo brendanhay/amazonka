@@ -62,9 +62,9 @@ module Network.AWS.CognitoIdentityProvider.AdminInitiateAuth
     newAdminInitiateAuthResponse,
 
     -- * Response Lenses
-    adminInitiateAuthResponse_authenticationResult,
     adminInitiateAuthResponse_challengeName,
     adminInitiateAuthResponse_challengeParameters,
+    adminInitiateAuthResponse_authenticationResult,
     adminInitiateAuthResponse_session,
     adminInitiateAuthResponse_httpStatus,
   )
@@ -420,7 +420,7 @@ newAdminInitiateAuth
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 adminInitiateAuth_clientMetadata :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminInitiateAuth_clientMetadata = Lens.lens (\AdminInitiateAuth' {clientMetadata} -> clientMetadata) (\s@AdminInitiateAuth' {} a -> s {clientMetadata = a} :: AdminInitiateAuth) Prelude.. Lens.mapping Lens._Coerce
+adminInitiateAuth_clientMetadata = Lens.lens (\AdminInitiateAuth' {clientMetadata} -> clientMetadata) (\s@AdminInitiateAuth' {} a -> s {clientMetadata = a} :: AdminInitiateAuth) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -454,7 +454,7 @@ adminInitiateAuth_analyticsMetadata = Lens.lens (\AdminInitiateAuth' {analyticsM
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 adminInitiateAuth_authParameters :: Lens.Lens' AdminInitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminInitiateAuth_authParameters = Lens.lens (\AdminInitiateAuth' {authParameters} -> authParameters) (\s@AdminInitiateAuth' {} a -> s {authParameters = a} :: AdminInitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
+adminInitiateAuth_authParameters = Lens.lens (\AdminInitiateAuth' {authParameters} -> authParameters) (\s@AdminInitiateAuth' {} a -> s {authParameters = a} :: AdminInitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the Amazon Cognito user pool.
 adminInitiateAuth_userPoolId :: Lens.Lens' AdminInitiateAuth Prelude.Text
@@ -512,11 +512,11 @@ instance Core.AWSRequest AdminInitiateAuth where
     Response.receiveJSON
       ( \s h x ->
           AdminInitiateAuthResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "ChallengeName")
+            Prelude.<$> (x Core..?> "ChallengeName")
             Prelude.<*> ( x Core..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "AuthenticationResult")
             Prelude.<*> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -567,12 +567,7 @@ instance Core.ToQuery AdminInitiateAuth where
 --
 -- /See:/ 'newAdminInitiateAuthResponse' smart constructor.
 data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
-  { -- | The result of the authentication response. This is only returned if the
-    -- caller does not need to pass another challenge. If the caller does need
-    -- to pass another challenge before it gets tokens, @ChallengeName@,
-    -- @ChallengeParameters@, and @Session@ are returned.
-    authenticationResult :: Prelude.Maybe AuthenticationResultType,
-    -- | The name of the challenge which you are responding to with this call.
+  { -- | The name of the challenge which you are responding to with this call.
     -- This is returned to you in the @AdminInitiateAuth@ response if you need
     -- to pass another challenge.
     --
@@ -636,6 +631,11 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
     -- because, in the @AdminRespondToAuthChallenge@ API @ChallengeResponses@,
     -- the @USERNAME@ attribute cannot be an alias.
     challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The result of the authentication response. This is only returned if the
+    -- caller does not need to pass another challenge. If the caller does need
+    -- to pass another challenge before it gets tokens, @ChallengeName@,
+    -- @ChallengeParameters@, and @Session@ are returned.
+    authenticationResult :: Prelude.Maybe AuthenticationResultType,
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
     -- API call determines that the caller needs to go through another
@@ -655,11 +655,6 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'authenticationResult', 'adminInitiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
 --
 -- 'challengeName', 'adminInitiateAuthResponse_challengeName' - The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -725,6 +720,11 @@ data AdminInitiateAuthResponse = AdminInitiateAuthResponse'
 -- because, in the @AdminRespondToAuthChallenge@ API @ChallengeResponses@,
 -- the @USERNAME@ attribute cannot be an alias.
 --
+-- 'authenticationResult', 'adminInitiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+--
 -- 'session', 'adminInitiateAuthResponse_session' - The session which should be passed both ways in challenge-response calls
 -- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@
 -- API call determines that the caller needs to go through another
@@ -739,20 +739,13 @@ newAdminInitiateAuthResponse ::
   AdminInitiateAuthResponse
 newAdminInitiateAuthResponse pHttpStatus_ =
   AdminInitiateAuthResponse'
-    { authenticationResult =
+    { challengeName =
         Prelude.Nothing,
-      challengeName = Prelude.Nothing,
       challengeParameters = Prelude.Nothing,
+      authenticationResult = Prelude.Nothing,
       session = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
-adminInitiateAuthResponse_authenticationResult :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
-adminInitiateAuthResponse_authenticationResult = Lens.lens (\AdminInitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@AdminInitiateAuthResponse' {} a -> s {authenticationResult = a} :: AdminInitiateAuthResponse)
 
 -- | The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -820,7 +813,14 @@ adminInitiateAuthResponse_challengeName = Lens.lens (\AdminInitiateAuthResponse'
 -- because, in the @AdminRespondToAuthChallenge@ API @ChallengeResponses@,
 -- the @USERNAME@ attribute cannot be an alias.
 adminInitiateAuthResponse_challengeParameters :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminInitiateAuthResponse_challengeParameters = Lens.lens (\AdminInitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@AdminInitiateAuthResponse' {} a -> s {challengeParameters = a} :: AdminInitiateAuthResponse) Prelude.. Lens.mapping Lens._Coerce
+adminInitiateAuthResponse_challengeParameters = Lens.lens (\AdminInitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@AdminInitiateAuthResponse' {} a -> s {challengeParameters = a} :: AdminInitiateAuthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+adminInitiateAuthResponse_authenticationResult :: Lens.Lens' AdminInitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
+adminInitiateAuthResponse_authenticationResult = Lens.lens (\AdminInitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@AdminInitiateAuthResponse' {} a -> s {authenticationResult = a} :: AdminInitiateAuthResponse)
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service. If @AdminInitiateAuth@ or @AdminRespondToAuthChallenge@

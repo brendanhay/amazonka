@@ -29,9 +29,9 @@ module Network.AWS.CognitoIdentityProvider.CreateGroup
     newCreateGroup,
 
     -- * Request Lenses
-    createGroup_roleArn,
-    createGroup_description,
     createGroup_precedence,
+    createGroup_description,
+    createGroup_roleArn,
     createGroup_groupName,
     createGroup_userPoolId,
 
@@ -54,11 +54,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The role ARN for the group.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A string containing the description of the group.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A nonnegative integer value that specifies the precedence of this group
+  { -- | A nonnegative integer value that specifies the precedence of this group
     -- relative to the other groups that a user can belong to in the user pool.
     -- Zero is the highest precedence value. Groups with lower @Precedence@
     -- values take precedence over groups with higher or null @Precedence@
@@ -76,6 +72,10 @@ data CreateGroup = CreateGroup'
     --
     -- The default @Precedence@ value is null.
     precedence :: Prelude.Maybe Prelude.Natural,
+    -- | A string containing the description of the group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The role ARN for the group.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the group. Must be unique.
     groupName :: Prelude.Text,
     -- | The user pool ID for the user pool.
@@ -90,10 +90,6 @@ data CreateGroup = CreateGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'createGroup_roleArn' - The role ARN for the group.
---
--- 'description', 'createGroup_description' - A string containing the description of the group.
 --
 -- 'precedence', 'createGroup_precedence' - A nonnegative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
@@ -113,6 +109,10 @@ data CreateGroup = CreateGroup'
 --
 -- The default @Precedence@ value is null.
 --
+-- 'description', 'createGroup_description' - A string containing the description of the group.
+--
+-- 'roleArn', 'createGroup_roleArn' - The role ARN for the group.
+--
 -- 'groupName', 'createGroup_groupName' - The name of the group. Must be unique.
 --
 -- 'userPoolId', 'createGroup_userPoolId' - The user pool ID for the user pool.
@@ -124,20 +124,12 @@ newCreateGroup ::
   CreateGroup
 newCreateGroup pGroupName_ pUserPoolId_ =
   CreateGroup'
-    { roleArn = Prelude.Nothing,
+    { precedence = Prelude.Nothing,
       description = Prelude.Nothing,
-      precedence = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       groupName = pGroupName_,
       userPoolId = pUserPoolId_
     }
-
--- | The role ARN for the group.
-createGroup_roleArn :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_roleArn = Lens.lens (\CreateGroup' {roleArn} -> roleArn) (\s@CreateGroup' {} a -> s {roleArn = a} :: CreateGroup)
-
--- | A string containing the description of the group.
-createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
-createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
 
 -- | A nonnegative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
@@ -158,6 +150,14 @@ createGroup_description = Lens.lens (\CreateGroup' {description} -> description)
 -- The default @Precedence@ value is null.
 createGroup_precedence :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Natural)
 createGroup_precedence = Lens.lens (\CreateGroup' {precedence} -> precedence) (\s@CreateGroup' {} a -> s {precedence = a} :: CreateGroup)
+
+-- | A string containing the description of the group.
+createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
+
+-- | The role ARN for the group.
+createGroup_roleArn :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_roleArn = Lens.lens (\CreateGroup' {roleArn} -> roleArn) (\s@CreateGroup' {} a -> s {roleArn = a} :: CreateGroup)
 
 -- | The name of the group. Must be unique.
 createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
@@ -201,9 +201,9 @@ instance Core.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+          [ ("Precedence" Core..=) Prelude.<$> precedence,
             ("Description" Core..=) Prelude.<$> description,
-            ("Precedence" Core..=) Prelude.<$> precedence,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just ("GroupName" Core..= groupName),
             Prelude.Just ("UserPoolId" Core..= userPoolId)
           ]

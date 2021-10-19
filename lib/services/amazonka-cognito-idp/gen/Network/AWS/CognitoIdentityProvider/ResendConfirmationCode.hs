@@ -49,9 +49,9 @@ module Network.AWS.CognitoIdentityProvider.ResendConfirmationCode
 
     -- * Request Lenses
     resendConfirmationCode_clientMetadata,
+    resendConfirmationCode_analyticsMetadata,
     resendConfirmationCode_userContextData,
     resendConfirmationCode_secretHash,
-    resendConfirmationCode_analyticsMetadata,
     resendConfirmationCode_clientId,
     resendConfirmationCode_username,
 
@@ -107,6 +107,9 @@ data ResendConfirmationCode = ResendConfirmationCode'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @ResendConfirmationCode@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
@@ -115,9 +118,6 @@ data ResendConfirmationCode = ResendConfirmationCode'
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @ResendConfirmationCode@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The ID of the client associated with the user pool.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user to whom you wish to resend a confirmation
@@ -165,6 +165,9 @@ data ResendConfirmationCode = ResendConfirmationCode'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
+-- 'analyticsMetadata', 'resendConfirmationCode_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ResendConfirmationCode@ calls.
+--
 -- 'userContextData', 'resendConfirmationCode_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
@@ -172,9 +175,6 @@ data ResendConfirmationCode = ResendConfirmationCode'
 -- 'secretHash', 'resendConfirmationCode_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
---
--- 'analyticsMetadata', 'resendConfirmationCode_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ResendConfirmationCode@ calls.
 --
 -- 'clientId', 'resendConfirmationCode_clientId' - The ID of the client associated with the user pool.
 --
@@ -190,9 +190,9 @@ newResendConfirmationCode pClientId_ pUsername_ =
   ResendConfirmationCode'
     { clientMetadata =
         Prelude.Nothing,
+      analyticsMetadata = Prelude.Nothing,
       userContextData = Prelude.Nothing,
       secretHash = Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_
     }
@@ -228,7 +228,12 @@ newResendConfirmationCode pClientId_ pUsername_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 resendConfirmationCode_clientMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resendConfirmationCode_clientMetadata = Lens.lens (\ResendConfirmationCode' {clientMetadata} -> clientMetadata) (\s@ResendConfirmationCode' {} a -> s {clientMetadata = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Lens._Coerce
+resendConfirmationCode_clientMetadata = Lens.lens (\ResendConfirmationCode' {clientMetadata} -> clientMetadata) (\s@ResendConfirmationCode' {} a -> s {clientMetadata = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ResendConfirmationCode@ calls.
+resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe AnalyticsMetadataType)
+resendConfirmationCode_analyticsMetadata = Lens.lens (\ResendConfirmationCode' {analyticsMetadata} -> analyticsMetadata) (\s@ResendConfirmationCode' {} a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -241,11 +246,6 @@ resendConfirmationCode_userContextData = Lens.lens (\ResendConfirmationCode' {us
 -- message.
 resendConfirmationCode_secretHash :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe Prelude.Text)
 resendConfirmationCode_secretHash = Lens.lens (\ResendConfirmationCode' {secretHash} -> secretHash) (\s@ResendConfirmationCode' {} a -> s {secretHash = a} :: ResendConfirmationCode) Prelude.. Lens.mapping Core._Sensitive
-
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ResendConfirmationCode@ calls.
-resendConfirmationCode_analyticsMetadata :: Lens.Lens' ResendConfirmationCode (Prelude.Maybe AnalyticsMetadataType)
-resendConfirmationCode_analyticsMetadata = Lens.lens (\ResendConfirmationCode' {analyticsMetadata} -> analyticsMetadata) (\s@ResendConfirmationCode' {} a -> s {analyticsMetadata = a} :: ResendConfirmationCode)
 
 -- | The ID of the client associated with the user pool.
 resendConfirmationCode_clientId :: Lens.Lens' ResendConfirmationCode Prelude.Text
@@ -294,11 +294,11 @@ instance Core.ToJSON ResendConfirmationCode where
       ( Prelude.catMaybes
           [ ("ClientMetadata" Core..=)
               Prelude.<$> clientMetadata,
+            ("AnalyticsMetadata" Core..=)
+              Prelude.<$> analyticsMetadata,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
             ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("AnalyticsMetadata" Core..=)
-              Prelude.<$> analyticsMetadata,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("Username" Core..= username)
           ]

@@ -63,10 +63,10 @@ module Network.AWS.CognitoIdentityProvider.AdminCreateUser
 
     -- * Request Lenses
     adminCreateUser_clientMetadata,
-    adminCreateUser_messageAction,
+    adminCreateUser_temporaryPassword,
     adminCreateUser_forceAliasCreation,
     adminCreateUser_desiredDeliveryMediums,
-    adminCreateUser_temporaryPassword,
+    adminCreateUser_messageAction,
     adminCreateUser_userAttributes,
     adminCreateUser_validationData,
     adminCreateUser_userPoolId,
@@ -124,11 +124,21 @@ data AdminCreateUser = AdminCreateUser'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
-    -- already exists and reset the expiration limit on the user\'s account.
-    -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
-    -- can be specified.
-    messageAction :: Prelude.Maybe MessageActionType,
+    -- | The user\'s temporary password. This password must conform to the
+    -- password policy that you specified when you created the user pool.
+    --
+    -- The temporary password is valid only once. To complete the Admin Create
+    -- User flow, the user must enter the temporary password in the sign-in
+    -- page along with a new password to be used in all future sign-ins.
+    --
+    -- This parameter is not required. If you do not specify a value, Amazon
+    -- Cognito generates one for you.
+    --
+    -- The temporary password can only be used until the user account
+    -- expiration limit that you specified when you created the user pool. To
+    -- reset the account after that time limit, you must call @AdminCreateUser@
+    -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
+    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | This parameter is only used if the @phone_number_verified@ or
     -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
     --
@@ -146,21 +156,11 @@ data AdminCreateUser = AdminCreateUser'
     -- Specify @\"SMS\"@ if the phone number will be used. The default value is
     -- @\"SMS\"@. More than one value can be specified.
     desiredDeliveryMediums :: Prelude.Maybe [DeliveryMediumType],
-    -- | The user\'s temporary password. This password must conform to the
-    -- password policy that you specified when you created the user pool.
-    --
-    -- The temporary password is valid only once. To complete the Admin Create
-    -- User flow, the user must enter the temporary password in the sign-in
-    -- page along with a new password to be used in all future sign-ins.
-    --
-    -- This parameter is not required. If you do not specify a value, Amazon
-    -- Cognito generates one for you.
-    --
-    -- The temporary password can only be used until the user account
-    -- expiration limit that you specified when you created the user pool. To
-    -- reset the account after that time limit, you must call @AdminCreateUser@
-    -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-    temporaryPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
+    -- already exists and reset the expiration limit on the user\'s account.
+    -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+    -- can be specified.
+    messageAction :: Prelude.Maybe MessageActionType,
     -- | An array of name-value pairs that contain user attributes and attribute
     -- values to be set for the user to be created. You can create a user
     -- without specifying any attributes other than @Username@. However, any
@@ -253,10 +253,20 @@ data AdminCreateUser = AdminCreateUser'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'messageAction', 'adminCreateUser_messageAction' - Set to @\"RESEND\"@ to resend the invitation message to a user that
--- already exists and reset the expiration limit on the user\'s account.
--- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
--- can be specified.
+-- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the
+-- password policy that you specified when you created the user pool.
+--
+-- The temporary password is valid only once. To complete the Admin Create
+-- User flow, the user must enter the temporary password in the sign-in
+-- page along with a new password to be used in all future sign-ins.
+--
+-- This parameter is not required. If you do not specify a value, Amazon
+-- Cognito generates one for you.
+--
+-- The temporary password can only be used until the user account
+-- expiration limit that you specified when you created the user pool. To
+-- reset the account after that time limit, you must call @AdminCreateUser@
+-- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
 --
 -- 'forceAliasCreation', 'adminCreateUser_forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or
 -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
@@ -275,20 +285,10 @@ data AdminCreateUser = AdminCreateUser'
 -- Specify @\"SMS\"@ if the phone number will be used. The default value is
 -- @\"SMS\"@. More than one value can be specified.
 --
--- 'temporaryPassword', 'adminCreateUser_temporaryPassword' - The user\'s temporary password. This password must conform to the
--- password policy that you specified when you created the user pool.
---
--- The temporary password is valid only once. To complete the Admin Create
--- User flow, the user must enter the temporary password in the sign-in
--- page along with a new password to be used in all future sign-ins.
---
--- This parameter is not required. If you do not specify a value, Amazon
--- Cognito generates one for you.
---
--- The temporary password can only be used until the user account
--- expiration limit that you specified when you created the user pool. To
--- reset the account after that time limit, you must call @AdminCreateUser@
--- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
+-- 'messageAction', 'adminCreateUser_messageAction' - Set to @\"RESEND\"@ to resend the invitation message to a user that
+-- already exists and reset the expiration limit on the user\'s account.
+-- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+-- can be specified.
 --
 -- 'userAttributes', 'adminCreateUser_userAttributes' - An array of name-value pairs that contain user attributes and attribute
 -- values to be set for the user to be created. You can create a user
@@ -348,10 +348,10 @@ newAdminCreateUser ::
 newAdminCreateUser pUserPoolId_ pUsername_ =
   AdminCreateUser'
     { clientMetadata = Prelude.Nothing,
-      messageAction = Prelude.Nothing,
+      temporaryPassword = Prelude.Nothing,
       forceAliasCreation = Prelude.Nothing,
       desiredDeliveryMediums = Prelude.Nothing,
-      temporaryPassword = Prelude.Nothing,
+      messageAction = Prelude.Nothing,
       userAttributes = Prelude.Nothing,
       validationData = Prelude.Nothing,
       userPoolId = pUserPoolId_,
@@ -389,14 +389,24 @@ newAdminCreateUser pUserPoolId_ pUsername_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 adminCreateUser_clientMetadata :: Lens.Lens' AdminCreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminCreateUser_clientMetadata = Lens.lens (\AdminCreateUser' {clientMetadata} -> clientMetadata) (\s@AdminCreateUser' {} a -> s {clientMetadata = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens._Coerce
+adminCreateUser_clientMetadata = Lens.lens (\AdminCreateUser' {clientMetadata} -> clientMetadata) (\s@AdminCreateUser' {} a -> s {clientMetadata = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | Set to @\"RESEND\"@ to resend the invitation message to a user that
--- already exists and reset the expiration limit on the user\'s account.
--- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
--- can be specified.
-adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Prelude.Maybe MessageActionType)
-adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> messageAction) (\s@AdminCreateUser' {} a -> s {messageAction = a} :: AdminCreateUser)
+-- | The user\'s temporary password. This password must conform to the
+-- password policy that you specified when you created the user pool.
+--
+-- The temporary password is valid only once. To complete the Admin Create
+-- User flow, the user must enter the temporary password in the sign-in
+-- page along with a new password to be used in all future sign-ins.
+--
+-- This parameter is not required. If you do not specify a value, Amazon
+-- Cognito generates one for you.
+--
+-- The temporary password can only be used until the user account
+-- expiration limit that you specified when you created the user pool. To
+-- reset the account after that time limit, you must call @AdminCreateUser@
+-- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
+adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
+adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Core._Sensitive
 
 -- | This parameter is only used if the @phone_number_verified@ or
 -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
@@ -417,24 +427,14 @@ adminCreateUser_forceAliasCreation = Lens.lens (\AdminCreateUser' {forceAliasCre
 -- Specify @\"SMS\"@ if the phone number will be used. The default value is
 -- @\"SMS\"@. More than one value can be specified.
 adminCreateUser_desiredDeliveryMediums :: Lens.Lens' AdminCreateUser (Prelude.Maybe [DeliveryMediumType])
-adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens._Coerce
+adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | The user\'s temporary password. This password must conform to the
--- password policy that you specified when you created the user pool.
---
--- The temporary password is valid only once. To complete the Admin Create
--- User flow, the user must enter the temporary password in the sign-in
--- page along with a new password to be used in all future sign-ins.
---
--- This parameter is not required. If you do not specify a value, Amazon
--- Cognito generates one for you.
---
--- The temporary password can only be used until the user account
--- expiration limit that you specified when you created the user pool. To
--- reset the account after that time limit, you must call @AdminCreateUser@
--- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
-adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Core._Sensitive
+-- | Set to @\"RESEND\"@ to resend the invitation message to a user that
+-- already exists and reset the expiration limit on the user\'s account.
+-- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
+-- can be specified.
+adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Prelude.Maybe MessageActionType)
+adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> messageAction) (\s@AdminCreateUser' {} a -> s {messageAction = a} :: AdminCreateUser)
 
 -- | An array of name-value pairs that contain user attributes and attribute
 -- values to be set for the user to be created. You can create a user
@@ -467,7 +467,7 @@ adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassw
 --     @phone_number_verified@ attribute is set to @True@, or if @\"SMS\"@
 --     is specified in the @DesiredDeliveryMediums@ parameter.
 adminCreateUser_userAttributes :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
-adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -> userAttributes) (\s@AdminCreateUser' {} a -> s {userAttributes = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens._Coerce
+adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -> userAttributes) (\s@AdminCreateUser' {} a -> s {userAttributes = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user\'s validation data. This is an array of name-value pairs that
 -- contain user attributes and attribute values that you can use for custom
@@ -482,7 +482,7 @@ adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -
 --
 -- The user\'s validation data is not persisted.
 adminCreateUser_validationData :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
-adminCreateUser_validationData = Lens.lens (\AdminCreateUser' {validationData} -> validationData) (\s@AdminCreateUser' {} a -> s {validationData = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens._Coerce
+adminCreateUser_validationData = Lens.lens (\AdminCreateUser' {validationData} -> validationData) (\s@AdminCreateUser' {} a -> s {validationData = a} :: AdminCreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool where the user will be created.
 adminCreateUser_userPoolId :: Lens.Lens' AdminCreateUser Prelude.Text
@@ -532,13 +532,13 @@ instance Core.ToJSON AdminCreateUser where
       ( Prelude.catMaybes
           [ ("ClientMetadata" Core..=)
               Prelude.<$> clientMetadata,
-            ("MessageAction" Core..=) Prelude.<$> messageAction,
+            ("TemporaryPassword" Core..=)
+              Prelude.<$> temporaryPassword,
             ("ForceAliasCreation" Core..=)
               Prelude.<$> forceAliasCreation,
             ("DesiredDeliveryMediums" Core..=)
               Prelude.<$> desiredDeliveryMediums,
-            ("TemporaryPassword" Core..=)
-              Prelude.<$> temporaryPassword,
+            ("MessageAction" Core..=) Prelude.<$> messageAction,
             ("UserAttributes" Core..=)
               Prelude.<$> userAttributes,
             ("ValidationData" Core..=)

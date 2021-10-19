@@ -93,7 +93,7 @@ newDeleteUserAttributes pAccessToken_ =
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 deleteUserAttributes_userAttributeNames :: Lens.Lens' DeleteUserAttributes [Prelude.Text]
-deleteUserAttributes_userAttributeNames = Lens.lens (\DeleteUserAttributes' {userAttributeNames} -> userAttributeNames) (\s@DeleteUserAttributes' {} a -> s {userAttributeNames = a} :: DeleteUserAttributes) Prelude.. Lens._Coerce
+deleteUserAttributes_userAttributeNames = Lens.lens (\DeleteUserAttributes' {userAttributeNames} -> userAttributeNames) (\s@DeleteUserAttributes' {} a -> s {userAttributeNames = a} :: DeleteUserAttributes) Prelude.. Lens.coerced
 
 -- | The access token used in the request to delete user attributes.
 deleteUserAttributes_accessToken :: Lens.Lens' DeleteUserAttributes Prelude.Text

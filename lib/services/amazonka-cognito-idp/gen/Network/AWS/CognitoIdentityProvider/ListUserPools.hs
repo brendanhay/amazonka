@@ -37,8 +37,8 @@ module Network.AWS.CognitoIdentityProvider.ListUserPools
     newListUserPoolsResponse,
 
     -- * Response Lenses
-    listUserPoolsResponse_nextToken,
     listUserPoolsResponse_userPools,
+    listUserPoolsResponse_nextToken,
     listUserPoolsResponse_httpStatus,
   )
 where
@@ -127,8 +127,8 @@ instance Core.AWSRequest ListUserPools where
     Response.receiveJSON
       ( \s h x ->
           ListUserPoolsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "UserPools" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "UserPools" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,12 +170,12 @@ instance Core.ToQuery ListUserPools where
 --
 -- /See:/ 'newListUserPoolsResponse' smart constructor.
 data ListUserPoolsResponse = ListUserPoolsResponse'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The user pools from the response to list users.
+    userPools :: Prelude.Maybe [UserPoolDescriptionType],
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The user pools from the response to list users.
-    userPools :: Prelude.Maybe [UserPoolDescriptionType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,11 +189,11 @@ data ListUserPoolsResponse = ListUserPoolsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userPools', 'listUserPoolsResponse_userPools' - The user pools from the response to list users.
+--
 -- 'nextToken', 'listUserPoolsResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'userPools', 'listUserPoolsResponse_userPools' - The user pools from the response to list users.
 --
 -- 'httpStatus', 'listUserPoolsResponse_httpStatus' - The response's http status code.
 newListUserPoolsResponse ::
@@ -202,20 +202,20 @@ newListUserPoolsResponse ::
   ListUserPoolsResponse
 newListUserPoolsResponse pHttpStatus_ =
   ListUserPoolsResponse'
-    { nextToken = Prelude.Nothing,
-      userPools = Prelude.Nothing,
+    { userPools = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The user pools from the response to list users.
+listUserPoolsResponse_userPools :: Lens.Lens' ListUserPoolsResponse (Prelude.Maybe [UserPoolDescriptionType])
+listUserPoolsResponse_userPools = Lens.lens (\ListUserPoolsResponse' {userPools} -> userPools) (\s@ListUserPoolsResponse' {} a -> s {userPools = a} :: ListUserPoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listUserPoolsResponse_nextToken :: Lens.Lens' ListUserPoolsResponse (Prelude.Maybe Prelude.Text)
 listUserPoolsResponse_nextToken = Lens.lens (\ListUserPoolsResponse' {nextToken} -> nextToken) (\s@ListUserPoolsResponse' {} a -> s {nextToken = a} :: ListUserPoolsResponse)
-
--- | The user pools from the response to list users.
-listUserPoolsResponse_userPools :: Lens.Lens' ListUserPoolsResponse (Prelude.Maybe [UserPoolDescriptionType])
-listUserPoolsResponse_userPools = Lens.lens (\ListUserPoolsResponse' {userPools} -> userPools) (\s@ListUserPoolsResponse' {} a -> s {userPools = a} :: ListUserPoolsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listUserPoolsResponse_httpStatus :: Lens.Lens' ListUserPoolsResponse Prelude.Int

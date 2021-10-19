@@ -30,10 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data IdentityProviderType = IdentityProviderType'
   { -- | The date the identity provider was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The user pool ID.
+    userPoolId :: Prelude.Maybe Prelude.Text,
     -- | The identity provider type.
     providerType :: Prelude.Maybe IdentityProviderTypeType,
-    -- | The identity provider name.
-    providerName :: Prelude.Maybe Prelude.Text,
+    -- | The date the identity provider was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | A list of identity provider identifiers.
+    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | A mapping of identity provider attributes to standard and custom user
+    -- pool attributes.
+    attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identity provider details. The following list describes the provider
     -- detail keys for each identity provider type.
     --
@@ -97,15 +104,8 @@ data IdentityProviderType = IdentityProviderType'
     --
     --     -   IDPSignOut /optional/
     providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The user pool ID.
-    userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The date the identity provider was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
-    -- | A list of identity provider identifiers.
-    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | A mapping of identity provider attributes to standard and custom user
-    -- pool attributes.
-    attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The identity provider name.
+    providerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -119,9 +119,16 @@ data IdentityProviderType = IdentityProviderType'
 --
 -- 'lastModifiedDate', 'identityProviderType_lastModifiedDate' - The date the identity provider was last modified.
 --
+-- 'userPoolId', 'identityProviderType_userPoolId' - The user pool ID.
+--
 -- 'providerType', 'identityProviderType_providerType' - The identity provider type.
 --
--- 'providerName', 'identityProviderType_providerName' - The identity provider name.
+-- 'creationDate', 'identityProviderType_creationDate' - The date the identity provider was created.
+--
+-- 'idpIdentifiers', 'identityProviderType_idpIdentifiers' - A list of identity provider identifiers.
+--
+-- 'attributeMapping', 'identityProviderType_attributeMapping' - A mapping of identity provider attributes to standard and custom user
+-- pool attributes.
 --
 -- 'providerDetails', 'identityProviderType_providerDetails' - The identity provider details. The following list describes the provider
 -- detail keys for each identity provider type.
@@ -186,40 +193,46 @@ data IdentityProviderType = IdentityProviderType'
 --
 --     -   IDPSignOut /optional/
 --
--- 'userPoolId', 'identityProviderType_userPoolId' - The user pool ID.
---
--- 'creationDate', 'identityProviderType_creationDate' - The date the identity provider was created.
---
--- 'idpIdentifiers', 'identityProviderType_idpIdentifiers' - A list of identity provider identifiers.
---
--- 'attributeMapping', 'identityProviderType_attributeMapping' - A mapping of identity provider attributes to standard and custom user
--- pool attributes.
+-- 'providerName', 'identityProviderType_providerName' - The identity provider name.
 newIdentityProviderType ::
   IdentityProviderType
 newIdentityProviderType =
   IdentityProviderType'
     { lastModifiedDate =
         Prelude.Nothing,
-      providerType = Prelude.Nothing,
-      providerName = Prelude.Nothing,
-      providerDetails = Prelude.Nothing,
       userPoolId = Prelude.Nothing,
+      providerType = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       idpIdentifiers = Prelude.Nothing,
-      attributeMapping = Prelude.Nothing
+      attributeMapping = Prelude.Nothing,
+      providerDetails = Prelude.Nothing,
+      providerName = Prelude.Nothing
     }
 
 -- | The date the identity provider was last modified.
 identityProviderType_lastModifiedDate :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.UTCTime)
 identityProviderType_lastModifiedDate = Lens.lens (\IdentityProviderType' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityProviderType' {} a -> s {lastModifiedDate = a} :: IdentityProviderType) Prelude.. Lens.mapping Core._Time
 
+-- | The user pool ID.
+identityProviderType_userPoolId :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.Text)
+identityProviderType_userPoolId = Lens.lens (\IdentityProviderType' {userPoolId} -> userPoolId) (\s@IdentityProviderType' {} a -> s {userPoolId = a} :: IdentityProviderType)
+
 -- | The identity provider type.
 identityProviderType_providerType :: Lens.Lens' IdentityProviderType (Prelude.Maybe IdentityProviderTypeType)
 identityProviderType_providerType = Lens.lens (\IdentityProviderType' {providerType} -> providerType) (\s@IdentityProviderType' {} a -> s {providerType = a} :: IdentityProviderType)
 
--- | The identity provider name.
-identityProviderType_providerName :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.Text)
-identityProviderType_providerName = Lens.lens (\IdentityProviderType' {providerName} -> providerName) (\s@IdentityProviderType' {} a -> s {providerName = a} :: IdentityProviderType)
+-- | The date the identity provider was created.
+identityProviderType_creationDate :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.UTCTime)
+identityProviderType_creationDate = Lens.lens (\IdentityProviderType' {creationDate} -> creationDate) (\s@IdentityProviderType' {} a -> s {creationDate = a} :: IdentityProviderType) Prelude.. Lens.mapping Core._Time
+
+-- | A list of identity provider identifiers.
+identityProviderType_idpIdentifiers :: Lens.Lens' IdentityProviderType (Prelude.Maybe [Prelude.Text])
+identityProviderType_idpIdentifiers = Lens.lens (\IdentityProviderType' {idpIdentifiers} -> idpIdentifiers) (\s@IdentityProviderType' {} a -> s {idpIdentifiers = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
+
+-- | A mapping of identity provider attributes to standard and custom user
+-- pool attributes.
+identityProviderType_attributeMapping :: Lens.Lens' IdentityProviderType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+identityProviderType_attributeMapping = Lens.lens (\IdentityProviderType' {attributeMapping} -> attributeMapping) (\s@IdentityProviderType' {} a -> s {attributeMapping = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identity provider details. The following list describes the provider
 -- detail keys for each identity provider type.
@@ -284,24 +297,11 @@ identityProviderType_providerName = Lens.lens (\IdentityProviderType' {providerN
 --
 --     -   IDPSignOut /optional/
 identityProviderType_providerDetails :: Lens.Lens' IdentityProviderType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-identityProviderType_providerDetails = Lens.lens (\IdentityProviderType' {providerDetails} -> providerDetails) (\s@IdentityProviderType' {} a -> s {providerDetails = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens._Coerce
+identityProviderType_providerDetails = Lens.lens (\IdentityProviderType' {providerDetails} -> providerDetails) (\s@IdentityProviderType' {} a -> s {providerDetails = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens.coerced
 
--- | The user pool ID.
-identityProviderType_userPoolId :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.Text)
-identityProviderType_userPoolId = Lens.lens (\IdentityProviderType' {userPoolId} -> userPoolId) (\s@IdentityProviderType' {} a -> s {userPoolId = a} :: IdentityProviderType)
-
--- | The date the identity provider was created.
-identityProviderType_creationDate :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.UTCTime)
-identityProviderType_creationDate = Lens.lens (\IdentityProviderType' {creationDate} -> creationDate) (\s@IdentityProviderType' {} a -> s {creationDate = a} :: IdentityProviderType) Prelude.. Lens.mapping Core._Time
-
--- | A list of identity provider identifiers.
-identityProviderType_idpIdentifiers :: Lens.Lens' IdentityProviderType (Prelude.Maybe [Prelude.Text])
-identityProviderType_idpIdentifiers = Lens.lens (\IdentityProviderType' {idpIdentifiers} -> idpIdentifiers) (\s@IdentityProviderType' {} a -> s {idpIdentifiers = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens._Coerce
-
--- | A mapping of identity provider attributes to standard and custom user
--- pool attributes.
-identityProviderType_attributeMapping :: Lens.Lens' IdentityProviderType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-identityProviderType_attributeMapping = Lens.lens (\IdentityProviderType' {attributeMapping} -> attributeMapping) (\s@IdentityProviderType' {} a -> s {attributeMapping = a} :: IdentityProviderType) Prelude.. Lens.mapping Lens._Coerce
+-- | The identity provider name.
+identityProviderType_providerName :: Lens.Lens' IdentityProviderType (Prelude.Maybe Prelude.Text)
+identityProviderType_providerName = Lens.lens (\IdentityProviderType' {providerName} -> providerName) (\s@IdentityProviderType' {} a -> s {providerName = a} :: IdentityProviderType)
 
 instance Core.FromJSON IdentityProviderType where
   parseJSON =
@@ -310,17 +310,17 @@ instance Core.FromJSON IdentityProviderType where
       ( \x ->
           IdentityProviderType'
             Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "ProviderName")
-            Prelude.<*> ( x Core..:? "ProviderDetails"
-                            Core..!= Prelude.mempty
-                        )
             Prelude.<*> (x Core..:? "UserPoolId")
+            Prelude.<*> (x Core..:? "ProviderType")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "IdpIdentifiers" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "AttributeMapping"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> ( x Core..:? "ProviderDetails"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ProviderName")
       )
 
 instance Prelude.Hashable IdentityProviderType

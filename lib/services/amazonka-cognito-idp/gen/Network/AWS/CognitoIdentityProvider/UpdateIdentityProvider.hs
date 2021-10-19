@@ -27,9 +27,9 @@ module Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
     newUpdateIdentityProvider,
 
     -- * Request Lenses
-    updateIdentityProvider_providerDetails,
     updateIdentityProvider_idpIdentifiers,
     updateIdentityProvider_attributeMapping,
+    updateIdentityProvider_providerDetails,
     updateIdentityProvider_userPoolId,
     updateIdentityProvider_providerName,
 
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateIdentityProvider' smart constructor.
 data UpdateIdentityProvider = UpdateIdentityProvider'
-  { -- | The identity provider details to be updated, such as @MetadataURL@ and
-    -- @MetadataFile@.
-    providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of identity provider identifiers.
+  { -- | A list of identity provider identifiers.
     idpIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The identity provider attribute mapping to be changed.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identity provider details to be updated, such as @MetadataURL@ and
+    -- @MetadataFile@.
+    providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
     -- | The identity provider name.
@@ -74,12 +74,12 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerDetails', 'updateIdentityProvider_providerDetails' - The identity provider details to be updated, such as @MetadataURL@ and
--- @MetadataFile@.
---
 -- 'idpIdentifiers', 'updateIdentityProvider_idpIdentifiers' - A list of identity provider identifiers.
 --
 -- 'attributeMapping', 'updateIdentityProvider_attributeMapping' - The identity provider attribute mapping to be changed.
+--
+-- 'providerDetails', 'updateIdentityProvider_providerDetails' - The identity provider details to be updated, such as @MetadataURL@ and
+-- @MetadataFile@.
 --
 -- 'userPoolId', 'updateIdentityProvider_userPoolId' - The user pool ID.
 --
@@ -92,26 +92,26 @@ newUpdateIdentityProvider ::
   UpdateIdentityProvider
 newUpdateIdentityProvider pUserPoolId_ pProviderName_ =
   UpdateIdentityProvider'
-    { providerDetails =
+    { idpIdentifiers =
         Prelude.Nothing,
-      idpIdentifiers = Prelude.Nothing,
       attributeMapping = Prelude.Nothing,
+      providerDetails = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       providerName = pProviderName_
     }
 
--- | The identity provider details to be updated, such as @MetadataURL@ and
--- @MetadataFile@.
-updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of identity provider identifiers.
 updateIdentityProvider_idpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe [Prelude.Text])
-updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
+updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identity provider attribute mapping to be changed.
 updateIdentityProvider_attributeMapping :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
+updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identity provider details to be updated, such as @MetadataURL@ and
+-- @MetadataFile@.
+updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID.
 updateIdentityProvider_userPoolId :: Lens.Lens' UpdateIdentityProvider Prelude.Text
@@ -157,12 +157,12 @@ instance Core.ToJSON UpdateIdentityProvider where
   toJSON UpdateIdentityProvider' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProviderDetails" Core..=)
-              Prelude.<$> providerDetails,
-            ("IdpIdentifiers" Core..=)
+          [ ("IdpIdentifiers" Core..=)
               Prelude.<$> idpIdentifiers,
             ("AttributeMapping" Core..=)
               Prelude.<$> attributeMapping,
+            ("ProviderDetails" Core..=)
+              Prelude.<$> providerDetails,
             Prelude.Just ("UserPoolId" Core..= userPoolId),
             Prelude.Just ("ProviderName" Core..= providerName)
           ]

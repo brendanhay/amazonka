@@ -32,10 +32,10 @@ data ProviderDescription = ProviderDescription'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The identity provider type.
     providerType :: Prelude.Maybe IdentityProviderTypeType,
-    -- | The identity provider name.
-    providerName :: Prelude.Maybe Prelude.Text,
     -- | The date the provider was added to the user pool.
-    creationDate :: Prelude.Maybe Core.POSIX
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The identity provider name.
+    providerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,9 +51,9 @@ data ProviderDescription = ProviderDescription'
 --
 -- 'providerType', 'providerDescription_providerType' - The identity provider type.
 --
--- 'providerName', 'providerDescription_providerName' - The identity provider name.
---
 -- 'creationDate', 'providerDescription_creationDate' - The date the provider was added to the user pool.
+--
+-- 'providerName', 'providerDescription_providerName' - The identity provider name.
 newProviderDescription ::
   ProviderDescription
 newProviderDescription =
@@ -61,8 +61,8 @@ newProviderDescription =
     { lastModifiedDate =
         Prelude.Nothing,
       providerType = Prelude.Nothing,
-      providerName = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+      creationDate = Prelude.Nothing,
+      providerName = Prelude.Nothing
     }
 
 -- | The date the provider was last modified.
@@ -73,13 +73,13 @@ providerDescription_lastModifiedDate = Lens.lens (\ProviderDescription' {lastMod
 providerDescription_providerType :: Lens.Lens' ProviderDescription (Prelude.Maybe IdentityProviderTypeType)
 providerDescription_providerType = Lens.lens (\ProviderDescription' {providerType} -> providerType) (\s@ProviderDescription' {} a -> s {providerType = a} :: ProviderDescription)
 
--- | The identity provider name.
-providerDescription_providerName :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.Text)
-providerDescription_providerName = Lens.lens (\ProviderDescription' {providerName} -> providerName) (\s@ProviderDescription' {} a -> s {providerName = a} :: ProviderDescription)
-
 -- | The date the provider was added to the user pool.
 providerDescription_creationDate :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.UTCTime)
 providerDescription_creationDate = Lens.lens (\ProviderDescription' {creationDate} -> creationDate) (\s@ProviderDescription' {} a -> s {creationDate = a} :: ProviderDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The identity provider name.
+providerDescription_providerName :: Lens.Lens' ProviderDescription (Prelude.Maybe Prelude.Text)
+providerDescription_providerName = Lens.lens (\ProviderDescription' {providerName} -> providerName) (\s@ProviderDescription' {} a -> s {providerName = a} :: ProviderDescription)
 
 instance Core.FromJSON ProviderDescription where
   parseJSON =
@@ -89,8 +89,8 @@ instance Core.FromJSON ProviderDescription where
           ProviderDescription'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "ProviderType")
-            Prelude.<*> (x Core..:? "ProviderName")
             Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "ProviderName")
       )
 
 instance Prelude.Hashable ProviderDescription

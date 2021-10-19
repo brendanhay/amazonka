@@ -47,8 +47,8 @@ module Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig
     newSetUserPoolMfaConfig,
 
     -- * Request Lenses
-    setUserPoolMfaConfig_softwareTokenMfaConfiguration,
     setUserPoolMfaConfig_smsMfaConfiguration,
+    setUserPoolMfaConfig_softwareTokenMfaConfiguration,
     setUserPoolMfaConfig_mfaConfiguration,
     setUserPoolMfaConfig_userPoolId,
 
@@ -57,8 +57,8 @@ module Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig
     newSetUserPoolMfaConfigResponse,
 
     -- * Response Lenses
-    setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     setUserPoolMfaConfigResponse_smsMfaConfiguration,
+    setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     setUserPoolMfaConfigResponse_mfaConfiguration,
     setUserPoolMfaConfigResponse_httpStatus,
   )
@@ -73,10 +73,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetUserPoolMfaConfig' smart constructor.
 data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
-  { -- | The software token MFA configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
-    -- | The SMS text message MFA configuration.
+  { -- | The SMS text message MFA configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    -- | The software token MFA configuration.
+    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
     -- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
     -- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
@@ -102,9 +102,9 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.
---
 -- 'smsMfaConfiguration', 'setUserPoolMfaConfig_smsMfaConfiguration' - The SMS text message MFA configuration.
+--
+-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.
 --
 -- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. Users who don\'t have an MFA factor set up won\'t
 -- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
@@ -125,20 +125,20 @@ newSetUserPoolMfaConfig ::
   SetUserPoolMfaConfig
 newSetUserPoolMfaConfig pUserPoolId_ =
   SetUserPoolMfaConfig'
-    { softwareTokenMfaConfiguration =
+    { smsMfaConfiguration =
         Prelude.Nothing,
-      smsMfaConfiguration = Prelude.Nothing,
+      softwareTokenMfaConfiguration = Prelude.Nothing,
       mfaConfiguration = Prelude.Nothing,
       userPoolId = pUserPoolId_
     }
 
--- | The software token MFA configuration.
-setUserPoolMfaConfig_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SoftwareTokenMfaConfigType)
-setUserPoolMfaConfig_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfig)
-
 -- | The SMS text message MFA configuration.
 setUserPoolMfaConfig_smsMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SmsMfaConfigType)
 setUserPoolMfaConfig_smsMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {smsMfaConfiguration = a} :: SetUserPoolMfaConfig)
+
+-- | The software token MFA configuration.
+setUserPoolMfaConfig_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SoftwareTokenMfaConfigType)
+setUserPoolMfaConfig_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfig)
 
 -- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
 -- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
@@ -167,8 +167,8 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
     Response.receiveJSON
       ( \s h x ->
           SetUserPoolMfaConfigResponse'
-            Prelude.<$> (x Core..?> "SoftwareTokenMfaConfiguration")
-            Prelude.<*> (x Core..?> "SmsMfaConfiguration")
+            Prelude.<$> (x Core..?> "SmsMfaConfiguration")
+            Prelude.<*> (x Core..?> "SoftwareTokenMfaConfiguration")
             Prelude.<*> (x Core..?> "MfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -196,10 +196,10 @@ instance Core.ToJSON SetUserPoolMfaConfig where
   toJSON SetUserPoolMfaConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SoftwareTokenMfaConfiguration" Core..=)
-              Prelude.<$> softwareTokenMfaConfiguration,
-            ("SmsMfaConfiguration" Core..=)
+          [ ("SmsMfaConfiguration" Core..=)
               Prelude.<$> smsMfaConfiguration,
+            ("SoftwareTokenMfaConfiguration" Core..=)
+              Prelude.<$> softwareTokenMfaConfiguration,
             ("MfaConfiguration" Core..=)
               Prelude.<$> mfaConfiguration,
             Prelude.Just ("UserPoolId" Core..= userPoolId)
@@ -214,10 +214,10 @@ instance Core.ToQuery SetUserPoolMfaConfig where
 
 -- | /See:/ 'newSetUserPoolMfaConfigResponse' smart constructor.
 data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
-  { -- | The software token MFA configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
-    -- | The SMS text message MFA configuration.
+  { -- | The SMS text message MFA configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    -- | The software token MFA configuration.
+    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The MFA configuration. Valid values include:
     --
     -- -   @OFF@ MFA will not be used for any users.
@@ -240,9 +240,9 @@ data SetUserPoolMfaConfigResponse = SetUserPoolMfaConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.
---
 -- 'smsMfaConfiguration', 'setUserPoolMfaConfigResponse_smsMfaConfiguration' - The SMS text message MFA configuration.
+--
+-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.
 --
 -- 'mfaConfiguration', 'setUserPoolMfaConfigResponse_mfaConfiguration' - The MFA configuration. Valid values include:
 --
@@ -260,20 +260,21 @@ newSetUserPoolMfaConfigResponse ::
   SetUserPoolMfaConfigResponse
 newSetUserPoolMfaConfigResponse pHttpStatus_ =
   SetUserPoolMfaConfigResponse'
-    { softwareTokenMfaConfiguration =
+    { smsMfaConfiguration =
         Prelude.Nothing,
-      smsMfaConfiguration = Prelude.Nothing,
+      softwareTokenMfaConfiguration =
+        Prelude.Nothing,
       mfaConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The software token MFA configuration.
-setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
-setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
-
 -- | The SMS text message MFA configuration.
 setUserPoolMfaConfigResponse_smsMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SmsMfaConfigType)
 setUserPoolMfaConfigResponse_smsMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {smsMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
+
+-- | The software token MFA configuration.
+setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
+setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@SetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: SetUserPoolMfaConfigResponse)
 
 -- | The MFA configuration. Valid values include:
 --

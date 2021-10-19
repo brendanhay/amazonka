@@ -29,10 +29,10 @@ module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
 
     -- * Request Lenses
     confirmSignUp_clientMetadata,
-    confirmSignUp_userContextData,
     confirmSignUp_forceAliasCreation,
-    confirmSignUp_secretHash,
     confirmSignUp_analyticsMetadata,
+    confirmSignUp_userContextData,
+    confirmSignUp_secretHash,
     confirmSignUp_clientId,
     confirmSignUp_username,
     confirmSignUp_confirmationCode,
@@ -88,10 +88,6 @@ data ConfirmSignUp = ConfirmSignUp'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contextual data such as the user\'s device fingerprint, IP address, or
-    -- location used for evaluating the risk of an unexpected event by Amazon
-    -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
     -- | Boolean to be specified to force user confirmation irrespective of
     -- existing alias. By default set to @False@. If this parameter is set to
     -- @True@ and the phone number\/email used for sign up confirmation already
@@ -99,13 +95,17 @@ data ConfirmSignUp = ConfirmSignUp'
     -- alias from the previous user to the newly created user being confirmed.
     -- If set to @False@, the API will throw an __AliasExistsException__ error.
     forceAliasCreation :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @ConfirmSignUp@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    -- | Contextual data such as the user\'s device fingerprint, IP address, or
+    -- location used for evaluating the risk of an unexpected event by Amazon
+    -- Cognito advanced security.
+    userContextData :: Prelude.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @ConfirmSignUp@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The ID of the app client associated with the user pool.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user whose registration you wish to confirm.
@@ -154,10 +154,6 @@ data ConfirmSignUp = ConfirmSignUp'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
--- 'userContextData', 'confirmSignUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
---
 -- 'forceAliasCreation', 'confirmSignUp_forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of
 -- existing alias. By default set to @False@. If this parameter is set to
 -- @True@ and the phone number\/email used for sign up confirmation already
@@ -165,12 +161,16 @@ data ConfirmSignUp = ConfirmSignUp'
 -- alias from the previous user to the newly created user being confirmed.
 -- If set to @False@, the API will throw an __AliasExistsException__ error.
 --
+-- 'analyticsMetadata', 'confirmSignUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ConfirmSignUp@ calls.
+--
+-- 'userContextData', 'confirmSignUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+--
 -- 'secretHash', 'confirmSignUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
---
--- 'analyticsMetadata', 'confirmSignUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ConfirmSignUp@ calls.
 --
 -- 'clientId', 'confirmSignUp_clientId' - The ID of the app client associated with the user pool.
 --
@@ -191,10 +191,10 @@ newConfirmSignUp
   pConfirmationCode_ =
     ConfirmSignUp'
       { clientMetadata = Prelude.Nothing,
-        userContextData = Prelude.Nothing,
         forceAliasCreation = Prelude.Nothing,
-        secretHash = Prelude.Nothing,
         analyticsMetadata = Prelude.Nothing,
+        userContextData = Prelude.Nothing,
+        secretHash = Prelude.Nothing,
         clientId = Core._Sensitive Lens.# pClientId_,
         username = Core._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_
@@ -231,13 +231,7 @@ newConfirmSignUp
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 confirmSignUp_clientMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@ConfirmSignUp' {} a -> s {clientMetadata = a} :: ConfirmSignUp) Prelude.. Lens.mapping Lens._Coerce
-
--- | Contextual data such as the user\'s device fingerprint, IP address, or
--- location used for evaluating the risk of an unexpected event by Amazon
--- Cognito advanced security.
-confirmSignUp_userContextData :: Lens.Lens' ConfirmSignUp (Prelude.Maybe UserContextDataType)
-confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> userContextData) (\s@ConfirmSignUp' {} a -> s {userContextData = a} :: ConfirmSignUp)
+confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@ConfirmSignUp' {} a -> s {clientMetadata = a} :: ConfirmSignUp) Prelude.. Lens.mapping Lens.coerced
 
 -- | Boolean to be specified to force user confirmation irrespective of
 -- existing alias. By default set to @False@. If this parameter is set to
@@ -248,16 +242,22 @@ confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> 
 confirmSignUp_forceAliasCreation :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Bool)
 confirmSignUp_forceAliasCreation = Lens.lens (\ConfirmSignUp' {forceAliasCreation} -> forceAliasCreation) (\s@ConfirmSignUp' {} a -> s {forceAliasCreation = a} :: ConfirmSignUp)
 
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ConfirmSignUp@ calls.
+confirmSignUp_analyticsMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe AnalyticsMetadataType)
+confirmSignUp_analyticsMetadata = Lens.lens (\ConfirmSignUp' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmSignUp' {} a -> s {analyticsMetadata = a} :: ConfirmSignUp)
+
+-- | Contextual data such as the user\'s device fingerprint, IP address, or
+-- location used for evaluating the risk of an unexpected event by Amazon
+-- Cognito advanced security.
+confirmSignUp_userContextData :: Lens.Lens' ConfirmSignUp (Prelude.Maybe UserContextDataType)
+confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> userContextData) (\s@ConfirmSignUp' {} a -> s {userContextData = a} :: ConfirmSignUp)
+
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
 confirmSignUp_secretHash :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Text)
 confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash) (\s@ConfirmSignUp' {} a -> s {secretHash = a} :: ConfirmSignUp) Prelude.. Lens.mapping Core._Sensitive
-
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ConfirmSignUp@ calls.
-confirmSignUp_analyticsMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe AnalyticsMetadataType)
-confirmSignUp_analyticsMetadata = Lens.lens (\ConfirmSignUp' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmSignUp' {} a -> s {analyticsMetadata = a} :: ConfirmSignUp)
 
 -- | The ID of the app client associated with the user pool.
 confirmSignUp_clientId :: Lens.Lens' ConfirmSignUp Prelude.Text
@@ -308,13 +308,13 @@ instance Core.ToJSON ConfirmSignUp where
       ( Prelude.catMaybes
           [ ("ClientMetadata" Core..=)
               Prelude.<$> clientMetadata,
-            ("UserContextData" Core..=)
-              Prelude.<$> userContextData,
             ("ForceAliasCreation" Core..=)
               Prelude.<$> forceAliasCreation,
-            ("SecretHash" Core..=) Prelude.<$> secretHash,
             ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("UserContextData" Core..=)
+              Prelude.<$> userContextData,
+            ("SecretHash" Core..=) Prelude.<$> secretHash,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("Username" Core..= username),
             Prelude.Just

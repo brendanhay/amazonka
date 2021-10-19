@@ -107,7 +107,7 @@ adminSetUserSettings_username = Lens.lens (\AdminSetUserSettings' {username} -> 
 -- | You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
 adminSetUserSettings_mfaOptions :: Lens.Lens' AdminSetUserSettings [MFAOptionType]
-adminSetUserSettings_mfaOptions = Lens.lens (\AdminSetUserSettings' {mfaOptions} -> mfaOptions) (\s@AdminSetUserSettings' {} a -> s {mfaOptions = a} :: AdminSetUserSettings) Prelude.. Lens._Coerce
+adminSetUserSettings_mfaOptions = Lens.lens (\AdminSetUserSettings' {mfaOptions} -> mfaOptions) (\s@AdminSetUserSettings' {} a -> s {mfaOptions = a} :: AdminSetUserSettings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AdminSetUserSettings where
   type

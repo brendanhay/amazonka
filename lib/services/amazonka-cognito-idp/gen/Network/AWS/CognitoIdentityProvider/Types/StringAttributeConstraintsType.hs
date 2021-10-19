@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
-  { -- | The minimum length.
-    minLength :: Prelude.Maybe Prelude.Text,
-    -- | The maximum length.
-    maxLength :: Prelude.Maybe Prelude.Text
+  { -- | The maximum length.
+    maxLength :: Prelude.Maybe Prelude.Text,
+    -- | The minimum length.
+    minLength :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data StringAttributeConstraintsType = StringAttributeConstraintsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minLength', 'stringAttributeConstraintsType_minLength' - The minimum length.
---
 -- 'maxLength', 'stringAttributeConstraintsType_maxLength' - The maximum length.
+--
+-- 'minLength', 'stringAttributeConstraintsType_minLength' - The minimum length.
 newStringAttributeConstraintsType ::
   StringAttributeConstraintsType
 newStringAttributeConstraintsType =
   StringAttributeConstraintsType'
-    { minLength =
+    { maxLength =
         Prelude.Nothing,
-      maxLength = Prelude.Nothing
+      minLength = Prelude.Nothing
     }
-
--- | The minimum length.
-stringAttributeConstraintsType_minLength :: Lens.Lens' StringAttributeConstraintsType (Prelude.Maybe Prelude.Text)
-stringAttributeConstraintsType_minLength = Lens.lens (\StringAttributeConstraintsType' {minLength} -> minLength) (\s@StringAttributeConstraintsType' {} a -> s {minLength = a} :: StringAttributeConstraintsType)
 
 -- | The maximum length.
 stringAttributeConstraintsType_maxLength :: Lens.Lens' StringAttributeConstraintsType (Prelude.Maybe Prelude.Text)
 stringAttributeConstraintsType_maxLength = Lens.lens (\StringAttributeConstraintsType' {maxLength} -> maxLength) (\s@StringAttributeConstraintsType' {} a -> s {maxLength = a} :: StringAttributeConstraintsType)
+
+-- | The minimum length.
+stringAttributeConstraintsType_minLength :: Lens.Lens' StringAttributeConstraintsType (Prelude.Maybe Prelude.Text)
+stringAttributeConstraintsType_minLength = Lens.lens (\StringAttributeConstraintsType' {minLength} -> minLength) (\s@StringAttributeConstraintsType' {} a -> s {minLength = a} :: StringAttributeConstraintsType)
 
 instance Core.FromJSON StringAttributeConstraintsType where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON StringAttributeConstraintsType where
       "StringAttributeConstraintsType"
       ( \x ->
           StringAttributeConstraintsType'
-            Prelude.<$> (x Core..:? "MinLength")
-            Prelude.<*> (x Core..:? "MaxLength")
+            Prelude.<$> (x Core..:? "MaxLength")
+            Prelude.<*> (x Core..:? "MinLength")
       )
 
 instance
@@ -84,7 +84,7 @@ instance Core.ToJSON StringAttributeConstraintsType where
   toJSON StringAttributeConstraintsType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MinLength" Core..=) Prelude.<$> minLength,
-            ("MaxLength" Core..=) Prelude.<$> maxLength
+          [ ("MaxLength" Core..=) Prelude.<$> maxLength,
+            ("MinLength" Core..=) Prelude.<$> minLength
           ]
       )

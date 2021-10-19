@@ -34,8 +34,8 @@ module Network.AWS.CognitoIdentityProvider.GetUserPoolMfaConfig
     newGetUserPoolMfaConfigResponse,
 
     -- * Response Lenses
-    getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     getUserPoolMfaConfigResponse_smsMfaConfiguration,
+    getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration,
     getUserPoolMfaConfigResponse_mfaConfiguration,
     getUserPoolMfaConfigResponse_httpStatus,
   )
@@ -84,8 +84,8 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
     Response.receiveJSON
       ( \s h x ->
           GetUserPoolMfaConfigResponse'
-            Prelude.<$> (x Core..?> "SoftwareTokenMfaConfiguration")
-            Prelude.<*> (x Core..?> "SmsMfaConfiguration")
+            Prelude.<$> (x Core..?> "SmsMfaConfiguration")
+            Prelude.<*> (x Core..?> "SoftwareTokenMfaConfiguration")
             Prelude.<*> (x Core..?> "MfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -124,10 +124,10 @@ instance Core.ToQuery GetUserPoolMfaConfig where
 
 -- | /See:/ 'newGetUserPoolMfaConfigResponse' smart constructor.
 data GetUserPoolMfaConfigResponse = GetUserPoolMfaConfigResponse'
-  { -- | The software token multi-factor (MFA) configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
-    -- | The SMS text message multi-factor (MFA) configuration.
+  { -- | The SMS text message multi-factor (MFA) configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    -- | The software token multi-factor (MFA) configuration.
+    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The multi-factor (MFA) configuration. Valid values include:
     --
     -- -   @OFF@ MFA will not be used for any users.
@@ -150,9 +150,9 @@ data GetUserPoolMfaConfigResponse = GetUserPoolMfaConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'softwareTokenMfaConfiguration', 'getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token multi-factor (MFA) configuration.
---
 -- 'smsMfaConfiguration', 'getUserPoolMfaConfigResponse_smsMfaConfiguration' - The SMS text message multi-factor (MFA) configuration.
+--
+-- 'softwareTokenMfaConfiguration', 'getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token multi-factor (MFA) configuration.
 --
 -- 'mfaConfiguration', 'getUserPoolMfaConfigResponse_mfaConfiguration' - The multi-factor (MFA) configuration. Valid values include:
 --
@@ -170,20 +170,21 @@ newGetUserPoolMfaConfigResponse ::
   GetUserPoolMfaConfigResponse
 newGetUserPoolMfaConfigResponse pHttpStatus_ =
   GetUserPoolMfaConfigResponse'
-    { softwareTokenMfaConfiguration =
+    { smsMfaConfiguration =
         Prelude.Nothing,
-      smsMfaConfiguration = Prelude.Nothing,
+      softwareTokenMfaConfiguration =
+        Prelude.Nothing,
       mfaConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The software token multi-factor (MFA) configuration.
-getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
-getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
-
 -- | The SMS text message multi-factor (MFA) configuration.
 getUserPoolMfaConfigResponse_smsMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe SmsMfaConfigType)
 getUserPoolMfaConfigResponse_smsMfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {smsMfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
+
+-- | The software token multi-factor (MFA) configuration.
+getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
+getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
 
 -- | The multi-factor (MFA) configuration. Valid values include:
 --

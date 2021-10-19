@@ -211,14 +211,14 @@ haskell_library(
         "gen/Network/AWS/CognitoIdentityProvider/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_cognito_idp=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -236,11 +236,11 @@ haskell_test(
         "test/Test/AWS/Gen/CognitoIdentityProvider.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_cognito_idp=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_cognito_idp=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-cognito-idp",

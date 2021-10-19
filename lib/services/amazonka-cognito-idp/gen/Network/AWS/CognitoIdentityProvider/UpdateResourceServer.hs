@@ -102,7 +102,7 @@ newUpdateResourceServer
 
 -- | The scope values to be set for the resource server.
 updateResourceServer_scopes :: Lens.Lens' UpdateResourceServer (Prelude.Maybe [ResourceServerScopeType])
-updateResourceServer_scopes = Lens.lens (\UpdateResourceServer' {scopes} -> scopes) (\s@UpdateResourceServer' {} a -> s {scopes = a} :: UpdateResourceServer) Prelude.. Lens.mapping Lens._Coerce
+updateResourceServer_scopes = Lens.lens (\UpdateResourceServer' {scopes} -> scopes) (\s@UpdateResourceServer' {} a -> s {scopes = a} :: UpdateResourceServer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool.
 updateResourceServer_userPoolId :: Lens.Lens' UpdateResourceServer Prelude.Text

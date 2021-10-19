@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpHeader' smart constructor.
 data HttpHeader = HttpHeader'
-  { -- | The header name
-    headerName :: Prelude.Maybe Prelude.Text,
-    -- | The header value.
-    headerValue :: Prelude.Maybe Prelude.Text
+  { -- | The header value.
+    headerValue :: Prelude.Maybe Prelude.Text,
+    -- | The header name
+    headerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data HttpHeader = HttpHeader'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'headerName', 'httpHeader_headerName' - The header name
---
 -- 'headerValue', 'httpHeader_headerValue' - The header value.
+--
+-- 'headerName', 'httpHeader_headerName' - The header name
 newHttpHeader ::
   HttpHeader
 newHttpHeader =
   HttpHeader'
-    { headerName = Prelude.Nothing,
-      headerValue = Prelude.Nothing
+    { headerValue = Prelude.Nothing,
+      headerName = Prelude.Nothing
     }
-
--- | The header name
-httpHeader_headerName :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
-httpHeader_headerName = Lens.lens (\HttpHeader' {headerName} -> headerName) (\s@HttpHeader' {} a -> s {headerName = a} :: HttpHeader)
 
 -- | The header value.
 httpHeader_headerValue :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
 httpHeader_headerValue = Lens.lens (\HttpHeader' {headerValue} -> headerValue) (\s@HttpHeader' {} a -> s {headerValue = a} :: HttpHeader)
+
+-- | The header name
+httpHeader_headerName :: Lens.Lens' HttpHeader (Prelude.Maybe Prelude.Text)
+httpHeader_headerName = Lens.lens (\HttpHeader' {headerName} -> headerName) (\s@HttpHeader' {} a -> s {headerName = a} :: HttpHeader)
 
 instance Prelude.Hashable HttpHeader
 
@@ -69,7 +69,7 @@ instance Core.ToJSON HttpHeader where
   toJSON HttpHeader' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("headerName" Core..=) Prelude.<$> headerName,
-            ("headerValue" Core..=) Prelude.<$> headerValue
+          [ ("headerValue" Core..=) Prelude.<$> headerValue,
+            ("headerName" Core..=) Prelude.<$> headerName
           ]
       )

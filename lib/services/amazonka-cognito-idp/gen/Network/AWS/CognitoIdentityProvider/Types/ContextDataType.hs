@@ -100,7 +100,7 @@ contextDataType_serverPath = Lens.lens (\ContextDataType' {serverPath} -> server
 
 -- | HttpHeaders received on your server in same order.
 contextDataType_httpHeaders :: Lens.Lens' ContextDataType [HttpHeader]
-contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> httpHeaders) (\s@ContextDataType' {} a -> s {httpHeaders = a} :: ContextDataType) Prelude.. Lens._Coerce
+contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> httpHeaders) (\s@ContextDataType' {} a -> s {httpHeaders = a} :: ContextDataType) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ContextDataType
 

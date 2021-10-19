@@ -212,6 +212,6 @@ listIdentityProvidersResponse_httpStatus = Lens.lens (\ListIdentityProvidersResp
 
 -- | A list of identity provider objects.
 listIdentityProvidersResponse_providers :: Lens.Lens' ListIdentityProvidersResponse [ProviderDescription]
-listIdentityProvidersResponse_providers = Lens.lens (\ListIdentityProvidersResponse' {providers} -> providers) (\s@ListIdentityProvidersResponse' {} a -> s {providers = a} :: ListIdentityProvidersResponse) Prelude.. Lens._Coerce
+listIdentityProvidersResponse_providers = Lens.lens (\ListIdentityProvidersResponse' {providers} -> providers) (\s@ListIdentityProvidersResponse' {} a -> s {providers = a} :: ListIdentityProvidersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListIdentityProvidersResponse

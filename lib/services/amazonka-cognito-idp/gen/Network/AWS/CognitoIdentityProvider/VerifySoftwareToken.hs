@@ -29,8 +29,8 @@ module Network.AWS.CognitoIdentityProvider.VerifySoftwareToken
     newVerifySoftwareToken,
 
     -- * Request Lenses
-    verifySoftwareToken_friendlyDeviceName,
     verifySoftwareToken_accessToken,
+    verifySoftwareToken_friendlyDeviceName,
     verifySoftwareToken_session,
     verifySoftwareToken_userCode,
 
@@ -54,10 +54,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newVerifySoftwareToken' smart constructor.
 data VerifySoftwareToken = VerifySoftwareToken'
-  { -- | The friendly device name.
-    friendlyDeviceName :: Prelude.Maybe Prelude.Text,
-    -- | The access token.
+  { -- | The access token.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The friendly device name.
+    friendlyDeviceName :: Prelude.Maybe Prelude.Text,
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
@@ -75,9 +75,9 @@ data VerifySoftwareToken = VerifySoftwareToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.
---
 -- 'accessToken', 'verifySoftwareToken_accessToken' - The access token.
+--
+-- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.
 --
 -- 'session', 'verifySoftwareToken_session' - The session which should be passed both ways in challenge-response calls
 -- to the service.
@@ -90,20 +90,19 @@ newVerifySoftwareToken ::
   VerifySoftwareToken
 newVerifySoftwareToken pUserCode_ =
   VerifySoftwareToken'
-    { friendlyDeviceName =
-        Prelude.Nothing,
-      accessToken = Prelude.Nothing,
+    { accessToken = Prelude.Nothing,
+      friendlyDeviceName = Prelude.Nothing,
       session = Prelude.Nothing,
       userCode = pUserCode_
     }
 
--- | The friendly device name.
-verifySoftwareToken_friendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
-verifySoftwareToken_friendlyDeviceName = Lens.lens (\VerifySoftwareToken' {friendlyDeviceName} -> friendlyDeviceName) (\s@VerifySoftwareToken' {} a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
-
 -- | The access token.
 verifySoftwareToken_accessToken :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_accessToken = Lens.lens (\VerifySoftwareToken' {accessToken} -> accessToken) (\s@VerifySoftwareToken' {} a -> s {accessToken = a} :: VerifySoftwareToken) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The friendly device name.
+verifySoftwareToken_friendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
+verifySoftwareToken_friendlyDeviceName = Lens.lens (\VerifySoftwareToken' {friendlyDeviceName} -> friendlyDeviceName) (\s@VerifySoftwareToken' {} a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service.
@@ -152,9 +151,9 @@ instance Core.ToJSON VerifySoftwareToken where
   toJSON VerifySoftwareToken' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FriendlyDeviceName" Core..=)
+          [ ("AccessToken" Core..=) Prelude.<$> accessToken,
+            ("FriendlyDeviceName" Core..=)
               Prelude.<$> friendlyDeviceName,
-            ("AccessToken" Core..=) Prelude.<$> accessToken,
             ("Session" Core..=) Prelude.<$> session,
             Prelude.Just ("UserCode" Core..= userCode)
           ]

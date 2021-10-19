@@ -235,12 +235,12 @@ newCreateIdentityProvider
 
 -- | A list of identity provider identifiers.
 createIdentityProvider_idpIdentifiers :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe [Prelude.Text])
-createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
+createIdentityProvider_idpIdentifiers = Lens.lens (\CreateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@CreateIdentityProvider' {} a -> s {idpIdentifiers = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | A mapping of identity provider attributes to standard and custom user
 -- pool attributes.
 createIdentityProvider_attributeMapping :: Lens.Lens' CreateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens._Coerce
+createIdentityProvider_attributeMapping = Lens.lens (\CreateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@CreateIdentityProvider' {} a -> s {attributeMapping = a} :: CreateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID.
 createIdentityProvider_userPoolId :: Lens.Lens' CreateIdentityProvider Prelude.Text
@@ -317,7 +317,7 @@ createIdentityProvider_providerType = Lens.lens (\CreateIdentityProvider' {provi
 --
 --     -   IDPSignout /optional/
 createIdentityProvider_providerDetails :: Lens.Lens' CreateIdentityProvider (Prelude.HashMap Prelude.Text Prelude.Text)
-createIdentityProvider_providerDetails = Lens.lens (\CreateIdentityProvider' {providerDetails} -> providerDetails) (\s@CreateIdentityProvider' {} a -> s {providerDetails = a} :: CreateIdentityProvider) Prelude.. Lens._Coerce
+createIdentityProvider_providerDetails = Lens.lens (\CreateIdentityProvider' {providerDetails} -> providerDetails) (\s@CreateIdentityProvider' {} a -> s {providerDetails = a} :: CreateIdentityProvider) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateIdentityProvider where
   type

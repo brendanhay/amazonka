@@ -118,7 +118,7 @@ adminDeleteUserAttributes_username = Lens.lens (\AdminDeleteUserAttributes' {use
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 adminDeleteUserAttributes_userAttributeNames :: Lens.Lens' AdminDeleteUserAttributes [Prelude.Text]
-adminDeleteUserAttributes_userAttributeNames = Lens.lens (\AdminDeleteUserAttributes' {userAttributeNames} -> userAttributeNames) (\s@AdminDeleteUserAttributes' {} a -> s {userAttributeNames = a} :: AdminDeleteUserAttributes) Prelude.. Lens._Coerce
+adminDeleteUserAttributes_userAttributeNames = Lens.lens (\AdminDeleteUserAttributes' {userAttributeNames} -> userAttributeNames) (\s@AdminDeleteUserAttributes' {} a -> s {userAttributeNames = a} :: AdminDeleteUserAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AdminDeleteUserAttributes where
   type

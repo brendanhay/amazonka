@@ -1,7 +1,7 @@
 # Change Log
 
-## 2.0 RC1 (TODO: Linkify)
-Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
+## [2.0 RC1](https://github.com/brendanhay/amazonka/tree/2.0-rc1)
+Released: **22nd October, 2021**, Compare: [1.6.1](https://github.com/brendanhay/amazonka/compare/1.6.1...2.0-rc1)
 
 ### Major Changes
 

@@ -455,7 +455,7 @@ createJobOutput_presetId = Lens.lens (\CreateJobOutput' {presetId} -> presetId) 
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 createJobOutput_composition :: Lens.Lens' CreateJobOutput (Prelude.Maybe [Clip])
-createJobOutput_composition = Lens.lens (\CreateJobOutput' {composition} -> composition) (\s@CreateJobOutput' {} a -> s {composition = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens._Coerce
+createJobOutput_composition = Lens.lens (\CreateJobOutput' {composition} -> composition) (\s@CreateJobOutput' {} a -> s {composition = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the album art that you want Elastic Transcoder to add
 -- to the file during transcoding. You can specify up to twenty album
@@ -469,7 +469,7 @@ createJobOutput_albumArt = Lens.lens (\CreateJobOutput' {albumArt} -> albumArt) 
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
 createJobOutput_watermarks :: Lens.Lens' CreateJobOutput (Prelude.Maybe [JobWatermark])
-createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> watermarks) (\s@CreateJobOutput' {} a -> s {watermarks = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens._Coerce
+createJobOutput_watermarks = Lens.lens (\CreateJobOutput' {watermarks} -> watermarks) (\s@CreateJobOutput' {} a -> s {watermarks = a} :: CreateJobOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any

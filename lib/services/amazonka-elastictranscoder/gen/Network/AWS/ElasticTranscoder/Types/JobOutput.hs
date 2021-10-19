@@ -628,7 +628,7 @@ jobOutput_presetId = Lens.lens (\JobOutput' {presetId} -> presetId) (\s@JobOutpu
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 jobOutput_composition :: Lens.Lens' JobOutput (Prelude.Maybe [Clip])
-jobOutput_composition = Lens.lens (\JobOutput' {composition} -> composition) (\s@JobOutput' {} a -> s {composition = a} :: JobOutput) Prelude.. Lens.mapping Lens._Coerce
+jobOutput_composition = Lens.lens (\JobOutput' {composition} -> composition) (\s@JobOutput' {} a -> s {composition = a} :: JobOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The album art to be associated with the output file, if any.
 jobOutput_albumArt :: Lens.Lens' JobOutput (Prelude.Maybe JobAlbumArt)
@@ -651,7 +651,7 @@ jobOutput_fileSize = Lens.lens (\JobOutput' {fileSize} -> fileSize) (\s@JobOutpu
 -- watermark that you add covers the first one, the third one covers the
 -- second, and the fourth one covers the third.
 jobOutput_watermarks :: Lens.Lens' JobOutput (Prelude.Maybe [JobWatermark])
-jobOutput_watermarks = Lens.lens (\JobOutput' {watermarks} -> watermarks) (\s@JobOutput' {} a -> s {watermarks = a} :: JobOutput) Prelude.. Lens.mapping Lens._Coerce
+jobOutput_watermarks = Lens.lens (\JobOutput' {watermarks} -> watermarks) (\s@JobOutput' {} a -> s {watermarks = a} :: JobOutput) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the width of the output file in pixels.
 jobOutput_width :: Lens.Lens' JobOutput (Prelude.Maybe Prelude.Int)

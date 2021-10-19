@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-elastictranscoder
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Elastic Transcoder SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -99,8 +99,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-elastictranscoder-test
   type:             exitcode-stdio-1.0
@@ -118,9 +118,9 @@ test-suite amazonka-elastictranscoder-test
     Test.AWS.Gen.ElasticTranscoder
 
   build-depends:
-    , amazonka                    >=1.6.1 && <1.6.2
+    , amazonka                    ^>=2.0
     , amazonka-elastictranscoder
-    , amazonka-test               >=1.6.1 && <1.6.2
+    , amazonka-test               ^>=2.0
     , base
     , bytestring
     , case-insensitive

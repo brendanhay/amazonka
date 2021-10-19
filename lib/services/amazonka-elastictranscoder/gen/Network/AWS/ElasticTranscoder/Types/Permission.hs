@@ -130,7 +130,7 @@ newPermission =
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
 permission_access :: Lens.Lens' Permission (Prelude.Maybe [Prelude.Text])
-permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' {} a -> s {access = a} :: Permission) Prelude.. Lens.mapping Lens._Coerce
+permission_access = Lens.lens (\Permission' {access} -> access) (\s@Permission' {} a -> s {access = a} :: Permission) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of value that appears in the Grantee object:
 --

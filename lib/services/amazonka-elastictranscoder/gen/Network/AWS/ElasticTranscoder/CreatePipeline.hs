@@ -844,7 +844,7 @@ newCreatePipelineResponse pHttpStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 createPipelineResponse_warnings :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe [Warning])
-createPipelineResponse_warnings = Lens.lens (\CreatePipelineResponse' {warnings} -> warnings) (\s@CreatePipelineResponse' {} a -> s {warnings = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Lens._Coerce
+createPipelineResponse_warnings = Lens.lens (\CreatePipelineResponse' {warnings} -> warnings) (\s@CreatePipelineResponse' {} a -> s {warnings = a} :: CreatePipelineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the response body that provides information about the
 -- pipeline that is created.

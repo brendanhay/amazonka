@@ -1051,7 +1051,7 @@ videoParameters_maxHeight = Lens.lens (\VideoParameters' {maxHeight} -> maxHeigh
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
 videoParameters_watermarks :: Lens.Lens' VideoParameters (Prelude.Maybe [PresetWatermark])
-videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Lens._Coerce
+videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value that Elastic Transcoder adds to the metadata in the output
 -- file.
@@ -1360,7 +1360,7 @@ videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) 
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
 videoParameters_codecOptions :: Lens.Lens' VideoParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> codecOptions) (\s@VideoParameters' {} a -> s {codecOptions = a} :: VideoParameters) Prelude.. Lens.mapping Lens._Coerce
+videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> codecOptions) (\s@VideoParameters' {} a -> s {codecOptions = a} :: VideoParameters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON VideoParameters where
   parseJSON =

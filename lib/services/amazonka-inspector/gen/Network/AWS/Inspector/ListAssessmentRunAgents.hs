@@ -31,8 +31,8 @@ module Network.AWS.Inspector.ListAssessmentRunAgents
 
     -- * Request Lenses
     listAssessmentRunAgents_nextToken,
-    listAssessmentRunAgents_maxResults,
     listAssessmentRunAgents_filter,
+    listAssessmentRunAgents_maxResults,
     listAssessmentRunAgents_assessmentRunArn,
 
     -- * Destructuring the Response
@@ -61,10 +61,6 @@ data ListAssessmentRunAgents = ListAssessmentRunAgents'
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items that
-    -- you want in the response. The default value is 10. The maximum value is
-    -- 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
@@ -72,6 +68,10 @@ data ListAssessmentRunAgents = ListAssessmentRunAgents'
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
     filter' :: Prelude.Maybe AgentFilter,
+    -- | You can use this parameter to indicate the maximum number of items that
+    -- you want in the response. The default value is 10. The maximum value is
+    -- 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ARN that specifies the assessment run whose agents you want to list.
     assessmentRunArn :: Prelude.Text
   }
@@ -91,16 +91,16 @@ data ListAssessmentRunAgents = ListAssessmentRunAgents'
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
 --
--- 'maxResults', 'listAssessmentRunAgents_maxResults' - You can use this parameter to indicate the maximum number of items that
--- you want in the response. The default value is 10. The maximum value is
--- 500.
---
 -- 'filter'', 'listAssessmentRunAgents_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
+--
+-- 'maxResults', 'listAssessmentRunAgents_maxResults' - You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 10. The maximum value is
+-- 500.
 --
 -- 'assessmentRunArn', 'listAssessmentRunAgents_assessmentRunArn' - The ARN that specifies the assessment run whose agents you want to list.
 newListAssessmentRunAgents ::
@@ -111,8 +111,8 @@ newListAssessmentRunAgents pAssessmentRunArn_ =
   ListAssessmentRunAgents'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       assessmentRunArn = pAssessmentRunArn_
     }
 
@@ -124,12 +124,6 @@ newListAssessmentRunAgents pAssessmentRunArn_ =
 listAssessmentRunAgents_nextToken :: Lens.Lens' ListAssessmentRunAgents (Prelude.Maybe Prelude.Text)
 listAssessmentRunAgents_nextToken = Lens.lens (\ListAssessmentRunAgents' {nextToken} -> nextToken) (\s@ListAssessmentRunAgents' {} a -> s {nextToken = a} :: ListAssessmentRunAgents)
 
--- | You can use this parameter to indicate the maximum number of items that
--- you want in the response. The default value is 10. The maximum value is
--- 500.
-listAssessmentRunAgents_maxResults :: Lens.Lens' ListAssessmentRunAgents (Prelude.Maybe Prelude.Int)
-listAssessmentRunAgents_maxResults = Lens.lens (\ListAssessmentRunAgents' {maxResults} -> maxResults) (\s@ListAssessmentRunAgents' {} a -> s {maxResults = a} :: ListAssessmentRunAgents)
-
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -138,6 +132,12 @@ listAssessmentRunAgents_maxResults = Lens.lens (\ListAssessmentRunAgents' {maxRe
 -- the values can match.
 listAssessmentRunAgents_filter :: Lens.Lens' ListAssessmentRunAgents (Prelude.Maybe AgentFilter)
 listAssessmentRunAgents_filter = Lens.lens (\ListAssessmentRunAgents' {filter'} -> filter') (\s@ListAssessmentRunAgents' {} a -> s {filter' = a} :: ListAssessmentRunAgents)
+
+-- | You can use this parameter to indicate the maximum number of items that
+-- you want in the response. The default value is 10. The maximum value is
+-- 500.
+listAssessmentRunAgents_maxResults :: Lens.Lens' ListAssessmentRunAgents (Prelude.Maybe Prelude.Int)
+listAssessmentRunAgents_maxResults = Lens.lens (\ListAssessmentRunAgents' {maxResults} -> maxResults) (\s@ListAssessmentRunAgents' {} a -> s {maxResults = a} :: ListAssessmentRunAgents)
 
 -- | The ARN that specifies the assessment run whose agents you want to list.
 listAssessmentRunAgents_assessmentRunArn :: Lens.Lens' ListAssessmentRunAgents Prelude.Text
@@ -204,8 +204,8 @@ instance Core.ToJSON ListAssessmentRunAgents where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("assessmentRunArn" Core..= assessmentRunArn)
           ]
@@ -272,7 +272,7 @@ listAssessmentRunAgentsResponse_httpStatus = Lens.lens (\ListAssessmentRunAgents
 
 -- | A list of ARNs that specifies the agents returned by the action.
 listAssessmentRunAgentsResponse_assessmentRunAgents :: Lens.Lens' ListAssessmentRunAgentsResponse [AssessmentRunAgent]
-listAssessmentRunAgentsResponse_assessmentRunAgents = Lens.lens (\ListAssessmentRunAgentsResponse' {assessmentRunAgents} -> assessmentRunAgents) (\s@ListAssessmentRunAgentsResponse' {} a -> s {assessmentRunAgents = a} :: ListAssessmentRunAgentsResponse) Prelude.. Lens._Coerce
+listAssessmentRunAgentsResponse_assessmentRunAgents = Lens.lens (\ListAssessmentRunAgentsResponse' {assessmentRunAgents} -> assessmentRunAgents) (\s@ListAssessmentRunAgentsResponse' {} a -> s {assessmentRunAgents = a} :: ListAssessmentRunAgentsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

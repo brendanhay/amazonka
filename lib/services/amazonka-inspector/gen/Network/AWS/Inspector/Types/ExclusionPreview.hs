@@ -80,12 +80,12 @@ newExclusionPreview
         title = pTitle_,
         description = pDescription_,
         recommendation = pRecommendation_,
-        scopes = Lens._Coerce Lens.# pScopes_
+        scopes = Lens.coerced Lens.# pScopes_
       }
 
 -- | The system-defined attributes for the exclusion preview.
 exclusionPreview_attributes :: Lens.Lens' ExclusionPreview (Prelude.Maybe [Attribute])
-exclusionPreview_attributes = Lens.lens (\ExclusionPreview' {attributes} -> attributes) (\s@ExclusionPreview' {} a -> s {attributes = a} :: ExclusionPreview) Prelude.. Lens.mapping Lens._Coerce
+exclusionPreview_attributes = Lens.lens (\ExclusionPreview' {attributes} -> attributes) (\s@ExclusionPreview' {} a -> s {attributes = a} :: ExclusionPreview) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the exclusion preview.
 exclusionPreview_title :: Lens.Lens' ExclusionPreview Prelude.Text
@@ -101,7 +101,7 @@ exclusionPreview_recommendation = Lens.lens (\ExclusionPreview' {recommendation}
 
 -- | The AWS resources for which the exclusion preview pertains.
 exclusionPreview_scopes :: Lens.Lens' ExclusionPreview (Prelude.NonEmpty Scope)
-exclusionPreview_scopes = Lens.lens (\ExclusionPreview' {scopes} -> scopes) (\s@ExclusionPreview' {} a -> s {scopes = a} :: ExclusionPreview) Prelude.. Lens._Coerce
+exclusionPreview_scopes = Lens.lens (\ExclusionPreview' {scopes} -> scopes) (\s@ExclusionPreview' {} a -> s {scopes = a} :: ExclusionPreview) Prelude.. Lens.coerced
 
 instance Core.FromJSON ExclusionPreview where
   parseJSON =

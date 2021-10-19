@@ -79,7 +79,7 @@ newSetTagsForResource pResourceArn_ =
 -- | A collection of key and value pairs that you want to set to the
 -- assessment template.
 setTagsForResource_tags :: Lens.Lens' SetTagsForResource (Prelude.Maybe [Tag])
-setTagsForResource_tags = Lens.lens (\SetTagsForResource' {tags} -> tags) (\s@SetTagsForResource' {} a -> s {tags = a} :: SetTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+setTagsForResource_tags = Lens.lens (\SetTagsForResource' {tags} -> tags) (\s@SetTagsForResource' {} a -> s {tags = a} :: SetTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the assessment template that you want to set tags to.
 setTagsForResource_resourceArn :: Lens.Lens' SetTagsForResource Prelude.Text

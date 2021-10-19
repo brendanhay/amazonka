@@ -32,8 +32,8 @@ module Network.AWS.Inspector.ListAssessmentTargets
 
     -- * Request Lenses
     listAssessmentTargets_nextToken,
-    listAssessmentTargets_maxResults,
     listAssessmentTargets_filter,
+    listAssessmentTargets_maxResults,
 
     -- * Destructuring the Response
     ListAssessmentTargetsResponse (..),
@@ -61,16 +61,16 @@ data ListAssessmentTargets = ListAssessmentTargets'
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
     -- For a record to match a filter, all specified filter attributes must
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
-    filter' :: Prelude.Maybe AssessmentTargetFilter
+    filter' :: Prelude.Maybe AssessmentTargetFilter,
+    -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -88,22 +88,22 @@ data ListAssessmentTargets = ListAssessmentTargets'
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
 --
--- 'maxResults', 'listAssessmentTargets_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
---
 -- 'filter'', 'listAssessmentTargets_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
+--
+-- 'maxResults', 'listAssessmentTargets_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
 newListAssessmentTargets ::
   ListAssessmentTargets
 newListAssessmentTargets =
   ListAssessmentTargets'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -114,11 +114,6 @@ newListAssessmentTargets =
 listAssessmentTargets_nextToken :: Lens.Lens' ListAssessmentTargets (Prelude.Maybe Prelude.Text)
 listAssessmentTargets_nextToken = Lens.lens (\ListAssessmentTargets' {nextToken} -> nextToken) (\s@ListAssessmentTargets' {} a -> s {nextToken = a} :: ListAssessmentTargets)
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-listAssessmentTargets_maxResults :: Lens.Lens' ListAssessmentTargets (Prelude.Maybe Prelude.Int)
-listAssessmentTargets_maxResults = Lens.lens (\ListAssessmentTargets' {maxResults} -> maxResults) (\s@ListAssessmentTargets' {} a -> s {maxResults = a} :: ListAssessmentTargets)
-
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -127,6 +122,11 @@ listAssessmentTargets_maxResults = Lens.lens (\ListAssessmentTargets' {maxResult
 -- the values can match.
 listAssessmentTargets_filter :: Lens.Lens' ListAssessmentTargets (Prelude.Maybe AssessmentTargetFilter)
 listAssessmentTargets_filter = Lens.lens (\ListAssessmentTargets' {filter'} -> filter') (\s@ListAssessmentTargets' {} a -> s {filter' = a} :: ListAssessmentTargets)
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+listAssessmentTargets_maxResults :: Lens.Lens' ListAssessmentTargets (Prelude.Maybe Prelude.Int)
+listAssessmentTargets_maxResults = Lens.lens (\ListAssessmentTargets' {maxResults} -> maxResults) (\s@ListAssessmentTargets' {} a -> s {maxResults = a} :: ListAssessmentTargets)
 
 instance Core.AWSPager ListAssessmentTargets where
   page rq rs
@@ -189,8 +189,8 @@ instance Core.ToJSON ListAssessmentTargets where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("filter" Core..=) Prelude.<$> filter'
+            ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -258,6 +258,6 @@ listAssessmentTargetsResponse_httpStatus = Lens.lens (\ListAssessmentTargetsResp
 -- | A list of ARNs that specifies the assessment targets that are returned
 -- by the action.
 listAssessmentTargetsResponse_assessmentTargetArns :: Lens.Lens' ListAssessmentTargetsResponse [Prelude.Text]
-listAssessmentTargetsResponse_assessmentTargetArns = Lens.lens (\ListAssessmentTargetsResponse' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTargetsResponse' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTargetsResponse) Prelude.. Lens._Coerce
+listAssessmentTargetsResponse_assessmentTargetArns = Lens.lens (\ListAssessmentTargetsResponse' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTargetsResponse' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTargetsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListAssessmentTargetsResponse

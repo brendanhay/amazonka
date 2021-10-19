@@ -28,20 +28,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-  { -- | For a record to match a filter, the value specified for this data type
-    -- property must inclusively match any value between the specified minimum
-    -- and maximum values of the __durationInSeconds__ property of the
+  { -- | For a record to match a filter, an explicit value or a string that
+    -- contains a wildcard that is specified for this data type property must
+    -- match the value of the __assessmentTemplateName__ property of the
     -- AssessmentTemplate data type.
-    durationRange :: Prelude.Maybe DurationRange,
+    namePattern :: Prelude.Maybe Prelude.Text,
     -- | For a record to match a filter, the values that are specified for this
     -- data type property must be contained in the list of values of the
     -- __rulesPackageArns__ property of the AssessmentTemplate data type.
     rulesPackageArns :: Prelude.Maybe [Prelude.Text],
-    -- | For a record to match a filter, an explicit value or a string that
-    -- contains a wildcard that is specified for this data type property must
-    -- match the value of the __assessmentTemplateName__ property of the
+    -- | For a record to match a filter, the value specified for this data type
+    -- property must inclusively match any value between the specified minimum
+    -- and maximum values of the __durationInSeconds__ property of the
     -- AssessmentTemplate data type.
-    namePattern :: Prelude.Maybe Prelude.Text
+    durationRange :: Prelude.Maybe DurationRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,41 +53,28 @@ data AssessmentTemplateFilter = AssessmentTemplateFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'durationRange', 'assessmentTemplateFilter_durationRange' - For a record to match a filter, the value specified for this data type
--- property must inclusively match any value between the specified minimum
--- and maximum values of the __durationInSeconds__ property of the
+-- 'namePattern', 'assessmentTemplateFilter_namePattern' - For a record to match a filter, an explicit value or a string that
+-- contains a wildcard that is specified for this data type property must
+-- match the value of the __assessmentTemplateName__ property of the
 -- AssessmentTemplate data type.
 --
 -- 'rulesPackageArns', 'assessmentTemplateFilter_rulesPackageArns' - For a record to match a filter, the values that are specified for this
 -- data type property must be contained in the list of values of the
 -- __rulesPackageArns__ property of the AssessmentTemplate data type.
 --
--- 'namePattern', 'assessmentTemplateFilter_namePattern' - For a record to match a filter, an explicit value or a string that
--- contains a wildcard that is specified for this data type property must
--- match the value of the __assessmentTemplateName__ property of the
+-- 'durationRange', 'assessmentTemplateFilter_durationRange' - For a record to match a filter, the value specified for this data type
+-- property must inclusively match any value between the specified minimum
+-- and maximum values of the __durationInSeconds__ property of the
 -- AssessmentTemplate data type.
 newAssessmentTemplateFilter ::
   AssessmentTemplateFilter
 newAssessmentTemplateFilter =
   AssessmentTemplateFilter'
-    { durationRange =
+    { namePattern =
         Prelude.Nothing,
       rulesPackageArns = Prelude.Nothing,
-      namePattern = Prelude.Nothing
+      durationRange = Prelude.Nothing
     }
-
--- | For a record to match a filter, the value specified for this data type
--- property must inclusively match any value between the specified minimum
--- and maximum values of the __durationInSeconds__ property of the
--- AssessmentTemplate data type.
-assessmentTemplateFilter_durationRange :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe DurationRange)
-assessmentTemplateFilter_durationRange = Lens.lens (\AssessmentTemplateFilter' {durationRange} -> durationRange) (\s@AssessmentTemplateFilter' {} a -> s {durationRange = a} :: AssessmentTemplateFilter)
-
--- | For a record to match a filter, the values that are specified for this
--- data type property must be contained in the list of values of the
--- __rulesPackageArns__ property of the AssessmentTemplate data type.
-assessmentTemplateFilter_rulesPackageArns :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe [Prelude.Text])
-assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplateFilter' {} a -> s {rulesPackageArns = a} :: AssessmentTemplateFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For a record to match a filter, an explicit value or a string that
 -- contains a wildcard that is specified for this data type property must
@@ -95,6 +82,19 @@ assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter
 -- AssessmentTemplate data type.
 assessmentTemplateFilter_namePattern :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe Prelude.Text)
 assessmentTemplateFilter_namePattern = Lens.lens (\AssessmentTemplateFilter' {namePattern} -> namePattern) (\s@AssessmentTemplateFilter' {} a -> s {namePattern = a} :: AssessmentTemplateFilter)
+
+-- | For a record to match a filter, the values that are specified for this
+-- data type property must be contained in the list of values of the
+-- __rulesPackageArns__ property of the AssessmentTemplate data type.
+assessmentTemplateFilter_rulesPackageArns :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe [Prelude.Text])
+assessmentTemplateFilter_rulesPackageArns = Lens.lens (\AssessmentTemplateFilter' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplateFilter' {} a -> s {rulesPackageArns = a} :: AssessmentTemplateFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | For a record to match a filter, the value specified for this data type
+-- property must inclusively match any value between the specified minimum
+-- and maximum values of the __durationInSeconds__ property of the
+-- AssessmentTemplate data type.
+assessmentTemplateFilter_durationRange :: Lens.Lens' AssessmentTemplateFilter (Prelude.Maybe DurationRange)
+assessmentTemplateFilter_durationRange = Lens.lens (\AssessmentTemplateFilter' {durationRange} -> durationRange) (\s@AssessmentTemplateFilter' {} a -> s {durationRange = a} :: AssessmentTemplateFilter)
 
 instance Prelude.Hashable AssessmentTemplateFilter
 
@@ -104,9 +104,9 @@ instance Core.ToJSON AssessmentTemplateFilter where
   toJSON AssessmentTemplateFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("durationRange" Core..=) Prelude.<$> durationRange,
+          [ ("namePattern" Core..=) Prelude.<$> namePattern,
             ("rulesPackageArns" Core..=)
               Prelude.<$> rulesPackageArns,
-            ("namePattern" Core..=) Prelude.<$> namePattern
+            ("durationRange" Core..=) Prelude.<$> durationRange
           ]
       )

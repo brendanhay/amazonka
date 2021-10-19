@@ -32,6 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 data AssetAttributes = AssetAttributes'
   { -- | The hostname of the EC2 instance where the finding is generated.
     hostname :: Prelude.Maybe Prelude.Text,
+    -- | The Auto Scaling group of the EC2 instance where the finding is
+    -- generated.
+    autoScalingGroup :: Prelude.Maybe Prelude.Text,
+    -- | An array of the network interfaces interacting with the EC2 instance
+    -- where the finding is generated.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
+    -- | The list of IP v4 addresses of the EC2 instance where the finding is
+    -- generated.
+    ipv4Addresses :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the agent that is installed on the EC2 instance where the
     -- finding is generated.
     agentId :: Prelude.Maybe Prelude.Text,
@@ -40,15 +49,6 @@ data AssetAttributes = AssetAttributes'
     amiId :: Prelude.Maybe Prelude.Text,
     -- | The tags related to the EC2 instance where the finding is generated.
     tags :: Prelude.Maybe [Tag],
-    -- | The list of IP v4 addresses of the EC2 instance where the finding is
-    -- generated.
-    ipv4Addresses :: Prelude.Maybe [Prelude.Text],
-    -- | An array of the network interfaces interacting with the EC2 instance
-    -- where the finding is generated.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface],
-    -- | The Auto Scaling group of the EC2 instance where the finding is
-    -- generated.
-    autoScalingGroup :: Prelude.Maybe Prelude.Text,
     -- | The schema version of this data type.
     schemaVersion :: Prelude.Natural
   }
@@ -64,6 +64,15 @@ data AssetAttributes = AssetAttributes'
 --
 -- 'hostname', 'assetAttributes_hostname' - The hostname of the EC2 instance where the finding is generated.
 --
+-- 'autoScalingGroup', 'assetAttributes_autoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is
+-- generated.
+--
+-- 'networkInterfaces', 'assetAttributes_networkInterfaces' - An array of the network interfaces interacting with the EC2 instance
+-- where the finding is generated.
+--
+-- 'ipv4Addresses', 'assetAttributes_ipv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is
+-- generated.
+--
 -- 'agentId', 'assetAttributes_agentId' - The ID of the agent that is installed on the EC2 instance where the
 -- finding is generated.
 --
@@ -71,15 +80,6 @@ data AssetAttributes = AssetAttributes'
 -- instance where the finding is generated.
 --
 -- 'tags', 'assetAttributes_tags' - The tags related to the EC2 instance where the finding is generated.
---
--- 'ipv4Addresses', 'assetAttributes_ipv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is
--- generated.
---
--- 'networkInterfaces', 'assetAttributes_networkInterfaces' - An array of the network interfaces interacting with the EC2 instance
--- where the finding is generated.
---
--- 'autoScalingGroup', 'assetAttributes_autoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is
--- generated.
 --
 -- 'schemaVersion', 'assetAttributes_schemaVersion' - The schema version of this data type.
 newAssetAttributes ::
@@ -89,18 +89,33 @@ newAssetAttributes ::
 newAssetAttributes pSchemaVersion_ =
   AssetAttributes'
     { hostname = Prelude.Nothing,
+      autoScalingGroup = Prelude.Nothing,
+      networkInterfaces = Prelude.Nothing,
+      ipv4Addresses = Prelude.Nothing,
       agentId = Prelude.Nothing,
       amiId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      ipv4Addresses = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing,
-      autoScalingGroup = Prelude.Nothing,
       schemaVersion = pSchemaVersion_
     }
 
 -- | The hostname of the EC2 instance where the finding is generated.
 assetAttributes_hostname :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
 assetAttributes_hostname = Lens.lens (\AssetAttributes' {hostname} -> hostname) (\s@AssetAttributes' {} a -> s {hostname = a} :: AssetAttributes)
+
+-- | The Auto Scaling group of the EC2 instance where the finding is
+-- generated.
+assetAttributes_autoScalingGroup :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
+assetAttributes_autoScalingGroup = Lens.lens (\AssetAttributes' {autoScalingGroup} -> autoScalingGroup) (\s@AssetAttributes' {} a -> s {autoScalingGroup = a} :: AssetAttributes)
+
+-- | An array of the network interfaces interacting with the EC2 instance
+-- where the finding is generated.
+assetAttributes_networkInterfaces :: Lens.Lens' AssetAttributes (Prelude.Maybe [NetworkInterface])
+assetAttributes_networkInterfaces = Lens.lens (\AssetAttributes' {networkInterfaces} -> networkInterfaces) (\s@AssetAttributes' {} a -> s {networkInterfaces = a} :: AssetAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of IP v4 addresses of the EC2 instance where the finding is
+-- generated.
+assetAttributes_ipv4Addresses :: Lens.Lens' AssetAttributes (Prelude.Maybe [Prelude.Text])
+assetAttributes_ipv4Addresses = Lens.lens (\AssetAttributes' {ipv4Addresses} -> ipv4Addresses) (\s@AssetAttributes' {} a -> s {ipv4Addresses = a} :: AssetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the agent that is installed on the EC2 instance where the
 -- finding is generated.
@@ -114,22 +129,7 @@ assetAttributes_amiId = Lens.lens (\AssetAttributes' {amiId} -> amiId) (\s@Asset
 
 -- | The tags related to the EC2 instance where the finding is generated.
 assetAttributes_tags :: Lens.Lens' AssetAttributes (Prelude.Maybe [Tag])
-assetAttributes_tags = Lens.lens (\AssetAttributes' {tags} -> tags) (\s@AssetAttributes' {} a -> s {tags = a} :: AssetAttributes) Prelude.. Lens.mapping Lens._Coerce
-
--- | The list of IP v4 addresses of the EC2 instance where the finding is
--- generated.
-assetAttributes_ipv4Addresses :: Lens.Lens' AssetAttributes (Prelude.Maybe [Prelude.Text])
-assetAttributes_ipv4Addresses = Lens.lens (\AssetAttributes' {ipv4Addresses} -> ipv4Addresses) (\s@AssetAttributes' {} a -> s {ipv4Addresses = a} :: AssetAttributes) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of the network interfaces interacting with the EC2 instance
--- where the finding is generated.
-assetAttributes_networkInterfaces :: Lens.Lens' AssetAttributes (Prelude.Maybe [NetworkInterface])
-assetAttributes_networkInterfaces = Lens.lens (\AssetAttributes' {networkInterfaces} -> networkInterfaces) (\s@AssetAttributes' {} a -> s {networkInterfaces = a} :: AssetAttributes) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Auto Scaling group of the EC2 instance where the finding is
--- generated.
-assetAttributes_autoScalingGroup :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
-assetAttributes_autoScalingGroup = Lens.lens (\AssetAttributes' {autoScalingGroup} -> autoScalingGroup) (\s@AssetAttributes' {} a -> s {autoScalingGroup = a} :: AssetAttributes)
+assetAttributes_tags = Lens.lens (\AssetAttributes' {tags} -> tags) (\s@AssetAttributes' {} a -> s {tags = a} :: AssetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The schema version of this data type.
 assetAttributes_schemaVersion :: Lens.Lens' AssetAttributes Prelude.Natural
@@ -142,14 +142,14 @@ instance Core.FromJSON AssetAttributes where
       ( \x ->
           AssetAttributes'
             Prelude.<$> (x Core..:? "hostname")
-            Prelude.<*> (x Core..:? "agentId")
-            Prelude.<*> (x Core..:? "amiId")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ipv4Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "autoScalingGroup")
             Prelude.<*> ( x Core..:? "networkInterfaces"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "autoScalingGroup")
+            Prelude.<*> (x Core..:? "ipv4Addresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "agentId")
+            Prelude.<*> (x Core..:? "amiId")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "schemaVersion")
       )
 

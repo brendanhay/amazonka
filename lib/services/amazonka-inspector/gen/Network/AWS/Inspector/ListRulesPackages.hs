@@ -230,6 +230,6 @@ listRulesPackagesResponse_httpStatus = Lens.lens (\ListRulesPackagesResponse' {h
 -- | The list of ARNs that specifies the rules packages returned by the
 -- action.
 listRulesPackagesResponse_rulesPackageArns :: Lens.Lens' ListRulesPackagesResponse [Prelude.Text]
-listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesResponse' {rulesPackageArns} -> rulesPackageArns) (\s@ListRulesPackagesResponse' {} a -> s {rulesPackageArns = a} :: ListRulesPackagesResponse) Prelude.. Lens._Coerce
+listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesResponse' {rulesPackageArns} -> rulesPackageArns) (\s@ListRulesPackagesResponse' {} a -> s {rulesPackageArns = a} :: ListRulesPackagesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListRulesPackagesResponse

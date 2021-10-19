@@ -77,7 +77,7 @@ newDescribeExclusions ::
 newDescribeExclusions pExclusionArns_ =
   DescribeExclusions'
     { locale = Prelude.Nothing,
-      exclusionArns = Lens._Coerce Lens.# pExclusionArns_
+      exclusionArns = Lens.coerced Lens.# pExclusionArns_
     }
 
 -- | The locale into which you want to translate the exclusion\'s title,
@@ -87,7 +87,7 @@ describeExclusions_locale = Lens.lens (\DescribeExclusions' {locale} -> locale) 
 
 -- | The list of ARNs that specify the exclusions that you want to describe.
 describeExclusions_exclusionArns :: Lens.Lens' DescribeExclusions (Prelude.NonEmpty Prelude.Text)
-describeExclusions_exclusionArns = Lens.lens (\DescribeExclusions' {exclusionArns} -> exclusionArns) (\s@DescribeExclusions' {} a -> s {exclusionArns = a} :: DescribeExclusions) Prelude.. Lens._Coerce
+describeExclusions_exclusionArns = Lens.lens (\DescribeExclusions' {exclusionArns} -> exclusionArns) (\s@DescribeExclusions' {} a -> s {exclusionArns = a} :: DescribeExclusions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeExclusions where
   type
@@ -182,11 +182,11 @@ describeExclusionsResponse_httpStatus = Lens.lens (\DescribeExclusionsResponse' 
 
 -- | Information about the exclusions.
 describeExclusionsResponse_exclusions :: Lens.Lens' DescribeExclusionsResponse (Prelude.HashMap Prelude.Text Exclusion)
-describeExclusionsResponse_exclusions = Lens.lens (\DescribeExclusionsResponse' {exclusions} -> exclusions) (\s@DescribeExclusionsResponse' {} a -> s {exclusions = a} :: DescribeExclusionsResponse) Prelude.. Lens._Coerce
+describeExclusionsResponse_exclusions = Lens.lens (\DescribeExclusionsResponse' {exclusions} -> exclusions) (\s@DescribeExclusionsResponse' {} a -> s {exclusions = a} :: DescribeExclusionsResponse) Prelude.. Lens.coerced
 
 -- | Exclusion details that cannot be described. An error code is provided
 -- for each failed item.
 describeExclusionsResponse_failedItems :: Lens.Lens' DescribeExclusionsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse' {failedItems} -> failedItems) (\s@DescribeExclusionsResponse' {} a -> s {failedItems = a} :: DescribeExclusionsResponse) Prelude.. Lens._Coerce
+describeExclusionsResponse_failedItems = Lens.lens (\DescribeExclusionsResponse' {failedItems} -> failedItems) (\s@DescribeExclusionsResponse' {} a -> s {failedItems = a} :: DescribeExclusionsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeExclusionsResponse

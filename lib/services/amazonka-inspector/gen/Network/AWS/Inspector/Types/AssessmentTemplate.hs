@@ -151,12 +151,12 @@ assessmentTemplate_durationInSeconds = Lens.lens (\AssessmentTemplate' {duration
 
 -- | The rules packages that are specified for this assessment template.
 assessmentTemplate_rulesPackageArns :: Lens.Lens' AssessmentTemplate [Prelude.Text]
-assessmentTemplate_rulesPackageArns = Lens.lens (\AssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplate' {} a -> s {rulesPackageArns = a} :: AssessmentTemplate) Prelude.. Lens._Coerce
+assessmentTemplate_rulesPackageArns = Lens.lens (\AssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentTemplate' {} a -> s {rulesPackageArns = a} :: AssessmentTemplate) Prelude.. Lens.coerced
 
 -- | The user-defined attributes that are assigned to every generated finding
 -- from the assessment run that uses this assessment template.
 assessmentTemplate_userAttributesForFindings :: Lens.Lens' AssessmentTemplate [Attribute]
-assessmentTemplate_userAttributesForFindings = Lens.lens (\AssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: AssessmentTemplate) Prelude.. Lens._Coerce
+assessmentTemplate_userAttributesForFindings = Lens.lens (\AssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: AssessmentTemplate) Prelude.. Lens.coerced
 
 -- | The number of existing assessment runs associated with this assessment
 -- template. This value can be zero or a positive integer.

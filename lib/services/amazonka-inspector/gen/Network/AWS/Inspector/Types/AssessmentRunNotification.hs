@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentRunNotification' smart constructor.
 data AssessmentRunNotification = AssessmentRunNotification'
-  { -- | The message included in the notification.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | The SNS topic to which the SNS notification is sent.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The status code of the SNS notification.
     snsPublishStatusCode :: Prelude.Maybe AssessmentRunNotificationSnsStatusCode,
-    -- | The SNS topic to which the SNS notification is sent.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The message included in the notification.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The date of the notification.
     date :: Core.POSIX,
     -- | The event for which a notification is sent.
@@ -53,11 +53,11 @@ data AssessmentRunNotification = AssessmentRunNotification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'assessmentRunNotification_message' - The message included in the notification.
+-- 'snsTopicArn', 'assessmentRunNotification_snsTopicArn' - The SNS topic to which the SNS notification is sent.
 --
 -- 'snsPublishStatusCode', 'assessmentRunNotification_snsPublishStatusCode' - The status code of the SNS notification.
 --
--- 'snsTopicArn', 'assessmentRunNotification_snsTopicArn' - The SNS topic to which the SNS notification is sent.
+-- 'message', 'assessmentRunNotification_message' - The message included in the notification.
 --
 -- 'date', 'assessmentRunNotification_date' - The date of the notification.
 --
@@ -75,26 +75,26 @@ newAssessmentRunNotification ::
   AssessmentRunNotification
 newAssessmentRunNotification pDate_ pEvent_ pError_ =
   AssessmentRunNotification'
-    { message =
+    { snsTopicArn =
         Prelude.Nothing,
       snsPublishStatusCode = Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
+      message = Prelude.Nothing,
       date = Core._Time Lens.# pDate_,
       event = pEvent_,
       error = pError_
     }
 
--- | The message included in the notification.
-assessmentRunNotification_message :: Lens.Lens' AssessmentRunNotification (Prelude.Maybe Prelude.Text)
-assessmentRunNotification_message = Lens.lens (\AssessmentRunNotification' {message} -> message) (\s@AssessmentRunNotification' {} a -> s {message = a} :: AssessmentRunNotification)
+-- | The SNS topic to which the SNS notification is sent.
+assessmentRunNotification_snsTopicArn :: Lens.Lens' AssessmentRunNotification (Prelude.Maybe Prelude.Text)
+assessmentRunNotification_snsTopicArn = Lens.lens (\AssessmentRunNotification' {snsTopicArn} -> snsTopicArn) (\s@AssessmentRunNotification' {} a -> s {snsTopicArn = a} :: AssessmentRunNotification)
 
 -- | The status code of the SNS notification.
 assessmentRunNotification_snsPublishStatusCode :: Lens.Lens' AssessmentRunNotification (Prelude.Maybe AssessmentRunNotificationSnsStatusCode)
 assessmentRunNotification_snsPublishStatusCode = Lens.lens (\AssessmentRunNotification' {snsPublishStatusCode} -> snsPublishStatusCode) (\s@AssessmentRunNotification' {} a -> s {snsPublishStatusCode = a} :: AssessmentRunNotification)
 
--- | The SNS topic to which the SNS notification is sent.
-assessmentRunNotification_snsTopicArn :: Lens.Lens' AssessmentRunNotification (Prelude.Maybe Prelude.Text)
-assessmentRunNotification_snsTopicArn = Lens.lens (\AssessmentRunNotification' {snsTopicArn} -> snsTopicArn) (\s@AssessmentRunNotification' {} a -> s {snsTopicArn = a} :: AssessmentRunNotification)
+-- | The message included in the notification.
+assessmentRunNotification_message :: Lens.Lens' AssessmentRunNotification (Prelude.Maybe Prelude.Text)
+assessmentRunNotification_message = Lens.lens (\AssessmentRunNotification' {message} -> message) (\s@AssessmentRunNotification' {} a -> s {message = a} :: AssessmentRunNotification)
 
 -- | The date of the notification.
 assessmentRunNotification_date :: Lens.Lens' AssessmentRunNotification Prelude.UTCTime
@@ -115,9 +115,9 @@ instance Core.FromJSON AssessmentRunNotification where
       "AssessmentRunNotification"
       ( \x ->
           AssessmentRunNotification'
-            Prelude.<$> (x Core..:? "message")
+            Prelude.<$> (x Core..:? "snsTopicArn")
             Prelude.<*> (x Core..:? "snsPublishStatusCode")
-            Prelude.<*> (x Core..:? "snsTopicArn")
+            Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..: "date")
             Prelude.<*> (x Core..: "event")
             Prelude.<*> (x Core..: "error")

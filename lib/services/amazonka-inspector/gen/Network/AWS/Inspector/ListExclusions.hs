@@ -242,6 +242,6 @@ listExclusionsResponse_httpStatus = Lens.lens (\ListExclusionsResponse' {httpSta
 
 -- | A list of exclusions\' ARNs returned by the action.
 listExclusionsResponse_exclusionArns :: Lens.Lens' ListExclusionsResponse [Prelude.Text]
-listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {exclusionArns} -> exclusionArns) (\s@ListExclusionsResponse' {} a -> s {exclusionArns = a} :: ListExclusionsResponse) Prelude.. Lens._Coerce
+listExclusionsResponse_exclusionArns = Lens.lens (\ListExclusionsResponse' {exclusionArns} -> exclusionArns) (\s@ListExclusionsResponse' {} a -> s {exclusionArns = a} :: ListExclusionsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListExclusionsResponse

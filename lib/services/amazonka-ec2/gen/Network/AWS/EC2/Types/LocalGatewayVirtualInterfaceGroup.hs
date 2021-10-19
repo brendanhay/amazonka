@@ -29,14 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLocalGatewayVirtualInterfaceGroup' smart constructor.
 data LocalGatewayVirtualInterfaceGroup = LocalGatewayVirtualInterfaceGroup'
-  { -- | The IDs of the virtual interfaces.
-    localGatewayVirtualInterfaceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS account ID that owns the local gateway virtual interface group.
+  { -- | The ID of the local gateway.
+    localGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon Web Services account that owns the local gateway
+    -- virtual interface group.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the virtual interfaces.
+    localGatewayVirtualInterfaceIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the virtual interface group.
     localGatewayVirtualInterfaceGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the local gateway.
-    localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the virtual interface group.
     tags :: Prelude.Maybe [Tag]
   }
@@ -50,47 +51,50 @@ data LocalGatewayVirtualInterfaceGroup = LocalGatewayVirtualInterfaceGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'localGatewayId', 'localGatewayVirtualInterfaceGroup_localGatewayId' - The ID of the local gateway.
+--
+-- 'ownerId', 'localGatewayVirtualInterfaceGroup_ownerId' - The ID of the Amazon Web Services account that owns the local gateway
+-- virtual interface group.
+--
 -- 'localGatewayVirtualInterfaceIds', 'localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
 --
--- 'ownerId', 'localGatewayVirtualInterfaceGroup_ownerId' - The AWS account ID that owns the local gateway virtual interface group.
---
 -- 'localGatewayVirtualInterfaceGroupId', 'localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
---
--- 'localGatewayId', 'localGatewayVirtualInterfaceGroup_localGatewayId' - The ID of the local gateway.
 --
 -- 'tags', 'localGatewayVirtualInterfaceGroup_tags' - The tags assigned to the virtual interface group.
 newLocalGatewayVirtualInterfaceGroup ::
   LocalGatewayVirtualInterfaceGroup
 newLocalGatewayVirtualInterfaceGroup =
   LocalGatewayVirtualInterfaceGroup'
-    { localGatewayVirtualInterfaceIds =
+    { localGatewayId =
         Prelude.Nothing,
       ownerId = Prelude.Nothing,
+      localGatewayVirtualInterfaceIds =
+        Prelude.Nothing,
       localGatewayVirtualInterfaceGroupId =
         Prelude.Nothing,
-      localGatewayId = Prelude.Nothing,
       tags = Prelude.Nothing
     }
-
--- | The IDs of the virtual interfaces.
-localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe [Prelude.Text])
-localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayVirtualInterfaceIds} -> localGatewayVirtualInterfaceIds) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayVirtualInterfaceIds = a} :: LocalGatewayVirtualInterfaceGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | The AWS account ID that owns the local gateway virtual interface group.
-localGatewayVirtualInterfaceGroup_ownerId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe Prelude.Text)
-localGatewayVirtualInterfaceGroup_ownerId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {ownerId} -> ownerId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {ownerId = a} :: LocalGatewayVirtualInterfaceGroup)
-
--- | The ID of the virtual interface group.
-localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe Prelude.Text)
-localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayVirtualInterfaceGroup)
 
 -- | The ID of the local gateway.
 localGatewayVirtualInterfaceGroup_localGatewayId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe Prelude.Text)
 localGatewayVirtualInterfaceGroup_localGatewayId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayId} -> localGatewayId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayId = a} :: LocalGatewayVirtualInterfaceGroup)
 
+-- | The ID of the Amazon Web Services account that owns the local gateway
+-- virtual interface group.
+localGatewayVirtualInterfaceGroup_ownerId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe Prelude.Text)
+localGatewayVirtualInterfaceGroup_ownerId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {ownerId} -> ownerId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {ownerId = a} :: LocalGatewayVirtualInterfaceGroup)
+
+-- | The IDs of the virtual interfaces.
+localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe [Prelude.Text])
+localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayVirtualInterfaceIds} -> localGatewayVirtualInterfaceIds) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayVirtualInterfaceIds = a} :: LocalGatewayVirtualInterfaceGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the virtual interface group.
+localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe Prelude.Text)
+localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceGroupId = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayVirtualInterfaceGroup)
+
 -- | The tags assigned to the virtual interface group.
 localGatewayVirtualInterfaceGroup_tags :: Lens.Lens' LocalGatewayVirtualInterfaceGroup (Prelude.Maybe [Tag])
-localGatewayVirtualInterfaceGroup_tags = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {tags} -> tags) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {tags = a} :: LocalGatewayVirtualInterfaceGroup) Prelude.. Lens.mapping Lens._Coerce
+localGatewayVirtualInterfaceGroup_tags = Lens.lens (\LocalGatewayVirtualInterfaceGroup' {tags} -> tags) (\s@LocalGatewayVirtualInterfaceGroup' {} a -> s {tags = a} :: LocalGatewayVirtualInterfaceGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromXML
@@ -98,13 +102,13 @@ instance
   where
   parseXML x =
     LocalGatewayVirtualInterfaceGroup'
-      Prelude.<$> ( x Core..@? "localGatewayVirtualInterfaceIdSet"
+      Prelude.<$> (x Core..@? "localGatewayId")
+      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> ( x Core..@? "localGatewayVirtualInterfaceIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
-      Prelude.<*> (x Core..@? "localGatewayId")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

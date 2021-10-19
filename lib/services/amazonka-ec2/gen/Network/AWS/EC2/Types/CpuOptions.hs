@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCpuOptions' smart constructor.
 data CpuOptions = CpuOptions'
-  { -- | The number of threads per CPU core.
-    threadsPerCore :: Prelude.Maybe Prelude.Int,
-    -- | The number of CPU cores for the instance.
-    coreCount :: Prelude.Maybe Prelude.Int
+  { -- | The number of CPU cores for the instance.
+    coreCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of threads per CPU core.
+    threadsPerCore :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data CpuOptions = CpuOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'threadsPerCore', 'cpuOptions_threadsPerCore' - The number of threads per CPU core.
---
 -- 'coreCount', 'cpuOptions_coreCount' - The number of CPU cores for the instance.
+--
+-- 'threadsPerCore', 'cpuOptions_threadsPerCore' - The number of threads per CPU core.
 newCpuOptions ::
   CpuOptions
 newCpuOptions =
   CpuOptions'
-    { threadsPerCore = Prelude.Nothing,
-      coreCount = Prelude.Nothing
+    { coreCount = Prelude.Nothing,
+      threadsPerCore = Prelude.Nothing
     }
-
--- | The number of threads per CPU core.
-cpuOptions_threadsPerCore :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
-cpuOptions_threadsPerCore = Lens.lens (\CpuOptions' {threadsPerCore} -> threadsPerCore) (\s@CpuOptions' {} a -> s {threadsPerCore = a} :: CpuOptions)
 
 -- | The number of CPU cores for the instance.
 cpuOptions_coreCount :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
 cpuOptions_coreCount = Lens.lens (\CpuOptions' {coreCount} -> coreCount) (\s@CpuOptions' {} a -> s {coreCount = a} :: CpuOptions)
 
+-- | The number of threads per CPU core.
+cpuOptions_threadsPerCore :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
+cpuOptions_threadsPerCore = Lens.lens (\CpuOptions' {threadsPerCore} -> threadsPerCore) (\s@CpuOptions' {} a -> s {threadsPerCore = a} :: CpuOptions)
+
 instance Core.FromXML CpuOptions where
   parseXML x =
     CpuOptions'
-      Prelude.<$> (x Core..@? "threadsPerCore")
-      Prelude.<*> (x Core..@? "coreCount")
+      Prelude.<$> (x Core..@? "coreCount")
+      Prelude.<*> (x Core..@? "threadsPerCore")
 
 instance Prelude.Hashable CpuOptions
 

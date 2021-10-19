@@ -30,8 +30,8 @@ module Network.AWS.EC2.DeleteNetworkInterfacePermission
     newDeleteNetworkInterfacePermission,
 
     -- * Request Lenses
-    deleteNetworkInterfacePermission_dryRun,
     deleteNetworkInterfacePermission_force,
+    deleteNetworkInterfacePermission_dryRun,
     deleteNetworkInterfacePermission_networkInterfacePermissionId,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteNetworkInterfacePermission' smart constructor.
 data DeleteNetworkInterfacePermission = DeleteNetworkInterfacePermission'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Specify @true@ to remove the permission even if the network interface is
+    -- attached to an instance.
+    force :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Specify @true@ to remove the permission even if the network interface is
-    -- attached to an instance.
-    force :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface permission.
     networkInterfacePermissionId :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data DeleteNetworkInterfacePermission = DeleteNetworkInterfacePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'force', 'deleteNetworkInterfacePermission_force' - Specify @true@ to remove the permission even if the network interface is
+-- attached to an instance.
+--
 -- 'dryRun', 'deleteNetworkInterfacePermission_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'force', 'deleteNetworkInterfacePermission_force' - Specify @true@ to remove the permission even if the network interface is
--- attached to an instance.
 --
 -- 'networkInterfacePermissionId', 'deleteNetworkInterfacePermission_networkInterfacePermissionId' - The ID of the network interface permission.
 newDeleteNetworkInterfacePermission ::
@@ -92,12 +92,17 @@ newDeleteNetworkInterfacePermission ::
 newDeleteNetworkInterfacePermission
   pNetworkInterfacePermissionId_ =
     DeleteNetworkInterfacePermission'
-      { dryRun =
+      { force =
           Prelude.Nothing,
-        force = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         networkInterfacePermissionId =
           pNetworkInterfacePermissionId_
       }
+
+-- | Specify @true@ to remove the permission even if the network interface is
+-- attached to an instance.
+deleteNetworkInterfacePermission_force :: Lens.Lens' DeleteNetworkInterfacePermission (Prelude.Maybe Prelude.Bool)
+deleteNetworkInterfacePermission_force = Lens.lens (\DeleteNetworkInterfacePermission' {force} -> force) (\s@DeleteNetworkInterfacePermission' {} a -> s {force = a} :: DeleteNetworkInterfacePermission)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,11 +110,6 @@ newDeleteNetworkInterfacePermission
 -- Otherwise, it is @UnauthorizedOperation@.
 deleteNetworkInterfacePermission_dryRun :: Lens.Lens' DeleteNetworkInterfacePermission (Prelude.Maybe Prelude.Bool)
 deleteNetworkInterfacePermission_dryRun = Lens.lens (\DeleteNetworkInterfacePermission' {dryRun} -> dryRun) (\s@DeleteNetworkInterfacePermission' {} a -> s {dryRun = a} :: DeleteNetworkInterfacePermission)
-
--- | Specify @true@ to remove the permission even if the network interface is
--- attached to an instance.
-deleteNetworkInterfacePermission_force :: Lens.Lens' DeleteNetworkInterfacePermission (Prelude.Maybe Prelude.Bool)
-deleteNetworkInterfacePermission_force = Lens.lens (\DeleteNetworkInterfacePermission' {force} -> force) (\s@DeleteNetworkInterfacePermission' {} a -> s {force = a} :: DeleteNetworkInterfacePermission)
 
 -- | The ID of the network interface permission.
 deleteNetworkInterfacePermission_networkInterfacePermissionId :: Lens.Lens' DeleteNetworkInterfacePermission Prelude.Text
@@ -160,8 +160,8 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Force" Core.=: force,
+        "DryRun" Core.=: dryRun,
         "NetworkInterfacePermissionId"
           Core.=: networkInterfacePermissionId
       ]

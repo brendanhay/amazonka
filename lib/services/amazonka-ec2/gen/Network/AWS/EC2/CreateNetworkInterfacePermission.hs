@@ -32,8 +32,8 @@ module Network.AWS.EC2.CreateNetworkInterfacePermission
 
     -- * Request Lenses
     createNetworkInterfacePermission_awsAccountId,
-    createNetworkInterfacePermission_dryRun,
     createNetworkInterfacePermission_awsService,
+    createNetworkInterfacePermission_dryRun,
     createNetworkInterfacePermission_networkInterfaceId,
     createNetworkInterfacePermission_permission,
 
@@ -60,13 +60,13 @@ import qualified Network.AWS.Response as Response
 data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
   { -- | The Amazon Web Services account ID.
     awsAccountId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Service. Currently not supported.
+    awsService :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Service. Currently not supported.
-    awsService :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text,
     -- | The type of permission to grant.
@@ -84,12 +84,12 @@ data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
 --
 -- 'awsAccountId', 'createNetworkInterfacePermission_awsAccountId' - The Amazon Web Services account ID.
 --
+-- 'awsService', 'createNetworkInterfacePermission_awsService' - The Amazon Web Service. Currently not supported.
+--
 -- 'dryRun', 'createNetworkInterfacePermission_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'awsService', 'createNetworkInterfacePermission_awsService' - The Amazon Web Service. Currently not supported.
 --
 -- 'networkInterfaceId', 'createNetworkInterfacePermission_networkInterfaceId' - The ID of the network interface.
 --
@@ -106,8 +106,8 @@ newCreateNetworkInterfacePermission
     CreateNetworkInterfacePermission'
       { awsAccountId =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         awsService = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         networkInterfaceId = pNetworkInterfaceId_,
         permission = pPermission_
       }
@@ -116,16 +116,16 @@ newCreateNetworkInterfacePermission
 createNetworkInterfacePermission_awsAccountId :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Text)
 createNetworkInterfacePermission_awsAccountId = Lens.lens (\CreateNetworkInterfacePermission' {awsAccountId} -> awsAccountId) (\s@CreateNetworkInterfacePermission' {} a -> s {awsAccountId = a} :: CreateNetworkInterfacePermission)
 
+-- | The Amazon Web Service. Currently not supported.
+createNetworkInterfacePermission_awsService :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Text)
+createNetworkInterfacePermission_awsService = Lens.lens (\CreateNetworkInterfacePermission' {awsService} -> awsService) (\s@CreateNetworkInterfacePermission' {} a -> s {awsService = a} :: CreateNetworkInterfacePermission)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createNetworkInterfacePermission_dryRun :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Bool)
 createNetworkInterfacePermission_dryRun = Lens.lens (\CreateNetworkInterfacePermission' {dryRun} -> dryRun) (\s@CreateNetworkInterfacePermission' {} a -> s {dryRun = a} :: CreateNetworkInterfacePermission)
-
--- | The Amazon Web Service. Currently not supported.
-createNetworkInterfacePermission_awsService :: Lens.Lens' CreateNetworkInterfacePermission (Prelude.Maybe Prelude.Text)
-createNetworkInterfacePermission_awsService = Lens.lens (\CreateNetworkInterfacePermission' {awsService} -> awsService) (\s@CreateNetworkInterfacePermission' {} a -> s {awsService = a} :: CreateNetworkInterfacePermission)
 
 -- | The ID of the network interface.
 createNetworkInterfacePermission_networkInterfaceId :: Lens.Lens' CreateNetworkInterfacePermission Prelude.Text
@@ -181,8 +181,8 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "AwsAccountId" Core.=: awsAccountId,
-        "DryRun" Core.=: dryRun,
         "AwsService" Core.=: awsService,
+        "DryRun" Core.=: dryRun,
         "NetworkInterfaceId" Core.=: networkInterfaceId,
         "Permission" Core.=: permission
       ]

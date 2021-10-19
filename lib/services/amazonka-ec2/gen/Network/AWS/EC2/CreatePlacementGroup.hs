@@ -40,10 +40,10 @@ module Network.AWS.EC2.CreatePlacementGroup
     newCreatePlacementGroup,
 
     -- * Request Lenses
-    createPlacementGroup_tagSpecifications,
-    createPlacementGroup_dryRun,
     createPlacementGroup_strategy,
+    createPlacementGroup_tagSpecifications,
     createPlacementGroup_groupName,
+    createPlacementGroup_dryRun,
     createPlacementGroup_partitionCount,
 
     -- * Destructuring the Response
@@ -65,20 +65,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { -- | The tags to apply to the new placement group.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The placement strategy.
+  { -- | The placement strategy.
     strategy :: Prelude.Maybe PlacementStrategy,
+    -- | The tags to apply to the new placement group.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A name for the placement group. Must be unique within the scope of your
     -- account for the Region.
     --
     -- Constraints: Up to 255 ASCII characters
     groupName :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The number of partitions. Valid only when __Strategy__ is set to
     -- @partition@.
     partitionCount :: Prelude.Maybe Prelude.Int
@@ -93,19 +93,19 @@ data CreatePlacementGroup = CreatePlacementGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.
---
--- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.
+--
+-- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.
 --
 -- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
 --
 -- Constraints: Up to 255 ASCII characters
+--
+-- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
@@ -113,28 +113,20 @@ newCreatePlacementGroup ::
   CreatePlacementGroup
 newCreatePlacementGroup =
   CreatePlacementGroup'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      strategy = Prelude.Nothing,
+    { strategy = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       groupName = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       partitionCount = Prelude.Nothing
     }
-
--- | The tags to apply to the new placement group.
-createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe [TagSpecification])
-createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
-createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
 
 -- | The placement strategy.
 createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe PlacementStrategy)
 createPlacementGroup_strategy = Lens.lens (\CreatePlacementGroup' {strategy} -> strategy) (\s@CreatePlacementGroup' {} a -> s {strategy = a} :: CreatePlacementGroup)
+
+-- | The tags to apply to the new placement group.
+createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe [TagSpecification])
+createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
@@ -142,6 +134,13 @@ createPlacementGroup_strategy = Lens.lens (\CreatePlacementGroup' {strategy} -> 
 -- Constraints: Up to 255 ASCII characters
 createPlacementGroup_groupName :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Text)
 createPlacementGroup_groupName = Lens.lens (\CreatePlacementGroup' {groupName} -> groupName) (\s@CreatePlacementGroup' {} a -> s {groupName = a} :: CreatePlacementGroup)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
+createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
 
 -- | The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
@@ -178,13 +177,13 @@ instance Core.ToQuery CreatePlacementGroup where
           Core.=: ("CreatePlacementGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Strategy" Core.=: strategy,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "Strategy" Core.=: strategy,
         "GroupName" Core.=: groupName,
+        "DryRun" Core.=: dryRun,
         "PartitionCount" Core.=: partitionCount
       ]
 

@@ -28,8 +28,8 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     newDescribeNetworkInterfaceAttribute,
 
     -- * Request Lenses
-    describeNetworkInterfaceAttribute_dryRun,
     describeNetworkInterfaceAttribute_attribute,
+    describeNetworkInterfaceAttribute_dryRun,
     describeNetworkInterfaceAttribute_networkInterfaceId,
 
     -- * Destructuring the Response
@@ -38,10 +38,10 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 
     -- * Response Lenses
     describeNetworkInterfaceAttributeResponse_groups,
-    describeNetworkInterfaceAttributeResponse_attachment,
     describeNetworkInterfaceAttributeResponse_sourceDestCheck,
-    describeNetworkInterfaceAttributeResponse_description,
     describeNetworkInterfaceAttributeResponse_networkInterfaceId,
+    describeNetworkInterfaceAttributeResponse_attachment,
+    describeNetworkInterfaceAttributeResponse_description,
     describeNetworkInterfaceAttributeResponse_httpStatus,
   )
 where
@@ -57,13 +57,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeNetworkInterfaceAttribute' smart constructor.
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The attribute of the network interface. This parameter is required.
+    attribute :: Prelude.Maybe NetworkInterfaceAttribute,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The attribute of the network interface. This parameter is required.
-    attribute :: Prelude.Maybe NetworkInterfaceAttribute,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text
   }
@@ -77,12 +77,12 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attribute', 'describeNetworkInterfaceAttribute_attribute' - The attribute of the network interface. This parameter is required.
+--
 -- 'dryRun', 'describeNetworkInterfaceAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'attribute', 'describeNetworkInterfaceAttribute_attribute' - The attribute of the network interface. This parameter is required.
 --
 -- 'networkInterfaceId', 'describeNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.
 newDescribeNetworkInterfaceAttribute ::
@@ -92,12 +92,16 @@ newDescribeNetworkInterfaceAttribute ::
 newDescribeNetworkInterfaceAttribute
   pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
-      { dryRun =
+      { attribute =
           Prelude.Nothing,
-        attribute = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         networkInterfaceId =
           pNetworkInterfaceId_
       }
+
+-- | The attribute of the network interface. This parameter is required.
+describeNetworkInterfaceAttribute_attribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Prelude.Maybe NetworkInterfaceAttribute)
+describeNetworkInterfaceAttribute_attribute = Lens.lens (\DescribeNetworkInterfaceAttribute' {attribute} -> attribute) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {attribute = a} :: DescribeNetworkInterfaceAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,10 +109,6 @@ newDescribeNetworkInterfaceAttribute
 -- Otherwise, it is @UnauthorizedOperation@.
 describeNetworkInterfaceAttribute_dryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
 describeNetworkInterfaceAttribute_dryRun = Lens.lens (\DescribeNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: DescribeNetworkInterfaceAttribute)
-
--- | The attribute of the network interface. This parameter is required.
-describeNetworkInterfaceAttribute_attribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Prelude.Maybe NetworkInterfaceAttribute)
-describeNetworkInterfaceAttribute_attribute = Lens.lens (\DescribeNetworkInterfaceAttribute' {attribute} -> attribute) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {attribute = a} :: DescribeNetworkInterfaceAttribute)
 
 -- | The ID of the network interface.
 describeNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttribute Prelude.Text
@@ -129,10 +129,10 @@ instance
             Prelude.<$> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-              Prelude.<*> (x Core..@? "attachment")
               Prelude.<*> (x Core..@? "sourceDestCheck")
-              Prelude.<*> (x Core..@? "description")
               Prelude.<*> (x Core..@? "networkInterfaceId")
+              Prelude.<*> (x Core..@? "attachment")
+              Prelude.<*> (x Core..@? "description")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -168,8 +168,8 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Attribute" Core.=: attribute,
+        "DryRun" Core.=: dryRun,
         "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 
@@ -179,14 +179,14 @@ instance
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
   { -- | The security groups associated with the network interface.
     groups :: Prelude.Maybe [GroupIdentifier],
-    -- | The attachment (if any) of the network interface.
-    attachment :: Prelude.Maybe NetworkInterfaceAttachment,
     -- | Indicates whether source\/destination checking is enabled.
     sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
-    -- | The description of the network interface.
-    description :: Prelude.Maybe AttributeValue,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The attachment (if any) of the network interface.
+    attachment :: Prelude.Maybe NetworkInterfaceAttachment,
+    -- | The description of the network interface.
+    description :: Prelude.Maybe AttributeValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,13 +202,13 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 --
 -- 'groups', 'describeNetworkInterfaceAttributeResponse_groups' - The security groups associated with the network interface.
 --
--- 'attachment', 'describeNetworkInterfaceAttributeResponse_attachment' - The attachment (if any) of the network interface.
---
 -- 'sourceDestCheck', 'describeNetworkInterfaceAttributeResponse_sourceDestCheck' - Indicates whether source\/destination checking is enabled.
 --
--- 'description', 'describeNetworkInterfaceAttributeResponse_description' - The description of the network interface.
---
 -- 'networkInterfaceId', 'describeNetworkInterfaceAttributeResponse_networkInterfaceId' - The ID of the network interface.
+--
+-- 'attachment', 'describeNetworkInterfaceAttributeResponse_attachment' - The attachment (if any) of the network interface.
+--
+-- 'description', 'describeNetworkInterfaceAttributeResponse_description' - The description of the network interface.
 --
 -- 'httpStatus', 'describeNetworkInterfaceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfaceAttributeResponse ::
@@ -220,34 +220,34 @@ newDescribeNetworkInterfaceAttributeResponse
     DescribeNetworkInterfaceAttributeResponse'
       { groups =
           Prelude.Nothing,
-        attachment = Prelude.Nothing,
         sourceDestCheck =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         networkInterfaceId =
           Prelude.Nothing,
+        attachment = Prelude.Nothing,
+        description = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The security groups associated with the network interface.
 describeNetworkInterfaceAttributeResponse_groups :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe [GroupIdentifier])
-describeNetworkInterfaceAttributeResponse_groups = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {groups} -> groups) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {groups = a} :: DescribeNetworkInterfaceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The attachment (if any) of the network interface.
-describeNetworkInterfaceAttributeResponse_attachment :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe NetworkInterfaceAttachment)
-describeNetworkInterfaceAttributeResponse_attachment = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {attachment} -> attachment) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {attachment = a} :: DescribeNetworkInterfaceAttributeResponse)
+describeNetworkInterfaceAttributeResponse_groups = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {groups} -> groups) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {groups = a} :: DescribeNetworkInterfaceAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether source\/destination checking is enabled.
 describeNetworkInterfaceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeNetworkInterfaceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeNetworkInterfaceAttributeResponse)
 
--- | The description of the network interface.
-describeNetworkInterfaceAttributeResponse_description :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeValue)
-describeNetworkInterfaceAttributeResponse_description = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {description} -> description) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {description = a} :: DescribeNetworkInterfaceAttributeResponse)
-
 -- | The ID of the network interface.
 describeNetworkInterfaceAttributeResponse_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInterfaceAttributeResponse_networkInterfaceId = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttributeResponse)
+
+-- | The attachment (if any) of the network interface.
+describeNetworkInterfaceAttributeResponse_attachment :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe NetworkInterfaceAttachment)
+describeNetworkInterfaceAttributeResponse_attachment = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {attachment} -> attachment) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {attachment = a} :: DescribeNetworkInterfaceAttributeResponse)
+
+-- | The description of the network interface.
+describeNetworkInterfaceAttributeResponse_description :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeValue)
+describeNetworkInterfaceAttributeResponse_description = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {description} -> description) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {description = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | The response's http status code.
 describeNetworkInterfaceAttributeResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse Prelude.Int

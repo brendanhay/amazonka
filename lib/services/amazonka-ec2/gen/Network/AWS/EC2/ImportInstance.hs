@@ -40,10 +40,10 @@ module Network.AWS.EC2.ImportInstance
     newImportInstance,
 
     -- * Request Lenses
-    importInstance_diskImages,
-    importInstance_dryRun,
-    importInstance_description,
     importInstance_launchSpecification,
+    importInstance_diskImages,
+    importInstance_description,
+    importInstance_dryRun,
     importInstance_platform,
 
     -- * Destructuring the Response
@@ -65,17 +65,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportInstance' smart constructor.
 data ImportInstance = ImportInstance'
-  { -- | The disk image.
+  { -- | The launch specification.
+    launchSpecification :: Prelude.Maybe ImportInstanceLaunchSpecification,
+    -- | The disk image.
     diskImages :: Prelude.Maybe [DiskImage],
+    -- | A description for the instance being imported.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A description for the instance being imported.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The launch specification.
-    launchSpecification :: Prelude.Maybe ImportInstanceLaunchSpecification,
     -- | The instance operating system.
     platform :: PlatformValues
   }
@@ -89,16 +89,16 @@ data ImportInstance = ImportInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchSpecification', 'importInstance_launchSpecification' - The launch specification.
+--
 -- 'diskImages', 'importInstance_diskImages' - The disk image.
+--
+-- 'description', 'importInstance_description' - A description for the instance being imported.
 --
 -- 'dryRun', 'importInstance_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'description', 'importInstance_description' - A description for the instance being imported.
---
--- 'launchSpecification', 'importInstance_launchSpecification' - The launch specification.
 --
 -- 'platform', 'importInstance_platform' - The instance operating system.
 newImportInstance ::
@@ -107,16 +107,25 @@ newImportInstance ::
   ImportInstance
 newImportInstance pPlatform_ =
   ImportInstance'
-    { diskImages = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { launchSpecification =
+        Prelude.Nothing,
+      diskImages = Prelude.Nothing,
       description = Prelude.Nothing,
-      launchSpecification = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       platform = pPlatform_
     }
 
+-- | The launch specification.
+importInstance_launchSpecification :: Lens.Lens' ImportInstance (Prelude.Maybe ImportInstanceLaunchSpecification)
+importInstance_launchSpecification = Lens.lens (\ImportInstance' {launchSpecification} -> launchSpecification) (\s@ImportInstance' {} a -> s {launchSpecification = a} :: ImportInstance)
+
 -- | The disk image.
 importInstance_diskImages :: Lens.Lens' ImportInstance (Prelude.Maybe [DiskImage])
-importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Prelude.. Lens.mapping Lens._Coerce
+importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the instance being imported.
+importInstance_description :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Text)
+importInstance_description = Lens.lens (\ImportInstance' {description} -> description) (\s@ImportInstance' {} a -> s {description = a} :: ImportInstance)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -124,14 +133,6 @@ importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImag
 -- Otherwise, it is @UnauthorizedOperation@.
 importInstance_dryRun :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Bool)
 importInstance_dryRun = Lens.lens (\ImportInstance' {dryRun} -> dryRun) (\s@ImportInstance' {} a -> s {dryRun = a} :: ImportInstance)
-
--- | A description for the instance being imported.
-importInstance_description :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Text)
-importInstance_description = Lens.lens (\ImportInstance' {description} -> description) (\s@ImportInstance' {} a -> s {description = a} :: ImportInstance)
-
--- | The launch specification.
-importInstance_launchSpecification :: Lens.Lens' ImportInstance (Prelude.Maybe ImportInstanceLaunchSpecification)
-importInstance_launchSpecification = Lens.lens (\ImportInstance' {launchSpecification} -> launchSpecification) (\s@ImportInstance' {} a -> s {launchSpecification = a} :: ImportInstance)
 
 -- | The instance operating system.
 importInstance_platform :: Lens.Lens' ImportInstance PlatformValues
@@ -167,13 +168,13 @@ instance Core.ToQuery ImportInstance where
           Core.=: ("ImportInstance" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "LaunchSpecification" Core.=: launchSpecification,
         Core.toQuery
           ( Core.toQueryList "DiskImage"
               Prelude.<$> diskImages
           ),
-        "DryRun" Core.=: dryRun,
         "Description" Core.=: description,
-        "LaunchSpecification" Core.=: launchSpecification,
+        "DryRun" Core.=: dryRun,
         "Platform" Core.=: platform
       ]
 

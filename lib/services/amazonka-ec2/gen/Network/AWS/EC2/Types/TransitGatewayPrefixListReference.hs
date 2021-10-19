@@ -30,18 +30,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPrefixListReference' smart constructor.
 data TransitGatewayPrefixListReference = TransitGatewayPrefixListReference'
-  { -- | Information about the transit gateway attachment.
-    transitGatewayAttachment :: Prelude.Maybe TransitGatewayPrefixListAttachment,
+  { -- | The state of the prefix list reference.
+    state :: Prelude.Maybe TransitGatewayPrefixListReferenceState,
+    -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the prefix list owner.
     prefixListOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the prefix list.
-    prefixListId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the prefix list reference.
-    state :: Prelude.Maybe TransitGatewayPrefixListReferenceState,
     -- | Indicates whether traffic that matches this route is dropped.
     blackhole :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
+    -- | The ID of the prefix list.
+    prefixListId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the transit gateway attachment.
+    transitGatewayAttachment :: Prelude.Maybe TransitGatewayPrefixListAttachment
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,54 +53,55 @@ data TransitGatewayPrefixListReference = TransitGatewayPrefixListReference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayAttachment', 'transitGatewayPrefixListReference_transitGatewayAttachment' - Information about the transit gateway attachment.
+-- 'state', 'transitGatewayPrefixListReference_state' - The state of the prefix list reference.
+--
+-- 'transitGatewayRouteTableId', 'transitGatewayPrefixListReference_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 --
 -- 'prefixListOwnerId', 'transitGatewayPrefixListReference_prefixListOwnerId' - The ID of the prefix list owner.
 --
--- 'prefixListId', 'transitGatewayPrefixListReference_prefixListId' - The ID of the prefix list.
---
--- 'state', 'transitGatewayPrefixListReference_state' - The state of the prefix list reference.
---
 -- 'blackhole', 'transitGatewayPrefixListReference_blackhole' - Indicates whether traffic that matches this route is dropped.
 --
--- 'transitGatewayRouteTableId', 'transitGatewayPrefixListReference_transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- 'prefixListId', 'transitGatewayPrefixListReference_prefixListId' - The ID of the prefix list.
+--
+-- 'transitGatewayAttachment', 'transitGatewayPrefixListReference_transitGatewayAttachment' - Information about the transit gateway attachment.
 newTransitGatewayPrefixListReference ::
   TransitGatewayPrefixListReference
 newTransitGatewayPrefixListReference =
   TransitGatewayPrefixListReference'
-    { transitGatewayAttachment =
+    { state =
+        Prelude.Nothing,
+      transitGatewayRouteTableId =
         Prelude.Nothing,
       prefixListOwnerId = Prelude.Nothing,
-      prefixListId = Prelude.Nothing,
-      state = Prelude.Nothing,
       blackhole = Prelude.Nothing,
-      transitGatewayRouteTableId =
+      prefixListId = Prelude.Nothing,
+      transitGatewayAttachment =
         Prelude.Nothing
     }
-
--- | Information about the transit gateway attachment.
-transitGatewayPrefixListReference_transitGatewayAttachment :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe TransitGatewayPrefixListAttachment)
-transitGatewayPrefixListReference_transitGatewayAttachment = Lens.lens (\TransitGatewayPrefixListReference' {transitGatewayAttachment} -> transitGatewayAttachment) (\s@TransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachment = a} :: TransitGatewayPrefixListReference)
-
--- | The ID of the prefix list owner.
-transitGatewayPrefixListReference_prefixListOwnerId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
-transitGatewayPrefixListReference_prefixListOwnerId = Lens.lens (\TransitGatewayPrefixListReference' {prefixListOwnerId} -> prefixListOwnerId) (\s@TransitGatewayPrefixListReference' {} a -> s {prefixListOwnerId = a} :: TransitGatewayPrefixListReference)
-
--- | The ID of the prefix list.
-transitGatewayPrefixListReference_prefixListId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
-transitGatewayPrefixListReference_prefixListId = Lens.lens (\TransitGatewayPrefixListReference' {prefixListId} -> prefixListId) (\s@TransitGatewayPrefixListReference' {} a -> s {prefixListId = a} :: TransitGatewayPrefixListReference)
 
 -- | The state of the prefix list reference.
 transitGatewayPrefixListReference_state :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe TransitGatewayPrefixListReferenceState)
 transitGatewayPrefixListReference_state = Lens.lens (\TransitGatewayPrefixListReference' {state} -> state) (\s@TransitGatewayPrefixListReference' {} a -> s {state = a} :: TransitGatewayPrefixListReference)
 
+-- | The ID of the transit gateway route table.
+transitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
+transitGatewayPrefixListReference_transitGatewayRouteTableId = Lens.lens (\TransitGatewayPrefixListReference' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayPrefixListReference' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPrefixListReference)
+
+-- | The ID of the prefix list owner.
+transitGatewayPrefixListReference_prefixListOwnerId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
+transitGatewayPrefixListReference_prefixListOwnerId = Lens.lens (\TransitGatewayPrefixListReference' {prefixListOwnerId} -> prefixListOwnerId) (\s@TransitGatewayPrefixListReference' {} a -> s {prefixListOwnerId = a} :: TransitGatewayPrefixListReference)
+
 -- | Indicates whether traffic that matches this route is dropped.
 transitGatewayPrefixListReference_blackhole :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
 transitGatewayPrefixListReference_blackhole = Lens.lens (\TransitGatewayPrefixListReference' {blackhole} -> blackhole) (\s@TransitGatewayPrefixListReference' {} a -> s {blackhole = a} :: TransitGatewayPrefixListReference)
 
--- | The ID of the transit gateway route table.
-transitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
-transitGatewayPrefixListReference_transitGatewayRouteTableId = Lens.lens (\TransitGatewayPrefixListReference' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayPrefixListReference' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPrefixListReference)
+-- | The ID of the prefix list.
+transitGatewayPrefixListReference_prefixListId :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
+transitGatewayPrefixListReference_prefixListId = Lens.lens (\TransitGatewayPrefixListReference' {prefixListId} -> prefixListId) (\s@TransitGatewayPrefixListReference' {} a -> s {prefixListId = a} :: TransitGatewayPrefixListReference)
+
+-- | Information about the transit gateway attachment.
+transitGatewayPrefixListReference_transitGatewayAttachment :: Lens.Lens' TransitGatewayPrefixListReference (Prelude.Maybe TransitGatewayPrefixListAttachment)
+transitGatewayPrefixListReference_transitGatewayAttachment = Lens.lens (\TransitGatewayPrefixListReference' {transitGatewayAttachment} -> transitGatewayAttachment) (\s@TransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachment = a} :: TransitGatewayPrefixListReference)
 
 instance
   Core.FromXML
@@ -108,12 +109,12 @@ instance
   where
   parseXML x =
     TransitGatewayPrefixListReference'
-      Prelude.<$> (x Core..@? "transitGatewayAttachment")
-      Prelude.<*> (x Core..@? "prefixListOwnerId")
-      Prelude.<*> (x Core..@? "prefixListId")
-      Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "blackhole")
+      Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
+      Prelude.<*> (x Core..@? "prefixListOwnerId")
+      Prelude.<*> (x Core..@? "blackhole")
+      Prelude.<*> (x Core..@? "prefixListId")
+      Prelude.<*> (x Core..@? "transitGatewayAttachment")
 
 instance
   Prelude.Hashable

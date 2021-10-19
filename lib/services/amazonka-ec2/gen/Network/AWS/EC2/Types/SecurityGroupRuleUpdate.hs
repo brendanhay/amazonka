@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecurityGroupRuleUpdate' smart constructor.
 data SecurityGroupRuleUpdate = SecurityGroupRuleUpdate'
-  { -- | Information about the security group rule.
-    securityGroupRule :: Prelude.Maybe SecurityGroupRuleRequest,
-    -- | The ID of the security group rule.
-    securityGroupRuleId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the security group rule.
+    securityGroupRuleId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the security group rule.
+    securityGroupRule :: Prelude.Maybe SecurityGroupRuleRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data SecurityGroupRuleUpdate = SecurityGroupRuleUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupRule', 'securityGroupRuleUpdate_securityGroupRule' - Information about the security group rule.
---
 -- 'securityGroupRuleId', 'securityGroupRuleUpdate_securityGroupRuleId' - The ID of the security group rule.
+--
+-- 'securityGroupRule', 'securityGroupRuleUpdate_securityGroupRule' - Information about the security group rule.
 newSecurityGroupRuleUpdate ::
   SecurityGroupRuleUpdate
 newSecurityGroupRuleUpdate =
   SecurityGroupRuleUpdate'
-    { securityGroupRule =
+    { securityGroupRuleId =
         Prelude.Nothing,
-      securityGroupRuleId = Prelude.Nothing
+      securityGroupRule = Prelude.Nothing
     }
-
--- | Information about the security group rule.
-securityGroupRuleUpdate_securityGroupRule :: Lens.Lens' SecurityGroupRuleUpdate (Prelude.Maybe SecurityGroupRuleRequest)
-securityGroupRuleUpdate_securityGroupRule = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRule} -> securityGroupRule) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRule = a} :: SecurityGroupRuleUpdate)
 
 -- | The ID of the security group rule.
 securityGroupRuleUpdate_securityGroupRuleId :: Lens.Lens' SecurityGroupRuleUpdate (Prelude.Maybe Prelude.Text)
 securityGroupRuleUpdate_securityGroupRuleId = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRuleId} -> securityGroupRuleId) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRuleId = a} :: SecurityGroupRuleUpdate)
+
+-- | Information about the security group rule.
+securityGroupRuleUpdate_securityGroupRule :: Lens.Lens' SecurityGroupRuleUpdate (Prelude.Maybe SecurityGroupRuleRequest)
+securityGroupRuleUpdate_securityGroupRule = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRule} -> securityGroupRule) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRule = a} :: SecurityGroupRuleUpdate)
 
 instance Prelude.Hashable SecurityGroupRuleUpdate
 
@@ -71,6 +71,6 @@ instance Prelude.NFData SecurityGroupRuleUpdate
 instance Core.ToQuery SecurityGroupRuleUpdate where
   toQuery SecurityGroupRuleUpdate' {..} =
     Prelude.mconcat
-      [ "SecurityGroupRule" Core.=: securityGroupRule,
-        "SecurityGroupRuleId" Core.=: securityGroupRuleId
+      [ "SecurityGroupRuleId" Core.=: securityGroupRuleId,
+        "SecurityGroupRule" Core.=: securityGroupRule
       ]

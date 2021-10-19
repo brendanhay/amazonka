@@ -29,10 +29,10 @@ module Network.AWS.EC2.CreateManagedPrefixList
     newCreateManagedPrefixList,
 
     -- * Request Lenses
+    createManagedPrefixList_clientToken,
+    createManagedPrefixList_entries,
     createManagedPrefixList_tagSpecifications,
     createManagedPrefixList_dryRun,
-    createManagedPrefixList_entries,
-    createManagedPrefixList_clientToken,
     createManagedPrefixList_prefixListName,
     createManagedPrefixList_maxEntries,
     createManagedPrefixList_addressFamily,
@@ -56,21 +56,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateManagedPrefixList' smart constructor.
 data CreateManagedPrefixList = CreateManagedPrefixList'
-  { -- | The tags to apply to the prefix list during creation.
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+    -- of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    --
+    -- Constraints: Up to 255 UTF-8 characters in length.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more entries for the prefix list.
+    entries :: Prelude.Maybe [AddPrefixListEntry],
+    -- | The tags to apply to the prefix list during creation.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more entries for the prefix list.
-    entries :: Prelude.Maybe [AddPrefixListEntry],
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
-    -- of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    --
-    -- Constraints: Up to 255 UTF-8 characters in length.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A name for the prefix list.
     --
     -- Constraints: Up to 255 characters in length. The name cannot start with
@@ -93,20 +93,20 @@ data CreateManagedPrefixList = CreateManagedPrefixList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createManagedPrefixList_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- Constraints: Up to 255 UTF-8 characters in length.
+--
+-- 'entries', 'createManagedPrefixList_entries' - One or more entries for the prefix list.
+--
 -- 'tagSpecifications', 'createManagedPrefixList_tagSpecifications' - The tags to apply to the prefix list during creation.
 --
 -- 'dryRun', 'createManagedPrefixList_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'entries', 'createManagedPrefixList_entries' - One or more entries for the prefix list.
---
--- 'clientToken', 'createManagedPrefixList_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
---
--- Constraints: Up to 255 UTF-8 characters in length.
 --
 -- 'prefixListName', 'createManagedPrefixList_prefixListName' - A name for the prefix list.
 --
@@ -131,30 +131,15 @@ newCreateManagedPrefixList
   pMaxEntries_
   pAddressFamily_ =
     CreateManagedPrefixList'
-      { tagSpecifications =
+      { clientToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         entries = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         prefixListName = pPrefixListName_,
         maxEntries = pMaxEntries_,
         addressFamily = pAddressFamily_
       }
-
--- | The tags to apply to the prefix list during creation.
-createManagedPrefixList_tagSpecifications :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [TagSpecification])
-createManagedPrefixList_tagSpecifications = Lens.lens (\CreateManagedPrefixList' {tagSpecifications} -> tagSpecifications) (\s@CreateManagedPrefixList' {} a -> s {tagSpecifications = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createManagedPrefixList_dryRun :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Bool)
-createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -> dryRun) (\s@CreateManagedPrefixList' {} a -> s {dryRun = a} :: CreateManagedPrefixList)
-
--- | One or more entries for the prefix list.
-createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
-createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
@@ -163,6 +148,21 @@ createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries}
 -- Constraints: Up to 255 UTF-8 characters in length.
 createManagedPrefixList_clientToken :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Text)
 createManagedPrefixList_clientToken = Lens.lens (\CreateManagedPrefixList' {clientToken} -> clientToken) (\s@CreateManagedPrefixList' {} a -> s {clientToken = a} :: CreateManagedPrefixList)
+
+-- | One or more entries for the prefix list.
+createManagedPrefixList_entries :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
+createManagedPrefixList_entries = Lens.lens (\CreateManagedPrefixList' {entries} -> entries) (\s@CreateManagedPrefixList' {} a -> s {entries = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags to apply to the prefix list during creation.
+createManagedPrefixList_tagSpecifications :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe [TagSpecification])
+createManagedPrefixList_tagSpecifications = Lens.lens (\CreateManagedPrefixList' {tagSpecifications} -> tagSpecifications) (\s@CreateManagedPrefixList' {} a -> s {tagSpecifications = a} :: CreateManagedPrefixList) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createManagedPrefixList_dryRun :: Lens.Lens' CreateManagedPrefixList (Prelude.Maybe Prelude.Bool)
+createManagedPrefixList_dryRun = Lens.lens (\CreateManagedPrefixList' {dryRun} -> dryRun) (\s@CreateManagedPrefixList' {} a -> s {dryRun = a} :: CreateManagedPrefixList)
 
 -- | A name for the prefix list.
 --
@@ -211,14 +211,14 @@ instance Core.ToQuery CreateManagedPrefixList where
           Core.=: ("CreateManagedPrefixList" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
+        Core.toQuery
+          (Core.toQueryList "Entry" Prelude.<$> entries),
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Entry" Prelude.<$> entries),
-        "ClientToken" Core.=: clientToken,
         "PrefixListName" Core.=: prefixListName,
         "MaxEntries" Core.=: maxEntries,
         "AddressFamily" Core.=: addressFamily

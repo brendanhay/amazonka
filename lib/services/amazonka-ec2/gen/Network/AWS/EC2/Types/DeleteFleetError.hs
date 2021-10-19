@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeleteFleetError' smart constructor.
 data DeleteFleetError = DeleteFleetError'
-  { -- | The description for the error code.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The error code.
-    code :: Prelude.Maybe DeleteFleetErrorCode
+  { -- | The error code.
+    code :: Prelude.Maybe DeleteFleetErrorCode,
+    -- | The description for the error code.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,30 +44,30 @@ data DeleteFleetError = DeleteFleetError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'deleteFleetError_message' - The description for the error code.
---
 -- 'code', 'deleteFleetError_code' - The error code.
+--
+-- 'message', 'deleteFleetError_message' - The description for the error code.
 newDeleteFleetError ::
   DeleteFleetError
 newDeleteFleetError =
   DeleteFleetError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The description for the error code.
-deleteFleetError_message :: Lens.Lens' DeleteFleetError (Prelude.Maybe Prelude.Text)
-deleteFleetError_message = Lens.lens (\DeleteFleetError' {message} -> message) (\s@DeleteFleetError' {} a -> s {message = a} :: DeleteFleetError)
 
 -- | The error code.
 deleteFleetError_code :: Lens.Lens' DeleteFleetError (Prelude.Maybe DeleteFleetErrorCode)
 deleteFleetError_code = Lens.lens (\DeleteFleetError' {code} -> code) (\s@DeleteFleetError' {} a -> s {code = a} :: DeleteFleetError)
 
+-- | The description for the error code.
+deleteFleetError_message :: Lens.Lens' DeleteFleetError (Prelude.Maybe Prelude.Text)
+deleteFleetError_message = Lens.lens (\DeleteFleetError' {message} -> message) (\s@DeleteFleetError' {} a -> s {message = a} :: DeleteFleetError)
+
 instance Core.FromXML DeleteFleetError where
   parseXML x =
     DeleteFleetError'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "code")
+      Prelude.<*> (x Core..@? "message")
 
 instance Prelude.Hashable DeleteFleetError
 

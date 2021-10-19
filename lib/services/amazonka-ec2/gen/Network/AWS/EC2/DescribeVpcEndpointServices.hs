@@ -37,11 +37,11 @@ module Network.AWS.EC2.DescribeVpcEndpointServices
     newDescribeVpcEndpointServices,
 
     -- * Request Lenses
-    describeVpcEndpointServices_nextToken,
-    describeVpcEndpointServices_serviceNames,
-    describeVpcEndpointServices_maxResults,
-    describeVpcEndpointServices_dryRun,
     describeVpcEndpointServices_filters,
+    describeVpcEndpointServices_serviceNames,
+    describeVpcEndpointServices_nextToken,
+    describeVpcEndpointServices_dryRun,
+    describeVpcEndpointServices_maxResults,
 
     -- * Destructuring the Response
     DescribeVpcEndpointServicesResponse (..),
@@ -49,8 +49,8 @@ module Network.AWS.EC2.DescribeVpcEndpointServices
 
     -- * Response Lenses
     describeVpcEndpointServicesResponse_serviceDetails,
-    describeVpcEndpointServicesResponse_nextToken,
     describeVpcEndpointServicesResponse_serviceNames,
+    describeVpcEndpointServicesResponse_nextToken,
     describeVpcEndpointServicesResponse_httpStatus,
   )
 where
@@ -66,24 +66,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeVpcEndpointServices' smart constructor.
 data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a prior call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more service names.
-    serviceNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of items to return for this request. The request
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
-    --
-    -- Constraint: If the value is greater than 1,000, we return only 1,000
-    -- items.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @service-name@ - The name of the service.
     --
@@ -98,7 +81,24 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | One or more service names.
+    serviceNames :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a prior call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to return for this request. The request
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    --
+    -- Constraint: If the value is greater than 1,000, we return only 1,000
+    -- items.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,23 +109,6 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeVpcEndpointServices_nextToken' - The token for the next set of items to return. (You received this token
--- from a prior call.)
---
--- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - One or more service names.
---
--- 'maxResults', 'describeVpcEndpointServices_maxResults' - The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
---
--- Constraint: If the value is greater than 1,000, we return only 1,000
--- items.
---
--- 'dryRun', 'describeVpcEndpointServices_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcEndpointServices_filters' - One or more filters.
 --
@@ -142,42 +125,34 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-newDescribeVpcEndpointServices ::
-  DescribeVpcEndpointServices
-newDescribeVpcEndpointServices =
-  DescribeVpcEndpointServices'
-    { nextToken =
-        Prelude.Nothing,
-      serviceNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
-    }
-
--- | The token for the next set of items to return. (You received this token
+--
+-- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - One or more service names.
+--
+-- 'nextToken', 'describeVpcEndpointServices_nextToken' - The token for the next set of items to return. (You received this token
 -- from a prior call.)
-describeVpcEndpointServices_nextToken :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Text)
-describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServices' {} a -> s {nextToken = a} :: DescribeVpcEndpointServices)
-
--- | One or more service names.
-describeVpcEndpointServices_serviceNames :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Prelude.Text])
-describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServices' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServices' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of items to return for this request. The request
+--
+-- 'dryRun', 'describeVpcEndpointServices_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeVpcEndpointServices_maxResults' - The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
 -- Constraint: If the value is greater than 1,000, we return only 1,000
 -- items.
-describeVpcEndpointServices_maxResults :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Int)
-describeVpcEndpointServices_maxResults = Lens.lens (\DescribeVpcEndpointServices' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServices' {} a -> s {maxResults = a} :: DescribeVpcEndpointServices)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointServices_dryRun :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Bool)
-describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServices' {} a -> s {dryRun = a} :: DescribeVpcEndpointServices)
+newDescribeVpcEndpointServices ::
+  DescribeVpcEndpointServices
+newDescribeVpcEndpointServices =
+  DescribeVpcEndpointServices'
+    { filters =
+        Prelude.Nothing,
+      serviceNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | One or more filters.
 --
@@ -195,7 +170,32 @@ describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {d
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeVpcEndpointServices_filters :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Filter])
-describeVpcEndpointServices_filters = Lens.lens (\DescribeVpcEndpointServices' {filters} -> filters) (\s@DescribeVpcEndpointServices' {} a -> s {filters = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens._Coerce
+describeVpcEndpointServices_filters = Lens.lens (\DescribeVpcEndpointServices' {filters} -> filters) (\s@DescribeVpcEndpointServices' {} a -> s {filters = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more service names.
+describeVpcEndpointServices_serviceNames :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Prelude.Text])
+describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServices' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServices' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.)
+describeVpcEndpointServices_nextToken :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServices' {} a -> s {nextToken = a} :: DescribeVpcEndpointServices)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcEndpointServices_dryRun :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServices' {} a -> s {dryRun = a} :: DescribeVpcEndpointServices)
+
+-- | The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
+-- Constraint: If the value is greater than 1,000, we return only 1,000
+-- items.
+describeVpcEndpointServices_maxResults :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Int)
+describeVpcEndpointServices_maxResults = Lens.lens (\DescribeVpcEndpointServices' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServices' {} a -> s {maxResults = a} :: DescribeVpcEndpointServices)
 
 instance Core.AWSPager DescribeVpcEndpointServices where
   page rq rs
@@ -238,10 +238,10 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> ( x Core..@? "serviceNameSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,15 +264,15 @@ instance Core.ToQuery DescribeVpcEndpointServices where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "ServiceName"
               Prelude.<$> serviceNames
           ),
-        "MaxResults" Core.=: maxResults,
+        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | Contains the output of DescribeVpcEndpointServices.
@@ -281,11 +281,11 @@ instance Core.ToQuery DescribeVpcEndpointServices where
 data DescribeVpcEndpointServicesResponse = DescribeVpcEndpointServicesResponse'
   { -- | Information about the service.
     serviceDetails :: Prelude.Maybe [ServiceDetail],
+    -- | A list of supported services.
+    serviceNames :: Prelude.Maybe [Prelude.Text],
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of supported services.
-    serviceNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -301,10 +301,10 @@ data DescribeVpcEndpointServicesResponse = DescribeVpcEndpointServicesResponse'
 --
 -- 'serviceDetails', 'describeVpcEndpointServicesResponse_serviceDetails' - Information about the service.
 --
+-- 'serviceNames', 'describeVpcEndpointServicesResponse_serviceNames' - A list of supported services.
+--
 -- 'nextToken', 'describeVpcEndpointServicesResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'serviceNames', 'describeVpcEndpointServicesResponse_serviceNames' - A list of supported services.
 --
 -- 'httpStatus', 'describeVpcEndpointServicesResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointServicesResponse ::
@@ -315,23 +315,23 @@ newDescribeVpcEndpointServicesResponse pHttpStatus_ =
   DescribeVpcEndpointServicesResponse'
     { serviceDetails =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       serviceNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the service.
 describeVpcEndpointServicesResponse_serviceDetails :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe [ServiceDetail])
-describeVpcEndpointServicesResponse_serviceDetails = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceDetails} -> serviceDetails) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceDetails = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVpcEndpointServicesResponse_serviceDetails = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceDetails} -> serviceDetails) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceDetails = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of supported services.
+describeVpcEndpointServicesResponse_serviceNames :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe [Prelude.Text])
+describeVpcEndpointServicesResponse_serviceNames = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 describeVpcEndpointServicesResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe Prelude.Text)
 describeVpcEndpointServicesResponse_nextToken = Lens.lens (\DescribeVpcEndpointServicesResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicesResponse)
-
--- | A list of supported services.
-describeVpcEndpointServicesResponse_serviceNames :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe [Prelude.Text])
-describeVpcEndpointServicesResponse_serviceNames = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeVpcEndpointServicesResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServicesResponse Prelude.Int

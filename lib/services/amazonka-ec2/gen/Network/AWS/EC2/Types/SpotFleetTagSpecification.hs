@@ -75,7 +75,7 @@ spotFleetTagSpecification_resourceType = Lens.lens (\SpotFleetTagSpecification' 
 
 -- | The tags.
 spotFleetTagSpecification_tags :: Lens.Lens' SpotFleetTagSpecification (Prelude.Maybe [Tag])
-spotFleetTagSpecification_tags = Lens.lens (\SpotFleetTagSpecification' {tags} -> tags) (\s@SpotFleetTagSpecification' {} a -> s {tags = a} :: SpotFleetTagSpecification) Prelude.. Lens.mapping Lens._Coerce
+spotFleetTagSpecification_tags = Lens.lens (\SpotFleetTagSpecification' {tags} -> tags) (\s@SpotFleetTagSpecification' {} a -> s {tags = a} :: SpotFleetTagSpecification) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML SpotFleetTagSpecification where
   parseXML x =

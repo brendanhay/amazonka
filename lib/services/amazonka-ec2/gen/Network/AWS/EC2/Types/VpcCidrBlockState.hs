@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpcCidrBlockState' smart constructor.
 data VpcCidrBlockState = VpcCidrBlockState'
-  { -- | A message about the status of the CIDR block, if applicable.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The state of the CIDR block.
-    state :: Prelude.Maybe VpcCidrBlockStateCode
+  { -- | The state of the CIDR block.
+    state :: Prelude.Maybe VpcCidrBlockStateCode,
+    -- | A message about the status of the CIDR block, if applicable.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,30 +44,30 @@ data VpcCidrBlockState = VpcCidrBlockState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'vpcCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.
---
 -- 'state', 'vpcCidrBlockState_state' - The state of the CIDR block.
+--
+-- 'statusMessage', 'vpcCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.
 newVpcCidrBlockState ::
   VpcCidrBlockState
 newVpcCidrBlockState =
   VpcCidrBlockState'
-    { statusMessage = Prelude.Nothing,
-      state = Prelude.Nothing
+    { state = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
-
--- | A message about the status of the CIDR block, if applicable.
-vpcCidrBlockState_statusMessage :: Lens.Lens' VpcCidrBlockState (Prelude.Maybe Prelude.Text)
-vpcCidrBlockState_statusMessage = Lens.lens (\VpcCidrBlockState' {statusMessage} -> statusMessage) (\s@VpcCidrBlockState' {} a -> s {statusMessage = a} :: VpcCidrBlockState)
 
 -- | The state of the CIDR block.
 vpcCidrBlockState_state :: Lens.Lens' VpcCidrBlockState (Prelude.Maybe VpcCidrBlockStateCode)
 vpcCidrBlockState_state = Lens.lens (\VpcCidrBlockState' {state} -> state) (\s@VpcCidrBlockState' {} a -> s {state = a} :: VpcCidrBlockState)
 
+-- | A message about the status of the CIDR block, if applicable.
+vpcCidrBlockState_statusMessage :: Lens.Lens' VpcCidrBlockState (Prelude.Maybe Prelude.Text)
+vpcCidrBlockState_statusMessage = Lens.lens (\VpcCidrBlockState' {statusMessage} -> statusMessage) (\s@VpcCidrBlockState' {} a -> s {statusMessage = a} :: VpcCidrBlockState)
+
 instance Core.FromXML VpcCidrBlockState where
   parseXML x =
     VpcCidrBlockState'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "statusMessage")
 
 instance Prelude.Hashable VpcCidrBlockState
 

@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnRoute' smart constructor.
 data ClientVpnRoute = ClientVpnRoute'
-  { -- | The ID of the Client VPN endpoint with which the route is associated.
-    clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the route.
+  { -- | The current state of the route.
     status :: Prelude.Maybe ClientVpnRouteStatus,
     -- | Indicates how the route was associated with the Client VPN endpoint.
     -- @associate@ indicates that the route was automatically added when the
@@ -39,14 +37,16 @@ data ClientVpnRoute = ClientVpnRoute'
     -- indicates that the route was manually added using the
     -- __CreateClientVpnRoute__ action.
     origin :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Client VPN endpoint with which the route is associated.
+    clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subnet through which traffic is routed.
+    targetSubnet :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 address range, in CIDR notation, of the route destination.
     destinationCidr :: Prelude.Maybe Prelude.Text,
-    -- | A brief description of the route.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The route type.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet through which traffic is routed.
-    targetSubnet :: Prelude.Maybe Prelude.Text
+    -- | A brief description of the route.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,8 +58,6 @@ data ClientVpnRoute = ClientVpnRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientVpnEndpointId', 'clientVpnRoute_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
---
 -- 'status', 'clientVpnRoute_status' - The current state of the route.
 --
 -- 'origin', 'clientVpnRoute_origin' - Indicates how the route was associated with the Client VPN endpoint.
@@ -68,30 +66,27 @@ data ClientVpnRoute = ClientVpnRoute'
 -- indicates that the route was manually added using the
 -- __CreateClientVpnRoute__ action.
 --
--- 'destinationCidr', 'clientVpnRoute_destinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
+-- 'clientVpnEndpointId', 'clientVpnRoute_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
 --
--- 'description', 'clientVpnRoute_description' - A brief description of the route.
+-- 'targetSubnet', 'clientVpnRoute_targetSubnet' - The ID of the subnet through which traffic is routed.
+--
+-- 'destinationCidr', 'clientVpnRoute_destinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
 --
 -- 'type'', 'clientVpnRoute_type' - The route type.
 --
--- 'targetSubnet', 'clientVpnRoute_targetSubnet' - The ID of the subnet through which traffic is routed.
+-- 'description', 'clientVpnRoute_description' - A brief description of the route.
 newClientVpnRoute ::
   ClientVpnRoute
 newClientVpnRoute =
   ClientVpnRoute'
-    { clientVpnEndpointId =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
       origin = Prelude.Nothing,
+      clientVpnEndpointId = Prelude.Nothing,
+      targetSubnet = Prelude.Nothing,
       destinationCidr = Prelude.Nothing,
-      description = Prelude.Nothing,
       type' = Prelude.Nothing,
-      targetSubnet = Prelude.Nothing
+      description = Prelude.Nothing
     }
-
--- | The ID of the Client VPN endpoint with which the route is associated.
-clientVpnRoute_clientVpnEndpointId :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
-clientVpnRoute_clientVpnEndpointId = Lens.lens (\ClientVpnRoute' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ClientVpnRoute' {} a -> s {clientVpnEndpointId = a} :: ClientVpnRoute)
 
 -- | The current state of the route.
 clientVpnRoute_status :: Lens.Lens' ClientVpnRoute (Prelude.Maybe ClientVpnRouteStatus)
@@ -105,32 +100,36 @@ clientVpnRoute_status = Lens.lens (\ClientVpnRoute' {status} -> status) (\s@Clie
 clientVpnRoute_origin :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
 clientVpnRoute_origin = Lens.lens (\ClientVpnRoute' {origin} -> origin) (\s@ClientVpnRoute' {} a -> s {origin = a} :: ClientVpnRoute)
 
--- | The IPv4 address range, in CIDR notation, of the route destination.
-clientVpnRoute_destinationCidr :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
-clientVpnRoute_destinationCidr = Lens.lens (\ClientVpnRoute' {destinationCidr} -> destinationCidr) (\s@ClientVpnRoute' {} a -> s {destinationCidr = a} :: ClientVpnRoute)
-
--- | A brief description of the route.
-clientVpnRoute_description :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
-clientVpnRoute_description = Lens.lens (\ClientVpnRoute' {description} -> description) (\s@ClientVpnRoute' {} a -> s {description = a} :: ClientVpnRoute)
-
--- | The route type.
-clientVpnRoute_type :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
-clientVpnRoute_type = Lens.lens (\ClientVpnRoute' {type'} -> type') (\s@ClientVpnRoute' {} a -> s {type' = a} :: ClientVpnRoute)
+-- | The ID of the Client VPN endpoint with which the route is associated.
+clientVpnRoute_clientVpnEndpointId :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
+clientVpnRoute_clientVpnEndpointId = Lens.lens (\ClientVpnRoute' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ClientVpnRoute' {} a -> s {clientVpnEndpointId = a} :: ClientVpnRoute)
 
 -- | The ID of the subnet through which traffic is routed.
 clientVpnRoute_targetSubnet :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
 clientVpnRoute_targetSubnet = Lens.lens (\ClientVpnRoute' {targetSubnet} -> targetSubnet) (\s@ClientVpnRoute' {} a -> s {targetSubnet = a} :: ClientVpnRoute)
 
+-- | The IPv4 address range, in CIDR notation, of the route destination.
+clientVpnRoute_destinationCidr :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
+clientVpnRoute_destinationCidr = Lens.lens (\ClientVpnRoute' {destinationCidr} -> destinationCidr) (\s@ClientVpnRoute' {} a -> s {destinationCidr = a} :: ClientVpnRoute)
+
+-- | The route type.
+clientVpnRoute_type :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
+clientVpnRoute_type = Lens.lens (\ClientVpnRoute' {type'} -> type') (\s@ClientVpnRoute' {} a -> s {type' = a} :: ClientVpnRoute)
+
+-- | A brief description of the route.
+clientVpnRoute_description :: Lens.Lens' ClientVpnRoute (Prelude.Maybe Prelude.Text)
+clientVpnRoute_description = Lens.lens (\ClientVpnRoute' {description} -> description) (\s@ClientVpnRoute' {} a -> s {description = a} :: ClientVpnRoute)
+
 instance Core.FromXML ClientVpnRoute where
   parseXML x =
     ClientVpnRoute'
-      Prelude.<$> (x Core..@? "clientVpnEndpointId")
-      Prelude.<*> (x Core..@? "status")
+      Prelude.<$> (x Core..@? "status")
       Prelude.<*> (x Core..@? "origin")
-      Prelude.<*> (x Core..@? "destinationCidr")
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "type")
+      Prelude.<*> (x Core..@? "clientVpnEndpointId")
       Prelude.<*> (x Core..@? "targetSubnet")
+      Prelude.<*> (x Core..@? "destinationCidr")
+      Prelude.<*> (x Core..@? "type")
+      Prelude.<*> (x Core..@? "description")
 
 instance Prelude.Hashable ClientVpnRoute
 

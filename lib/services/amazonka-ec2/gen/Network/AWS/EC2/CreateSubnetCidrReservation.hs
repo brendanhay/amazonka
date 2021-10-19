@@ -31,8 +31,8 @@ module Network.AWS.EC2.CreateSubnetCidrReservation
 
     -- * Request Lenses
     createSubnetCidrReservation_tagSpecifications,
-    createSubnetCidrReservation_dryRun,
     createSubnetCidrReservation_description,
+    createSubnetCidrReservation_dryRun,
     createSubnetCidrReservation_subnetId,
     createSubnetCidrReservation_cidr,
     createSubnetCidrReservation_reservationType,
@@ -58,13 +58,13 @@ import qualified Network.AWS.Response as Response
 data CreateSubnetCidrReservation = CreateSubnetCidrReservation'
   { -- | The tags to assign to the subnet CIDR reservation.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The description to assign to the subnet CIDR reservation.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The description to assign to the subnet CIDR reservation.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet.
     subnetId :: Prelude.Text,
     -- | The IPv4 or IPV6 CIDR range to reserve.
@@ -95,12 +95,12 @@ data CreateSubnetCidrReservation = CreateSubnetCidrReservation'
 --
 -- 'tagSpecifications', 'createSubnetCidrReservation_tagSpecifications' - The tags to assign to the subnet CIDR reservation.
 --
+-- 'description', 'createSubnetCidrReservation_description' - The description to assign to the subnet CIDR reservation.
+--
 -- 'dryRun', 'createSubnetCidrReservation_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'description', 'createSubnetCidrReservation_description' - The description to assign to the subnet CIDR reservation.
 --
 -- 'subnetId', 'createSubnetCidrReservation_subnetId' - The ID of the subnet.
 --
@@ -133,8 +133,8 @@ newCreateSubnetCidrReservation
     CreateSubnetCidrReservation'
       { tagSpecifications =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         description = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         subnetId = pSubnetId_,
         cidr = pCidr_,
         reservationType = pReservationType_
@@ -142,7 +142,11 @@ newCreateSubnetCidrReservation
 
 -- | The tags to assign to the subnet CIDR reservation.
 createSubnetCidrReservation_tagSpecifications :: Lens.Lens' CreateSubnetCidrReservation (Prelude.Maybe [TagSpecification])
-createSubnetCidrReservation_tagSpecifications = Lens.lens (\CreateSubnetCidrReservation' {tagSpecifications} -> tagSpecifications) (\s@CreateSubnetCidrReservation' {} a -> s {tagSpecifications = a} :: CreateSubnetCidrReservation) Prelude.. Lens.mapping Lens._Coerce
+createSubnetCidrReservation_tagSpecifications = Lens.lens (\CreateSubnetCidrReservation' {tagSpecifications} -> tagSpecifications) (\s@CreateSubnetCidrReservation' {} a -> s {tagSpecifications = a} :: CreateSubnetCidrReservation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description to assign to the subnet CIDR reservation.
+createSubnetCidrReservation_description :: Lens.Lens' CreateSubnetCidrReservation (Prelude.Maybe Prelude.Text)
+createSubnetCidrReservation_description = Lens.lens (\CreateSubnetCidrReservation' {description} -> description) (\s@CreateSubnetCidrReservation' {} a -> s {description = a} :: CreateSubnetCidrReservation)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -150,10 +154,6 @@ createSubnetCidrReservation_tagSpecifications = Lens.lens (\CreateSubnetCidrRese
 -- Otherwise, it is @UnauthorizedOperation@.
 createSubnetCidrReservation_dryRun :: Lens.Lens' CreateSubnetCidrReservation (Prelude.Maybe Prelude.Bool)
 createSubnetCidrReservation_dryRun = Lens.lens (\CreateSubnetCidrReservation' {dryRun} -> dryRun) (\s@CreateSubnetCidrReservation' {} a -> s {dryRun = a} :: CreateSubnetCidrReservation)
-
--- | The description to assign to the subnet CIDR reservation.
-createSubnetCidrReservation_description :: Lens.Lens' CreateSubnetCidrReservation (Prelude.Maybe Prelude.Text)
-createSubnetCidrReservation_description = Lens.lens (\CreateSubnetCidrReservation' {description} -> description) (\s@CreateSubnetCidrReservation' {} a -> s {description = a} :: CreateSubnetCidrReservation)
 
 -- | The ID of the subnet.
 createSubnetCidrReservation_subnetId :: Lens.Lens' CreateSubnetCidrReservation Prelude.Text
@@ -214,8 +214,8 @@ instance Core.ToQuery CreateSubnetCidrReservation where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "SubnetId" Core.=: subnetId,
         "Cidr" Core.=: cidr,
         "ReservationType" Core.=: reservationType

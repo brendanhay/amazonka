@@ -34,7 +34,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateInstanceMetadataOptions' smart constructor.
 data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptions'
-  { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+  { -- | The state of the metadata option changes.
+    --
+    -- @pending@ - The metadata options are being updated and the instance is
+    -- not ready to process metadata traffic with the new selection.
+    --
+    -- @applied@ - The metadata options have been successfully applied on the
+    -- instance.
+    state :: Prelude.Maybe LaunchTemplateInstanceMetadataOptionsState,
+    -- | Enables or disables the IPv6 endpoint for the instance metadata service.
     --
     -- Default: @disabled@
     httpProtocolIpv6 :: Prelude.Maybe LaunchTemplateInstanceMetadataProtocolIpv6,
@@ -53,14 +61,6 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
     --
     -- Possible values: Integers from 1 to 64
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
-    -- | The state of the metadata option changes.
-    --
-    -- @pending@ - The metadata options are being updated and the instance is
-    -- not ready to process metadata traffic with the new selection.
-    --
-    -- @applied@ - The metadata options have been successfully applied on the
-    -- instance.
-    state :: Prelude.Maybe LaunchTemplateInstanceMetadataOptionsState,
     -- | The state of token usage for your instance metadata requests. If the
     -- parameter is not specified in the request, the default state is
     -- @optional@.
@@ -87,6 +87,14 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'launchTemplateInstanceMetadataOptions_state' - The state of the metadata option changes.
+--
+-- @pending@ - The metadata options are being updated and the instance is
+-- not ready to process metadata traffic with the new selection.
+--
+-- @applied@ - The metadata options have been successfully applied on the
+-- instance.
+--
 -- 'httpProtocolIpv6', 'launchTemplateInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
 --
 -- Default: @disabled@
@@ -106,14 +114,6 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
 --
 -- Possible values: Integers from 1 to 64
 --
--- 'state', 'launchTemplateInstanceMetadataOptions_state' - The state of the metadata option changes.
---
--- @pending@ - The metadata options are being updated and the instance is
--- not ready to process metadata traffic with the new selection.
---
--- @applied@ - The metadata options have been successfully applied on the
--- instance.
---
 -- 'httpTokens', 'launchTemplateInstanceMetadataOptions_httpTokens' - The state of token usage for your instance metadata requests. If the
 -- parameter is not specified in the request, the default state is
 -- @optional@.
@@ -132,14 +132,24 @@ newLaunchTemplateInstanceMetadataOptions ::
   LaunchTemplateInstanceMetadataOptions
 newLaunchTemplateInstanceMetadataOptions =
   LaunchTemplateInstanceMetadataOptions'
-    { httpProtocolIpv6 =
+    { state =
         Prelude.Nothing,
+      httpProtocolIpv6 = Prelude.Nothing,
       httpEndpoint = Prelude.Nothing,
       httpPutResponseHopLimit =
         Prelude.Nothing,
-      state = Prelude.Nothing,
       httpTokens = Prelude.Nothing
     }
+
+-- | The state of the metadata option changes.
+--
+-- @pending@ - The metadata options are being updated and the instance is
+-- not ready to process metadata traffic with the new selection.
+--
+-- @applied@ - The metadata options have been successfully applied on the
+-- instance.
+launchTemplateInstanceMetadataOptions_state :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateInstanceMetadataOptionsState)
+launchTemplateInstanceMetadataOptions_state = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {state} -> state) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {state = a} :: LaunchTemplateInstanceMetadataOptions)
 
 -- | Enables or disables the IPv6 endpoint for the instance metadata service.
 --
@@ -166,16 +176,6 @@ launchTemplateInstanceMetadataOptions_httpEndpoint = Lens.lens (\LaunchTemplateI
 launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: LaunchTemplateInstanceMetadataOptions)
 
--- | The state of the metadata option changes.
---
--- @pending@ - The metadata options are being updated and the instance is
--- not ready to process metadata traffic with the new selection.
---
--- @applied@ - The metadata options have been successfully applied on the
--- instance.
-launchTemplateInstanceMetadataOptions_state :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateInstanceMetadataOptionsState)
-launchTemplateInstanceMetadataOptions_state = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {state} -> state) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {state = a} :: LaunchTemplateInstanceMetadataOptions)
-
 -- | The state of token usage for your instance metadata requests. If the
 -- parameter is not specified in the request, the default state is
 -- @optional@.
@@ -199,10 +199,10 @@ instance
   where
   parseXML x =
     LaunchTemplateInstanceMetadataOptions'
-      Prelude.<$> (x Core..@? "httpProtocolIpv6")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "httpProtocolIpv6")
       Prelude.<*> (x Core..@? "httpEndpoint")
       Prelude.<*> (x Core..@? "httpPutResponseHopLimit")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "httpTokens")
 
 instance

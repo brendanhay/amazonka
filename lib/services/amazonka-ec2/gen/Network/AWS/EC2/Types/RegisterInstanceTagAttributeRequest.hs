@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRegisterInstanceTagAttributeRequest' smart constructor.
 data RegisterInstanceTagAttributeRequest = RegisterInstanceTagAttributeRequest'
-  { -- | The tag keys to register.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether to register all tag keys in the current Region.
+  { -- | Indicates whether to register all tag keys in the current Region.
     -- Specify @true@ to register all tag keys.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool,
+    -- | The tag keys to register.
+    instanceTagKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,27 @@ data RegisterInstanceTagAttributeRequest = RegisterInstanceTagAttributeRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTagKeys', 'registerInstanceTagAttributeRequest_instanceTagKeys' - The tag keys to register.
---
 -- 'includeAllTagsOfInstance', 'registerInstanceTagAttributeRequest_includeAllTagsOfInstance' - Indicates whether to register all tag keys in the current Region.
 -- Specify @true@ to register all tag keys.
+--
+-- 'instanceTagKeys', 'registerInstanceTagAttributeRequest_instanceTagKeys' - The tag keys to register.
 newRegisterInstanceTagAttributeRequest ::
   RegisterInstanceTagAttributeRequest
 newRegisterInstanceTagAttributeRequest =
   RegisterInstanceTagAttributeRequest'
-    { instanceTagKeys =
+    { includeAllTagsOfInstance =
         Prelude.Nothing,
-      includeAllTagsOfInstance =
-        Prelude.Nothing
+      instanceTagKeys = Prelude.Nothing
     }
-
--- | The tag keys to register.
-registerInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' RegisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
-registerInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\RegisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: RegisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to register all tag keys in the current Region.
 -- Specify @true@ to register all tag keys.
 registerInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' RegisterInstanceTagAttributeRequest (Prelude.Maybe Prelude.Bool)
 registerInstanceTagAttributeRequest_includeAllTagsOfInstance = Lens.lens (\RegisterInstanceTagAttributeRequest' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {includeAllTagsOfInstance = a} :: RegisterInstanceTagAttributeRequest)
+
+-- | The tag keys to register.
+registerInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' RegisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
+registerInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\RegisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@RegisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: RegisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -84,10 +83,10 @@ instance
   where
   toQuery RegisterInstanceTagAttributeRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
+      [ "IncludeAllTagsOfInstance"
+          Core.=: includeAllTagsOfInstance,
+        Core.toQuery
           ( Core.toQueryList "InstanceTagKey"
               Prelude.<$> instanceTagKeys
-          ),
-        "IncludeAllTagsOfInstance"
-          Core.=: includeAllTagsOfInstance
+          )
       ]

@@ -23,22 +23,22 @@
 -- Describes the Regions that are enabled for your account, or all Regions.
 --
 -- For a list of the Regions supported by Amazon EC2, see
--- <https://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.
+-- <https://docs.aws.amazon.com/general/latest/gr/ec2-service.html Amazon Elastic Compute Cloud endpoints and quotas>.
 --
 -- For information about enabling and disabling Regions for your account,
 -- see
--- <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html Managing AWS Regions>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/rande-manage.html Managing Amazon Web Services Regions>
+-- in the /Amazon Web Services General Reference/.
 module Network.AWS.EC2.DescribeRegions
   ( -- * Creating a Request
     DescribeRegions (..),
     newDescribeRegions,
 
     -- * Request Lenses
-    describeRegions_dryRun,
     describeRegions_regionNames,
     describeRegions_filters,
     describeRegions_allRegions,
+    describeRegions_dryRun,
 
     -- * Destructuring the Response
     DescribeRegionsResponse (..),
@@ -59,12 +59,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The names of the Regions. You can specify any Regions, whether they are
+  { -- | The names of the Regions. You can specify any Regions, whether they are
     -- enabled and disabled for your account.
     regionNames :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
@@ -79,7 +74,12 @@ data DescribeRegions = DescribeRegions'
     filters :: Prelude.Maybe [Filter],
     -- | Indicates whether to display all Regions, including Regions that are
     -- disabled for your account.
-    allRegions :: Prelude.Maybe Prelude.Bool
+    allRegions :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,11 +90,6 @@ data DescribeRegions = DescribeRegions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'describeRegions_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'regionNames', 'describeRegions_regionNames' - The names of the Regions. You can specify any Regions, whether they are
 -- enabled and disabled for your account.
@@ -111,27 +106,25 @@ data DescribeRegions = DescribeRegions'
 --
 -- 'allRegions', 'describeRegions_allRegions' - Indicates whether to display all Regions, including Regions that are
 -- disabled for your account.
+--
+-- 'dryRun', 'describeRegions_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeRegions ::
   DescribeRegions
 newDescribeRegions =
   DescribeRegions'
-    { dryRun = Prelude.Nothing,
-      regionNames = Prelude.Nothing,
+    { regionNames = Prelude.Nothing,
       filters = Prelude.Nothing,
-      allRegions = Prelude.Nothing
+      allRegions = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeRegions_dryRun :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
-describeRegions_dryRun = Lens.lens (\DescribeRegions' {dryRun} -> dryRun) (\s@DescribeRegions' {} a -> s {dryRun = a} :: DescribeRegions)
 
 -- | The names of the Regions. You can specify any Regions, whether they are
 -- enabled and disabled for your account.
 describeRegions_regionNames :: Lens.Lens' DescribeRegions (Prelude.Maybe [Prelude.Text])
-describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regionNames) (\s@DescribeRegions' {} a -> s {regionNames = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
+describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regionNames) (\s@DescribeRegions' {} a -> s {regionNames = a} :: DescribeRegions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -143,12 +136,19 @@ describeRegions_regionNames = Lens.lens (\DescribeRegions' {regionNames} -> regi
 --
 -- -   @region-name@ - The name of the Region (for example, @us-east-1@).
 describeRegions_filters :: Lens.Lens' DescribeRegions (Prelude.Maybe [Filter])
-describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Prelude.. Lens.mapping Lens._Coerce
+describeRegions_filters = Lens.lens (\DescribeRegions' {filters} -> filters) (\s@DescribeRegions' {} a -> s {filters = a} :: DescribeRegions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether to display all Regions, including Regions that are
 -- disabled for your account.
 describeRegions_allRegions :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
 describeRegions_allRegions = Lens.lens (\DescribeRegions' {allRegions} -> allRegions) (\s@DescribeRegions' {} a -> s {allRegions = a} :: DescribeRegions)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeRegions_dryRun :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Bool)
+describeRegions_dryRun = Lens.lens (\DescribeRegions' {dryRun} -> dryRun) (\s@DescribeRegions' {} a -> s {dryRun = a} :: DescribeRegions)
 
 instance Core.AWSRequest DescribeRegions where
   type
@@ -182,14 +182,14 @@ instance Core.ToQuery DescribeRegions where
           Core.=: ("DescribeRegions" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "RegionName"
               Prelude.<$> regionNames
           ),
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        "AllRegions" Core.=: allRegions
+        "AllRegions" Core.=: allRegions,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.
@@ -224,7 +224,7 @@ newDescribeRegionsResponse pHttpStatus_ =
 
 -- | Information about the Regions.
 describeRegionsResponse_regions :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe [RegionInfo])
-describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions} -> regions) (\s@DescribeRegionsResponse' {} a -> s {regions = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRegionsResponse_regions = Lens.lens (\DescribeRegionsResponse' {regions} -> regions) (\s@DescribeRegionsResponse' {} a -> s {regions = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int

@@ -27,9 +27,9 @@ module Network.AWS.EC2.CreateTransitGatewayRoute
     newCreateTransitGatewayRoute,
 
     -- * Request Lenses
-    createTransitGatewayRoute_dryRun,
     createTransitGatewayRoute_blackhole,
     createTransitGatewayRoute_transitGatewayAttachmentId,
+    createTransitGatewayRoute_dryRun,
     createTransitGatewayRoute_destinationCidrBlock,
     createTransitGatewayRoute_transitGatewayRouteTableId,
 
@@ -52,15 +52,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayRoute' smart constructor.
 data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Indicates whether to drop traffic that matches this route.
+    blackhole :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to drop traffic that matches this route.
-    blackhole :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR range used for destination matches. Routing decisions are based
     -- on the most specific match.
     destinationCidrBlock :: Prelude.Text,
@@ -77,14 +77,14 @@ data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blackhole', 'createTransitGatewayRoute_blackhole' - Indicates whether to drop traffic that matches this route.
+--
+-- 'transitGatewayAttachmentId', 'createTransitGatewayRoute_transitGatewayAttachmentId' - The ID of the attachment.
+--
 -- 'dryRun', 'createTransitGatewayRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'blackhole', 'createTransitGatewayRoute_blackhole' - Indicates whether to drop traffic that matches this route.
---
--- 'transitGatewayAttachmentId', 'createTransitGatewayRoute_transitGatewayAttachmentId' - The ID of the attachment.
 --
 -- 'destinationCidrBlock', 'createTransitGatewayRoute_destinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based
 -- on the most specific match.
@@ -100,21 +100,14 @@ newCreateTransitGatewayRoute
   pDestinationCidrBlock_
   pTransitGatewayRouteTableId_ =
     CreateTransitGatewayRoute'
-      { dryRun =
+      { blackhole =
           Prelude.Nothing,
-        blackhole = Prelude.Nothing,
         transitGatewayAttachmentId = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_
       }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayRoute_dryRun :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
-createTransitGatewayRoute_dryRun = Lens.lens (\CreateTransitGatewayRoute' {dryRun} -> dryRun) (\s@CreateTransitGatewayRoute' {} a -> s {dryRun = a} :: CreateTransitGatewayRoute)
 
 -- | Indicates whether to drop traffic that matches this route.
 createTransitGatewayRoute_blackhole :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
@@ -123,6 +116,13 @@ createTransitGatewayRoute_blackhole = Lens.lens (\CreateTransitGatewayRoute' {bl
 -- | The ID of the attachment.
 createTransitGatewayRoute_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Text)
 createTransitGatewayRoute_transitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayRoute' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@CreateTransitGatewayRoute' {} a -> s {transitGatewayAttachmentId = a} :: CreateTransitGatewayRoute)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createTransitGatewayRoute_dryRun :: Lens.Lens' CreateTransitGatewayRoute (Prelude.Maybe Prelude.Bool)
+createTransitGatewayRoute_dryRun = Lens.lens (\CreateTransitGatewayRoute' {dryRun} -> dryRun) (\s@CreateTransitGatewayRoute' {} a -> s {dryRun = a} :: CreateTransitGatewayRoute)
 
 -- | The CIDR range used for destination matches. Routing decisions are based
 -- on the most specific match.
@@ -163,10 +163,10 @@ instance Core.ToQuery CreateTransitGatewayRoute where
           Core.=: ("CreateTransitGatewayRoute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Blackhole" Core.=: blackhole,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId,
+        "DryRun" Core.=: dryRun,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId

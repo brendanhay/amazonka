@@ -29,10 +29,6 @@
 -- When you no longer want to mirror network services, use
 -- @RemoveNetworkServices@ to remove the network services from the Traffic
 -- Mirror filter.
---
--- For information about filter rule properties, see
--- <https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html Network Services>
--- in the /Traffic Mirroring User Guide/ .
 module Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
   ( -- * Creating a Request
     ModifyTrafficMirrorFilterNetworkServices (..),
@@ -40,8 +36,8 @@ module Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
 
     -- * Request Lenses
     modifyTrafficMirrorFilterNetworkServices_addNetworkServices,
-    modifyTrafficMirrorFilterNetworkServices_dryRun,
     modifyTrafficMirrorFilterNetworkServices_removeNetworkServices,
+    modifyTrafficMirrorFilterNetworkServices_dryRun,
     modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId,
 
     -- * Destructuring the Response
@@ -65,14 +61,14 @@ import qualified Network.AWS.Response as Response
 data ModifyTrafficMirrorFilterNetworkServices = ModifyTrafficMirrorFilterNetworkServices'
   { -- | The network service, for example Amazon DNS, that you want to mirror.
     addNetworkServices :: Prelude.Maybe [TrafficMirrorNetworkService],
+    -- | The network service, for example Amazon DNS, that you no longer want to
+    -- mirror.
+    removeNetworkServices :: Prelude.Maybe [TrafficMirrorNetworkService],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The network service, for example Amazon DNS, that you no longer want to
-    -- mirror.
-    removeNetworkServices :: Prelude.Maybe [TrafficMirrorNetworkService],
     -- | The ID of the Traffic Mirror filter.
     trafficMirrorFilterId :: Prelude.Text
   }
@@ -88,13 +84,13 @@ data ModifyTrafficMirrorFilterNetworkServices = ModifyTrafficMirrorFilterNetwork
 --
 -- 'addNetworkServices', 'modifyTrafficMirrorFilterNetworkServices_addNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.
 --
+-- 'removeNetworkServices', 'modifyTrafficMirrorFilterNetworkServices_removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to
+-- mirror.
+--
 -- 'dryRun', 'modifyTrafficMirrorFilterNetworkServices_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'removeNetworkServices', 'modifyTrafficMirrorFilterNetworkServices_removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to
--- mirror.
 --
 -- 'trafficMirrorFilterId', 'modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 newModifyTrafficMirrorFilterNetworkServices ::
@@ -106,16 +102,21 @@ newModifyTrafficMirrorFilterNetworkServices
     ModifyTrafficMirrorFilterNetworkServices'
       { addNetworkServices =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         removeNetworkServices =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         trafficMirrorFilterId =
           pTrafficMirrorFilterId_
       }
 
 -- | The network service, for example Amazon DNS, that you want to mirror.
 modifyTrafficMirrorFilterNetworkServices_addNetworkServices :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Prelude.Maybe [TrafficMirrorNetworkService])
-modifyTrafficMirrorFilterNetworkServices_addNetworkServices = Lens.lens (\ModifyTrafficMirrorFilterNetworkServices' {addNetworkServices} -> addNetworkServices) (\s@ModifyTrafficMirrorFilterNetworkServices' {} a -> s {addNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices) Prelude.. Lens.mapping Lens._Coerce
+modifyTrafficMirrorFilterNetworkServices_addNetworkServices = Lens.lens (\ModifyTrafficMirrorFilterNetworkServices' {addNetworkServices} -> addNetworkServices) (\s@ModifyTrafficMirrorFilterNetworkServices' {} a -> s {addNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices) Prelude.. Lens.mapping Lens.coerced
+
+-- | The network service, for example Amazon DNS, that you no longer want to
+-- mirror.
+modifyTrafficMirrorFilterNetworkServices_removeNetworkServices :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Prelude.Maybe [TrafficMirrorNetworkService])
+modifyTrafficMirrorFilterNetworkServices_removeNetworkServices = Lens.lens (\ModifyTrafficMirrorFilterNetworkServices' {removeNetworkServices} -> removeNetworkServices) (\s@ModifyTrafficMirrorFilterNetworkServices' {} a -> s {removeNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,11 +124,6 @@ modifyTrafficMirrorFilterNetworkServices_addNetworkServices = Lens.lens (\Modify
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyTrafficMirrorFilterNetworkServices_dryRun :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Prelude.Maybe Prelude.Bool)
 modifyTrafficMirrorFilterNetworkServices_dryRun = Lens.lens (\ModifyTrafficMirrorFilterNetworkServices' {dryRun} -> dryRun) (\s@ModifyTrafficMirrorFilterNetworkServices' {} a -> s {dryRun = a} :: ModifyTrafficMirrorFilterNetworkServices)
-
--- | The network service, for example Amazon DNS, that you no longer want to
--- mirror.
-modifyTrafficMirrorFilterNetworkServices_removeNetworkServices :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Prelude.Maybe [TrafficMirrorNetworkService])
-modifyTrafficMirrorFilterNetworkServices_removeNetworkServices = Lens.lens (\ModifyTrafficMirrorFilterNetworkServices' {removeNetworkServices} -> removeNetworkServices) (\s@ModifyTrafficMirrorFilterNetworkServices' {} a -> s {removeNetworkServices = a} :: ModifyTrafficMirrorFilterNetworkServices) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Traffic Mirror filter.
 modifyTrafficMirrorFilterNetworkServices_trafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices Prelude.Text
@@ -186,11 +182,11 @@ instance
           ( Core.toQueryList "AddNetworkService"
               Prelude.<$> addNetworkServices
           ),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "RemoveNetworkService"
               Prelude.<$> removeNetworkServices
           ),
+        "DryRun" Core.=: dryRun,
         "TrafficMirrorFilterId"
           Core.=: trafficMirrorFilterId
       ]

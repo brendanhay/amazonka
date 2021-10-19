@@ -31,11 +31,11 @@ module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
     newUpdateSecurityGroupRuleDescriptionsEgress,
 
     -- * Request Lenses
-    updateSecurityGroupRuleDescriptionsEgress_dryRun,
-    updateSecurityGroupRuleDescriptionsEgress_groupName,
-    updateSecurityGroupRuleDescriptionsEgress_groupId,
-    updateSecurityGroupRuleDescriptionsEgress_ipPermissions,
     updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions,
+    updateSecurityGroupRuleDescriptionsEgress_ipPermissions,
+    updateSecurityGroupRuleDescriptionsEgress_groupId,
+    updateSecurityGroupRuleDescriptionsEgress_groupName,
+    updateSecurityGroupRuleDescriptionsEgress_dryRun,
 
     -- * Destructuring the Response
     UpdateSecurityGroupRuleDescriptionsEgressResponse (..),
@@ -56,24 +56,24 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsEgress' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescriptionsEgress'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [Default VPC] The name of the security group. You must specify either
-    -- the security group ID or the security group name in the request.
-    groupName :: Prelude.Maybe Prelude.Text,
+  { -- | The description for the egress security group rules. You must specify
+    -- either the description or the IP permissions.
+    securityGroupRuleDescriptions :: Prelude.Maybe [SecurityGroupRuleDescription],
+    -- | The IP permissions for the security group rule. You must specify either
+    -- the IP permissions or the description.
+    ipPermissions :: Prelude.Maybe [IpPermission],
     -- | The ID of the security group. You must specify either the security group
     -- ID or the security group name in the request. For security groups in a
     -- nondefault VPC, you must specify the security group ID.
     groupId :: Prelude.Maybe Prelude.Text,
-    -- | The IP permissions for the security group rule. You must specify either
-    -- the IP permissions or the description.
-    ipPermissions :: Prelude.Maybe [IpPermission],
-    -- | The description for the egress security group rules. You must specify
-    -- either the description or the IP permissions.
-    securityGroupRuleDescriptions :: Prelude.Maybe [SecurityGroupRuleDescription]
+    -- | [Default VPC] The name of the security group. You must specify either
+    -- the security group ID or the security group name in the request.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,47 +85,44 @@ data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescript
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'updateSecurityGroupRuleDescriptionsEgress_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'securityGroupRuleDescriptions', 'updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions' - The description for the egress security group rules. You must specify
+-- either the description or the IP permissions.
 --
--- 'groupName', 'updateSecurityGroupRuleDescriptionsEgress_groupName' - [Default VPC] The name of the security group. You must specify either
--- the security group ID or the security group name in the request.
+-- 'ipPermissions', 'updateSecurityGroupRuleDescriptionsEgress_ipPermissions' - The IP permissions for the security group rule. You must specify either
+-- the IP permissions or the description.
 --
 -- 'groupId', 'updateSecurityGroupRuleDescriptionsEgress_groupId' - The ID of the security group. You must specify either the security group
 -- ID or the security group name in the request. For security groups in a
 -- nondefault VPC, you must specify the security group ID.
 --
--- 'ipPermissions', 'updateSecurityGroupRuleDescriptionsEgress_ipPermissions' - The IP permissions for the security group rule. You must specify either
--- the IP permissions or the description.
+-- 'groupName', 'updateSecurityGroupRuleDescriptionsEgress_groupName' - [Default VPC] The name of the security group. You must specify either
+-- the security group ID or the security group name in the request.
 --
--- 'securityGroupRuleDescriptions', 'updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions' - The description for the egress security group rules. You must specify
--- either the description or the IP permissions.
+-- 'dryRun', 'updateSecurityGroupRuleDescriptionsEgress_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newUpdateSecurityGroupRuleDescriptionsEgress ::
   UpdateSecurityGroupRuleDescriptionsEgress
 newUpdateSecurityGroupRuleDescriptionsEgress =
   UpdateSecurityGroupRuleDescriptionsEgress'
-    { dryRun =
+    { securityGroupRuleDescriptions =
         Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing,
       ipPermissions = Prelude.Nothing,
-      securityGroupRuleDescriptions =
-        Prelude.Nothing
+      groupId = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-updateSecurityGroupRuleDescriptionsEgress_dryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Bool)
-updateSecurityGroupRuleDescriptionsEgress_dryRun = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {dryRun} -> dryRun) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {dryRun = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+-- | The description for the egress security group rules. You must specify
+-- either the description or the IP permissions.
+updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe [SecurityGroupRuleDescription])
+updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {securityGroupRuleDescriptions} -> securityGroupRuleDescriptions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {securityGroupRuleDescriptions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Prelude.. Lens.mapping Lens.coerced
 
--- | [Default VPC] The name of the security group. You must specify either
--- the security group ID or the security group name in the request.
-updateSecurityGroupRuleDescriptionsEgress_groupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Text)
-updateSecurityGroupRuleDescriptionsEgress_groupName = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {groupName} -> groupName) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
+-- | The IP permissions for the security group rule. You must specify either
+-- the IP permissions or the description.
+updateSecurityGroupRuleDescriptionsEgress_ipPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe [IpPermission])
+updateSecurityGroupRuleDescriptionsEgress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the security group. You must specify either the security group
 -- ID or the security group name in the request. For security groups in a
@@ -133,15 +130,17 @@ updateSecurityGroupRuleDescriptionsEgress_groupName = Lens.lens (\UpdateSecurity
 updateSecurityGroupRuleDescriptionsEgress_groupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Text)
 updateSecurityGroupRuleDescriptionsEgress_groupId = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {groupId} -> groupId) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {groupId = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
--- | The IP permissions for the security group rule. You must specify either
--- the IP permissions or the description.
-updateSecurityGroupRuleDescriptionsEgress_ipPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe [IpPermission])
-updateSecurityGroupRuleDescriptionsEgress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Prelude.. Lens.mapping Lens._Coerce
+-- | [Default VPC] The name of the security group. You must specify either
+-- the security group ID or the security group name in the request.
+updateSecurityGroupRuleDescriptionsEgress_groupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Text)
+updateSecurityGroupRuleDescriptionsEgress_groupName = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {groupName} -> groupName) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
--- | The description for the egress security group rules. You must specify
--- either the description or the IP permissions.
-updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe [SecurityGroupRuleDescription])
-updateSecurityGroupRuleDescriptionsEgress_securityGroupRuleDescriptions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {securityGroupRuleDescriptions} -> securityGroupRuleDescriptions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {securityGroupRuleDescriptions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Prelude.. Lens.mapping Lens._Coerce
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+updateSecurityGroupRuleDescriptionsEgress_dryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Bool)
+updateSecurityGroupRuleDescriptionsEgress_dryRun = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {dryRun} -> dryRun) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {dryRun = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
 instance
   Core.AWSRequest
@@ -193,17 +192,17 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          "GroupName" Core.=: groupName,
-          "GroupId" Core.=: groupId,
+          Core.toQuery
+            ( Core.toQueryList "SecurityGroupRuleDescription"
+                Prelude.<$> securityGroupRuleDescriptions
+            ),
           Core.toQuery
             ( Core.toQueryList "IpPermissions"
                 Prelude.<$> ipPermissions
             ),
-          Core.toQuery
-            ( Core.toQueryList "SecurityGroupRuleDescription"
-                Prelude.<$> securityGroupRuleDescriptions
-            )
+          "GroupId" Core.=: groupId,
+          "GroupName" Core.=: groupName,
+          "DryRun" Core.=: dryRun
         ]
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.

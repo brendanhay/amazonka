@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisLoadBalancerListener' smart constructor.
 data AnalysisLoadBalancerListener = AnalysisLoadBalancerListener'
-  { -- | The port on which the load balancer is listening.
-    loadBalancerPort :: Prelude.Maybe Prelude.Natural,
-    -- | [Classic Load Balancers] The back-end port for the listener.
-    instancePort :: Prelude.Maybe Prelude.Natural
+  { -- | [Classic Load Balancers] The back-end port for the listener.
+    instancePort :: Prelude.Maybe Prelude.Natural,
+    -- | The port on which the load balancer is listening.
+    loadBalancerPort :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,31 +43,31 @@ data AnalysisLoadBalancerListener = AnalysisLoadBalancerListener'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loadBalancerPort', 'analysisLoadBalancerListener_loadBalancerPort' - The port on which the load balancer is listening.
---
 -- 'instancePort', 'analysisLoadBalancerListener_instancePort' - [Classic Load Balancers] The back-end port for the listener.
+--
+-- 'loadBalancerPort', 'analysisLoadBalancerListener_loadBalancerPort' - The port on which the load balancer is listening.
 newAnalysisLoadBalancerListener ::
   AnalysisLoadBalancerListener
 newAnalysisLoadBalancerListener =
   AnalysisLoadBalancerListener'
-    { loadBalancerPort =
+    { instancePort =
         Prelude.Nothing,
-      instancePort = Prelude.Nothing
+      loadBalancerPort = Prelude.Nothing
     }
-
--- | The port on which the load balancer is listening.
-analysisLoadBalancerListener_loadBalancerPort :: Lens.Lens' AnalysisLoadBalancerListener (Prelude.Maybe Prelude.Natural)
-analysisLoadBalancerListener_loadBalancerPort = Lens.lens (\AnalysisLoadBalancerListener' {loadBalancerPort} -> loadBalancerPort) (\s@AnalysisLoadBalancerListener' {} a -> s {loadBalancerPort = a} :: AnalysisLoadBalancerListener)
 
 -- | [Classic Load Balancers] The back-end port for the listener.
 analysisLoadBalancerListener_instancePort :: Lens.Lens' AnalysisLoadBalancerListener (Prelude.Maybe Prelude.Natural)
 analysisLoadBalancerListener_instancePort = Lens.lens (\AnalysisLoadBalancerListener' {instancePort} -> instancePort) (\s@AnalysisLoadBalancerListener' {} a -> s {instancePort = a} :: AnalysisLoadBalancerListener)
 
+-- | The port on which the load balancer is listening.
+analysisLoadBalancerListener_loadBalancerPort :: Lens.Lens' AnalysisLoadBalancerListener (Prelude.Maybe Prelude.Natural)
+analysisLoadBalancerListener_loadBalancerPort = Lens.lens (\AnalysisLoadBalancerListener' {loadBalancerPort} -> loadBalancerPort) (\s@AnalysisLoadBalancerListener' {} a -> s {loadBalancerPort = a} :: AnalysisLoadBalancerListener)
+
 instance Core.FromXML AnalysisLoadBalancerListener where
   parseXML x =
     AnalysisLoadBalancerListener'
-      Prelude.<$> (x Core..@? "loadBalancerPort")
-      Prelude.<*> (x Core..@? "instancePort")
+      Prelude.<$> (x Core..@? "instancePort")
+      Prelude.<*> (x Core..@? "loadBalancerPort")
 
 instance
   Prelude.Hashable

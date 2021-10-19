@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAllowedPrincipal' smart constructor.
 data AllowedPrincipal = AllowedPrincipal'
-  { -- | The Amazon Resource Name (ARN) of the principal.
-    principal :: Prelude.Maybe Prelude.Text,
-    -- | The type of principal.
-    principalType :: Prelude.Maybe PrincipalType
+  { -- | The type of principal.
+    principalType :: Prelude.Maybe PrincipalType,
+    -- | The Amazon Resource Name (ARN) of the principal.
+    principal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,30 +44,30 @@ data AllowedPrincipal = AllowedPrincipal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'allowedPrincipal_principal' - The Amazon Resource Name (ARN) of the principal.
---
 -- 'principalType', 'allowedPrincipal_principalType' - The type of principal.
+--
+-- 'principal', 'allowedPrincipal_principal' - The Amazon Resource Name (ARN) of the principal.
 newAllowedPrincipal ::
   AllowedPrincipal
 newAllowedPrincipal =
   AllowedPrincipal'
-    { principal = Prelude.Nothing,
-      principalType = Prelude.Nothing
+    { principalType = Prelude.Nothing,
+      principal = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the principal.
-allowedPrincipal_principal :: Lens.Lens' AllowedPrincipal (Prelude.Maybe Prelude.Text)
-allowedPrincipal_principal = Lens.lens (\AllowedPrincipal' {principal} -> principal) (\s@AllowedPrincipal' {} a -> s {principal = a} :: AllowedPrincipal)
 
 -- | The type of principal.
 allowedPrincipal_principalType :: Lens.Lens' AllowedPrincipal (Prelude.Maybe PrincipalType)
 allowedPrincipal_principalType = Lens.lens (\AllowedPrincipal' {principalType} -> principalType) (\s@AllowedPrincipal' {} a -> s {principalType = a} :: AllowedPrincipal)
 
+-- | The Amazon Resource Name (ARN) of the principal.
+allowedPrincipal_principal :: Lens.Lens' AllowedPrincipal (Prelude.Maybe Prelude.Text)
+allowedPrincipal_principal = Lens.lens (\AllowedPrincipal' {principal} -> principal) (\s@AllowedPrincipal' {} a -> s {principal = a} :: AllowedPrincipal)
+
 instance Core.FromXML AllowedPrincipal where
   parseXML x =
     AllowedPrincipal'
-      Prelude.<$> (x Core..@? "principal")
-      Prelude.<*> (x Core..@? "principalType")
+      Prelude.<$> (x Core..@? "principalType")
+      Prelude.<*> (x Core..@? "principal")
 
 instance Prelude.Hashable AllowedPrincipal
 

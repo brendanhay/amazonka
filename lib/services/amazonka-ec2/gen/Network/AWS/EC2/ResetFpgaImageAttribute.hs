@@ -28,8 +28,8 @@ module Network.AWS.EC2.ResetFpgaImageAttribute
     newResetFpgaImageAttribute,
 
     -- * Request Lenses
-    resetFpgaImageAttribute_dryRun,
     resetFpgaImageAttribute_attribute,
+    resetFpgaImageAttribute_dryRun,
     resetFpgaImageAttribute_fpgaImageId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newResetFpgaImageAttribute' smart constructor.
 data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The attribute.
+    attribute :: Prelude.Maybe ResetFpgaImageAttributeName,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The attribute.
-    attribute :: Prelude.Maybe ResetFpgaImageAttributeName,
     -- | The ID of the AFI.
     fpgaImageId :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attribute', 'resetFpgaImageAttribute_attribute' - The attribute.
+--
 -- 'dryRun', 'resetFpgaImageAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'attribute', 'resetFpgaImageAttribute_attribute' - The attribute.
 --
 -- 'fpgaImageId', 'resetFpgaImageAttribute_fpgaImageId' - The ID of the AFI.
 newResetFpgaImageAttribute ::
@@ -85,10 +85,15 @@ newResetFpgaImageAttribute ::
   ResetFpgaImageAttribute
 newResetFpgaImageAttribute pFpgaImageId_ =
   ResetFpgaImageAttribute'
-    { dryRun = Prelude.Nothing,
-      attribute = Prelude.Nothing,
+    { attribute =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       fpgaImageId = pFpgaImageId_
     }
+
+-- | The attribute.
+resetFpgaImageAttribute_attribute :: Lens.Lens' ResetFpgaImageAttribute (Prelude.Maybe ResetFpgaImageAttributeName)
+resetFpgaImageAttribute_attribute = Lens.lens (\ResetFpgaImageAttribute' {attribute} -> attribute) (\s@ResetFpgaImageAttribute' {} a -> s {attribute = a} :: ResetFpgaImageAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,10 +101,6 @@ newResetFpgaImageAttribute pFpgaImageId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 resetFpgaImageAttribute_dryRun :: Lens.Lens' ResetFpgaImageAttribute (Prelude.Maybe Prelude.Bool)
 resetFpgaImageAttribute_dryRun = Lens.lens (\ResetFpgaImageAttribute' {dryRun} -> dryRun) (\s@ResetFpgaImageAttribute' {} a -> s {dryRun = a} :: ResetFpgaImageAttribute)
-
--- | The attribute.
-resetFpgaImageAttribute_attribute :: Lens.Lens' ResetFpgaImageAttribute (Prelude.Maybe ResetFpgaImageAttributeName)
-resetFpgaImageAttribute_attribute = Lens.lens (\ResetFpgaImageAttribute' {attribute} -> attribute) (\s@ResetFpgaImageAttribute' {} a -> s {attribute = a} :: ResetFpgaImageAttribute)
 
 -- | The ID of the AFI.
 resetFpgaImageAttribute_fpgaImageId :: Lens.Lens' ResetFpgaImageAttribute Prelude.Text
@@ -135,8 +136,8 @@ instance Core.ToQuery ResetFpgaImageAttribute where
           Core.=: ("ResetFpgaImageAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Attribute" Core.=: attribute,
+        "DryRun" Core.=: dryRun,
         "FpgaImageId" Core.=: fpgaImageId
       ]
 

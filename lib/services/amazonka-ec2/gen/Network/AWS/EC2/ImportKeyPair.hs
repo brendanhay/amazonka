@@ -48,9 +48,9 @@ module Network.AWS.EC2.ImportKeyPair
 
     -- * Response Lenses
     importKeyPairResponse_keyFingerprint,
+    importKeyPairResponse_keyName,
     importKeyPairResponse_keyPairId,
     importKeyPairResponse_tags,
-    importKeyPairResponse_keyName,
     importKeyPairResponse_httpStatus,
   )
 where
@@ -119,7 +119,7 @@ newImportKeyPair pKeyName_ pPublicKeyMaterial_ =
 
 -- | The tags to apply to the imported key pair.
 importKeyPair_tagSpecifications :: Lens.Lens' ImportKeyPair (Prelude.Maybe [TagSpecification])
-importKeyPair_tagSpecifications = Lens.lens (\ImportKeyPair' {tagSpecifications} -> tagSpecifications) (\s@ImportKeyPair' {} a -> s {tagSpecifications = a} :: ImportKeyPair) Prelude.. Lens.mapping Lens._Coerce
+importKeyPair_tagSpecifications = Lens.lens (\ImportKeyPair' {tagSpecifications} -> tagSpecifications) (\s@ImportKeyPair' {} a -> s {tagSpecifications = a} :: ImportKeyPair) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -151,11 +151,11 @@ instance Core.AWSRequest ImportKeyPair where
       ( \s h x ->
           ImportKeyPairResponse'
             Prelude.<$> (x Core..@? "keyFingerprint")
+            Prelude.<*> (x Core..@? "keyName")
             Prelude.<*> (x Core..@? "keyPairId")
             Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "keyName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,12 +189,12 @@ instance Core.ToQuery ImportKeyPair where
 data ImportKeyPairResponse = ImportKeyPairResponse'
   { -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
     keyFingerprint :: Prelude.Maybe Prelude.Text,
+    -- | The key pair name that you provided.
+    keyName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resulting key pair.
     keyPairId :: Prelude.Maybe Prelude.Text,
     -- | The tags applied to the imported key pair.
     tags :: Prelude.Maybe [Tag],
-    -- | The key pair name that you provided.
-    keyName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,11 +210,11 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 --
 -- 'keyFingerprint', 'importKeyPairResponse_keyFingerprint' - The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 --
+-- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.
+--
 -- 'keyPairId', 'importKeyPairResponse_keyPairId' - The ID of the resulting key pair.
 --
 -- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.
---
--- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.
 --
 -- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.
 newImportKeyPairResponse ::
@@ -225,9 +225,9 @@ newImportKeyPairResponse pHttpStatus_ =
   ImportKeyPairResponse'
     { keyFingerprint =
         Prelude.Nothing,
+      keyName = Prelude.Nothing,
       keyPairId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      keyName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -235,17 +235,17 @@ newImportKeyPairResponse pHttpStatus_ =
 importKeyPairResponse_keyFingerprint :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
 importKeyPairResponse_keyFingerprint = Lens.lens (\ImportKeyPairResponse' {keyFingerprint} -> keyFingerprint) (\s@ImportKeyPairResponse' {} a -> s {keyFingerprint = a} :: ImportKeyPairResponse)
 
+-- | The key pair name that you provided.
+importKeyPairResponse_keyName :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
+importKeyPairResponse_keyName = Lens.lens (\ImportKeyPairResponse' {keyName} -> keyName) (\s@ImportKeyPairResponse' {} a -> s {keyName = a} :: ImportKeyPairResponse)
+
 -- | The ID of the resulting key pair.
 importKeyPairResponse_keyPairId :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
 importKeyPairResponse_keyPairId = Lens.lens (\ImportKeyPairResponse' {keyPairId} -> keyPairId) (\s@ImportKeyPairResponse' {} a -> s {keyPairId = a} :: ImportKeyPairResponse)
 
 -- | The tags applied to the imported key pair.
 importKeyPairResponse_tags :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe [Tag])
-importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The key pair name that you provided.
-importKeyPairResponse_keyName :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
-importKeyPairResponse_keyName = Lens.lens (\ImportKeyPairResponse' {keyName} -> keyName) (\s@ImportKeyPairResponse' {} a -> s {keyName = a} :: ImportKeyPairResponse)
+importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Prelude.Int

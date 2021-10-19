@@ -32,9 +32,9 @@ module Network.AWS.EC2.DescribeBundleTasks
     newDescribeBundleTasks,
 
     -- * Request Lenses
-    describeBundleTasks_dryRun,
-    describeBundleTasks_filters,
     describeBundleTasks_bundleIds,
+    describeBundleTasks_filters,
+    describeBundleTasks_dryRun,
 
     -- * Destructuring the Response
     DescribeBundleTasksResponse (..),
@@ -55,11 +55,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+  { -- | The bundle task IDs.
+    --
+    -- Default: Describes all your bundle tasks.
+    bundleIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @bundle-id@ - The ID of the bundle task.
@@ -85,10 +84,11 @@ data DescribeBundleTasks = DescribeBundleTasks'
     --
     -- -   @update-time@ - The time of the most recent update for the task.
     filters :: Prelude.Maybe [Filter],
-    -- | The bundle task IDs.
-    --
-    -- Default: Describes all your bundle tasks.
-    bundleIds :: Prelude.Maybe [Prelude.Text]
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,10 +100,9 @@ data DescribeBundleTasks = DescribeBundleTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'describeBundleTasks_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'bundleIds', 'describeBundleTasks_bundleIds' - The bundle task IDs.
+--
+-- Default: Describes all your bundle tasks.
 --
 -- 'filters', 'describeBundleTasks_filters' - The filters.
 --
@@ -130,24 +129,24 @@ data DescribeBundleTasks = DescribeBundleTasks'
 --
 -- -   @update-time@ - The time of the most recent update for the task.
 --
--- 'bundleIds', 'describeBundleTasks_bundleIds' - The bundle task IDs.
---
--- Default: Describes all your bundle tasks.
+-- 'dryRun', 'describeBundleTasks_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeBundleTasks ::
   DescribeBundleTasks
 newDescribeBundleTasks =
   DescribeBundleTasks'
-    { dryRun = Prelude.Nothing,
+    { bundleIds = Prelude.Nothing,
       filters = Prelude.Nothing,
-      bundleIds = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeBundleTasks_dryRun :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe Prelude.Bool)
-describeBundleTasks_dryRun = Lens.lens (\DescribeBundleTasks' {dryRun} -> dryRun) (\s@DescribeBundleTasks' {} a -> s {dryRun = a} :: DescribeBundleTasks)
+-- | The bundle task IDs.
+--
+-- Default: Describes all your bundle tasks.
+describeBundleTasks_bundleIds :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe [Prelude.Text])
+describeBundleTasks_bundleIds = Lens.lens (\DescribeBundleTasks' {bundleIds} -> bundleIds) (\s@DescribeBundleTasks' {} a -> s {bundleIds = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -174,13 +173,14 @@ describeBundleTasks_dryRun = Lens.lens (\DescribeBundleTasks' {dryRun} -> dryRun
 --
 -- -   @update-time@ - The time of the most recent update for the task.
 describeBundleTasks_filters :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe [Filter])
-describeBundleTasks_filters = Lens.lens (\DescribeBundleTasks' {filters} -> filters) (\s@DescribeBundleTasks' {} a -> s {filters = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Lens._Coerce
+describeBundleTasks_filters = Lens.lens (\DescribeBundleTasks' {filters} -> filters) (\s@DescribeBundleTasks' {} a -> s {filters = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Lens.coerced
 
--- | The bundle task IDs.
---
--- Default: Describes all your bundle tasks.
-describeBundleTasks_bundleIds :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe [Prelude.Text])
-describeBundleTasks_bundleIds = Lens.lens (\DescribeBundleTasks' {bundleIds} -> bundleIds) (\s@DescribeBundleTasks' {} a -> s {bundleIds = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Lens._Coerce
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeBundleTasks_dryRun :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe Prelude.Bool)
+describeBundleTasks_dryRun = Lens.lens (\DescribeBundleTasks' {dryRun} -> dryRun) (\s@DescribeBundleTasks' {} a -> s {dryRun = a} :: DescribeBundleTasks)
 
 instance Core.AWSRequest DescribeBundleTasks where
   type
@@ -215,11 +215,11 @@ instance Core.ToQuery DescribeBundleTasks where
           Core.=: ("DescribeBundleTasks" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "BundleId" Prelude.<$> bundleIds),
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
-        Core.toQuery
-          (Core.toQueryList "BundleId" Prelude.<$> bundleIds)
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeBundleTasksResponse' smart constructor.
@@ -255,7 +255,7 @@ newDescribeBundleTasksResponse pHttpStatus_ =
 
 -- | Information about the bundle tasks.
 describeBundleTasksResponse_bundleTasks :: Lens.Lens' DescribeBundleTasksResponse (Prelude.Maybe [BundleTask])
-describeBundleTasksResponse_bundleTasks = Lens.lens (\DescribeBundleTasksResponse' {bundleTasks} -> bundleTasks) (\s@DescribeBundleTasksResponse' {} a -> s {bundleTasks = a} :: DescribeBundleTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeBundleTasksResponse_bundleTasks = Lens.lens (\DescribeBundleTasksResponse' {bundleTasks} -> bundleTasks) (\s@DescribeBundleTasksResponse' {} a -> s {bundleTasks = a} :: DescribeBundleTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeBundleTasksResponse_httpStatus :: Lens.Lens' DescribeBundleTasksResponse Prelude.Int

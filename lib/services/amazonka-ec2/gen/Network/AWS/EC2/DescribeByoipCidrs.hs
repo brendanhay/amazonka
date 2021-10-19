@@ -222,7 +222,7 @@ describeByoipCidrsResponse_nextToken = Lens.lens (\DescribeByoipCidrsResponse' {
 
 -- | Information about your address ranges.
 describeByoipCidrsResponse_byoipCidrs :: Lens.Lens' DescribeByoipCidrsResponse (Prelude.Maybe [ByoipCidr])
-describeByoipCidrsResponse_byoipCidrs = Lens.lens (\DescribeByoipCidrsResponse' {byoipCidrs} -> byoipCidrs) (\s@DescribeByoipCidrsResponse' {} a -> s {byoipCidrs = a} :: DescribeByoipCidrsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeByoipCidrsResponse_byoipCidrs = Lens.lens (\DescribeByoipCidrsResponse' {byoipCidrs} -> byoipCidrs) (\s@DescribeByoipCidrsResponse' {} a -> s {byoipCidrs = a} :: DescribeByoipCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeByoipCidrsResponse_httpStatus :: Lens.Lens' DescribeByoipCidrsResponse Prelude.Int

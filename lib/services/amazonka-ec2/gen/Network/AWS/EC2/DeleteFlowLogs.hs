@@ -96,7 +96,7 @@ deleteFlowLogs_dryRun = Lens.lens (\DeleteFlowLogs' {dryRun} -> dryRun) (\s@Dele
 --
 -- Constraint: Maximum of 1000 flow log IDs.
 deleteFlowLogs_flowLogIds :: Lens.Lens' DeleteFlowLogs [Prelude.Text]
-deleteFlowLogs_flowLogIds = Lens.lens (\DeleteFlowLogs' {flowLogIds} -> flowLogIds) (\s@DeleteFlowLogs' {} a -> s {flowLogIds = a} :: DeleteFlowLogs) Prelude.. Lens._Coerce
+deleteFlowLogs_flowLogIds = Lens.lens (\DeleteFlowLogs' {flowLogIds} -> flowLogIds) (\s@DeleteFlowLogs' {} a -> s {flowLogIds = a} :: DeleteFlowLogs) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteFlowLogs where
   type
@@ -167,7 +167,7 @@ newDeleteFlowLogsResponse pHttpStatus_ =
 
 -- | Information about the flow logs that could not be deleted successfully.
 deleteFlowLogsResponse_unsuccessful :: Lens.Lens' DeleteFlowLogsResponse (Prelude.Maybe [UnsuccessfulItem])
-deleteFlowLogsResponse_unsuccessful = Lens.lens (\DeleteFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteFlowLogsResponse' {} a -> s {unsuccessful = a} :: DeleteFlowLogsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteFlowLogsResponse_unsuccessful = Lens.lens (\DeleteFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteFlowLogsResponse' {} a -> s {unsuccessful = a} :: DeleteFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteFlowLogsResponse_httpStatus :: Lens.Lens' DeleteFlowLogsResponse Prelude.Int

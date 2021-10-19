@@ -44,8 +44,8 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     newCancelSpotFleetRequestsResponse,
 
     -- * Response Lenses
-    cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests,
     cancelSpotFleetRequestsResponse_successfulFleetRequests,
+    cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests,
     cancelSpotFleetRequestsResponse_httpStatus,
   )
 where
@@ -111,7 +111,7 @@ cancelSpotFleetRequests_dryRun = Lens.lens (\CancelSpotFleetRequests' {dryRun} -
 
 -- | The IDs of the Spot Fleet requests.
 cancelSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' CancelSpotFleetRequests [Prelude.Text]
-cancelSpotFleetRequests_spotFleetRequestIds = Lens.lens (\CancelSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@CancelSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: CancelSpotFleetRequests) Prelude.. Lens._Coerce
+cancelSpotFleetRequests_spotFleetRequestIds = Lens.lens (\CancelSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@CancelSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: CancelSpotFleetRequests) Prelude.. Lens.coerced
 
 -- | Indicates whether to terminate instances for a Spot Fleet request if it
 -- is canceled successfully.
@@ -127,11 +127,11 @@ instance Core.AWSRequest CancelSpotFleetRequests where
     Response.receiveXML
       ( \s h x ->
           CancelSpotFleetRequestsResponse'
-            Prelude.<$> ( x Core..@? "unsuccessfulFleetRequestSet"
+            Prelude.<$> ( x Core..@? "successfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "successfulFleetRequestSet"
+            Prelude.<*> ( x Core..@? "unsuccessfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
@@ -166,12 +166,12 @@ instance Core.ToQuery CancelSpotFleetRequests where
 --
 -- /See:/ 'newCancelSpotFleetRequestsResponse' smart constructor.
 data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
-  { -- | Information about the Spot Fleet requests that are not successfully
-    -- canceled.
-    unsuccessfulFleetRequests :: Prelude.Maybe [CancelSpotFleetRequestsErrorItem],
-    -- | Information about the Spot Fleet requests that are successfully
+  { -- | Information about the Spot Fleet requests that are successfully
     -- canceled.
     successfulFleetRequests :: Prelude.Maybe [CancelSpotFleetRequestsSuccessItem],
+    -- | Information about the Spot Fleet requests that are not successfully
+    -- canceled.
+    unsuccessfulFleetRequests :: Prelude.Maybe [CancelSpotFleetRequestsErrorItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unsuccessfulFleetRequests', 'cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests' - Information about the Spot Fleet requests that are not successfully
+-- 'successfulFleetRequests', 'cancelSpotFleetRequestsResponse_successfulFleetRequests' - Information about the Spot Fleet requests that are successfully
 -- canceled.
 --
--- 'successfulFleetRequests', 'cancelSpotFleetRequestsResponse_successfulFleetRequests' - Information about the Spot Fleet requests that are successfully
+-- 'unsuccessfulFleetRequests', 'cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests' - Information about the Spot Fleet requests that are not successfully
 -- canceled.
 --
 -- 'httpStatus', 'cancelSpotFleetRequestsResponse_httpStatus' - The response's http status code.
@@ -198,21 +198,22 @@ newCancelSpotFleetRequestsResponse ::
   CancelSpotFleetRequestsResponse
 newCancelSpotFleetRequestsResponse pHttpStatus_ =
   CancelSpotFleetRequestsResponse'
-    { unsuccessfulFleetRequests =
+    { successfulFleetRequests =
         Prelude.Nothing,
-      successfulFleetRequests = Prelude.Nothing,
+      unsuccessfulFleetRequests =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the Spot Fleet requests that are not successfully
--- canceled.
-cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Prelude.Maybe [CancelSpotFleetRequestsErrorItem])
-cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {unsuccessfulFleetRequests} -> unsuccessfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {unsuccessfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Information about the Spot Fleet requests that are successfully
 -- canceled.
 cancelSpotFleetRequestsResponse_successfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Prelude.Maybe [CancelSpotFleetRequestsSuccessItem])
-cancelSpotFleetRequestsResponse_successfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {successfulFleetRequests} -> successfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {successfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+cancelSpotFleetRequestsResponse_successfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {successfulFleetRequests} -> successfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {successfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the Spot Fleet requests that are not successfully
+-- canceled.
+cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests :: Lens.Lens' CancelSpotFleetRequestsResponse (Prelude.Maybe [CancelSpotFleetRequestsErrorItem])
+cancelSpotFleetRequestsResponse_unsuccessfulFleetRequests = Lens.lens (\CancelSpotFleetRequestsResponse' {unsuccessfulFleetRequests} -> unsuccessfulFleetRequests) (\s@CancelSpotFleetRequestsResponse' {} a -> s {unsuccessfulFleetRequests = a} :: CancelSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 cancelSpotFleetRequestsResponse_httpStatus :: Lens.Lens' CancelSpotFleetRequestsResponse Prelude.Int

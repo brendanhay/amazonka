@@ -28,9 +28,9 @@ module Network.AWS.EC2.ModifyTransitGatewayPrefixListReference
     newModifyTransitGatewayPrefixListReference,
 
     -- * Request Lenses
-    modifyTransitGatewayPrefixListReference_dryRun,
     modifyTransitGatewayPrefixListReference_blackhole,
     modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId,
+    modifyTransitGatewayPrefixListReference_dryRun,
     modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId,
     modifyTransitGatewayPrefixListReference_prefixListId,
 
@@ -53,15 +53,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyTransitGatewayPrefixListReference' smart constructor.
 data ModifyTransitGatewayPrefixListReference = ModifyTransitGatewayPrefixListReference'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Indicates whether to drop traffic that matches this route.
+    blackhole :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the attachment to which traffic is routed.
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to drop traffic that matches this route.
-    blackhole :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the attachment to which traffic is routed.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Text,
     -- | The ID of the prefix list.
@@ -77,14 +77,14 @@ data ModifyTransitGatewayPrefixListReference = ModifyTransitGatewayPrefixListRef
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'blackhole', 'modifyTransitGatewayPrefixListReference_blackhole' - Indicates whether to drop traffic that matches this route.
+--
+-- 'transitGatewayAttachmentId', 'modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId' - The ID of the attachment to which traffic is routed.
+--
 -- 'dryRun', 'modifyTransitGatewayPrefixListReference_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'blackhole', 'modifyTransitGatewayPrefixListReference_blackhole' - Indicates whether to drop traffic that matches this route.
---
--- 'transitGatewayAttachmentId', 'modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId' - The ID of the attachment to which traffic is routed.
 --
 -- 'transitGatewayRouteTableId', 'modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 --
@@ -99,22 +99,15 @@ newModifyTransitGatewayPrefixListReference
   pTransitGatewayRouteTableId_
   pPrefixListId_ =
     ModifyTransitGatewayPrefixListReference'
-      { dryRun =
+      { blackhole =
           Prelude.Nothing,
-        blackhole = Prelude.Nothing,
         transitGatewayAttachmentId =
           Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         prefixListId = pPrefixListId_
       }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyTransitGatewayPrefixListReference_dryRun :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
-modifyTransitGatewayPrefixListReference_dryRun = Lens.lens (\ModifyTransitGatewayPrefixListReference' {dryRun} -> dryRun) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {dryRun = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | Indicates whether to drop traffic that matches this route.
 modifyTransitGatewayPrefixListReference_blackhole :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
@@ -123,6 +116,13 @@ modifyTransitGatewayPrefixListReference_blackhole = Lens.lens (\ModifyTransitGat
 -- | The ID of the attachment to which traffic is routed.
 modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Text)
 modifyTransitGatewayPrefixListReference_transitGatewayAttachmentId = Lens.lens (\ModifyTransitGatewayPrefixListReference' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {transitGatewayAttachmentId = a} :: ModifyTransitGatewayPrefixListReference)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyTransitGatewayPrefixListReference_dryRun :: Lens.Lens' ModifyTransitGatewayPrefixListReference (Prelude.Maybe Prelude.Bool)
+modifyTransitGatewayPrefixListReference_dryRun = Lens.lens (\ModifyTransitGatewayPrefixListReference' {dryRun} -> dryRun) (\s@ModifyTransitGatewayPrefixListReference' {} a -> s {dryRun = a} :: ModifyTransitGatewayPrefixListReference)
 
 -- | The ID of the transit gateway route table.
 modifyTransitGatewayPrefixListReference_transitGatewayRouteTableId :: Lens.Lens' ModifyTransitGatewayPrefixListReference Prelude.Text
@@ -181,10 +181,10 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Blackhole" Core.=: blackhole,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId,
+        "DryRun" Core.=: dryRun,
         "TransitGatewayRouteTableId"
           Core.=: transitGatewayRouteTableId,
         "PrefixListId" Core.=: prefixListId

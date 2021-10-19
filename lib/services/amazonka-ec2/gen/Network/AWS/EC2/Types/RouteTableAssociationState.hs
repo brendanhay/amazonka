@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRouteTableAssociationState' smart constructor.
 data RouteTableAssociationState = RouteTableAssociationState'
-  { -- | The status message, if applicable.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The state of the association.
-    state :: Prelude.Maybe RouteTableAssociationStateCode
+  { -- | The state of the association.
+    state :: Prelude.Maybe RouteTableAssociationStateCode,
+    -- | The status message, if applicable.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data RouteTableAssociationState = RouteTableAssociationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'routeTableAssociationState_statusMessage' - The status message, if applicable.
---
 -- 'state', 'routeTableAssociationState_state' - The state of the association.
+--
+-- 'statusMessage', 'routeTableAssociationState_statusMessage' - The status message, if applicable.
 newRouteTableAssociationState ::
   RouteTableAssociationState
 newRouteTableAssociationState =
   RouteTableAssociationState'
-    { statusMessage =
+    { state =
         Prelude.Nothing,
-      state = Prelude.Nothing
+      statusMessage = Prelude.Nothing
     }
-
--- | The status message, if applicable.
-routeTableAssociationState_statusMessage :: Lens.Lens' RouteTableAssociationState (Prelude.Maybe Prelude.Text)
-routeTableAssociationState_statusMessage = Lens.lens (\RouteTableAssociationState' {statusMessage} -> statusMessage) (\s@RouteTableAssociationState' {} a -> s {statusMessage = a} :: RouteTableAssociationState)
 
 -- | The state of the association.
 routeTableAssociationState_state :: Lens.Lens' RouteTableAssociationState (Prelude.Maybe RouteTableAssociationStateCode)
 routeTableAssociationState_state = Lens.lens (\RouteTableAssociationState' {state} -> state) (\s@RouteTableAssociationState' {} a -> s {state = a} :: RouteTableAssociationState)
 
+-- | The status message, if applicable.
+routeTableAssociationState_statusMessage :: Lens.Lens' RouteTableAssociationState (Prelude.Maybe Prelude.Text)
+routeTableAssociationState_statusMessage = Lens.lens (\RouteTableAssociationState' {statusMessage} -> statusMessage) (\s@RouteTableAssociationState' {} a -> s {statusMessage = a} :: RouteTableAssociationState)
+
 instance Core.FromXML RouteTableAssociationState where
   parseXML x =
     RouteTableAssociationState'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "statusMessage")
 
 instance Prelude.Hashable RouteTableAssociationState
 

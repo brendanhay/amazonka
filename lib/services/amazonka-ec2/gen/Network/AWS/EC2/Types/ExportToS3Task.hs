@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportToS3Task' smart constructor.
 data ExportToS3Task = ExportToS3Task'
-  { -- | The container format used to combine disk images with metadata (such as
+  { -- | The encryption key for your S3 bucket.
+    s3Key :: Prelude.Maybe Prelude.Text,
+    -- | The container format used to combine disk images with metadata (such as
     -- OVF). If absent, only the disk image is exported.
     containerFormat :: Prelude.Maybe ContainerFormat,
-    -- | The format for the exported image.
-    diskImageFormat :: Prelude.Maybe DiskImageFormat,
     -- | The Amazon S3 bucket for the destination image. The destination bucket
     -- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
     -- Services account @vm-import-export\@amazon.com@.
     s3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The encryption key for your S3 bucket.
-    s3Key :: Prelude.Maybe Prelude.Text
+    -- | The format for the exported image.
+    diskImageFormat :: Prelude.Maybe DiskImageFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,34 +52,34 @@ data ExportToS3Task = ExportToS3Task'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3Key', 'exportToS3Task_s3Key' - The encryption key for your S3 bucket.
+--
 -- 'containerFormat', 'exportToS3Task_containerFormat' - The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
---
--- 'diskImageFormat', 'exportToS3Task_diskImageFormat' - The format for the exported image.
 --
 -- 's3Bucket', 'exportToS3Task_s3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket
 -- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
 -- Services account @vm-import-export\@amazon.com@.
 --
--- 's3Key', 'exportToS3Task_s3Key' - The encryption key for your S3 bucket.
+-- 'diskImageFormat', 'exportToS3Task_diskImageFormat' - The format for the exported image.
 newExportToS3Task ::
   ExportToS3Task
 newExportToS3Task =
   ExportToS3Task'
-    { containerFormat = Prelude.Nothing,
-      diskImageFormat = Prelude.Nothing,
+    { s3Key = Prelude.Nothing,
+      containerFormat = Prelude.Nothing,
       s3Bucket = Prelude.Nothing,
-      s3Key = Prelude.Nothing
+      diskImageFormat = Prelude.Nothing
     }
+
+-- | The encryption key for your S3 bucket.
+exportToS3Task_s3Key :: Lens.Lens' ExportToS3Task (Prelude.Maybe Prelude.Text)
+exportToS3Task_s3Key = Lens.lens (\ExportToS3Task' {s3Key} -> s3Key) (\s@ExportToS3Task' {} a -> s {s3Key = a} :: ExportToS3Task)
 
 -- | The container format used to combine disk images with metadata (such as
 -- OVF). If absent, only the disk image is exported.
 exportToS3Task_containerFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe ContainerFormat)
 exportToS3Task_containerFormat = Lens.lens (\ExportToS3Task' {containerFormat} -> containerFormat) (\s@ExportToS3Task' {} a -> s {containerFormat = a} :: ExportToS3Task)
-
--- | The format for the exported image.
-exportToS3Task_diskImageFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe DiskImageFormat)
-exportToS3Task_diskImageFormat = Lens.lens (\ExportToS3Task' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3Task' {} a -> s {diskImageFormat = a} :: ExportToS3Task)
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket
 -- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
@@ -87,17 +87,17 @@ exportToS3Task_diskImageFormat = Lens.lens (\ExportToS3Task' {diskImageFormat} -
 exportToS3Task_s3Bucket :: Lens.Lens' ExportToS3Task (Prelude.Maybe Prelude.Text)
 exportToS3Task_s3Bucket = Lens.lens (\ExportToS3Task' {s3Bucket} -> s3Bucket) (\s@ExportToS3Task' {} a -> s {s3Bucket = a} :: ExportToS3Task)
 
--- | The encryption key for your S3 bucket.
-exportToS3Task_s3Key :: Lens.Lens' ExportToS3Task (Prelude.Maybe Prelude.Text)
-exportToS3Task_s3Key = Lens.lens (\ExportToS3Task' {s3Key} -> s3Key) (\s@ExportToS3Task' {} a -> s {s3Key = a} :: ExportToS3Task)
+-- | The format for the exported image.
+exportToS3Task_diskImageFormat :: Lens.Lens' ExportToS3Task (Prelude.Maybe DiskImageFormat)
+exportToS3Task_diskImageFormat = Lens.lens (\ExportToS3Task' {diskImageFormat} -> diskImageFormat) (\s@ExportToS3Task' {} a -> s {diskImageFormat = a} :: ExportToS3Task)
 
 instance Core.FromXML ExportToS3Task where
   parseXML x =
     ExportToS3Task'
-      Prelude.<$> (x Core..@? "containerFormat")
-      Prelude.<*> (x Core..@? "diskImageFormat")
+      Prelude.<$> (x Core..@? "s3Key")
+      Prelude.<*> (x Core..@? "containerFormat")
       Prelude.<*> (x Core..@? "s3Bucket")
-      Prelude.<*> (x Core..@? "s3Key")
+      Prelude.<*> (x Core..@? "diskImageFormat")
 
 instance Prelude.Hashable ExportToS3Task
 

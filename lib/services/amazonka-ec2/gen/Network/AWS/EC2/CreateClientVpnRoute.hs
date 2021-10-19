@@ -30,9 +30,9 @@ module Network.AWS.EC2.CreateClientVpnRoute
     newCreateClientVpnRoute,
 
     -- * Request Lenses
-    createClientVpnRoute_dryRun,
-    createClientVpnRoute_description,
     createClientVpnRoute_clientToken,
+    createClientVpnRoute_description,
+    createClientVpnRoute_dryRun,
     createClientVpnRoute_clientVpnEndpointId,
     createClientVpnRoute_destinationCidrBlock,
     createClientVpnRoute_targetVpcSubnetId,
@@ -56,17 +56,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateClientVpnRoute' smart constructor.
 data CreateClientVpnRoute = CreateClientVpnRoute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A brief description of the route.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A brief description of the route.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint to which to add the route.
     clientVpnEndpointId :: Prelude.Text,
     -- | The IPv4 address range, in CIDR notation, of the route destination. For
@@ -100,16 +100,16 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createClientVpnRoute_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
+-- 'description', 'createClientVpnRoute_description' - A brief description of the route.
+--
 -- 'dryRun', 'createClientVpnRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'description', 'createClientVpnRoute_description' - A brief description of the route.
---
--- 'clientToken', 'createClientVpnRoute_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'clientVpnEndpointId', 'createClientVpnRoute_clientVpnEndpointId' - The ID of the Client VPN endpoint to which to add the route.
 --
@@ -145,13 +145,24 @@ newCreateClientVpnRoute
   pDestinationCidrBlock_
   pTargetVpcSubnetId_ =
     CreateClientVpnRoute'
-      { dryRun = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         description = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         destinationCidrBlock = pDestinationCidrBlock_,
         targetVpcSubnetId = pTargetVpcSubnetId_
       }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+createClientVpnRoute_clientToken :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
+createClientVpnRoute_clientToken = Lens.lens (\CreateClientVpnRoute' {clientToken} -> clientToken) (\s@CreateClientVpnRoute' {} a -> s {clientToken = a} :: CreateClientVpnRoute)
+
+-- | A brief description of the route.
+createClientVpnRoute_description :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
+createClientVpnRoute_description = Lens.lens (\CreateClientVpnRoute' {description} -> description) (\s@CreateClientVpnRoute' {} a -> s {description = a} :: CreateClientVpnRoute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -159,16 +170,6 @@ newCreateClientVpnRoute
 -- Otherwise, it is @UnauthorizedOperation@.
 createClientVpnRoute_dryRun :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Bool)
 createClientVpnRoute_dryRun = Lens.lens (\CreateClientVpnRoute' {dryRun} -> dryRun) (\s@CreateClientVpnRoute' {} a -> s {dryRun = a} :: CreateClientVpnRoute)
-
--- | A brief description of the route.
-createClientVpnRoute_description :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
-createClientVpnRoute_description = Lens.lens (\CreateClientVpnRoute' {description} -> description) (\s@CreateClientVpnRoute' {} a -> s {description = a} :: CreateClientVpnRoute)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-createClientVpnRoute_clientToken :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
-createClientVpnRoute_clientToken = Lens.lens (\CreateClientVpnRoute' {clientToken} -> clientToken) (\s@CreateClientVpnRoute' {} a -> s {clientToken = a} :: CreateClientVpnRoute)
 
 -- | The ID of the Client VPN endpoint to which to add the route.
 createClientVpnRoute_clientVpnEndpointId :: Lens.Lens' CreateClientVpnRoute Prelude.Text
@@ -228,9 +229,9 @@ instance Core.ToQuery CreateClientVpnRoute where
           Core.=: ("CreateClientVpnRoute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Description" Core.=: description,
         "ClientToken" Core.=: clientToken,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
         "DestinationCidrBlock" Core.=: destinationCidrBlock,
         "TargetVpcSubnetId" Core.=: targetVpcSubnetId

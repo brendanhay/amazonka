@@ -22,7 +22,8 @@ module Network.AWS.EC2.Types.ArchitectureType
       ( ..,
         ArchitectureType_Arm64,
         ArchitectureType_I386,
-        ArchitectureType_X86_64
+        ArchitectureType_X86_64,
+        ArchitectureType_X86_64_mac
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ArchitectureType_I386 = ArchitectureType' "i386"
 pattern ArchitectureType_X86_64 :: ArchitectureType
 pattern ArchitectureType_X86_64 = ArchitectureType' "x86_64"
 
+pattern ArchitectureType_X86_64_mac :: ArchitectureType
+pattern ArchitectureType_X86_64_mac = ArchitectureType' "x86_64_mac"
+
 {-# COMPLETE
   ArchitectureType_Arm64,
   ArchitectureType_I386,
   ArchitectureType_X86_64,
+  ArchitectureType_X86_64_mac,
   ArchitectureType'
   #-}

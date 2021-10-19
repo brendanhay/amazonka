@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeCustomerGateways
     newDescribeCustomerGateways,
 
     -- * Request Lenses
-    describeCustomerGateways_dryRun,
     describeCustomerGateways_customerGatewayIds,
     describeCustomerGateways_filters,
+    describeCustomerGateways_dryRun,
 
     -- * Destructuring the Response
     DescribeCustomerGatewaysResponse (..),
@@ -56,12 +56,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeCustomerGateways' smart constructor.
 data DescribeCustomerGateways = DescribeCustomerGateways'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more customer gateway IDs.
+  { -- | One or more customer gateway IDs.
     --
     -- Default: Describes all your customer gateways.
     customerGatewayIds :: Prelude.Maybe [Prelude.Text],
@@ -90,7 +85,12 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,11 +101,6 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'describeCustomerGateways_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'customerGatewayIds', 'describeCustomerGateways_customerGatewayIds' - One or more customer gateway IDs.
 --
@@ -136,27 +131,26 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
+--
+-- 'dryRun', 'describeCustomerGateways_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeCustomerGateways ::
   DescribeCustomerGateways
 newDescribeCustomerGateways =
   DescribeCustomerGateways'
-    { dryRun = Prelude.Nothing,
-      customerGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { customerGatewayIds =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCustomerGateways_dryRun :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe Prelude.Bool)
-describeCustomerGateways_dryRun = Lens.lens (\DescribeCustomerGateways' {dryRun} -> dryRun) (\s@DescribeCustomerGateways' {} a -> s {dryRun = a} :: DescribeCustomerGateways)
 
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
 describeCustomerGateways_customerGatewayIds :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Prelude.Text])
-describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens._Coerce
+describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -184,7 +178,14 @@ describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGatewa
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeCustomerGateways_filters :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Filter])
-describeCustomerGateways_filters = Lens.lens (\DescribeCustomerGateways' {filters} -> filters) (\s@DescribeCustomerGateways' {} a -> s {filters = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens._Coerce
+describeCustomerGateways_filters = Lens.lens (\DescribeCustomerGateways' {filters} -> filters) (\s@DescribeCustomerGateways' {} a -> s {filters = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCustomerGateways_dryRun :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe Prelude.Bool)
+describeCustomerGateways_dryRun = Lens.lens (\DescribeCustomerGateways' {dryRun} -> dryRun) (\s@DescribeCustomerGateways' {} a -> s {dryRun = a} :: DescribeCustomerGateways)
 
 instance Core.AWSRequest DescribeCustomerGateways where
   type
@@ -219,13 +220,13 @@ instance Core.ToQuery DescribeCustomerGateways where
           Core.=: ("DescribeCustomerGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "CustomerGatewayId"
               Prelude.<$> customerGatewayIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | Contains the output of DescribeCustomerGateways.
@@ -263,7 +264,7 @@ newDescribeCustomerGatewaysResponse pHttpStatus_ =
 
 -- | Information about one or more customer gateways.
 describeCustomerGatewaysResponse_customerGateways :: Lens.Lens' DescribeCustomerGatewaysResponse (Prelude.Maybe [CustomerGateway])
-describeCustomerGatewaysResponse_customerGateways = Lens.lens (\DescribeCustomerGatewaysResponse' {customerGateways} -> customerGateways) (\s@DescribeCustomerGatewaysResponse' {} a -> s {customerGateways = a} :: DescribeCustomerGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCustomerGatewaysResponse_customerGateways = Lens.lens (\DescribeCustomerGatewaysResponse' {customerGateways} -> customerGateways) (\s@DescribeCustomerGatewaysResponse' {} a -> s {customerGateways = a} :: DescribeCustomerGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCustomerGatewaysResponse_httpStatus :: Lens.Lens' DescribeCustomerGatewaysResponse Prelude.Int

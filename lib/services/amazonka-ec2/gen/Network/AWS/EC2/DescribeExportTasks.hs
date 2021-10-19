@@ -28,8 +28,8 @@ module Network.AWS.EC2.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_exportTaskIds,
     describeExportTasks_filters,
+    describeExportTasks_exportTaskIds,
 
     -- * Destructuring the Response
     DescribeExportTasksResponse (..),
@@ -50,10 +50,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | The export task IDs.
-    exportTaskIds :: Prelude.Maybe [Prelude.Text],
-    -- | the filters for the export tasks.
-    filters :: Prelude.Maybe [Filter]
+  { -- | the filters for the export tasks.
+    filters :: Prelude.Maybe [Filter],
+    -- | The export task IDs.
+    exportTaskIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,25 +65,24 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportTaskIds', 'describeExportTasks_exportTaskIds' - The export task IDs.
---
 -- 'filters', 'describeExportTasks_filters' - the filters for the export tasks.
+--
+-- 'exportTaskIds', 'describeExportTasks_exportTaskIds' - The export task IDs.
 newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { exportTaskIds =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      exportTaskIds = Prelude.Nothing
     }
-
--- | The export task IDs.
-describeExportTasks_exportTaskIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
-describeExportTasks_exportTaskIds = Lens.lens (\DescribeExportTasks' {exportTaskIds} -> exportTaskIds) (\s@DescribeExportTasks' {} a -> s {exportTaskIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | the filters for the export tasks.
 describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens._Coerce
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
+
+-- | The export task IDs.
+describeExportTasks_exportTaskIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
+describeExportTasks_exportTaskIds = Lens.lens (\DescribeExportTasks' {exportTaskIds} -> exportTaskIds) (\s@DescribeExportTasks' {} a -> s {exportTaskIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeExportTasks where
   type
@@ -118,11 +117,11 @@ instance Core.ToQuery DescribeExportTasks where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
           ( Core.toQueryList "ExportTaskId"
               Prelude.<$> exportTaskIds
-          ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          )
       ]
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
@@ -158,7 +157,7 @@ newDescribeExportTasksResponse pHttpStatus_ =
 
 -- | Information about the export tasks.
 describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
-describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int

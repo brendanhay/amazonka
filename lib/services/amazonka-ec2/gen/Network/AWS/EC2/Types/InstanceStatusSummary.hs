@@ -60,7 +60,7 @@ newInstanceStatusSummary pStatus_ =
 
 -- | The system instance health or application instance health.
 instanceStatusSummary_details :: Lens.Lens' InstanceStatusSummary (Prelude.Maybe [InstanceStatusDetails])
-instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Prelude.. Lens.mapping Lens._Coerce
+instanceStatusSummary_details = Lens.lens (\InstanceStatusSummary' {details} -> details) (\s@InstanceStatusSummary' {} a -> s {details = a} :: InstanceStatusSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status.
 instanceStatusSummary_status :: Lens.Lens' InstanceStatusSummary SummaryStatus

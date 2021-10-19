@@ -93,7 +93,7 @@ unmonitorInstances_dryRun = Lens.lens (\UnmonitorInstances' {dryRun} -> dryRun) 
 
 -- | The IDs of the instances.
 unmonitorInstances_instanceIds :: Lens.Lens' UnmonitorInstances [Prelude.Text]
-unmonitorInstances_instanceIds = Lens.lens (\UnmonitorInstances' {instanceIds} -> instanceIds) (\s@UnmonitorInstances' {} a -> s {instanceIds = a} :: UnmonitorInstances) Prelude.. Lens._Coerce
+unmonitorInstances_instanceIds = Lens.lens (\UnmonitorInstances' {instanceIds} -> instanceIds) (\s@UnmonitorInstances' {} a -> s {instanceIds = a} :: UnmonitorInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UnmonitorInstances where
   type
@@ -164,7 +164,7 @@ newUnmonitorInstancesResponse pHttpStatus_ =
 
 -- | The monitoring information.
 unmonitorInstancesResponse_instanceMonitorings :: Lens.Lens' UnmonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
-unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@UnmonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: UnmonitorInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@UnmonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: UnmonitorInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 unmonitorInstancesResponse_httpStatus :: Lens.Lens' UnmonitorInstancesResponse Prelude.Int

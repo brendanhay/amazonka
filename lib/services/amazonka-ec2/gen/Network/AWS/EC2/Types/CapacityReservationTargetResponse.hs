@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCapacityReservationTargetResponse' smart constructor.
 data CapacityReservationTargetResponse = CapacityReservationTargetResponse'
-  { -- | The ARN of the targeted Capacity Reservation group.
-    capacityReservationResourceGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the targeted Capacity Reservation.
-    capacityReservationId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the targeted Capacity Reservation.
+    capacityReservationId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the targeted Capacity Reservation group.
+    capacityReservationResourceGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,26 @@ data CapacityReservationTargetResponse = CapacityReservationTargetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityReservationResourceGroupArn', 'capacityReservationTargetResponse_capacityReservationResourceGroupArn' - The ARN of the targeted Capacity Reservation group.
---
 -- 'capacityReservationId', 'capacityReservationTargetResponse_capacityReservationId' - The ID of the targeted Capacity Reservation.
+--
+-- 'capacityReservationResourceGroupArn', 'capacityReservationTargetResponse_capacityReservationResourceGroupArn' - The ARN of the targeted Capacity Reservation group.
 newCapacityReservationTargetResponse ::
   CapacityReservationTargetResponse
 newCapacityReservationTargetResponse =
   CapacityReservationTargetResponse'
-    { capacityReservationResourceGroupArn =
+    { capacityReservationId =
         Prelude.Nothing,
-      capacityReservationId = Prelude.Nothing
+      capacityReservationResourceGroupArn =
+        Prelude.Nothing
     }
-
--- | The ARN of the targeted Capacity Reservation group.
-capacityReservationTargetResponse_capacityReservationResourceGroupArn :: Lens.Lens' CapacityReservationTargetResponse (Prelude.Maybe Prelude.Text)
-capacityReservationTargetResponse_capacityReservationResourceGroupArn = Lens.lens (\CapacityReservationTargetResponse' {capacityReservationResourceGroupArn} -> capacityReservationResourceGroupArn) (\s@CapacityReservationTargetResponse' {} a -> s {capacityReservationResourceGroupArn = a} :: CapacityReservationTargetResponse)
 
 -- | The ID of the targeted Capacity Reservation.
 capacityReservationTargetResponse_capacityReservationId :: Lens.Lens' CapacityReservationTargetResponse (Prelude.Maybe Prelude.Text)
 capacityReservationTargetResponse_capacityReservationId = Lens.lens (\CapacityReservationTargetResponse' {capacityReservationId} -> capacityReservationId) (\s@CapacityReservationTargetResponse' {} a -> s {capacityReservationId = a} :: CapacityReservationTargetResponse)
+
+-- | The ARN of the targeted Capacity Reservation group.
+capacityReservationTargetResponse_capacityReservationResourceGroupArn :: Lens.Lens' CapacityReservationTargetResponse (Prelude.Maybe Prelude.Text)
+capacityReservationTargetResponse_capacityReservationResourceGroupArn = Lens.lens (\CapacityReservationTargetResponse' {capacityReservationResourceGroupArn} -> capacityReservationResourceGroupArn) (\s@CapacityReservationTargetResponse' {} a -> s {capacityReservationResourceGroupArn = a} :: CapacityReservationTargetResponse)
 
 instance
   Core.FromXML
@@ -69,8 +70,8 @@ instance
   where
   parseXML x =
     CapacityReservationTargetResponse'
-      Prelude.<$> (x Core..@? "capacityReservationResourceGroupArn")
-      Prelude.<*> (x Core..@? "capacityReservationId")
+      Prelude.<$> (x Core..@? "capacityReservationId")
+      Prelude.<*> (x Core..@? "capacityReservationResourceGroupArn")
 
 instance
   Prelude.Hashable

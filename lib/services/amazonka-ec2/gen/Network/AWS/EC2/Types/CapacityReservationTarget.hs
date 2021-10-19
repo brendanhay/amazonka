@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCapacityReservationTarget' smart constructor.
 data CapacityReservationTarget = CapacityReservationTarget'
-  { -- | The ARN of the Capacity Reservation resource group in which to run the
+  { -- | The ID of the Capacity Reservation in which to run the instance.
+    capacityReservationId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Capacity Reservation resource group in which to run the
     -- instance.
-    capacityReservationResourceGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Capacity Reservation in which to run the instance.
-    capacityReservationId :: Prelude.Maybe Prelude.Text
+    capacityReservationResourceGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,28 @@ data CapacityReservationTarget = CapacityReservationTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'capacityReservationId', 'capacityReservationTarget_capacityReservationId' - The ID of the Capacity Reservation in which to run the instance.
+--
 -- 'capacityReservationResourceGroupArn', 'capacityReservationTarget_capacityReservationResourceGroupArn' - The ARN of the Capacity Reservation resource group in which to run the
 -- instance.
---
--- 'capacityReservationId', 'capacityReservationTarget_capacityReservationId' - The ID of the Capacity Reservation in which to run the instance.
 newCapacityReservationTarget ::
   CapacityReservationTarget
 newCapacityReservationTarget =
   CapacityReservationTarget'
-    { capacityReservationResourceGroupArn =
+    { capacityReservationId =
         Prelude.Nothing,
-      capacityReservationId = Prelude.Nothing
+      capacityReservationResourceGroupArn =
+        Prelude.Nothing
     }
+
+-- | The ID of the Capacity Reservation in which to run the instance.
+capacityReservationTarget_capacityReservationId :: Lens.Lens' CapacityReservationTarget (Prelude.Maybe Prelude.Text)
+capacityReservationTarget_capacityReservationId = Lens.lens (\CapacityReservationTarget' {capacityReservationId} -> capacityReservationId) (\s@CapacityReservationTarget' {} a -> s {capacityReservationId = a} :: CapacityReservationTarget)
 
 -- | The ARN of the Capacity Reservation resource group in which to run the
 -- instance.
 capacityReservationTarget_capacityReservationResourceGroupArn :: Lens.Lens' CapacityReservationTarget (Prelude.Maybe Prelude.Text)
 capacityReservationTarget_capacityReservationResourceGroupArn = Lens.lens (\CapacityReservationTarget' {capacityReservationResourceGroupArn} -> capacityReservationResourceGroupArn) (\s@CapacityReservationTarget' {} a -> s {capacityReservationResourceGroupArn = a} :: CapacityReservationTarget)
-
--- | The ID of the Capacity Reservation in which to run the instance.
-capacityReservationTarget_capacityReservationId :: Lens.Lens' CapacityReservationTarget (Prelude.Maybe Prelude.Text)
-capacityReservationTarget_capacityReservationId = Lens.lens (\CapacityReservationTarget' {capacityReservationId} -> capacityReservationId) (\s@CapacityReservationTarget' {} a -> s {capacityReservationId = a} :: CapacityReservationTarget)
 
 instance Prelude.Hashable CapacityReservationTarget
 
@@ -73,8 +74,8 @@ instance Prelude.NFData CapacityReservationTarget
 instance Core.ToQuery CapacityReservationTarget where
   toQuery CapacityReservationTarget' {..} =
     Prelude.mconcat
-      [ "CapacityReservationResourceGroupArn"
-          Core.=: capacityReservationResourceGroupArn,
-        "CapacityReservationId"
-          Core.=: capacityReservationId
+      [ "CapacityReservationId"
+          Core.=: capacityReservationId,
+        "CapacityReservationResourceGroupArn"
+          Core.=: capacityReservationResourceGroupArn
       ]

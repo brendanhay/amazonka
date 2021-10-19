@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClientData' smart constructor.
 data ClientData = ClientData'
-  { -- | The time that the disk upload ends.
-    uploadEnd :: Prelude.Maybe Core.ISO8601,
-    -- | A user-defined comment about the disk upload.
-    comment :: Prelude.Maybe Prelude.Text,
+  { -- | The time that the disk upload starts.
+    uploadStart :: Prelude.Maybe Core.ISO8601,
     -- | The size of the uploaded disk image, in GiB.
     uploadSize :: Prelude.Maybe Prelude.Double,
-    -- | The time that the disk upload starts.
-    uploadStart :: Prelude.Maybe Core.ISO8601
+    -- | The time that the disk upload ends.
+    uploadEnd :: Prelude.Maybe Core.ISO8601,
+    -- | A user-defined comment about the disk upload.
+    comment :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,30 @@ data ClientData = ClientData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadEnd', 'clientData_uploadEnd' - The time that the disk upload ends.
---
--- 'comment', 'clientData_comment' - A user-defined comment about the disk upload.
+-- 'uploadStart', 'clientData_uploadStart' - The time that the disk upload starts.
 --
 -- 'uploadSize', 'clientData_uploadSize' - The size of the uploaded disk image, in GiB.
 --
--- 'uploadStart', 'clientData_uploadStart' - The time that the disk upload starts.
+-- 'uploadEnd', 'clientData_uploadEnd' - The time that the disk upload ends.
+--
+-- 'comment', 'clientData_comment' - A user-defined comment about the disk upload.
 newClientData ::
   ClientData
 newClientData =
   ClientData'
-    { uploadEnd = Prelude.Nothing,
-      comment = Prelude.Nothing,
+    { uploadStart = Prelude.Nothing,
       uploadSize = Prelude.Nothing,
-      uploadStart = Prelude.Nothing
+      uploadEnd = Prelude.Nothing,
+      comment = Prelude.Nothing
     }
+
+-- | The time that the disk upload starts.
+clientData_uploadStart :: Lens.Lens' ClientData (Prelude.Maybe Prelude.UTCTime)
+clientData_uploadStart = Lens.lens (\ClientData' {uploadStart} -> uploadStart) (\s@ClientData' {} a -> s {uploadStart = a} :: ClientData) Prelude.. Lens.mapping Core._Time
+
+-- | The size of the uploaded disk image, in GiB.
+clientData_uploadSize :: Lens.Lens' ClientData (Prelude.Maybe Prelude.Double)
+clientData_uploadSize = Lens.lens (\ClientData' {uploadSize} -> uploadSize) (\s@ClientData' {} a -> s {uploadSize = a} :: ClientData)
 
 -- | The time that the disk upload ends.
 clientData_uploadEnd :: Lens.Lens' ClientData (Prelude.Maybe Prelude.UTCTime)
@@ -72,14 +80,6 @@ clientData_uploadEnd = Lens.lens (\ClientData' {uploadEnd} -> uploadEnd) (\s@Cli
 clientData_comment :: Lens.Lens' ClientData (Prelude.Maybe Prelude.Text)
 clientData_comment = Lens.lens (\ClientData' {comment} -> comment) (\s@ClientData' {} a -> s {comment = a} :: ClientData)
 
--- | The size of the uploaded disk image, in GiB.
-clientData_uploadSize :: Lens.Lens' ClientData (Prelude.Maybe Prelude.Double)
-clientData_uploadSize = Lens.lens (\ClientData' {uploadSize} -> uploadSize) (\s@ClientData' {} a -> s {uploadSize = a} :: ClientData)
-
--- | The time that the disk upload starts.
-clientData_uploadStart :: Lens.Lens' ClientData (Prelude.Maybe Prelude.UTCTime)
-clientData_uploadStart = Lens.lens (\ClientData' {uploadStart} -> uploadStart) (\s@ClientData' {} a -> s {uploadStart = a} :: ClientData) Prelude.. Lens.mapping Core._Time
-
 instance Prelude.Hashable ClientData
 
 instance Prelude.NFData ClientData
@@ -87,8 +87,8 @@ instance Prelude.NFData ClientData
 instance Core.ToQuery ClientData where
   toQuery ClientData' {..} =
     Prelude.mconcat
-      [ "UploadEnd" Core.=: uploadEnd,
-        "Comment" Core.=: comment,
+      [ "UploadStart" Core.=: uploadStart,
         "UploadSize" Core.=: uploadSize,
-        "UploadStart" Core.=: uploadStart
+        "UploadEnd" Core.=: uploadEnd,
+        "Comment" Core.=: comment
       ]

@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data InferenceDeviceInfo = InferenceDeviceInfo'
   { -- | The manufacturer of the Inference accelerator.
     manufacturer :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Inference accelerator.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The number of Inference accelerators for the instance type.
-    count :: Prelude.Maybe Prelude.Int
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The name of the Inference accelerator.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,37 +47,37 @@ data InferenceDeviceInfo = InferenceDeviceInfo'
 --
 -- 'manufacturer', 'inferenceDeviceInfo_manufacturer' - The manufacturer of the Inference accelerator.
 --
--- 'name', 'inferenceDeviceInfo_name' - The name of the Inference accelerator.
---
 -- 'count', 'inferenceDeviceInfo_count' - The number of Inference accelerators for the instance type.
+--
+-- 'name', 'inferenceDeviceInfo_name' - The name of the Inference accelerator.
 newInferenceDeviceInfo ::
   InferenceDeviceInfo
 newInferenceDeviceInfo =
   InferenceDeviceInfo'
     { manufacturer =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      count = Prelude.Nothing
+      count = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The manufacturer of the Inference accelerator.
 inferenceDeviceInfo_manufacturer :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
 inferenceDeviceInfo_manufacturer = Lens.lens (\InferenceDeviceInfo' {manufacturer} -> manufacturer) (\s@InferenceDeviceInfo' {} a -> s {manufacturer = a} :: InferenceDeviceInfo)
 
--- | The name of the Inference accelerator.
-inferenceDeviceInfo_name :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
-inferenceDeviceInfo_name = Lens.lens (\InferenceDeviceInfo' {name} -> name) (\s@InferenceDeviceInfo' {} a -> s {name = a} :: InferenceDeviceInfo)
-
 -- | The number of Inference accelerators for the instance type.
 inferenceDeviceInfo_count :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Int)
 inferenceDeviceInfo_count = Lens.lens (\InferenceDeviceInfo' {count} -> count) (\s@InferenceDeviceInfo' {} a -> s {count = a} :: InferenceDeviceInfo)
+
+-- | The name of the Inference accelerator.
+inferenceDeviceInfo_name :: Lens.Lens' InferenceDeviceInfo (Prelude.Maybe Prelude.Text)
+inferenceDeviceInfo_name = Lens.lens (\InferenceDeviceInfo' {name} -> name) (\s@InferenceDeviceInfo' {} a -> s {name = a} :: InferenceDeviceInfo)
 
 instance Core.FromXML InferenceDeviceInfo where
   parseXML x =
     InferenceDeviceInfo'
       Prelude.<$> (x Core..@? "manufacturer")
-      Prelude.<*> (x Core..@? "name")
       Prelude.<*> (x Core..@? "count")
+      Prelude.<*> (x Core..@? "name")
 
 instance Prelude.Hashable InferenceDeviceInfo
 

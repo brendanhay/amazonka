@@ -113,7 +113,7 @@ deleteVpcEndpoints_dryRun = Lens.lens (\DeleteVpcEndpoints' {dryRun} -> dryRun) 
 
 -- | One or more VPC endpoint IDs.
 deleteVpcEndpoints_vpcEndpointIds :: Lens.Lens' DeleteVpcEndpoints [Prelude.Text]
-deleteVpcEndpoints_vpcEndpointIds = Lens.lens (\DeleteVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DeleteVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DeleteVpcEndpoints) Prelude.. Lens._Coerce
+deleteVpcEndpoints_vpcEndpointIds = Lens.lens (\DeleteVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DeleteVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DeleteVpcEndpoints) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteVpcEndpoints where
   type
@@ -186,7 +186,7 @@ newDeleteVpcEndpointsResponse pHttpStatus_ =
 
 -- | Information about the VPC endpoints that were not successfully deleted.
 deleteVpcEndpointsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointsResponse (Prelude.Maybe [UnsuccessfulItem])
-deleteVpcEndpointsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteVpcEndpointsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteVpcEndpointsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointsResponse Prelude.Int

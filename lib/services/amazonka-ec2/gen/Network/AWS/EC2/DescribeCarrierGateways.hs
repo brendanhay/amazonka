@@ -29,19 +29,19 @@ module Network.AWS.EC2.DescribeCarrierGateways
     newDescribeCarrierGateways,
 
     -- * Request Lenses
-    describeCarrierGateways_nextToken,
-    describeCarrierGateways_maxResults,
-    describeCarrierGateways_dryRun,
-    describeCarrierGateways_carrierGatewayIds,
     describeCarrierGateways_filters,
+    describeCarrierGateways_nextToken,
+    describeCarrierGateways_carrierGatewayIds,
+    describeCarrierGateways_dryRun,
+    describeCarrierGateways_maxResults,
 
     -- * Destructuring the Response
     DescribeCarrierGatewaysResponse (..),
     newDescribeCarrierGatewaysResponse,
 
     -- * Response Lenses
-    describeCarrierGatewaysResponse_carrierGateways,
     describeCarrierGatewaysResponse_nextToken,
+    describeCarrierGatewaysResponse_carrierGateways,
     describeCarrierGatewaysResponse_httpStatus,
   )
 where
@@ -55,20 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCarrierGateways' smart constructor.
 data DescribeCarrierGateways = DescribeCarrierGateways'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more carrier gateway IDs.
-    carrierGatewayIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @carrier-gateway-id@ - The ID of the carrier gateway.
     --
@@ -89,7 +76,20 @@ data DescribeCarrierGateways = DescribeCarrierGateways'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC associated with the carrier gateway.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more carrier gateway IDs.
+    carrierGatewayIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,19 +100,6 @@ data DescribeCarrierGateways = DescribeCarrierGateways'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeCarrierGateways_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeCarrierGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeCarrierGateways_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'carrierGatewayIds', 'describeCarrierGateways_carrierGatewayIds' - One or more carrier gateway IDs.
 --
 -- 'filters', 'describeCarrierGateways_filters' - One or more filters.
 --
@@ -135,38 +122,29 @@ data DescribeCarrierGateways = DescribeCarrierGateways'
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC associated with the carrier gateway.
+--
+-- 'nextToken', 'describeCarrierGateways_nextToken' - The token for the next page of results.
+--
+-- 'carrierGatewayIds', 'describeCarrierGateways_carrierGatewayIds' - One or more carrier gateway IDs.
+--
+-- 'dryRun', 'describeCarrierGateways_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeCarrierGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeCarrierGateways ::
   DescribeCarrierGateways
 newDescribeCarrierGateways =
   DescribeCarrierGateways'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       carrierGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeCarrierGateways_nextToken :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Text)
-describeCarrierGateways_nextToken = Lens.lens (\DescribeCarrierGateways' {nextToken} -> nextToken) (\s@DescribeCarrierGateways' {} a -> s {nextToken = a} :: DescribeCarrierGateways)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeCarrierGateways_maxResults :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Natural)
-describeCarrierGateways_maxResults = Lens.lens (\DescribeCarrierGateways' {maxResults} -> maxResults) (\s@DescribeCarrierGateways' {} a -> s {maxResults = a} :: DescribeCarrierGateways)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCarrierGateways_dryRun :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Bool)
-describeCarrierGateways_dryRun = Lens.lens (\DescribeCarrierGateways' {dryRun} -> dryRun) (\s@DescribeCarrierGateways' {} a -> s {dryRun = a} :: DescribeCarrierGateways)
-
--- | One or more carrier gateway IDs.
-describeCarrierGateways_carrierGatewayIds :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe [Prelude.Text])
-describeCarrierGateways_carrierGatewayIds = Lens.lens (\DescribeCarrierGateways' {carrierGatewayIds} -> carrierGatewayIds) (\s@DescribeCarrierGateways' {} a -> s {carrierGatewayIds = a} :: DescribeCarrierGateways) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -190,7 +168,28 @@ describeCarrierGateways_carrierGatewayIds = Lens.lens (\DescribeCarrierGateways'
 --
 -- -   @vpc-id@ - The ID of the VPC associated with the carrier gateway.
 describeCarrierGateways_filters :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe [Filter])
-describeCarrierGateways_filters = Lens.lens (\DescribeCarrierGateways' {filters} -> filters) (\s@DescribeCarrierGateways' {} a -> s {filters = a} :: DescribeCarrierGateways) Prelude.. Lens.mapping Lens._Coerce
+describeCarrierGateways_filters = Lens.lens (\DescribeCarrierGateways' {filters} -> filters) (\s@DescribeCarrierGateways' {} a -> s {filters = a} :: DescribeCarrierGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeCarrierGateways_nextToken :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Text)
+describeCarrierGateways_nextToken = Lens.lens (\DescribeCarrierGateways' {nextToken} -> nextToken) (\s@DescribeCarrierGateways' {} a -> s {nextToken = a} :: DescribeCarrierGateways)
+
+-- | One or more carrier gateway IDs.
+describeCarrierGateways_carrierGatewayIds :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe [Prelude.Text])
+describeCarrierGateways_carrierGatewayIds = Lens.lens (\DescribeCarrierGateways' {carrierGatewayIds} -> carrierGatewayIds) (\s@DescribeCarrierGateways' {} a -> s {carrierGatewayIds = a} :: DescribeCarrierGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCarrierGateways_dryRun :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Bool)
+describeCarrierGateways_dryRun = Lens.lens (\DescribeCarrierGateways' {dryRun} -> dryRun) (\s@DescribeCarrierGateways' {} a -> s {dryRun = a} :: DescribeCarrierGateways)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeCarrierGateways_maxResults :: Lens.Lens' DescribeCarrierGateways (Prelude.Maybe Prelude.Natural)
+describeCarrierGateways_maxResults = Lens.lens (\DescribeCarrierGateways' {maxResults} -> maxResults) (\s@DescribeCarrierGateways' {} a -> s {maxResults = a} :: DescribeCarrierGateways)
 
 instance Core.AWSPager DescribeCarrierGateways where
   page rq rs
@@ -223,11 +222,11 @@ instance Core.AWSRequest DescribeCarrierGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeCarrierGatewaysResponse'
-            Prelude.<$> ( x Core..@? "carrierGatewaySet"
+            Prelude.<$> (x Core..@? "nextToken")
+            Prelude.<*> ( x Core..@? "carrierGatewaySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -248,24 +247,24 @@ instance Core.ToQuery DescribeCarrierGateways where
           Core.=: ("DescribeCarrierGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "CarrierGatewayId"
               Prelude.<$> carrierGatewayIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeCarrierGatewaysResponse' smart constructor.
 data DescribeCarrierGatewaysResponse = DescribeCarrierGatewaysResponse'
-  { -- | Information about the carrier gateway.
-    carrierGateways :: Prelude.Maybe [CarrierGateway],
-    -- | The token to use to retrieve the next page of results. This value is
+  { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the carrier gateway.
+    carrierGateways :: Prelude.Maybe [CarrierGateway],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,10 +278,10 @@ data DescribeCarrierGatewaysResponse = DescribeCarrierGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'carrierGateways', 'describeCarrierGatewaysResponse_carrierGateways' - Information about the carrier gateway.
---
 -- 'nextToken', 'describeCarrierGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
+--
+-- 'carrierGateways', 'describeCarrierGatewaysResponse_carrierGateways' - Information about the carrier gateway.
 --
 -- 'httpStatus', 'describeCarrierGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeCarrierGatewaysResponse ::
@@ -291,20 +290,20 @@ newDescribeCarrierGatewaysResponse ::
   DescribeCarrierGatewaysResponse
 newDescribeCarrierGatewaysResponse pHttpStatus_ =
   DescribeCarrierGatewaysResponse'
-    { carrierGateways =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      carrierGateways = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the carrier gateway.
-describeCarrierGatewaysResponse_carrierGateways :: Lens.Lens' DescribeCarrierGatewaysResponse (Prelude.Maybe [CarrierGateway])
-describeCarrierGatewaysResponse_carrierGateways = Lens.lens (\DescribeCarrierGatewaysResponse' {carrierGateways} -> carrierGateways) (\s@DescribeCarrierGatewaysResponse' {} a -> s {carrierGateways = a} :: DescribeCarrierGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeCarrierGatewaysResponse_nextToken :: Lens.Lens' DescribeCarrierGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeCarrierGatewaysResponse_nextToken = Lens.lens (\DescribeCarrierGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeCarrierGatewaysResponse' {} a -> s {nextToken = a} :: DescribeCarrierGatewaysResponse)
+
+-- | Information about the carrier gateway.
+describeCarrierGatewaysResponse_carrierGateways :: Lens.Lens' DescribeCarrierGatewaysResponse (Prelude.Maybe [CarrierGateway])
+describeCarrierGatewaysResponse_carrierGateways = Lens.lens (\DescribeCarrierGatewaysResponse' {carrierGateways} -> carrierGateways) (\s@DescribeCarrierGatewaysResponse' {} a -> s {carrierGateways = a} :: DescribeCarrierGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCarrierGatewaysResponse_httpStatus :: Lens.Lens' DescribeCarrierGatewaysResponse Prelude.Int

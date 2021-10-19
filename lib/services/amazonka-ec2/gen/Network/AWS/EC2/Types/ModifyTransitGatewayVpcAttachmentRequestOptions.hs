@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newModifyTransitGatewayVpcAttachmentRequestOptions' smart constructor.
 data ModifyTransitGatewayVpcAttachmentRequestOptions = ModifyTransitGatewayVpcAttachmentRequestOptions'
-  { -- | Enable or disable support for appliance mode. If enabled, a traffic flow
+  { -- | Enable or disable IPv6 support. The default is @enable@.
+    ipv6Support :: Prelude.Maybe Ipv6SupportValue,
+    -- | Enable or disable support for appliance mode. If enabled, a traffic flow
     -- between a source and destination uses the same Availability Zone for the
     -- VPC attachment for the lifetime of that flow. The default is @disable@.
     applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
-    -- | Enable or disable IPv6 support. The default is @enable@.
-    ipv6Support :: Prelude.Maybe Ipv6SupportValue,
     -- | Enable or disable DNS support. The default is @enable@.
     dnsSupport :: Prelude.Maybe DnsSupportValue
   }
@@ -50,34 +50,34 @@ data ModifyTransitGatewayVpcAttachmentRequestOptions = ModifyTransitGatewayVpcAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv6Support', 'modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @enable@.
+--
 -- 'applianceModeSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow
 -- between a source and destination uses the same Availability Zone for the
 -- VPC attachment for the lifetime of that flow. The default is @disable@.
---
--- 'ipv6Support', 'modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @enable@.
 --
 -- 'dnsSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.
 newModifyTransitGatewayVpcAttachmentRequestOptions ::
   ModifyTransitGatewayVpcAttachmentRequestOptions
 newModifyTransitGatewayVpcAttachmentRequestOptions =
   ModifyTransitGatewayVpcAttachmentRequestOptions'
-    { applianceModeSupport =
+    { ipv6Support =
         Prelude.Nothing,
-      ipv6Support =
+      applianceModeSupport =
         Prelude.Nothing,
       dnsSupport =
         Prelude.Nothing
     }
+
+-- | Enable or disable IPv6 support. The default is @enable@.
+modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe Ipv6SupportValue)
+modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {ipv6Support} -> ipv6Support) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {ipv6Support = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable support for appliance mode. If enabled, a traffic flow
 -- between a source and destination uses the same Availability Zone for the
 -- VPC attachment for the lifetime of that flow. The default is @disable@.
 modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe ApplianceModeSupportValue)
 modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {applianceModeSupport} -> applianceModeSupport) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {applianceModeSupport = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
-
--- | Enable or disable IPv6 support. The default is @enable@.
-modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe Ipv6SupportValue)
-modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {ipv6Support} -> ipv6Support) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {ipv6Support = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable DNS support. The default is @enable@.
 modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe DnsSupportValue)
@@ -98,7 +98,7 @@ instance
   toQuery
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
       Prelude.mconcat
-        [ "ApplianceModeSupport" Core.=: applianceModeSupport,
-          "Ipv6Support" Core.=: ipv6Support,
+        [ "Ipv6Support" Core.=: ipv6Support,
+          "ApplianceModeSupport" Core.=: applianceModeSupport,
           "DnsSupport" Core.=: dnsSupport
         ]

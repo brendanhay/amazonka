@@ -31,8 +31,8 @@ module Network.AWS.EC2.DisassociateTrunkInterface
     newDisassociateTrunkInterface,
 
     -- * Request Lenses
-    disassociateTrunkInterface_dryRun,
     disassociateTrunkInterface_clientToken,
+    disassociateTrunkInterface_dryRun,
     disassociateTrunkInterface_associationId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.EC2.DisassociateTrunkInterface
     newDisassociateTrunkInterfaceResponse,
 
     -- * Response Lenses
-    disassociateTrunkInterfaceResponse_return,
     disassociateTrunkInterfaceResponse_clientToken,
+    disassociateTrunkInterfaceResponse_return,
     disassociateTrunkInterfaceResponse_httpStatus,
   )
 where
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateTrunkInterface' smart constructor.
 data DisassociateTrunkInterface = DisassociateTrunkInterface'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the association
     associationId :: Prelude.Text
   }
@@ -77,14 +77,14 @@ data DisassociateTrunkInterface = DisassociateTrunkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'disassociateTrunkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+--
 -- 'dryRun', 'disassociateTrunkInterface_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'clientToken', 'disassociateTrunkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 --
 -- 'associationId', 'disassociateTrunkInterface_associationId' - The ID of the association
 newDisassociateTrunkInterface ::
@@ -93,11 +93,17 @@ newDisassociateTrunkInterface ::
   DisassociateTrunkInterface
 newDisassociateTrunkInterface pAssociationId_ =
   DisassociateTrunkInterface'
-    { dryRun =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       associationId = pAssociationId_
     }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+disassociateTrunkInterface_clientToken :: Lens.Lens' DisassociateTrunkInterface (Prelude.Maybe Prelude.Text)
+disassociateTrunkInterface_clientToken = Lens.lens (\DisassociateTrunkInterface' {clientToken} -> clientToken) (\s@DisassociateTrunkInterface' {} a -> s {clientToken = a} :: DisassociateTrunkInterface)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,12 +111,6 @@ newDisassociateTrunkInterface pAssociationId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 disassociateTrunkInterface_dryRun :: Lens.Lens' DisassociateTrunkInterface (Prelude.Maybe Prelude.Bool)
 disassociateTrunkInterface_dryRun = Lens.lens (\DisassociateTrunkInterface' {dryRun} -> dryRun) (\s@DisassociateTrunkInterface' {} a -> s {dryRun = a} :: DisassociateTrunkInterface)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-disassociateTrunkInterface_clientToken :: Lens.Lens' DisassociateTrunkInterface (Prelude.Maybe Prelude.Text)
-disassociateTrunkInterface_clientToken = Lens.lens (\DisassociateTrunkInterface' {clientToken} -> clientToken) (\s@DisassociateTrunkInterface' {} a -> s {clientToken = a} :: DisassociateTrunkInterface)
 
 -- | The ID of the association
 disassociateTrunkInterface_associationId :: Lens.Lens' DisassociateTrunkInterface Prelude.Text
@@ -125,8 +125,8 @@ instance Core.AWSRequest DisassociateTrunkInterface where
     Response.receiveXML
       ( \s h x ->
           DisassociateTrunkInterfaceResponse'
-            Prelude.<$> (x Core..@? "return")
-            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<$> (x Core..@? "clientToken")
+            Prelude.<*> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,19 +147,19 @@ instance Core.ToQuery DisassociateTrunkInterface where
           Core.=: ("DisassociateTrunkInterface" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "ClientToken" Core.=: clientToken,
+        "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateTrunkInterfaceResponse' smart constructor.
 data DisassociateTrunkInterfaceResponse = DisassociateTrunkInterfaceResponse'
-  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,11 +173,11 @@ data DisassociateTrunkInterfaceResponse = DisassociateTrunkInterfaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'return'', 'disassociateTrunkInterfaceResponse_return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
 -- 'clientToken', 'disassociateTrunkInterfaceResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+--
+-- 'return'', 'disassociateTrunkInterfaceResponse_return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
 -- 'httpStatus', 'disassociateTrunkInterfaceResponse_httpStatus' - The response's http status code.
 newDisassociateTrunkInterfaceResponse ::
@@ -186,21 +186,21 @@ newDisassociateTrunkInterfaceResponse ::
   DisassociateTrunkInterfaceResponse
 newDisassociateTrunkInterfaceResponse pHttpStatus_ =
   DisassociateTrunkInterfaceResponse'
-    { return' =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      return' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-disassociateTrunkInterfaceResponse_return :: Lens.Lens' DisassociateTrunkInterfaceResponse (Prelude.Maybe Prelude.Bool)
-disassociateTrunkInterfaceResponse_return = Lens.lens (\DisassociateTrunkInterfaceResponse' {return'} -> return') (\s@DisassociateTrunkInterfaceResponse' {} a -> s {return' = a} :: DisassociateTrunkInterfaceResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 disassociateTrunkInterfaceResponse_clientToken :: Lens.Lens' DisassociateTrunkInterfaceResponse (Prelude.Maybe Prelude.Text)
 disassociateTrunkInterfaceResponse_clientToken = Lens.lens (\DisassociateTrunkInterfaceResponse' {clientToken} -> clientToken) (\s@DisassociateTrunkInterfaceResponse' {} a -> s {clientToken = a} :: DisassociateTrunkInterfaceResponse)
+
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+disassociateTrunkInterfaceResponse_return :: Lens.Lens' DisassociateTrunkInterfaceResponse (Prelude.Maybe Prelude.Bool)
+disassociateTrunkInterfaceResponse_return = Lens.lens (\DisassociateTrunkInterfaceResponse' {return'} -> return') (\s@DisassociateTrunkInterfaceResponse' {} a -> s {return' = a} :: DisassociateTrunkInterfaceResponse)
 
 -- | The response's http status code.
 disassociateTrunkInterfaceResponse_httpStatus :: Lens.Lens' DisassociateTrunkInterfaceResponse Prelude.Int

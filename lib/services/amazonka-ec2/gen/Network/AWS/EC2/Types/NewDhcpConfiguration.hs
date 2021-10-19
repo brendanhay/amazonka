@@ -26,8 +26,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newNewDhcpConfiguration' smart constructor.
 data NewDhcpConfiguration = NewDhcpConfiguration'
-  { key :: Prelude.Maybe Prelude.Text,
-    values :: Prelude.Maybe [Prelude.Text]
+  { values :: Prelude.Maybe [Prelude.Text],
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -39,24 +39,24 @@ data NewDhcpConfiguration = NewDhcpConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'newDhcpConfiguration_key' - Undocumented member.
---
 -- 'values', 'newDhcpConfiguration_values' - Undocumented member.
+--
+-- 'key', 'newDhcpConfiguration_key' - Undocumented member.
 newNewDhcpConfiguration ::
   NewDhcpConfiguration
 newNewDhcpConfiguration =
   NewDhcpConfiguration'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing
     }
+
+-- | Undocumented member.
+newDhcpConfiguration_values :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe [Prelude.Text])
+newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> values) (\s@NewDhcpConfiguration' {} a -> s {values = a} :: NewDhcpConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 newDhcpConfiguration_key :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe Prelude.Text)
 newDhcpConfiguration_key = Lens.lens (\NewDhcpConfiguration' {key} -> key) (\s@NewDhcpConfiguration' {} a -> s {key = a} :: NewDhcpConfiguration)
-
--- | Undocumented member.
-newDhcpConfiguration_values :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe [Prelude.Text])
-newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> values) (\s@NewDhcpConfiguration' {} a -> s {values = a} :: NewDhcpConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable NewDhcpConfiguration
 
@@ -65,7 +65,7 @@ instance Prelude.NFData NewDhcpConfiguration
 instance Core.ToQuery NewDhcpConfiguration where
   toQuery NewDhcpConfiguration' {..} =
     Prelude.mconcat
-      [ "Key" Core.=: key,
-        Core.toQuery
-          (Core.toQueryList "Value" Prelude.<$> values)
+      [ Core.toQuery
+          (Core.toQueryList "Value" Prelude.<$> values),
+        "Key" Core.=: key
       ]

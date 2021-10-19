@@ -31,10 +31,10 @@ module Network.AWS.EC2.DescribeKeyPairs
     newDescribeKeyPairs,
 
     -- * Request Lenses
-    describeKeyPairs_dryRun,
+    describeKeyPairs_filters,
     describeKeyPairs_keyPairIds,
     describeKeyPairs_keyNames,
-    describeKeyPairs_filters,
+    describeKeyPairs_dryRun,
 
     -- * Destructuring the Response
     DescribeKeyPairsResponse (..),
@@ -55,18 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeKeyPairs' smart constructor.
 data DescribeKeyPairs = DescribeKeyPairs'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the key pairs.
-    keyPairIds :: Prelude.Maybe [Prelude.Text],
-    -- | The key pair names.
-    --
-    -- Default: Describes all of your key pairs.
-    keyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @key-pair-id@ - The ID of the key pair.
     --
@@ -83,7 +72,18 @@ data DescribeKeyPairs = DescribeKeyPairs'
     --     the filter value. For example, to find all resources that have a tag
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
     --     the filter name and @TeamA@ for the filter value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The IDs of the key pairs.
+    keyPairIds :: Prelude.Maybe [Prelude.Text],
+    -- | The key pair names.
+    --
+    -- Default: Describes all of your key pairs.
+    keyNames :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,17 +94,6 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'describeKeyPairs_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'keyPairIds', 'describeKeyPairs_keyPairIds' - The IDs of the key pairs.
---
--- 'keyNames', 'describeKeyPairs_keyNames' - The key pair names.
---
--- Default: Describes all of your key pairs.
 --
 -- 'filters', 'describeKeyPairs_filters' - The filters.
 --
@@ -123,32 +112,26 @@ data DescribeKeyPairs = DescribeKeyPairs'
 --     the filter value. For example, to find all resources that have a tag
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
 --     the filter name and @TeamA@ for the filter value.
+--
+-- 'keyPairIds', 'describeKeyPairs_keyPairIds' - The IDs of the key pairs.
+--
+-- 'keyNames', 'describeKeyPairs_keyNames' - The key pair names.
+--
+-- Default: Describes all of your key pairs.
+--
+-- 'dryRun', 'describeKeyPairs_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeKeyPairs ::
   DescribeKeyPairs
 newDescribeKeyPairs =
   DescribeKeyPairs'
-    { dryRun = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       keyPairIds = Prelude.Nothing,
       keyNames = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeKeyPairs_dryRun :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe Prelude.Bool)
-describeKeyPairs_dryRun = Lens.lens (\DescribeKeyPairs' {dryRun} -> dryRun) (\s@DescribeKeyPairs' {} a -> s {dryRun = a} :: DescribeKeyPairs)
-
--- | The IDs of the key pairs.
-describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
-describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
-
--- | The key pair names.
---
--- Default: Describes all of your key pairs.
-describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
-describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -168,7 +151,24 @@ describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
 --     the filter name and @TeamA@ for the filter value.
 describeKeyPairs_filters :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Filter])
-describeKeyPairs_filters = Lens.lens (\DescribeKeyPairs' {filters} -> filters) (\s@DescribeKeyPairs' {} a -> s {filters = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens._Coerce
+describeKeyPairs_filters = Lens.lens (\DescribeKeyPairs' {filters} -> filters) (\s@DescribeKeyPairs' {} a -> s {filters = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the key pairs.
+describeKeyPairs_keyPairIds :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
+describeKeyPairs_keyPairIds = Lens.lens (\DescribeKeyPairs' {keyPairIds} -> keyPairIds) (\s@DescribeKeyPairs' {} a -> s {keyPairIds = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The key pair names.
+--
+-- Default: Describes all of your key pairs.
+describeKeyPairs_keyNames :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe [Prelude.Text])
+describeKeyPairs_keyNames = Lens.lens (\DescribeKeyPairs' {keyNames} -> keyNames) (\s@DescribeKeyPairs' {} a -> s {keyNames = a} :: DescribeKeyPairs) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeKeyPairs_dryRun :: Lens.Lens' DescribeKeyPairs (Prelude.Maybe Prelude.Bool)
+describeKeyPairs_dryRun = Lens.lens (\DescribeKeyPairs' {dryRun} -> dryRun) (\s@DescribeKeyPairs' {} a -> s {dryRun = a} :: DescribeKeyPairs)
 
 instance Core.AWSRequest DescribeKeyPairs where
   type
@@ -202,15 +202,15 @@ instance Core.ToQuery DescribeKeyPairs where
           Core.=: ("DescribeKeyPairs" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "KeyPairId"
               Prelude.<$> keyPairIds
           ),
         Core.toQuery
           (Core.toQueryList "KeyName" Prelude.<$> keyNames),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeKeyPairsResponse' smart constructor.
@@ -246,7 +246,7 @@ newDescribeKeyPairsResponse pHttpStatus_ =
 
 -- | Information about the key pairs.
 describeKeyPairsResponse_keyPairs :: Lens.Lens' DescribeKeyPairsResponse (Prelude.Maybe [KeyPairInfo])
-describeKeyPairsResponse_keyPairs = Lens.lens (\DescribeKeyPairsResponse' {keyPairs} -> keyPairs) (\s@DescribeKeyPairsResponse' {} a -> s {keyPairs = a} :: DescribeKeyPairsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeKeyPairsResponse_keyPairs = Lens.lens (\DescribeKeyPairsResponse' {keyPairs} -> keyPairs) (\s@DescribeKeyPairsResponse' {} a -> s {keyPairs = a} :: DescribeKeyPairsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeKeyPairsResponse_httpStatus :: Lens.Lens' DescribeKeyPairsResponse Prelude.Int

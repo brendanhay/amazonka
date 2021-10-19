@@ -34,10 +34,10 @@ module Network.AWS.EC2.CreateVpcEndpointConnectionNotification
     newCreateVpcEndpointConnectionNotification,
 
     -- * Request Lenses
-    createVpcEndpointConnectionNotification_dryRun,
-    createVpcEndpointConnectionNotification_vpcEndpointId,
-    createVpcEndpointConnectionNotification_serviceId,
     createVpcEndpointConnectionNotification_clientToken,
+    createVpcEndpointConnectionNotification_serviceId,
+    createVpcEndpointConnectionNotification_vpcEndpointId,
+    createVpcEndpointConnectionNotification_dryRun,
     createVpcEndpointConnectionNotification_connectionNotificationArn,
     createVpcEndpointConnectionNotification_connectionEvents,
 
@@ -46,8 +46,8 @@ module Network.AWS.EC2.CreateVpcEndpointConnectionNotification
     newCreateVpcEndpointConnectionNotificationResponse,
 
     -- * Response Lenses
-    createVpcEndpointConnectionNotificationResponse_connectionNotification,
     createVpcEndpointConnectionNotificationResponse_clientToken,
+    createVpcEndpointConnectionNotificationResponse_connectionNotification,
     createVpcEndpointConnectionNotificationResponse_httpStatus,
   )
 where
@@ -61,19 +61,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateVpcEndpointConnectionNotification' smart constructor.
 data CreateVpcEndpointConnectionNotification = CreateVpcEndpointConnectionNotification'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the endpoint service.
+    serviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the endpoint.
+    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the endpoint.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the endpoint service.
-    serviceId :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the SNS topic for the notifications.
     connectionNotificationArn :: Prelude.Text,
     -- | One or more endpoint events for which to receive notifications. Valid
@@ -90,18 +90,18 @@ data CreateVpcEndpointConnectionNotification = CreateVpcEndpointConnectionNotifi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createVpcEndpointConnectionNotification_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
+-- 'serviceId', 'createVpcEndpointConnectionNotification_serviceId' - The ID of the endpoint service.
+--
+-- 'vpcEndpointId', 'createVpcEndpointConnectionNotification_vpcEndpointId' - The ID of the endpoint.
+--
 -- 'dryRun', 'createVpcEndpointConnectionNotification_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'vpcEndpointId', 'createVpcEndpointConnectionNotification_vpcEndpointId' - The ID of the endpoint.
---
--- 'serviceId', 'createVpcEndpointConnectionNotification_serviceId' - The ID of the endpoint service.
---
--- 'clientToken', 'createVpcEndpointConnectionNotification_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 --
 -- 'connectionNotificationArn', 'createVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN of the SNS topic for the notifications.
 --
@@ -114,15 +114,29 @@ newCreateVpcEndpointConnectionNotification ::
 newCreateVpcEndpointConnectionNotification
   pConnectionNotificationArn_ =
     CreateVpcEndpointConnectionNotification'
-      { dryRun =
+      { clientToken =
           Prelude.Nothing,
-        vpcEndpointId = Prelude.Nothing,
         serviceId = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        vpcEndpointId = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         connectionNotificationArn =
           pConnectionNotificationArn_,
         connectionEvents = Prelude.mempty
       }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+createVpcEndpointConnectionNotification_clientToken :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
+createVpcEndpointConnectionNotification_clientToken = Lens.lens (\CreateVpcEndpointConnectionNotification' {clientToken} -> clientToken) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {clientToken = a} :: CreateVpcEndpointConnectionNotification)
+
+-- | The ID of the endpoint service.
+createVpcEndpointConnectionNotification_serviceId :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
+createVpcEndpointConnectionNotification_serviceId = Lens.lens (\CreateVpcEndpointConnectionNotification' {serviceId} -> serviceId) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {serviceId = a} :: CreateVpcEndpointConnectionNotification)
+
+-- | The ID of the endpoint.
+createVpcEndpointConnectionNotification_vpcEndpointId :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
+createVpcEndpointConnectionNotification_vpcEndpointId = Lens.lens (\CreateVpcEndpointConnectionNotification' {vpcEndpointId} -> vpcEndpointId) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {vpcEndpointId = a} :: CreateVpcEndpointConnectionNotification)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -131,20 +145,6 @@ newCreateVpcEndpointConnectionNotification
 createVpcEndpointConnectionNotification_dryRun :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Bool)
 createVpcEndpointConnectionNotification_dryRun = Lens.lens (\CreateVpcEndpointConnectionNotification' {dryRun} -> dryRun) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {dryRun = a} :: CreateVpcEndpointConnectionNotification)
 
--- | The ID of the endpoint.
-createVpcEndpointConnectionNotification_vpcEndpointId :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
-createVpcEndpointConnectionNotification_vpcEndpointId = Lens.lens (\CreateVpcEndpointConnectionNotification' {vpcEndpointId} -> vpcEndpointId) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {vpcEndpointId = a} :: CreateVpcEndpointConnectionNotification)
-
--- | The ID of the endpoint service.
-createVpcEndpointConnectionNotification_serviceId :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
-createVpcEndpointConnectionNotification_serviceId = Lens.lens (\CreateVpcEndpointConnectionNotification' {serviceId} -> serviceId) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {serviceId = a} :: CreateVpcEndpointConnectionNotification)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createVpcEndpointConnectionNotification_clientToken :: Lens.Lens' CreateVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
-createVpcEndpointConnectionNotification_clientToken = Lens.lens (\CreateVpcEndpointConnectionNotification' {clientToken} -> clientToken) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {clientToken = a} :: CreateVpcEndpointConnectionNotification)
-
 -- | The ARN of the SNS topic for the notifications.
 createVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' CreateVpcEndpointConnectionNotification Prelude.Text
 createVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\CreateVpcEndpointConnectionNotification' {connectionNotificationArn} -> connectionNotificationArn) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {connectionNotificationArn = a} :: CreateVpcEndpointConnectionNotification)
@@ -152,7 +152,7 @@ createVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\
 -- | One or more endpoint events for which to receive notifications. Valid
 -- values are @Accept@, @Connect@, @Delete@, and @Reject@.
 createVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' CreateVpcEndpointConnectionNotification [Prelude.Text]
-createVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\CreateVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: CreateVpcEndpointConnectionNotification) Prelude.. Lens._Coerce
+createVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\CreateVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: CreateVpcEndpointConnectionNotification) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -167,8 +167,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointConnectionNotificationResponse'
-            Prelude.<$> (x Core..@? "connectionNotification")
-              Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<$> (x Core..@? "clientToken")
+              Prelude.<*> (x Core..@? "connectionNotification")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -204,10 +204,10 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "VpcEndpointId" Core.=: vpcEndpointId,
-        "ServiceId" Core.=: serviceId,
         "ClientToken" Core.=: clientToken,
+        "ServiceId" Core.=: serviceId,
+        "VpcEndpointId" Core.=: vpcEndpointId,
+        "DryRun" Core.=: dryRun,
         "ConnectionNotificationArn"
           Core.=: connectionNotificationArn,
         Core.toQueryList "ConnectionEvents" connectionEvents
@@ -215,11 +215,11 @@ instance
 
 -- | /See:/ 'newCreateVpcEndpointConnectionNotificationResponse' smart constructor.
 data CreateVpcEndpointConnectionNotificationResponse = CreateVpcEndpointConnectionNotificationResponse'
-  { -- | Information about the notification.
-    connectionNotification :: Prelude.Maybe ConnectionNotification,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the notification.
+    connectionNotification :: Prelude.Maybe ConnectionNotification,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -233,10 +233,10 @@ data CreateVpcEndpointConnectionNotificationResponse = CreateVpcEndpointConnecti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionNotification', 'createVpcEndpointConnectionNotificationResponse_connectionNotification' - Information about the notification.
---
 -- 'clientToken', 'createVpcEndpointConnectionNotificationResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
+--
+-- 'connectionNotification', 'createVpcEndpointConnectionNotificationResponse_connectionNotification' - Information about the notification.
 --
 -- 'httpStatus', 'createVpcEndpointConnectionNotificationResponse_httpStatus' - The response's http status code.
 newCreateVpcEndpointConnectionNotificationResponse ::
@@ -246,21 +246,21 @@ newCreateVpcEndpointConnectionNotificationResponse ::
 newCreateVpcEndpointConnectionNotificationResponse
   pHttpStatus_ =
     CreateVpcEndpointConnectionNotificationResponse'
-      { connectionNotification =
+      { clientToken =
           Prelude.Nothing,
-        clientToken =
+        connectionNotification =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the notification.
-createVpcEndpointConnectionNotificationResponse_connectionNotification :: Lens.Lens' CreateVpcEndpointConnectionNotificationResponse (Prelude.Maybe ConnectionNotification)
-createVpcEndpointConnectionNotificationResponse_connectionNotification = Lens.lens (\CreateVpcEndpointConnectionNotificationResponse' {connectionNotification} -> connectionNotification) (\s@CreateVpcEndpointConnectionNotificationResponse' {} a -> s {connectionNotification = a} :: CreateVpcEndpointConnectionNotificationResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createVpcEndpointConnectionNotificationResponse_clientToken :: Lens.Lens' CreateVpcEndpointConnectionNotificationResponse (Prelude.Maybe Prelude.Text)
 createVpcEndpointConnectionNotificationResponse_clientToken = Lens.lens (\CreateVpcEndpointConnectionNotificationResponse' {clientToken} -> clientToken) (\s@CreateVpcEndpointConnectionNotificationResponse' {} a -> s {clientToken = a} :: CreateVpcEndpointConnectionNotificationResponse)
+
+-- | Information about the notification.
+createVpcEndpointConnectionNotificationResponse_connectionNotification :: Lens.Lens' CreateVpcEndpointConnectionNotificationResponse (Prelude.Maybe ConnectionNotification)
+createVpcEndpointConnectionNotificationResponse_connectionNotification = Lens.lens (\CreateVpcEndpointConnectionNotificationResponse' {connectionNotification} -> connectionNotification) (\s@CreateVpcEndpointConnectionNotificationResponse' {} a -> s {connectionNotification = a} :: CreateVpcEndpointConnectionNotificationResponse)
 
 -- | The response's http status code.
 createVpcEndpointConnectionNotificationResponse_httpStatus :: Lens.Lens' CreateVpcEndpointConnectionNotificationResponse Prelude.Int

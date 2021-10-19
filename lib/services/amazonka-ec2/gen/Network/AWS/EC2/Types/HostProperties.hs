@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data HostProperties = HostProperties'
   { -- | The instance family supported by the Dedicated Host. For example, @m5@.
     instanceFamily :: Prelude.Maybe Prelude.Text,
-    -- | The total number of vCPUs on the Dedicated Host.
-    totalVCpus :: Prelude.Maybe Prelude.Int,
     -- | The instance type supported by the Dedicated Host. For example,
     -- @m5.large@. If the host supports multiple instance types, no
     -- __instanceType__ is returned.
     instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The total number of vCPUs on the Dedicated Host.
+    totalVCpus :: Prelude.Maybe Prelude.Int,
     -- | The number of cores on the Dedicated Host.
     cores :: Prelude.Maybe Prelude.Int,
     -- | The number of sockets on the Dedicated Host.
@@ -53,11 +53,11 @@ data HostProperties = HostProperties'
 --
 -- 'instanceFamily', 'hostProperties_instanceFamily' - The instance family supported by the Dedicated Host. For example, @m5@.
 --
--- 'totalVCpus', 'hostProperties_totalVCpus' - The total number of vCPUs on the Dedicated Host.
---
 -- 'instanceType', 'hostProperties_instanceType' - The instance type supported by the Dedicated Host. For example,
 -- @m5.large@. If the host supports multiple instance types, no
 -- __instanceType__ is returned.
+--
+-- 'totalVCpus', 'hostProperties_totalVCpus' - The total number of vCPUs on the Dedicated Host.
 --
 -- 'cores', 'hostProperties_cores' - The number of cores on the Dedicated Host.
 --
@@ -67,8 +67,8 @@ newHostProperties ::
 newHostProperties =
   HostProperties'
     { instanceFamily = Prelude.Nothing,
-      totalVCpus = Prelude.Nothing,
       instanceType = Prelude.Nothing,
+      totalVCpus = Prelude.Nothing,
       cores = Prelude.Nothing,
       sockets = Prelude.Nothing
     }
@@ -77,15 +77,15 @@ newHostProperties =
 hostProperties_instanceFamily :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Text)
 hostProperties_instanceFamily = Lens.lens (\HostProperties' {instanceFamily} -> instanceFamily) (\s@HostProperties' {} a -> s {instanceFamily = a} :: HostProperties)
 
--- | The total number of vCPUs on the Dedicated Host.
-hostProperties_totalVCpus :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
-hostProperties_totalVCpus = Lens.lens (\HostProperties' {totalVCpus} -> totalVCpus) (\s@HostProperties' {} a -> s {totalVCpus = a} :: HostProperties)
-
 -- | The instance type supported by the Dedicated Host. For example,
 -- @m5.large@. If the host supports multiple instance types, no
 -- __instanceType__ is returned.
 hostProperties_instanceType :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Text)
 hostProperties_instanceType = Lens.lens (\HostProperties' {instanceType} -> instanceType) (\s@HostProperties' {} a -> s {instanceType = a} :: HostProperties)
+
+-- | The total number of vCPUs on the Dedicated Host.
+hostProperties_totalVCpus :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
+hostProperties_totalVCpus = Lens.lens (\HostProperties' {totalVCpus} -> totalVCpus) (\s@HostProperties' {} a -> s {totalVCpus = a} :: HostProperties)
 
 -- | The number of cores on the Dedicated Host.
 hostProperties_cores :: Lens.Lens' HostProperties (Prelude.Maybe Prelude.Int)
@@ -99,8 +99,8 @@ instance Core.FromXML HostProperties where
   parseXML x =
     HostProperties'
       Prelude.<$> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "totalVCpus")
       Prelude.<*> (x Core..@? "instanceType")
+      Prelude.<*> (x Core..@? "totalVCpus")
       Prelude.<*> (x Core..@? "cores")
       Prelude.<*> (x Core..@? "sockets")
 

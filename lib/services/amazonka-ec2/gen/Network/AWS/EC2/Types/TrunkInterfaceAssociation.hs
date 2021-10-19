@@ -34,20 +34,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTrunkInterfaceAssociation' smart constructor.
 data TrunkInterfaceAssociation = TrunkInterfaceAssociation'
-  { -- | The ID of the branch network interface.
-    branchInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the trunk network interface.
-    trunkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The application key when you use the GRE protocol.
-    greKey :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the association.
+  { -- | The ID of the association.
     associationId :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the trunk interface association.
-    tags :: Prelude.Maybe [Tag],
     -- | The interface protocol. Valid values are @VLAN@ and @GRE@.
     interfaceProtocol :: Prelude.Maybe InterfaceProtocolType,
+    -- | The ID of the branch network interface.
+    branchInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The application key when you use the GRE protocol.
+    greKey :: Prelude.Maybe Prelude.Int,
     -- | The ID of the VLAN when you use the VLAN protocol.
-    vlanId :: Prelude.Maybe Prelude.Int
+    vlanId :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the trunk network interface.
+    trunkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the trunk interface association.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,73 +59,73 @@ data TrunkInterfaceAssociation = TrunkInterfaceAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'branchInterfaceId', 'trunkInterfaceAssociation_branchInterfaceId' - The ID of the branch network interface.
---
--- 'trunkInterfaceId', 'trunkInterfaceAssociation_trunkInterfaceId' - The ID of the trunk network interface.
---
--- 'greKey', 'trunkInterfaceAssociation_greKey' - The application key when you use the GRE protocol.
---
 -- 'associationId', 'trunkInterfaceAssociation_associationId' - The ID of the association.
---
--- 'tags', 'trunkInterfaceAssociation_tags' - The tags for the trunk interface association.
 --
 -- 'interfaceProtocol', 'trunkInterfaceAssociation_interfaceProtocol' - The interface protocol. Valid values are @VLAN@ and @GRE@.
 --
+-- 'branchInterfaceId', 'trunkInterfaceAssociation_branchInterfaceId' - The ID of the branch network interface.
+--
+-- 'greKey', 'trunkInterfaceAssociation_greKey' - The application key when you use the GRE protocol.
+--
 -- 'vlanId', 'trunkInterfaceAssociation_vlanId' - The ID of the VLAN when you use the VLAN protocol.
+--
+-- 'trunkInterfaceId', 'trunkInterfaceAssociation_trunkInterfaceId' - The ID of the trunk network interface.
+--
+-- 'tags', 'trunkInterfaceAssociation_tags' - The tags for the trunk interface association.
 newTrunkInterfaceAssociation ::
   TrunkInterfaceAssociation
 newTrunkInterfaceAssociation =
   TrunkInterfaceAssociation'
-    { branchInterfaceId =
+    { associationId =
         Prelude.Nothing,
-      trunkInterfaceId = Prelude.Nothing,
-      greKey = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      tags = Prelude.Nothing,
       interfaceProtocol = Prelude.Nothing,
-      vlanId = Prelude.Nothing
+      branchInterfaceId = Prelude.Nothing,
+      greKey = Prelude.Nothing,
+      vlanId = Prelude.Nothing,
+      trunkInterfaceId = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The ID of the branch network interface.
-trunkInterfaceAssociation_branchInterfaceId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
-trunkInterfaceAssociation_branchInterfaceId = Lens.lens (\TrunkInterfaceAssociation' {branchInterfaceId} -> branchInterfaceId) (\s@TrunkInterfaceAssociation' {} a -> s {branchInterfaceId = a} :: TrunkInterfaceAssociation)
-
--- | The ID of the trunk network interface.
-trunkInterfaceAssociation_trunkInterfaceId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
-trunkInterfaceAssociation_trunkInterfaceId = Lens.lens (\TrunkInterfaceAssociation' {trunkInterfaceId} -> trunkInterfaceId) (\s@TrunkInterfaceAssociation' {} a -> s {trunkInterfaceId = a} :: TrunkInterfaceAssociation)
-
--- | The application key when you use the GRE protocol.
-trunkInterfaceAssociation_greKey :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Int)
-trunkInterfaceAssociation_greKey = Lens.lens (\TrunkInterfaceAssociation' {greKey} -> greKey) (\s@TrunkInterfaceAssociation' {} a -> s {greKey = a} :: TrunkInterfaceAssociation)
 
 -- | The ID of the association.
 trunkInterfaceAssociation_associationId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 trunkInterfaceAssociation_associationId = Lens.lens (\TrunkInterfaceAssociation' {associationId} -> associationId) (\s@TrunkInterfaceAssociation' {} a -> s {associationId = a} :: TrunkInterfaceAssociation)
 
--- | The tags for the trunk interface association.
-trunkInterfaceAssociation_tags :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe [Tag])
-trunkInterfaceAssociation_tags = Lens.lens (\TrunkInterfaceAssociation' {tags} -> tags) (\s@TrunkInterfaceAssociation' {} a -> s {tags = a} :: TrunkInterfaceAssociation) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The interface protocol. Valid values are @VLAN@ and @GRE@.
 trunkInterfaceAssociation_interfaceProtocol :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe InterfaceProtocolType)
 trunkInterfaceAssociation_interfaceProtocol = Lens.lens (\TrunkInterfaceAssociation' {interfaceProtocol} -> interfaceProtocol) (\s@TrunkInterfaceAssociation' {} a -> s {interfaceProtocol = a} :: TrunkInterfaceAssociation)
+
+-- | The ID of the branch network interface.
+trunkInterfaceAssociation_branchInterfaceId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
+trunkInterfaceAssociation_branchInterfaceId = Lens.lens (\TrunkInterfaceAssociation' {branchInterfaceId} -> branchInterfaceId) (\s@TrunkInterfaceAssociation' {} a -> s {branchInterfaceId = a} :: TrunkInterfaceAssociation)
+
+-- | The application key when you use the GRE protocol.
+trunkInterfaceAssociation_greKey :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Int)
+trunkInterfaceAssociation_greKey = Lens.lens (\TrunkInterfaceAssociation' {greKey} -> greKey) (\s@TrunkInterfaceAssociation' {} a -> s {greKey = a} :: TrunkInterfaceAssociation)
 
 -- | The ID of the VLAN when you use the VLAN protocol.
 trunkInterfaceAssociation_vlanId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Int)
 trunkInterfaceAssociation_vlanId = Lens.lens (\TrunkInterfaceAssociation' {vlanId} -> vlanId) (\s@TrunkInterfaceAssociation' {} a -> s {vlanId = a} :: TrunkInterfaceAssociation)
 
+-- | The ID of the trunk network interface.
+trunkInterfaceAssociation_trunkInterfaceId :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe Prelude.Text)
+trunkInterfaceAssociation_trunkInterfaceId = Lens.lens (\TrunkInterfaceAssociation' {trunkInterfaceId} -> trunkInterfaceId) (\s@TrunkInterfaceAssociation' {} a -> s {trunkInterfaceId = a} :: TrunkInterfaceAssociation)
+
+-- | The tags for the trunk interface association.
+trunkInterfaceAssociation_tags :: Lens.Lens' TrunkInterfaceAssociation (Prelude.Maybe [Tag])
+trunkInterfaceAssociation_tags = Lens.lens (\TrunkInterfaceAssociation' {tags} -> tags) (\s@TrunkInterfaceAssociation' {} a -> s {tags = a} :: TrunkInterfaceAssociation) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML TrunkInterfaceAssociation where
   parseXML x =
     TrunkInterfaceAssociation'
-      Prelude.<$> (x Core..@? "branchInterfaceId")
-      Prelude.<*> (x Core..@? "trunkInterfaceId")
+      Prelude.<$> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "interfaceProtocol")
+      Prelude.<*> (x Core..@? "branchInterfaceId")
       Prelude.<*> (x Core..@? "greKey")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "vlanId")
+      Prelude.<*> (x Core..@? "trunkInterfaceId")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "interfaceProtocol")
-      Prelude.<*> (x Core..@? "vlanId")
 
 instance Prelude.Hashable TrunkInterfaceAssociation
 

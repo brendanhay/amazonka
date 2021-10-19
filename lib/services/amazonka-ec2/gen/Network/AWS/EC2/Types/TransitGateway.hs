@@ -33,20 +33,20 @@ import qualified Network.AWS.Prelude as Prelude
 data TransitGateway = TransitGateway'
   { -- | The creation time.
     creationTime :: Prelude.Maybe Core.ISO8601,
-    -- | The ID of the Amazon Web Services account that owns the transit gateway.
-    ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The transit gateway options.
-    options :: Prelude.Maybe TransitGatewayOptions,
-    -- | The Amazon Resource Name (ARN) of the transit gateway.
-    transitGatewayArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the transit gateway.
     state :: Prelude.Maybe TransitGatewayState,
-    -- | The tags for the transit gateway.
-    tags :: Prelude.Maybe [Tag],
+    -- | The ID of the Amazon Web Services account that owns the transit gateway.
+    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the transit gateway.
+    transitGatewayArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The transit gateway options.
+    options :: Prelude.Maybe TransitGatewayOptions,
     -- | The description of the transit gateway.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text
+    -- | The tags for the transit gateway.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,78 +60,78 @@ data TransitGateway = TransitGateway'
 --
 -- 'creationTime', 'transitGateway_creationTime' - The creation time.
 --
--- 'ownerId', 'transitGateway_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.
+-- 'state', 'transitGateway_state' - The state of the transit gateway.
 --
--- 'options', 'transitGateway_options' - The transit gateway options.
+-- 'ownerId', 'transitGateway_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.
 --
 -- 'transitGatewayArn', 'transitGateway_transitGatewayArn' - The Amazon Resource Name (ARN) of the transit gateway.
 --
--- 'state', 'transitGateway_state' - The state of the transit gateway.
+-- 'transitGatewayId', 'transitGateway_transitGatewayId' - The ID of the transit gateway.
 --
--- 'tags', 'transitGateway_tags' - The tags for the transit gateway.
+-- 'options', 'transitGateway_options' - The transit gateway options.
 --
 -- 'description', 'transitGateway_description' - The description of the transit gateway.
 --
--- 'transitGatewayId', 'transitGateway_transitGatewayId' - The ID of the transit gateway.
+-- 'tags', 'transitGateway_tags' - The tags for the transit gateway.
 newTransitGateway ::
   TransitGateway
 newTransitGateway =
   TransitGateway'
     { creationTime = Prelude.Nothing,
-      ownerId = Prelude.Nothing,
-      options = Prelude.Nothing,
-      transitGatewayArn = Prelude.Nothing,
       state = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      transitGatewayArn = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing,
+      options = Prelude.Nothing,
       description = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
 -- | The creation time.
 transitGateway_creationTime :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.UTCTime)
 transitGateway_creationTime = Lens.lens (\TransitGateway' {creationTime} -> creationTime) (\s@TransitGateway' {} a -> s {creationTime = a} :: TransitGateway) Prelude.. Lens.mapping Core._Time
 
+-- | The state of the transit gateway.
+transitGateway_state :: Lens.Lens' TransitGateway (Prelude.Maybe TransitGatewayState)
+transitGateway_state = Lens.lens (\TransitGateway' {state} -> state) (\s@TransitGateway' {} a -> s {state = a} :: TransitGateway)
+
 -- | The ID of the Amazon Web Services account that owns the transit gateway.
 transitGateway_ownerId :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
 transitGateway_ownerId = Lens.lens (\TransitGateway' {ownerId} -> ownerId) (\s@TransitGateway' {} a -> s {ownerId = a} :: TransitGateway)
-
--- | The transit gateway options.
-transitGateway_options :: Lens.Lens' TransitGateway (Prelude.Maybe TransitGatewayOptions)
-transitGateway_options = Lens.lens (\TransitGateway' {options} -> options) (\s@TransitGateway' {} a -> s {options = a} :: TransitGateway)
 
 -- | The Amazon Resource Name (ARN) of the transit gateway.
 transitGateway_transitGatewayArn :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
 transitGateway_transitGatewayArn = Lens.lens (\TransitGateway' {transitGatewayArn} -> transitGatewayArn) (\s@TransitGateway' {} a -> s {transitGatewayArn = a} :: TransitGateway)
 
--- | The state of the transit gateway.
-transitGateway_state :: Lens.Lens' TransitGateway (Prelude.Maybe TransitGatewayState)
-transitGateway_state = Lens.lens (\TransitGateway' {state} -> state) (\s@TransitGateway' {} a -> s {state = a} :: TransitGateway)
+-- | The ID of the transit gateway.
+transitGateway_transitGatewayId :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
+transitGateway_transitGatewayId = Lens.lens (\TransitGateway' {transitGatewayId} -> transitGatewayId) (\s@TransitGateway' {} a -> s {transitGatewayId = a} :: TransitGateway)
 
--- | The tags for the transit gateway.
-transitGateway_tags :: Lens.Lens' TransitGateway (Prelude.Maybe [Tag])
-transitGateway_tags = Lens.lens (\TransitGateway' {tags} -> tags) (\s@TransitGateway' {} a -> s {tags = a} :: TransitGateway) Prelude.. Lens.mapping Lens._Coerce
+-- | The transit gateway options.
+transitGateway_options :: Lens.Lens' TransitGateway (Prelude.Maybe TransitGatewayOptions)
+transitGateway_options = Lens.lens (\TransitGateway' {options} -> options) (\s@TransitGateway' {} a -> s {options = a} :: TransitGateway)
 
 -- | The description of the transit gateway.
 transitGateway_description :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
 transitGateway_description = Lens.lens (\TransitGateway' {description} -> description) (\s@TransitGateway' {} a -> s {description = a} :: TransitGateway)
 
--- | The ID of the transit gateway.
-transitGateway_transitGatewayId :: Lens.Lens' TransitGateway (Prelude.Maybe Prelude.Text)
-transitGateway_transitGatewayId = Lens.lens (\TransitGateway' {transitGatewayId} -> transitGatewayId) (\s@TransitGateway' {} a -> s {transitGatewayId = a} :: TransitGateway)
+-- | The tags for the transit gateway.
+transitGateway_tags :: Lens.Lens' TransitGateway (Prelude.Maybe [Tag])
+transitGateway_tags = Lens.lens (\TransitGateway' {tags} -> tags) (\s@TransitGateway' {} a -> s {tags = a} :: TransitGateway) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML TransitGateway where
   parseXML x =
     TransitGateway'
       Prelude.<$> (x Core..@? "creationTime")
-      Prelude.<*> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "options")
-      Prelude.<*> (x Core..@? "transitGatewayArn")
       Prelude.<*> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "ownerId")
+      Prelude.<*> (x Core..@? "transitGatewayArn")
+      Prelude.<*> (x Core..@? "transitGatewayId")
+      Prelude.<*> (x Core..@? "options")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "transitGatewayId")
 
 instance Prelude.Hashable TransitGateway
 

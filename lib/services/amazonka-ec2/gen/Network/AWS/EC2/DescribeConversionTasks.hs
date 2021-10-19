@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeConversionTasks
     newDescribeConversionTasks,
 
     -- * Request Lenses
-    describeConversionTasks_dryRun,
     describeConversionTasks_conversionTaskIds,
+    describeConversionTasks_dryRun,
 
     -- * Destructuring the Response
     DescribeConversionTasksResponse (..),
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The conversion task IDs.
+    conversionTaskIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The conversion task IDs.
-    conversionTaskIds :: Prelude.Maybe [Prelude.Text]
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,19 +73,24 @@ data DescribeConversionTasks = DescribeConversionTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'conversionTaskIds', 'describeConversionTasks_conversionTaskIds' - The conversion task IDs.
+--
 -- 'dryRun', 'describeConversionTasks_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'conversionTaskIds', 'describeConversionTasks_conversionTaskIds' - The conversion task IDs.
 newDescribeConversionTasks ::
   DescribeConversionTasks
 newDescribeConversionTasks =
   DescribeConversionTasks'
-    { dryRun = Prelude.Nothing,
-      conversionTaskIds = Prelude.Nothing
+    { conversionTaskIds =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
+
+-- | The conversion task IDs.
+describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
+describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -93,10 +98,6 @@ newDescribeConversionTasks =
 -- Otherwise, it is @UnauthorizedOperation@.
 describeConversionTasks_dryRun :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe Prelude.Bool)
 describeConversionTasks_dryRun = Lens.lens (\DescribeConversionTasks' {dryRun} -> dryRun) (\s@DescribeConversionTasks' {} a -> s {dryRun = a} :: DescribeConversionTasks)
-
--- | The conversion task IDs.
-describeConversionTasks_conversionTaskIds :: Lens.Lens' DescribeConversionTasks (Prelude.Maybe [Prelude.Text])
-describeConversionTasks_conversionTaskIds = Lens.lens (\DescribeConversionTasks' {conversionTaskIds} -> conversionTaskIds) (\s@DescribeConversionTasks' {} a -> s {conversionTaskIds = a} :: DescribeConversionTasks) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeConversionTasks where
   type
@@ -130,11 +131,11 @@ instance Core.ToQuery DescribeConversionTasks where
           Core.=: ("DescribeConversionTasks" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "ConversionTaskId"
               Prelude.<$> conversionTaskIds
-          )
+          ),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeConversionTasksResponse' smart constructor.
@@ -170,7 +171,7 @@ newDescribeConversionTasksResponse pHttpStatus_ =
 
 -- | Information about the conversion tasks.
 describeConversionTasksResponse_conversionTasks :: Lens.Lens' DescribeConversionTasksResponse (Prelude.Maybe [ConversionTask])
-describeConversionTasksResponse_conversionTasks = Lens.lens (\DescribeConversionTasksResponse' {conversionTasks} -> conversionTasks) (\s@DescribeConversionTasksResponse' {} a -> s {conversionTasks = a} :: DescribeConversionTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConversionTasksResponse_conversionTasks = Lens.lens (\DescribeConversionTasksResponse' {conversionTasks} -> conversionTasks) (\s@DescribeConversionTasksResponse' {} a -> s {conversionTasks = a} :: DescribeConversionTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConversionTasksResponse_httpStatus :: Lens.Lens' DescribeConversionTasksResponse Prelude.Int

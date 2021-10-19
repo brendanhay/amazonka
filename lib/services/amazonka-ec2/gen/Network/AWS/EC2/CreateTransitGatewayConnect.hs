@@ -111,7 +111,7 @@ newCreateTransitGatewayConnect
 
 -- | The tags to apply to the Connect attachment.
 createTransitGatewayConnect_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe [TagSpecification])
-createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Prelude.. Lens.mapping Lens._Coerce
+createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

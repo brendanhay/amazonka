@@ -169,7 +169,7 @@ newCancelReservedInstancesListingResponse
 
 -- | The Reserved Instance listing.
 cancelReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CancelReservedInstancesListingResponse (Prelude.Maybe [ReservedInstancesListing])
-cancelReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CancelReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CancelReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CancelReservedInstancesListingResponse) Prelude.. Lens.mapping Lens._Coerce
+cancelReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CancelReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CancelReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CancelReservedInstancesListingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 cancelReservedInstancesListingResponse_httpStatus :: Lens.Lens' CancelReservedInstancesListingResponse Prelude.Int

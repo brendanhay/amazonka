@@ -41,8 +41,8 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     newDescribeSnapshotAttributeResponse,
 
     -- * Response Lenses
-    describeSnapshotAttributeResponse_productCodes,
     describeSnapshotAttributeResponse_createVolumePermissions,
+    describeSnapshotAttributeResponse_productCodes,
     describeSnapshotAttributeResponse_snapshotId,
     describeSnapshotAttributeResponse_httpStatus,
   )
@@ -123,11 +123,11 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeSnapshotAttributeResponse'
-            Prelude.<$> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "createVolumePermission"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "createVolumePermission"
-                            Core..!@ Prelude.mempty
+            Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
             Prelude.<*> (x Core..@? "snapshotId")
@@ -158,11 +158,11 @@ instance Core.ToQuery DescribeSnapshotAttribute where
 
 -- | /See:/ 'newDescribeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-  { -- | The product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
-    -- | The users and groups that have the permissions for creating volumes from
+  { -- | The users and groups that have the permissions for creating volumes from
     -- the snapshot.
     createVolumePermissions :: Prelude.Maybe [CreateVolumePermission],
+    -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The ID of the EBS snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -178,10 +178,10 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productCodes', 'describeSnapshotAttributeResponse_productCodes' - The product codes.
---
 -- 'createVolumePermissions', 'describeSnapshotAttributeResponse_createVolumePermissions' - The users and groups that have the permissions for creating volumes from
 -- the snapshot.
+--
+-- 'productCodes', 'describeSnapshotAttributeResponse_productCodes' - The product codes.
 --
 -- 'snapshotId', 'describeSnapshotAttributeResponse_snapshotId' - The ID of the EBS snapshot.
 --
@@ -192,22 +192,21 @@ newDescribeSnapshotAttributeResponse ::
   DescribeSnapshotAttributeResponse
 newDescribeSnapshotAttributeResponse pHttpStatus_ =
   DescribeSnapshotAttributeResponse'
-    { productCodes =
+    { createVolumePermissions =
         Prelude.Nothing,
-      createVolumePermissions =
-        Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The product codes.
-describeSnapshotAttributeResponse_productCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [ProductCode])
-describeSnapshotAttributeResponse_productCodes = Lens.lens (\DescribeSnapshotAttributeResponse' {productCodes} -> productCodes) (\s@DescribeSnapshotAttributeResponse' {} a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The users and groups that have the permissions for creating volumes from
 -- the snapshot.
 describeSnapshotAttributeResponse_createVolumePermissions :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [CreateVolumePermission])
-describeSnapshotAttributeResponse_createVolumePermissions = Lens.lens (\DescribeSnapshotAttributeResponse' {createVolumePermissions} -> createVolumePermissions) (\s@DescribeSnapshotAttributeResponse' {} a -> s {createVolumePermissions = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSnapshotAttributeResponse_createVolumePermissions = Lens.lens (\DescribeSnapshotAttributeResponse' {createVolumePermissions} -> createVolumePermissions) (\s@DescribeSnapshotAttributeResponse' {} a -> s {createVolumePermissions = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The product codes.
+describeSnapshotAttributeResponse_productCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe [ProductCode])
+describeSnapshotAttributeResponse_productCodes = Lens.lens (\DescribeSnapshotAttributeResponse' {productCodes} -> productCodes) (\s@DescribeSnapshotAttributeResponse' {} a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the EBS snapshot.
 describeSnapshotAttributeResponse_snapshotId :: Lens.Lens' DescribeSnapshotAttributeResponse (Prelude.Maybe Prelude.Text)

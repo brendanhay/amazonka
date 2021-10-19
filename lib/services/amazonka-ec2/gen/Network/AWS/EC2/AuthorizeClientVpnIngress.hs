@@ -30,11 +30,11 @@ module Network.AWS.EC2.AuthorizeClientVpnIngress
     newAuthorizeClientVpnIngress,
 
     -- * Request Lenses
-    authorizeClientVpnIngress_accessGroupId,
-    authorizeClientVpnIngress_dryRun,
-    authorizeClientVpnIngress_description,
-    authorizeClientVpnIngress_authorizeAllGroups,
     authorizeClientVpnIngress_clientToken,
+    authorizeClientVpnIngress_accessGroupId,
+    authorizeClientVpnIngress_authorizeAllGroups,
+    authorizeClientVpnIngress_description,
+    authorizeClientVpnIngress_dryRun,
     authorizeClientVpnIngress_clientVpnEndpointId,
     authorizeClientVpnIngress_targetNetworkCidr,
 
@@ -57,25 +57,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAuthorizeClientVpnIngress' smart constructor.
 data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
-  { -- | The ID of the group to grant access to, for example, the Active
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group to grant access to, for example, the Active
     -- Directory group or identity provider (IdP) group. Required if
     -- @AuthorizeAllGroups@ is @false@ or not specified.
     accessGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether to grant access to all clients. Specify @true@ to
+    -- grant all clients who successfully establish a VPN connection access to
+    -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
+    authorizeAllGroups :: Prelude.Maybe Prelude.Bool,
+    -- | A brief description of the authorization rule.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A brief description of the authorization rule.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to grant access to all clients. Specify @true@ to
-    -- grant all clients who successfully establish a VPN connection access to
-    -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
-    authorizeAllGroups :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint.
     clientVpnEndpointId :: Prelude.Text,
     -- | The IPv4 address range, in CIDR notation, of the network for which
@@ -92,24 +92,24 @@ data AuthorizeClientVpnIngress = AuthorizeClientVpnIngress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'authorizeClientVpnIngress_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
 -- 'accessGroupId', 'authorizeClientVpnIngress_accessGroupId' - The ID of the group to grant access to, for example, the Active
 -- Directory group or identity provider (IdP) group. Required if
 -- @AuthorizeAllGroups@ is @false@ or not specified.
---
--- 'dryRun', 'authorizeClientVpnIngress_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'description', 'authorizeClientVpnIngress_description' - A brief description of the authorization rule.
 --
 -- 'authorizeAllGroups', 'authorizeClientVpnIngress_authorizeAllGroups' - Indicates whether to grant access to all clients. Specify @true@ to
 -- grant all clients who successfully establish a VPN connection access to
 -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
 --
--- 'clientToken', 'authorizeClientVpnIngress_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+-- 'description', 'authorizeClientVpnIngress_description' - A brief description of the authorization rule.
+--
+-- 'dryRun', 'authorizeClientVpnIngress_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'clientVpnEndpointId', 'authorizeClientVpnIngress_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 --
@@ -125,15 +125,21 @@ newAuthorizeClientVpnIngress
   pClientVpnEndpointId_
   pTargetNetworkCidr_ =
     AuthorizeClientVpnIngress'
-      { accessGroupId =
+      { clientToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        description = Prelude.Nothing,
+        accessGroupId = Prelude.Nothing,
         authorizeAllGroups = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        description = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         targetNetworkCidr = pTargetNetworkCidr_
       }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
+authorizeClientVpnIngress_clientToken :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_clientToken = Lens.lens (\AuthorizeClientVpnIngress' {clientToken} -> clientToken) (\s@AuthorizeClientVpnIngress' {} a -> s {clientToken = a} :: AuthorizeClientVpnIngress)
 
 -- | The ID of the group to grant access to, for example, the Active
 -- Directory group or identity provider (IdP) group. Required if
@@ -141,28 +147,22 @@ newAuthorizeClientVpnIngress
 authorizeClientVpnIngress_accessGroupId :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
 authorizeClientVpnIngress_accessGroupId = Lens.lens (\AuthorizeClientVpnIngress' {accessGroupId} -> accessGroupId) (\s@AuthorizeClientVpnIngress' {} a -> s {accessGroupId = a} :: AuthorizeClientVpnIngress)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-authorizeClientVpnIngress_dryRun :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
-authorizeClientVpnIngress_dryRun = Lens.lens (\AuthorizeClientVpnIngress' {dryRun} -> dryRun) (\s@AuthorizeClientVpnIngress' {} a -> s {dryRun = a} :: AuthorizeClientVpnIngress)
-
--- | A brief description of the authorization rule.
-authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
-authorizeClientVpnIngress_description = Lens.lens (\AuthorizeClientVpnIngress' {description} -> description) (\s@AuthorizeClientVpnIngress' {} a -> s {description = a} :: AuthorizeClientVpnIngress)
-
 -- | Indicates whether to grant access to all clients. Specify @true@ to
 -- grant all clients who successfully establish a VPN connection access to
 -- the network. Must be set to @true@ if @AccessGroupId@ is not specified.
 authorizeClientVpnIngress_authorizeAllGroups :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
 authorizeClientVpnIngress_authorizeAllGroups = Lens.lens (\AuthorizeClientVpnIngress' {authorizeAllGroups} -> authorizeAllGroups) (\s@AuthorizeClientVpnIngress' {} a -> s {authorizeAllGroups = a} :: AuthorizeClientVpnIngress)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
-authorizeClientVpnIngress_clientToken :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
-authorizeClientVpnIngress_clientToken = Lens.lens (\AuthorizeClientVpnIngress' {clientToken} -> clientToken) (\s@AuthorizeClientVpnIngress' {} a -> s {clientToken = a} :: AuthorizeClientVpnIngress)
+-- | A brief description of the authorization rule.
+authorizeClientVpnIngress_description :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Text)
+authorizeClientVpnIngress_description = Lens.lens (\AuthorizeClientVpnIngress' {description} -> description) (\s@AuthorizeClientVpnIngress' {} a -> s {description = a} :: AuthorizeClientVpnIngress)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+authorizeClientVpnIngress_dryRun :: Lens.Lens' AuthorizeClientVpnIngress (Prelude.Maybe Prelude.Bool)
+authorizeClientVpnIngress_dryRun = Lens.lens (\AuthorizeClientVpnIngress' {dryRun} -> dryRun) (\s@AuthorizeClientVpnIngress' {} a -> s {dryRun = a} :: AuthorizeClientVpnIngress)
 
 -- | The ID of the Client VPN endpoint.
 authorizeClientVpnIngress_clientVpnEndpointId :: Lens.Lens' AuthorizeClientVpnIngress Prelude.Text
@@ -203,11 +203,11 @@ instance Core.ToQuery AuthorizeClientVpnIngress where
           Core.=: ("AuthorizeClientVpnIngress" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "AccessGroupId" Core.=: accessGroupId,
-        "DryRun" Core.=: dryRun,
-        "Description" Core.=: description,
-        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
         "ClientToken" Core.=: clientToken,
+        "AccessGroupId" Core.=: accessGroupId,
+        "AuthorizeAllGroups" Core.=: authorizeAllGroups,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
         "TargetNetworkCidr" Core.=: targetNetworkCidr
       ]

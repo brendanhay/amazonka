@@ -28,8 +28,8 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     newResetNetworkInterfaceAttribute,
 
     -- * Request Lenses
-    resetNetworkInterfaceAttribute_dryRun,
     resetNetworkInterfaceAttribute_sourceDestCheck,
+    resetNetworkInterfaceAttribute_dryRun,
     resetNetworkInterfaceAttribute_networkInterfaceId,
 
     -- * Destructuring the Response
@@ -49,13 +49,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newResetNetworkInterfaceAttribute' smart constructor.
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The source\/destination checking attribute. Resets the value to @true@.
+    sourceDestCheck :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The source\/destination checking attribute. Resets the value to @true@.
-    sourceDestCheck :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Text
   }
@@ -69,12 +69,12 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceDestCheck', 'resetNetworkInterfaceAttribute_sourceDestCheck' - The source\/destination checking attribute. Resets the value to @true@.
+--
 -- 'dryRun', 'resetNetworkInterfaceAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'sourceDestCheck', 'resetNetworkInterfaceAttribute_sourceDestCheck' - The source\/destination checking attribute. Resets the value to @true@.
 --
 -- 'networkInterfaceId', 'resetNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.
 newResetNetworkInterfaceAttribute ::
@@ -84,11 +84,15 @@ newResetNetworkInterfaceAttribute ::
 newResetNetworkInterfaceAttribute
   pNetworkInterfaceId_ =
     ResetNetworkInterfaceAttribute'
-      { dryRun =
+      { sourceDestCheck =
           Prelude.Nothing,
-        sourceDestCheck = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         networkInterfaceId = pNetworkInterfaceId_
       }
+
+-- | The source\/destination checking attribute. Resets the value to @true@.
+resetNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Prelude.Maybe Prelude.Text)
+resetNetworkInterfaceAttribute_sourceDestCheck = Lens.lens (\ResetNetworkInterfaceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ResetNetworkInterfaceAttribute' {} a -> s {sourceDestCheck = a} :: ResetNetworkInterfaceAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,10 +100,6 @@ newResetNetworkInterfaceAttribute
 -- Otherwise, it is @UnauthorizedOperation@.
 resetNetworkInterfaceAttribute_dryRun :: Lens.Lens' ResetNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
 resetNetworkInterfaceAttribute_dryRun = Lens.lens (\ResetNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@ResetNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: ResetNetworkInterfaceAttribute)
-
--- | The source\/destination checking attribute. Resets the value to @true@.
-resetNetworkInterfaceAttribute_sourceDestCheck :: Lens.Lens' ResetNetworkInterfaceAttribute (Prelude.Maybe Prelude.Text)
-resetNetworkInterfaceAttribute_sourceDestCheck = Lens.lens (\ResetNetworkInterfaceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ResetNetworkInterfaceAttribute' {} a -> s {sourceDestCheck = a} :: ResetNetworkInterfaceAttribute)
 
 -- | The ID of the network interface.
 resetNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' ResetNetworkInterfaceAttribute Prelude.Text
@@ -143,8 +143,8 @@ instance Core.ToQuery ResetNetworkInterfaceAttribute where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "SourceDestCheck" Core.=: sourceDestCheck,
+        "DryRun" Core.=: dryRun,
         "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 

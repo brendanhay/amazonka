@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLoadPermissionModifications' smart constructor.
 data LoadPermissionModifications = LoadPermissionModifications'
-  { -- | The load permissions to add.
-    add :: Prelude.Maybe [LoadPermissionRequest],
-    -- | The load permissions to remove.
-    remove :: Prelude.Maybe [LoadPermissionRequest]
+  { -- | The load permissions to remove.
+    remove :: Prelude.Maybe [LoadPermissionRequest],
+    -- | The load permissions to add.
+    add :: Prelude.Maybe [LoadPermissionRequest]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,25 @@ data LoadPermissionModifications = LoadPermissionModifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'add', 'loadPermissionModifications_add' - The load permissions to add.
---
 -- 'remove', 'loadPermissionModifications_remove' - The load permissions to remove.
+--
+-- 'add', 'loadPermissionModifications_add' - The load permissions to add.
 newLoadPermissionModifications ::
   LoadPermissionModifications
 newLoadPermissionModifications =
   LoadPermissionModifications'
-    { add = Prelude.Nothing,
-      remove = Prelude.Nothing
+    { remove =
+        Prelude.Nothing,
+      add = Prelude.Nothing
     }
-
--- | The load permissions to add.
-loadPermissionModifications_add :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
-loadPermissionModifications_add = Lens.lens (\LoadPermissionModifications' {add} -> add) (\s@LoadPermissionModifications' {} a -> s {add = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The load permissions to remove.
 loadPermissionModifications_remove :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
-loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {remove} -> remove) (\s@LoadPermissionModifications' {} a -> s {remove = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Lens._Coerce
+loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {remove} -> remove) (\s@LoadPermissionModifications' {} a -> s {remove = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Lens.coerced
+
+-- | The load permissions to add.
+loadPermissionModifications_add :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
+loadPermissionModifications_add = Lens.lens (\LoadPermissionModifications' {add} -> add) (\s@LoadPermissionModifications' {} a -> s {add = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable LoadPermissionModifications
 
@@ -72,7 +73,7 @@ instance Core.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =
     Prelude.mconcat
       [ Core.toQuery
-          (Core.toQueryList "Add" Prelude.<$> add),
+          (Core.toQueryList "Remove" Prelude.<$> remove),
         Core.toQuery
-          (Core.toQueryList "Remove" Prelude.<$> remove)
+          (Core.toQueryList "Add" Prelude.<$> add)
       ]

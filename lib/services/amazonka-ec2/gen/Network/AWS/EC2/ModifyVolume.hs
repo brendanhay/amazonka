@@ -59,11 +59,11 @@ module Network.AWS.EC2.ModifyVolume
 
     -- * Request Lenses
     modifyVolume_multiAttachEnabled,
-    modifyVolume_dryRun,
     modifyVolume_throughput,
-    modifyVolume_volumeType,
-    modifyVolume_iops,
     modifyVolume_size,
+    modifyVolume_iops,
+    modifyVolume_volumeType,
+    modifyVolume_dryRun,
     modifyVolume_volumeId,
 
     -- * Destructuring the Response
@@ -93,11 +93,6 @@ data ModifyVolume = ModifyVolume'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     multiAttachEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The target throughput of the volume, in MiB\/s. This parameter is valid
     -- only for @gp3@ volumes. The maximum value is 1,000.
     --
@@ -106,27 +101,6 @@ data ModifyVolume = ModifyVolume'
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
     throughput :: Prelude.Maybe Prelude.Int,
-    -- | The target EBS volume type of the volume. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    --
-    -- Default: The existing type is retained.
-    volumeType :: Prelude.Maybe VolumeType,
-    -- | The target IOPS rate of the volume. This parameter is valid only for
-    -- @gp3@, @io1@, and @io2@ volumes.
-    --
-    -- The following are the supported values for each volume type:
-    --
-    -- -   @gp3@: 3,000-16,000 IOPS
-    --
-    -- -   @io1@: 100-64,000 IOPS
-    --
-    -- -   @io2@: 100-64,000 IOPS
-    --
-    -- Default: The existing value is retained if you keep the same volume
-    -- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
-    -- default is 3,000.
-    iops :: Prelude.Maybe Prelude.Int,
     -- | The target size of the volume, in GiB. The target volume size must be
     -- greater than or equal to the existing size of the volume.
     --
@@ -142,6 +116,32 @@ data ModifyVolume = ModifyVolume'
     --
     -- Default: The existing size is retained.
     size :: Prelude.Maybe Prelude.Int,
+    -- | The target IOPS rate of the volume. This parameter is valid only for
+    -- @gp3@, @io1@, and @io2@ volumes.
+    --
+    -- The following are the supported values for each volume type:
+    --
+    -- -   @gp3@: 3,000-16,000 IOPS
+    --
+    -- -   @io1@: 100-64,000 IOPS
+    --
+    -- -   @io2@: 100-64,000 IOPS
+    --
+    -- Default: The existing value is retained if you keep the same volume
+    -- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
+    -- default is 3,000.
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | The target EBS volume type of the volume. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- Default: The existing type is retained.
+    volumeType :: Prelude.Maybe VolumeType,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the volume.
     volumeId :: Prelude.Text
   }
@@ -163,11 +163,6 @@ data ModifyVolume = ModifyVolume'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'dryRun', 'modifyVolume_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'throughput', 'modifyVolume_throughput' - The target throughput of the volume, in MiB\/s. This parameter is valid
 -- only for @gp3@ volumes. The maximum value is 1,000.
 --
@@ -175,27 +170,6 @@ data ModifyVolume = ModifyVolume'
 -- type is @gp3@. Otherwise, the default value is 125.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
---
--- 'volumeType', 'modifyVolume_volumeType' - The target EBS volume type of the volume. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- Default: The existing type is retained.
---
--- 'iops', 'modifyVolume_iops' - The target IOPS rate of the volume. This parameter is valid only for
--- @gp3@, @io1@, and @io2@ volumes.
---
--- The following are the supported values for each volume type:
---
--- -   @gp3@: 3,000-16,000 IOPS
---
--- -   @io1@: 100-64,000 IOPS
---
--- -   @io2@: 100-64,000 IOPS
---
--- Default: The existing value is retained if you keep the same volume
--- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
--- default is 3,000.
 --
 -- 'size', 'modifyVolume_size' - The target size of the volume, in GiB. The target volume size must be
 -- greater than or equal to the existing size of the volume.
@@ -212,6 +186,32 @@ data ModifyVolume = ModifyVolume'
 --
 -- Default: The existing size is retained.
 --
+-- 'iops', 'modifyVolume_iops' - The target IOPS rate of the volume. This parameter is valid only for
+-- @gp3@, @io1@, and @io2@ volumes.
+--
+-- The following are the supported values for each volume type:
+--
+-- -   @gp3@: 3,000-16,000 IOPS
+--
+-- -   @io1@: 100-64,000 IOPS
+--
+-- -   @io2@: 100-64,000 IOPS
+--
+-- Default: The existing value is retained if you keep the same volume
+-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the
+-- default is 3,000.
+--
+-- 'volumeType', 'modifyVolume_volumeType' - The target EBS volume type of the volume. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Default: The existing type is retained.
+--
+-- 'dryRun', 'modifyVolume_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'volumeId', 'modifyVolume_volumeId' - The ID of the volume.
 newModifyVolume ::
   -- | 'volumeId'
@@ -220,11 +220,11 @@ newModifyVolume ::
 newModifyVolume pVolumeId_ =
   ModifyVolume'
     { multiAttachEnabled = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       throughput = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      iops = Prelude.Nothing,
       size = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -238,13 +238,6 @@ newModifyVolume pVolumeId_ =
 modifyVolume_multiAttachEnabled :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Bool)
 modifyVolume_multiAttachEnabled = Lens.lens (\ModifyVolume' {multiAttachEnabled} -> multiAttachEnabled) (\s@ModifyVolume' {} a -> s {multiAttachEnabled = a} :: ModifyVolume)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyVolume_dryRun :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Bool)
-modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVolume' {} a -> s {dryRun = a} :: ModifyVolume)
-
 -- | The target throughput of the volume, in MiB\/s. This parameter is valid
 -- only for @gp3@ volumes. The maximum value is 1,000.
 --
@@ -255,13 +248,22 @@ modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVo
 modifyVolume_throughput :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_throughput = Lens.lens (\ModifyVolume' {throughput} -> throughput) (\s@ModifyVolume' {} a -> s {throughput = a} :: ModifyVolume)
 
--- | The target EBS volume type of the volume. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The target size of the volume, in GiB. The target volume size must be
+-- greater than or equal to the existing size of the volume.
 --
--- Default: The existing type is retained.
-modifyVolume_volumeType :: Lens.Lens' ModifyVolume (Prelude.Maybe VolumeType)
-modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) (\s@ModifyVolume' {} a -> s {volumeType = a} :: ModifyVolume)
+-- The following are the supported volumes sizes for each volume type:
+--
+-- -   @gp2@ and @gp3@: 1-16,384
+--
+-- -   @io1@ and @io2@: 4-16,384
+--
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
+--
+-- Default: The existing size is retained.
+modifyVolume_size :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
+modifyVolume_size = Lens.lens (\ModifyVolume' {size} -> size) (\s@ModifyVolume' {} a -> s {size = a} :: ModifyVolume)
 
 -- | The target IOPS rate of the volume. This parameter is valid only for
 -- @gp3@, @io1@, and @io2@ volumes.
@@ -280,22 +282,20 @@ modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) 
 modifyVolume_iops :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
 modifyVolume_iops = Lens.lens (\ModifyVolume' {iops} -> iops) (\s@ModifyVolume' {} a -> s {iops = a} :: ModifyVolume)
 
--- | The target size of the volume, in GiB. The target volume size must be
--- greater than or equal to the existing size of the volume.
+-- | The target EBS volume type of the volume. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- The following are the supported volumes sizes for each volume type:
---
--- -   @gp2@ and @gp3@: 1-16,384
---
--- -   @io1@ and @io2@: 4-16,384
---
--- -   @st1@ and @sc1@: 125-16,384
---
--- -   @standard@: 1-1,024
---
--- Default: The existing size is retained.
-modifyVolume_size :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Int)
-modifyVolume_size = Lens.lens (\ModifyVolume' {size} -> size) (\s@ModifyVolume' {} a -> s {size = a} :: ModifyVolume)
+-- Default: The existing type is retained.
+modifyVolume_volumeType :: Lens.Lens' ModifyVolume (Prelude.Maybe VolumeType)
+modifyVolume_volumeType = Lens.lens (\ModifyVolume' {volumeType} -> volumeType) (\s@ModifyVolume' {} a -> s {volumeType = a} :: ModifyVolume)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyVolume_dryRun :: Lens.Lens' ModifyVolume (Prelude.Maybe Prelude.Bool)
+modifyVolume_dryRun = Lens.lens (\ModifyVolume' {dryRun} -> dryRun) (\s@ModifyVolume' {} a -> s {dryRun = a} :: ModifyVolume)
 
 -- | The ID of the volume.
 modifyVolume_volumeId :: Lens.Lens' ModifyVolume Prelude.Text
@@ -330,11 +330,11 @@ instance Core.ToQuery ModifyVolume where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "MultiAttachEnabled" Core.=: multiAttachEnabled,
-        "DryRun" Core.=: dryRun,
         "Throughput" Core.=: throughput,
-        "VolumeType" Core.=: volumeType,
-        "Iops" Core.=: iops,
         "Size" Core.=: size,
+        "Iops" Core.=: iops,
+        "VolumeType" Core.=: volumeType,
+        "DryRun" Core.=: dryRun,
         "VolumeId" Core.=: volumeId
       ]
 

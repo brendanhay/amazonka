@@ -39,8 +39,8 @@ module Network.AWS.EC2.CreateRestoreImageTask
 
     -- * Request Lenses
     createRestoreImageTask_tagSpecifications,
-    createRestoreImageTask_dryRun,
     createRestoreImageTask_name,
+    createRestoreImageTask_dryRun,
     createRestoreImageTask_bucket,
     createRestoreImageTask_objectKey,
 
@@ -72,15 +72,15 @@ data CreateRestoreImageTask = CreateRestoreImageTask'
     --     @snapshot@. The same tag is applied to all of the snapshots that are
     --     created.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The name for the restored AMI. The name must be unique for AMIs in the
+    -- Region for this account. If you do not provide a name, the new AMI gets
+    -- the same name as the original AMI.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The name for the restored AMI. The name must be unique for AMIs in the
-    -- Region for this account. If you do not provide a name, the new AMI gets
-    -- the same name as the original AMI.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket that contains the stored AMI object.
     bucket :: Prelude.Text,
     -- | The name of the stored AMI object in the bucket.
@@ -105,14 +105,14 @@ data CreateRestoreImageTask = CreateRestoreImageTask'
 --     @snapshot@. The same tag is applied to all of the snapshots that are
 --     created.
 --
+-- 'name', 'createRestoreImageTask_name' - The name for the restored AMI. The name must be unique for AMIs in the
+-- Region for this account. If you do not provide a name, the new AMI gets
+-- the same name as the original AMI.
+--
 -- 'dryRun', 'createRestoreImageTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'name', 'createRestoreImageTask_name' - The name for the restored AMI. The name must be unique for AMIs in the
--- Region for this account. If you do not provide a name, the new AMI gets
--- the same name as the original AMI.
 --
 -- 'bucket', 'createRestoreImageTask_bucket' - The name of the Amazon S3 bucket that contains the stored AMI object.
 --
@@ -127,8 +127,8 @@ newCreateRestoreImageTask pBucket_ pObjectKey_ =
   CreateRestoreImageTask'
     { tagSpecifications =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       name = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       bucket = pBucket_,
       objectKey = pObjectKey_
     }
@@ -142,7 +142,13 @@ newCreateRestoreImageTask pBucket_ pObjectKey_ =
 --     @snapshot@. The same tag is applied to all of the snapshots that are
 --     created.
 createRestoreImageTask_tagSpecifications :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe [TagSpecification])
-createRestoreImageTask_tagSpecifications = Lens.lens (\CreateRestoreImageTask' {tagSpecifications} -> tagSpecifications) (\s@CreateRestoreImageTask' {} a -> s {tagSpecifications = a} :: CreateRestoreImageTask) Prelude.. Lens.mapping Lens._Coerce
+createRestoreImageTask_tagSpecifications = Lens.lens (\CreateRestoreImageTask' {tagSpecifications} -> tagSpecifications) (\s@CreateRestoreImageTask' {} a -> s {tagSpecifications = a} :: CreateRestoreImageTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name for the restored AMI. The name must be unique for AMIs in the
+-- Region for this account. If you do not provide a name, the new AMI gets
+-- the same name as the original AMI.
+createRestoreImageTask_name :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe Prelude.Text)
+createRestoreImageTask_name = Lens.lens (\CreateRestoreImageTask' {name} -> name) (\s@CreateRestoreImageTask' {} a -> s {name = a} :: CreateRestoreImageTask)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -150,12 +156,6 @@ createRestoreImageTask_tagSpecifications = Lens.lens (\CreateRestoreImageTask' {
 -- Otherwise, it is @UnauthorizedOperation@.
 createRestoreImageTask_dryRun :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe Prelude.Bool)
 createRestoreImageTask_dryRun = Lens.lens (\CreateRestoreImageTask' {dryRun} -> dryRun) (\s@CreateRestoreImageTask' {} a -> s {dryRun = a} :: CreateRestoreImageTask)
-
--- | The name for the restored AMI. The name must be unique for AMIs in the
--- Region for this account. If you do not provide a name, the new AMI gets
--- the same name as the original AMI.
-createRestoreImageTask_name :: Lens.Lens' CreateRestoreImageTask (Prelude.Maybe Prelude.Text)
-createRestoreImageTask_name = Lens.lens (\CreateRestoreImageTask' {name} -> name) (\s@CreateRestoreImageTask' {} a -> s {name = a} :: CreateRestoreImageTask)
 
 -- | The name of the Amazon S3 bucket that contains the stored AMI object.
 createRestoreImageTask_bucket :: Lens.Lens' CreateRestoreImageTask Prelude.Text
@@ -199,8 +199,8 @@ instance Core.ToQuery CreateRestoreImageTask where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Name" Core.=: name,
+        "DryRun" Core.=: dryRun,
         "Bucket" Core.=: bucket,
         "ObjectKey" Core.=: objectKey
       ]

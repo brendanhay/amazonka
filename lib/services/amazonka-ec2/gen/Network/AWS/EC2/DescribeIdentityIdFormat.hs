@@ -206,7 +206,7 @@ newDescribeIdentityIdFormatResponse pHttpStatus_ =
 
 -- | Information about the ID format for the resources.
 describeIdentityIdFormatResponse_statuses :: Lens.Lens' DescribeIdentityIdFormatResponse (Prelude.Maybe [IdFormat])
-describeIdentityIdFormatResponse_statuses = Lens.lens (\DescribeIdentityIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdentityIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdentityIdFormatResponse) Prelude.. Lens.mapping Lens._Coerce
+describeIdentityIdFormatResponse_statuses = Lens.lens (\DescribeIdentityIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdentityIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdentityIdFormatResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeIdentityIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdentityIdFormatResponse Prelude.Int

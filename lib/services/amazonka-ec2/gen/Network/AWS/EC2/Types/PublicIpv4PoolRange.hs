@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPublicIpv4PoolRange' smart constructor.
 data PublicIpv4PoolRange = PublicIpv4PoolRange'
-  { -- | The number of addresses in the range.
-    addressCount :: Prelude.Maybe Prelude.Int,
-    -- | The first IP address in the range.
-    firstAddress :: Prelude.Maybe Prelude.Text,
+  { -- | The number of available addresses in the range.
+    availableAddressCount :: Prelude.Maybe Prelude.Int,
     -- | The last IP address in the range.
     lastAddress :: Prelude.Maybe Prelude.Text,
-    -- | The number of available addresses in the range.
-    availableAddressCount :: Prelude.Maybe Prelude.Int
+    -- | The first IP address in the range.
+    firstAddress :: Prelude.Maybe Prelude.Text,
+    -- | The number of addresses in the range.
+    addressCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,47 +47,47 @@ data PublicIpv4PoolRange = PublicIpv4PoolRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addressCount', 'publicIpv4PoolRange_addressCount' - The number of addresses in the range.
---
--- 'firstAddress', 'publicIpv4PoolRange_firstAddress' - The first IP address in the range.
+-- 'availableAddressCount', 'publicIpv4PoolRange_availableAddressCount' - The number of available addresses in the range.
 --
 -- 'lastAddress', 'publicIpv4PoolRange_lastAddress' - The last IP address in the range.
 --
--- 'availableAddressCount', 'publicIpv4PoolRange_availableAddressCount' - The number of available addresses in the range.
+-- 'firstAddress', 'publicIpv4PoolRange_firstAddress' - The first IP address in the range.
+--
+-- 'addressCount', 'publicIpv4PoolRange_addressCount' - The number of addresses in the range.
 newPublicIpv4PoolRange ::
   PublicIpv4PoolRange
 newPublicIpv4PoolRange =
   PublicIpv4PoolRange'
-    { addressCount =
+    { availableAddressCount =
         Prelude.Nothing,
-      firstAddress = Prelude.Nothing,
       lastAddress = Prelude.Nothing,
-      availableAddressCount = Prelude.Nothing
+      firstAddress = Prelude.Nothing,
+      addressCount = Prelude.Nothing
     }
-
--- | The number of addresses in the range.
-publicIpv4PoolRange_addressCount :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Int)
-publicIpv4PoolRange_addressCount = Lens.lens (\PublicIpv4PoolRange' {addressCount} -> addressCount) (\s@PublicIpv4PoolRange' {} a -> s {addressCount = a} :: PublicIpv4PoolRange)
-
--- | The first IP address in the range.
-publicIpv4PoolRange_firstAddress :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Text)
-publicIpv4PoolRange_firstAddress = Lens.lens (\PublicIpv4PoolRange' {firstAddress} -> firstAddress) (\s@PublicIpv4PoolRange' {} a -> s {firstAddress = a} :: PublicIpv4PoolRange)
-
--- | The last IP address in the range.
-publicIpv4PoolRange_lastAddress :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Text)
-publicIpv4PoolRange_lastAddress = Lens.lens (\PublicIpv4PoolRange' {lastAddress} -> lastAddress) (\s@PublicIpv4PoolRange' {} a -> s {lastAddress = a} :: PublicIpv4PoolRange)
 
 -- | The number of available addresses in the range.
 publicIpv4PoolRange_availableAddressCount :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Int)
 publicIpv4PoolRange_availableAddressCount = Lens.lens (\PublicIpv4PoolRange' {availableAddressCount} -> availableAddressCount) (\s@PublicIpv4PoolRange' {} a -> s {availableAddressCount = a} :: PublicIpv4PoolRange)
 
+-- | The last IP address in the range.
+publicIpv4PoolRange_lastAddress :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Text)
+publicIpv4PoolRange_lastAddress = Lens.lens (\PublicIpv4PoolRange' {lastAddress} -> lastAddress) (\s@PublicIpv4PoolRange' {} a -> s {lastAddress = a} :: PublicIpv4PoolRange)
+
+-- | The first IP address in the range.
+publicIpv4PoolRange_firstAddress :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Text)
+publicIpv4PoolRange_firstAddress = Lens.lens (\PublicIpv4PoolRange' {firstAddress} -> firstAddress) (\s@PublicIpv4PoolRange' {} a -> s {firstAddress = a} :: PublicIpv4PoolRange)
+
+-- | The number of addresses in the range.
+publicIpv4PoolRange_addressCount :: Lens.Lens' PublicIpv4PoolRange (Prelude.Maybe Prelude.Int)
+publicIpv4PoolRange_addressCount = Lens.lens (\PublicIpv4PoolRange' {addressCount} -> addressCount) (\s@PublicIpv4PoolRange' {} a -> s {addressCount = a} :: PublicIpv4PoolRange)
+
 instance Core.FromXML PublicIpv4PoolRange where
   parseXML x =
     PublicIpv4PoolRange'
-      Prelude.<$> (x Core..@? "addressCount")
-      Prelude.<*> (x Core..@? "firstAddress")
+      Prelude.<$> (x Core..@? "availableAddressCount")
       Prelude.<*> (x Core..@? "lastAddress")
-      Prelude.<*> (x Core..@? "availableAddressCount")
+      Prelude.<*> (x Core..@? "firstAddress")
+      Prelude.<*> (x Core..@? "addressCount")
 
 instance Prelude.Hashable PublicIpv4PoolRange
 

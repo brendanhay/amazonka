@@ -35,14 +35,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnAuthenticationRequest' smart constructor.
 data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
-  { -- | Information about the IAM SAML identity provider to be used, if
-    -- applicable. You must provide this information if __Type__ is
-    -- @federated-authentication@.
-    federatedAuthentication :: Prelude.Maybe FederatedAuthenticationRequest,
-    -- | Information about the Active Directory to be used, if applicable. You
+  { -- | Information about the Active Directory to be used, if applicable. You
     -- must provide this information if __Type__ is
     -- @directory-service-authentication@.
     activeDirectory :: Prelude.Maybe DirectoryServiceAuthenticationRequest,
+    -- | Information about the IAM SAML identity provider to be used, if
+    -- applicable. You must provide this information if __Type__ is
+    -- @federated-authentication@.
+    federatedAuthentication :: Prelude.Maybe FederatedAuthenticationRequest,
     -- | Information about the authentication certificates to be used, if
     -- applicable. You must provide this information if __Type__ is
     -- @certificate-authentication@.
@@ -60,13 +60,13 @@ data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'federatedAuthentication', 'clientVpnAuthenticationRequest_federatedAuthentication' - Information about the IAM SAML identity provider to be used, if
--- applicable. You must provide this information if __Type__ is
--- @federated-authentication@.
---
 -- 'activeDirectory', 'clientVpnAuthenticationRequest_activeDirectory' - Information about the Active Directory to be used, if applicable. You
 -- must provide this information if __Type__ is
 -- @directory-service-authentication@.
+--
+-- 'federatedAuthentication', 'clientVpnAuthenticationRequest_federatedAuthentication' - Information about the IAM SAML identity provider to be used, if
+-- applicable. You must provide this information if __Type__ is
+-- @federated-authentication@.
 --
 -- 'mutualAuthentication', 'clientVpnAuthenticationRequest_mutualAuthentication' - Information about the authentication certificates to be used, if
 -- applicable. You must provide this information if __Type__ is
@@ -77,24 +77,24 @@ newClientVpnAuthenticationRequest ::
   ClientVpnAuthenticationRequest
 newClientVpnAuthenticationRequest =
   ClientVpnAuthenticationRequest'
-    { federatedAuthentication =
+    { activeDirectory =
         Prelude.Nothing,
-      activeDirectory = Prelude.Nothing,
+      federatedAuthentication = Prelude.Nothing,
       mutualAuthentication = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | Information about the IAM SAML identity provider to be used, if
--- applicable. You must provide this information if __Type__ is
--- @federated-authentication@.
-clientVpnAuthenticationRequest_federatedAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe FederatedAuthenticationRequest)
-clientVpnAuthenticationRequest_federatedAuthentication = Lens.lens (\ClientVpnAuthenticationRequest' {federatedAuthentication} -> federatedAuthentication) (\s@ClientVpnAuthenticationRequest' {} a -> s {federatedAuthentication = a} :: ClientVpnAuthenticationRequest)
 
 -- | Information about the Active Directory to be used, if applicable. You
 -- must provide this information if __Type__ is
 -- @directory-service-authentication@.
 clientVpnAuthenticationRequest_activeDirectory :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe DirectoryServiceAuthenticationRequest)
 clientVpnAuthenticationRequest_activeDirectory = Lens.lens (\ClientVpnAuthenticationRequest' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthenticationRequest' {} a -> s {activeDirectory = a} :: ClientVpnAuthenticationRequest)
+
+-- | Information about the IAM SAML identity provider to be used, if
+-- applicable. You must provide this information if __Type__ is
+-- @federated-authentication@.
+clientVpnAuthenticationRequest_federatedAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe FederatedAuthenticationRequest)
+clientVpnAuthenticationRequest_federatedAuthentication = Lens.lens (\ClientVpnAuthenticationRequest' {federatedAuthentication} -> federatedAuthentication) (\s@ClientVpnAuthenticationRequest' {} a -> s {federatedAuthentication = a} :: ClientVpnAuthenticationRequest)
 
 -- | Information about the authentication certificates to be used, if
 -- applicable. You must provide this information if __Type__ is
@@ -117,9 +117,9 @@ instance
 instance Core.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =
     Prelude.mconcat
-      [ "FederatedAuthentication"
+      [ "ActiveDirectory" Core.=: activeDirectory,
+        "FederatedAuthentication"
           Core.=: federatedAuthentication,
-        "ActiveDirectory" Core.=: activeDirectory,
         "MutualAuthentication" Core.=: mutualAuthentication,
         "Type" Core.=: type'
       ]

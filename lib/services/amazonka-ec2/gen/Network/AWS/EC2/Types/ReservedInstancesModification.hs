@@ -30,27 +30,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReservedInstancesModification' smart constructor.
 data ReservedInstancesModification = ReservedInstancesModification'
-  { -- | The reason for the status.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Reserved Instances modification request.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The time when the modification request was created.
-    createDate :: Prelude.Maybe Core.ISO8601,
-    -- | Contains target configurations along with their corresponding new
+  { -- | Contains target configurations along with their corresponding new
     -- Reserved Instance IDs.
     modificationResults :: Prelude.Maybe [ReservedInstancesModificationResult],
-    -- | The time for the modification to become effective.
-    effectiveDate :: Prelude.Maybe Core.ISO8601,
-    -- | The IDs of one or more Reserved Instances.
-    reservedInstancesIds :: Prelude.Maybe [ReservedInstancesId],
-    -- | A unique ID for the Reserved Instance modification.
-    reservedInstancesModificationId :: Prelude.Maybe Prelude.Text,
-    -- | The time when the modification request was last updated.
-    updateDate :: Prelude.Maybe Core.ISO8601,
+    -- | The status of the Reserved Instances modification request.
+    status :: Prelude.Maybe Prelude.Text,
     -- | A unique, case-sensitive key supplied by the client to ensure that the
     -- request is idempotent. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The time when the modification request was last updated.
+    updateDate :: Prelude.Maybe Core.ISO8601,
+    -- | The time when the modification request was created.
+    createDate :: Prelude.Maybe Core.ISO8601,
+    -- | The time for the modification to become effective.
+    effectiveDate :: Prelude.Maybe Core.ISO8601,
+    -- | The reason for the status.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | A unique ID for the Reserved Instance modification.
+    reservedInstancesModificationId :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of one or more Reserved Instances.
+    reservedInstancesIds :: Prelude.Maybe [ReservedInstancesId]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,75 +62,51 @@ data ReservedInstancesModification = ReservedInstancesModification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'reservedInstancesModification_statusMessage' - The reason for the status.
---
--- 'status', 'reservedInstancesModification_status' - The status of the Reserved Instances modification request.
---
--- 'createDate', 'reservedInstancesModification_createDate' - The time when the modification request was created.
---
 -- 'modificationResults', 'reservedInstancesModification_modificationResults' - Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
 --
--- 'effectiveDate', 'reservedInstancesModification_effectiveDate' - The time for the modification to become effective.
---
--- 'reservedInstancesIds', 'reservedInstancesModification_reservedInstancesIds' - The IDs of one or more Reserved Instances.
---
--- 'reservedInstancesModificationId', 'reservedInstancesModification_reservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
---
--- 'updateDate', 'reservedInstancesModification_updateDate' - The time when the modification request was last updated.
+-- 'status', 'reservedInstancesModification_status' - The status of the Reserved Instances modification request.
 --
 -- 'clientToken', 'reservedInstancesModification_clientToken' - A unique, case-sensitive key supplied by the client to ensure that the
 -- request is idempotent. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- 'updateDate', 'reservedInstancesModification_updateDate' - The time when the modification request was last updated.
+--
+-- 'createDate', 'reservedInstancesModification_createDate' - The time when the modification request was created.
+--
+-- 'effectiveDate', 'reservedInstancesModification_effectiveDate' - The time for the modification to become effective.
+--
+-- 'statusMessage', 'reservedInstancesModification_statusMessage' - The reason for the status.
+--
+-- 'reservedInstancesModificationId', 'reservedInstancesModification_reservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
+--
+-- 'reservedInstancesIds', 'reservedInstancesModification_reservedInstancesIds' - The IDs of one or more Reserved Instances.
 newReservedInstancesModification ::
   ReservedInstancesModification
 newReservedInstancesModification =
   ReservedInstancesModification'
-    { statusMessage =
+    { modificationResults =
         Prelude.Nothing,
       status = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      updateDate = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      modificationResults = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
-      reservedInstancesIds = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       reservedInstancesModificationId =
         Prelude.Nothing,
-      updateDate = Prelude.Nothing,
-      clientToken = Prelude.Nothing
+      reservedInstancesIds = Prelude.Nothing
     }
-
--- | The reason for the status.
-reservedInstancesModification_statusMessage :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
-reservedInstancesModification_statusMessage = Lens.lens (\ReservedInstancesModification' {statusMessage} -> statusMessage) (\s@ReservedInstancesModification' {} a -> s {statusMessage = a} :: ReservedInstancesModification)
-
--- | The status of the Reserved Instances modification request.
-reservedInstancesModification_status :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
-reservedInstancesModification_status = Lens.lens (\ReservedInstancesModification' {status} -> status) (\s@ReservedInstancesModification' {} a -> s {status = a} :: ReservedInstancesModification)
-
--- | The time when the modification request was created.
-reservedInstancesModification_createDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_createDate = Lens.lens (\ReservedInstancesModification' {createDate} -> createDate) (\s@ReservedInstancesModification' {} a -> s {createDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
 
 -- | Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
 reservedInstancesModification_modificationResults :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe [ReservedInstancesModificationResult])
-reservedInstancesModification_modificationResults = Lens.lens (\ReservedInstancesModification' {modificationResults} -> modificationResults) (\s@ReservedInstancesModification' {} a -> s {modificationResults = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Lens._Coerce
+reservedInstancesModification_modificationResults = Lens.lens (\ReservedInstancesModification' {modificationResults} -> modificationResults) (\s@ReservedInstancesModification' {} a -> s {modificationResults = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Lens.coerced
 
--- | The time for the modification to become effective.
-reservedInstancesModification_effectiveDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_effectiveDate = Lens.lens (\ReservedInstancesModification' {effectiveDate} -> effectiveDate) (\s@ReservedInstancesModification' {} a -> s {effectiveDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
-
--- | The IDs of one or more Reserved Instances.
-reservedInstancesModification_reservedInstancesIds :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe [ReservedInstancesId])
-reservedInstancesModification_reservedInstancesIds = Lens.lens (\ReservedInstancesModification' {reservedInstancesIds} -> reservedInstancesIds) (\s@ReservedInstancesModification' {} a -> s {reservedInstancesIds = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Lens._Coerce
-
--- | A unique ID for the Reserved Instance modification.
-reservedInstancesModification_reservedInstancesModificationId :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
-reservedInstancesModification_reservedInstancesModificationId = Lens.lens (\ReservedInstancesModification' {reservedInstancesModificationId} -> reservedInstancesModificationId) (\s@ReservedInstancesModification' {} a -> s {reservedInstancesModificationId = a} :: ReservedInstancesModification)
-
--- | The time when the modification request was last updated.
-reservedInstancesModification_updateDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
-reservedInstancesModification_updateDate = Lens.lens (\ReservedInstancesModification' {updateDate} -> updateDate) (\s@ReservedInstancesModification' {} a -> s {updateDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+-- | The status of the Reserved Instances modification request.
+reservedInstancesModification_status :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
+reservedInstancesModification_status = Lens.lens (\ReservedInstancesModification' {status} -> status) (\s@ReservedInstancesModification' {} a -> s {status = a} :: ReservedInstancesModification)
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the
 -- request is idempotent. For more information, see
@@ -138,24 +114,48 @@ reservedInstancesModification_updateDate = Lens.lens (\ReservedInstancesModifica
 reservedInstancesModification_clientToken :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
 reservedInstancesModification_clientToken = Lens.lens (\ReservedInstancesModification' {clientToken} -> clientToken) (\s@ReservedInstancesModification' {} a -> s {clientToken = a} :: ReservedInstancesModification)
 
+-- | The time when the modification request was last updated.
+reservedInstancesModification_updateDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
+reservedInstancesModification_updateDate = Lens.lens (\ReservedInstancesModification' {updateDate} -> updateDate) (\s@ReservedInstancesModification' {} a -> s {updateDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+
+-- | The time when the modification request was created.
+reservedInstancesModification_createDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
+reservedInstancesModification_createDate = Lens.lens (\ReservedInstancesModification' {createDate} -> createDate) (\s@ReservedInstancesModification' {} a -> s {createDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+
+-- | The time for the modification to become effective.
+reservedInstancesModification_effectiveDate :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.UTCTime)
+reservedInstancesModification_effectiveDate = Lens.lens (\ReservedInstancesModification' {effectiveDate} -> effectiveDate) (\s@ReservedInstancesModification' {} a -> s {effectiveDate = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Core._Time
+
+-- | The reason for the status.
+reservedInstancesModification_statusMessage :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
+reservedInstancesModification_statusMessage = Lens.lens (\ReservedInstancesModification' {statusMessage} -> statusMessage) (\s@ReservedInstancesModification' {} a -> s {statusMessage = a} :: ReservedInstancesModification)
+
+-- | A unique ID for the Reserved Instance modification.
+reservedInstancesModification_reservedInstancesModificationId :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe Prelude.Text)
+reservedInstancesModification_reservedInstancesModificationId = Lens.lens (\ReservedInstancesModification' {reservedInstancesModificationId} -> reservedInstancesModificationId) (\s@ReservedInstancesModification' {} a -> s {reservedInstancesModificationId = a} :: ReservedInstancesModification)
+
+-- | The IDs of one or more Reserved Instances.
+reservedInstancesModification_reservedInstancesIds :: Lens.Lens' ReservedInstancesModification (Prelude.Maybe [ReservedInstancesId])
+reservedInstancesModification_reservedInstancesIds = Lens.lens (\ReservedInstancesModification' {reservedInstancesIds} -> reservedInstancesIds) (\s@ReservedInstancesModification' {} a -> s {reservedInstancesIds = a} :: ReservedInstancesModification) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML ReservedInstancesModification where
   parseXML x =
     ReservedInstancesModification'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "status")
-      Prelude.<*> (x Core..@? "createDate")
-      Prelude.<*> ( x Core..@? "modificationResultSet"
+      Prelude.<$> ( x Core..@? "modificationResultSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "status")
+      Prelude.<*> (x Core..@? "clientToken")
+      Prelude.<*> (x Core..@? "updateDate")
+      Prelude.<*> (x Core..@? "createDate")
       Prelude.<*> (x Core..@? "effectiveDate")
+      Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "reservedInstancesModificationId")
       Prelude.<*> ( x Core..@? "reservedInstancesSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "reservedInstancesModificationId")
-      Prelude.<*> (x Core..@? "updateDate")
-      Prelude.<*> (x Core..@? "clientToken")
 
 instance
   Prelude.Hashable

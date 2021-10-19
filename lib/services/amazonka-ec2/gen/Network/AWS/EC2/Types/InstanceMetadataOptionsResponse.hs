@@ -32,15 +32,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadataOptionsResponse' smart constructor.
 data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
-  { -- | Whether or not the IPv6 endpoint for the instance metadata service is
+  { -- | The state of the metadata option changes.
+    --
+    -- @pending@ - The metadata options are being updated and the instance is
+    -- not ready to process metadata traffic with the new selection.
+    --
+    -- @applied@ - The metadata options have been successfully applied on the
+    -- instance.
+    state :: Prelude.Maybe InstanceMetadataOptionsState,
+    -- | Indicates whether the IPv6 endpoint for the instance metadata service is
     -- enabled or disabled.
     httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
-    -- | This parameter enables or disables the HTTP metadata endpoint on your
-    -- instances. If the parameter is not specified, the default state is
-    -- @enabled@.
-    --
-    -- If you specify a value of @disabled@, you will not be able to access
-    -- your instance metadata.
+    -- | Indicates whether the HTTP metadata endpoint on your instances is
+    -- enabled or disabled.
     httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
     -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
@@ -50,14 +54,6 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
     --
     -- Possible values: Integers from 1 to 64
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
-    -- | The state of the metadata option changes.
-    --
-    -- @pending@ - The metadata options are being updated and the instance is
-    -- not ready to process metadata traffic with the new selection.
-    --
-    -- @applied@ - The metadata options have been successfully applied on the
-    -- instance.
-    state :: Prelude.Maybe InstanceMetadataOptionsState,
     -- | The state of token usage for your instance metadata requests. If the
     -- parameter is not specified in the request, the default state is
     -- @optional@.
@@ -84,15 +80,19 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpProtocolIpv6', 'instanceMetadataOptionsResponse_httpProtocolIpv6' - Whether or not the IPv6 endpoint for the instance metadata service is
+-- 'state', 'instanceMetadataOptionsResponse_state' - The state of the metadata option changes.
+--
+-- @pending@ - The metadata options are being updated and the instance is
+-- not ready to process metadata traffic with the new selection.
+--
+-- @applied@ - The metadata options have been successfully applied on the
+-- instance.
+--
+-- 'httpProtocolIpv6', 'instanceMetadataOptionsResponse_httpProtocolIpv6' - Indicates whether the IPv6 endpoint for the instance metadata service is
 -- enabled or disabled.
 --
--- 'httpEndpoint', 'instanceMetadataOptionsResponse_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
---
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
+-- 'httpEndpoint', 'instanceMetadataOptionsResponse_httpEndpoint' - Indicates whether the HTTP metadata endpoint on your instances is
+-- enabled or disabled.
 --
 -- 'httpPutResponseHopLimit', 'instanceMetadataOptionsResponse_httpPutResponseHopLimit' - The desired HTTP PUT response hop limit for instance metadata requests.
 -- The larger the number, the further instance metadata requests can
@@ -101,14 +101,6 @@ data InstanceMetadataOptionsResponse = InstanceMetadataOptionsResponse'
 -- Default: 1
 --
 -- Possible values: Integers from 1 to 64
---
--- 'state', 'instanceMetadataOptionsResponse_state' - The state of the metadata option changes.
---
--- @pending@ - The metadata options are being updated and the instance is
--- not ready to process metadata traffic with the new selection.
---
--- @applied@ - The metadata options have been successfully applied on the
--- instance.
 --
 -- 'httpTokens', 'instanceMetadataOptionsResponse_httpTokens' - The state of token usage for your instance metadata requests. If the
 -- parameter is not specified in the request, the default state is
@@ -128,25 +120,31 @@ newInstanceMetadataOptionsResponse ::
   InstanceMetadataOptionsResponse
 newInstanceMetadataOptionsResponse =
   InstanceMetadataOptionsResponse'
-    { httpProtocolIpv6 =
+    { state =
         Prelude.Nothing,
+      httpProtocolIpv6 = Prelude.Nothing,
       httpEndpoint = Prelude.Nothing,
       httpPutResponseHopLimit = Prelude.Nothing,
-      state = Prelude.Nothing,
       httpTokens = Prelude.Nothing
     }
 
--- | Whether or not the IPv6 endpoint for the instance metadata service is
+-- | The state of the metadata option changes.
+--
+-- @pending@ - The metadata options are being updated and the instance is
+-- not ready to process metadata traffic with the new selection.
+--
+-- @applied@ - The metadata options have been successfully applied on the
+-- instance.
+instanceMetadataOptionsResponse_state :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataOptionsState)
+instanceMetadataOptionsResponse_state = Lens.lens (\InstanceMetadataOptionsResponse' {state} -> state) (\s@InstanceMetadataOptionsResponse' {} a -> s {state = a} :: InstanceMetadataOptionsResponse)
+
+-- | Indicates whether the IPv6 endpoint for the instance metadata service is
 -- enabled or disabled.
 instanceMetadataOptionsResponse_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataProtocolState)
 instanceMetadataOptionsResponse_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptionsResponse' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptionsResponse)
 
--- | This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
---
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
+-- | Indicates whether the HTTP metadata endpoint on your instances is
+-- enabled or disabled.
 instanceMetadataOptionsResponse_httpEndpoint :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataEndpointState)
 instanceMetadataOptionsResponse_httpEndpoint = Lens.lens (\InstanceMetadataOptionsResponse' {httpEndpoint} -> httpEndpoint) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpEndpoint = a} :: InstanceMetadataOptionsResponse)
 
@@ -159,16 +157,6 @@ instanceMetadataOptionsResponse_httpEndpoint = Lens.lens (\InstanceMetadataOptio
 -- Possible values: Integers from 1 to 64
 instanceMetadataOptionsResponse_httpPutResponseHopLimit :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe Prelude.Int)
 instanceMetadataOptionsResponse_httpPutResponseHopLimit = Lens.lens (\InstanceMetadataOptionsResponse' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@InstanceMetadataOptionsResponse' {} a -> s {httpPutResponseHopLimit = a} :: InstanceMetadataOptionsResponse)
-
--- | The state of the metadata option changes.
---
--- @pending@ - The metadata options are being updated and the instance is
--- not ready to process metadata traffic with the new selection.
---
--- @applied@ - The metadata options have been successfully applied on the
--- instance.
-instanceMetadataOptionsResponse_state :: Lens.Lens' InstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataOptionsState)
-instanceMetadataOptionsResponse_state = Lens.lens (\InstanceMetadataOptionsResponse' {state} -> state) (\s@InstanceMetadataOptionsResponse' {} a -> s {state = a} :: InstanceMetadataOptionsResponse)
 
 -- | The state of token usage for your instance metadata requests. If the
 -- parameter is not specified in the request, the default state is
@@ -190,10 +178,10 @@ instanceMetadataOptionsResponse_httpTokens = Lens.lens (\InstanceMetadataOptions
 instance Core.FromXML InstanceMetadataOptionsResponse where
   parseXML x =
     InstanceMetadataOptionsResponse'
-      Prelude.<$> (x Core..@? "httpProtocolIpv6")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "httpProtocolIpv6")
       Prelude.<*> (x Core..@? "httpEndpoint")
       Prelude.<*> (x Core..@? "httpPutResponseHopLimit")
-      Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "httpTokens")
 
 instance

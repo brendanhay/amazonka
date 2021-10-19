@@ -65,8 +65,8 @@ data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
     groupName :: Prelude.Text,
     -- | Indicates whether you are opted in to the Local Zone group or Wavelength
     -- Zone group. The only valid value is @opted-in@. You must contact
-    -- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support>
-    -- to opt out of a Local Zone group, or Wavelength Zone group.
+    -- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services Amazon Web Services Support>
+    -- to opt out of a Local Zone or Wavelength Zone group.
     optInStatus :: ModifyAvailabilityZoneOptInStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,8 +89,8 @@ data ModifyAvailabilityZoneGroup = ModifyAvailabilityZoneGroup'
 --
 -- 'optInStatus', 'modifyAvailabilityZoneGroup_optInStatus' - Indicates whether you are opted in to the Local Zone group or Wavelength
 -- Zone group. The only valid value is @opted-in@. You must contact
--- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support>
--- to opt out of a Local Zone group, or Wavelength Zone group.
+-- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services Amazon Web Services Support>
+-- to opt out of a Local Zone or Wavelength Zone group.
 newModifyAvailabilityZoneGroup ::
   -- | 'groupName'
   Prelude.Text ->
@@ -121,8 +121,8 @@ modifyAvailabilityZoneGroup_groupName = Lens.lens (\ModifyAvailabilityZoneGroup'
 
 -- | Indicates whether you are opted in to the Local Zone group or Wavelength
 -- Zone group. The only valid value is @opted-in@. You must contact
--- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services AWS Support>
--- to opt out of a Local Zone group, or Wavelength Zone group.
+-- <https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services Amazon Web Services Support>
+-- to opt out of a Local Zone or Wavelength Zone group.
 modifyAvailabilityZoneGroup_optInStatus :: Lens.Lens' ModifyAvailabilityZoneGroup ModifyAvailabilityZoneOptInStatus
 modifyAvailabilityZoneGroup_optInStatus = Lens.lens (\ModifyAvailabilityZoneGroup' {optInStatus} -> optInStatus) (\s@ModifyAvailabilityZoneGroup' {} a -> s {optInStatus = a} :: ModifyAvailabilityZoneGroup)
 

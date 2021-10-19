@@ -82,7 +82,7 @@ newReleaseHosts =
 
 -- | The IDs of the Dedicated Hosts to release.
 releaseHosts_hostIds :: Lens.Lens' ReleaseHosts [Prelude.Text]
-releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@ReleaseHosts' {} a -> s {hostIds = a} :: ReleaseHosts) Prelude.. Lens._Coerce
+releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@ReleaseHosts' {} a -> s {hostIds = a} :: ReleaseHosts) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ReleaseHosts where
   type AWSResponse ReleaseHosts = ReleaseHostsResponse
@@ -161,11 +161,11 @@ newReleaseHostsResponse pHttpStatus_ =
 -- | The IDs of the Dedicated Hosts that could not be released, including an
 -- error message.
 releaseHostsResponse_unsuccessful :: Lens.Lens' ReleaseHostsResponse (Prelude.Maybe [UnsuccessfulItem])
-releaseHostsResponse_unsuccessful = Lens.lens (\ReleaseHostsResponse' {unsuccessful} -> unsuccessful) (\s@ReleaseHostsResponse' {} a -> s {unsuccessful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens._Coerce
+releaseHostsResponse_unsuccessful = Lens.lens (\ReleaseHostsResponse' {unsuccessful} -> unsuccessful) (\s@ReleaseHostsResponse' {} a -> s {unsuccessful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts that were successfully released.
 releaseHostsResponse_successful :: Lens.Lens' ReleaseHostsResponse (Prelude.Maybe [Prelude.Text])
-releaseHostsResponse_successful = Lens.lens (\ReleaseHostsResponse' {successful} -> successful) (\s@ReleaseHostsResponse' {} a -> s {successful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens._Coerce
+releaseHostsResponse_successful = Lens.lens (\ReleaseHostsResponse' {successful} -> successful) (\s@ReleaseHostsResponse' {} a -> s {successful = a} :: ReleaseHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 releaseHostsResponse_httpStatus :: Lens.Lens' ReleaseHostsResponse Prelude.Int

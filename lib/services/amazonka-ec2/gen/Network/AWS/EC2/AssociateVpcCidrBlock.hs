@@ -40,11 +40,11 @@ module Network.AWS.EC2.AssociateVpcCidrBlock
     newAssociateVpcCidrBlock,
 
     -- * Request Lenses
-    associateVpcCidrBlock_ipv6Pool,
     associateVpcCidrBlock_ipv6CidrBlock,
     associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup,
-    associateVpcCidrBlock_amazonProvidedIpv6CidrBlock,
     associateVpcCidrBlock_cidrBlock,
+    associateVpcCidrBlock_ipv6Pool,
+    associateVpcCidrBlock_amazonProvidedIpv6CidrBlock,
     associateVpcCidrBlock_vpcId,
 
     -- * Destructuring the Response
@@ -52,9 +52,9 @@ module Network.AWS.EC2.AssociateVpcCidrBlock
     newAssociateVpcCidrBlockResponse,
 
     -- * Response Lenses
-    associateVpcCidrBlockResponse_ipv6CidrBlockAssociation,
-    associateVpcCidrBlockResponse_cidrBlockAssociation,
     associateVpcCidrBlockResponse_vpcId,
+    associateVpcCidrBlockResponse_cidrBlockAssociation,
+    associateVpcCidrBlockResponse_ipv6CidrBlockAssociation,
     associateVpcCidrBlockResponse_httpStatus,
   )
 where
@@ -68,10 +68,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateVpcCidrBlock' smart constructor.
 data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
-  { -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
-    -- block.
-    ipv6Pool :: Prelude.Maybe Prelude.Text,
-    -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
+  { -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
     -- @Ipv6Pool@ in the request.
     --
     -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
@@ -84,12 +81,15 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
     --
     -- You can have one IPv6 CIDR block association per network border group.
     ipv6CidrBlockNetworkBorderGroup :: Prelude.Maybe Prelude.Text,
+    -- | An IPv4 CIDR block to associate with the VPC.
+    cidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+    -- block.
+    ipv6Pool :: Prelude.Maybe Prelude.Text,
     -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
     -- for the VPC. You cannot specify the range of IPv6 addresses, or the size
     -- of the CIDR block.
     amazonProvidedIpv6CidrBlock :: Prelude.Maybe Prelude.Bool,
-    -- | An IPv4 CIDR block to associate with the VPC.
-    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -102,9 +102,6 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'ipv6Pool', 'associateVpcCidrBlock_ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
--- block.
 --
 -- 'ipv6CidrBlock', 'associateVpcCidrBlock_ipv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify
 -- @Ipv6Pool@ in the request.
@@ -119,11 +116,14 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
 --
 -- You can have one IPv6 CIDR block association per network border group.
 --
+-- 'cidrBlock', 'associateVpcCidrBlock_cidrBlock' - An IPv4 CIDR block to associate with the VPC.
+--
+-- 'ipv6Pool', 'associateVpcCidrBlock_ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+-- block.
+--
 -- 'amazonProvidedIpv6CidrBlock', 'associateVpcCidrBlock_amazonProvidedIpv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
 -- for the VPC. You cannot specify the range of IPv6 addresses, or the size
 -- of the CIDR block.
---
--- 'cidrBlock', 'associateVpcCidrBlock_cidrBlock' - An IPv4 CIDR block to associate with the VPC.
 --
 -- 'vpcId', 'associateVpcCidrBlock_vpcId' - The ID of the VPC.
 newAssociateVpcCidrBlock ::
@@ -132,18 +132,14 @@ newAssociateVpcCidrBlock ::
   AssociateVpcCidrBlock
 newAssociateVpcCidrBlock pVpcId_ =
   AssociateVpcCidrBlock'
-    { ipv6Pool = Prelude.Nothing,
-      ipv6CidrBlock = Prelude.Nothing,
+    { ipv6CidrBlock =
+        Prelude.Nothing,
       ipv6CidrBlockNetworkBorderGroup = Prelude.Nothing,
-      amazonProvidedIpv6CidrBlock = Prelude.Nothing,
       cidrBlock = Prelude.Nothing,
+      ipv6Pool = Prelude.Nothing,
+      amazonProvidedIpv6CidrBlock = Prelude.Nothing,
       vpcId = pVpcId_
     }
-
--- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
--- block.
-associateVpcCidrBlock_ipv6Pool :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_ipv6Pool = Lens.lens (\AssociateVpcCidrBlock' {ipv6Pool} -> ipv6Pool) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6Pool = a} :: AssociateVpcCidrBlock)
 
 -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
 -- @Ipv6Pool@ in the request.
@@ -162,15 +158,20 @@ associateVpcCidrBlock_ipv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {ipv6Ci
 associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
 associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup = Lens.lens (\AssociateVpcCidrBlock' {ipv6CidrBlockNetworkBorderGroup} -> ipv6CidrBlockNetworkBorderGroup) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: AssociateVpcCidrBlock)
 
+-- | An IPv4 CIDR block to associate with the VPC.
+associateVpcCidrBlock_cidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_cidrBlock = Lens.lens (\AssociateVpcCidrBlock' {cidrBlock} -> cidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {cidrBlock = a} :: AssociateVpcCidrBlock)
+
+-- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+-- block.
+associateVpcCidrBlock_ipv6Pool :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_ipv6Pool = Lens.lens (\AssociateVpcCidrBlock' {ipv6Pool} -> ipv6Pool) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6Pool = a} :: AssociateVpcCidrBlock)
+
 -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
 -- for the VPC. You cannot specify the range of IPv6 addresses, or the size
 -- of the CIDR block.
 associateVpcCidrBlock_amazonProvidedIpv6CidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Bool)
 associateVpcCidrBlock_amazonProvidedIpv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {amazonProvidedIpv6CidrBlock} -> amazonProvidedIpv6CidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {amazonProvidedIpv6CidrBlock = a} :: AssociateVpcCidrBlock)
-
--- | An IPv4 CIDR block to associate with the VPC.
-associateVpcCidrBlock_cidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_cidrBlock = Lens.lens (\AssociateVpcCidrBlock' {cidrBlock} -> cidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {cidrBlock = a} :: AssociateVpcCidrBlock)
 
 -- | The ID of the VPC.
 associateVpcCidrBlock_vpcId :: Lens.Lens' AssociateVpcCidrBlock Prelude.Text
@@ -185,9 +186,9 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
     Response.receiveXML
       ( \s h x ->
           AssociateVpcCidrBlockResponse'
-            Prelude.<$> (x Core..@? "ipv6CidrBlockAssociation")
+            Prelude.<$> (x Core..@? "vpcId")
             Prelude.<*> (x Core..@? "cidrBlockAssociation")
-            Prelude.<*> (x Core..@? "vpcId")
+            Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,24 +209,24 @@ instance Core.ToQuery AssociateVpcCidrBlock where
           Core.=: ("AssociateVpcCidrBlock" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv6Pool" Core.=: ipv6Pool,
         "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
         "Ipv6CidrBlockNetworkBorderGroup"
           Core.=: ipv6CidrBlockNetworkBorderGroup,
+        "CidrBlock" Core.=: cidrBlock,
+        "Ipv6Pool" Core.=: ipv6Pool,
         "AmazonProvidedIpv6CidrBlock"
           Core.=: amazonProvidedIpv6CidrBlock,
-        "CidrBlock" Core.=: cidrBlock,
         "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newAssociateVpcCidrBlockResponse' smart constructor.
 data AssociateVpcCidrBlockResponse = AssociateVpcCidrBlockResponse'
-  { -- | Information about the IPv6 CIDR block association.
-    ipv6CidrBlockAssociation :: Prelude.Maybe VpcIpv6CidrBlockAssociation,
+  { -- | The ID of the VPC.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | Information about the IPv4 CIDR block association.
     cidrBlockAssociation :: Prelude.Maybe VpcCidrBlockAssociation,
-    -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Prelude.Maybe VpcIpv6CidrBlockAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,11 +240,11 @@ data AssociateVpcCidrBlockResponse = AssociateVpcCidrBlockResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6CidrBlockAssociation', 'associateVpcCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
+-- 'vpcId', 'associateVpcCidrBlockResponse_vpcId' - The ID of the VPC.
 --
 -- 'cidrBlockAssociation', 'associateVpcCidrBlockResponse_cidrBlockAssociation' - Information about the IPv4 CIDR block association.
 --
--- 'vpcId', 'associateVpcCidrBlockResponse_vpcId' - The ID of the VPC.
+-- 'ipv6CidrBlockAssociation', 'associateVpcCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 --
 -- 'httpStatus', 'associateVpcCidrBlockResponse_httpStatus' - The response's http status code.
 newAssociateVpcCidrBlockResponse ::
@@ -252,24 +253,24 @@ newAssociateVpcCidrBlockResponse ::
   AssociateVpcCidrBlockResponse
 newAssociateVpcCidrBlockResponse pHttpStatus_ =
   AssociateVpcCidrBlockResponse'
-    { ipv6CidrBlockAssociation =
+    { vpcId =
         Prelude.Nothing,
       cidrBlockAssociation = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
+      ipv6CidrBlockAssociation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Information about the IPv6 CIDR block association.
-associateVpcCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' AssociateVpcCidrBlockResponse (Prelude.Maybe VpcIpv6CidrBlockAssociation)
-associateVpcCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\AssociateVpcCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@AssociateVpcCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: AssociateVpcCidrBlockResponse)
+-- | The ID of the VPC.
+associateVpcCidrBlockResponse_vpcId :: Lens.Lens' AssociateVpcCidrBlockResponse (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlockResponse_vpcId = Lens.lens (\AssociateVpcCidrBlockResponse' {vpcId} -> vpcId) (\s@AssociateVpcCidrBlockResponse' {} a -> s {vpcId = a} :: AssociateVpcCidrBlockResponse)
 
 -- | Information about the IPv4 CIDR block association.
 associateVpcCidrBlockResponse_cidrBlockAssociation :: Lens.Lens' AssociateVpcCidrBlockResponse (Prelude.Maybe VpcCidrBlockAssociation)
 associateVpcCidrBlockResponse_cidrBlockAssociation = Lens.lens (\AssociateVpcCidrBlockResponse' {cidrBlockAssociation} -> cidrBlockAssociation) (\s@AssociateVpcCidrBlockResponse' {} a -> s {cidrBlockAssociation = a} :: AssociateVpcCidrBlockResponse)
 
--- | The ID of the VPC.
-associateVpcCidrBlockResponse_vpcId :: Lens.Lens' AssociateVpcCidrBlockResponse (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlockResponse_vpcId = Lens.lens (\AssociateVpcCidrBlockResponse' {vpcId} -> vpcId) (\s@AssociateVpcCidrBlockResponse' {} a -> s {vpcId = a} :: AssociateVpcCidrBlockResponse)
+-- | Information about the IPv6 CIDR block association.
+associateVpcCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' AssociateVpcCidrBlockResponse (Prelude.Maybe VpcIpv6CidrBlockAssociation)
+associateVpcCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\AssociateVpcCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@AssociateVpcCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: AssociateVpcCidrBlockResponse)
 
 -- | The response's http status code.
 associateVpcCidrBlockResponse_httpStatus :: Lens.Lens' AssociateVpcCidrBlockResponse Prelude.Int

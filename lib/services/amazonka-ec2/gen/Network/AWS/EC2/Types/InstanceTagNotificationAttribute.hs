@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTagNotificationAttribute' smart constructor.
 data InstanceTagNotificationAttribute = InstanceTagNotificationAttribute'
-  { -- | The registered tag keys.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates wheter all tag keys in the current Region are registered to
+  { -- | Indicates wheter all tag keys in the current Region are registered to
     -- appear in scheduled event notifications. @true@ indicates that all tag
     -- keys in the current Region are registered.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool,
+    -- | The registered tag keys.
+    instanceTagKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,19 @@ data InstanceTagNotificationAttribute = InstanceTagNotificationAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTagKeys', 'instanceTagNotificationAttribute_instanceTagKeys' - The registered tag keys.
---
 -- 'includeAllTagsOfInstance', 'instanceTagNotificationAttribute_includeAllTagsOfInstance' - Indicates wheter all tag keys in the current Region are registered to
 -- appear in scheduled event notifications. @true@ indicates that all tag
 -- keys in the current Region are registered.
+--
+-- 'instanceTagKeys', 'instanceTagNotificationAttribute_instanceTagKeys' - The registered tag keys.
 newInstanceTagNotificationAttribute ::
   InstanceTagNotificationAttribute
 newInstanceTagNotificationAttribute =
   InstanceTagNotificationAttribute'
-    { instanceTagKeys =
+    { includeAllTagsOfInstance =
         Prelude.Nothing,
-      includeAllTagsOfInstance =
-        Prelude.Nothing
+      instanceTagKeys = Prelude.Nothing
     }
-
--- | The registered tag keys.
-instanceTagNotificationAttribute_instanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Prelude.Maybe [Prelude.Text])
-instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotificationAttribute' {instanceTagKeys} -> instanceTagKeys) (\s@InstanceTagNotificationAttribute' {} a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates wheter all tag keys in the current Region are registered to
 -- appear in scheduled event notifications. @true@ indicates that all tag
@@ -70,17 +65,21 @@ instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotifi
 instanceTagNotificationAttribute_includeAllTagsOfInstance :: Lens.Lens' InstanceTagNotificationAttribute (Prelude.Maybe Prelude.Bool)
 instanceTagNotificationAttribute_includeAllTagsOfInstance = Lens.lens (\InstanceTagNotificationAttribute' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@InstanceTagNotificationAttribute' {} a -> s {includeAllTagsOfInstance = a} :: InstanceTagNotificationAttribute)
 
+-- | The registered tag keys.
+instanceTagNotificationAttribute_instanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Prelude.Maybe [Prelude.Text])
+instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotificationAttribute' {instanceTagKeys} -> instanceTagKeys) (\s@InstanceTagNotificationAttribute' {} a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Core.FromXML
     InstanceTagNotificationAttribute
   where
   parseXML x =
     InstanceTagNotificationAttribute'
-      Prelude.<$> ( x Core..@? "instanceTagKeySet"
+      Prelude.<$> (x Core..@? "includeAllTagsOfInstance")
+      Prelude.<*> ( x Core..@? "instanceTagKeySet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "includeAllTagsOfInstance")
 
 instance
   Prelude.Hashable

@@ -92,7 +92,7 @@ deleteVpcEndpointConnectionNotifications_dryRun = Lens.lens (\DeleteVpcEndpointC
 
 -- | One or more notification IDs.
 deleteVpcEndpointConnectionNotifications_connectionNotificationIds :: Lens.Lens' DeleteVpcEndpointConnectionNotifications [Prelude.Text]
-deleteVpcEndpointConnectionNotifications_connectionNotificationIds = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {connectionNotificationIds} -> connectionNotificationIds) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationIds = a} :: DeleteVpcEndpointConnectionNotifications) Prelude.. Lens._Coerce
+deleteVpcEndpointConnectionNotifications_connectionNotificationIds = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {connectionNotificationIds} -> connectionNotificationIds) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationIds = a} :: DeleteVpcEndpointConnectionNotifications) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -188,7 +188,7 @@ newDeleteVpcEndpointConnectionNotificationsResponse
 -- | Information about the notifications that could not be deleted
 -- successfully.
 deleteVpcEndpointConnectionNotificationsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse (Prelude.Maybe [UnsuccessfulItem])
-deleteVpcEndpointConnectionNotificationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointConnectionNotificationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointConnectionNotificationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointConnectionNotificationsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteVpcEndpointConnectionNotificationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointConnectionNotificationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointConnectionNotificationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointConnectionNotificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteVpcEndpointConnectionNotificationsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointConnectionNotificationsResponse Prelude.Int

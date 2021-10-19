@@ -88,7 +88,7 @@ newCreateInternetGateway =
 
 -- | The tags to assign to the internet gateway.
 createInternetGateway_tagSpecifications :: Lens.Lens' CreateInternetGateway (Prelude.Maybe [TagSpecification])
-createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Prelude.. Lens.mapping Lens._Coerce
+createInternetGateway_tagSpecifications = Lens.lens (\CreateInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateInternetGateway' {} a -> s {tagSpecifications = a} :: CreateInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

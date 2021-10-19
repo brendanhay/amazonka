@@ -44,15 +44,16 @@ module Network.AWS.EC2.CreateFlowLogs
     newCreateFlowLogs,
 
     -- * Request Lenses
-    createFlowLogs_maxAggregationInterval,
-    createFlowLogs_tagSpecifications,
-    createFlowLogs_dryRun,
-    createFlowLogs_logDestination,
     createFlowLogs_logFormat,
-    createFlowLogs_deliverLogsPermissionArn,
-    createFlowLogs_logGroupName,
-    createFlowLogs_logDestinationType,
+    createFlowLogs_maxAggregationInterval,
     createFlowLogs_clientToken,
+    createFlowLogs_logDestination,
+    createFlowLogs_logGroupName,
+    createFlowLogs_tagSpecifications,
+    createFlowLogs_destinationOptions,
+    createFlowLogs_deliverLogsPermissionArn,
+    createFlowLogs_logDestinationType,
+    createFlowLogs_dryRun,
     createFlowLogs_resourceIds,
     createFlowLogs_resourceType,
     createFlowLogs_trafficType,
@@ -63,8 +64,8 @@ module Network.AWS.EC2.CreateFlowLogs
 
     -- * Response Lenses
     createFlowLogsResponse_unsuccessful,
-    createFlowLogsResponse_flowLogIds,
     createFlowLogsResponse_clientToken,
+    createFlowLogsResponse_flowLogIds,
     createFlowLogsResponse_httpStatus,
   )
 where
@@ -78,7 +79,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFlowLogs' smart constructor.
 data CreateFlowLogs = CreateFlowLogs'
-  { -- | The maximum interval of time during which a flow of packets is captured
+  { -- | The fields to include in the flow log record, in the order in which they
+    -- should appear. For a list of available fields, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
+    -- If you omit this parameter, the flow log is created using the default
+    -- format. If you specify this parameter, you must specify at least one
+    -- field.
+    --
+    -- Specify the fields using the @${field-id}@ format, separated by spaces.
+    -- For the CLI, surround this parameter value with single quotes on Linux
+    -- or double quotes on Windows.
+    logFormat :: Prelude.Maybe Prelude.Text,
+    -- | The maximum interval of time during which a flow of packets is captured
     -- and aggregated into a flow log record. You can specify 60 seconds (1
     -- minute) or 600 seconds (10 minutes).
     --
@@ -89,17 +101,14 @@ data CreateFlowLogs = CreateFlowLogs'
     --
     -- Default: 600
     maxAggregationInterval :: Prelude.Maybe Prelude.Int,
-    -- | The tags to apply to the flow logs.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the destination to which the flow log data is to be published.
-    -- Flow log data can be published to a CloudWatch Logs log group or an
-    -- Amazon S3 bucket. The value specified for this parameter depends on the
-    -- value specified for @LogDestinationType@.
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The destination to which the flow log data is to be published. Flow log
+    -- data can be published to a CloudWatch Logs log group or an Amazon S3
+    -- bucket. The value specified for this parameter depends on the value
+    -- specified for @LogDestinationType@.
     --
     -- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
     -- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
@@ -115,43 +124,37 @@ data CreateFlowLogs = CreateFlowLogs'
     -- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a
     -- subfolder name. This is a reserved term.
     logDestination :: Prelude.Maybe Prelude.Text,
-    -- | The fields to include in the flow log record, in the order in which they
-    -- should appear. For a list of available fields, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
-    -- If you omit this parameter, the flow log is created using the default
-    -- format. If you specify this parameter, you must specify at least one
-    -- field.
-    --
-    -- Specify the fields using the @${field-id}@ format, separated by spaces.
-    -- For the CLI, use single quotation marks (\' \') to surround the
-    -- parameter value.
-    logFormat :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
-    -- a CloudWatch Logs log group in your account.
-    --
-    -- If you specify @LogDestinationType@ as @s3@, do not specify
-    -- @DeliverLogsPermissionArn@ or @LogGroupName@.
-    deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
     -- publishes your flow logs.
     --
     -- If you specify @LogDestinationType@ as @s3@, do not specify
     -- @DeliverLogsPermissionArn@ or @LogGroupName@.
     logGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the type of destination to which the flow log data is to be
-    -- published. Flow log data can be published to CloudWatch Logs or Amazon
-    -- S3. To publish flow log data to CloudWatch Logs, specify
-    -- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.
+    -- | The tags to apply to the flow logs.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The destination options.
+    destinationOptions :: Prelude.Maybe DestinationOptionsRequest,
+    -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
+    -- a CloudWatch Logs log group in your account.
+    --
+    -- If you specify @LogDestinationType@ as @s3@, do not specify
+    -- @DeliverLogsPermissionArn@ or @LogGroupName@.
+    deliverLogsPermissionArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of destination to which the flow log data is to be published.
+    -- Flow log data can be published to CloudWatch Logs or Amazon S3. To
+    -- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
+    -- publish flow log data to Amazon S3, specify @s3@.
     --
     -- If you specify @LogDestinationType@ as @s3@, do not specify
     -- @DeliverLogsPermissionArn@ or @LogGroupName@.
     --
     -- Default: @cloud-watch-logs@
     logDestinationType :: Prelude.Maybe LogDestinationType,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the subnet, network interface, or VPC for which you want to
     -- create a flow log.
     --
@@ -175,6 +178,17 @@ data CreateFlowLogs = CreateFlowLogs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record, in the order in which they
+-- should appear. For a list of available fields, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
+-- If you omit this parameter, the flow log is created using the default
+-- format. If you specify this parameter, you must specify at least one
+-- field.
+--
+-- Specify the fields using the @${field-id}@ format, separated by spaces.
+-- For the CLI, surround this parameter value with single quotes on Linux
+-- or double quotes on Windows.
+--
 -- 'maxAggregationInterval', 'createFlowLogs_maxAggregationInterval' - The maximum interval of time during which a flow of packets is captured
 -- and aggregated into a flow log record. You can specify 60 seconds (1
 -- minute) or 600 seconds (10 minutes).
@@ -186,17 +200,14 @@ data CreateFlowLogs = CreateFlowLogs'
 --
 -- Default: 600
 --
--- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.
+-- 'clientToken', 'createFlowLogs_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
--- 'dryRun', 'createFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'logDestination', 'createFlowLogs_logDestination' - Specifies the destination to which the flow log data is to be published.
--- Flow log data can be published to a CloudWatch Logs log group or an
--- Amazon S3 bucket. The value specified for this parameter depends on the
--- value specified for @LogDestinationType@.
+-- 'logDestination', 'createFlowLogs_logDestination' - The destination to which the flow log data is to be published. Flow log
+-- data can be published to a CloudWatch Logs log group or an Amazon S3
+-- bucket. The value specified for this parameter depends on the value
+-- specified for @LogDestinationType@.
 --
 -- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
 -- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
@@ -212,16 +223,15 @@ data CreateFlowLogs = CreateFlowLogs'
 -- @arn:aws:s3:::my-bucket\/my-logs\/@. You cannot use @AWSLogs@ as a
 -- subfolder name. This is a reserved term.
 --
--- 'logFormat', 'createFlowLogs_logFormat' - The fields to include in the flow log record, in the order in which they
--- should appear. For a list of available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
--- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must specify at least one
--- field.
+-- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2
+-- publishes your flow logs.
 --
--- Specify the fields using the @${field-id}@ format, separated by spaces.
--- For the CLI, use single quotation marks (\' \') to surround the
--- parameter value.
+-- If you specify @LogDestinationType@ as @s3@, do not specify
+-- @DeliverLogsPermissionArn@ or @LogGroupName@.
+--
+-- 'tagSpecifications', 'createFlowLogs_tagSpecifications' - The tags to apply to the flow logs.
+--
+-- 'destinationOptions', 'createFlowLogs_destinationOptions' - The destination options.
 --
 -- 'deliverLogsPermissionArn', 'createFlowLogs_deliverLogsPermissionArn' - The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
 -- a CloudWatch Logs log group in your account.
@@ -229,25 +239,20 @@ data CreateFlowLogs = CreateFlowLogs'
 -- If you specify @LogDestinationType@ as @s3@, do not specify
 -- @DeliverLogsPermissionArn@ or @LogGroupName@.
 --
--- 'logGroupName', 'createFlowLogs_logGroupName' - The name of a new or existing CloudWatch Logs log group where Amazon EC2
--- publishes your flow logs.
---
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
---
--- 'logDestinationType', 'createFlowLogs_logDestinationType' - Specifies the type of destination to which the flow log data is to be
--- published. Flow log data can be published to CloudWatch Logs or Amazon
--- S3. To publish flow log data to CloudWatch Logs, specify
--- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.
+-- 'logDestinationType', 'createFlowLogs_logDestinationType' - The type of destination to which the flow log data is to be published.
+-- Flow log data can be published to CloudWatch Logs or Amazon S3. To
+-- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
+-- publish flow log data to Amazon S3, specify @s3@.
 --
 -- If you specify @LogDestinationType@ as @s3@, do not specify
 -- @DeliverLogsPermissionArn@ or @LogGroupName@.
 --
 -- Default: @cloud-watch-logs@
 --
--- 'clientToken', 'createFlowLogs_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+-- 'dryRun', 'createFlowLogs_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'resourceIds', 'createFlowLogs_resourceIds' - The ID of the subnet, network interface, or VPC for which you want to
 -- create a flow log.
@@ -268,20 +273,33 @@ newCreateFlowLogs ::
   CreateFlowLogs
 newCreateFlowLogs pResourceType_ pTrafficType_ =
   CreateFlowLogs'
-    { maxAggregationInterval =
-        Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      logDestination = Prelude.Nothing,
-      logFormat = Prelude.Nothing,
-      deliverLogsPermissionArn = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      logDestinationType = Prelude.Nothing,
+    { logFormat = Prelude.Nothing,
+      maxAggregationInterval = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      logDestination = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      destinationOptions = Prelude.Nothing,
+      deliverLogsPermissionArn = Prelude.Nothing,
+      logDestinationType = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       resourceIds = Prelude.mempty,
       resourceType = pResourceType_,
       trafficType = pTrafficType_
     }
+
+-- | The fields to include in the flow log record, in the order in which they
+-- should appear. For a list of available fields, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
+-- If you omit this parameter, the flow log is created using the default
+-- format. If you specify this parameter, you must specify at least one
+-- field.
+--
+-- Specify the fields using the @${field-id}@ format, separated by spaces.
+-- For the CLI, surround this parameter value with single quotes on Linux
+-- or double quotes on Windows.
+createFlowLogs_logFormat :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat) (\s@CreateFlowLogs' {} a -> s {logFormat = a} :: CreateFlowLogs)
 
 -- | The maximum interval of time during which a flow of packets is captured
 -- and aggregated into a flow log record. You can specify 60 seconds (1
@@ -296,21 +314,16 @@ newCreateFlowLogs pResourceType_ pTrafficType_ =
 createFlowLogs_maxAggregationInterval :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Int)
 createFlowLogs_maxAggregationInterval = Lens.lens (\CreateFlowLogs' {maxAggregationInterval} -> maxAggregationInterval) (\s@CreateFlowLogs' {} a -> s {maxAggregationInterval = a} :: CreateFlowLogs)
 
--- | The tags to apply to the flow logs.
-createFlowLogs_tagSpecifications :: Lens.Lens' CreateFlowLogs (Prelude.Maybe [TagSpecification])
-createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecifications} -> tagSpecifications) (\s@CreateFlowLogs' {} a -> s {tagSpecifications = a} :: CreateFlowLogs) Prelude.. Lens.mapping Lens._Coerce
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createFlowLogs_dryRun :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Bool)
-createFlowLogs_dryRun = Lens.lens (\CreateFlowLogs' {dryRun} -> dryRun) (\s@CreateFlowLogs' {} a -> s {dryRun = a} :: CreateFlowLogs)
-
--- | Specifies the destination to which the flow log data is to be published.
--- Flow log data can be published to a CloudWatch Logs log group or an
--- Amazon S3 bucket. The value specified for this parameter depends on the
--- value specified for @LogDestinationType@.
+-- | The destination to which the flow log data is to be published. Flow log
+-- data can be published to a CloudWatch Logs log group or an Amazon S3
+-- bucket. The value specified for this parameter depends on the value
+-- specified for @LogDestinationType@.
 --
 -- If @LogDestinationType@ is not specified or @cloud-watch-logs@, specify
 -- the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For
@@ -328,18 +341,21 @@ createFlowLogs_dryRun = Lens.lens (\CreateFlowLogs' {dryRun} -> dryRun) (\s@Crea
 createFlowLogs_logDestination :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_logDestination = Lens.lens (\CreateFlowLogs' {logDestination} -> logDestination) (\s@CreateFlowLogs' {} a -> s {logDestination = a} :: CreateFlowLogs)
 
--- | The fields to include in the flow log record, in the order in which they
--- should appear. For a list of available fields, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records Flow log records>.
--- If you omit this parameter, the flow log is created using the default
--- format. If you specify this parameter, you must specify at least one
--- field.
+-- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
+-- publishes your flow logs.
 --
--- Specify the fields using the @${field-id}@ format, separated by spaces.
--- For the CLI, use single quotation marks (\' \') to surround the
--- parameter value.
-createFlowLogs_logFormat :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat) (\s@CreateFlowLogs' {} a -> s {logFormat = a} :: CreateFlowLogs)
+-- If you specify @LogDestinationType@ as @s3@, do not specify
+-- @DeliverLogsPermissionArn@ or @LogGroupName@.
+createFlowLogs_logGroupName :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
+createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logGroupName) (\s@CreateFlowLogs' {} a -> s {logGroupName = a} :: CreateFlowLogs)
+
+-- | The tags to apply to the flow logs.
+createFlowLogs_tagSpecifications :: Lens.Lens' CreateFlowLogs (Prelude.Maybe [TagSpecification])
+createFlowLogs_tagSpecifications = Lens.lens (\CreateFlowLogs' {tagSpecifications} -> tagSpecifications) (\s@CreateFlowLogs' {} a -> s {tagSpecifications = a} :: CreateFlowLogs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The destination options.
+createFlowLogs_destinationOptions :: Lens.Lens' CreateFlowLogs (Prelude.Maybe DestinationOptionsRequest)
+createFlowLogs_destinationOptions = Lens.lens (\CreateFlowLogs' {destinationOptions} -> destinationOptions) (\s@CreateFlowLogs' {} a -> s {destinationOptions = a} :: CreateFlowLogs)
 
 -- | The ARN for the IAM role that permits Amazon EC2 to publish flow logs to
 -- a CloudWatch Logs log group in your account.
@@ -349,18 +365,10 @@ createFlowLogs_logFormat = Lens.lens (\CreateFlowLogs' {logFormat} -> logFormat)
 createFlowLogs_deliverLogsPermissionArn :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
 createFlowLogs_deliverLogsPermissionArn = Lens.lens (\CreateFlowLogs' {deliverLogsPermissionArn} -> deliverLogsPermissionArn) (\s@CreateFlowLogs' {} a -> s {deliverLogsPermissionArn = a} :: CreateFlowLogs)
 
--- | The name of a new or existing CloudWatch Logs log group where Amazon EC2
--- publishes your flow logs.
---
--- If you specify @LogDestinationType@ as @s3@, do not specify
--- @DeliverLogsPermissionArn@ or @LogGroupName@.
-createFlowLogs_logGroupName :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logGroupName) (\s@CreateFlowLogs' {} a -> s {logGroupName = a} :: CreateFlowLogs)
-
--- | Specifies the type of destination to which the flow log data is to be
--- published. Flow log data can be published to CloudWatch Logs or Amazon
--- S3. To publish flow log data to CloudWatch Logs, specify
--- @cloud-watch-logs@. To publish flow log data to Amazon S3, specify @s3@.
+-- | The type of destination to which the flow log data is to be published.
+-- Flow log data can be published to CloudWatch Logs or Amazon S3. To
+-- publish flow log data to CloudWatch Logs, specify @cloud-watch-logs@. To
+-- publish flow log data to Amazon S3, specify @s3@.
 --
 -- If you specify @LogDestinationType@ as @s3@, do not specify
 -- @DeliverLogsPermissionArn@ or @LogGroupName@.
@@ -369,18 +377,19 @@ createFlowLogs_logGroupName = Lens.lens (\CreateFlowLogs' {logGroupName} -> logG
 createFlowLogs_logDestinationType :: Lens.Lens' CreateFlowLogs (Prelude.Maybe LogDestinationType)
 createFlowLogs_logDestinationType = Lens.lens (\CreateFlowLogs' {logDestinationType} -> logDestinationType) (\s@CreateFlowLogs' {} a -> s {logDestinationType = a} :: CreateFlowLogs)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-createFlowLogs_clientToken :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Text)
-createFlowLogs_clientToken = Lens.lens (\CreateFlowLogs' {clientToken} -> clientToken) (\s@CreateFlowLogs' {} a -> s {clientToken = a} :: CreateFlowLogs)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createFlowLogs_dryRun :: Lens.Lens' CreateFlowLogs (Prelude.Maybe Prelude.Bool)
+createFlowLogs_dryRun = Lens.lens (\CreateFlowLogs' {dryRun} -> dryRun) (\s@CreateFlowLogs' {} a -> s {dryRun = a} :: CreateFlowLogs)
 
 -- | The ID of the subnet, network interface, or VPC for which you want to
 -- create a flow log.
 --
 -- Constraints: Maximum of 1000 resources
 createFlowLogs_resourceIds :: Lens.Lens' CreateFlowLogs [Prelude.Text]
-createFlowLogs_resourceIds = Lens.lens (\CreateFlowLogs' {resourceIds} -> resourceIds) (\s@CreateFlowLogs' {} a -> s {resourceIds = a} :: CreateFlowLogs) Prelude.. Lens._Coerce
+createFlowLogs_resourceIds = Lens.lens (\CreateFlowLogs' {resourceIds} -> resourceIds) (\s@CreateFlowLogs' {} a -> s {resourceIds = a} :: CreateFlowLogs) Prelude.. Lens.coerced
 
 -- | The type of resource for which to create the flow log. For example, if
 -- you specified a VPC ID for the @ResourceId@ property, specify @VPC@ for
@@ -405,10 +414,10 @@ instance Core.AWSRequest CreateFlowLogs where
             Prelude.<$> ( x Core..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "clientToken")
             Prelude.<*> ( x Core..@? "flowLogIdSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "clientToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -429,20 +438,21 @@ instance Core.ToQuery CreateFlowLogs where
           Core.=: ("CreateFlowLogs" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "LogFormat" Core.=: logFormat,
         "MaxAggregationInterval"
           Core.=: maxAggregationInterval,
+        "ClientToken" Core.=: clientToken,
+        "LogDestination" Core.=: logDestination,
+        "LogGroupName" Core.=: logGroupName,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "LogDestination" Core.=: logDestination,
-        "LogFormat" Core.=: logFormat,
+        "DestinationOptions" Core.=: destinationOptions,
         "DeliverLogsPermissionArn"
           Core.=: deliverLogsPermissionArn,
-        "LogGroupName" Core.=: logGroupName,
         "LogDestinationType" Core.=: logDestinationType,
-        "ClientToken" Core.=: clientToken,
+        "DryRun" Core.=: dryRun,
         Core.toQueryList "ResourceId" resourceIds,
         "ResourceType" Core.=: resourceType,
         "TrafficType" Core.=: trafficType
@@ -452,11 +462,11 @@ instance Core.ToQuery CreateFlowLogs where
 data CreateFlowLogsResponse = CreateFlowLogsResponse'
   { -- | Information about the flow logs that could not be created successfully.
     unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
-    -- | The IDs of the flow logs.
-    flowLogIds :: Prelude.Maybe [Prelude.Text],
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the flow logs.
+    flowLogIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -472,10 +482,10 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
 --
 -- 'unsuccessful', 'createFlowLogsResponse_unsuccessful' - Information about the flow logs that could not be created successfully.
 --
--- 'flowLogIds', 'createFlowLogsResponse_flowLogIds' - The IDs of the flow logs.
---
 -- 'clientToken', 'createFlowLogsResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
+--
+-- 'flowLogIds', 'createFlowLogsResponse_flowLogIds' - The IDs of the flow logs.
 --
 -- 'httpStatus', 'createFlowLogsResponse_httpStatus' - The response's http status code.
 newCreateFlowLogsResponse ::
@@ -486,23 +496,23 @@ newCreateFlowLogsResponse pHttpStatus_ =
   CreateFlowLogsResponse'
     { unsuccessful =
         Prelude.Nothing,
-      flowLogIds = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      flowLogIds = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the flow logs that could not be created successfully.
 createFlowLogsResponse_unsuccessful :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [UnsuccessfulItem])
-createFlowLogsResponse_unsuccessful = Lens.lens (\CreateFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@CreateFlowLogsResponse' {} a -> s {unsuccessful = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The IDs of the flow logs.
-createFlowLogsResponse_flowLogIds :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [Prelude.Text])
-createFlowLogsResponse_flowLogIds = Lens.lens (\CreateFlowLogsResponse' {flowLogIds} -> flowLogIds) (\s@CreateFlowLogsResponse' {} a -> s {flowLogIds = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens._Coerce
+createFlowLogsResponse_unsuccessful = Lens.lens (\CreateFlowLogsResponse' {unsuccessful} -> unsuccessful) (\s@CreateFlowLogsResponse' {} a -> s {unsuccessful = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createFlowLogsResponse_clientToken :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe Prelude.Text)
 createFlowLogsResponse_clientToken = Lens.lens (\CreateFlowLogsResponse' {clientToken} -> clientToken) (\s@CreateFlowLogsResponse' {} a -> s {clientToken = a} :: CreateFlowLogsResponse)
+
+-- | The IDs of the flow logs.
+createFlowLogsResponse_flowLogIds :: Lens.Lens' CreateFlowLogsResponse (Prelude.Maybe [Prelude.Text])
+createFlowLogsResponse_flowLogIds = Lens.lens (\CreateFlowLogsResponse' {flowLogIds} -> flowLogIds) (\s@CreateFlowLogsResponse' {} a -> s {flowLogIds = a} :: CreateFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createFlowLogsResponse_httpStatus :: Lens.Lens' CreateFlowLogsResponse Prelude.Int

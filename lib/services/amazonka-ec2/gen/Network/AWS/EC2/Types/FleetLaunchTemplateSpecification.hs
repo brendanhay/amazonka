@@ -32,7 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFleetLaunchTemplateSpecification' smart constructor.
 data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
-  { -- | The ID of the launch template. If you specify the template ID, you
+  { -- | The name of the launch template. If you specify the template name, you
+    -- can\'t specify the template ID.
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the launch template. If you specify the template ID, you
     -- can\'t specify the template name.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The launch template version number, @$Latest@, or @$Default@. You must
@@ -43,10 +46,7 @@ data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
     --
     -- If the value is @$Default@, Amazon EC2 uses the default version of the
     -- launch template.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. If you specify the template name, you
-    -- can\'t specify the template ID.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,6 +57,9 @@ data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'launchTemplateName', 'fleetLaunchTemplateSpecification_launchTemplateName' - The name of the launch template. If you specify the template name, you
+-- can\'t specify the template ID.
 --
 -- 'launchTemplateId', 'fleetLaunchTemplateSpecification_launchTemplateId' - The ID of the launch template. If you specify the template ID, you
 -- can\'t specify the template name.
@@ -69,18 +72,20 @@ data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
 --
 -- If the value is @$Default@, Amazon EC2 uses the default version of the
 -- launch template.
---
--- 'launchTemplateName', 'fleetLaunchTemplateSpecification_launchTemplateName' - The name of the launch template. If you specify the template name, you
--- can\'t specify the template ID.
 newFleetLaunchTemplateSpecification ::
   FleetLaunchTemplateSpecification
 newFleetLaunchTemplateSpecification =
   FleetLaunchTemplateSpecification'
-    { launchTemplateId =
+    { launchTemplateName =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing
+      launchTemplateId = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The name of the launch template. If you specify the template name, you
+-- can\'t specify the template ID.
+fleetLaunchTemplateSpecification_launchTemplateName :: Lens.Lens' FleetLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+fleetLaunchTemplateSpecification_launchTemplateName = Lens.lens (\FleetLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@FleetLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: FleetLaunchTemplateSpecification)
 
 -- | The ID of the launch template. If you specify the template ID, you
 -- can\'t specify the template name.
@@ -98,20 +103,15 @@ fleetLaunchTemplateSpecification_launchTemplateId = Lens.lens (\FleetLaunchTempl
 fleetLaunchTemplateSpecification_version :: Lens.Lens' FleetLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateSpecification_version = Lens.lens (\FleetLaunchTemplateSpecification' {version} -> version) (\s@FleetLaunchTemplateSpecification' {} a -> s {version = a} :: FleetLaunchTemplateSpecification)
 
--- | The name of the launch template. If you specify the template name, you
--- can\'t specify the template ID.
-fleetLaunchTemplateSpecification_launchTemplateName :: Lens.Lens' FleetLaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-fleetLaunchTemplateSpecification_launchTemplateName = Lens.lens (\FleetLaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@FleetLaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: FleetLaunchTemplateSpecification)
-
 instance
   Core.FromXML
     FleetLaunchTemplateSpecification
   where
   parseXML x =
     FleetLaunchTemplateSpecification'
-      Prelude.<$> (x Core..@? "launchTemplateId")
+      Prelude.<$> (x Core..@? "launchTemplateName")
+      Prelude.<*> (x Core..@? "launchTemplateId")
       Prelude.<*> (x Core..@? "version")
-      Prelude.<*> (x Core..@? "launchTemplateName")
 
 instance
   Prelude.Hashable
@@ -127,7 +127,7 @@ instance
   where
   toQuery FleetLaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version,
-        "LaunchTemplateName" Core.=: launchTemplateName
+      [ "LaunchTemplateName" Core.=: launchTemplateName,
+        "LaunchTemplateId" Core.=: launchTemplateId,
+        "Version" Core.=: version
       ]

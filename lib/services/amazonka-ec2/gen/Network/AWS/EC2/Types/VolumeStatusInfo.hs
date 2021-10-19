@@ -62,7 +62,7 @@ volumeStatusInfo_status = Lens.lens (\VolumeStatusInfo' {status} -> status) (\s@
 
 -- | The details of the volume status.
 volumeStatusInfo_details :: Lens.Lens' VolumeStatusInfo (Prelude.Maybe [VolumeStatusDetails])
-volumeStatusInfo_details = Lens.lens (\VolumeStatusInfo' {details} -> details) (\s@VolumeStatusInfo' {} a -> s {details = a} :: VolumeStatusInfo) Prelude.. Lens.mapping Lens._Coerce
+volumeStatusInfo_details = Lens.lens (\VolumeStatusInfo' {details} -> details) (\s@VolumeStatusInfo' {} a -> s {details = a} :: VolumeStatusInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML VolumeStatusInfo where
   parseXML x =

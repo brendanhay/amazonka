@@ -35,16 +35,16 @@ module Network.AWS.EC2.GetVpnConnectionDeviceTypes
 
     -- * Request Lenses
     getVpnConnectionDeviceTypes_nextToken,
-    getVpnConnectionDeviceTypes_maxResults,
     getVpnConnectionDeviceTypes_dryRun,
+    getVpnConnectionDeviceTypes_maxResults,
 
     -- * Destructuring the Response
     GetVpnConnectionDeviceTypesResponse (..),
     newGetVpnConnectionDeviceTypesResponse,
 
     -- * Response Lenses
-    getVpnConnectionDeviceTypesResponse_nextToken,
     getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes,
+    getVpnConnectionDeviceTypesResponse_nextToken,
     getVpnConnectionDeviceTypesResponse_httpStatus,
   )
 where
@@ -64,6 +64,11 @@ data GetVpnConnectionDeviceTypes = GetVpnConnectionDeviceTypes'
     -- from the end of the previous results that returned the @NextToken@
     -- value. This value is null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results returned by @GetVpnConnectionDeviceTypes@
     -- in paginated output. When this parameter is used,
     -- @GetVpnConnectionDeviceTypes@ only returns @MaxResults@ results in a
@@ -72,12 +77,7 @@ data GetVpnConnectionDeviceTypes = GetVpnConnectionDeviceTypes'
     -- @GetVpnConnectionDeviceTypes@ request with the returned @NextToken@
     -- value. This value can be between 200 and 1000. If this parameter is not
     -- used, then @GetVpnConnectionDeviceTypes@ returns all results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,11 @@ data GetVpnConnectionDeviceTypes = GetVpnConnectionDeviceTypes'
 -- from the end of the previous results that returned the @NextToken@
 -- value. This value is null when there are no more results to return.
 --
+-- 'dryRun', 'getVpnConnectionDeviceTypes_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'maxResults', 'getVpnConnectionDeviceTypes_maxResults' - The maximum number of results returned by @GetVpnConnectionDeviceTypes@
 -- in paginated output. When this parameter is used,
 -- @GetVpnConnectionDeviceTypes@ only returns @MaxResults@ results in a
@@ -103,19 +108,14 @@ data GetVpnConnectionDeviceTypes = GetVpnConnectionDeviceTypes'
 -- @GetVpnConnectionDeviceTypes@ request with the returned @NextToken@
 -- value. This value can be between 200 and 1000. If this parameter is not
 -- used, then @GetVpnConnectionDeviceTypes@ returns all results.
---
--- 'dryRun', 'getVpnConnectionDeviceTypes_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 newGetVpnConnectionDeviceTypes ::
   GetVpnConnectionDeviceTypes
 newGetVpnConnectionDeviceTypes =
   GetVpnConnectionDeviceTypes'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The @NextToken@ value returned from a previous paginated
@@ -125,6 +125,13 @@ newGetVpnConnectionDeviceTypes =
 -- value. This value is null when there are no more results to return.
 getVpnConnectionDeviceTypes_nextToken :: Lens.Lens' GetVpnConnectionDeviceTypes (Prelude.Maybe Prelude.Text)
 getVpnConnectionDeviceTypes_nextToken = Lens.lens (\GetVpnConnectionDeviceTypes' {nextToken} -> nextToken) (\s@GetVpnConnectionDeviceTypes' {} a -> s {nextToken = a} :: GetVpnConnectionDeviceTypes)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getVpnConnectionDeviceTypes_dryRun :: Lens.Lens' GetVpnConnectionDeviceTypes (Prelude.Maybe Prelude.Bool)
+getVpnConnectionDeviceTypes_dryRun = Lens.lens (\GetVpnConnectionDeviceTypes' {dryRun} -> dryRun) (\s@GetVpnConnectionDeviceTypes' {} a -> s {dryRun = a} :: GetVpnConnectionDeviceTypes)
 
 -- | The maximum number of results returned by @GetVpnConnectionDeviceTypes@
 -- in paginated output. When this parameter is used,
@@ -136,13 +143,6 @@ getVpnConnectionDeviceTypes_nextToken = Lens.lens (\GetVpnConnectionDeviceTypes'
 -- used, then @GetVpnConnectionDeviceTypes@ returns all results.
 getVpnConnectionDeviceTypes_maxResults :: Lens.Lens' GetVpnConnectionDeviceTypes (Prelude.Maybe Prelude.Natural)
 getVpnConnectionDeviceTypes_maxResults = Lens.lens (\GetVpnConnectionDeviceTypes' {maxResults} -> maxResults) (\s@GetVpnConnectionDeviceTypes' {} a -> s {maxResults = a} :: GetVpnConnectionDeviceTypes)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getVpnConnectionDeviceTypes_dryRun :: Lens.Lens' GetVpnConnectionDeviceTypes (Prelude.Maybe Prelude.Bool)
-getVpnConnectionDeviceTypes_dryRun = Lens.lens (\GetVpnConnectionDeviceTypes' {dryRun} -> dryRun) (\s@GetVpnConnectionDeviceTypes' {} a -> s {dryRun = a} :: GetVpnConnectionDeviceTypes)
 
 instance Core.AWSPager GetVpnConnectionDeviceTypes where
   page rq rs
@@ -175,11 +175,11 @@ instance Core.AWSRequest GetVpnConnectionDeviceTypes where
     Response.receiveXML
       ( \s h x ->
           GetVpnConnectionDeviceTypesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "vpnConnectionDeviceTypeSet"
+            Prelude.<$> ( x Core..@? "vpnConnectionDeviceTypeSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,21 +203,21 @@ instance Core.ToQuery GetVpnConnectionDeviceTypes where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newGetVpnConnectionDeviceTypesResponse' smart constructor.
 data GetVpnConnectionDeviceTypesResponse = GetVpnConnectionDeviceTypesResponse'
-  { -- | The @NextToken@ value to include in a future
+  { -- | List of customer gateway devices that have a sample configuration file
+    -- available for use.
+    vpnConnectionDeviceTypes :: Prelude.Maybe [VpnConnectionDeviceType],
+    -- | The @NextToken@ value to include in a future
     -- @GetVpnConnectionDeviceTypes@ request. When the results of a
     -- @GetVpnConnectionDeviceTypes@ request exceed @MaxResults@, this value
     -- can be used to retrieve the next page of results. This value is null
     -- when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of customer gateway devices that have a sample configuration file
-    -- available for use.
-    vpnConnectionDeviceTypes :: Prelude.Maybe [VpnConnectionDeviceType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -231,14 +231,14 @@ data GetVpnConnectionDeviceTypesResponse = GetVpnConnectionDeviceTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpnConnectionDeviceTypes', 'getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes' - List of customer gateway devices that have a sample configuration file
+-- available for use.
+--
 -- 'nextToken', 'getVpnConnectionDeviceTypesResponse_nextToken' - The @NextToken@ value to include in a future
 -- @GetVpnConnectionDeviceTypes@ request. When the results of a
 -- @GetVpnConnectionDeviceTypes@ request exceed @MaxResults@, this value
 -- can be used to retrieve the next page of results. This value is null
 -- when there are no more results to return.
---
--- 'vpnConnectionDeviceTypes', 'getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes' - List of customer gateway devices that have a sample configuration file
--- available for use.
 --
 -- 'httpStatus', 'getVpnConnectionDeviceTypesResponse_httpStatus' - The response's http status code.
 newGetVpnConnectionDeviceTypesResponse ::
@@ -247,12 +247,16 @@ newGetVpnConnectionDeviceTypesResponse ::
   GetVpnConnectionDeviceTypesResponse
 newGetVpnConnectionDeviceTypesResponse pHttpStatus_ =
   GetVpnConnectionDeviceTypesResponse'
-    { nextToken =
+    { vpnConnectionDeviceTypes =
         Prelude.Nothing,
-      vpnConnectionDeviceTypes =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of customer gateway devices that have a sample configuration file
+-- available for use.
+getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes :: Lens.Lens' GetVpnConnectionDeviceTypesResponse (Prelude.Maybe [VpnConnectionDeviceType])
+getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes = Lens.lens (\GetVpnConnectionDeviceTypesResponse' {vpnConnectionDeviceTypes} -> vpnConnectionDeviceTypes) (\s@GetVpnConnectionDeviceTypesResponse' {} a -> s {vpnConnectionDeviceTypes = a} :: GetVpnConnectionDeviceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @NextToken@ value to include in a future
 -- @GetVpnConnectionDeviceTypes@ request. When the results of a
@@ -261,11 +265,6 @@ newGetVpnConnectionDeviceTypesResponse pHttpStatus_ =
 -- when there are no more results to return.
 getVpnConnectionDeviceTypesResponse_nextToken :: Lens.Lens' GetVpnConnectionDeviceTypesResponse (Prelude.Maybe Prelude.Text)
 getVpnConnectionDeviceTypesResponse_nextToken = Lens.lens (\GetVpnConnectionDeviceTypesResponse' {nextToken} -> nextToken) (\s@GetVpnConnectionDeviceTypesResponse' {} a -> s {nextToken = a} :: GetVpnConnectionDeviceTypesResponse)
-
--- | List of customer gateway devices that have a sample configuration file
--- available for use.
-getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes :: Lens.Lens' GetVpnConnectionDeviceTypesResponse (Prelude.Maybe [VpnConnectionDeviceType])
-getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes = Lens.lens (\GetVpnConnectionDeviceTypesResponse' {vpnConnectionDeviceTypes} -> vpnConnectionDeviceTypes) (\s@GetVpnConnectionDeviceTypesResponse' {} a -> s {vpnConnectionDeviceTypes = a} :: GetVpnConnectionDeviceTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getVpnConnectionDeviceTypesResponse_httpStatus :: Lens.Lens' GetVpnConnectionDeviceTypesResponse Prelude.Int

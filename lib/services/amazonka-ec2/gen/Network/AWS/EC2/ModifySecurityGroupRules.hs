@@ -102,7 +102,7 @@ modifySecurityGroupRules_groupId = Lens.lens (\ModifySecurityGroupRules' {groupI
 
 -- | Information about the security group properties to update.
 modifySecurityGroupRules_securityGroupRules :: Lens.Lens' ModifySecurityGroupRules [SecurityGroupRuleUpdate]
-modifySecurityGroupRules_securityGroupRules = Lens.lens (\ModifySecurityGroupRules' {securityGroupRules} -> securityGroupRules) (\s@ModifySecurityGroupRules' {} a -> s {securityGroupRules = a} :: ModifySecurityGroupRules) Prelude.. Lens._Coerce
+modifySecurityGroupRules_securityGroupRules = Lens.lens (\ModifySecurityGroupRules' {securityGroupRules} -> securityGroupRules) (\s@ModifySecurityGroupRules' {} a -> s {securityGroupRules = a} :: ModifySecurityGroupRules) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifySecurityGroupRules where
   type

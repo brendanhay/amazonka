@@ -126,7 +126,7 @@ startInstances_dryRun = Lens.lens (\StartInstances' {dryRun} -> dryRun) (\s@Star
 
 -- | The IDs of the instances.
 startInstances_instanceIds :: Lens.Lens' StartInstances [Prelude.Text]
-startInstances_instanceIds = Lens.lens (\StartInstances' {instanceIds} -> instanceIds) (\s@StartInstances' {} a -> s {instanceIds = a} :: StartInstances) Prelude.. Lens._Coerce
+startInstances_instanceIds = Lens.lens (\StartInstances' {instanceIds} -> instanceIds) (\s@StartInstances' {} a -> s {instanceIds = a} :: StartInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartInstances where
   type
@@ -198,7 +198,7 @@ newStartInstancesResponse pHttpStatus_ =
 
 -- | Information about the started instances.
 startInstancesResponse_startingInstances :: Lens.Lens' StartInstancesResponse (Prelude.Maybe [InstanceStateChange])
-startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {startingInstances} -> startingInstances) (\s@StartInstancesResponse' {} a -> s {startingInstances = a} :: StartInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+startInstancesResponse_startingInstances = Lens.lens (\StartInstancesResponse' {startingInstances} -> startingInstances) (\s@StartInstancesResponse' {} a -> s {startingInstances = a} :: StartInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startInstancesResponse_httpStatus :: Lens.Lens' StartInstancesResponse Prelude.Int

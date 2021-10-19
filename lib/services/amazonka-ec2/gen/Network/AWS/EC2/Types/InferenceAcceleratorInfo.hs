@@ -53,7 +53,7 @@ newInferenceAcceleratorInfo =
 
 -- | Describes the Inference accelerators for the instance type.
 inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Prelude.Maybe [InferenceDeviceInfo])
-inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Prelude.. Lens.mapping Lens._Coerce
+inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML InferenceAcceleratorInfo where
   parseXML x =

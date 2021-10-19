@@ -33,10 +33,10 @@ data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
     address :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | Information about the instance.
-    instance' :: Prelude.Maybe AnalysisComponent,
     -- | The port on which the target is listening.
-    port :: Prelude.Maybe Prelude.Natural
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | Information about the instance.
+    instance' :: Prelude.Maybe AnalysisComponent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,9 @@ data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
 --
 -- 'availabilityZone', 'analysisLoadBalancerTarget_availabilityZone' - The Availability Zone.
 --
--- 'instance'', 'analysisLoadBalancerTarget_instance' - Information about the instance.
---
 -- 'port', 'analysisLoadBalancerTarget_port' - The port on which the target is listening.
+--
+-- 'instance'', 'analysisLoadBalancerTarget_instance' - Information about the instance.
 newAnalysisLoadBalancerTarget ::
   AnalysisLoadBalancerTarget
 newAnalysisLoadBalancerTarget =
@@ -62,8 +62,8 @@ newAnalysisLoadBalancerTarget =
     { address =
         Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      instance' = Prelude.Nothing,
-      port = Prelude.Nothing
+      port = Prelude.Nothing,
+      instance' = Prelude.Nothing
     }
 
 -- | The IP address.
@@ -74,21 +74,21 @@ analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {ad
 analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
 analysisLoadBalancerTarget_availabilityZone = Lens.lens (\AnalysisLoadBalancerTarget' {availabilityZone} -> availabilityZone) (\s@AnalysisLoadBalancerTarget' {} a -> s {availabilityZone = a} :: AnalysisLoadBalancerTarget)
 
--- | Information about the instance.
-analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
-analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {instance'} -> instance') (\s@AnalysisLoadBalancerTarget' {} a -> s {instance' = a} :: AnalysisLoadBalancerTarget)
-
 -- | The port on which the target is listening.
 analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Natural)
 analysisLoadBalancerTarget_port = Lens.lens (\AnalysisLoadBalancerTarget' {port} -> port) (\s@AnalysisLoadBalancerTarget' {} a -> s {port = a} :: AnalysisLoadBalancerTarget)
+
+-- | Information about the instance.
+analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
+analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {instance'} -> instance') (\s@AnalysisLoadBalancerTarget' {} a -> s {instance' = a} :: AnalysisLoadBalancerTarget)
 
 instance Core.FromXML AnalysisLoadBalancerTarget where
   parseXML x =
     AnalysisLoadBalancerTarget'
       Prelude.<$> (x Core..@? "address")
       Prelude.<*> (x Core..@? "availabilityZone")
-      Prelude.<*> (x Core..@? "instance")
       Prelude.<*> (x Core..@? "port")
+      Prelude.<*> (x Core..@? "instance")
 
 instance Prelude.Hashable AnalysisLoadBalancerTarget
 

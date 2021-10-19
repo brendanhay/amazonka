@@ -41,11 +41,11 @@ module Network.AWS.EC2.DescribeVolumes
     newDescribeVolumes,
 
     -- * Request Lenses
-    describeVolumes_nextToken,
-    describeVolumes_maxResults,
-    describeVolumes_volumeIds,
-    describeVolumes_dryRun,
     describeVolumes_filters,
+    describeVolumes_volumeIds,
+    describeVolumes_nextToken,
+    describeVolumes_dryRun,
+    describeVolumes_maxResults,
 
     -- * Destructuring the Response
     DescribeVolumesResponse (..),
@@ -67,31 +67,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-  { -- | The @NextToken@ value returned from a previous paginated
-    -- @DescribeVolumes@ request where @MaxResults@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @NextToken@ value. This value
-    -- is @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of volume results returned by @DescribeVolumes@ in
-    -- paginated output. When this parameter is used, @DescribeVolumes@ only
-    -- returns @MaxResults@ results in a single page along with a @NextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another @DescribeVolumes@ request with the returned
-    -- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
-    -- is given a value larger than 500, only 500 results are returned. If this
-    -- parameter is not used, then @DescribeVolumes@ returns all results. You
-    -- cannot specify this parameter and the volume IDs parameter in the same
-    -- request.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The volume IDs.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @attachment.attach-time@ - The time stamp when the attachment
     --     initiated.
@@ -144,7 +120,31 @@ data DescribeVolumes = DescribeVolumes'
     --
     -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
     --     @io2@ | @st1@ | @sc1@| @standard@)
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The volume IDs.
+    volumeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The @NextToken@ value returned from a previous paginated
+    -- @DescribeVolumes@ request where @MaxResults@ was used and the results
+    -- exceeded the value of that parameter. Pagination continues from the end
+    -- of the previous results that returned the @NextToken@ value. This value
+    -- is @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of volume results returned by @DescribeVolumes@ in
+    -- paginated output. When this parameter is used, @DescribeVolumes@ only
+    -- returns @MaxResults@ results in a single page along with a @NextToken@
+    -- response element. The remaining results of the initial request can be
+    -- seen by sending another @DescribeVolumes@ request with the returned
+    -- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
+    -- is given a value larger than 500, only 500 results are returned. If this
+    -- parameter is not used, then @DescribeVolumes@ returns all results. You
+    -- cannot specify this parameter and the volume IDs parameter in the same
+    -- request.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -155,30 +155,6 @@ data DescribeVolumes = DescribeVolumes'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeVolumes_nextToken' - The @NextToken@ value returned from a previous paginated
--- @DescribeVolumes@ request where @MaxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @NextToken@ value. This value
--- is @null@ when there are no more results to return.
---
--- 'maxResults', 'describeVolumes_maxResults' - The maximum number of volume results returned by @DescribeVolumes@ in
--- paginated output. When this parameter is used, @DescribeVolumes@ only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeVolumes@ request with the returned
--- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
--- is given a value larger than 500, only 500 results are returned. If this
--- parameter is not used, then @DescribeVolumes@ returns all results. You
--- cannot specify this parameter and the volume IDs parameter in the same
--- request.
---
--- 'volumeIds', 'describeVolumes_volumeIds' - The volume IDs.
---
--- 'dryRun', 'describeVolumes_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVolumes_filters' - The filters.
 --
@@ -233,26 +209,21 @@ data DescribeVolumes = DescribeVolumes'
 --
 -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
 --     @io2@ | @st1@ | @sc1@| @standard@)
-newDescribeVolumes ::
-  DescribeVolumes
-newDescribeVolumes =
-  DescribeVolumes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      volumeIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
-    }
-
--- | The @NextToken@ value returned from a previous paginated
+--
+-- 'volumeIds', 'describeVolumes_volumeIds' - The volume IDs.
+--
+-- 'nextToken', 'describeVolumes_nextToken' - The @NextToken@ value returned from a previous paginated
 -- @DescribeVolumes@ request where @MaxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
-describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
-describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
-
--- | The maximum number of volume results returned by @DescribeVolumes@ in
+--
+-- 'dryRun', 'describeVolumes_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeVolumes_maxResults' - The maximum number of volume results returned by @DescribeVolumes@ in
 -- paginated output. When this parameter is used, @DescribeVolumes@ only
 -- returns @MaxResults@ results in a single page along with a @NextToken@
 -- response element. The remaining results of the initial request can be
@@ -262,19 +233,16 @@ describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToke
 -- parameter is not used, then @DescribeVolumes@ returns all results. You
 -- cannot specify this parameter and the volume IDs parameter in the same
 -- request.
-describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Int)
-describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxResults) (\s@DescribeVolumes' {} a -> s {maxResults = a} :: DescribeVolumes)
-
--- | The volume IDs.
-describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
-describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVolumes_dryRun :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Bool)
-describeVolumes_dryRun = Lens.lens (\DescribeVolumes' {dryRun} -> dryRun) (\s@DescribeVolumes' {} a -> s {dryRun = a} :: DescribeVolumes)
+newDescribeVolumes ::
+  DescribeVolumes
+newDescribeVolumes =
+  DescribeVolumes'
+    { filters = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | The filters.
 --
@@ -330,7 +298,39 @@ describeVolumes_dryRun = Lens.lens (\DescribeVolumes' {dryRun} -> dryRun) (\s@De
 -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
 --     @io2@ | @st1@ | @sc1@| @standard@)
 describeVolumes_filters :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Filter])
-describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s@DescribeVolumes' {} a -> s {filters = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
+describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s@DescribeVolumes' {} a -> s {filters = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The volume IDs.
+describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
+describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @NextToken@ value returned from a previous paginated
+-- @DescribeVolumes@ request where @MaxResults@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @NextToken@ value. This value
+-- is @null@ when there are no more results to return.
+describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
+describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVolumes_dryRun :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Bool)
+describeVolumes_dryRun = Lens.lens (\DescribeVolumes' {dryRun} -> dryRun) (\s@DescribeVolumes' {} a -> s {dryRun = a} :: DescribeVolumes)
+
+-- | The maximum number of volume results returned by @DescribeVolumes@ in
+-- paginated output. When this parameter is used, @DescribeVolumes@ only
+-- returns @MaxResults@ results in a single page along with a @NextToken@
+-- response element. The remaining results of the initial request can be
+-- seen by sending another @DescribeVolumes@ request with the returned
+-- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
+-- is given a value larger than 500, only 500 results are returned. If this
+-- parameter is not used, then @DescribeVolumes@ returns all results. You
+-- cannot specify this parameter and the volume IDs parameter in the same
+-- request.
+describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Int)
+describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxResults) (\s@DescribeVolumes' {} a -> s {maxResults = a} :: DescribeVolumes)
 
 instance Core.AWSPager DescribeVolumes where
   page rq rs
@@ -386,13 +386,13 @@ instance Core.ToQuery DescribeVolumes where
           Core.=: ("DescribeVolumes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
+        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVolumesResponse' smart constructor.
@@ -446,7 +446,7 @@ describeVolumesResponse_nextToken = Lens.lens (\DescribeVolumesResponse' {nextTo
 
 -- | Information about the volumes.
 describeVolumesResponse_volumes :: Lens.Lens' DescribeVolumesResponse (Prelude.Maybe [Volume])
-describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVolumesResponse_volumes = Lens.lens (\DescribeVolumesResponse' {volumes} -> volumes) (\s@DescribeVolumesResponse' {} a -> s {volumes = a} :: DescribeVolumesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVolumesResponse_httpStatus :: Lens.Lens' DescribeVolumesResponse Prelude.Int

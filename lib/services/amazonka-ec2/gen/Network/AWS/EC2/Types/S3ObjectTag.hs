@@ -31,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3ObjectTag' smart constructor.
 data S3ObjectTag = S3ObjectTag'
-  { -- | The key of the tag.
-    --
-    -- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
-    -- characters in length. May not begin with @aws@:.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value of the tag.
+  { -- | The value of the tag.
     --
     -- Constraints: Tag values are case-sensitive and can be up to 256 Unicode
     -- characters in length.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key of the tag.
+    --
+    -- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
+    -- characters in length. May not begin with @aws@:.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,22 @@ data S3ObjectTag = S3ObjectTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 's3ObjectTag_key' - The key of the tag.
---
--- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
--- characters in length. May not begin with @aws@:.
---
 -- 'value', 's3ObjectTag_value' - The value of the tag.
 --
 -- Constraints: Tag values are case-sensitive and can be up to 256 Unicode
 -- characters in length.
+--
+-- 'key', 's3ObjectTag_key' - The key of the tag.
+--
+-- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
+-- characters in length. May not begin with @aws@:.
 newS3ObjectTag ::
   S3ObjectTag
 newS3ObjectTag =
   S3ObjectTag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key of the tag.
---
--- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
--- characters in length. May not begin with @aws@:.
-s3ObjectTag_key :: Lens.Lens' S3ObjectTag (Prelude.Maybe Prelude.Text)
-s3ObjectTag_key = Lens.lens (\S3ObjectTag' {key} -> key) (\s@S3ObjectTag' {} a -> s {key = a} :: S3ObjectTag)
 
 -- | The value of the tag.
 --
@@ -83,6 +76,13 @@ s3ObjectTag_key = Lens.lens (\S3ObjectTag' {key} -> key) (\s@S3ObjectTag' {} a -
 s3ObjectTag_value :: Lens.Lens' S3ObjectTag (Prelude.Maybe Prelude.Text)
 s3ObjectTag_value = Lens.lens (\S3ObjectTag' {value} -> value) (\s@S3ObjectTag' {} a -> s {value = a} :: S3ObjectTag)
 
+-- | The key of the tag.
+--
+-- Constraints: Tag keys are case-sensitive and can be up to 128 Unicode
+-- characters in length. May not begin with @aws@:.
+s3ObjectTag_key :: Lens.Lens' S3ObjectTag (Prelude.Maybe Prelude.Text)
+s3ObjectTag_key = Lens.lens (\S3ObjectTag' {key} -> key) (\s@S3ObjectTag' {} a -> s {key = a} :: S3ObjectTag)
+
 instance Prelude.Hashable S3ObjectTag
 
 instance Prelude.NFData S3ObjectTag
@@ -90,4 +90,4 @@ instance Prelude.NFData S3ObjectTag
 instance Core.ToQuery S3ObjectTag where
   toQuery S3ObjectTag' {..} =
     Prelude.mconcat
-      ["Key" Core.=: key, "Value" Core.=: value]
+      ["Value" Core.=: value, "Key" Core.=: key]

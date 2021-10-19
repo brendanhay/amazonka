@@ -132,7 +132,7 @@ newCreateTransitGatewayPeeringAttachment
 
 -- | The tags to apply to the transit gateway peering attachment.
 createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe [TagSpecification])
-createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens._Coerce
+createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

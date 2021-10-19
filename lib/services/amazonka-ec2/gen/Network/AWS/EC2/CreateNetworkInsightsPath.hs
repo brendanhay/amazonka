@@ -32,11 +32,11 @@ module Network.AWS.EC2.CreateNetworkInsightsPath
     newCreateNetworkInsightsPath,
 
     -- * Request Lenses
-    createNetworkInsightsPath_tagSpecifications,
-    createNetworkInsightsPath_dryRun,
     createNetworkInsightsPath_destinationIp,
+    createNetworkInsightsPath_tagSpecifications,
     createNetworkInsightsPath_sourceIp,
     createNetworkInsightsPath_destinationPort,
+    createNetworkInsightsPath_dryRun,
     createNetworkInsightsPath_source,
     createNetworkInsightsPath_destination,
     createNetworkInsightsPath_protocol,
@@ -61,21 +61,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNetworkInsightsPath' smart constructor.
 data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
-  { -- | The tags to add to the path.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IP address of the Amazon Web Services resource that is the
+  { -- | The IP address of the Amazon Web Services resource that is the
     -- destination of the path.
     destinationIp :: Prelude.Maybe Prelude.Text,
+    -- | The tags to add to the path.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The IP address of the Amazon Web Services resource that is the source of
     -- the path.
     sourceIp :: Prelude.Maybe Prelude.Text,
     -- | The destination port.
     destinationPort :: Prelude.Maybe Prelude.Natural,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services resource that is the source of the path.
     source :: Prelude.Text,
     -- | The Amazon Web Services resource that is the destination of the path.
@@ -97,20 +97,20 @@ data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createNetworkInsightsPath_tagSpecifications' - The tags to add to the path.
---
--- 'dryRun', 'createNetworkInsightsPath_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'destinationIp', 'createNetworkInsightsPath_destinationIp' - The IP address of the Amazon Web Services resource that is the
 -- destination of the path.
+--
+-- 'tagSpecifications', 'createNetworkInsightsPath_tagSpecifications' - The tags to add to the path.
 --
 -- 'sourceIp', 'createNetworkInsightsPath_sourceIp' - The IP address of the Amazon Web Services resource that is the source of
 -- the path.
 --
 -- 'destinationPort', 'createNetworkInsightsPath_destinationPort' - The destination port.
+--
+-- 'dryRun', 'createNetworkInsightsPath_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'source', 'createNetworkInsightsPath_source' - The Amazon Web Services resource that is the source of the path.
 --
@@ -137,33 +137,26 @@ newCreateNetworkInsightsPath
   pProtocol_
   pClientToken_ =
     CreateNetworkInsightsPath'
-      { tagSpecifications =
+      { destinationIp =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        destinationIp = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         sourceIp = Prelude.Nothing,
         destinationPort = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         source = pSource_,
         destination = pDestination_,
         protocol = pProtocol_,
         clientToken = pClientToken_
       }
 
--- | The tags to add to the path.
-createNetworkInsightsPath_tagSpecifications :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe [TagSpecification])
-createNetworkInsightsPath_tagSpecifications = Lens.lens (\CreateNetworkInsightsPath' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInsightsPath' {} a -> s {tagSpecifications = a} :: CreateNetworkInsightsPath) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createNetworkInsightsPath_dryRun :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Bool)
-createNetworkInsightsPath_dryRun = Lens.lens (\CreateNetworkInsightsPath' {dryRun} -> dryRun) (\s@CreateNetworkInsightsPath' {} a -> s {dryRun = a} :: CreateNetworkInsightsPath)
-
 -- | The IP address of the Amazon Web Services resource that is the
 -- destination of the path.
 createNetworkInsightsPath_destinationIp :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
 createNetworkInsightsPath_destinationIp = Lens.lens (\CreateNetworkInsightsPath' {destinationIp} -> destinationIp) (\s@CreateNetworkInsightsPath' {} a -> s {destinationIp = a} :: CreateNetworkInsightsPath)
+
+-- | The tags to add to the path.
+createNetworkInsightsPath_tagSpecifications :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe [TagSpecification])
+createNetworkInsightsPath_tagSpecifications = Lens.lens (\CreateNetworkInsightsPath' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInsightsPath' {} a -> s {tagSpecifications = a} :: CreateNetworkInsightsPath) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IP address of the Amazon Web Services resource that is the source of
 -- the path.
@@ -173,6 +166,13 @@ createNetworkInsightsPath_sourceIp = Lens.lens (\CreateNetworkInsightsPath' {sou
 -- | The destination port.
 createNetworkInsightsPath_destinationPort :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Natural)
 createNetworkInsightsPath_destinationPort = Lens.lens (\CreateNetworkInsightsPath' {destinationPort} -> destinationPort) (\s@CreateNetworkInsightsPath' {} a -> s {destinationPort = a} :: CreateNetworkInsightsPath)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNetworkInsightsPath_dryRun :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Bool)
+createNetworkInsightsPath_dryRun = Lens.lens (\CreateNetworkInsightsPath' {dryRun} -> dryRun) (\s@CreateNetworkInsightsPath' {} a -> s {dryRun = a} :: CreateNetworkInsightsPath)
 
 -- | The Amazon Web Services resource that is the source of the path.
 createNetworkInsightsPath_source :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
@@ -222,14 +222,14 @@ instance Core.ToQuery CreateNetworkInsightsPath where
           Core.=: ("CreateNetworkInsightsPath" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationIp" Core.=: destinationIp,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "DestinationIp" Core.=: destinationIp,
         "SourceIp" Core.=: sourceIp,
         "DestinationPort" Core.=: destinationPort,
+        "DryRun" Core.=: dryRun,
         "Source" Core.=: source,
         "Destination" Core.=: destination,
         "Protocol" Core.=: protocol,

@@ -42,13 +42,20 @@ import qualified Network.AWS.Prelude as Prelude
 data Image = Image'
   { -- | This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
     platform :: Prelude.Maybe PlatformValues,
-    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Prelude.Maybe Prelude.Text,
-    -- | The RAM disk associated with the image, if any. Only applicable for
-    -- machine images.
-    ramdiskId :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the state change.
-    stateReason :: Prelude.Maybe StateReason,
+    -- | The platform details associated with the billing code of the AMI. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    platformDetails :: Prelude.Maybe Prelude.Text,
+    -- | The date and time to deprecate the AMI, in UTC, in the following format:
+    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
+    -- Amazon EC2 rounds the seconds to the nearest minute.
+    deprecationTime :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether enhanced networking with ENA is enabled.
+    enaSupport :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Web Services account alias (for example, @amazon@, @self@) or
+    -- the Amazon Web Services account ID of the AMI owner.
+    imageOwnerAlias :: Prelude.Maybe Prelude.Text,
     -- | The operation of the Amazon EC2 instance and the billing code that is
     -- associated with the AMI. @usageOperation@ corresponds to the
     -- <https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation lineitem\/Operation>
@@ -61,11 +68,19 @@ data Image = Image'
     -- <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html describe-images>
     -- command in the CLI.
     usageOperation :: Prelude.Maybe Prelude.Text,
-    -- | The platform details associated with the billing code of the AMI. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    platformDetails :: Prelude.Maybe Prelude.Text,
+    -- | The RAM disk associated with the image, if any. Only applicable for
+    -- machine images.
+    ramdiskId :: Prelude.Maybe Prelude.Text,
+    -- | The kernel associated with the image, if any. Only applicable for
+    -- machine images.
+    kernelId :: Prelude.Maybe Prelude.Text,
+    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
+    rootDeviceName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether enhanced networking with the Intel 82599 Virtual
+    -- Function interface is enabled.
+    sriovNetSupport :: Prelude.Maybe Prelude.Text,
+    -- | The name of the AMI that was provided during image creation.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The boot mode of the image. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -74,29 +89,14 @@ data Image = Image'
     creationDate :: Prelude.Maybe Prelude.Text,
     -- | Any product codes associated with the AMI.
     productCodes :: Prelude.Maybe [ProductCode],
-    -- | The date and time to deprecate the AMI, in UTC, in the following format:
-    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
-    -- Amazon EC2 rounds the seconds to the nearest minute.
-    deprecationTime :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AMI that was provided during image creation.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Any tags assigned to the image.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether enhanced networking with the Intel 82599 Virtual
-    -- Function interface is enabled.
-    sriovNetSupport :: Prelude.Maybe Prelude.Text,
-    -- | Any block device mapping entries.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    -- | The reason for the state change.
+    stateReason :: Prelude.Maybe StateReason,
     -- | The description of the AMI that was provided during image creation.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The kernel associated with the image, if any. Only applicable for
-    -- machine images.
-    kernelId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account alias (for example, @amazon@, @self@) or
-    -- the Amazon Web Services account ID of the AMI owner.
-    imageOwnerAlias :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether enhanced networking with ENA is enabled.
-    enaSupport :: Prelude.Maybe Prelude.Bool,
+    -- | Any block device mapping entries.
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    -- | Any tags assigned to the image.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the AMI.
     imageId :: Prelude.Text,
     -- | The location of the AMI.
@@ -134,12 +134,19 @@ data Image = Image'
 --
 -- 'platform', 'image_platform' - This value is set to @windows@ for Windows AMIs; otherwise, it is blank.
 --
--- 'rootDeviceName', 'image_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
+-- 'platformDetails', 'image_platformDetails' - The platform details associated with the billing code of the AMI. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'ramdiskId', 'image_ramdiskId' - The RAM disk associated with the image, if any. Only applicable for
--- machine images.
+-- 'deprecationTime', 'image_deprecationTime' - The date and time to deprecate the AMI, in UTC, in the following format:
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
+-- Amazon EC2 rounds the seconds to the nearest minute.
 --
--- 'stateReason', 'image_stateReason' - The reason for the state change.
+-- 'enaSupport', 'image_enaSupport' - Specifies whether enhanced networking with ENA is enabled.
+--
+-- 'imageOwnerAlias', 'image_imageOwnerAlias' - The Amazon Web Services account alias (for example, @amazon@, @self@) or
+-- the Amazon Web Services account ID of the AMI owner.
 --
 -- 'usageOperation', 'image_usageOperation' - The operation of the Amazon EC2 instance and the billing code that is
 -- associated with the AMI. @usageOperation@ corresponds to the
@@ -153,10 +160,18 @@ data Image = Image'
 -- <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html describe-images>
 -- command in the CLI.
 --
--- 'platformDetails', 'image_platformDetails' - The platform details associated with the billing code of the AMI. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- 'ramdiskId', 'image_ramdiskId' - The RAM disk associated with the image, if any. Only applicable for
+-- machine images.
+--
+-- 'kernelId', 'image_kernelId' - The kernel associated with the image, if any. Only applicable for
+-- machine images.
+--
+-- 'rootDeviceName', 'image_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
+--
+-- 'sriovNetSupport', 'image_sriovNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
+--
+-- 'name', 'image_name' - The name of the AMI that was provided during image creation.
 --
 -- 'bootMode', 'image_bootMode' - The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
@@ -166,28 +181,13 @@ data Image = Image'
 --
 -- 'productCodes', 'image_productCodes' - Any product codes associated with the AMI.
 --
--- 'deprecationTime', 'image_deprecationTime' - The date and time to deprecate the AMI, in UTC, in the following format:
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
--- Amazon EC2 rounds the seconds to the nearest minute.
---
--- 'name', 'image_name' - The name of the AMI that was provided during image creation.
---
--- 'tags', 'image_tags' - Any tags assigned to the image.
---
--- 'sriovNetSupport', 'image_sriovNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual
--- Function interface is enabled.
---
--- 'blockDeviceMappings', 'image_blockDeviceMappings' - Any block device mapping entries.
+-- 'stateReason', 'image_stateReason' - The reason for the state change.
 --
 -- 'description', 'image_description' - The description of the AMI that was provided during image creation.
 --
--- 'kernelId', 'image_kernelId' - The kernel associated with the image, if any. Only applicable for
--- machine images.
+-- 'blockDeviceMappings', 'image_blockDeviceMappings' - Any block device mapping entries.
 --
--- 'imageOwnerAlias', 'image_imageOwnerAlias' - The Amazon Web Services account alias (for example, @amazon@, @self@) or
--- the Amazon Web Services account ID of the AMI owner.
---
--- 'enaSupport', 'image_enaSupport' - Specifies whether enhanced networking with ENA is enabled.
+-- 'tags', 'image_tags' - Any tags assigned to the image.
 --
 -- 'imageId', 'image_imageId' - The ID of the AMI.
 --
@@ -247,23 +247,23 @@ newImage
   pHypervisor_ =
     Image'
       { platform = Prelude.Nothing,
-        rootDeviceName = Prelude.Nothing,
-        ramdiskId = Prelude.Nothing,
-        stateReason = Prelude.Nothing,
-        usageOperation = Prelude.Nothing,
         platformDetails = Prelude.Nothing,
+        deprecationTime = Prelude.Nothing,
+        enaSupport = Prelude.Nothing,
+        imageOwnerAlias = Prelude.Nothing,
+        usageOperation = Prelude.Nothing,
+        ramdiskId = Prelude.Nothing,
+        kernelId = Prelude.Nothing,
+        rootDeviceName = Prelude.Nothing,
+        sriovNetSupport = Prelude.Nothing,
+        name = Prelude.Nothing,
         bootMode = Prelude.Nothing,
         creationDate = Prelude.Nothing,
         productCodes = Prelude.Nothing,
-        deprecationTime = Prelude.Nothing,
-        name = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        sriovNetSupport = Prelude.Nothing,
-        blockDeviceMappings = Prelude.Nothing,
+        stateReason = Prelude.Nothing,
         description = Prelude.Nothing,
-        kernelId = Prelude.Nothing,
-        imageOwnerAlias = Prelude.Nothing,
-        enaSupport = Prelude.Nothing,
+        blockDeviceMappings = Prelude.Nothing,
+        tags = Prelude.Nothing,
         imageId = pImageId_,
         imageLocation = pImageLocation_,
         state = pState_,
@@ -280,18 +280,27 @@ newImage
 image_platform :: Lens.Lens' Image (Prelude.Maybe PlatformValues)
 image_platform = Lens.lens (\Image' {platform} -> platform) (\s@Image' {} a -> s {platform = a} :: Image)
 
--- | The device name of the root device volume (for example, @\/dev\/sda1@).
-image_rootDeviceName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_rootDeviceName = Lens.lens (\Image' {rootDeviceName} -> rootDeviceName) (\s@Image' {} a -> s {rootDeviceName = a} :: Image)
+-- | The platform details associated with the billing code of the AMI. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)
 
--- | The RAM disk associated with the image, if any. Only applicable for
--- machine images.
-image_ramdiskId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_ramdiskId = Lens.lens (\Image' {ramdiskId} -> ramdiskId) (\s@Image' {} a -> s {ramdiskId = a} :: Image)
+-- | The date and time to deprecate the AMI, in UTC, in the following format:
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
+-- Amazon EC2 rounds the seconds to the nearest minute.
+image_deprecationTime :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_deprecationTime = Lens.lens (\Image' {deprecationTime} -> deprecationTime) (\s@Image' {} a -> s {deprecationTime = a} :: Image)
 
--- | The reason for the state change.
-image_stateReason :: Lens.Lens' Image (Prelude.Maybe StateReason)
-image_stateReason = Lens.lens (\Image' {stateReason} -> stateReason) (\s@Image' {} a -> s {stateReason = a} :: Image)
+-- | Specifies whether enhanced networking with ENA is enabled.
+image_enaSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Bool)
+image_enaSupport = Lens.lens (\Image' {enaSupport} -> enaSupport) (\s@Image' {} a -> s {enaSupport = a} :: Image)
+
+-- | The Amazon Web Services account alias (for example, @amazon@, @self@) or
+-- the Amazon Web Services account ID of the AMI owner.
+image_imageOwnerAlias :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_imageOwnerAlias = Lens.lens (\Image' {imageOwnerAlias} -> imageOwnerAlias) (\s@Image' {} a -> s {imageOwnerAlias = a} :: Image)
 
 -- | The operation of the Amazon EC2 instance and the billing code that is
 -- associated with the AMI. @usageOperation@ corresponds to the
@@ -307,12 +316,28 @@ image_stateReason = Lens.lens (\Image' {stateReason} -> stateReason) (\s@Image' 
 image_usageOperation :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_usageOperation = Lens.lens (\Image' {usageOperation} -> usageOperation) (\s@Image' {} a -> s {usageOperation = a} :: Image)
 
--- | The platform details associated with the billing code of the AMI. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html Understanding AMI billing>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-image_platformDetails :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_platformDetails = Lens.lens (\Image' {platformDetails} -> platformDetails) (\s@Image' {} a -> s {platformDetails = a} :: Image)
+-- | The RAM disk associated with the image, if any. Only applicable for
+-- machine images.
+image_ramdiskId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_ramdiskId = Lens.lens (\Image' {ramdiskId} -> ramdiskId) (\s@Image' {} a -> s {ramdiskId = a} :: Image)
+
+-- | The kernel associated with the image, if any. Only applicable for
+-- machine images.
+image_kernelId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_kernelId = Lens.lens (\Image' {kernelId} -> kernelId) (\s@Image' {} a -> s {kernelId = a} :: Image)
+
+-- | The device name of the root device volume (for example, @\/dev\/sda1@).
+image_rootDeviceName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_rootDeviceName = Lens.lens (\Image' {rootDeviceName} -> rootDeviceName) (\s@Image' {} a -> s {rootDeviceName = a} :: Image)
+
+-- | Specifies whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
+image_sriovNetSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_sriovNetSupport = Lens.lens (\Image' {sriovNetSupport} -> sriovNetSupport) (\s@Image' {} a -> s {sriovNetSupport = a} :: Image)
+
+-- | The name of the AMI that was provided during image creation.
+image_name :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_name = Lens.lens (\Image' {name} -> name) (\s@Image' {} a -> s {name = a} :: Image)
 
 -- | The boot mode of the image. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
@@ -326,48 +351,23 @@ image_creationDate = Lens.lens (\Image' {creationDate} -> creationDate) (\s@Imag
 
 -- | Any product codes associated with the AMI.
 image_productCodes :: Lens.Lens' Image (Prelude.Maybe [ProductCode])
-image_productCodes = Lens.lens (\Image' {productCodes} -> productCodes) (\s@Image' {} a -> s {productCodes = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
+image_productCodes = Lens.lens (\Image' {productCodes} -> productCodes) (\s@Image' {} a -> s {productCodes = a} :: Image) Prelude.. Lens.mapping Lens.coerced
 
--- | The date and time to deprecate the AMI, in UTC, in the following format:
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z. If you specified a value for seconds,
--- Amazon EC2 rounds the seconds to the nearest minute.
-image_deprecationTime :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_deprecationTime = Lens.lens (\Image' {deprecationTime} -> deprecationTime) (\s@Image' {} a -> s {deprecationTime = a} :: Image)
-
--- | The name of the AMI that was provided during image creation.
-image_name :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_name = Lens.lens (\Image' {name} -> name) (\s@Image' {} a -> s {name = a} :: Image)
-
--- | Any tags assigned to the image.
-image_tags :: Lens.Lens' Image (Prelude.Maybe [Tag])
-image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies whether enhanced networking with the Intel 82599 Virtual
--- Function interface is enabled.
-image_sriovNetSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_sriovNetSupport = Lens.lens (\Image' {sriovNetSupport} -> sriovNetSupport) (\s@Image' {} a -> s {sriovNetSupport = a} :: Image)
-
--- | Any block device mapping entries.
-image_blockDeviceMappings :: Lens.Lens' Image (Prelude.Maybe [BlockDeviceMapping])
-image_blockDeviceMappings = Lens.lens (\Image' {blockDeviceMappings} -> blockDeviceMappings) (\s@Image' {} a -> s {blockDeviceMappings = a} :: Image) Prelude.. Lens.mapping Lens._Coerce
+-- | The reason for the state change.
+image_stateReason :: Lens.Lens' Image (Prelude.Maybe StateReason)
+image_stateReason = Lens.lens (\Image' {stateReason} -> stateReason) (\s@Image' {} a -> s {stateReason = a} :: Image)
 
 -- | The description of the AMI that was provided during image creation.
 image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
 
--- | The kernel associated with the image, if any. Only applicable for
--- machine images.
-image_kernelId :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_kernelId = Lens.lens (\Image' {kernelId} -> kernelId) (\s@Image' {} a -> s {kernelId = a} :: Image)
+-- | Any block device mapping entries.
+image_blockDeviceMappings :: Lens.Lens' Image (Prelude.Maybe [BlockDeviceMapping])
+image_blockDeviceMappings = Lens.lens (\Image' {blockDeviceMappings} -> blockDeviceMappings) (\s@Image' {} a -> s {blockDeviceMappings = a} :: Image) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services account alias (for example, @amazon@, @self@) or
--- the Amazon Web Services account ID of the AMI owner.
-image_imageOwnerAlias :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_imageOwnerAlias = Lens.lens (\Image' {imageOwnerAlias} -> imageOwnerAlias) (\s@Image' {} a -> s {imageOwnerAlias = a} :: Image)
-
--- | Specifies whether enhanced networking with ENA is enabled.
-image_enaSupport :: Lens.Lens' Image (Prelude.Maybe Prelude.Bool)
-image_enaSupport = Lens.lens (\Image' {enaSupport} -> enaSupport) (\s@Image' {} a -> s {enaSupport = a} :: Image)
+-- | Any tags assigned to the image.
+image_tags :: Lens.Lens' Image (Prelude.Maybe [Tag])
+image_tags = Lens.lens (\Image' {tags} -> tags) (\s@Image' {} a -> s {tags = a} :: Image) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the AMI.
 image_imageId :: Lens.Lens' Image Prelude.Text
@@ -417,30 +417,30 @@ instance Core.FromXML Image where
   parseXML x =
     Image'
       Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "rootDeviceName")
-      Prelude.<*> (x Core..@? "ramdiskId")
-      Prelude.<*> (x Core..@? "stateReason")
-      Prelude.<*> (x Core..@? "usageOperation")
       Prelude.<*> (x Core..@? "platformDetails")
+      Prelude.<*> (x Core..@? "deprecationTime")
+      Prelude.<*> (x Core..@? "enaSupport")
+      Prelude.<*> (x Core..@? "imageOwnerAlias")
+      Prelude.<*> (x Core..@? "usageOperation")
+      Prelude.<*> (x Core..@? "ramdiskId")
+      Prelude.<*> (x Core..@? "kernelId")
+      Prelude.<*> (x Core..@? "rootDeviceName")
+      Prelude.<*> (x Core..@? "sriovNetSupport")
+      Prelude.<*> (x Core..@? "name")
       Prelude.<*> (x Core..@? "bootMode")
       Prelude.<*> (x Core..@? "creationDate")
       Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "deprecationTime")
-      Prelude.<*> (x Core..@? "name")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
-      Prelude.<*> (x Core..@? "sriovNetSupport")
+      Prelude.<*> (x Core..@? "stateReason")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "kernelId")
-      Prelude.<*> (x Core..@? "imageOwnerAlias")
-      Prelude.<*> (x Core..@? "enaSupport")
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
       Prelude.<*> (x Core..@ "imageId")
       Prelude.<*> (x Core..@ "imageLocation")
       Prelude.<*> (x Core..@ "imageState")

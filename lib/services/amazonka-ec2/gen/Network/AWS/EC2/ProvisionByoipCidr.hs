@@ -46,12 +46,12 @@ module Network.AWS.EC2.ProvisionByoipCidr
     newProvisionByoipCidr,
 
     -- * Request Lenses
-    provisionByoipCidr_multiRegion,
-    provisionByoipCidr_dryRun,
     provisionByoipCidr_cidrAuthorizationContext,
+    provisionByoipCidr_poolTagSpecifications,
     provisionByoipCidr_publiclyAdvertisable,
     provisionByoipCidr_description,
-    provisionByoipCidr_poolTagSpecifications,
+    provisionByoipCidr_dryRun,
+    provisionByoipCidr_multiRegion,
     provisionByoipCidr_cidr,
 
     -- * Destructuring the Response
@@ -73,16 +73,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newProvisionByoipCidr' smart constructor.
 data ProvisionByoipCidr = ProvisionByoipCidr'
-  { -- | Reserved.
-    multiRegion :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A signed document that proves that you are authorized to bring the
+  { -- | A signed document that proves that you are authorized to bring the
     -- specified IP address range to Amazon using BYOIP.
     cidrAuthorizationContext :: Prelude.Maybe CidrAuthorizationContext,
+    -- | The tags to apply to the address pool.
+    poolTagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | (IPv6 only) Indicate whether the address range will be publicly
     -- advertised to the internet.
     --
@@ -90,8 +85,13 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
     publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
     -- | A description for the address range and the address pool.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The tags to apply to the address pool.
-    poolTagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Reserved.
+    multiRegion :: Prelude.Maybe Prelude.Bool,
     -- | The public IPv4 or IPv6 address range, in CIDR notation. The most
     -- specific IPv4 prefix that you can specify is \/24. The most specific
     -- IPv6 prefix you can specify is \/56. The address range cannot overlap
@@ -109,15 +109,10 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiRegion', 'provisionByoipCidr_multiRegion' - Reserved.
---
--- 'dryRun', 'provisionByoipCidr_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'cidrAuthorizationContext', 'provisionByoipCidr_cidrAuthorizationContext' - A signed document that proves that you are authorized to bring the
 -- specified IP address range to Amazon using BYOIP.
+--
+-- 'poolTagSpecifications', 'provisionByoipCidr_poolTagSpecifications' - The tags to apply to the address pool.
 --
 -- 'publiclyAdvertisable', 'provisionByoipCidr_publiclyAdvertisable' - (IPv6 only) Indicate whether the address range will be publicly
 -- advertised to the internet.
@@ -126,7 +121,12 @@ data ProvisionByoipCidr = ProvisionByoipCidr'
 --
 -- 'description', 'provisionByoipCidr_description' - A description for the address range and the address pool.
 --
--- 'poolTagSpecifications', 'provisionByoipCidr_poolTagSpecifications' - The tags to apply to the address pool.
+-- 'dryRun', 'provisionByoipCidr_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'multiRegion', 'provisionByoipCidr_multiRegion' - Reserved.
 --
 -- 'cidr', 'provisionByoipCidr_cidr' - The public IPv4 or IPv6 address range, in CIDR notation. The most
 -- specific IPv4 prefix that you can specify is \/24. The most specific
@@ -139,30 +139,24 @@ newProvisionByoipCidr ::
   ProvisionByoipCidr
 newProvisionByoipCidr pCidr_ =
   ProvisionByoipCidr'
-    { multiRegion = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      cidrAuthorizationContext = Prelude.Nothing,
+    { cidrAuthorizationContext =
+        Prelude.Nothing,
+      poolTagSpecifications = Prelude.Nothing,
       publiclyAdvertisable = Prelude.Nothing,
       description = Prelude.Nothing,
-      poolTagSpecifications = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      multiRegion = Prelude.Nothing,
       cidr = pCidr_
     }
-
--- | Reserved.
-provisionByoipCidr_multiRegion :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
-provisionByoipCidr_multiRegion = Lens.lens (\ProvisionByoipCidr' {multiRegion} -> multiRegion) (\s@ProvisionByoipCidr' {} a -> s {multiRegion = a} :: ProvisionByoipCidr)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-provisionByoipCidr_dryRun :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
-provisionByoipCidr_dryRun = Lens.lens (\ProvisionByoipCidr' {dryRun} -> dryRun) (\s@ProvisionByoipCidr' {} a -> s {dryRun = a} :: ProvisionByoipCidr)
 
 -- | A signed document that proves that you are authorized to bring the
 -- specified IP address range to Amazon using BYOIP.
 provisionByoipCidr_cidrAuthorizationContext :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe CidrAuthorizationContext)
 provisionByoipCidr_cidrAuthorizationContext = Lens.lens (\ProvisionByoipCidr' {cidrAuthorizationContext} -> cidrAuthorizationContext) (\s@ProvisionByoipCidr' {} a -> s {cidrAuthorizationContext = a} :: ProvisionByoipCidr)
+
+-- | The tags to apply to the address pool.
+provisionByoipCidr_poolTagSpecifications :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe [TagSpecification])
+provisionByoipCidr_poolTagSpecifications = Lens.lens (\ProvisionByoipCidr' {poolTagSpecifications} -> poolTagSpecifications) (\s@ProvisionByoipCidr' {} a -> s {poolTagSpecifications = a} :: ProvisionByoipCidr) Prelude.. Lens.mapping Lens.coerced
 
 -- | (IPv6 only) Indicate whether the address range will be publicly
 -- advertised to the internet.
@@ -175,9 +169,16 @@ provisionByoipCidr_publiclyAdvertisable = Lens.lens (\ProvisionByoipCidr' {publi
 provisionByoipCidr_description :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Text)
 provisionByoipCidr_description = Lens.lens (\ProvisionByoipCidr' {description} -> description) (\s@ProvisionByoipCidr' {} a -> s {description = a} :: ProvisionByoipCidr)
 
--- | The tags to apply to the address pool.
-provisionByoipCidr_poolTagSpecifications :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe [TagSpecification])
-provisionByoipCidr_poolTagSpecifications = Lens.lens (\ProvisionByoipCidr' {poolTagSpecifications} -> poolTagSpecifications) (\s@ProvisionByoipCidr' {} a -> s {poolTagSpecifications = a} :: ProvisionByoipCidr) Prelude.. Lens.mapping Lens._Coerce
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+provisionByoipCidr_dryRun :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
+provisionByoipCidr_dryRun = Lens.lens (\ProvisionByoipCidr' {dryRun} -> dryRun) (\s@ProvisionByoipCidr' {} a -> s {dryRun = a} :: ProvisionByoipCidr)
+
+-- | Reserved.
+provisionByoipCidr_multiRegion :: Lens.Lens' ProvisionByoipCidr (Prelude.Maybe Prelude.Bool)
+provisionByoipCidr_multiRegion = Lens.lens (\ProvisionByoipCidr' {multiRegion} -> multiRegion) (\s@ProvisionByoipCidr' {} a -> s {multiRegion = a} :: ProvisionByoipCidr)
 
 -- | The public IPv4 or IPv6 address range, in CIDR notation. The most
 -- specific IPv4 prefix that you can specify is \/24. The most specific
@@ -217,16 +218,16 @@ instance Core.ToQuery ProvisionByoipCidr where
           Core.=: ("ProvisionByoipCidr" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "MultiRegion" Core.=: multiRegion,
-        "DryRun" Core.=: dryRun,
         "CidrAuthorizationContext"
           Core.=: cidrAuthorizationContext,
-        "PubliclyAdvertisable" Core.=: publiclyAdvertisable,
-        "Description" Core.=: description,
         Core.toQuery
           ( Core.toQueryList "PoolTagSpecification"
               Prelude.<$> poolTagSpecifications
           ),
+        "PubliclyAdvertisable" Core.=: publiclyAdvertisable,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
+        "MultiRegion" Core.=: multiRegion,
         "Cidr" Core.=: cidr
       ]
 

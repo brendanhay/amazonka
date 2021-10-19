@@ -30,8 +30,8 @@ module Network.AWS.EC2.GetConsoleScreenshot
     newGetConsoleScreenshot,
 
     -- * Request Lenses
-    getConsoleScreenshot_dryRun,
     getConsoleScreenshot_wakeUp,
+    getConsoleScreenshot_dryRun,
     getConsoleScreenshot_instanceId,
 
     -- * Destructuring the Response
@@ -54,14 +54,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | When set to @true@, acts as keystroke input and wakes up an instance
+    -- that\'s in standby or \"sleep\" mode.
+    wakeUp :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | When set to @true@, acts as keystroke input and wakes up an instance
-    -- that\'s in standby or \"sleep\" mode.
-    wakeUp :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
   }
@@ -75,13 +75,13 @@ data GetConsoleScreenshot = GetConsoleScreenshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'wakeUp', 'getConsoleScreenshot_wakeUp' - When set to @true@, acts as keystroke input and wakes up an instance
+-- that\'s in standby or \"sleep\" mode.
+--
 -- 'dryRun', 'getConsoleScreenshot_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'wakeUp', 'getConsoleScreenshot_wakeUp' - When set to @true@, acts as keystroke input and wakes up an instance
--- that\'s in standby or \"sleep\" mode.
 --
 -- 'instanceId', 'getConsoleScreenshot_instanceId' - The ID of the instance.
 newGetConsoleScreenshot ::
@@ -90,10 +90,15 @@ newGetConsoleScreenshot ::
   GetConsoleScreenshot
 newGetConsoleScreenshot pInstanceId_ =
   GetConsoleScreenshot'
-    { dryRun = Prelude.Nothing,
-      wakeUp = Prelude.Nothing,
+    { wakeUp = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | When set to @true@, acts as keystroke input and wakes up an instance
+-- that\'s in standby or \"sleep\" mode.
+getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
+getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wakeUp) (\s@GetConsoleScreenshot' {} a -> s {wakeUp = a} :: GetConsoleScreenshot)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -101,11 +106,6 @@ newGetConsoleScreenshot pInstanceId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 getConsoleScreenshot_dryRun :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
 getConsoleScreenshot_dryRun = Lens.lens (\GetConsoleScreenshot' {dryRun} -> dryRun) (\s@GetConsoleScreenshot' {} a -> s {dryRun = a} :: GetConsoleScreenshot)
-
--- | When set to @true@, acts as keystroke input and wakes up an instance
--- that\'s in standby or \"sleep\" mode.
-getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
-getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wakeUp) (\s@GetConsoleScreenshot' {} a -> s {wakeUp = a} :: GetConsoleScreenshot)
 
 -- | The ID of the instance.
 getConsoleScreenshot_instanceId :: Lens.Lens' GetConsoleScreenshot Prelude.Text
@@ -142,8 +142,8 @@ instance Core.ToQuery GetConsoleScreenshot where
           Core.=: ("GetConsoleScreenshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "WakeUp" Core.=: wakeUp,
+        "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId
       ]
 

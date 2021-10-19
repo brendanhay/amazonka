@@ -56,14 +56,14 @@ module Network.AWS.EC2.CopySnapshot
     newCopySnapshot,
 
     -- * Request Lenses
-    copySnapshot_tagSpecifications,
-    copySnapshot_destinationRegion,
-    copySnapshot_encrypted,
-    copySnapshot_dryRun,
-    copySnapshot_kmsKeyId,
     copySnapshot_destinationOutpostArn,
     copySnapshot_presignedUrl,
+    copySnapshot_encrypted,
+    copySnapshot_tagSpecifications,
+    copySnapshot_destinationRegion,
+    copySnapshot_kmsKeyId,
     copySnapshot_description,
+    copySnapshot_dryRun,
     copySnapshot_sourceRegion,
     copySnapshot_sourceSnapshotId,
 
@@ -87,52 +87,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { -- | The tags to apply to the new snapshot.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The destination Region to use in the @PresignedUrl@ parameter of a
-    -- snapshot copy operation. This parameter is only valid for specifying the
-    -- destination Region in a @PresignedUrl@ parameter, where it is required.
-    --
-    -- The snapshot copy is sent to the regional endpoint that you sent the
-    -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
-    -- CLI, this is specified using the @--region@ parameter or the default
-    -- Region in your Amazon Web Services configuration file.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
-    -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
-    -- not enabled, enable encryption using this parameter. Otherwise, omit
-    -- this parameter. Encrypted snapshots are encrypted, even if you omit this
-    -- parameter and encryption by default is not enabled. You cannot set this
-    -- parameter to false. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of the Key Management Service (KMS) KMS key to use for
-    -- Amazon EBS encryption. If this parameter is not specified, your KMS key
-    -- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
-    -- must be @true@.
-    --
-    -- You can specify the KMS key using any of the following:
-    --
-    -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
-    --
-    -- -   Key alias. For example, alias\/ExampleAlias.
-    --
-    -- -   Key ARN. For example,
-    --     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
-    --
-    -- -   Alias ARN. For example,
-    --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
-    --
-    -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
-    -- if you specify an ID, alias, or ARN that is not valid, the action can
-    -- appear to complete, but eventually fails.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
+  { -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
     -- snapshot. Only specify this parameter when copying a snapshot from an
     -- Amazon Web Services Region to an Outpost. The snapshot must be in the
     -- Region for the destination Outpost. You cannot copy a snapshot from an
@@ -159,8 +114,53 @@ data CopySnapshot = CopySnapshot'
     -- improperly signed @PresignedUrl@ will cause the copy operation to fail
     -- asynchronously, and the snapshot will move to an @error@ state.
     presignedUrl :: Prelude.Maybe Prelude.Text,
+    -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
+    -- not enabled, enable encryption using this parameter. Otherwise, omit
+    -- this parameter. Encrypted snapshots are encrypted, even if you omit this
+    -- parameter and encryption by default is not enabled. You cannot set this
+    -- parameter to false. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to apply to the new snapshot.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The destination Region to use in the @PresignedUrl@ parameter of a
+    -- snapshot copy operation. This parameter is only valid for specifying the
+    -- destination Region in a @PresignedUrl@ parameter, where it is required.
+    --
+    -- The snapshot copy is sent to the regional endpoint that you sent the
+    -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
+    -- CLI, this is specified using the @--region@ parameter or the default
+    -- Region in your Amazon Web Services configuration file.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the Key Management Service (KMS) KMS key to use for
+    -- Amazon EBS encryption. If this parameter is not specified, your KMS key
+    -- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+    -- must be @true@.
+    --
+    -- You can specify the KMS key using any of the following:
+    --
+    -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    -- -   Key alias. For example, alias\/ExampleAlias.
+    --
+    -- -   Key ARN. For example,
+    --     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    -- -   Alias ARN. For example,
+    --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
+    --
+    -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+    -- if you specify an ID, alias, or ARN that is not valid, the action can
+    -- appear to complete, but eventually fails.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A description for the EBS snapshot.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Region that contains the snapshot to be copied.
     sourceRegion :: Prelude.Text,
     -- | The ID of the EBS snapshot to copy.
@@ -175,51 +175,6 @@ data CopySnapshot = CopySnapshot'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tagSpecifications', 'copySnapshot_tagSpecifications' - The tags to apply to the new snapshot.
---
--- 'destinationRegion', 'copySnapshot_destinationRegion' - The destination Region to use in the @PresignedUrl@ parameter of a
--- snapshot copy operation. This parameter is only valid for specifying the
--- destination Region in a @PresignedUrl@ parameter, where it is required.
---
--- The snapshot copy is sent to the regional endpoint that you sent the
--- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
--- CLI, this is specified using the @--region@ parameter or the default
--- Region in your Amazon Web Services configuration file.
---
--- 'encrypted', 'copySnapshot_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is
--- not enabled, enable encryption using this parameter. Otherwise, omit
--- this parameter. Encrypted snapshots are encrypted, even if you omit this
--- parameter and encryption by default is not enabled. You cannot set this
--- parameter to false. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- 'dryRun', 'copySnapshot_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'kmsKeyId', 'copySnapshot_kmsKeyId' - The identifier of the Key Management Service (KMS) KMS key to use for
--- Amazon EBS encryption. If this parameter is not specified, your KMS key
--- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
--- must be @true@.
---
--- You can specify the KMS key using any of the following:
---
--- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
---
--- -   Key alias. For example, alias\/ExampleAlias.
---
--- -   Key ARN. For example,
---     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
---
--- -   Alias ARN. For example,
---     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
---
--- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
--- if you specify an ID, alias, or ARN that is not valid, the action can
--- appear to complete, but eventually fails.
 --
 -- 'destinationOutpostArn', 'copySnapshot_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the
 -- snapshot. Only specify this parameter when copying a snapshot from an
@@ -248,36 +203,17 @@ data CopySnapshot = CopySnapshot'
 -- improperly signed @PresignedUrl@ will cause the copy operation to fail
 -- asynchronously, and the snapshot will move to an @error@ state.
 --
--- 'description', 'copySnapshot_description' - A description for the EBS snapshot.
+-- 'encrypted', 'copySnapshot_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is
+-- not enabled, enable encryption using this parameter. Otherwise, omit
+-- this parameter. Encrypted snapshots are encrypted, even if you omit this
+-- parameter and encryption by default is not enabled. You cannot set this
+-- parameter to false. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- 'sourceRegion', 'copySnapshot_sourceRegion' - The ID of the Region that contains the snapshot to be copied.
+-- 'tagSpecifications', 'copySnapshot_tagSpecifications' - The tags to apply to the new snapshot.
 --
--- 'sourceSnapshotId', 'copySnapshot_sourceSnapshotId' - The ID of the EBS snapshot to copy.
-newCopySnapshot ::
-  -- | 'sourceRegion'
-  Prelude.Text ->
-  -- | 'sourceSnapshotId'
-  Prelude.Text ->
-  CopySnapshot
-newCopySnapshot pSourceRegion_ pSourceSnapshotId_ =
-  CopySnapshot'
-    { tagSpecifications = Prelude.Nothing,
-      destinationRegion = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      destinationOutpostArn = Prelude.Nothing,
-      presignedUrl = Prelude.Nothing,
-      description = Prelude.Nothing,
-      sourceRegion = pSourceRegion_,
-      sourceSnapshotId = pSourceSnapshotId_
-    }
-
--- | The tags to apply to the new snapshot.
-copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Prelude.Maybe [TagSpecification])
-copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -> tagSpecifications) (\s@CopySnapshot' {} a -> s {tagSpecifications = a} :: CopySnapshot) Prelude.. Lens.mapping Lens._Coerce
-
--- | The destination Region to use in the @PresignedUrl@ parameter of a
+-- 'destinationRegion', 'copySnapshot_destinationRegion' - The destination Region to use in the @PresignedUrl@ parameter of a
 -- snapshot copy operation. This parameter is only valid for specifying the
 -- destination Region in a @PresignedUrl@ parameter, where it is required.
 --
@@ -285,27 +221,8 @@ copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -
 -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
 -- CLI, this is specified using the @--region@ parameter or the default
 -- Region in your Amazon Web Services configuration file.
-copySnapshot_destinationRegion :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
-copySnapshot_destinationRegion = Lens.lens (\CopySnapshot' {destinationRegion} -> destinationRegion) (\s@CopySnapshot' {} a -> s {destinationRegion = a} :: CopySnapshot)
-
--- | To encrypt a copy of an unencrypted snapshot if encryption by default is
--- not enabled, enable encryption using this parameter. Otherwise, omit
--- this parameter. Encrypted snapshots are encrypted, even if you omit this
--- parameter and encryption by default is not enabled. You cannot set this
--- parameter to false. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-copySnapshot_encrypted :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
-copySnapshot_encrypted = Lens.lens (\CopySnapshot' {encrypted} -> encrypted) (\s@CopySnapshot' {} a -> s {encrypted = a} :: CopySnapshot)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-copySnapshot_dryRun :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
-copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnapshot' {} a -> s {dryRun = a} :: CopySnapshot)
-
--- | The identifier of the Key Management Service (KMS) KMS key to use for
+--
+-- 'kmsKeyId', 'copySnapshot_kmsKeyId' - The identifier of the Key Management Service (KMS) KMS key to use for
 -- Amazon EBS encryption. If this parameter is not specified, your KMS key
 -- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
 -- must be @true@.
@@ -325,8 +242,37 @@ copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnap
 -- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
 -- if you specify an ID, alias, or ARN that is not valid, the action can
 -- appear to complete, but eventually fails.
-copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
-copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
+--
+-- 'description', 'copySnapshot_description' - A description for the EBS snapshot.
+--
+-- 'dryRun', 'copySnapshot_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'sourceRegion', 'copySnapshot_sourceRegion' - The ID of the Region that contains the snapshot to be copied.
+--
+-- 'sourceSnapshotId', 'copySnapshot_sourceSnapshotId' - The ID of the EBS snapshot to copy.
+newCopySnapshot ::
+  -- | 'sourceRegion'
+  Prelude.Text ->
+  -- | 'sourceSnapshotId'
+  Prelude.Text ->
+  CopySnapshot
+newCopySnapshot pSourceRegion_ pSourceSnapshotId_ =
+  CopySnapshot'
+    { destinationOutpostArn =
+        Prelude.Nothing,
+      presignedUrl = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      destinationRegion = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      sourceRegion = pSourceRegion_,
+      sourceSnapshotId = pSourceSnapshotId_
+    }
 
 -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
 -- snapshot. Only specify this parameter when copying a snapshot from an
@@ -359,9 +305,64 @@ copySnapshot_destinationOutpostArn = Lens.lens (\CopySnapshot' {destinationOutpo
 copySnapshot_presignedUrl :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_presignedUrl = Lens.lens (\CopySnapshot' {presignedUrl} -> presignedUrl) (\s@CopySnapshot' {} a -> s {presignedUrl = a} :: CopySnapshot)
 
+-- | To encrypt a copy of an unencrypted snapshot if encryption by default is
+-- not enabled, enable encryption using this parameter. Otherwise, omit
+-- this parameter. Encrypted snapshots are encrypted, even if you omit this
+-- parameter and encryption by default is not enabled. You cannot set this
+-- parameter to false. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+copySnapshot_encrypted :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_encrypted = Lens.lens (\CopySnapshot' {encrypted} -> encrypted) (\s@CopySnapshot' {} a -> s {encrypted = a} :: CopySnapshot)
+
+-- | The tags to apply to the new snapshot.
+copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Prelude.Maybe [TagSpecification])
+copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -> tagSpecifications) (\s@CopySnapshot' {} a -> s {tagSpecifications = a} :: CopySnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The destination Region to use in the @PresignedUrl@ parameter of a
+-- snapshot copy operation. This parameter is only valid for specifying the
+-- destination Region in a @PresignedUrl@ parameter, where it is required.
+--
+-- The snapshot copy is sent to the regional endpoint that you sent the
+-- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
+-- CLI, this is specified using the @--region@ parameter or the default
+-- Region in your Amazon Web Services configuration file.
+copySnapshot_destinationRegion :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_destinationRegion = Lens.lens (\CopySnapshot' {destinationRegion} -> destinationRegion) (\s@CopySnapshot' {} a -> s {destinationRegion = a} :: CopySnapshot)
+
+-- | The identifier of the Key Management Service (KMS) KMS key to use for
+-- Amazon EBS encryption. If this parameter is not specified, your KMS key
+-- for Amazon EBS is used. If @KmsKeyId@ is specified, the encrypted state
+-- must be @true@.
+--
+-- You can specify the KMS key using any of the following:
+--
+-- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Key alias. For example, alias\/ExampleAlias.
+--
+-- -   Key ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Alias ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
+--
+-- Amazon Web Services authenticates the KMS key asynchronously. Therefore,
+-- if you specify an ID, alias, or ARN that is not valid, the action can
+-- appear to complete, but eventually fails.
+copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
+
 -- | A description for the EBS snapshot.
 copySnapshot_description :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_description = Lens.lens (\CopySnapshot' {description} -> description) (\s@CopySnapshot' {} a -> s {description = a} :: CopySnapshot)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+copySnapshot_dryRun :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnapshot' {} a -> s {dryRun = a} :: CopySnapshot)
 
 -- | The ID of the Region that contains the snapshot to be copied.
 copySnapshot_sourceRegion :: Lens.Lens' CopySnapshot Prelude.Text
@@ -402,18 +403,18 @@ instance Core.ToQuery CopySnapshot where
           Core.=: ("CopySnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationOutpostArn"
+          Core.=: destinationOutpostArn,
+        "PresignedUrl" Core.=: presignedUrl,
+        "Encrypted" Core.=: encrypted,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DestinationRegion" Core.=: destinationRegion,
-        "Encrypted" Core.=: encrypted,
-        "DryRun" Core.=: dryRun,
         "KmsKeyId" Core.=: kmsKeyId,
-        "DestinationOutpostArn"
-          Core.=: destinationOutpostArn,
-        "PresignedUrl" Core.=: presignedUrl,
         "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "SourceRegion" Core.=: sourceRegion,
         "SourceSnapshotId" Core.=: sourceSnapshotId
       ]
@@ -455,7 +456,7 @@ newCopySnapshotResponse pHttpStatus_ =
 
 -- | Any tags applied to the new snapshot.
 copySnapshotResponse_tags :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe [Tag])
-copySnapshotResponse_tags = Lens.lens (\CopySnapshotResponse' {tags} -> tags) (\s@CopySnapshotResponse' {} a -> s {tags = a} :: CopySnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+copySnapshotResponse_tags = Lens.lens (\CopySnapshotResponse' {tags} -> tags) (\s@CopySnapshotResponse' {} a -> s {tags = a} :: CopySnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the new snapshot.
 copySnapshotResponse_snapshotId :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe Prelude.Text)

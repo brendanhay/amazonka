@@ -28,13 +28,13 @@ module Network.AWS.EC2.ModifyTrafficMirrorSession
 
     -- * Request Lenses
     modifyTrafficMirrorSession_removeFields,
-    modifyTrafficMirrorSession_dryRun,
-    modifyTrafficMirrorSession_packetLength,
-    modifyTrafficMirrorSession_trafficMirrorFilterId,
-    modifyTrafficMirrorSession_description,
     modifyTrafficMirrorSession_trafficMirrorTargetId,
-    modifyTrafficMirrorSession_sessionNumber,
+    modifyTrafficMirrorSession_trafficMirrorFilterId,
+    modifyTrafficMirrorSession_packetLength,
     modifyTrafficMirrorSession_virtualNetworkId,
+    modifyTrafficMirrorSession_sessionNumber,
+    modifyTrafficMirrorSession_description,
+    modifyTrafficMirrorSession_dryRun,
     modifyTrafficMirrorSession_trafficMirrorSessionId,
 
     -- * Destructuring the Response
@@ -61,32 +61,32 @@ data ModifyTrafficMirrorSession = ModifyTrafficMirrorSession'
     -- When you remove a property from a Traffic Mirror session, the property
     -- is set to the default.
     removeFields :: Prelude.Maybe [TrafficMirrorSessionField],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Traffic Mirror target. The target must be in the same VPC as the
+    -- source, or have a VPC peering connection with the source.
+    trafficMirrorTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
     -- | The number of bytes in each packet to mirror. These are bytes after the
     -- VXLAN header. To mirror a subset, set this to the length (in bytes) to
     -- mirror. For example, if you set this value to 100, then the first 100
     -- bytes that meet the filter criteria are copied to the target. Do not
     -- specify this parameter when you want to mirror the entire packet.
     packetLength :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
-    -- | The description to assign to the Traffic Mirror session.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Traffic Mirror target. The target must be in the same VPC as the
-    -- source, or have a VPC peering connection with the source.
-    trafficMirrorTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The virtual network ID of the Traffic Mirror session.
+    virtualNetworkId :: Prelude.Maybe Prelude.Int,
     -- | The session number determines the order in which sessions are evaluated
     -- when an interface is used by multiple sessions. The first session with a
     -- matching filter is the one that mirrors the packets.
     --
     -- Valid values are 1-32766.
     sessionNumber :: Prelude.Maybe Prelude.Int,
-    -- | The virtual network ID of the Traffic Mirror session.
-    virtualNetworkId :: Prelude.Maybe Prelude.Int,
+    -- | The description to assign to the Traffic Mirror session.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Traffic Mirror session.
     trafficMirrorSessionId :: Prelude.Text
   }
@@ -105,10 +105,10 @@ data ModifyTrafficMirrorSession = ModifyTrafficMirrorSession'
 -- When you remove a property from a Traffic Mirror session, the property
 -- is set to the default.
 --
--- 'dryRun', 'modifyTrafficMirrorSession_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'trafficMirrorTargetId', 'modifyTrafficMirrorSession_trafficMirrorTargetId' - The Traffic Mirror target. The target must be in the same VPC as the
+-- source, or have a VPC peering connection with the source.
+--
+-- 'trafficMirrorFilterId', 'modifyTrafficMirrorSession_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 --
 -- 'packetLength', 'modifyTrafficMirrorSession_packetLength' - The number of bytes in each packet to mirror. These are bytes after the
 -- VXLAN header. To mirror a subset, set this to the length (in bytes) to
@@ -116,12 +116,7 @@ data ModifyTrafficMirrorSession = ModifyTrafficMirrorSession'
 -- bytes that meet the filter criteria are copied to the target. Do not
 -- specify this parameter when you want to mirror the entire packet.
 --
--- 'trafficMirrorFilterId', 'modifyTrafficMirrorSession_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
---
--- 'description', 'modifyTrafficMirrorSession_description' - The description to assign to the Traffic Mirror session.
---
--- 'trafficMirrorTargetId', 'modifyTrafficMirrorSession_trafficMirrorTargetId' - The Traffic Mirror target. The target must be in the same VPC as the
--- source, or have a VPC peering connection with the source.
+-- 'virtualNetworkId', 'modifyTrafficMirrorSession_virtualNetworkId' - The virtual network ID of the Traffic Mirror session.
 --
 -- 'sessionNumber', 'modifyTrafficMirrorSession_sessionNumber' - The session number determines the order in which sessions are evaluated
 -- when an interface is used by multiple sessions. The first session with a
@@ -129,7 +124,12 @@ data ModifyTrafficMirrorSession = ModifyTrafficMirrorSession'
 --
 -- Valid values are 1-32766.
 --
--- 'virtualNetworkId', 'modifyTrafficMirrorSession_virtualNetworkId' - The virtual network ID of the Traffic Mirror session.
+-- 'description', 'modifyTrafficMirrorSession_description' - The description to assign to the Traffic Mirror session.
+--
+-- 'dryRun', 'modifyTrafficMirrorSession_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'trafficMirrorSessionId', 'modifyTrafficMirrorSession_trafficMirrorSessionId' - The ID of the Traffic Mirror session.
 newModifyTrafficMirrorSession ::
@@ -141,13 +141,13 @@ newModifyTrafficMirrorSession
     ModifyTrafficMirrorSession'
       { removeFields =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        packetLength = Prelude.Nothing,
-        trafficMirrorFilterId = Prelude.Nothing,
-        description = Prelude.Nothing,
         trafficMirrorTargetId = Prelude.Nothing,
-        sessionNumber = Prelude.Nothing,
+        trafficMirrorFilterId = Prelude.Nothing,
+        packetLength = Prelude.Nothing,
         virtualNetworkId = Prelude.Nothing,
+        sessionNumber = Prelude.Nothing,
+        description = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         trafficMirrorSessionId =
           pTrafficMirrorSessionId_
       }
@@ -157,14 +157,16 @@ newModifyTrafficMirrorSession
 -- When you remove a property from a Traffic Mirror session, the property
 -- is set to the default.
 modifyTrafficMirrorSession_removeFields :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe [TrafficMirrorSessionField])
-modifyTrafficMirrorSession_removeFields = Lens.lens (\ModifyTrafficMirrorSession' {removeFields} -> removeFields) (\s@ModifyTrafficMirrorSession' {} a -> s {removeFields = a} :: ModifyTrafficMirrorSession) Prelude.. Lens.mapping Lens._Coerce
+modifyTrafficMirrorSession_removeFields = Lens.lens (\ModifyTrafficMirrorSession' {removeFields} -> removeFields) (\s@ModifyTrafficMirrorSession' {} a -> s {removeFields = a} :: ModifyTrafficMirrorSession) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyTrafficMirrorSession_dryRun :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Bool)
-modifyTrafficMirrorSession_dryRun = Lens.lens (\ModifyTrafficMirrorSession' {dryRun} -> dryRun) (\s@ModifyTrafficMirrorSession' {} a -> s {dryRun = a} :: ModifyTrafficMirrorSession)
+-- | The Traffic Mirror target. The target must be in the same VPC as the
+-- source, or have a VPC peering connection with the source.
+modifyTrafficMirrorSession_trafficMirrorTargetId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
+modifyTrafficMirrorSession_trafficMirrorTargetId = Lens.lens (\ModifyTrafficMirrorSession' {trafficMirrorTargetId} -> trafficMirrorTargetId) (\s@ModifyTrafficMirrorSession' {} a -> s {trafficMirrorTargetId = a} :: ModifyTrafficMirrorSession)
+
+-- | The ID of the Traffic Mirror filter.
+modifyTrafficMirrorSession_trafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
+modifyTrafficMirrorSession_trafficMirrorFilterId = Lens.lens (\ModifyTrafficMirrorSession' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@ModifyTrafficMirrorSession' {} a -> s {trafficMirrorFilterId = a} :: ModifyTrafficMirrorSession)
 
 -- | The number of bytes in each packet to mirror. These are bytes after the
 -- VXLAN header. To mirror a subset, set this to the length (in bytes) to
@@ -174,18 +176,9 @@ modifyTrafficMirrorSession_dryRun = Lens.lens (\ModifyTrafficMirrorSession' {dry
 modifyTrafficMirrorSession_packetLength :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Int)
 modifyTrafficMirrorSession_packetLength = Lens.lens (\ModifyTrafficMirrorSession' {packetLength} -> packetLength) (\s@ModifyTrafficMirrorSession' {} a -> s {packetLength = a} :: ModifyTrafficMirrorSession)
 
--- | The ID of the Traffic Mirror filter.
-modifyTrafficMirrorSession_trafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
-modifyTrafficMirrorSession_trafficMirrorFilterId = Lens.lens (\ModifyTrafficMirrorSession' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@ModifyTrafficMirrorSession' {} a -> s {trafficMirrorFilterId = a} :: ModifyTrafficMirrorSession)
-
--- | The description to assign to the Traffic Mirror session.
-modifyTrafficMirrorSession_description :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
-modifyTrafficMirrorSession_description = Lens.lens (\ModifyTrafficMirrorSession' {description} -> description) (\s@ModifyTrafficMirrorSession' {} a -> s {description = a} :: ModifyTrafficMirrorSession)
-
--- | The Traffic Mirror target. The target must be in the same VPC as the
--- source, or have a VPC peering connection with the source.
-modifyTrafficMirrorSession_trafficMirrorTargetId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
-modifyTrafficMirrorSession_trafficMirrorTargetId = Lens.lens (\ModifyTrafficMirrorSession' {trafficMirrorTargetId} -> trafficMirrorTargetId) (\s@ModifyTrafficMirrorSession' {} a -> s {trafficMirrorTargetId = a} :: ModifyTrafficMirrorSession)
+-- | The virtual network ID of the Traffic Mirror session.
+modifyTrafficMirrorSession_virtualNetworkId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Int)
+modifyTrafficMirrorSession_virtualNetworkId = Lens.lens (\ModifyTrafficMirrorSession' {virtualNetworkId} -> virtualNetworkId) (\s@ModifyTrafficMirrorSession' {} a -> s {virtualNetworkId = a} :: ModifyTrafficMirrorSession)
 
 -- | The session number determines the order in which sessions are evaluated
 -- when an interface is used by multiple sessions. The first session with a
@@ -195,9 +188,16 @@ modifyTrafficMirrorSession_trafficMirrorTargetId = Lens.lens (\ModifyTrafficMirr
 modifyTrafficMirrorSession_sessionNumber :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Int)
 modifyTrafficMirrorSession_sessionNumber = Lens.lens (\ModifyTrafficMirrorSession' {sessionNumber} -> sessionNumber) (\s@ModifyTrafficMirrorSession' {} a -> s {sessionNumber = a} :: ModifyTrafficMirrorSession)
 
--- | The virtual network ID of the Traffic Mirror session.
-modifyTrafficMirrorSession_virtualNetworkId :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Int)
-modifyTrafficMirrorSession_virtualNetworkId = Lens.lens (\ModifyTrafficMirrorSession' {virtualNetworkId} -> virtualNetworkId) (\s@ModifyTrafficMirrorSession' {} a -> s {virtualNetworkId = a} :: ModifyTrafficMirrorSession)
+-- | The description to assign to the Traffic Mirror session.
+modifyTrafficMirrorSession_description :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Text)
+modifyTrafficMirrorSession_description = Lens.lens (\ModifyTrafficMirrorSession' {description} -> description) (\s@ModifyTrafficMirrorSession' {} a -> s {description = a} :: ModifyTrafficMirrorSession)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyTrafficMirrorSession_dryRun :: Lens.Lens' ModifyTrafficMirrorSession (Prelude.Maybe Prelude.Bool)
+modifyTrafficMirrorSession_dryRun = Lens.lens (\ModifyTrafficMirrorSession' {dryRun} -> dryRun) (\s@ModifyTrafficMirrorSession' {} a -> s {dryRun = a} :: ModifyTrafficMirrorSession)
 
 -- | The ID of the Traffic Mirror session.
 modifyTrafficMirrorSession_trafficMirrorSessionId :: Lens.Lens' ModifyTrafficMirrorSession Prelude.Text
@@ -237,15 +237,15 @@ instance Core.ToQuery ModifyTrafficMirrorSession where
           ( Core.toQueryList "RemoveField"
               Prelude.<$> removeFields
           ),
-        "DryRun" Core.=: dryRun,
-        "PacketLength" Core.=: packetLength,
-        "TrafficMirrorFilterId"
-          Core.=: trafficMirrorFilterId,
-        "Description" Core.=: description,
         "TrafficMirrorTargetId"
           Core.=: trafficMirrorTargetId,
-        "SessionNumber" Core.=: sessionNumber,
+        "TrafficMirrorFilterId"
+          Core.=: trafficMirrorFilterId,
+        "PacketLength" Core.=: packetLength,
         "VirtualNetworkId" Core.=: virtualNetworkId,
+        "SessionNumber" Core.=: sessionNumber,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "TrafficMirrorSessionId"
           Core.=: trafficMirrorSessionId
       ]

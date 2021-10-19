@@ -112,7 +112,7 @@ newCreateInstanceExportTask
 
 -- | The tags to apply to the export instance task during creation.
 createInstanceExportTask_tagSpecifications :: Lens.Lens' CreateInstanceExportTask (Prelude.Maybe [TagSpecification])
-createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Prelude.. Lens.mapping Lens._Coerce
+createInstanceExportTask_tagSpecifications = Lens.lens (\CreateInstanceExportTask' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceExportTask' {} a -> s {tagSpecifications = a} :: CreateInstanceExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description for the conversion task or the resource being exported.
 -- The maximum length is 255 characters.

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSubnetCidrBlockState' smart constructor.
 data SubnetCidrBlockState = SubnetCidrBlockState'
-  { -- | A message about the status of the CIDR block, if applicable.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The state of a CIDR block.
-    state :: Prelude.Maybe SubnetCidrBlockStateCode
+  { -- | The state of a CIDR block.
+    state :: Prelude.Maybe SubnetCidrBlockStateCode,
+    -- | A message about the status of the CIDR block, if applicable.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,30 @@ data SubnetCidrBlockState = SubnetCidrBlockState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'subnetCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.
---
 -- 'state', 'subnetCidrBlockState_state' - The state of a CIDR block.
+--
+-- 'statusMessage', 'subnetCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.
 newSubnetCidrBlockState ::
   SubnetCidrBlockState
 newSubnetCidrBlockState =
   SubnetCidrBlockState'
-    { statusMessage =
-        Prelude.Nothing,
-      state = Prelude.Nothing
+    { state = Prelude.Nothing,
+      statusMessage = Prelude.Nothing
     }
-
--- | A message about the status of the CIDR block, if applicable.
-subnetCidrBlockState_statusMessage :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe Prelude.Text)
-subnetCidrBlockState_statusMessage = Lens.lens (\SubnetCidrBlockState' {statusMessage} -> statusMessage) (\s@SubnetCidrBlockState' {} a -> s {statusMessage = a} :: SubnetCidrBlockState)
 
 -- | The state of a CIDR block.
 subnetCidrBlockState_state :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe SubnetCidrBlockStateCode)
 subnetCidrBlockState_state = Lens.lens (\SubnetCidrBlockState' {state} -> state) (\s@SubnetCidrBlockState' {} a -> s {state = a} :: SubnetCidrBlockState)
 
+-- | A message about the status of the CIDR block, if applicable.
+subnetCidrBlockState_statusMessage :: Lens.Lens' SubnetCidrBlockState (Prelude.Maybe Prelude.Text)
+subnetCidrBlockState_statusMessage = Lens.lens (\SubnetCidrBlockState' {statusMessage} -> statusMessage) (\s@SubnetCidrBlockState' {} a -> s {statusMessage = a} :: SubnetCidrBlockState)
+
 instance Core.FromXML SubnetCidrBlockState where
   parseXML x =
     SubnetCidrBlockState'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "statusMessage")
 
 instance Prelude.Hashable SubnetCidrBlockState
 

@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetReservationValue' smart constructor.
 data TargetReservationValue = TargetReservationValue'
-  { -- | The configuration of the Convertible Reserved Instances that make up the
-    -- exchange.
-    targetConfiguration :: Prelude.Maybe TargetConfiguration,
-    -- | The total value of the Convertible Reserved Instances that make up the
+  { -- | The total value of the Convertible Reserved Instances that make up the
     -- exchange. This is the sum of the list value, remaining upfront price,
     -- and additional upfront cost of the exchange.
-    reservationValue :: Prelude.Maybe ReservationValue
+    reservationValue :: Prelude.Maybe ReservationValue,
+    -- | The configuration of the Convertible Reserved Instances that make up the
+    -- exchange.
+    targetConfiguration :: Prelude.Maybe TargetConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,20 @@ data TargetReservationValue = TargetReservationValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetConfiguration', 'targetReservationValue_targetConfiguration' - The configuration of the Convertible Reserved Instances that make up the
--- exchange.
---
 -- 'reservationValue', 'targetReservationValue_reservationValue' - The total value of the Convertible Reserved Instances that make up the
 -- exchange. This is the sum of the list value, remaining upfront price,
 -- and additional upfront cost of the exchange.
+--
+-- 'targetConfiguration', 'targetReservationValue_targetConfiguration' - The configuration of the Convertible Reserved Instances that make up the
+-- exchange.
 newTargetReservationValue ::
   TargetReservationValue
 newTargetReservationValue =
   TargetReservationValue'
-    { targetConfiguration =
+    { reservationValue =
         Prelude.Nothing,
-      reservationValue = Prelude.Nothing
+      targetConfiguration = Prelude.Nothing
     }
-
--- | The configuration of the Convertible Reserved Instances that make up the
--- exchange.
-targetReservationValue_targetConfiguration :: Lens.Lens' TargetReservationValue (Prelude.Maybe TargetConfiguration)
-targetReservationValue_targetConfiguration = Lens.lens (\TargetReservationValue' {targetConfiguration} -> targetConfiguration) (\s@TargetReservationValue' {} a -> s {targetConfiguration = a} :: TargetReservationValue)
 
 -- | The total value of the Convertible Reserved Instances that make up the
 -- exchange. This is the sum of the list value, remaining upfront price,
@@ -74,11 +69,16 @@ targetReservationValue_targetConfiguration = Lens.lens (\TargetReservationValue'
 targetReservationValue_reservationValue :: Lens.Lens' TargetReservationValue (Prelude.Maybe ReservationValue)
 targetReservationValue_reservationValue = Lens.lens (\TargetReservationValue' {reservationValue} -> reservationValue) (\s@TargetReservationValue' {} a -> s {reservationValue = a} :: TargetReservationValue)
 
+-- | The configuration of the Convertible Reserved Instances that make up the
+-- exchange.
+targetReservationValue_targetConfiguration :: Lens.Lens' TargetReservationValue (Prelude.Maybe TargetConfiguration)
+targetReservationValue_targetConfiguration = Lens.lens (\TargetReservationValue' {targetConfiguration} -> targetConfiguration) (\s@TargetReservationValue' {} a -> s {targetConfiguration = a} :: TargetReservationValue)
+
 instance Core.FromXML TargetReservationValue where
   parseXML x =
     TargetReservationValue'
-      Prelude.<$> (x Core..@? "targetConfiguration")
-      Prelude.<*> (x Core..@? "reservationValue")
+      Prelude.<$> (x Core..@? "reservationValue")
+      Prelude.<*> (x Core..@? "targetConfiguration")
 
 instance Prelude.Hashable TargetReservationValue
 

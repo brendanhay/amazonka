@@ -103,11 +103,11 @@ modifyReservedInstances_clientToken = Lens.lens (\ModifyReservedInstances' {clie
 
 -- | The IDs of the Reserved Instances to modify.
 modifyReservedInstances_reservedInstancesIds :: Lens.Lens' ModifyReservedInstances [Prelude.Text]
-modifyReservedInstances_reservedInstancesIds = Lens.lens (\ModifyReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@ModifyReservedInstances' {} a -> s {reservedInstancesIds = a} :: ModifyReservedInstances) Prelude.. Lens._Coerce
+modifyReservedInstances_reservedInstancesIds = Lens.lens (\ModifyReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@ModifyReservedInstances' {} a -> s {reservedInstancesIds = a} :: ModifyReservedInstances) Prelude.. Lens.coerced
 
 -- | The configuration settings for the Reserved Instances to modify.
 modifyReservedInstances_targetConfigurations :: Lens.Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-modifyReservedInstances_targetConfigurations = Lens.lens (\ModifyReservedInstances' {targetConfigurations} -> targetConfigurations) (\s@ModifyReservedInstances' {} a -> s {targetConfigurations = a} :: ModifyReservedInstances) Prelude.. Lens._Coerce
+modifyReservedInstances_targetConfigurations = Lens.lens (\ModifyReservedInstances' {targetConfigurations} -> targetConfigurations) (\s@ModifyReservedInstances' {} a -> s {targetConfigurations = a} :: ModifyReservedInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyReservedInstances where
   type

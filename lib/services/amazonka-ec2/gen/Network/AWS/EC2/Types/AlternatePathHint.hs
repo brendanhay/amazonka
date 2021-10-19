@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAlternatePathHint' smart constructor.
 data AlternatePathHint = AlternatePathHint'
-  { -- | The ID of the component.
-    componentId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the component.
-    componentArn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the component.
+    componentArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the component.
+    componentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data AlternatePathHint = AlternatePathHint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'componentId', 'alternatePathHint_componentId' - The ID of the component.
---
 -- 'componentArn', 'alternatePathHint_componentArn' - The Amazon Resource Name (ARN) of the component.
+--
+-- 'componentId', 'alternatePathHint_componentId' - The ID of the component.
 newAlternatePathHint ::
   AlternatePathHint
 newAlternatePathHint =
   AlternatePathHint'
-    { componentId = Prelude.Nothing,
-      componentArn = Prelude.Nothing
+    { componentArn = Prelude.Nothing,
+      componentId = Prelude.Nothing
     }
-
--- | The ID of the component.
-alternatePathHint_componentId :: Lens.Lens' AlternatePathHint (Prelude.Maybe Prelude.Text)
-alternatePathHint_componentId = Lens.lens (\AlternatePathHint' {componentId} -> componentId) (\s@AlternatePathHint' {} a -> s {componentId = a} :: AlternatePathHint)
 
 -- | The Amazon Resource Name (ARN) of the component.
 alternatePathHint_componentArn :: Lens.Lens' AlternatePathHint (Prelude.Maybe Prelude.Text)
 alternatePathHint_componentArn = Lens.lens (\AlternatePathHint' {componentArn} -> componentArn) (\s@AlternatePathHint' {} a -> s {componentArn = a} :: AlternatePathHint)
 
+-- | The ID of the component.
+alternatePathHint_componentId :: Lens.Lens' AlternatePathHint (Prelude.Maybe Prelude.Text)
+alternatePathHint_componentId = Lens.lens (\AlternatePathHint' {componentId} -> componentId) (\s@AlternatePathHint' {} a -> s {componentId = a} :: AlternatePathHint)
+
 instance Core.FromXML AlternatePathHint where
   parseXML x =
     AlternatePathHint'
-      Prelude.<$> (x Core..@? "componentId")
-      Prelude.<*> (x Core..@? "componentArn")
+      Prelude.<$> (x Core..@? "componentArn")
+      Prelude.<*> (x Core..@? "componentId")
 
 instance Prelude.Hashable AlternatePathHint
 

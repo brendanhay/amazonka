@@ -32,8 +32,8 @@ module Network.AWS.EC2.GetCapacityReservationUsage
 
     -- * Request Lenses
     getCapacityReservationUsage_nextToken,
-    getCapacityReservationUsage_maxResults,
     getCapacityReservationUsage_dryRun,
+    getCapacityReservationUsage_maxResults,
     getCapacityReservationUsage_capacityReservationId,
 
     -- * Destructuring the Response
@@ -41,12 +41,12 @@ module Network.AWS.EC2.GetCapacityReservationUsage
     newGetCapacityReservationUsageResponse,
 
     -- * Response Lenses
-    getCapacityReservationUsageResponse_instanceUsages,
-    getCapacityReservationUsageResponse_nextToken,
-    getCapacityReservationUsageResponse_instanceType,
-    getCapacityReservationUsageResponse_availableInstanceCount,
     getCapacityReservationUsageResponse_state,
+    getCapacityReservationUsageResponse_instanceUsages,
+    getCapacityReservationUsageResponse_availableInstanceCount,
     getCapacityReservationUsageResponse_capacityReservationId,
+    getCapacityReservationUsageResponse_instanceType,
+    getCapacityReservationUsageResponse_nextToken,
     getCapacityReservationUsageResponse_totalInstanceCount,
     getCapacityReservationUsageResponse_httpStatus,
   )
@@ -63,6 +63,11 @@ import qualified Network.AWS.Response as Response
 data GetCapacityReservationUsage = GetCapacityReservationUsage'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the returned @nextToken@ value. This value can be between 5 and 500. If
@@ -70,11 +75,6 @@ data GetCapacityReservationUsage = GetCapacityReservationUsage'
     --
     -- Valid range: Minimum value of 1. Maximum value of 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
   }
@@ -90,17 +90,17 @@ data GetCapacityReservationUsage = GetCapacityReservationUsage'
 --
 -- 'nextToken', 'getCapacityReservationUsage_nextToken' - The token to use to retrieve the next page of results.
 --
+-- 'dryRun', 'getCapacityReservationUsage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'maxResults', 'getCapacityReservationUsage_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the returned @nextToken@ value. This value can be between 5 and 500. If
 -- @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- Valid range: Minimum value of 1. Maximum value of 1000.
---
--- 'dryRun', 'getCapacityReservationUsage_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'capacityReservationId', 'getCapacityReservationUsage_capacityReservationId' - The ID of the Capacity Reservation.
 newGetCapacityReservationUsage ::
@@ -112,8 +112,8 @@ newGetCapacityReservationUsage
     GetCapacityReservationUsage'
       { nextToken =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         capacityReservationId =
           pCapacityReservationId_
       }
@@ -121,6 +121,13 @@ newGetCapacityReservationUsage
 -- | The token to use to retrieve the next page of results.
 getCapacityReservationUsage_nextToken :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Text)
 getCapacityReservationUsage_nextToken = Lens.lens (\GetCapacityReservationUsage' {nextToken} -> nextToken) (\s@GetCapacityReservationUsage' {} a -> s {nextToken = a} :: GetCapacityReservationUsage)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getCapacityReservationUsage_dryRun :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Bool)
+getCapacityReservationUsage_dryRun = Lens.lens (\GetCapacityReservationUsage' {dryRun} -> dryRun) (\s@GetCapacityReservationUsage' {} a -> s {dryRun = a} :: GetCapacityReservationUsage)
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -130,13 +137,6 @@ getCapacityReservationUsage_nextToken = Lens.lens (\GetCapacityReservationUsage'
 -- Valid range: Minimum value of 1. Maximum value of 1000.
 getCapacityReservationUsage_maxResults :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Natural)
 getCapacityReservationUsage_maxResults = Lens.lens (\GetCapacityReservationUsage' {maxResults} -> maxResults) (\s@GetCapacityReservationUsage' {} a -> s {maxResults = a} :: GetCapacityReservationUsage)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getCapacityReservationUsage_dryRun :: Lens.Lens' GetCapacityReservationUsage (Prelude.Maybe Prelude.Bool)
-getCapacityReservationUsage_dryRun = Lens.lens (\GetCapacityReservationUsage' {dryRun} -> dryRun) (\s@GetCapacityReservationUsage' {} a -> s {dryRun = a} :: GetCapacityReservationUsage)
 
 -- | The ID of the Capacity Reservation.
 getCapacityReservationUsage_capacityReservationId :: Lens.Lens' GetCapacityReservationUsage Prelude.Text
@@ -151,15 +151,15 @@ instance Core.AWSRequest GetCapacityReservationUsage where
     Response.receiveXML
       ( \s h x ->
           GetCapacityReservationUsageResponse'
-            Prelude.<$> ( x Core..@? "instanceUsageSet"
+            Prelude.<$> (x Core..@? "state")
+            Prelude.<*> ( x Core..@? "instanceUsageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "instanceType")
             Prelude.<*> (x Core..@? "availableInstanceCount")
-            Prelude.<*> (x Core..@? "state")
             Prelude.<*> (x Core..@? "capacityReservationId")
+            Prelude.<*> (x Core..@? "instanceType")
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (x Core..@? "totalInstanceCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -184,26 +184,15 @@ instance Core.ToQuery GetCapacityReservationUsage where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "CapacityReservationId"
           Core.=: capacityReservationId
       ]
 
 -- | /See:/ 'newGetCapacityReservationUsageResponse' smart constructor.
 data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
-  { -- | Information about the Capacity Reservation usage.
-    instanceUsages :: Prelude.Maybe [InstanceUsage],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of instance for which the Capacity Reservation reserves
-    -- capacity.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The remaining capacity. Indicates the number of instances that can be
-    -- launched in the Capacity Reservation.
-    availableInstanceCount :: Prelude.Maybe Prelude.Int,
-    -- | The current state of the Capacity Reservation. A Capacity Reservation
+  { -- | The current state of the Capacity Reservation. A Capacity Reservation
     -- can be in one of the following states:
     --
     -- -   @active@ - The Capacity Reservation is active and the capacity is
@@ -224,8 +213,19 @@ data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
     --     or instance limit constraints. Failed requests are retained for 60
     --     minutes.
     state :: Prelude.Maybe CapacityReservationState,
+    -- | Information about the Capacity Reservation usage.
+    instanceUsages :: Prelude.Maybe [InstanceUsage],
+    -- | The remaining capacity. Indicates the number of instances that can be
+    -- launched in the Capacity Reservation.
+    availableInstanceCount :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Maybe Prelude.Text,
+    -- | The type of instance for which the Capacity Reservation reserves
+    -- capacity.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of instances for which the Capacity Reservation reserves
     -- capacity.
     totalInstanceCount :: Prelude.Maybe Prelude.Int,
@@ -241,17 +241,6 @@ data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'instanceUsages', 'getCapacityReservationUsageResponse_instanceUsages' - Information about the Capacity Reservation usage.
---
--- 'nextToken', 'getCapacityReservationUsageResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
---
--- 'instanceType', 'getCapacityReservationUsageResponse_instanceType' - The type of instance for which the Capacity Reservation reserves
--- capacity.
---
--- 'availableInstanceCount', 'getCapacityReservationUsageResponse_availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be
--- launched in the Capacity Reservation.
 --
 -- 'state', 'getCapacityReservationUsageResponse_state' - The current state of the Capacity Reservation. A Capacity Reservation
 -- can be in one of the following states:
@@ -274,7 +263,18 @@ data GetCapacityReservationUsageResponse = GetCapacityReservationUsageResponse'
 --     or instance limit constraints. Failed requests are retained for 60
 --     minutes.
 --
+-- 'instanceUsages', 'getCapacityReservationUsageResponse_instanceUsages' - Information about the Capacity Reservation usage.
+--
+-- 'availableInstanceCount', 'getCapacityReservationUsageResponse_availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be
+-- launched in the Capacity Reservation.
+--
 -- 'capacityReservationId', 'getCapacityReservationUsageResponse_capacityReservationId' - The ID of the Capacity Reservation.
+--
+-- 'instanceType', 'getCapacityReservationUsageResponse_instanceType' - The type of instance for which the Capacity Reservation reserves
+-- capacity.
+--
+-- 'nextToken', 'getCapacityReservationUsageResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
 -- 'totalInstanceCount', 'getCapacityReservationUsageResponse_totalInstanceCount' - The number of instances for which the Capacity Reservation reserves
 -- capacity.
@@ -286,37 +286,18 @@ newGetCapacityReservationUsageResponse ::
   GetCapacityReservationUsageResponse
 newGetCapacityReservationUsageResponse pHttpStatus_ =
   GetCapacityReservationUsageResponse'
-    { instanceUsages =
+    { state =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
+      instanceUsages = Prelude.Nothing,
       availableInstanceCount =
         Prelude.Nothing,
-      state = Prelude.Nothing,
       capacityReservationId =
         Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       totalInstanceCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the Capacity Reservation usage.
-getCapacityReservationUsageResponse_instanceUsages :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe [InstanceUsage])
-getCapacityReservationUsageResponse_instanceUsages = Lens.lens (\GetCapacityReservationUsageResponse' {instanceUsages} -> instanceUsages) (\s@GetCapacityReservationUsageResponse' {} a -> s {instanceUsages = a} :: GetCapacityReservationUsageResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
-getCapacityReservationUsageResponse_nextToken :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Text)
-getCapacityReservationUsageResponse_nextToken = Lens.lens (\GetCapacityReservationUsageResponse' {nextToken} -> nextToken) (\s@GetCapacityReservationUsageResponse' {} a -> s {nextToken = a} :: GetCapacityReservationUsageResponse)
-
--- | The type of instance for which the Capacity Reservation reserves
--- capacity.
-getCapacityReservationUsageResponse_instanceType :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Text)
-getCapacityReservationUsageResponse_instanceType = Lens.lens (\GetCapacityReservationUsageResponse' {instanceType} -> instanceType) (\s@GetCapacityReservationUsageResponse' {} a -> s {instanceType = a} :: GetCapacityReservationUsageResponse)
-
--- | The remaining capacity. Indicates the number of instances that can be
--- launched in the Capacity Reservation.
-getCapacityReservationUsageResponse_availableInstanceCount :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Int)
-getCapacityReservationUsageResponse_availableInstanceCount = Lens.lens (\GetCapacityReservationUsageResponse' {availableInstanceCount} -> availableInstanceCount) (\s@GetCapacityReservationUsageResponse' {} a -> s {availableInstanceCount = a} :: GetCapacityReservationUsageResponse)
 
 -- | The current state of the Capacity Reservation. A Capacity Reservation
 -- can be in one of the following states:
@@ -341,9 +322,28 @@ getCapacityReservationUsageResponse_availableInstanceCount = Lens.lens (\GetCapa
 getCapacityReservationUsageResponse_state :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe CapacityReservationState)
 getCapacityReservationUsageResponse_state = Lens.lens (\GetCapacityReservationUsageResponse' {state} -> state) (\s@GetCapacityReservationUsageResponse' {} a -> s {state = a} :: GetCapacityReservationUsageResponse)
 
+-- | Information about the Capacity Reservation usage.
+getCapacityReservationUsageResponse_instanceUsages :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe [InstanceUsage])
+getCapacityReservationUsageResponse_instanceUsages = Lens.lens (\GetCapacityReservationUsageResponse' {instanceUsages} -> instanceUsages) (\s@GetCapacityReservationUsageResponse' {} a -> s {instanceUsages = a} :: GetCapacityReservationUsageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The remaining capacity. Indicates the number of instances that can be
+-- launched in the Capacity Reservation.
+getCapacityReservationUsageResponse_availableInstanceCount :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Int)
+getCapacityReservationUsageResponse_availableInstanceCount = Lens.lens (\GetCapacityReservationUsageResponse' {availableInstanceCount} -> availableInstanceCount) (\s@GetCapacityReservationUsageResponse' {} a -> s {availableInstanceCount = a} :: GetCapacityReservationUsageResponse)
+
 -- | The ID of the Capacity Reservation.
 getCapacityReservationUsageResponse_capacityReservationId :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Text)
 getCapacityReservationUsageResponse_capacityReservationId = Lens.lens (\GetCapacityReservationUsageResponse' {capacityReservationId} -> capacityReservationId) (\s@GetCapacityReservationUsageResponse' {} a -> s {capacityReservationId = a} :: GetCapacityReservationUsageResponse)
+
+-- | The type of instance for which the Capacity Reservation reserves
+-- capacity.
+getCapacityReservationUsageResponse_instanceType :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Text)
+getCapacityReservationUsageResponse_instanceType = Lens.lens (\GetCapacityReservationUsageResponse' {instanceType} -> instanceType) (\s@GetCapacityReservationUsageResponse' {} a -> s {instanceType = a} :: GetCapacityReservationUsageResponse)
+
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+getCapacityReservationUsageResponse_nextToken :: Lens.Lens' GetCapacityReservationUsageResponse (Prelude.Maybe Prelude.Text)
+getCapacityReservationUsageResponse_nextToken = Lens.lens (\GetCapacityReservationUsageResponse' {nextToken} -> nextToken) (\s@GetCapacityReservationUsageResponse' {} a -> s {nextToken = a} :: GetCapacityReservationUsageResponse)
 
 -- | The number of instances for which the Capacity Reservation reserves
 -- capacity.

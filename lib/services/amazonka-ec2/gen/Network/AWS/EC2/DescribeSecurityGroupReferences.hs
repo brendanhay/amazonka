@@ -93,7 +93,7 @@ describeSecurityGroupReferences_dryRun = Lens.lens (\DescribeSecurityGroupRefere
 
 -- | The IDs of the security groups in your account.
 describeSecurityGroupReferences_groupId :: Lens.Lens' DescribeSecurityGroupReferences [Prelude.Text]
-describeSecurityGroupReferences_groupId = Lens.lens (\DescribeSecurityGroupReferences' {groupId} -> groupId) (\s@DescribeSecurityGroupReferences' {} a -> s {groupId = a} :: DescribeSecurityGroupReferences) Prelude.. Lens._Coerce
+describeSecurityGroupReferences_groupId = Lens.lens (\DescribeSecurityGroupReferences' {groupId} -> groupId) (\s@DescribeSecurityGroupReferences' {} a -> s {groupId = a} :: DescribeSecurityGroupReferences) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -178,7 +178,7 @@ newDescribeSecurityGroupReferencesResponse
 
 -- | Information about the VPCs with the referencing security groups.
 describeSecurityGroupReferencesResponse_securityGroupReferenceSet :: Lens.Lens' DescribeSecurityGroupReferencesResponse (Prelude.Maybe [SecurityGroupReference])
-describeSecurityGroupReferencesResponse_securityGroupReferenceSet = Lens.lens (\DescribeSecurityGroupReferencesResponse' {securityGroupReferenceSet} -> securityGroupReferenceSet) (\s@DescribeSecurityGroupReferencesResponse' {} a -> s {securityGroupReferenceSet = a} :: DescribeSecurityGroupReferencesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSecurityGroupReferencesResponse_securityGroupReferenceSet = Lens.lens (\DescribeSecurityGroupReferencesResponse' {securityGroupReferenceSet} -> securityGroupReferenceSet) (\s@DescribeSecurityGroupReferencesResponse' {} a -> s {securityGroupReferenceSet = a} :: DescribeSecurityGroupReferencesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSecurityGroupReferencesResponse_httpStatus :: Lens.Lens' DescribeSecurityGroupReferencesResponse Prelude.Int

@@ -43,16 +43,16 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
 
     -- * Request Lenses
     authorizeSecurityGroupIngress_fromPort,
-    authorizeSecurityGroupIngress_tagSpecifications,
-    authorizeSecurityGroupIngress_dryRun,
-    authorizeSecurityGroupIngress_sourceSecurityGroupName,
-    authorizeSecurityGroupIngress_groupName,
-    authorizeSecurityGroupIngress_cidrIp,
-    authorizeSecurityGroupIngress_groupId,
-    authorizeSecurityGroupIngress_ipProtocol,
     authorizeSecurityGroupIngress_ipPermissions,
-    authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId,
+    authorizeSecurityGroupIngress_tagSpecifications,
+    authorizeSecurityGroupIngress_ipProtocol,
+    authorizeSecurityGroupIngress_groupId,
     authorizeSecurityGroupIngress_toPort,
+    authorizeSecurityGroupIngress_cidrIp,
+    authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId,
+    authorizeSecurityGroupIngress_groupName,
+    authorizeSecurityGroupIngress_sourceSecurityGroupName,
+    authorizeSecurityGroupIngress_dryRun,
 
     -- * Destructuring the Response
     AuthorizeSecurityGroupIngressResponse (..),
@@ -81,36 +81,10 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     -- Alternatively, use a set of IP permissions to specify multiple rules and
     -- a description for the rule.
     fromPort :: Prelude.Maybe Prelude.Int,
+    -- | The sets of IP permissions.
+    ipPermissions :: Prelude.Maybe [IpPermission],
     -- | [VPC Only] The tags applied to the security group rule.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-Classic, default VPC] The name of the source security group. You
-    -- can\'t specify this parameter in combination with the following
-    -- parameters: the CIDR IP address range, the start of the port range, the
-    -- IP protocol, and the end of the port range. Creates rules that grant
-    -- full ICMP, UDP, and TCP access. To create a rule with a specific IP
-    -- protocol and port range, use a set of IP permissions instead. For
-    -- EC2-VPC, the source security group must be in the same VPC.
-    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-Classic, default VPC] The name of the security group. You must
-    -- specify either the security group ID or the security group name in the
-    -- request.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The IPv4 address range, in CIDR format. You can\'t specify this
-    -- parameter when specifying a source security group. To specify an IPv6
-    -- address range, use a set of IP permissions.
-    --
-    -- Alternatively, use a set of IP permissions to specify multiple rules and
-    -- a description for the rule.
-    cidrIp :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group. You must specify either the security group
-    -- ID or the security group name in the request. For security groups in a
-    -- nondefault VPC, you must specify the security group ID.
-    groupId :: Prelude.Maybe Prelude.Text,
     -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
     -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
     -- To specify @icmpv6@, use a set of IP permissions.
@@ -122,8 +96,24 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     -- Alternatively, use a set of IP permissions to specify multiple rules and
     -- a description for the rule.
     ipProtocol :: Prelude.Maybe Prelude.Text,
-    -- | The sets of IP permissions.
-    ipPermissions :: Prelude.Maybe [IpPermission],
+    -- | The ID of the security group. You must specify either the security group
+    -- ID or the security group name in the request. For security groups in a
+    -- nondefault VPC, you must specify the security group ID.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The end of port range for the TCP and UDP protocols, or an ICMP code
+    -- number. For the ICMP code number, use @-1@ to specify all codes. If you
+    -- specify all ICMP types, you must specify all codes.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and
+    -- a description for the rule.
+    toPort :: Prelude.Maybe Prelude.Int,
+    -- | The IPv4 address range, in CIDR format. You can\'t specify this
+    -- parameter when specifying a source security group. To specify an IPv6
+    -- address range, use a set of IP permissions.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and
+    -- a description for the rule.
+    cidrIp :: Prelude.Maybe Prelude.Text,
     -- | [nondefault VPC] The Amazon Web Services account ID for the source
     -- security group, if the source security group is in a different account.
     -- You can\'t specify this parameter in combination with the following
@@ -132,13 +122,23 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     -- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
     -- and port range, use a set of IP permissions instead.
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | The end of port range for the TCP and UDP protocols, or an ICMP code
-    -- number. For the ICMP code number, use @-1@ to specify all codes. If you
-    -- specify all ICMP types, you must specify all codes.
-    --
-    -- Alternatively, use a set of IP permissions to specify multiple rules and
-    -- a description for the rule.
-    toPort :: Prelude.Maybe Prelude.Int
+    -- | [EC2-Classic, default VPC] The name of the security group. You must
+    -- specify either the security group ID or the security group name in the
+    -- request.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-Classic, default VPC] The name of the source security group. You
+    -- can\'t specify this parameter in combination with the following
+    -- parameters: the CIDR IP address range, the start of the port range, the
+    -- IP protocol, and the end of the port range. Creates rules that grant
+    -- full ICMP, UDP, and TCP access. To create a rule with a specific IP
+    -- protocol and port range, use a set of IP permissions instead. For
+    -- EC2-VPC, the source security group must be in the same VPC.
+    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,35 +157,9 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
 --
+-- 'ipPermissions', 'authorizeSecurityGroupIngress_ipPermissions' - The sets of IP permissions.
+--
 -- 'tagSpecifications', 'authorizeSecurityGroupIngress_tagSpecifications' - [VPC Only] The tags applied to the security group rule.
---
--- 'dryRun', 'authorizeSecurityGroupIngress_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'sourceSecurityGroupName', 'authorizeSecurityGroupIngress_sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You
--- can\'t specify this parameter in combination with the following
--- parameters: the CIDR IP address range, the start of the port range, the
--- IP protocol, and the end of the port range. Creates rules that grant
--- full ICMP, UDP, and TCP access. To create a rule with a specific IP
--- protocol and port range, use a set of IP permissions instead. For
--- EC2-VPC, the source security group must be in the same VPC.
---
--- 'groupName', 'authorizeSecurityGroupIngress_groupName' - [EC2-Classic, default VPC] The name of the security group. You must
--- specify either the security group ID or the security group name in the
--- request.
---
--- 'cidrIp', 'authorizeSecurityGroupIngress_cidrIp' - The IPv4 address range, in CIDR format. You can\'t specify this
--- parameter when specifying a source security group. To specify an IPv6
--- address range, use a set of IP permissions.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and
--- a description for the rule.
---
--- 'groupId', 'authorizeSecurityGroupIngress_groupId' - The ID of the security group. You must specify either the security group
--- ID or the security group name in the request. For security groups in a
--- nondefault VPC, you must specify the security group ID.
 --
 -- 'ipProtocol', 'authorizeSecurityGroupIngress_ipProtocol' - The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -198,7 +172,23 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
 --
--- 'ipPermissions', 'authorizeSecurityGroupIngress_ipPermissions' - The sets of IP permissions.
+-- 'groupId', 'authorizeSecurityGroupIngress_groupId' - The ID of the security group. You must specify either the security group
+-- ID or the security group name in the request. For security groups in a
+-- nondefault VPC, you must specify the security group ID.
+--
+-- 'toPort', 'authorizeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use @-1@ to specify all codes. If you
+-- specify all ICMP types, you must specify all codes.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and
+-- a description for the rule.
+--
+-- 'cidrIp', 'authorizeSecurityGroupIngress_cidrIp' - The IPv4 address range, in CIDR format. You can\'t specify this
+-- parameter when specifying a source security group. To specify an IPv6
+-- address range, use a set of IP permissions.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and
+-- a description for the rule.
 --
 -- 'sourceSecurityGroupOwnerId', 'authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId' - [nondefault VPC] The Amazon Web Services account ID for the source
 -- security group, if the source security group is in a different account.
@@ -208,28 +198,38 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 -- ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
 -- and port range, use a set of IP permissions instead.
 --
--- 'toPort', 'authorizeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all codes. If you
--- specify all ICMP types, you must specify all codes.
+-- 'groupName', 'authorizeSecurityGroupIngress_groupName' - [EC2-Classic, default VPC] The name of the security group. You must
+-- specify either the security group ID or the security group name in the
+-- request.
 --
--- Alternatively, use a set of IP permissions to specify multiple rules and
--- a description for the rule.
+-- 'sourceSecurityGroupName', 'authorizeSecurityGroupIngress_sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You
+-- can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the start of the port range, the
+-- IP protocol, and the end of the port range. Creates rules that grant
+-- full ICMP, UDP, and TCP access. To create a rule with a specific IP
+-- protocol and port range, use a set of IP permissions instead. For
+-- EC2-VPC, the source security group must be in the same VPC.
+--
+-- 'dryRun', 'authorizeSecurityGroupIngress_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newAuthorizeSecurityGroupIngress ::
   AuthorizeSecurityGroupIngress
 newAuthorizeSecurityGroupIngress =
   AuthorizeSecurityGroupIngress'
     { fromPort =
         Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      sourceSecurityGroupName = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      cidrIp = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      ipProtocol = Prelude.Nothing,
       ipPermissions = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      ipProtocol = Prelude.Nothing,
+      groupId = Prelude.Nothing,
+      toPort = Prelude.Nothing,
+      cidrIp = Prelude.Nothing,
       sourceSecurityGroupOwnerId = Prelude.Nothing,
-      toPort = Prelude.Nothing
+      groupName = Prelude.Nothing,
+      sourceSecurityGroupName = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
@@ -241,47 +241,13 @@ newAuthorizeSecurityGroupIngress =
 authorizeSecurityGroupIngress_fromPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
 authorizeSecurityGroupIngress_fromPort = Lens.lens (\AuthorizeSecurityGroupIngress' {fromPort} -> fromPort) (\s@AuthorizeSecurityGroupIngress' {} a -> s {fromPort = a} :: AuthorizeSecurityGroupIngress)
 
+-- | The sets of IP permissions.
+authorizeSecurityGroupIngress_ipPermissions :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [IpPermission])
+authorizeSecurityGroupIngress_ipPermissions = Lens.lens (\AuthorizeSecurityGroupIngress' {ipPermissions} -> ipPermissions) (\s@AuthorizeSecurityGroupIngress' {} a -> s {ipPermissions = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens.coerced
+
 -- | [VPC Only] The tags applied to the security group rule.
 authorizeSecurityGroupIngress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [TagSpecification])
-authorizeSecurityGroupIngress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupIngress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupIngress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-authorizeSecurityGroupIngress_dryRun :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Bool)
-authorizeSecurityGroupIngress_dryRun = Lens.lens (\AuthorizeSecurityGroupIngress' {dryRun} -> dryRun) (\s@AuthorizeSecurityGroupIngress' {} a -> s {dryRun = a} :: AuthorizeSecurityGroupIngress)
-
--- | [EC2-Classic, default VPC] The name of the source security group. You
--- can\'t specify this parameter in combination with the following
--- parameters: the CIDR IP address range, the start of the port range, the
--- IP protocol, and the end of the port range. Creates rules that grant
--- full ICMP, UDP, and TCP access. To create a rule with a specific IP
--- protocol and port range, use a set of IP permissions instead. For
--- EC2-VPC, the source security group must be in the same VPC.
-authorizeSecurityGroupIngress_sourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupIngress_sourceSecurityGroupName = Lens.lens (\AuthorizeSecurityGroupIngress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@AuthorizeSecurityGroupIngress' {} a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupIngress)
-
--- | [EC2-Classic, default VPC] The name of the security group. You must
--- specify either the security group ID or the security group name in the
--- request.
-authorizeSecurityGroupIngress_groupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupIngress_groupName = Lens.lens (\AuthorizeSecurityGroupIngress' {groupName} -> groupName) (\s@AuthorizeSecurityGroupIngress' {} a -> s {groupName = a} :: AuthorizeSecurityGroupIngress)
-
--- | The IPv4 address range, in CIDR format. You can\'t specify this
--- parameter when specifying a source security group. To specify an IPv6
--- address range, use a set of IP permissions.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and
--- a description for the rule.
-authorizeSecurityGroupIngress_cidrIp :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupIngress_cidrIp = Lens.lens (\AuthorizeSecurityGroupIngress' {cidrIp} -> cidrIp) (\s@AuthorizeSecurityGroupIngress' {} a -> s {cidrIp = a} :: AuthorizeSecurityGroupIngress)
-
--- | The ID of the security group. You must specify either the security group
--- ID or the security group name in the request. For security groups in a
--- nondefault VPC, you must specify the security group ID.
-authorizeSecurityGroupIngress_groupId :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-authorizeSecurityGroupIngress_groupId = Lens.lens (\AuthorizeSecurityGroupIngress' {groupId} -> groupId) (\s@AuthorizeSecurityGroupIngress' {} a -> s {groupId = a} :: AuthorizeSecurityGroupIngress)
+authorizeSecurityGroupIngress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupIngress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupIngress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -296,9 +262,29 @@ authorizeSecurityGroupIngress_groupId = Lens.lens (\AuthorizeSecurityGroupIngres
 authorizeSecurityGroupIngress_ipProtocol :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupIngress_ipProtocol = Lens.lens (\AuthorizeSecurityGroupIngress' {ipProtocol} -> ipProtocol) (\s@AuthorizeSecurityGroupIngress' {} a -> s {ipProtocol = a} :: AuthorizeSecurityGroupIngress)
 
--- | The sets of IP permissions.
-authorizeSecurityGroupIngress_ipPermissions :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [IpPermission])
-authorizeSecurityGroupIngress_ipPermissions = Lens.lens (\AuthorizeSecurityGroupIngress' {ipPermissions} -> ipPermissions) (\s@AuthorizeSecurityGroupIngress' {} a -> s {ipPermissions = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens._Coerce
+-- | The ID of the security group. You must specify either the security group
+-- ID or the security group name in the request. For security groups in a
+-- nondefault VPC, you must specify the security group ID.
+authorizeSecurityGroupIngress_groupId :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupIngress_groupId = Lens.lens (\AuthorizeSecurityGroupIngress' {groupId} -> groupId) (\s@AuthorizeSecurityGroupIngress' {} a -> s {groupId = a} :: AuthorizeSecurityGroupIngress)
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use @-1@ to specify all codes. If you
+-- specify all ICMP types, you must specify all codes.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and
+-- a description for the rule.
+authorizeSecurityGroupIngress_toPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
+authorizeSecurityGroupIngress_toPort = Lens.lens (\AuthorizeSecurityGroupIngress' {toPort} -> toPort) (\s@AuthorizeSecurityGroupIngress' {} a -> s {toPort = a} :: AuthorizeSecurityGroupIngress)
+
+-- | The IPv4 address range, in CIDR format. You can\'t specify this
+-- parameter when specifying a source security group. To specify an IPv6
+-- address range, use a set of IP permissions.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and
+-- a description for the rule.
+authorizeSecurityGroupIngress_cidrIp :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupIngress_cidrIp = Lens.lens (\AuthorizeSecurityGroupIngress' {cidrIp} -> cidrIp) (\s@AuthorizeSecurityGroupIngress' {} a -> s {cidrIp = a} :: AuthorizeSecurityGroupIngress)
 
 -- | [nondefault VPC] The Amazon Web Services account ID for the source
 -- security group, if the source security group is in a different account.
@@ -310,14 +296,28 @@ authorizeSecurityGroupIngress_ipPermissions = Lens.lens (\AuthorizeSecurityGroup
 authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId = Lens.lens (\AuthorizeSecurityGroupIngress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@AuthorizeSecurityGroupIngress' {} a -> s {sourceSecurityGroupOwnerId = a} :: AuthorizeSecurityGroupIngress)
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all codes. If you
--- specify all ICMP types, you must specify all codes.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and
--- a description for the rule.
-authorizeSecurityGroupIngress_toPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
-authorizeSecurityGroupIngress_toPort = Lens.lens (\AuthorizeSecurityGroupIngress' {toPort} -> toPort) (\s@AuthorizeSecurityGroupIngress' {} a -> s {toPort = a} :: AuthorizeSecurityGroupIngress)
+-- | [EC2-Classic, default VPC] The name of the security group. You must
+-- specify either the security group ID or the security group name in the
+-- request.
+authorizeSecurityGroupIngress_groupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupIngress_groupName = Lens.lens (\AuthorizeSecurityGroupIngress' {groupName} -> groupName) (\s@AuthorizeSecurityGroupIngress' {} a -> s {groupName = a} :: AuthorizeSecurityGroupIngress)
+
+-- | [EC2-Classic, default VPC] The name of the source security group. You
+-- can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the start of the port range, the
+-- IP protocol, and the end of the port range. Creates rules that grant
+-- full ICMP, UDP, and TCP access. To create a rule with a specific IP
+-- protocol and port range, use a set of IP permissions instead. For
+-- EC2-VPC, the source security group must be in the same VPC.
+authorizeSecurityGroupIngress_sourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeSecurityGroupIngress_sourceSecurityGroupName = Lens.lens (\AuthorizeSecurityGroupIngress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@AuthorizeSecurityGroupIngress' {} a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupIngress)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+authorizeSecurityGroupIngress_dryRun :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Bool)
+authorizeSecurityGroupIngress_dryRun = Lens.lens (\AuthorizeSecurityGroupIngress' {dryRun} -> dryRun) (\s@AuthorizeSecurityGroupIngress' {} a -> s {dryRun = a} :: AuthorizeSecurityGroupIngress)
 
 instance
   Core.AWSRequest
@@ -362,23 +362,23 @@ instance Core.ToQuery AuthorizeSecurityGroupIngress where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "FromPort" Core.=: fromPort,
         Core.toQuery
-          ( Core.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
-          ),
-        "DryRun" Core.=: dryRun,
-        "SourceSecurityGroupName"
-          Core.=: sourceSecurityGroupName,
-        "GroupName" Core.=: groupName,
-        "CidrIp" Core.=: cidrIp,
-        "GroupId" Core.=: groupId,
-        "IpProtocol" Core.=: ipProtocol,
-        Core.toQuery
           ( Core.toQueryList "IpPermissions"
               Prelude.<$> ipPermissions
           ),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        "IpProtocol" Core.=: ipProtocol,
+        "GroupId" Core.=: groupId,
+        "ToPort" Core.=: toPort,
+        "CidrIp" Core.=: cidrIp,
         "SourceSecurityGroupOwnerId"
           Core.=: sourceSecurityGroupOwnerId,
-        "ToPort" Core.=: toPort
+        "GroupName" Core.=: groupName,
+        "SourceSecurityGroupName"
+          Core.=: sourceSecurityGroupName,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newAuthorizeSecurityGroupIngressResponse' smart constructor.
@@ -426,7 +426,7 @@ authorizeSecurityGroupIngressResponse_return = Lens.lens (\AuthorizeSecurityGrou
 -- | Information about the inbound (ingress) security group rules that were
 -- added.
 authorizeSecurityGroupIngressResponse_securityGroupRules :: Lens.Lens' AuthorizeSecurityGroupIngressResponse (Prelude.Maybe [SecurityGroupRule])
-authorizeSecurityGroupIngressResponse_securityGroupRules = Lens.lens (\AuthorizeSecurityGroupIngressResponse' {securityGroupRules} -> securityGroupRules) (\s@AuthorizeSecurityGroupIngressResponse' {} a -> s {securityGroupRules = a} :: AuthorizeSecurityGroupIngressResponse) Prelude.. Lens.mapping Lens._Coerce
+authorizeSecurityGroupIngressResponse_securityGroupRules = Lens.lens (\AuthorizeSecurityGroupIngressResponse' {securityGroupRules} -> securityGroupRules) (\s@AuthorizeSecurityGroupIngressResponse' {} a -> s {securityGroupRules = a} :: AuthorizeSecurityGroupIngressResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 authorizeSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeSecurityGroupIngressResponse Prelude.Int

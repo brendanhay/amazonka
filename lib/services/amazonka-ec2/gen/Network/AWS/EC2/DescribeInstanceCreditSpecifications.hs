@@ -55,11 +55,11 @@ module Network.AWS.EC2.DescribeInstanceCreditSpecifications
     newDescribeInstanceCreditSpecifications,
 
     -- * Request Lenses
-    describeInstanceCreditSpecifications_instanceIds,
-    describeInstanceCreditSpecifications_nextToken,
-    describeInstanceCreditSpecifications_maxResults,
-    describeInstanceCreditSpecifications_dryRun,
     describeInstanceCreditSpecifications_filters,
+    describeInstanceCreditSpecifications_nextToken,
+    describeInstanceCreditSpecifications_instanceIds,
+    describeInstanceCreditSpecifications_dryRun,
+    describeInstanceCreditSpecifications_maxResults,
 
     -- * Destructuring the Response
     DescribeInstanceCreditSpecificationsResponse (..),
@@ -81,28 +81,28 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstanceCreditSpecifications' smart constructor.
 data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications'
-  { -- | The instance IDs.
+  { -- | The filters.
+    --
+    -- -   @instance-id@ - The ID of the instance.
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The instance IDs.
     --
     -- Default: Describes all your instances.
     --
     -- Constraints: Maximum 1000 explicitly specified instance IDs.
     instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
-    --
-    -- -   @instance-id@ - The ID of the instance.
-    filters :: Prelude.Maybe [Filter]
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 5 and 1000. You cannot specify this
+    -- parameter and the instance IDs parameter in the same call.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,38 +114,48 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeInstanceCreditSpecifications_filters' - The filters.
+--
+-- -   @instance-id@ - The ID of the instance.
+--
+-- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
+--
 -- 'instanceIds', 'describeInstanceCreditSpecifications_instanceIds' - The instance IDs.
 --
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 1000 explicitly specified instance IDs.
 --
--- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
---
--- 'maxResults', 'describeInstanceCreditSpecifications_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
---
 -- 'dryRun', 'describeInstanceCreditSpecifications_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeInstanceCreditSpecifications_filters' - The filters.
---
--- -   @instance-id@ - The ID of the instance.
+-- 'maxResults', 'describeInstanceCreditSpecifications_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
 newDescribeInstanceCreditSpecifications ::
   DescribeInstanceCreditSpecifications
 newDescribeInstanceCreditSpecifications =
   DescribeInstanceCreditSpecifications'
-    { instanceIds =
+    { filters =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | The filters.
+--
+-- -   @instance-id@ - The ID of the instance.
+describeInstanceCreditSpecifications_filters :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Filter])
+describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCreditSpecifications' {filters} -> filters) (\s@DescribeInstanceCreditSpecifications' {} a -> s {filters = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
+describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
 
 -- | The instance IDs.
 --
@@ -153,18 +163,7 @@ newDescribeInstanceCreditSpecifications =
 --
 -- Constraints: Maximum 1000 explicitly specified instance IDs.
 describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Prelude.Text])
-describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens._Coerce
-
--- | The token to retrieve the next page of results.
-describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
-describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
-describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
-describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
+describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -173,11 +172,12 @@ describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCr
 describeInstanceCreditSpecifications_dryRun :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Bool)
 describeInstanceCreditSpecifications_dryRun = Lens.lens (\DescribeInstanceCreditSpecifications' {dryRun} -> dryRun) (\s@DescribeInstanceCreditSpecifications' {} a -> s {dryRun = a} :: DescribeInstanceCreditSpecifications)
 
--- | The filters.
---
--- -   @instance-id@ - The ID of the instance.
-describeInstanceCreditSpecifications_filters :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Filter])
-describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCreditSpecifications' {filters} -> filters) (\s@DescribeInstanceCreditSpecifications' {} a -> s {filters = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens._Coerce
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
+describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
+describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
 
 instance
   Core.AWSPager
@@ -257,14 +257,14 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
           ( Core.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           ),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInstanceCreditSpecificationsResponse' smart constructor.
@@ -314,7 +314,7 @@ describeInstanceCreditSpecificationsResponse_nextToken = Lens.lens (\DescribeIns
 
 -- | Information about the credit option for CPU usage of an instance.
 describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Prelude.Maybe [InstanceCreditSpecification])
-describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {instanceCreditSpecifications = a} :: DescribeInstanceCreditSpecificationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {instanceCreditSpecifications = a} :: DescribeInstanceCreditSpecificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceCreditSpecificationsResponse_httpStatus :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse Prelude.Int

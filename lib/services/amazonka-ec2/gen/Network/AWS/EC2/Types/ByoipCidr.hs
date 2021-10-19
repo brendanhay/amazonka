@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'
-  { -- | Upon success, contains the ID of the address pool. Otherwise, contains
-    -- an error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The state of the address pool.
+  { -- | The state of the address pool.
     state :: Prelude.Maybe ByoipCidrState,
     -- | The address range, in CIDR notation.
     cidr :: Prelude.Maybe Prelude.Text,
+    -- | Upon success, contains the ID of the address pool. Otherwise, contains
+    -- an error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The description of the address range.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -51,28 +51,23 @@ data ByoipCidr = ByoipCidr'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'byoipCidr_statusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains
--- an error message.
---
 -- 'state', 'byoipCidr_state' - The state of the address pool.
 --
 -- 'cidr', 'byoipCidr_cidr' - The address range, in CIDR notation.
+--
+-- 'statusMessage', 'byoipCidr_statusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains
+-- an error message.
 --
 -- 'description', 'byoipCidr_description' - The description of the address range.
 newByoipCidr ::
   ByoipCidr
 newByoipCidr =
   ByoipCidr'
-    { statusMessage = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { state = Prelude.Nothing,
       cidr = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | Upon success, contains the ID of the address pool. Otherwise, contains
--- an error message.
-byoipCidr_statusMessage :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
-byoipCidr_statusMessage = Lens.lens (\ByoipCidr' {statusMessage} -> statusMessage) (\s@ByoipCidr' {} a -> s {statusMessage = a} :: ByoipCidr)
 
 -- | The state of the address pool.
 byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
@@ -82,6 +77,11 @@ byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -
 byoipCidr_cidr :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_cidr = Lens.lens (\ByoipCidr' {cidr} -> cidr) (\s@ByoipCidr' {} a -> s {cidr = a} :: ByoipCidr)
 
+-- | Upon success, contains the ID of the address pool. Otherwise, contains
+-- an error message.
+byoipCidr_statusMessage :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
+byoipCidr_statusMessage = Lens.lens (\ByoipCidr' {statusMessage} -> statusMessage) (\s@ByoipCidr' {} a -> s {statusMessage = a} :: ByoipCidr)
+
 -- | The description of the address range.
 byoipCidr_description :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_description = Lens.lens (\ByoipCidr' {description} -> description) (\s@ByoipCidr' {} a -> s {description = a} :: ByoipCidr)
@@ -89,9 +89,9 @@ byoipCidr_description = Lens.lens (\ByoipCidr' {description} -> description) (\s
 instance Core.FromXML ByoipCidr where
   parseXML x =
     ByoipCidr'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
       Prelude.<*> (x Core..@? "cidr")
+      Prelude.<*> (x Core..@? "statusMessage")
       Prelude.<*> (x Core..@? "description")
 
 instance Prelude.Hashable ByoipCidr

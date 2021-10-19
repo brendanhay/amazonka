@@ -29,7 +29,7 @@
 -- hours.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet Monitoring your EC2 Fleet>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html Monitor fleet events using Amazon EventBridge>
 -- in the /Amazon EC2 User Guide/.
 module Network.AWS.EC2.DescribeFleetHistory
   ( -- * Creating a Request
@@ -37,10 +37,10 @@ module Network.AWS.EC2.DescribeFleetHistory
     newDescribeFleetHistory,
 
     -- * Request Lenses
-    describeFleetHistory_eventType,
     describeFleetHistory_nextToken,
-    describeFleetHistory_maxResults,
+    describeFleetHistory_eventType,
     describeFleetHistory_dryRun,
+    describeFleetHistory_maxResults,
     describeFleetHistory_fleetId,
     describeFleetHistory_startTime,
 
@@ -49,11 +49,11 @@ module Network.AWS.EC2.DescribeFleetHistory
     newDescribeFleetHistoryResponse,
 
     -- * Response Lenses
-    describeFleetHistoryResponse_nextToken,
-    describeFleetHistoryResponse_fleetId,
     describeFleetHistoryResponse_startTime,
-    describeFleetHistoryResponse_historyRecords,
     describeFleetHistoryResponse_lastEvaluatedTime,
+    describeFleetHistoryResponse_nextToken,
+    describeFleetHistoryResponse_historyRecords,
+    describeFleetHistoryResponse_fleetId,
     describeFleetHistoryResponse_httpStatus,
   )
 where
@@ -67,20 +67,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFleetHistory' smart constructor.
 data DescribeFleetHistory = DescribeFleetHistory'
-  { -- | The type of events to describe. By default, all events are described.
-    eventType :: Prelude.Maybe FleetEventType,
-    -- | The token for the next set of results.
+  { -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The type of events to describe. By default, all events are described.
+    eventType :: Prelude.Maybe FleetEventType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 1 and 1000. The default value is 1000. To retrieve the
+    -- remaining results, make another call with the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text,
     -- | The start date and time for the events, in UTC format (for example,
@@ -97,19 +97,19 @@ data DescribeFleetHistory = DescribeFleetHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventType', 'describeFleetHistory_eventType' - The type of events to describe. By default, all events are described.
---
 -- 'nextToken', 'describeFleetHistory_nextToken' - The token for the next set of results.
 --
--- 'maxResults', 'describeFleetHistory_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- 'eventType', 'describeFleetHistory_eventType' - The type of events to describe. By default, all events are described.
 --
 -- 'dryRun', 'describeFleetHistory_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeFleetHistory_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
 --
 -- 'fleetId', 'describeFleetHistory_fleetId' - The ID of the EC2 Fleet.
 --
@@ -123,28 +123,21 @@ newDescribeFleetHistory ::
   DescribeFleetHistory
 newDescribeFleetHistory pFleetId_ pStartTime_ =
   DescribeFleetHistory'
-    { eventType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      eventType = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       fleetId = pFleetId_,
       startTime = Core._Time Lens.# pStartTime_
     }
-
--- | The type of events to describe. By default, all events are described.
-describeFleetHistory_eventType :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe FleetEventType)
-describeFleetHistory_eventType = Lens.lens (\DescribeFleetHistory' {eventType} -> eventType) (\s@DescribeFleetHistory' {} a -> s {eventType = a} :: DescribeFleetHistory)
 
 -- | The token for the next set of results.
 describeFleetHistory_nextToken :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Text)
 describeFleetHistory_nextToken = Lens.lens (\DescribeFleetHistory' {nextToken} -> nextToken) (\s@DescribeFleetHistory' {} a -> s {nextToken = a} :: DescribeFleetHistory)
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
-describeFleetHistory_maxResults :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Int)
-describeFleetHistory_maxResults = Lens.lens (\DescribeFleetHistory' {maxResults} -> maxResults) (\s@DescribeFleetHistory' {} a -> s {maxResults = a} :: DescribeFleetHistory)
+-- | The type of events to describe. By default, all events are described.
+describeFleetHistory_eventType :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe FleetEventType)
+describeFleetHistory_eventType = Lens.lens (\DescribeFleetHistory' {eventType} -> eventType) (\s@DescribeFleetHistory' {} a -> s {eventType = a} :: DescribeFleetHistory)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -152,6 +145,13 @@ describeFleetHistory_maxResults = Lens.lens (\DescribeFleetHistory' {maxResults}
 -- Otherwise, it is @UnauthorizedOperation@.
 describeFleetHistory_dryRun :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Bool)
 describeFleetHistory_dryRun = Lens.lens (\DescribeFleetHistory' {dryRun} -> dryRun) (\s@DescribeFleetHistory' {} a -> s {dryRun = a} :: DescribeFleetHistory)
+
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+describeFleetHistory_maxResults :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Int)
+describeFleetHistory_maxResults = Lens.lens (\DescribeFleetHistory' {maxResults} -> maxResults) (\s@DescribeFleetHistory' {} a -> s {maxResults = a} :: DescribeFleetHistory)
 
 -- | The ID of the EC2 Fleet.
 describeFleetHistory_fleetId :: Lens.Lens' DescribeFleetHistory Prelude.Text
@@ -171,14 +171,14 @@ instance Core.AWSRequest DescribeFleetHistory where
     Response.receiveXML
       ( \s h x ->
           DescribeFleetHistoryResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> (x Core..@? "fleetId")
-            Prelude.<*> (x Core..@? "startTime")
+            Prelude.<$> (x Core..@? "startTime")
+            Prelude.<*> (x Core..@? "lastEvaluatedTime")
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> ( x Core..@? "historyRecordSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "lastEvaluatedTime")
+            Prelude.<*> (x Core..@? "fleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,25 +199,19 @@ instance Core.ToQuery DescribeFleetHistory where
           Core.=: ("DescribeFleetHistory" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "EventType" Core.=: eventType,
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
+        "EventType" Core.=: eventType,
         "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "FleetId" Core.=: fleetId,
         "StartTime" Core.=: startTime
       ]
 
 -- | /See:/ 'newDescribeFleetHistoryResponse' smart constructor.
 data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the EC Fleet.
-    fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The start date and time for the events, in UTC format (for example,
+  { -- | The start date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | Information about the events in the history of the EC2 Fleet.
-    historyRecords :: Prelude.Maybe [HistoryRecordEntry],
     -- | The last date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
     -- retrieved.
@@ -225,6 +219,12 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
     -- If @nextToken@ indicates that there are more results, this value is not
     -- present.
     lastEvaluatedTime :: Prelude.Maybe Core.ISO8601,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the events in the history of the EC2 Fleet.
+    historyRecords :: Prelude.Maybe [HistoryRecordEntry],
+    -- | The ID of the EC Fleet.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,14 +238,8 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetHistoryResponse_nextToken' - The token for the next set of results.
---
--- 'fleetId', 'describeFleetHistoryResponse_fleetId' - The ID of the EC Fleet.
---
 -- 'startTime', 'describeFleetHistoryResponse_startTime' - The start date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
---
--- 'historyRecords', 'describeFleetHistoryResponse_historyRecords' - Information about the events in the history of the EC2 Fleet.
 --
 -- 'lastEvaluatedTime', 'describeFleetHistoryResponse_lastEvaluatedTime' - The last date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
@@ -254,6 +248,12 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
 -- If @nextToken@ indicates that there are more results, this value is not
 -- present.
 --
+-- 'nextToken', 'describeFleetHistoryResponse_nextToken' - The token for the next set of results.
+--
+-- 'historyRecords', 'describeFleetHistoryResponse_historyRecords' - Information about the events in the history of the EC2 Fleet.
+--
+-- 'fleetId', 'describeFleetHistoryResponse_fleetId' - The ID of the EC Fleet.
+--
 -- 'httpStatus', 'describeFleetHistoryResponse_httpStatus' - The response's http status code.
 newDescribeFleetHistoryResponse ::
   -- | 'httpStatus'
@@ -261,31 +261,19 @@ newDescribeFleetHistoryResponse ::
   DescribeFleetHistoryResponse
 newDescribeFleetHistoryResponse pHttpStatus_ =
   DescribeFleetHistoryResponse'
-    { nextToken =
+    { startTime =
         Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      historyRecords = Prelude.Nothing,
       lastEvaluatedTime = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      historyRecords = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of results.
-describeFleetHistoryResponse_nextToken :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.Text)
-describeFleetHistoryResponse_nextToken = Lens.lens (\DescribeFleetHistoryResponse' {nextToken} -> nextToken) (\s@DescribeFleetHistoryResponse' {} a -> s {nextToken = a} :: DescribeFleetHistoryResponse)
-
--- | The ID of the EC Fleet.
-describeFleetHistoryResponse_fleetId :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.Text)
-describeFleetHistoryResponse_fleetId = Lens.lens (\DescribeFleetHistoryResponse' {fleetId} -> fleetId) (\s@DescribeFleetHistoryResponse' {} a -> s {fleetId = a} :: DescribeFleetHistoryResponse)
 
 -- | The start date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 describeFleetHistoryResponse_startTime :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.UTCTime)
 describeFleetHistoryResponse_startTime = Lens.lens (\DescribeFleetHistoryResponse' {startTime} -> startTime) (\s@DescribeFleetHistoryResponse' {} a -> s {startTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Core._Time
-
--- | Information about the events in the history of the EC2 Fleet.
-describeFleetHistoryResponse_historyRecords :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe [HistoryRecordEntry])
-describeFleetHistoryResponse_historyRecords = Lens.lens (\DescribeFleetHistoryResponse' {historyRecords} -> historyRecords) (\s@DescribeFleetHistoryResponse' {} a -> s {historyRecords = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The last date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
@@ -295,6 +283,18 @@ describeFleetHistoryResponse_historyRecords = Lens.lens (\DescribeFleetHistoryRe
 -- present.
 describeFleetHistoryResponse_lastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.UTCTime)
 describeFleetHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeFleetHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeFleetHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The token for the next set of results.
+describeFleetHistoryResponse_nextToken :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.Text)
+describeFleetHistoryResponse_nextToken = Lens.lens (\DescribeFleetHistoryResponse' {nextToken} -> nextToken) (\s@DescribeFleetHistoryResponse' {} a -> s {nextToken = a} :: DescribeFleetHistoryResponse)
+
+-- | Information about the events in the history of the EC2 Fleet.
+describeFleetHistoryResponse_historyRecords :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe [HistoryRecordEntry])
+describeFleetHistoryResponse_historyRecords = Lens.lens (\DescribeFleetHistoryResponse' {historyRecords} -> historyRecords) (\s@DescribeFleetHistoryResponse' {} a -> s {historyRecords = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the EC Fleet.
+describeFleetHistoryResponse_fleetId :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.Text)
+describeFleetHistoryResponse_fleetId = Lens.lens (\DescribeFleetHistoryResponse' {fleetId} -> fleetId) (\s@DescribeFleetHistoryResponse' {} a -> s {fleetId = a} :: DescribeFleetHistoryResponse)
 
 -- | The response's http status code.
 describeFleetHistoryResponse_httpStatus :: Lens.Lens' DescribeFleetHistoryResponse Prelude.Int

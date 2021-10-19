@@ -32,11 +32,11 @@ module Network.AWS.EC2.ModifyCapacityReservation
     newModifyCapacityReservation,
 
     -- * Request Lenses
-    modifyCapacityReservation_dryRun,
-    modifyCapacityReservation_endDateType,
+    modifyCapacityReservation_instanceCount,
     modifyCapacityReservation_accept,
     modifyCapacityReservation_endDate,
-    modifyCapacityReservation_instanceCount,
+    modifyCapacityReservation_endDateType,
+    modifyCapacityReservation_dryRun,
     modifyCapacityReservation_capacityReservationId,
 
     -- * Destructuring the Response
@@ -58,22 +58,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyCapacityReservation' smart constructor.
 data ModifyCapacityReservation = ModifyCapacityReservation'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates the way in which the Capacity Reservation ends. A Capacity
-    -- Reservation can have one of the following end types:
-    --
-    -- -   @unlimited@ - The Capacity Reservation remains active until you
-    --     explicitly cancel it. Do not provide an @EndDate@ value if
-    --     @EndDateType@ is @unlimited@.
-    --
-    -- -   @limited@ - The Capacity Reservation expires automatically at a
-    --     specified date and time. You must provide an @EndDate@ value if
-    --     @EndDateType@ is @limited@.
-    endDateType :: Prelude.Maybe EndDateType,
+  { -- | The number of instances for which to reserve capacity. The number of
+    -- instances can\'t be increased or decreased by more than @1000@ in a
+    -- single request.
+    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | Reserved. Capacity Reservations you have created are accepted by
     -- default.
     accept :: Prelude.Maybe Prelude.Bool,
@@ -90,10 +78,22 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
     -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
     -- @EndDate@ if @EndDateType@ is @unlimited@.
     endDate :: Prelude.Maybe Core.ISO8601,
-    -- | The number of instances for which to reserve capacity. The number of
-    -- instances can\'t be increased or decreased by more than @1000@ in a
-    -- single request.
-    instanceCount :: Prelude.Maybe Prelude.Int,
+    -- | Indicates the way in which the Capacity Reservation ends. A Capacity
+    -- Reservation can have one of the following end types:
+    --
+    -- -   @unlimited@ - The Capacity Reservation remains active until you
+    --     explicitly cancel it. Do not provide an @EndDate@ value if
+    --     @EndDateType@ is @unlimited@.
+    --
+    -- -   @limited@ - The Capacity Reservation expires automatically at a
+    --     specified date and time. You must provide an @EndDate@ value if
+    --     @EndDateType@ is @limited@.
+    endDateType :: Prelude.Maybe EndDateType,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
   }
@@ -107,21 +107,9 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'modifyCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'endDateType', 'modifyCapacityReservation_endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity
--- Reservation can have one of the following end types:
---
--- -   @unlimited@ - The Capacity Reservation remains active until you
---     explicitly cancel it. Do not provide an @EndDate@ value if
---     @EndDateType@ is @unlimited@.
---
--- -   @limited@ - The Capacity Reservation expires automatically at a
---     specified date and time. You must provide an @EndDate@ value if
---     @EndDateType@ is @limited@.
+-- 'instanceCount', 'modifyCapacityReservation_instanceCount' - The number of instances for which to reserve capacity. The number of
+-- instances can\'t be increased or decreased by more than @1000@ in a
+-- single request.
 --
 -- 'accept', 'modifyCapacityReservation_accept' - Reserved. Capacity Reservations you have created are accepted by
 -- default.
@@ -139,34 +127,7 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@. Omit
 -- @EndDate@ if @EndDateType@ is @unlimited@.
 --
--- 'instanceCount', 'modifyCapacityReservation_instanceCount' - The number of instances for which to reserve capacity. The number of
--- instances can\'t be increased or decreased by more than @1000@ in a
--- single request.
---
--- 'capacityReservationId', 'modifyCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
-newModifyCapacityReservation ::
-  -- | 'capacityReservationId'
-  Prelude.Text ->
-  ModifyCapacityReservation
-newModifyCapacityReservation pCapacityReservationId_ =
-  ModifyCapacityReservation'
-    { dryRun =
-        Prelude.Nothing,
-      endDateType = Prelude.Nothing,
-      accept = Prelude.Nothing,
-      endDate = Prelude.Nothing,
-      instanceCount = Prelude.Nothing,
-      capacityReservationId = pCapacityReservationId_
-    }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyCapacityReservation_dryRun :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Bool)
-modifyCapacityReservation_dryRun = Lens.lens (\ModifyCapacityReservation' {dryRun} -> dryRun) (\s@ModifyCapacityReservation' {} a -> s {dryRun = a} :: ModifyCapacityReservation)
-
--- | Indicates the way in which the Capacity Reservation ends. A Capacity
+-- 'endDateType', 'modifyCapacityReservation_endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity
 -- Reservation can have one of the following end types:
 --
 -- -   @unlimited@ - The Capacity Reservation remains active until you
@@ -176,8 +137,33 @@ modifyCapacityReservation_dryRun = Lens.lens (\ModifyCapacityReservation' {dryRu
 -- -   @limited@ - The Capacity Reservation expires automatically at a
 --     specified date and time. You must provide an @EndDate@ value if
 --     @EndDateType@ is @limited@.
-modifyCapacityReservation_endDateType :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe EndDateType)
-modifyCapacityReservation_endDateType = Lens.lens (\ModifyCapacityReservation' {endDateType} -> endDateType) (\s@ModifyCapacityReservation' {} a -> s {endDateType = a} :: ModifyCapacityReservation)
+--
+-- 'dryRun', 'modifyCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'capacityReservationId', 'modifyCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
+newModifyCapacityReservation ::
+  -- | 'capacityReservationId'
+  Prelude.Text ->
+  ModifyCapacityReservation
+newModifyCapacityReservation pCapacityReservationId_ =
+  ModifyCapacityReservation'
+    { instanceCount =
+        Prelude.Nothing,
+      accept = Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      endDateType = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      capacityReservationId = pCapacityReservationId_
+    }
+
+-- | The number of instances for which to reserve capacity. The number of
+-- instances can\'t be increased or decreased by more than @1000@ in a
+-- single request.
+modifyCapacityReservation_instanceCount :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Int)
+modifyCapacityReservation_instanceCount = Lens.lens (\ModifyCapacityReservation' {instanceCount} -> instanceCount) (\s@ModifyCapacityReservation' {} a -> s {instanceCount = a} :: ModifyCapacityReservation)
 
 -- | Reserved. Capacity Reservations you have created are accepted by
 -- default.
@@ -199,11 +185,25 @@ modifyCapacityReservation_accept = Lens.lens (\ModifyCapacityReservation' {accep
 modifyCapacityReservation_endDate :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.UTCTime)
 modifyCapacityReservation_endDate = Lens.lens (\ModifyCapacityReservation' {endDate} -> endDate) (\s@ModifyCapacityReservation' {} a -> s {endDate = a} :: ModifyCapacityReservation) Prelude.. Lens.mapping Core._Time
 
--- | The number of instances for which to reserve capacity. The number of
--- instances can\'t be increased or decreased by more than @1000@ in a
--- single request.
-modifyCapacityReservation_instanceCount :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Int)
-modifyCapacityReservation_instanceCount = Lens.lens (\ModifyCapacityReservation' {instanceCount} -> instanceCount) (\s@ModifyCapacityReservation' {} a -> s {instanceCount = a} :: ModifyCapacityReservation)
+-- | Indicates the way in which the Capacity Reservation ends. A Capacity
+-- Reservation can have one of the following end types:
+--
+-- -   @unlimited@ - The Capacity Reservation remains active until you
+--     explicitly cancel it. Do not provide an @EndDate@ value if
+--     @EndDateType@ is @unlimited@.
+--
+-- -   @limited@ - The Capacity Reservation expires automatically at a
+--     specified date and time. You must provide an @EndDate@ value if
+--     @EndDateType@ is @limited@.
+modifyCapacityReservation_endDateType :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe EndDateType)
+modifyCapacityReservation_endDateType = Lens.lens (\ModifyCapacityReservation' {endDateType} -> endDateType) (\s@ModifyCapacityReservation' {} a -> s {endDateType = a} :: ModifyCapacityReservation)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyCapacityReservation_dryRun :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Bool)
+modifyCapacityReservation_dryRun = Lens.lens (\ModifyCapacityReservation' {dryRun} -> dryRun) (\s@ModifyCapacityReservation' {} a -> s {dryRun = a} :: ModifyCapacityReservation)
 
 -- | The ID of the Capacity Reservation.
 modifyCapacityReservation_capacityReservationId :: Lens.Lens' ModifyCapacityReservation Prelude.Text
@@ -239,11 +239,11 @@ instance Core.ToQuery ModifyCapacityReservation where
           Core.=: ("ModifyCapacityReservation" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "EndDateType" Core.=: endDateType,
+        "InstanceCount" Core.=: instanceCount,
         "Accept" Core.=: accept,
         "EndDate" Core.=: endDate,
-        "InstanceCount" Core.=: instanceCount,
+        "EndDateType" Core.=: endDateType,
+        "DryRun" Core.=: dryRun,
         "CapacityReservationId"
           Core.=: capacityReservationId
       ]

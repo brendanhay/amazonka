@@ -28,9 +28,9 @@ module Network.AWS.EC2.DeleteKeyPair
     newDeleteKeyPair,
 
     -- * Request Lenses
-    deleteKeyPair_dryRun,
-    deleteKeyPair_keyPairId,
     deleteKeyPair_keyName,
+    deleteKeyPair_keyPairId,
+    deleteKeyPair_dryRun,
 
     -- * Destructuring the Response
     DeleteKeyPairResponse (..),
@@ -47,15 +47,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The name of the key pair.
+    keyName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the key pair.
+    keyPairId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the key pair.
-    keyPairId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the key pair.
-    keyName :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,22 +67,30 @@ data DeleteKeyPair = DeleteKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyName', 'deleteKeyPair_keyName' - The name of the key pair.
+--
+-- 'keyPairId', 'deleteKeyPair_keyPairId' - The ID of the key pair.
+--
 -- 'dryRun', 'deleteKeyPair_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'keyPairId', 'deleteKeyPair_keyPairId' - The ID of the key pair.
---
--- 'keyName', 'deleteKeyPair_keyName' - The name of the key pair.
 newDeleteKeyPair ::
   DeleteKeyPair
 newDeleteKeyPair =
   DeleteKeyPair'
-    { dryRun = Prelude.Nothing,
+    { keyName = Prelude.Nothing,
       keyPairId = Prelude.Nothing,
-      keyName = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
+
+-- | The name of the key pair.
+deleteKeyPair_keyName :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
+deleteKeyPair_keyName = Lens.lens (\DeleteKeyPair' {keyName} -> keyName) (\s@DeleteKeyPair' {} a -> s {keyName = a} :: DeleteKeyPair)
+
+-- | The ID of the key pair.
+deleteKeyPair_keyPairId :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
+deleteKeyPair_keyPairId = Lens.lens (\DeleteKeyPair' {keyPairId} -> keyPairId) (\s@DeleteKeyPair' {} a -> s {keyPairId = a} :: DeleteKeyPair)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -90,14 +98,6 @@ newDeleteKeyPair =
 -- Otherwise, it is @UnauthorizedOperation@.
 deleteKeyPair_dryRun :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Bool)
 deleteKeyPair_dryRun = Lens.lens (\DeleteKeyPair' {dryRun} -> dryRun) (\s@DeleteKeyPair' {} a -> s {dryRun = a} :: DeleteKeyPair)
-
--- | The ID of the key pair.
-deleteKeyPair_keyPairId :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
-deleteKeyPair_keyPairId = Lens.lens (\DeleteKeyPair' {keyPairId} -> keyPairId) (\s@DeleteKeyPair' {} a -> s {keyPairId = a} :: DeleteKeyPair)
-
--- | The name of the key pair.
-deleteKeyPair_keyName :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
-deleteKeyPair_keyName = Lens.lens (\DeleteKeyPair' {keyName} -> keyName) (\s@DeleteKeyPair' {} a -> s {keyName = a} :: DeleteKeyPair)
 
 instance Core.AWSRequest DeleteKeyPair where
   type
@@ -124,9 +124,9 @@ instance Core.ToQuery DeleteKeyPair where
           Core.=: ("DeleteKeyPair" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+        "KeyName" Core.=: keyName,
         "KeyPairId" Core.=: keyPairId,
-        "KeyName" Core.=: keyName
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDeleteKeyPairResponse' smart constructor.

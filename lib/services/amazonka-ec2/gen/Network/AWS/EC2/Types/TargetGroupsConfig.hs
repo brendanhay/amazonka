@@ -51,7 +51,7 @@ newTargetGroupsConfig =
 
 -- | One or more target groups.
 targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Prelude.Maybe (Prelude.NonEmpty TargetGroup))
-targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Prelude.. Lens.mapping Lens._Coerce
+targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML TargetGroupsConfig where
   parseXML x =

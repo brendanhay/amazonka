@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceEventWindowAssociationRequest' smart constructor.
 data InstanceEventWindowAssociationRequest = InstanceEventWindowAssociationRequest'
-  { -- | The IDs of the instances to associate with the event window. If the
+  { -- | The instance tags to associate with the event window. Any instances
+    -- associated with the tags will be associated with the event window.
+    instanceTags :: Prelude.Maybe [Tag],
+    -- | The IDs of the instances to associate with the event window. If the
     -- instance is on a Dedicated Host, you can\'t specify the Instance ID
     -- parameter; you must use the Dedicated Host ID parameter.
     instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The instance tags to associate with the event window. Any instances
-    -- associated with the tags will be associated with the event window.
-    instanceTags :: Prelude.Maybe [Tag],
     -- | The IDs of the Dedicated Hosts to associate with the event window.
     dedicatedHostIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -51,38 +51,38 @@ data InstanceEventWindowAssociationRequest = InstanceEventWindowAssociationReque
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceTags', 'instanceEventWindowAssociationRequest_instanceTags' - The instance tags to associate with the event window. Any instances
+-- associated with the tags will be associated with the event window.
+--
 -- 'instanceIds', 'instanceEventWindowAssociationRequest_instanceIds' - The IDs of the instances to associate with the event window. If the
 -- instance is on a Dedicated Host, you can\'t specify the Instance ID
 -- parameter; you must use the Dedicated Host ID parameter.
---
--- 'instanceTags', 'instanceEventWindowAssociationRequest_instanceTags' - The instance tags to associate with the event window. Any instances
--- associated with the tags will be associated with the event window.
 --
 -- 'dedicatedHostIds', 'instanceEventWindowAssociationRequest_dedicatedHostIds' - The IDs of the Dedicated Hosts to associate with the event window.
 newInstanceEventWindowAssociationRequest ::
   InstanceEventWindowAssociationRequest
 newInstanceEventWindowAssociationRequest =
   InstanceEventWindowAssociationRequest'
-    { instanceIds =
+    { instanceTags =
         Prelude.Nothing,
-      instanceTags = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       dedicatedHostIds = Prelude.Nothing
     }
+
+-- | The instance tags to associate with the event window. Any instances
+-- associated with the tags will be associated with the event window.
+instanceEventWindowAssociationRequest_instanceTags :: Lens.Lens' InstanceEventWindowAssociationRequest (Prelude.Maybe [Tag])
+instanceEventWindowAssociationRequest_instanceTags = Lens.lens (\InstanceEventWindowAssociationRequest' {instanceTags} -> instanceTags) (\s@InstanceEventWindowAssociationRequest' {} a -> s {instanceTags = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the instances to associate with the event window. If the
 -- instance is on a Dedicated Host, you can\'t specify the Instance ID
 -- parameter; you must use the Dedicated Host ID parameter.
 instanceEventWindowAssociationRequest_instanceIds :: Lens.Lens' InstanceEventWindowAssociationRequest (Prelude.Maybe [Prelude.Text])
-instanceEventWindowAssociationRequest_instanceIds = Lens.lens (\InstanceEventWindowAssociationRequest' {instanceIds} -> instanceIds) (\s@InstanceEventWindowAssociationRequest' {} a -> s {instanceIds = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | The instance tags to associate with the event window. Any instances
--- associated with the tags will be associated with the event window.
-instanceEventWindowAssociationRequest_instanceTags :: Lens.Lens' InstanceEventWindowAssociationRequest (Prelude.Maybe [Tag])
-instanceEventWindowAssociationRequest_instanceTags = Lens.lens (\InstanceEventWindowAssociationRequest' {instanceTags} -> instanceTags) (\s@InstanceEventWindowAssociationRequest' {} a -> s {instanceTags = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens._Coerce
+instanceEventWindowAssociationRequest_instanceIds = Lens.lens (\InstanceEventWindowAssociationRequest' {instanceIds} -> instanceIds) (\s@InstanceEventWindowAssociationRequest' {} a -> s {instanceIds = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts to associate with the event window.
 instanceEventWindowAssociationRequest_dedicatedHostIds :: Lens.Lens' InstanceEventWindowAssociationRequest (Prelude.Maybe [Prelude.Text])
-instanceEventWindowAssociationRequest_dedicatedHostIds = Lens.lens (\InstanceEventWindowAssociationRequest' {dedicatedHostIds} -> dedicatedHostIds) (\s@InstanceEventWindowAssociationRequest' {} a -> s {dedicatedHostIds = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens._Coerce
+instanceEventWindowAssociationRequest_dedicatedHostIds = Lens.lens (\InstanceEventWindowAssociationRequest' {dedicatedHostIds} -> dedicatedHostIds) (\s@InstanceEventWindowAssociationRequest' {} a -> s {dedicatedHostIds = a} :: InstanceEventWindowAssociationRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -99,12 +99,12 @@ instance
   toQuery InstanceEventWindowAssociationRequest' {..} =
     Prelude.mconcat
       [ Core.toQuery
-          ( Core.toQueryList "InstanceId"
-              Prelude.<$> instanceIds
-          ),
-        Core.toQuery
           ( Core.toQueryList "InstanceTag"
               Prelude.<$> instanceTags
+          ),
+        Core.toQuery
+          ( Core.toQueryList "InstanceId"
+              Prelude.<$> instanceIds
           ),
         Core.toQuery
           ( Core.toQueryList "DedicatedHostId"

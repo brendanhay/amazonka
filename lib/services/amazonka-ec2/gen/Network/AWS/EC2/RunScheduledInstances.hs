@@ -38,9 +38,9 @@ module Network.AWS.EC2.RunScheduledInstances
     newRunScheduledInstances,
 
     -- * Request Lenses
-    runScheduledInstances_dryRun,
-    runScheduledInstances_instanceCount,
     runScheduledInstances_clientToken,
+    runScheduledInstances_instanceCount,
+    runScheduledInstances_dryRun,
     runScheduledInstances_launchSpecification,
     runScheduledInstances_scheduledInstanceId,
 
@@ -65,19 +65,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRunScheduledInstances' smart constructor.
 data RunScheduledInstances = RunScheduledInstances'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+  { -- | Unique, case-sensitive identifier that ensures the idempotency of the
+    -- request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The number of instances.
     --
     -- Default: 1
     instanceCount :: Prelude.Maybe Prelude.Int,
-    -- | Unique, case-sensitive identifier that ensures the idempotency of the
-    -- request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The launch specification. You must match the instance type, Availability
     -- Zone, network, and platform of the schedule that you purchased.
     launchSpecification :: ScheduledInstancesLaunchSpecification,
@@ -94,18 +94,18 @@ data RunScheduledInstances = RunScheduledInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'runScheduledInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'clientToken', 'runScheduledInstances_clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- 'instanceCount', 'runScheduledInstances_instanceCount' - The number of instances.
 --
 -- Default: 1
 --
--- 'clientToken', 'runScheduledInstances_clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- 'dryRun', 'runScheduledInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'launchSpecification', 'runScheduledInstances_launchSpecification' - The launch specification. You must match the instance type, Availability
 -- Zone, network, and platform of the schedule that you purchased.
@@ -121,19 +121,19 @@ newRunScheduledInstances
   pLaunchSpecification_
   pScheduledInstanceId_ =
     RunScheduledInstances'
-      { dryRun = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
         instanceCount = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         launchSpecification = pLaunchSpecification_,
         scheduledInstanceId = pScheduledInstanceId_
       }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-runScheduledInstances_dryRun :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Bool)
-runScheduledInstances_dryRun = Lens.lens (\RunScheduledInstances' {dryRun} -> dryRun) (\s@RunScheduledInstances' {} a -> s {dryRun = a} :: RunScheduledInstances)
+-- | Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Text)
+runScheduledInstances_clientToken = Lens.lens (\RunScheduledInstances' {clientToken} -> clientToken) (\s@RunScheduledInstances' {} a -> s {clientToken = a} :: RunScheduledInstances)
 
 -- | The number of instances.
 --
@@ -141,11 +141,12 @@ runScheduledInstances_dryRun = Lens.lens (\RunScheduledInstances' {dryRun} -> dr
 runScheduledInstances_instanceCount :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Int)
 runScheduledInstances_instanceCount = Lens.lens (\RunScheduledInstances' {instanceCount} -> instanceCount) (\s@RunScheduledInstances' {} a -> s {instanceCount = a} :: RunScheduledInstances)
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the
--- request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Text)
-runScheduledInstances_clientToken = Lens.lens (\RunScheduledInstances' {clientToken} -> clientToken) (\s@RunScheduledInstances' {} a -> s {clientToken = a} :: RunScheduledInstances)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+runScheduledInstances_dryRun :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Bool)
+runScheduledInstances_dryRun = Lens.lens (\RunScheduledInstances' {dryRun} -> dryRun) (\s@RunScheduledInstances' {} a -> s {dryRun = a} :: RunScheduledInstances)
 
 -- | The launch specification. You must match the instance type, Availability
 -- Zone, network, and platform of the schedule that you purchased.
@@ -188,9 +189,9 @@ instance Core.ToQuery RunScheduledInstances where
           Core.=: ("RunScheduledInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "InstanceCount" Core.=: instanceCount,
         "ClientToken" Core.=: clientToken,
+        "InstanceCount" Core.=: instanceCount,
+        "DryRun" Core.=: dryRun,
         "LaunchSpecification" Core.=: launchSpecification,
         "ScheduledInstanceId" Core.=: scheduledInstanceId
       ]
@@ -230,7 +231,7 @@ newRunScheduledInstancesResponse pHttpStatus_ =
 
 -- | The IDs of the newly launched instances.
 runScheduledInstancesResponse_instanceIdSet :: Lens.Lens' RunScheduledInstancesResponse (Prelude.Maybe [Prelude.Text])
-runScheduledInstancesResponse_instanceIdSet = Lens.lens (\RunScheduledInstancesResponse' {instanceIdSet} -> instanceIdSet) (\s@RunScheduledInstancesResponse' {} a -> s {instanceIdSet = a} :: RunScheduledInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+runScheduledInstancesResponse_instanceIdSet = Lens.lens (\RunScheduledInstancesResponse' {instanceIdSet} -> instanceIdSet) (\s@RunScheduledInstancesResponse' {} a -> s {instanceIdSet = a} :: RunScheduledInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 runScheduledInstancesResponse_httpStatus :: Lens.Lens' RunScheduledInstancesResponse Prelude.Int

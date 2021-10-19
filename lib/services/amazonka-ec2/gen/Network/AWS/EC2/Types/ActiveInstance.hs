@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ActiveInstance = ActiveInstance'
   { -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Prelude.Maybe Prelude.Text,
     -- | The health status of the instance. If the status of either the instance
     -- status check or the system status check is @impaired@, the health status
     -- of the instance is @unhealthy@. Otherwise, the health status is
     -- @healthy@.
-    instanceHealth :: Prelude.Maybe InstanceHealthStatus
+    instanceHealth :: Prelude.Maybe InstanceHealthStatus,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Spot Instance request.
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,27 +53,34 @@ data ActiveInstance = ActiveInstance'
 --
 -- 'instanceId', 'activeInstance_instanceId' - The ID of the instance.
 --
--- 'instanceType', 'activeInstance_instanceType' - The instance type.
---
--- 'spotInstanceRequestId', 'activeInstance_spotInstanceRequestId' - The ID of the Spot Instance request.
---
 -- 'instanceHealth', 'activeInstance_instanceHealth' - The health status of the instance. If the status of either the instance
 -- status check or the system status check is @impaired@, the health status
 -- of the instance is @unhealthy@. Otherwise, the health status is
 -- @healthy@.
+--
+-- 'instanceType', 'activeInstance_instanceType' - The instance type.
+--
+-- 'spotInstanceRequestId', 'activeInstance_spotInstanceRequestId' - The ID of the Spot Instance request.
 newActiveInstance ::
   ActiveInstance
 newActiveInstance =
   ActiveInstance'
     { instanceId = Prelude.Nothing,
+      instanceHealth = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      spotInstanceRequestId = Prelude.Nothing,
-      instanceHealth = Prelude.Nothing
+      spotInstanceRequestId = Prelude.Nothing
     }
 
 -- | The ID of the instance.
 activeInstance_instanceId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_instanceId = Lens.lens (\ActiveInstance' {instanceId} -> instanceId) (\s@ActiveInstance' {} a -> s {instanceId = a} :: ActiveInstance)
+
+-- | The health status of the instance. If the status of either the instance
+-- status check or the system status check is @impaired@, the health status
+-- of the instance is @unhealthy@. Otherwise, the health status is
+-- @healthy@.
+activeInstance_instanceHealth :: Lens.Lens' ActiveInstance (Prelude.Maybe InstanceHealthStatus)
+activeInstance_instanceHealth = Lens.lens (\ActiveInstance' {instanceHealth} -> instanceHealth) (\s@ActiveInstance' {} a -> s {instanceHealth = a} :: ActiveInstance)
 
 -- | The instance type.
 activeInstance_instanceType :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
@@ -83,20 +90,13 @@ activeInstance_instanceType = Lens.lens (\ActiveInstance' {instanceType} -> inst
 activeInstance_spotInstanceRequestId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_spotInstanceRequestId = Lens.lens (\ActiveInstance' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@ActiveInstance' {} a -> s {spotInstanceRequestId = a} :: ActiveInstance)
 
--- | The health status of the instance. If the status of either the instance
--- status check or the system status check is @impaired@, the health status
--- of the instance is @unhealthy@. Otherwise, the health status is
--- @healthy@.
-activeInstance_instanceHealth :: Lens.Lens' ActiveInstance (Prelude.Maybe InstanceHealthStatus)
-activeInstance_instanceHealth = Lens.lens (\ActiveInstance' {instanceHealth} -> instanceHealth) (\s@ActiveInstance' {} a -> s {instanceHealth = a} :: ActiveInstance)
-
 instance Core.FromXML ActiveInstance where
   parseXML x =
     ActiveInstance'
       Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "instanceHealth")
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "spotInstanceRequestId")
-      Prelude.<*> (x Core..@? "instanceHealth")
 
 instance Prelude.Hashable ActiveInstance
 

@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceCapacity' smart constructor.
 data InstanceCapacity = InstanceCapacity'
-  { -- | The instance type supported by the Dedicated Host.
-    instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The number of instances that can be launched onto the Dedicated Host
+  { -- | The number of instances that can be launched onto the Dedicated Host
     -- based on the host\'s available capacity.
     availableCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The instance type supported by the Dedicated Host.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The total number of instances that can be launched onto the Dedicated
     -- Host if there are no instances running on it.
     totalCapacity :: Prelude.Maybe Prelude.Int
@@ -48,10 +48,10 @@ data InstanceCapacity = InstanceCapacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceType', 'instanceCapacity_instanceType' - The instance type supported by the Dedicated Host.
---
 -- 'availableCapacity', 'instanceCapacity_availableCapacity' - The number of instances that can be launched onto the Dedicated Host
 -- based on the host\'s available capacity.
+--
+-- 'instanceType', 'instanceCapacity_instanceType' - The instance type supported by the Dedicated Host.
 --
 -- 'totalCapacity', 'instanceCapacity_totalCapacity' - The total number of instances that can be launched onto the Dedicated
 -- Host if there are no instances running on it.
@@ -59,19 +59,20 @@ newInstanceCapacity ::
   InstanceCapacity
 newInstanceCapacity =
   InstanceCapacity'
-    { instanceType = Prelude.Nothing,
-      availableCapacity = Prelude.Nothing,
+    { availableCapacity =
+        Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       totalCapacity = Prelude.Nothing
     }
-
--- | The instance type supported by the Dedicated Host.
-instanceCapacity_instanceType :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Text)
-instanceCapacity_instanceType = Lens.lens (\InstanceCapacity' {instanceType} -> instanceType) (\s@InstanceCapacity' {} a -> s {instanceType = a} :: InstanceCapacity)
 
 -- | The number of instances that can be launched onto the Dedicated Host
 -- based on the host\'s available capacity.
 instanceCapacity_availableCapacity :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Int)
 instanceCapacity_availableCapacity = Lens.lens (\InstanceCapacity' {availableCapacity} -> availableCapacity) (\s@InstanceCapacity' {} a -> s {availableCapacity = a} :: InstanceCapacity)
+
+-- | The instance type supported by the Dedicated Host.
+instanceCapacity_instanceType :: Lens.Lens' InstanceCapacity (Prelude.Maybe Prelude.Text)
+instanceCapacity_instanceType = Lens.lens (\InstanceCapacity' {instanceType} -> instanceType) (\s@InstanceCapacity' {} a -> s {instanceType = a} :: InstanceCapacity)
 
 -- | The total number of instances that can be launched onto the Dedicated
 -- Host if there are no instances running on it.
@@ -81,8 +82,8 @@ instanceCapacity_totalCapacity = Lens.lens (\InstanceCapacity' {totalCapacity} -
 instance Core.FromXML InstanceCapacity where
   parseXML x =
     InstanceCapacity'
-      Prelude.<$> (x Core..@? "instanceType")
-      Prelude.<*> (x Core..@? "availableCapacity")
+      Prelude.<$> (x Core..@? "availableCapacity")
+      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "totalCapacity")
 
 instance Prelude.Hashable InstanceCapacity

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterfacePermissionState' smart constructor.
 data NetworkInterfacePermissionState = NetworkInterfacePermissionState'
-  { -- | A status message, if applicable.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The state of the permission.
-    state :: Prelude.Maybe NetworkInterfacePermissionStateCode
+  { -- | The state of the permission.
+    state :: Prelude.Maybe NetworkInterfacePermissionStateCode,
+    -- | A status message, if applicable.
+    statusMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data NetworkInterfacePermissionState = NetworkInterfacePermissionState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'networkInterfacePermissionState_statusMessage' - A status message, if applicable.
---
 -- 'state', 'networkInterfacePermissionState_state' - The state of the permission.
+--
+-- 'statusMessage', 'networkInterfacePermissionState_statusMessage' - A status message, if applicable.
 newNetworkInterfacePermissionState ::
   NetworkInterfacePermissionState
 newNetworkInterfacePermissionState =
   NetworkInterfacePermissionState'
-    { statusMessage =
+    { state =
         Prelude.Nothing,
-      state = Prelude.Nothing
+      statusMessage = Prelude.Nothing
     }
-
--- | A status message, if applicable.
-networkInterfacePermissionState_statusMessage :: Lens.Lens' NetworkInterfacePermissionState (Prelude.Maybe Prelude.Text)
-networkInterfacePermissionState_statusMessage = Lens.lens (\NetworkInterfacePermissionState' {statusMessage} -> statusMessage) (\s@NetworkInterfacePermissionState' {} a -> s {statusMessage = a} :: NetworkInterfacePermissionState)
 
 -- | The state of the permission.
 networkInterfacePermissionState_state :: Lens.Lens' NetworkInterfacePermissionState (Prelude.Maybe NetworkInterfacePermissionStateCode)
 networkInterfacePermissionState_state = Lens.lens (\NetworkInterfacePermissionState' {state} -> state) (\s@NetworkInterfacePermissionState' {} a -> s {state = a} :: NetworkInterfacePermissionState)
 
+-- | A status message, if applicable.
+networkInterfacePermissionState_statusMessage :: Lens.Lens' NetworkInterfacePermissionState (Prelude.Maybe Prelude.Text)
+networkInterfacePermissionState_statusMessage = Lens.lens (\NetworkInterfacePermissionState' {statusMessage} -> statusMessage) (\s@NetworkInterfacePermissionState' {} a -> s {statusMessage = a} :: NetworkInterfacePermissionState)
+
 instance Core.FromXML NetworkInterfacePermissionState where
   parseXML x =
     NetworkInterfacePermissionState'
-      Prelude.<$> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "statusMessage")
 
 instance
   Prelude.Hashable

@@ -43,9 +43,9 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     newPurchaseReservedInstancesOffering,
 
     -- * Request Lenses
-    purchaseReservedInstancesOffering_dryRun,
     purchaseReservedInstancesOffering_purchaseTime,
     purchaseReservedInstancesOffering_limitPrice,
+    purchaseReservedInstancesOffering_dryRun,
     purchaseReservedInstancesOffering_instanceCount,
     purchaseReservedInstancesOffering_reservedInstancesOfferingId,
 
@@ -70,18 +70,18 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPurchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The time at which to purchase the Reserved Instance, in UTC format (for
+  { -- | The time at which to purchase the Reserved Instance, in UTC format (for
     -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     purchaseTime :: Prelude.Maybe Core.ISO8601,
     -- | Specified for Reserved Instance Marketplace offerings to limit the total
     -- order and ensure that the Reserved Instances are not purchased at
     -- unexpected prices.
     limitPrice :: Prelude.Maybe ReservedInstanceLimitPrice,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The number of Reserved Instances to purchase.
     instanceCount :: Prelude.Int,
     -- | The ID of the Reserved Instance offering to purchase.
@@ -97,17 +97,17 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'purchaseReservedInstancesOffering_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'purchaseTime', 'purchaseReservedInstancesOffering_purchaseTime' - The time at which to purchase the Reserved Instance, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
 -- 'limitPrice', 'purchaseReservedInstancesOffering_limitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
+--
+-- 'dryRun', 'purchaseReservedInstancesOffering_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'instanceCount', 'purchaseReservedInstancesOffering_instanceCount' - The number of Reserved Instances to purchase.
 --
@@ -122,21 +122,14 @@ newPurchaseReservedInstancesOffering
   pInstanceCount_
   pReservedInstancesOfferingId_ =
     PurchaseReservedInstancesOffering'
-      { dryRun =
+      { purchaseTime =
           Prelude.Nothing,
-        purchaseTime = Prelude.Nothing,
         limitPrice = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         instanceCount = pInstanceCount_,
         reservedInstancesOfferingId =
           pReservedInstancesOfferingId_
       }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-purchaseReservedInstancesOffering_dryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe Prelude.Bool)
-purchaseReservedInstancesOffering_dryRun = Lens.lens (\PurchaseReservedInstancesOffering' {dryRun} -> dryRun) (\s@PurchaseReservedInstancesOffering' {} a -> s {dryRun = a} :: PurchaseReservedInstancesOffering)
 
 -- | The time at which to purchase the Reserved Instance, in UTC format (for
 -- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -148,6 +141,13 @@ purchaseReservedInstancesOffering_purchaseTime = Lens.lens (\PurchaseReservedIns
 -- unexpected prices.
 purchaseReservedInstancesOffering_limitPrice :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe ReservedInstanceLimitPrice)
 purchaseReservedInstancesOffering_limitPrice = Lens.lens (\PurchaseReservedInstancesOffering' {limitPrice} -> limitPrice) (\s@PurchaseReservedInstancesOffering' {} a -> s {limitPrice = a} :: PurchaseReservedInstancesOffering)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+purchaseReservedInstancesOffering_dryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Prelude.Maybe Prelude.Bool)
+purchaseReservedInstancesOffering_dryRun = Lens.lens (\PurchaseReservedInstancesOffering' {dryRun} -> dryRun) (\s@PurchaseReservedInstancesOffering' {} a -> s {dryRun = a} :: PurchaseReservedInstancesOffering)
 
 -- | The number of Reserved Instances to purchase.
 purchaseReservedInstancesOffering_instanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Prelude.Int
@@ -205,9 +205,9 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "PurchaseTime" Core.=: purchaseTime,
         "LimitPrice" Core.=: limitPrice,
+        "DryRun" Core.=: dryRun,
         "InstanceCount" Core.=: instanceCount,
         "ReservedInstancesOfferingId"
           Core.=: reservedInstancesOfferingId

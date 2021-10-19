@@ -39,8 +39,8 @@ module Network.AWS.EC2.ModifyHosts
     -- * Request Lenses
     modifyHosts_instanceFamily,
     modifyHosts_instanceType,
-    modifyHosts_autoPlacement,
     modifyHosts_hostRecovery,
+    modifyHosts_autoPlacement,
     modifyHosts_hostIds,
 
     -- * Destructuring the Response
@@ -81,13 +81,13 @@ data ModifyHosts = ModifyHosts'
     -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
     -- __InstanceFamily__ in the same request.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | Specify whether to enable or disable auto-placement.
-    autoPlacement :: Prelude.Maybe AutoPlacement,
     -- | Indicates whether to enable or disable host recovery for the Dedicated
     -- Host. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
     -- in the /Amazon EC2 User Guide/.
     hostRecovery :: Prelude.Maybe HostRecovery,
+    -- | Specify whether to enable or disable auto-placement.
+    autoPlacement :: Prelude.Maybe AutoPlacement,
     -- | The IDs of the Dedicated Hosts to modify.
     hostIds :: [Prelude.Text]
   }
@@ -119,12 +119,12 @@ data ModifyHosts = ModifyHosts'
 -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
 -- __InstanceFamily__ in the same request.
 --
--- 'autoPlacement', 'modifyHosts_autoPlacement' - Specify whether to enable or disable auto-placement.
---
 -- 'hostRecovery', 'modifyHosts_hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
 -- in the /Amazon EC2 User Guide/.
+--
+-- 'autoPlacement', 'modifyHosts_autoPlacement' - Specify whether to enable or disable auto-placement.
 --
 -- 'hostIds', 'modifyHosts_hostIds' - The IDs of the Dedicated Hosts to modify.
 newModifyHosts ::
@@ -133,8 +133,8 @@ newModifyHosts =
   ModifyHosts'
     { instanceFamily = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      autoPlacement = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
+      autoPlacement = Prelude.Nothing,
       hostIds = Prelude.mempty
     }
 
@@ -160,10 +160,6 @@ modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instan
 modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
 modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceType) (\s@ModifyHosts' {} a -> s {instanceType = a} :: ModifyHosts)
 
--- | Specify whether to enable or disable auto-placement.
-modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
-modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
-
 -- | Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
@@ -171,9 +167,13 @@ modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlac
 modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Prelude.Maybe HostRecovery)
 modifyHosts_hostRecovery = Lens.lens (\ModifyHosts' {hostRecovery} -> hostRecovery) (\s@ModifyHosts' {} a -> s {hostRecovery = a} :: ModifyHosts)
 
+-- | Specify whether to enable or disable auto-placement.
+modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
+modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
+
 -- | The IDs of the Dedicated Hosts to modify.
 modifyHosts_hostIds :: Lens.Lens' ModifyHosts [Prelude.Text]
-modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyHosts' {} a -> s {hostIds = a} :: ModifyHosts) Prelude.. Lens._Coerce
+modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyHosts' {} a -> s {hostIds = a} :: ModifyHosts) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyHosts where
   type AWSResponse ModifyHosts = ModifyHostsResponse
@@ -210,8 +210,8 @@ instance Core.ToQuery ModifyHosts where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "InstanceFamily" Core.=: instanceFamily,
         "InstanceType" Core.=: instanceType,
-        "AutoPlacement" Core.=: autoPlacement,
         "HostRecovery" Core.=: hostRecovery,
+        "AutoPlacement" Core.=: autoPlacement,
         Core.toQueryList "HostId" hostIds
       ]
 
@@ -256,11 +256,11 @@ newModifyHostsResponse pHttpStatus_ =
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
 -- the setting you requested can be used.
 modifyHostsResponse_unsuccessful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [UnsuccessfulItem])
-modifyHostsResponse_unsuccessful = Lens.lens (\ModifyHostsResponse' {unsuccessful} -> unsuccessful) (\s@ModifyHostsResponse' {} a -> s {unsuccessful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyHostsResponse_unsuccessful = Lens.lens (\ModifyHostsResponse' {unsuccessful} -> unsuccessful) (\s@ModifyHostsResponse' {} a -> s {unsuccessful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts that were successfully modified.
 modifyHostsResponse_successful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [Prelude.Text])
-modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyHostsResponse_httpStatus :: Lens.Lens' ModifyHostsResponse Prelude.Int

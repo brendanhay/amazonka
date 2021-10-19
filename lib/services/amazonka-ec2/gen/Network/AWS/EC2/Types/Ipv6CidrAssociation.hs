@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIpv6CidrAssociation' smart constructor.
 data Ipv6CidrAssociation = Ipv6CidrAssociation'
-  { -- | The IPv6 CIDR block.
-    ipv6Cidr :: Prelude.Maybe Prelude.Text,
-    -- | The resource that\'s associated with the IPv6 CIDR block.
-    associatedResource :: Prelude.Maybe Prelude.Text
+  { -- | The resource that\'s associated with the IPv6 CIDR block.
+    associatedResource :: Prelude.Maybe Prelude.Text,
+    -- | The IPv6 CIDR block.
+    ipv6Cidr :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,31 @@ data Ipv6CidrAssociation = Ipv6CidrAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6Cidr', 'ipv6CidrAssociation_ipv6Cidr' - The IPv6 CIDR block.
---
 -- 'associatedResource', 'ipv6CidrAssociation_associatedResource' - The resource that\'s associated with the IPv6 CIDR block.
+--
+-- 'ipv6Cidr', 'ipv6CidrAssociation_ipv6Cidr' - The IPv6 CIDR block.
 newIpv6CidrAssociation ::
   Ipv6CidrAssociation
 newIpv6CidrAssociation =
   Ipv6CidrAssociation'
-    { ipv6Cidr = Prelude.Nothing,
-      associatedResource = Prelude.Nothing
+    { associatedResource =
+        Prelude.Nothing,
+      ipv6Cidr = Prelude.Nothing
     }
-
--- | The IPv6 CIDR block.
-ipv6CidrAssociation_ipv6Cidr :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
-ipv6CidrAssociation_ipv6Cidr = Lens.lens (\Ipv6CidrAssociation' {ipv6Cidr} -> ipv6Cidr) (\s@Ipv6CidrAssociation' {} a -> s {ipv6Cidr = a} :: Ipv6CidrAssociation)
 
 -- | The resource that\'s associated with the IPv6 CIDR block.
 ipv6CidrAssociation_associatedResource :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrAssociation_associatedResource = Lens.lens (\Ipv6CidrAssociation' {associatedResource} -> associatedResource) (\s@Ipv6CidrAssociation' {} a -> s {associatedResource = a} :: Ipv6CidrAssociation)
 
+-- | The IPv6 CIDR block.
+ipv6CidrAssociation_ipv6Cidr :: Lens.Lens' Ipv6CidrAssociation (Prelude.Maybe Prelude.Text)
+ipv6CidrAssociation_ipv6Cidr = Lens.lens (\Ipv6CidrAssociation' {ipv6Cidr} -> ipv6Cidr) (\s@Ipv6CidrAssociation' {} a -> s {ipv6Cidr = a} :: Ipv6CidrAssociation)
+
 instance Core.FromXML Ipv6CidrAssociation where
   parseXML x =
     Ipv6CidrAssociation'
-      Prelude.<$> (x Core..@? "ipv6Cidr")
-      Prelude.<*> (x Core..@? "associatedResource")
+      Prelude.<$> (x Core..@? "associatedResource")
+      Prelude.<*> (x Core..@? "ipv6Cidr")
 
 instance Prelude.Hashable Ipv6CidrAssociation
 

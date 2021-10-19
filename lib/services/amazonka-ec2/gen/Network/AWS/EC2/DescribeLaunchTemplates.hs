@@ -29,20 +29,20 @@ module Network.AWS.EC2.DescribeLaunchTemplates
     newDescribeLaunchTemplates,
 
     -- * Request Lenses
-    describeLaunchTemplates_nextToken,
-    describeLaunchTemplates_launchTemplateNames,
-    describeLaunchTemplates_maxResults,
-    describeLaunchTemplates_dryRun,
-    describeLaunchTemplates_launchTemplateIds,
     describeLaunchTemplates_filters,
+    describeLaunchTemplates_nextToken,
+    describeLaunchTemplates_launchTemplateIds,
+    describeLaunchTemplates_dryRun,
+    describeLaunchTemplates_maxResults,
+    describeLaunchTemplates_launchTemplateNames,
 
     -- * Destructuring the Response
     DescribeLaunchTemplatesResponse (..),
     newDescribeLaunchTemplatesResponse,
 
     -- * Response Lenses
-    describeLaunchTemplatesResponse_nextToken,
     describeLaunchTemplatesResponse_launchTemplates,
+    describeLaunchTemplatesResponse_nextToken,
     describeLaunchTemplatesResponse_httpStatus,
   )
 where
@@ -56,22 +56,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLaunchTemplates' smart constructor.
 data DescribeLaunchTemplates = DescribeLaunchTemplates'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more launch template names.
-    launchTemplateNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 1 and 200.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more launch template IDs.
-    launchTemplateIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @create-time@ - The time the launch template was created.
     --
@@ -86,7 +71,22 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more launch template IDs.
+    launchTemplateIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 1 and 200.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more launch template names.
+    launchTemplateNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,21 +97,6 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeLaunchTemplates_nextToken' - The token to request the next page of results.
---
--- 'launchTemplateNames', 'describeLaunchTemplates_launchTemplateNames' - One or more launch template names.
---
--- 'maxResults', 'describeLaunchTemplates_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200.
---
--- 'dryRun', 'describeLaunchTemplates_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'launchTemplateIds', 'describeLaunchTemplates_launchTemplateIds' - One or more launch template IDs.
 --
 -- 'filters', 'describeLaunchTemplates_filters' - One or more filters.
 --
@@ -128,43 +113,32 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
+--
+-- 'nextToken', 'describeLaunchTemplates_nextToken' - The token to request the next page of results.
+--
+-- 'launchTemplateIds', 'describeLaunchTemplates_launchTemplateIds' - One or more launch template IDs.
+--
+-- 'dryRun', 'describeLaunchTemplates_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeLaunchTemplates_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
+--
+-- 'launchTemplateNames', 'describeLaunchTemplates_launchTemplateNames' - One or more launch template names.
 newDescribeLaunchTemplates ::
   DescribeLaunchTemplates
 newDescribeLaunchTemplates =
   DescribeLaunchTemplates'
-    { nextToken =
-        Prelude.Nothing,
-      launchTemplateNames = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       launchTemplateIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      launchTemplateNames = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-describeLaunchTemplates_nextToken :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Text)
-describeLaunchTemplates_nextToken = Lens.lens (\DescribeLaunchTemplates' {nextToken} -> nextToken) (\s@DescribeLaunchTemplates' {} a -> s {nextToken = a} :: DescribeLaunchTemplates)
-
--- | One or more launch template names.
-describeLaunchTemplates_launchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
-describeLaunchTemplates_launchTemplateNames = Lens.lens (\DescribeLaunchTemplates' {launchTemplateNames} -> launchTemplateNames) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateNames = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200.
-describeLaunchTemplates_maxResults :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Natural)
-describeLaunchTemplates_maxResults = Lens.lens (\DescribeLaunchTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchTemplates' {} a -> s {maxResults = a} :: DescribeLaunchTemplates)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeLaunchTemplates_dryRun :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Bool)
-describeLaunchTemplates_dryRun = Lens.lens (\DescribeLaunchTemplates' {dryRun} -> dryRun) (\s@DescribeLaunchTemplates' {} a -> s {dryRun = a} :: DescribeLaunchTemplates)
-
--- | One or more launch template IDs.
-describeLaunchTemplates_launchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
-describeLaunchTemplates_launchTemplateIds = Lens.lens (\DescribeLaunchTemplates' {launchTemplateIds} -> launchTemplateIds) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateIds = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -182,7 +156,32 @@ describeLaunchTemplates_launchTemplateIds = Lens.lens (\DescribeLaunchTemplates'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeLaunchTemplates_filters :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Filter])
-describeLaunchTemplates_filters = Lens.lens (\DescribeLaunchTemplates' {filters} -> filters) (\s@DescribeLaunchTemplates' {} a -> s {filters = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens._Coerce
+describeLaunchTemplates_filters = Lens.lens (\DescribeLaunchTemplates' {filters} -> filters) (\s@DescribeLaunchTemplates' {} a -> s {filters = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next page of results.
+describeLaunchTemplates_nextToken :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Text)
+describeLaunchTemplates_nextToken = Lens.lens (\DescribeLaunchTemplates' {nextToken} -> nextToken) (\s@DescribeLaunchTemplates' {} a -> s {nextToken = a} :: DescribeLaunchTemplates)
+
+-- | One or more launch template IDs.
+describeLaunchTemplates_launchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
+describeLaunchTemplates_launchTemplateIds = Lens.lens (\DescribeLaunchTemplates' {launchTemplateIds} -> launchTemplateIds) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateIds = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeLaunchTemplates_dryRun :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Bool)
+describeLaunchTemplates_dryRun = Lens.lens (\DescribeLaunchTemplates' {dryRun} -> dryRun) (\s@DescribeLaunchTemplates' {} a -> s {dryRun = a} :: DescribeLaunchTemplates)
+
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 1 and 200.
+describeLaunchTemplates_maxResults :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe Prelude.Natural)
+describeLaunchTemplates_maxResults = Lens.lens (\DescribeLaunchTemplates' {maxResults} -> maxResults) (\s@DescribeLaunchTemplates' {} a -> s {maxResults = a} :: DescribeLaunchTemplates)
+
+-- | One or more launch template names.
+describeLaunchTemplates_launchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Prelude.Maybe [Prelude.Text])
+describeLaunchTemplates_launchTemplateNames = Lens.lens (\DescribeLaunchTemplates' {launchTemplateNames} -> launchTemplateNames) (\s@DescribeLaunchTemplates' {} a -> s {launchTemplateNames = a} :: DescribeLaunchTemplates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribeLaunchTemplates where
   page rq rs
@@ -215,10 +214,10 @@ instance Core.AWSRequest DescribeLaunchTemplates where
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplatesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "launchTemplates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "launchTemplates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -239,28 +238,28 @@ instance Core.ToQuery DescribeLaunchTemplates where
           Core.=: ("DescribeLaunchTemplates" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         Core.toQuery
-          ( Core.toQueryList "LaunchTemplateName"
-              Prelude.<$> launchTemplateNames
-          ),
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "LaunchTemplateId"
               Prelude.<$> launchTemplateIds
           ),
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          ( Core.toQueryList "LaunchTemplateName"
+              Prelude.<$> launchTemplateNames
+          )
       ]
 
 -- | /See:/ 'newDescribeLaunchTemplatesResponse' smart constructor.
 data DescribeLaunchTemplatesResponse = DescribeLaunchTemplatesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the launch templates.
+    launchTemplates :: Prelude.Maybe [LaunchTemplate],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the launch templates.
-    launchTemplates :: Prelude.Maybe [LaunchTemplate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,10 +273,10 @@ data DescribeLaunchTemplatesResponse = DescribeLaunchTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchTemplates', 'describeLaunchTemplatesResponse_launchTemplates' - Information about the launch templates.
+--
 -- 'nextToken', 'describeLaunchTemplatesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'launchTemplates', 'describeLaunchTemplatesResponse_launchTemplates' - Information about the launch templates.
 --
 -- 'httpStatus', 'describeLaunchTemplatesResponse_httpStatus' - The response's http status code.
 newDescribeLaunchTemplatesResponse ::
@@ -286,20 +285,20 @@ newDescribeLaunchTemplatesResponse ::
   DescribeLaunchTemplatesResponse
 newDescribeLaunchTemplatesResponse pHttpStatus_ =
   DescribeLaunchTemplatesResponse'
-    { nextToken =
+    { launchTemplates =
         Prelude.Nothing,
-      launchTemplates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the launch templates.
+describeLaunchTemplatesResponse_launchTemplates :: Lens.Lens' DescribeLaunchTemplatesResponse (Prelude.Maybe [LaunchTemplate])
+describeLaunchTemplatesResponse_launchTemplates = Lens.lens (\DescribeLaunchTemplatesResponse' {launchTemplates} -> launchTemplates) (\s@DescribeLaunchTemplatesResponse' {} a -> s {launchTemplates = a} :: DescribeLaunchTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeLaunchTemplatesResponse_nextToken :: Lens.Lens' DescribeLaunchTemplatesResponse (Prelude.Maybe Prelude.Text)
 describeLaunchTemplatesResponse_nextToken = Lens.lens (\DescribeLaunchTemplatesResponse' {nextToken} -> nextToken) (\s@DescribeLaunchTemplatesResponse' {} a -> s {nextToken = a} :: DescribeLaunchTemplatesResponse)
-
--- | Information about the launch templates.
-describeLaunchTemplatesResponse_launchTemplates :: Lens.Lens' DescribeLaunchTemplatesResponse (Prelude.Maybe [LaunchTemplate])
-describeLaunchTemplatesResponse_launchTemplates = Lens.lens (\DescribeLaunchTemplatesResponse' {launchTemplates} -> launchTemplates) (\s@DescribeLaunchTemplatesResponse' {} a -> s {launchTemplates = a} :: DescribeLaunchTemplatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeLaunchTemplatesResponse_httpStatus :: Lens.Lens' DescribeLaunchTemplatesResponse Prelude.Int

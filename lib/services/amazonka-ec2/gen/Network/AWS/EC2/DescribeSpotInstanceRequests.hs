@@ -48,11 +48,11 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     newDescribeSpotInstanceRequests,
 
     -- * Request Lenses
-    describeSpotInstanceRequests_nextToken,
-    describeSpotInstanceRequests_maxResults,
-    describeSpotInstanceRequests_dryRun,
-    describeSpotInstanceRequests_spotInstanceRequestIds,
     describeSpotInstanceRequests_filters,
+    describeSpotInstanceRequests_spotInstanceRequestIds,
+    describeSpotInstanceRequests_nextToken,
+    describeSpotInstanceRequests_dryRun,
+    describeSpotInstanceRequests_maxResults,
 
     -- * Destructuring the Response
     DescribeSpotInstanceRequestsResponse (..),
@@ -76,21 +76,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSpotInstanceRequests' smart constructor.
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-  { -- | The token to request the next set of results. This value is @null@ when
-    -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 5 and 1000. To retrieve the remaining results, make
-    -- another call with the returned @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more Spot Instance request IDs.
-    spotInstanceRequestIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @availability-zone-group@ - The Availability Zone group.
     --
@@ -207,7 +193,21 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     -- -   @valid-from@ - The start date of the request.
     --
     -- -   @valid-until@ - The end date of the request.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | One or more Spot Instance request IDs.
+    spotInstanceRequestIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token to request the next set of results. This value is @null@ when
+    -- there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 5 and 1000. To retrieve the remaining results, make
+    -- another call with the returned @NextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -218,20 +218,6 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeSpotInstanceRequests_nextToken' - The token to request the next set of results. This value is @null@ when
--- there are no more results to return.
---
--- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
---
--- 'dryRun', 'describeSpotInstanceRequests_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'spotInstanceRequestIds', 'describeSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
 --
 -- 'filters', 'describeSpotInstanceRequests_filters' - One or more filters.
 --
@@ -350,39 +336,31 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 -- -   @valid-from@ - The start date of the request.
 --
 -- -   @valid-until@ - The end date of the request.
+--
+-- 'spotInstanceRequestIds', 'describeSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
+--
+-- 'nextToken', 'describeSpotInstanceRequests_nextToken' - The token to request the next set of results. This value is @null@ when
+-- there are no more results to return.
+--
+-- 'dryRun', 'describeSpotInstanceRequests_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 5 and 1000. To retrieve the remaining results, make
+-- another call with the returned @NextToken@ value.
 newDescribeSpotInstanceRequests ::
   DescribeSpotInstanceRequests
 newDescribeSpotInstanceRequests =
   DescribeSpotInstanceRequests'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       spotInstanceRequestIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token to request the next set of results. This value is @null@ when
--- there are no more results to return.
-describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Text)
-describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequests' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequests' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
-
--- | The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
-describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
-describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
-describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' {dryRun} -> dryRun) (\s@DescribeSpotInstanceRequests' {} a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
-
--- | One or more Spot Instance request IDs.
-describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Prelude.Text])
-describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@DescribeSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -502,7 +480,29 @@ describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotIn
 --
 -- -   @valid-until@ - The end date of the request.
 describeSpotInstanceRequests_filters :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Filter])
-describeSpotInstanceRequests_filters = Lens.lens (\DescribeSpotInstanceRequests' {filters} -> filters) (\s@DescribeSpotInstanceRequests' {} a -> s {filters = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens._Coerce
+describeSpotInstanceRequests_filters = Lens.lens (\DescribeSpotInstanceRequests' {filters} -> filters) (\s@DescribeSpotInstanceRequests' {} a -> s {filters = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more Spot Instance request IDs.
+describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Prelude.Text])
+describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@DescribeSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next set of results. This value is @null@ when
+-- there are no more results to return.
+describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Text)
+describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequests' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequests' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
+describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' {dryRun} -> dryRun) (\s@DescribeSpotInstanceRequests' {} a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
+
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 5 and 1000. To retrieve the remaining results, make
+-- another call with the returned @NextToken@ value.
+describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
+describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
 
 instance Core.AWSPager DescribeSpotInstanceRequests where
   page rq rs
@@ -564,15 +564,15 @@ instance Core.ToQuery DescribeSpotInstanceRequests where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "SpotInstanceRequestId"
               Prelude.<$> spotInstanceRequestIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | Contains the output of DescribeSpotInstanceRequests.
@@ -623,7 +623,7 @@ describeSpotInstanceRequestsResponse_nextToken = Lens.lens (\DescribeSpotInstanc
 
 -- | One or more Spot Instance requests.
 describeSpotInstanceRequestsResponse_spotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Prelude.Maybe [SpotInstanceRequest])
-describeSpotInstanceRequestsResponse_spotInstanceRequests = Lens.lens (\DescribeSpotInstanceRequestsResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSpotInstanceRequestsResponse_spotInstanceRequests = Lens.lens (\DescribeSpotInstanceRequestsResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSpotInstanceRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotInstanceRequestsResponse Prelude.Int

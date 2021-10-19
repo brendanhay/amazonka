@@ -96,7 +96,7 @@ rebootInstances_dryRun = Lens.lens (\RebootInstances' {dryRun} -> dryRun) (\s@Re
 
 -- | The instance IDs.
 rebootInstances_instanceIds :: Lens.Lens' RebootInstances [Prelude.Text]
-rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Prelude.. Lens._Coerce
+rebootInstances_instanceIds = Lens.lens (\RebootInstances' {instanceIds} -> instanceIds) (\s@RebootInstances' {} a -> s {instanceIds = a} :: RebootInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RebootInstances where
   type

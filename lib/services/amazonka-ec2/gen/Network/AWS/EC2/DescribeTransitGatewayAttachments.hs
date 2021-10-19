@@ -32,11 +32,11 @@ module Network.AWS.EC2.DescribeTransitGatewayAttachments
     newDescribeTransitGatewayAttachments,
 
     -- * Request Lenses
-    describeTransitGatewayAttachments_nextToken,
-    describeTransitGatewayAttachments_maxResults,
-    describeTransitGatewayAttachments_dryRun,
-    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
     describeTransitGatewayAttachments_filters,
+    describeTransitGatewayAttachments_nextToken,
+    describeTransitGatewayAttachments_transitGatewayAttachmentIds,
+    describeTransitGatewayAttachments_dryRun,
+    describeTransitGatewayAttachments_maxResults,
 
     -- * Destructuring the Response
     DescribeTransitGatewayAttachmentsResponse (..),
@@ -58,20 +58,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayAttachments' smart constructor.
 data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the attachments.
-    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters. The possible values are:
+  { -- | One or more filters. The possible values are:
     --
     -- -   @association.state@ - The state of the association (@associating@ |
     --     @associated@ | @disassociating@).
@@ -98,7 +85,20 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
     --
     -- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services
     --     account that owns the transit gateway.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the attachments.
+    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,19 +109,6 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeTransitGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeTransitGatewayAttachments_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
 --
 -- 'filters', 'describeTransitGatewayAttachments_filters' - One or more filters. The possible values are:
 --
@@ -150,39 +137,31 @@ data DescribeTransitGatewayAttachments = DescribeTransitGatewayAttachments'
 --
 -- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services
 --     account that owns the transit gateway.
+--
+-- 'nextToken', 'describeTransitGatewayAttachments_nextToken' - The token for the next page of results.
+--
+-- 'transitGatewayAttachmentIds', 'describeTransitGatewayAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
+--
+-- 'dryRun', 'describeTransitGatewayAttachments_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeTransitGatewayAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeTransitGatewayAttachments ::
   DescribeTransitGatewayAttachments
 newDescribeTransitGatewayAttachments =
   DescribeTransitGatewayAttachments'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       transitGatewayAttachmentIds =
         Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeTransitGatewayAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Text)
-describeTransitGatewayAttachments_nextToken = Lens.lens (\DescribeTransitGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayAttachments)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeTransitGatewayAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Natural)
-describeTransitGatewayAttachments_maxResults = Lens.lens (\DescribeTransitGatewayAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayAttachments)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeTransitGatewayAttachments_dryRun :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Bool)
-describeTransitGatewayAttachments_dryRun = Lens.lens (\DescribeTransitGatewayAttachments' {dryRun} -> dryRun) (\s@DescribeTransitGatewayAttachments' {} a -> s {dryRun = a} :: DescribeTransitGatewayAttachments)
-
--- | The IDs of the attachments.
-describeTransitGatewayAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Prelude.Text])
-describeTransitGatewayAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. The possible values are:
 --
@@ -212,7 +191,28 @@ describeTransitGatewayAttachments_transitGatewayAttachmentIds = Lens.lens (\Desc
 -- -   @transit-gateway-owner-id@ - The ID of the Amazon Web Services
 --     account that owns the transit gateway.
 describeTransitGatewayAttachments_filters :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Filter])
-describeTransitGatewayAttachments_filters = Lens.lens (\DescribeTransitGatewayAttachments' {filters} -> filters) (\s@DescribeTransitGatewayAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens._Coerce
+describeTransitGatewayAttachments_filters = Lens.lens (\DescribeTransitGatewayAttachments' {filters} -> filters) (\s@DescribeTransitGatewayAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeTransitGatewayAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Text)
+describeTransitGatewayAttachments_nextToken = Lens.lens (\DescribeTransitGatewayAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayAttachments)
+
+-- | The IDs of the attachments.
+describeTransitGatewayAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe [Prelude.Text])
+describeTransitGatewayAttachments_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayAttachments' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayAttachments' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayAttachments) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeTransitGatewayAttachments_dryRun :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Bool)
+describeTransitGatewayAttachments_dryRun = Lens.lens (\DescribeTransitGatewayAttachments' {dryRun} -> dryRun) (\s@DescribeTransitGatewayAttachments' {} a -> s {dryRun = a} :: DescribeTransitGatewayAttachments)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeTransitGatewayAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayAttachments (Prelude.Maybe Prelude.Natural)
+describeTransitGatewayAttachments_maxResults = Lens.lens (\DescribeTransitGatewayAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayAttachments)
 
 instance
   Core.AWSPager
@@ -291,15 +291,15 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayAttachmentsResponse' smart constructor.
@@ -349,7 +349,7 @@ describeTransitGatewayAttachmentsResponse_nextToken = Lens.lens (\DescribeTransi
 
 -- | Information about the attachments.
 describeTransitGatewayAttachmentsResponse_transitGatewayAttachments :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse (Prelude.Maybe [TransitGatewayAttachment])
-describeTransitGatewayAttachmentsResponse_transitGatewayAttachments = Lens.lens (\DescribeTransitGatewayAttachmentsResponse' {transitGatewayAttachments} -> transitGatewayAttachments) (\s@DescribeTransitGatewayAttachmentsResponse' {} a -> s {transitGatewayAttachments = a} :: DescribeTransitGatewayAttachmentsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTransitGatewayAttachmentsResponse_transitGatewayAttachments = Lens.lens (\DescribeTransitGatewayAttachmentsResponse' {transitGatewayAttachments} -> transitGatewayAttachments) (\s@DescribeTransitGatewayAttachmentsResponse' {} a -> s {transitGatewayAttachments = a} :: DescribeTransitGatewayAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTransitGatewayAttachmentsResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayAttachmentsResponse Prelude.Int

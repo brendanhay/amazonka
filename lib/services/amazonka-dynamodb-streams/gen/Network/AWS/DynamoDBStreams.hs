@@ -25,20 +25,20 @@ module Network.AWS.DynamoDBStreams
     -- * Errors
     -- $errors
 
-    -- ** TrimmedDataAccessException
-    _TrimmedDataAccessException,
-
     -- ** ExpiredIteratorException
     _ExpiredIteratorException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** TrimmedDataAccessException
+    _TrimmedDataAccessException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -58,17 +58,17 @@ module Network.AWS.DynamoDBStreams
     GetRecordsResponse (GetRecordsResponse'),
     newGetRecordsResponse,
 
-    -- ** DescribeStream
-    DescribeStream (DescribeStream'),
-    newDescribeStream,
-    DescribeStreamResponse (DescribeStreamResponse'),
-    newDescribeStreamResponse,
-
     -- ** ListStreams
     ListStreams (ListStreams'),
     newListStreams,
     ListStreamsResponse (ListStreamsResponse'),
     newListStreamsResponse,
+
+    -- ** DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
 
     -- * Types
 

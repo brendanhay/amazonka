@@ -29,6 +29,14 @@ module Network.AWS.DynamoDBStreams.Lens
     getRecordsResponse_nextShardIterator,
     getRecordsResponse_httpStatus,
 
+    -- ** ListStreams
+    listStreams_exclusiveStartStreamArn,
+    listStreams_limit,
+    listStreams_tableName,
+    listStreamsResponse_lastEvaluatedStreamArn,
+    listStreamsResponse_streams,
+    listStreamsResponse_httpStatus,
+
     -- ** DescribeStream
     describeStream_exclusiveStartShardId,
     describeStream_limit,
@@ -36,27 +44,19 @@ module Network.AWS.DynamoDBStreams.Lens
     describeStreamResponse_streamDescription,
     describeStreamResponse_httpStatus,
 
-    -- ** ListStreams
-    listStreams_tableName,
-    listStreams_exclusiveStartStreamArn,
-    listStreams_limit,
-    listStreamsResponse_streams,
-    listStreamsResponse_lastEvaluatedStreamArn,
-    listStreamsResponse_httpStatus,
-
     -- * Types
 
     -- ** AttributeValue
-    attributeValue_bs,
-    attributeValue_n,
-    attributeValue_bool,
-    attributeValue_null,
-    attributeValue_s,
-    attributeValue_m,
-    attributeValue_b,
     attributeValue_l,
-    attributeValue_ss,
     attributeValue_ns,
+    attributeValue_m,
+    attributeValue_null,
+    attributeValue_n,
+    attributeValue_bs,
+    attributeValue_b,
+    attributeValue_ss,
+    attributeValue_s,
+    attributeValue_bool,
 
     -- ** Identity
     identity_principalId,
@@ -68,46 +68,46 @@ module Network.AWS.DynamoDBStreams.Lens
 
     -- ** Record
     record_userIdentity,
-    record_eventSource,
-    record_eventID,
-    record_eventName,
     record_eventVersion,
     record_dynamodb,
     record_awsRegion,
+    record_eventName,
+    record_eventSource,
+    record_eventID,
 
     -- ** SequenceNumberRange
     sequenceNumberRange_startingSequenceNumber,
     sequenceNumberRange_endingSequenceNumber,
 
     -- ** Shard
-    shard_shardId,
-    shard_sequenceNumberRange,
     shard_parentShardId,
+    shard_sequenceNumberRange,
+    shard_shardId,
 
     -- ** Stream
-    stream_tableName,
-    stream_streamArn,
     stream_streamLabel,
+    stream_streamArn,
+    stream_tableName,
 
     -- ** StreamDescription
     streamDescription_lastEvaluatedShardId,
+    streamDescription_streamLabel,
+    streamDescription_streamStatus,
+    streamDescription_keySchema,
     streamDescription_streamViewType,
+    streamDescription_streamArn,
+    streamDescription_shards,
     streamDescription_tableName,
     streamDescription_creationRequestDateTime,
-    streamDescription_keySchema,
-    streamDescription_streamStatus,
-    streamDescription_shards,
-    streamDescription_streamArn,
-    streamDescription_streamLabel,
 
     -- ** StreamRecord
+    streamRecord_sizeBytes,
     streamRecord_sequenceNumber,
+    streamRecord_approximateCreationDateTime,
     streamRecord_streamViewType,
     streamRecord_keys,
-    streamRecord_sizeBytes,
-    streamRecord_newImage,
-    streamRecord_approximateCreationDateTime,
     streamRecord_oldImage,
+    streamRecord_newImage,
   )
 where
 

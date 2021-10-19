@@ -200,7 +200,7 @@ newGetRecordsResponse pHttpStatus_ =
 -- | The stream records from the shard, which were retrieved using the shard
 -- iterator.
 getRecordsResponse_records :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [Record])
-getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRecordsResponse_records = Lens.lens (\GetRecordsResponse' {records} -> records) (\s@GetRecordsResponse' {} a -> s {records = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The next position in the shard from which to start sequentially reading
 -- stream records. If set to @null@, the shard has been closed and the

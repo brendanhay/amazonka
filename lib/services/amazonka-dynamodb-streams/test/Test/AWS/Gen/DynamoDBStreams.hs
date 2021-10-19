@@ -33,11 +33,11 @@ import Test.Tasty
 --         , requestGetRecords $
 --             newGetRecords
 --
---         , requestDescribeStream $
---             newDescribeStream
---
 --         , requestListStreams $
 --             newListStreams
+--
+--         , requestDescribeStream $
+--             newDescribeStream
 --
 --           ]
 
@@ -48,11 +48,11 @@ import Test.Tasty
 --         , responseGetRecords $
 --             newGetRecordsResponse
 --
---         , responseDescribeStream $
---             newDescribeStreamResponse
---
 --         , responseListStreams $
 --             newListStreamsResponse
+--
+--         , responseDescribeStream $
+--             newDescribeStreamResponse
 --
 --           ]
 --     ]
@@ -71,17 +71,17 @@ requestGetRecords =
     "GetRecords"
     "fixture/GetRecords.yaml"
 
-requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream =
-  req
-    "DescribeStream"
-    "fixture/DescribeStream.yaml"
-
 requestListStreams :: ListStreams -> TestTree
 requestListStreams =
   req
     "ListStreams"
     "fixture/ListStreams.yaml"
+
+requestDescribeStream :: DescribeStream -> TestTree
+requestDescribeStream =
+  req
+    "DescribeStream"
+    "fixture/DescribeStream.yaml"
 
 -- Responses
 
@@ -101,14 +101,6 @@ responseGetRecords =
     defaultService
     (Proxy :: Proxy GetRecords)
 
-responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
-  res
-    "DescribeStreamResponse"
-    "fixture/DescribeStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStream)
-
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =
   res
@@ -116,3 +108,11 @@ responseListStreams =
     "fixture/ListStreamsResponse.proto"
     defaultService
     (Proxy :: Proxy ListStreams)
+
+responseDescribeStream :: DescribeStreamResponse -> TestTree
+responseDescribeStream =
+  res
+    "DescribeStreamResponse"
+    "fixture/DescribeStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStream)

@@ -934,9 +934,9 @@ iso :: TType -> Maybe Exp
 iso = \case
   TLit Time -> Just (var "Core._Time")
   TLit Base64 -> Just (var "Core._Base64")
-  TMap {} -> Just (var "Lens._Coerce")
-  TList1 {} -> Just (var "Lens._Coerce")
-  TList {} -> Just (var "Lens._Coerce")
+  TMap {} -> Just (var "Lens.coerced")
+  TList1 {} -> Just (var "Lens.coerced")
+  TList {} -> Just (var "Lens.coerced")
   TSensitive x -> Just (infixE (var "Core._Sensitive") "Prelude.." (maybeToList (iso x)))
   _ -> Nothing
 

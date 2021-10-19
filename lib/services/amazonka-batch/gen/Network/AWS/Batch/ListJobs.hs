@@ -40,13 +40,13 @@ module Network.AWS.Batch.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobs_jobQueue,
-    listJobs_jobStatus,
     listJobs_filters,
+    listJobs_nextToken,
     listJobs_multiNodeJobId,
+    listJobs_jobStatus,
     listJobs_arrayJobId,
+    listJobs_jobQueue,
+    listJobs_maxResults,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
@@ -70,34 +70,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The @nextToken@ value returned from a previous paginated @ListJobs@
-    -- request where @maxResults@ was used and the results exceeded the value
-    -- of that parameter. Pagination continues from the end of the previous
-    -- results that returned the @nextToken@ value. This value is @null@ when
-    -- there are no more results to return.
-    --
-    -- This token should be treated as an opaque identifier that\'s only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results returned by @ListJobs@ in paginated
-    -- output. When this parameter is used, @ListJobs@ only returns
-    -- @maxResults@ results in a single page and a @nextToken@ response
-    -- element. The remaining results of the initial request can be seen by
-    -- sending another @ListJobs@ request with the returned @nextToken@ value.
-    -- This value can be between 1 and 100. If this parameter isn\'t used, then
-    -- @ListJobs@ returns up to 100 results and a @nextToken@ value if
-    -- applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name or full Amazon Resource Name (ARN) of the job queue used to
-    -- list jobs.
-    jobQueue :: Prelude.Maybe Prelude.Text,
-    -- | The job status used to filter jobs in the specified queue. If the
-    -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
-    -- and jobs with any status are returned. If you don\'t specify a status,
-    -- only @RUNNING@ jobs are returned.
-    jobStatus :: Prelude.Maybe JobStatus,
-    -- | The filter to apply to the query. Only one filter can be used at a time.
+  { -- | The filter to apply to the query. Only one filter can be used at a time.
     -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
     -- apply to child jobs in an array or multi-node parallel (MNP) jobs. The
     -- results are sorted by the @createdAt@ field, with the most recent jobs
@@ -140,13 +113,40 @@ data ListJobs = ListJobs'
     --     string representation of the number of seconds since 00:00:00 UTC
     --     (midnight) on January 1, 1970.
     filters :: Prelude.Maybe [KeyValuesPair],
+    -- | The @nextToken@ value returned from a previous paginated @ListJobs@
+    -- request where @maxResults@ was used and the results exceeded the value
+    -- of that parameter. Pagination continues from the end of the previous
+    -- results that returned the @nextToken@ value. This value is @null@ when
+    -- there are no more results to return.
+    --
+    -- This token should be treated as an opaque identifier that\'s only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The job ID for a multi-node parallel job. Specifying a multi-node
     -- parallel job ID with this parameter lists all nodes that are associated
     -- with the specified job.
     multiNodeJobId :: Prelude.Maybe Prelude.Text,
+    -- | The job status used to filter jobs in the specified queue. If the
+    -- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+    -- and jobs with any status are returned. If you don\'t specify a status,
+    -- only @RUNNING@ jobs are returned.
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The job ID for an array job. Specifying an array job ID with this
     -- parameter lists all child jobs from within the specified array.
-    arrayJobId :: Prelude.Maybe Prelude.Text
+    arrayJobId :: Prelude.Maybe Prelude.Text,
+    -- | The name or full Amazon Resource Name (ARN) of the job queue used to
+    -- list jobs.
+    jobQueue :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results returned by @ListJobs@ in paginated
+    -- output. When this parameter is used, @ListJobs@ only returns
+    -- @maxResults@ results in a single page and a @nextToken@ response
+    -- element. The remaining results of the initial request can be seen by
+    -- sending another @ListJobs@ request with the returned @nextToken@ value.
+    -- This value can be between 1 and 100. If this parameter isn\'t used, then
+    -- @ListJobs@ returns up to 100 results and a @nextToken@ value if
+    -- applicable.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,33 +157,6 @@ data ListJobs = ListJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listJobs_nextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@
--- request where @maxResults@ was used and the results exceeded the value
--- of that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value. This value is @null@ when
--- there are no more results to return.
---
--- This token should be treated as an opaque identifier that\'s only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
---
--- 'maxResults', 'listJobs_maxResults' - The maximum number of results returned by @ListJobs@ in paginated
--- output. When this parameter is used, @ListJobs@ only returns
--- @maxResults@ results in a single page and a @nextToken@ response
--- element. The remaining results of the initial request can be seen by
--- sending another @ListJobs@ request with the returned @nextToken@ value.
--- This value can be between 1 and 100. If this parameter isn\'t used, then
--- @ListJobs@ returns up to 100 results and a @nextToken@ value if
--- applicable.
---
--- 'jobQueue', 'listJobs_jobQueue' - The name or full Amazon Resource Name (ARN) of the job queue used to
--- list jobs.
---
--- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
--- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
--- and jobs with any status are returned. If you don\'t specify a status,
--- only @RUNNING@ jobs are returned.
 --
 -- 'filters', 'listJobs_filters' - The filter to apply to the query. Only one filter can be used at a time.
 -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
@@ -228,26 +201,7 @@ data ListJobs = ListJobs'
 --     string representation of the number of seconds since 00:00:00 UTC
 --     (midnight) on January 1, 1970.
 --
--- 'multiNodeJobId', 'listJobs_multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node
--- parallel job ID with this parameter lists all nodes that are associated
--- with the specified job.
---
--- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
--- parameter lists all child jobs from within the specified array.
-newListJobs ::
-  ListJobs
-newListJobs =
-  ListJobs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      jobQueue = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      multiNodeJobId = Prelude.Nothing,
-      arrayJobId = Prelude.Nothing
-    }
-
--- | The @nextToken@ value returned from a previous paginated @ListJobs@
+-- 'nextToken', 'listJobs_nextToken' - The @nextToken@ value returned from a previous paginated @ListJobs@
 -- request where @maxResults@ was used and the results exceeded the value
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value. This value is @null@ when
@@ -256,10 +210,23 @@ newListJobs =
 -- This token should be treated as an opaque identifier that\'s only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
-
--- | The maximum number of results returned by @ListJobs@ in paginated
+--
+-- 'multiNodeJobId', 'listJobs_multiNodeJobId' - The job ID for a multi-node parallel job. Specifying a multi-node
+-- parallel job ID with this parameter lists all nodes that are associated
+-- with the specified job.
+--
+-- 'jobStatus', 'listJobs_jobStatus' - The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
+--
+-- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
+-- parameter lists all child jobs from within the specified array.
+--
+-- 'jobQueue', 'listJobs_jobQueue' - The name or full Amazon Resource Name (ARN) of the job queue used to
+-- list jobs.
+--
+-- 'maxResults', 'listJobs_maxResults' - The maximum number of results returned by @ListJobs@ in paginated
 -- output. When this parameter is used, @ListJobs@ only returns
 -- @maxResults@ results in a single page and a @nextToken@ response
 -- element. The remaining results of the initial request can be seen by
@@ -267,20 +234,18 @@ listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJob
 -- This value can be between 1 and 100. If this parameter isn\'t used, then
 -- @ListJobs@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
-
--- | The name or full Amazon Resource Name (ARN) of the job queue used to
--- list jobs.
-listJobs_jobQueue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_jobQueue = Lens.lens (\ListJobs' {jobQueue} -> jobQueue) (\s@ListJobs' {} a -> s {jobQueue = a} :: ListJobs)
-
--- | The job status used to filter jobs in the specified queue. If the
--- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
--- and jobs with any status are returned. If you don\'t specify a status,
--- only @RUNNING@ jobs are returned.
-listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
-listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
+newListJobs ::
+  ListJobs
+newListJobs =
+  ListJobs'
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      multiNodeJobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      arrayJobId = Prelude.Nothing,
+      jobQueue = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | The filter to apply to the query. Only one filter can be used at a time.
 -- When the filter is used, @jobStatus@ is ignored. The filter doesn\'t
@@ -325,7 +290,19 @@ listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJob
 --     string representation of the number of seconds since 00:00:00 UTC
 --     (midnight) on January 1, 1970.
 listJobs_filters :: Lens.Lens' ListJobs (Prelude.Maybe [KeyValuesPair])
-listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} a -> s {filters = a} :: ListJobs) Prelude.. Lens.mapping Lens._Coerce
+listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} a -> s {filters = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @nextToken@ value returned from a previous paginated @ListJobs@
+-- request where @maxResults@ was used and the results exceeded the value
+-- of that parameter. Pagination continues from the end of the previous
+-- results that returned the @nextToken@ value. This value is @null@ when
+-- there are no more results to return.
+--
+-- This token should be treated as an opaque identifier that\'s only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | The job ID for a multi-node parallel job. Specifying a multi-node
 -- parallel job ID with this parameter lists all nodes that are associated
@@ -333,10 +310,33 @@ listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} 
 listJobs_multiNodeJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJobId) (\s@ListJobs' {} a -> s {multiNodeJobId = a} :: ListJobs)
 
+-- | The job status used to filter jobs in the specified queue. If the
+-- @filters@ parameter is specified, the @jobStatus@ parameter is ignored
+-- and jobs with any status are returned. If you don\'t specify a status,
+-- only @RUNNING@ jobs are returned.
+listJobs_jobStatus :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
+listJobs_jobStatus = Lens.lens (\ListJobs' {jobStatus} -> jobStatus) (\s@ListJobs' {} a -> s {jobStatus = a} :: ListJobs)
+
 -- | The job ID for an array job. Specifying an array job ID with this
 -- parameter lists all child jobs from within the specified array.
 listJobs_arrayJobId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_arrayJobId = Lens.lens (\ListJobs' {arrayJobId} -> arrayJobId) (\s@ListJobs' {} a -> s {arrayJobId = a} :: ListJobs)
+
+-- | The name or full Amazon Resource Name (ARN) of the job queue used to
+-- list jobs.
+listJobs_jobQueue :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_jobQueue = Lens.lens (\ListJobs' {jobQueue} -> jobQueue) (\s@ListJobs' {} a -> s {jobQueue = a} :: ListJobs)
+
+-- | The maximum number of results returned by @ListJobs@ in paginated
+-- output. When this parameter is used, @ListJobs@ only returns
+-- @maxResults@ results in a single page and a @nextToken@ response
+-- element. The remaining results of the initial request can be seen by
+-- sending another @ListJobs@ request with the returned @nextToken@ value.
+-- This value can be between 1 and 100. If this parameter isn\'t used, then
+-- @ListJobs@ returns up to 100 results and a @nextToken@ value if
+-- applicable.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Int)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
@@ -388,14 +388,14 @@ instance Core.ToJSON ListJobs where
   toJSON ListJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("jobQueue" Core..=) Prelude.<$> jobQueue,
-            ("jobStatus" Core..=) Prelude.<$> jobStatus,
-            ("filters" Core..=) Prelude.<$> filters,
+          [ ("filters" Core..=) Prelude.<$> filters,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("multiNodeJobId" Core..=)
               Prelude.<$> multiNodeJobId,
-            ("arrayJobId" Core..=) Prelude.<$> arrayJobId
+            ("jobStatus" Core..=) Prelude.<$> jobStatus,
+            ("arrayJobId" Core..=) Prelude.<$> arrayJobId,
+            ("jobQueue" Core..=) Prelude.<$> jobQueue,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -459,6 +459,6 @@ listJobsResponse_httpStatus = Lens.lens (\ListJobsResponse' {httpStatus} -> http
 
 -- | A list of job summaries that match the request.
 listJobsResponse_jobSummaryList :: Lens.Lens' ListJobsResponse [JobSummary]
-listJobsResponse_jobSummaryList = Lens.lens (\ListJobsResponse' {jobSummaryList} -> jobSummaryList) (\s@ListJobsResponse' {} a -> s {jobSummaryList = a} :: ListJobsResponse) Prelude.. Lens._Coerce
+listJobsResponse_jobSummaryList = Lens.lens (\ListJobsResponse' {jobSummaryList} -> jobSummaryList) (\s@ListJobsResponse' {} a -> s {jobSummaryList = a} :: ListJobsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListJobsResponse

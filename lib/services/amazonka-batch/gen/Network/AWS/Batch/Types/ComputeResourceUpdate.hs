@@ -36,6 +36,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- specified for EC2 compute resources. Providing an empty list is handled
     -- as if this parameter wasn\'t specified and no change is made.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The VPC subnets where the compute resources are launched. Fargate
+    -- compute resources can contain up to 16 subnets. Providing an empty list
+    -- will be handled as if this parameter wasn\'t specified and no change is
+    -- made. This can\'t be specified for EC2 compute resources. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+    -- in the /Amazon VPC User Guide/.
+    subnets :: Prelude.Maybe [Prelude.Text],
     -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain.
     --
@@ -54,15 +62,7 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources, and shouldn\'t be specified.
-    desiredvCpus :: Prelude.Maybe Prelude.Int,
-    -- | The VPC subnets where the compute resources are launched. Fargate
-    -- compute resources can contain up to 16 subnets. Providing an empty list
-    -- will be handled as if this parameter wasn\'t specified and no change is
-    -- made. This can\'t be specified for EC2 compute resources. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
-    -- in the /Amazon VPC User Guide/.
-    subnets :: Prelude.Maybe [Prelude.Text]
+    desiredvCpus :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,6 +79,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- resources, where it can contain up to 5 security groups. This can\'t be
 -- specified for EC2 compute resources. Providing an empty list is handled
 -- as if this parameter wasn\'t specified and no change is made.
+--
+-- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- in the /Amazon VPC User Guide/.
 --
 -- 'minvCpus', 'computeResourceUpdate_minvCpus' - The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain.
@@ -98,24 +106,16 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources, and shouldn\'t be specified.
---
--- 'subnets', 'computeResourceUpdate_subnets' - The VPC subnets where the compute resources are launched. Fargate
--- compute resources can contain up to 16 subnets. Providing an empty list
--- will be handled as if this parameter wasn\'t specified and no change is
--- made. This can\'t be specified for EC2 compute resources. For more
--- information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/.
 newComputeResourceUpdate ::
   ComputeResourceUpdate
 newComputeResourceUpdate =
   ComputeResourceUpdate'
     { securityGroupIds =
         Prelude.Nothing,
+      subnets = Prelude.Nothing,
       minvCpus = Prelude.Nothing,
       maxvCpus = Prelude.Nothing,
-      desiredvCpus = Prelude.Nothing,
-      subnets = Prelude.Nothing
+      desiredvCpus = Prelude.Nothing
     }
 
 -- | The Amazon EC2 security groups associated with instances launched in the
@@ -124,7 +124,17 @@ newComputeResourceUpdate =
 -- specified for EC2 compute resources. Providing an empty list is handled
 -- as if this parameter wasn\'t specified and no change is made.
 computeResourceUpdate_securityGroupIds :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
-computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {securityGroupIds} -> securityGroupIds) (\s@ComputeResourceUpdate' {} a -> s {securityGroupIds = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens._Coerce
+computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {securityGroupIds} -> securityGroupIds) (\s@ComputeResourceUpdate' {} a -> s {securityGroupIds = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | The VPC subnets where the compute resources are launched. Fargate
+-- compute resources can contain up to 16 subnets. Providing an empty list
+-- will be handled as if this parameter wasn\'t specified and no change is
+-- made. This can\'t be specified for EC2 compute resources. For more
+-- information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
+-- in the /Amazon VPC User Guide/.
+computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
+computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain.
@@ -151,16 +161,6 @@ computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
--- | The VPC subnets where the compute resources are launched. Fargate
--- compute resources can contain up to 16 subnets. Providing an empty list
--- will be handled as if this parameter wasn\'t specified and no change is
--- made. This can\'t be specified for EC2 compute resources. For more
--- information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
--- in the /Amazon VPC User Guide/.
-computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
-computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Lens._Coerce
-
 instance Prelude.Hashable ComputeResourceUpdate
 
 instance Prelude.NFData ComputeResourceUpdate
@@ -171,9 +171,9 @@ instance Core.ToJSON ComputeResourceUpdate where
       ( Prelude.catMaybes
           [ ("securityGroupIds" Core..=)
               Prelude.<$> securityGroupIds,
+            ("subnets" Core..=) Prelude.<$> subnets,
             ("minvCpus" Core..=) Prelude.<$> minvCpus,
             ("maxvCpus" Core..=) Prelude.<$> maxvCpus,
-            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus,
-            ("subnets" Core..=) Prelude.<$> subnets
+            ("desiredvCpus" Core..=) Prelude.<$> desiredvCpus
           ]
       )

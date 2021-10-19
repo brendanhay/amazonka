@@ -213,13 +213,13 @@ newLogConfiguration pLogDriver_ =
 -- container instance, log into your container instance and run the
 -- following command: @sudo docker version | grep \"Server API version\"@
 logConfiguration_options :: Lens.Lens' LogConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (\s@LogConfiguration' {} a -> s {options = a} :: LogConfiguration) Prelude.. Lens.mapping Lens._Coerce
+logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (\s@LogConfiguration' {} a -> s {options = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The secrets to pass to the log configuration. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
 -- in the /Batch User Guide/.
 logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
-logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens._Coerce
+logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log driver to use for the container. The valid values listed for
 -- this parameter are log drivers that the Amazon ECS container agent can

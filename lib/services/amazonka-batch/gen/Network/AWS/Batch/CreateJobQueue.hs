@@ -170,7 +170,7 @@ createJobQueue_state = Lens.lens (\CreateJobQueue' {state} -> state) (\s@CreateJ
 -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
 -- in /Batch User Guide/.
 createJobQueue_tags :: Lens.Lens' CreateJobQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJobQueue_tags = Lens.lens (\CreateJobQueue' {tags} -> tags) (\s@CreateJobQueue' {} a -> s {tags = a} :: CreateJobQueue) Prelude.. Lens.mapping Lens._Coerce
+createJobQueue_tags = Lens.lens (\CreateJobQueue' {tags} -> tags) (\s@CreateJobQueue' {} a -> s {tags = a} :: CreateJobQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job queue. Up to 128 letters (uppercase and lowercase),
 -- numbers, and underscores are allowed.
@@ -201,7 +201,7 @@ createJobQueue_priority = Lens.lens (\CreateJobQueue' {priority} -> priority) (\
 -- the same architecture. Batch doesn\'t support mixing compute environment
 -- architecture types in a single job queue.
 createJobQueue_computeEnvironmentOrder :: Lens.Lens' CreateJobQueue [ComputeEnvironmentOrder]
-createJobQueue_computeEnvironmentOrder = Lens.lens (\CreateJobQueue' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@CreateJobQueue' {} a -> s {computeEnvironmentOrder = a} :: CreateJobQueue) Prelude.. Lens._Coerce
+createJobQueue_computeEnvironmentOrder = Lens.lens (\CreateJobQueue' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@CreateJobQueue' {} a -> s {computeEnvironmentOrder = a} :: CreateJobQueue) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateJobQueue where
   type

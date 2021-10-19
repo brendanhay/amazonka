@@ -30,41 +30,28 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLinuxParameters' smart constructor.
 data LinuxParameters = LinuxParameters'
-  { -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
+  { -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
+    -- parameter maps to the @--shm-size@ option to
+    -- <https://docs.docker.com/engine/reference/run/ docker run>.
+    --
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
+    sharedMemorySize :: Prelude.Maybe Prelude.Int,
+    -- | If true, run an @init@ process inside the container that forwards
+    -- signals and reaps processes. This parameter maps to the @--init@ option
+    -- to <https://docs.docker.com/engine/reference/run/ docker run>. This
+    -- parameter requires version 1.25 of the Docker Remote API or greater on
+    -- your container instance. To check the Docker Remote API version on your
+    -- container instance, log into your container instance and run the
+    -- following command: @sudo docker version | grep \"Server API version\"@
+    initProcessEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
     -- This parameter maps to the @--tmpfs@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided.
     tmpfs :: Prelude.Maybe [Tmpfs],
-    -- | The total amount of swap memory (in MiB) a container can use. This
-    -- parameter is translated to the @--memory-swap@ option to
-    -- <https://docs.docker.com/engine/reference/run/ docker run> where the
-    -- value is the sum of the container memory plus the @maxSwap@ value. For
-    -- more information, see
-    -- <https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details --memory-swap details>
-    -- in the Docker documentation.
-    --
-    -- If a @maxSwap@ value of @0@ is specified, the container doesn\'t use
-    -- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@
-    -- parameter is omitted, the container doesn\'t use the swap configuration
-    -- for the container instance it is running on. A @maxSwap@ value must be
-    -- set for the @swappiness@ parameter to be used.
-    --
-    -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources and shouldn\'t be provided.
-    maxSwap :: Prelude.Maybe Prelude.Int,
-    -- | Any host devices to expose to the container. This parameter maps to
-    -- @Devices@ in the
-    -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
-    -- section of the
-    -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
-    -- @--device@ option to
-    -- <https://docs.docker.com/engine/reference/run/ docker run>.
-    --
-    -- This parameter isn\'t applicable to jobs that are running on Fargate
-    -- resources and shouldn\'t be provided.
-    devices :: Prelude.Maybe [Device],
     -- | This allows you to tune a container\'s memory swappiness behavior. A
     -- @swappiness@ value of @0@ causes swapping not to happen unless
     -- absolutely necessary. A @swappiness@ value of @100@ causes pages to be
@@ -98,21 +85,34 @@ data LinuxParameters = LinuxParameters'
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided.
     swappiness :: Prelude.Maybe Prelude.Int,
-    -- | If true, run an @init@ process inside the container that forwards
-    -- signals and reaps processes. This parameter maps to the @--init@ option
-    -- to <https://docs.docker.com/engine/reference/run/ docker run>. This
-    -- parameter requires version 1.25 of the Docker Remote API or greater on
-    -- your container instance. To check the Docker Remote API version on your
-    -- container instance, log into your container instance and run the
-    -- following command: @sudo docker version | grep \"Server API version\"@
-    initProcessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
-    -- parameter maps to the @--shm-size@ option to
+    -- | Any host devices to expose to the container. This parameter maps to
+    -- @Devices@ in the
+    -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+    -- section of the
+    -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+    -- @--device@ option to
     -- <https://docs.docker.com/engine/reference/run/ docker run>.
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided.
-    sharedMemorySize :: Prelude.Maybe Prelude.Int
+    devices :: Prelude.Maybe [Device],
+    -- | The total amount of swap memory (in MiB) a container can use. This
+    -- parameter is translated to the @--memory-swap@ option to
+    -- <https://docs.docker.com/engine/reference/run/ docker run> where the
+    -- value is the sum of the container memory plus the @maxSwap@ value. For
+    -- more information, see
+    -- <https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details --memory-swap details>
+    -- in the Docker documentation.
+    --
+    -- If a @maxSwap@ value of @0@ is specified, the container doesn\'t use
+    -- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@
+    -- parameter is omitted, the container doesn\'t use the swap configuration
+    -- for the container instance it is running on. A @maxSwap@ value must be
+    -- set for the @swappiness@ parameter to be used.
+    --
+    -- This parameter isn\'t applicable to jobs that are running on Fargate
+    -- resources and shouldn\'t be provided.
+    maxSwap :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,36 +124,23 @@ data LinuxParameters = LinuxParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
--- This parameter maps to the @--tmpfs@ option to
+-- 'sharedMemorySize', 'linuxParameters_sharedMemorySize' - The value for the size (in MiB) of the @\/dev\/shm@ volume. This
+-- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
 --
--- 'maxSwap', 'linuxParameters_maxSwap' - The total amount of swap memory (in MiB) a container can use. This
--- parameter is translated to the @--memory-swap@ option to
--- <https://docs.docker.com/engine/reference/run/ docker run> where the
--- value is the sum of the container memory plus the @maxSwap@ value. For
--- more information, see
--- <https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details --memory-swap details>
--- in the Docker documentation.
+-- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - If true, run an @init@ process inside the container that forwards
+-- signals and reaps processes. This parameter maps to the @--init@ option
+-- to <https://docs.docker.com/engine/reference/run/ docker run>. This
+-- parameter requires version 1.25 of the Docker Remote API or greater on
+-- your container instance. To check the Docker Remote API version on your
+-- container instance, log into your container instance and run the
+-- following command: @sudo docker version | grep \"Server API version\"@
 --
--- If a @maxSwap@ value of @0@ is specified, the container doesn\'t use
--- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@
--- parameter is omitted, the container doesn\'t use the swap configuration
--- for the container instance it is running on. A @maxSwap@ value must be
--- set for the @swappiness@ parameter to be used.
---
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided.
---
--- 'devices', 'linuxParameters_devices' - Any host devices to expose to the container. This parameter maps to
--- @Devices@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--device@ option to
+-- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
+-- This parameter maps to the @--tmpfs@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
@@ -192,42 +179,18 @@ data LinuxParameters = LinuxParameters'
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
 --
--- 'initProcessEnabled', 'linuxParameters_initProcessEnabled' - If true, run an @init@ process inside the container that forwards
--- signals and reaps processes. This parameter maps to the @--init@ option
--- to <https://docs.docker.com/engine/reference/run/ docker run>. This
--- parameter requires version 1.25 of the Docker Remote API or greater on
--- your container instance. To check the Docker Remote API version on your
--- container instance, log into your container instance and run the
--- following command: @sudo docker version | grep \"Server API version\"@
---
--- 'sharedMemorySize', 'linuxParameters_sharedMemorySize' - The value for the size (in MiB) of the @\/dev\/shm@ volume. This
--- parameter maps to the @--shm-size@ option to
+-- 'devices', 'linuxParameters_devices' - Any host devices to expose to the container. This parameter maps to
+-- @Devices@ in the
+-- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+-- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
-newLinuxParameters ::
-  LinuxParameters
-newLinuxParameters =
-  LinuxParameters'
-    { tmpfs = Prelude.Nothing,
-      maxSwap = Prelude.Nothing,
-      devices = Prelude.Nothing,
-      swappiness = Prelude.Nothing,
-      initProcessEnabled = Prelude.Nothing,
-      sharedMemorySize = Prelude.Nothing
-    }
-
--- | The container path, mount options, and size (in MiB) of the tmpfs mount.
--- This parameter maps to the @--tmpfs@ option to
--- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
--- This parameter isn\'t applicable to jobs that are running on Fargate
--- resources and shouldn\'t be provided.
-linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
-linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens._Coerce
-
--- | The total amount of swap memory (in MiB) a container can use. This
+-- 'maxSwap', 'linuxParameters_maxSwap' - The total amount of swap memory (in MiB) a container can use. This
 -- parameter is translated to the @--memory-swap@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run> where the
 -- value is the sum of the container memory plus the @maxSwap@ value. For
@@ -243,21 +206,46 @@ linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@Linux
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
-linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
-linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
+newLinuxParameters ::
+  LinuxParameters
+newLinuxParameters =
+  LinuxParameters'
+    { sharedMemorySize =
+        Prelude.Nothing,
+      initProcessEnabled = Prelude.Nothing,
+      tmpfs = Prelude.Nothing,
+      swappiness = Prelude.Nothing,
+      devices = Prelude.Nothing,
+      maxSwap = Prelude.Nothing
+    }
 
--- | Any host devices to expose to the container. This parameter maps to
--- @Devices@ in the
--- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
--- @--device@ option to
+-- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
+-- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
-linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
-linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Lens._Coerce
+linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
+
+-- | If true, run an @init@ process inside the container that forwards
+-- signals and reaps processes. This parameter maps to the @--init@ option
+-- to <https://docs.docker.com/engine/reference/run/ docker run>. This
+-- parameter requires version 1.25 of the Docker Remote API or greater on
+-- your container instance. To check the Docker Remote API version on your
+-- container instance, log into your container instance and run the
+-- following command: @sudo docker version | grep \"Server API version\"@
+linuxParameters_initProcessEnabled :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Bool)
+linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEnabled} -> initProcessEnabled) (\s@LinuxParameters' {} a -> s {initProcessEnabled = a} :: LinuxParameters)
+
+-- | The container path, mount options, and size (in MiB) of the tmpfs mount.
+-- This parameter maps to the @--tmpfs@ option to
+-- <https://docs.docker.com/engine/reference/run/ docker run>.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
+linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
+linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | This allows you to tune a container\'s memory swappiness behavior. A
 -- @swappiness@ value of @0@ causes swapping not to happen unless
@@ -294,24 +282,37 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
 
--- | If true, run an @init@ process inside the container that forwards
--- signals and reaps processes. This parameter maps to the @--init@ option
--- to <https://docs.docker.com/engine/reference/run/ docker run>. This
--- parameter requires version 1.25 of the Docker Remote API or greater on
--- your container instance. To check the Docker Remote API version on your
--- container instance, log into your container instance and run the
--- following command: @sudo docker version | grep \"Server API version\"@
-linuxParameters_initProcessEnabled :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Bool)
-linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEnabled} -> initProcessEnabled) (\s@LinuxParameters' {} a -> s {initProcessEnabled = a} :: LinuxParameters)
-
--- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
--- parameter maps to the @--shm-size@ option to
+-- | Any host devices to expose to the container. This parameter maps to
+-- @Devices@ in the
+-- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
+-- @--device@ option to
 -- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
-linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
-linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
+linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
+linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Lens.coerced
+
+-- | The total amount of swap memory (in MiB) a container can use. This
+-- parameter is translated to the @--memory-swap@ option to
+-- <https://docs.docker.com/engine/reference/run/ docker run> where the
+-- value is the sum of the container memory plus the @maxSwap@ value. For
+-- more information, see
+-- <https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details --memory-swap details>
+-- in the Docker documentation.
+--
+-- If a @maxSwap@ value of @0@ is specified, the container doesn\'t use
+-- swap. Accepted values are @0@ or any positive integer. If the @maxSwap@
+-- parameter is omitted, the container doesn\'t use the swap configuration
+-- for the container instance it is running on. A @maxSwap@ value must be
+-- set for the @swappiness@ parameter to be used.
+--
+-- This parameter isn\'t applicable to jobs that are running on Fargate
+-- resources and shouldn\'t be provided.
+linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 
 instance Core.FromJSON LinuxParameters where
   parseJSON =
@@ -319,12 +320,12 @@ instance Core.FromJSON LinuxParameters where
       "LinuxParameters"
       ( \x ->
           LinuxParameters'
-            Prelude.<$> (x Core..:? "tmpfs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "maxSwap")
-            Prelude.<*> (x Core..:? "devices" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "swappiness")
+            Prelude.<$> (x Core..:? "sharedMemorySize")
             Prelude.<*> (x Core..:? "initProcessEnabled")
-            Prelude.<*> (x Core..:? "sharedMemorySize")
+            Prelude.<*> (x Core..:? "tmpfs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "swappiness")
+            Prelude.<*> (x Core..:? "devices" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "maxSwap")
       )
 
 instance Prelude.Hashable LinuxParameters
@@ -335,13 +336,13 @@ instance Core.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tmpfs" Core..=) Prelude.<$> tmpfs,
-            ("maxSwap" Core..=) Prelude.<$> maxSwap,
-            ("devices" Core..=) Prelude.<$> devices,
-            ("swappiness" Core..=) Prelude.<$> swappiness,
+          [ ("sharedMemorySize" Core..=)
+              Prelude.<$> sharedMemorySize,
             ("initProcessEnabled" Core..=)
               Prelude.<$> initProcessEnabled,
-            ("sharedMemorySize" Core..=)
-              Prelude.<$> sharedMemorySize
+            ("tmpfs" Core..=) Prelude.<$> tmpfs,
+            ("swappiness" Core..=) Prelude.<$> swappiness,
+            ("devices" Core..=) Prelude.<$> devices,
+            ("maxSwap" Core..=) Prelude.<$> maxSwap
           ]
       )

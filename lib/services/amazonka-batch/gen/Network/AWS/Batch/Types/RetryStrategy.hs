@@ -70,7 +70,7 @@ newRetryStrategy =
 -- should be retried or failed. If this parameter is specified, then the
 -- @attempts@ parameter must also be specified.
 retryStrategy_evaluateOnExit :: Lens.Lens' RetryStrategy (Prelude.Maybe [EvaluateOnExit])
-retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> evaluateOnExit) (\s@RetryStrategy' {} a -> s {evaluateOnExit = a} :: RetryStrategy) Prelude.. Lens.mapping Lens._Coerce
+retryStrategy_evaluateOnExit = Lens.lens (\RetryStrategy' {evaluateOnExit} -> evaluateOnExit) (\s@RetryStrategy' {} a -> s {evaluateOnExit = a} :: RetryStrategy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of times to move a job to the @RUNNABLE@ status. You can
 -- specify between 1 and 10 attempts. If the value of @attempts@ is greater

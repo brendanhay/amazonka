@@ -17,8 +17,8 @@ module Network.AWS.Batch.Types
     defaultService,
 
     -- * Errors
-    _ClientException,
     _ServerException,
+    _ClientException,
 
     -- * ArrayJobDependency
     ArrayJobDependency (..),
@@ -82,44 +82,44 @@ module Network.AWS.Batch.Types
     -- * ArrayPropertiesDetail
     ArrayPropertiesDetail (..),
     newArrayPropertiesDetail,
-    arrayPropertiesDetail_index,
-    arrayPropertiesDetail_statusSummary,
     arrayPropertiesDetail_size,
+    arrayPropertiesDetail_statusSummary,
+    arrayPropertiesDetail_index,
 
     -- * ArrayPropertiesSummary
     ArrayPropertiesSummary (..),
     newArrayPropertiesSummary,
-    arrayPropertiesSummary_index,
     arrayPropertiesSummary_size,
+    arrayPropertiesSummary_index,
 
     -- * AttemptContainerDetail
     AttemptContainerDetail (..),
     newAttemptContainerDetail,
-    attemptContainerDetail_logStreamName,
-    attemptContainerDetail_containerInstanceArn,
-    attemptContainerDetail_exitCode,
-    attemptContainerDetail_reason,
     attemptContainerDetail_networkInterfaces,
     attemptContainerDetail_taskArn,
+    attemptContainerDetail_containerInstanceArn,
+    attemptContainerDetail_reason,
+    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_exitCode,
 
     -- * AttemptDetail
     AttemptDetail (..),
     newAttemptDetail,
-    attemptDetail_container,
-    attemptDetail_startedAt,
     attemptDetail_stoppedAt,
+    attemptDetail_startedAt,
+    attemptDetail_container,
     attemptDetail_statusReason,
 
     -- * ComputeEnvironmentDetail
     ComputeEnvironmentDetail (..),
     newComputeEnvironmentDetail,
     computeEnvironmentDetail_status,
-    computeEnvironmentDetail_serviceRole,
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_computeResources,
-    computeEnvironmentDetail_tags,
-    computeEnvironmentDetail_type,
     computeEnvironmentDetail_statusReason,
+    computeEnvironmentDetail_type,
+    computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_tags,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -134,19 +134,19 @@ module Network.AWS.Batch.Types
     ComputeResource (..),
     newComputeResource,
     computeResource_securityGroupIds,
-    computeResource_bidPercentage,
-    computeResource_minvCpus,
+    computeResource_instanceTypes,
+    computeResource_instanceRole,
     computeResource_ec2KeyPair,
-    computeResource_placementGroup,
-    computeResource_launchTemplate,
-    computeResource_imageId,
-    computeResource_spotIamFleetRole,
+    computeResource_minvCpus,
     computeResource_ec2Configuration,
-    computeResource_tags,
+    computeResource_bidPercentage,
+    computeResource_spotIamFleetRole,
+    computeResource_imageId,
+    computeResource_launchTemplate,
     computeResource_desiredvCpus,
     computeResource_allocationStrategy,
-    computeResource_instanceRole,
-    computeResource_instanceTypes,
+    computeResource_placementGroup,
+    computeResource_tags,
     computeResource_type,
     computeResource_maxvCpus,
     computeResource_subnets,
@@ -155,86 +155,86 @@ module Network.AWS.Batch.Types
     ComputeResourceUpdate (..),
     newComputeResourceUpdate,
     computeResourceUpdate_securityGroupIds,
+    computeResourceUpdate_subnets,
     computeResourceUpdate_minvCpus,
     computeResourceUpdate_maxvCpus,
     computeResourceUpdate_desiredvCpus,
-    computeResourceUpdate_subnets,
 
     -- * ContainerDetail
     ContainerDetail (..),
     newContainerDetail,
-    containerDetail_logStreamName,
-    containerDetail_linuxParameters,
-    containerDetail_memory,
-    containerDetail_instanceType,
-    containerDetail_user,
-    containerDetail_networkConfiguration,
-    containerDetail_containerInstanceArn,
-    containerDetail_privileged,
-    containerDetail_volumes,
-    containerDetail_vcpus,
-    containerDetail_executionRoleArn,
-    containerDetail_environment,
-    containerDetail_fargatePlatformConfiguration,
-    containerDetail_exitCode,
-    containerDetail_secrets,
-    containerDetail_mountPoints,
-    containerDetail_command,
     containerDetail_image,
-    containerDetail_logConfiguration,
-    containerDetail_reason,
-    containerDetail_resourceRequirements,
-    containerDetail_jobRoleArn,
-    containerDetail_ulimits,
-    containerDetail_readonlyRootFilesystem,
+    containerDetail_command,
+    containerDetail_secrets,
+    containerDetail_environment,
     containerDetail_networkInterfaces,
     containerDetail_taskArn,
+    containerDetail_ulimits,
+    containerDetail_containerInstanceArn,
+    containerDetail_executionRoleArn,
+    containerDetail_privileged,
+    containerDetail_jobRoleArn,
+    containerDetail_resourceRequirements,
+    containerDetail_instanceType,
+    containerDetail_memory,
+    containerDetail_user,
+    containerDetail_logConfiguration,
+    containerDetail_linuxParameters,
+    containerDetail_reason,
+    containerDetail_logStreamName,
+    containerDetail_mountPoints,
+    containerDetail_exitCode,
+    containerDetail_fargatePlatformConfiguration,
+    containerDetail_vcpus,
+    containerDetail_readonlyRootFilesystem,
+    containerDetail_volumes,
+    containerDetail_networkConfiguration,
 
     -- * ContainerOverrides
     ContainerOverrides (..),
     newContainerOverrides,
-    containerOverrides_memory,
-    containerOverrides_instanceType,
-    containerOverrides_vcpus,
-    containerOverrides_environment,
     containerOverrides_command,
+    containerOverrides_environment,
     containerOverrides_resourceRequirements,
+    containerOverrides_instanceType,
+    containerOverrides_memory,
+    containerOverrides_vcpus,
 
     -- * ContainerProperties
     ContainerProperties (..),
     newContainerProperties,
-    containerProperties_linuxParameters,
-    containerProperties_memory,
-    containerProperties_instanceType,
-    containerProperties_user,
-    containerProperties_networkConfiguration,
-    containerProperties_privileged,
-    containerProperties_volumes,
-    containerProperties_vcpus,
-    containerProperties_executionRoleArn,
-    containerProperties_environment,
-    containerProperties_fargatePlatformConfiguration,
-    containerProperties_secrets,
-    containerProperties_mountPoints,
-    containerProperties_command,
     containerProperties_image,
-    containerProperties_logConfiguration,
-    containerProperties_resourceRequirements,
-    containerProperties_jobRoleArn,
+    containerProperties_command,
+    containerProperties_secrets,
+    containerProperties_environment,
     containerProperties_ulimits,
+    containerProperties_executionRoleArn,
+    containerProperties_privileged,
+    containerProperties_jobRoleArn,
+    containerProperties_resourceRequirements,
+    containerProperties_instanceType,
+    containerProperties_memory,
+    containerProperties_user,
+    containerProperties_logConfiguration,
+    containerProperties_linuxParameters,
+    containerProperties_mountPoints,
+    containerProperties_fargatePlatformConfiguration,
+    containerProperties_vcpus,
     containerProperties_readonlyRootFilesystem,
+    containerProperties_volumes,
+    containerProperties_networkConfiguration,
 
     -- * ContainerSummary
     ContainerSummary (..),
     newContainerSummary,
-    containerSummary_exitCode,
     containerSummary_reason,
+    containerSummary_exitCode,
 
     -- * Device
     Device (..),
     newDevice,
-    device_permissions,
     device_containerPath,
+    device_permissions,
     device_hostPath,
 
     -- * EFSAuthorizationConfig
@@ -246,10 +246,10 @@ module Network.AWS.Batch.Types
     -- * EFSVolumeConfiguration
     EFSVolumeConfiguration (..),
     newEFSVolumeConfiguration,
-    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_rootDirectory,
-    eFSVolumeConfiguration_authorizationConfig,
     eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_fileSystemId,
 
     -- * Ec2Configuration
@@ -262,8 +262,8 @@ module Network.AWS.Batch.Types
     EvaluateOnExit (..),
     newEvaluateOnExit,
     evaluateOnExit_onExitCode,
-    evaluateOnExit_onStatusReason,
     evaluateOnExit_onReason,
+    evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
     -- * FargatePlatformConfiguration
@@ -280,14 +280,14 @@ module Network.AWS.Batch.Types
     JobDefinition (..),
     newJobDefinition,
     jobDefinition_status,
+    jobDefinition_propagateTags,
+    jobDefinition_retryStrategy,
     jobDefinition_platformCapabilities,
+    jobDefinition_parameters,
     jobDefinition_timeout,
+    jobDefinition_containerProperties,
     jobDefinition_nodeProperties,
     jobDefinition_tags,
-    jobDefinition_containerProperties,
-    jobDefinition_retryStrategy,
-    jobDefinition_parameters,
-    jobDefinition_propagateTags,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
     jobDefinition_revision,
@@ -296,29 +296,29 @@ module Network.AWS.Batch.Types
     -- * JobDependency
     JobDependency (..),
     newJobDependency,
-    jobDependency_type,
     jobDependency_jobId,
+    jobDependency_type,
 
     -- * JobDetail
     JobDetail (..),
     newJobDetail,
-    jobDetail_container,
-    jobDetail_dependsOn,
-    jobDetail_startedAt,
-    jobDetail_platformCapabilities,
-    jobDetail_timeout,
-    jobDetail_arrayProperties,
-    jobDetail_createdAt,
-    jobDetail_jobArn,
-    jobDetail_nodeDetails,
     jobDetail_stoppedAt,
+    jobDetail_jobArn,
+    jobDetail_propagateTags,
+    jobDetail_createdAt,
+    jobDetail_retryStrategy,
+    jobDetail_attempts,
+    jobDetail_platformCapabilities,
+    jobDetail_startedAt,
+    jobDetail_dependsOn,
+    jobDetail_container,
+    jobDetail_nodeDetails,
+    jobDetail_parameters,
+    jobDetail_statusReason,
+    jobDetail_arrayProperties,
+    jobDetail_timeout,
     jobDetail_nodeProperties,
     jobDetail_tags,
-    jobDetail_attempts,
-    jobDetail_retryStrategy,
-    jobDetail_statusReason,
-    jobDetail_parameters,
-    jobDetail_propagateTags,
     jobDetail_jobName,
     jobDetail_jobId,
     jobDetail_jobQueue,
@@ -329,8 +329,8 @@ module Network.AWS.Batch.Types
     JobQueueDetail (..),
     newJobQueueDetail,
     jobQueueDetail_status,
-    jobQueueDetail_tags,
     jobQueueDetail_statusReason,
+    jobQueueDetail_tags,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -340,16 +340,16 @@ module Network.AWS.Batch.Types
     -- * JobSummary
     JobSummary (..),
     newJobSummary,
-    jobSummary_container,
-    jobSummary_startedAt,
-    jobSummary_status,
-    jobSummary_arrayProperties,
-    jobSummary_createdAt,
-    jobSummary_jobArn,
-    jobSummary_jobDefinition,
     jobSummary_stoppedAt,
-    jobSummary_nodeProperties,
+    jobSummary_status,
+    jobSummary_jobArn,
+    jobSummary_createdAt,
+    jobSummary_startedAt,
+    jobSummary_container,
+    jobSummary_jobDefinition,
     jobSummary_statusReason,
+    jobSummary_arrayProperties,
+    jobSummary_nodeProperties,
     jobSummary_jobId,
     jobSummary_jobName,
 
@@ -361,8 +361,8 @@ module Network.AWS.Batch.Types
     -- * KeyValuePair
     KeyValuePair (..),
     newKeyValuePair,
-    keyValuePair_name,
     keyValuePair_value,
+    keyValuePair_name,
 
     -- * KeyValuesPair
     KeyValuesPair (..),
@@ -373,19 +373,19 @@ module Network.AWS.Batch.Types
     -- * LaunchTemplateSpecification
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
+    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
-    launchTemplateSpecification_launchTemplateName,
 
     -- * LinuxParameters
     LinuxParameters (..),
     newLinuxParameters,
-    linuxParameters_tmpfs,
-    linuxParameters_maxSwap,
-    linuxParameters_devices,
-    linuxParameters_swappiness,
-    linuxParameters_initProcessEnabled,
     linuxParameters_sharedMemorySize,
+    linuxParameters_initProcessEnabled,
+    linuxParameters_tmpfs,
+    linuxParameters_swappiness,
+    linuxParameters_devices,
+    linuxParameters_maxSwap,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -397,9 +397,9 @@ module Network.AWS.Batch.Types
     -- * MountPoint
     MountPoint (..),
     newMountPoint,
-    mountPoint_readOnly,
-    mountPoint_sourceVolume,
     mountPoint_containerPath,
+    mountPoint_sourceVolume,
+    mountPoint_readOnly,
 
     -- * NetworkConfiguration
     NetworkConfiguration (..),
@@ -409,21 +409,21 @@ module Network.AWS.Batch.Types
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
-    networkInterface_privateIpv4Address,
     networkInterface_ipv6Address,
+    networkInterface_privateIpv4Address,
     networkInterface_attachmentId,
 
     -- * NodeDetails
     NodeDetails (..),
     newNodeDetails,
-    nodeDetails_isMainNode,
     nodeDetails_nodeIndex,
+    nodeDetails_isMainNode,
 
     -- * NodeOverrides
     NodeOverrides (..),
     newNodeOverrides,
-    nodeOverrides_nodePropertyOverrides,
     nodeOverrides_numNodes,
+    nodeOverrides_nodePropertyOverrides,
 
     -- * NodeProperties
     NodeProperties (..),
@@ -435,9 +435,9 @@ module Network.AWS.Batch.Types
     -- * NodePropertiesSummary
     NodePropertiesSummary (..),
     newNodePropertiesSummary,
-    nodePropertiesSummary_isMainNode,
-    nodePropertiesSummary_nodeIndex,
     nodePropertiesSummary_numNodes,
+    nodePropertiesSummary_nodeIndex,
+    nodePropertiesSummary_isMainNode,
 
     -- * NodePropertyOverride
     NodePropertyOverride (..),
@@ -487,8 +487,8 @@ module Network.AWS.Batch.Types
     Volume (..),
     newVolume,
     volume_name,
-    volume_host,
     volume_efsVolumeConfiguration,
+    volume_host,
   )
 where
 
@@ -586,37 +586,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -629,7 +606,38 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | These errors are usually caused by a server issue.
+_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError
+    defaultService
+    "ServerException"
+    Prelude.. Core.hasStatus 500
 
 -- | These errors are usually caused by a client action, such as using an
 -- action or resource on behalf of a user that doesn\'t have permissions to
@@ -641,11 +649,3 @@ _ClientException =
     defaultService
     "ClientException"
     Prelude.. Core.hasStatus 400
-
--- | These errors are usually caused by a server issue.
-_ServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerException =
-  Core._MatchServiceError
-    defaultService
-    "ServerException"
-    Prelude.. Core.hasStatus 500

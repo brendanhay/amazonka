@@ -33,6 +33,10 @@ data Volume = Volume'
     -- numbers, hyphens, and underscores are allowed. This name is referenced
     -- in the @sourceVolume@ parameter of container definition @mountPoints@.
     name :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is specified when you are using an Amazon Elastic File
+    -- System file system for job storage. Jobs that are running on Fargate
+    -- resources must specify a @platformVersion@ of at least @1.4.0@.
+    efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
     -- | The contents of the @host@ parameter determine whether your data volume
     -- persists on the host container instance and where it is stored. If the
     -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -41,11 +45,7 @@ data Volume = Volume'
     --
     -- This parameter isn\'t applicable to jobs that are running on Fargate
     -- resources and shouldn\'t be provided.
-    host :: Prelude.Maybe Host,
-    -- | This parameter is specified when you are using an Amazon Elastic File
-    -- System file system for job storage. Jobs that are running on Fargate
-    -- resources must specify a @platformVersion@ of at least @1.4.0@.
-    efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration
+    host :: Prelude.Maybe Host
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,6 +61,10 @@ data Volume = Volume'
 -- numbers, hyphens, and underscores are allowed. This name is referenced
 -- in the @sourceVolume@ parameter of container definition @mountPoints@.
 --
+-- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File
+-- System file system for job storage. Jobs that are running on Fargate
+-- resources must specify a @platformVersion@ of at least @1.4.0@.
+--
 -- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it is stored. If the
 -- host parameter is empty, then the Docker daemon assigns a host path for
@@ -69,17 +73,13 @@ data Volume = Volume'
 --
 -- This parameter isn\'t applicable to jobs that are running on Fargate
 -- resources and shouldn\'t be provided.
---
--- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File
--- System file system for job storage. Jobs that are running on Fargate
--- resources must specify a @platformVersion@ of at least @1.4.0@.
 newVolume ::
   Volume
 newVolume =
   Volume'
     { name = Prelude.Nothing,
-      host = Prelude.Nothing,
-      efsVolumeConfiguration = Prelude.Nothing
+      efsVolumeConfiguration = Prelude.Nothing,
+      host = Prelude.Nothing
     }
 
 -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
@@ -87,6 +87,12 @@ newVolume =
 -- in the @sourceVolume@ parameter of container definition @mountPoints@.
 volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
+
+-- | This parameter is specified when you are using an Amazon Elastic File
+-- System file system for job storage. Jobs that are running on Fargate
+-- resources must specify a @platformVersion@ of at least @1.4.0@.
+volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
+volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
 
 -- | The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it is stored. If the
@@ -99,12 +105,6 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 volume_host :: Lens.Lens' Volume (Prelude.Maybe Host)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
--- | This parameter is specified when you are using an Amazon Elastic File
--- System file system for job storage. Jobs that are running on Fargate
--- resources must specify a @platformVersion@ of at least @1.4.0@.
-volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
-volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
-
 instance Core.FromJSON Volume where
   parseJSON =
     Core.withObject
@@ -112,8 +112,8 @@ instance Core.FromJSON Volume where
       ( \x ->
           Volume'
             Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "host")
             Prelude.<*> (x Core..:? "efsVolumeConfiguration")
+            Prelude.<*> (x Core..:? "host")
       )
 
 instance Prelude.Hashable Volume
@@ -125,8 +125,8 @@ instance Core.ToJSON Volume where
     Core.object
       ( Prelude.catMaybes
           [ ("name" Core..=) Prelude.<$> name,
-            ("host" Core..=) Prelude.<$> host,
             ("efsVolumeConfiguration" Core..=)
-              Prelude.<$> efsVolumeConfiguration
+              Prelude.<$> efsVolumeConfiguration,
+            ("host" Core..=) Prelude.<$> host
           ]
       )

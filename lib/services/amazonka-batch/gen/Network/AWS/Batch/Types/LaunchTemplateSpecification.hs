@@ -37,7 +37,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { -- | The ID of the launch template.
+  { -- | The name of the launch template.
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the launch template.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The version number of the launch template, @$Latest@, or @$Default@.
     --
@@ -53,9 +55,7 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     -- environment from the job queue, and delete the old compute environment.
     --
     -- Default: @$Default@.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,8 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template.
 --
@@ -83,17 +85,19 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- environment from the job queue, and delete the old compute environment.
 --
 -- Default: @$Default@.
---
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template.
 newLaunchTemplateSpecification ::
   LaunchTemplateSpecification
 newLaunchTemplateSpecification =
   LaunchTemplateSpecification'
-    { launchTemplateId =
+    { launchTemplateName =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing
+      launchTemplateId = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The name of the launch template.
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The ID of the launch template.
 launchTemplateSpecification_launchTemplateId :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
@@ -116,19 +120,15 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
--- | The name of the launch template.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
-
 instance Core.FromJSON LaunchTemplateSpecification where
   parseJSON =
     Core.withObject
       "LaunchTemplateSpecification"
       ( \x ->
           LaunchTemplateSpecification'
-            Prelude.<$> (x Core..:? "launchTemplateId")
+            Prelude.<$> (x Core..:? "launchTemplateName")
+            Prelude.<*> (x Core..:? "launchTemplateId")
             Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "launchTemplateName")
       )
 
 instance Prelude.Hashable LaunchTemplateSpecification
@@ -139,10 +139,10 @@ instance Core.ToJSON LaunchTemplateSpecification where
   toJSON LaunchTemplateSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("launchTemplateId" Core..=)
+          [ ("launchTemplateName" Core..=)
+              Prelude.<$> launchTemplateName,
+            ("launchTemplateId" Core..=)
               Prelude.<$> launchTemplateId,
-            ("version" Core..=) Prelude.<$> version,
-            ("launchTemplateName" Core..=)
-              Prelude.<$> launchTemplateName
+            ("version" Core..=) Prelude.<$> version
           ]
       )

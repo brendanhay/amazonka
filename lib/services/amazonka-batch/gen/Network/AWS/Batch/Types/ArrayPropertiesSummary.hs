@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArrayPropertiesSummary' smart constructor.
 data ArrayPropertiesSummary = ArrayPropertiesSummary'
-  { -- | The job index within the array that\'s associated with this job. This
-    -- parameter is returned for children of array jobs.
-    index :: Prelude.Maybe Prelude.Int,
-    -- | The size of the array job. This parameter is returned for parent array
+  { -- | The size of the array job. This parameter is returned for parent array
     -- jobs.
-    size :: Prelude.Maybe Prelude.Int
+    size :: Prelude.Maybe Prelude.Int,
+    -- | The job index within the array that\'s associated with this job. This
+    -- parameter is returned for children of array jobs.
+    index :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data ArrayPropertiesSummary = ArrayPropertiesSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'index', 'arrayPropertiesSummary_index' - The job index within the array that\'s associated with this job. This
--- parameter is returned for children of array jobs.
---
 -- 'size', 'arrayPropertiesSummary_size' - The size of the array job. This parameter is returned for parent array
 -- jobs.
+--
+-- 'index', 'arrayPropertiesSummary_index' - The job index within the array that\'s associated with this job. This
+-- parameter is returned for children of array jobs.
 newArrayPropertiesSummary ::
   ArrayPropertiesSummary
 newArrayPropertiesSummary =
   ArrayPropertiesSummary'
-    { index = Prelude.Nothing,
-      size = Prelude.Nothing
+    { size = Prelude.Nothing,
+      index = Prelude.Nothing
     }
-
--- | The job index within the array that\'s associated with this job. This
--- parameter is returned for children of array jobs.
-arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
-arrayPropertiesSummary_index = Lens.lens (\ArrayPropertiesSummary' {index} -> index) (\s@ArrayPropertiesSummary' {} a -> s {index = a} :: ArrayPropertiesSummary)
 
 -- | The size of the array job. This parameter is returned for parent array
 -- jobs.
 arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
 arrayPropertiesSummary_size = Lens.lens (\ArrayPropertiesSummary' {size} -> size) (\s@ArrayPropertiesSummary' {} a -> s {size = a} :: ArrayPropertiesSummary)
+
+-- | The job index within the array that\'s associated with this job. This
+-- parameter is returned for children of array jobs.
+arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
+arrayPropertiesSummary_index = Lens.lens (\ArrayPropertiesSummary' {index} -> index) (\s@ArrayPropertiesSummary' {} a -> s {index = a} :: ArrayPropertiesSummary)
 
 instance Core.FromJSON ArrayPropertiesSummary where
   parseJSON =
@@ -73,7 +73,7 @@ instance Core.FromJSON ArrayPropertiesSummary where
       "ArrayPropertiesSummary"
       ( \x ->
           ArrayPropertiesSummary'
-            Prelude.<$> (x Core..:? "index") Prelude.<*> (x Core..:? "size")
+            Prelude.<$> (x Core..:? "size") Prelude.<*> (x Core..:? "index")
       )
 
 instance Prelude.Hashable ArrayPropertiesSummary

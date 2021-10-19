@@ -30,8 +30,8 @@ module Network.AWS.Batch.DescribeJobQueues
 
     -- * Request Lenses
     describeJobQueues_nextToken,
-    describeJobQueues_maxResults,
     describeJobQueues_jobQueues,
+    describeJobQueues_maxResults,
 
     -- * Destructuring the Response
     DescribeJobQueuesResponse (..),
@@ -65,6 +65,9 @@ data DescribeJobQueues = DescribeJobQueues'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
+    -- entries.
+    jobQueues :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results returned by @DescribeJobQueues@ in
     -- paginated output. When this parameter is used, @DescribeJobQueues@ only
     -- returns @maxResults@ results in a single page and a @nextToken@ response
@@ -73,10 +76,7 @@ data DescribeJobQueues = DescribeJobQueues'
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter isn\'t used, then @DescribeJobQueues@ returns up to 100
     -- results and a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
-    -- entries.
-    jobQueues :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,6 +98,9 @@ data DescribeJobQueues = DescribeJobQueues'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
+-- 'jobQueues', 'describeJobQueues_jobQueues' - A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
+-- entries.
+--
 -- 'maxResults', 'describeJobQueues_maxResults' - The maximum number of results returned by @DescribeJobQueues@ in
 -- paginated output. When this parameter is used, @DescribeJobQueues@ only
 -- returns @maxResults@ results in a single page and a @nextToken@ response
@@ -106,16 +109,13 @@ data DescribeJobQueues = DescribeJobQueues'
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @DescribeJobQueues@ returns up to 100
 -- results and a @nextToken@ value if applicable.
---
--- 'jobQueues', 'describeJobQueues_jobQueues' - A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
--- entries.
 newDescribeJobQueues ::
   DescribeJobQueues
 newDescribeJobQueues =
   DescribeJobQueues'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      jobQueues = Prelude.Nothing
+      jobQueues = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -130,6 +130,11 @@ newDescribeJobQueues =
 describeJobQueues_nextToken :: Lens.Lens' DescribeJobQueues (Prelude.Maybe Prelude.Text)
 describeJobQueues_nextToken = Lens.lens (\DescribeJobQueues' {nextToken} -> nextToken) (\s@DescribeJobQueues' {} a -> s {nextToken = a} :: DescribeJobQueues)
 
+-- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
+-- entries.
+describeJobQueues_jobQueues :: Lens.Lens' DescribeJobQueues (Prelude.Maybe [Prelude.Text])
+describeJobQueues_jobQueues = Lens.lens (\DescribeJobQueues' {jobQueues} -> jobQueues) (\s@DescribeJobQueues' {} a -> s {jobQueues = a} :: DescribeJobQueues) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results returned by @DescribeJobQueues@ in
 -- paginated output. When this parameter is used, @DescribeJobQueues@ only
 -- returns @maxResults@ results in a single page and a @nextToken@ response
@@ -140,11 +145,6 @@ describeJobQueues_nextToken = Lens.lens (\DescribeJobQueues' {nextToken} -> next
 -- results and a @nextToken@ value if applicable.
 describeJobQueues_maxResults :: Lens.Lens' DescribeJobQueues (Prelude.Maybe Prelude.Int)
 describeJobQueues_maxResults = Lens.lens (\DescribeJobQueues' {maxResults} -> maxResults) (\s@DescribeJobQueues' {} a -> s {maxResults = a} :: DescribeJobQueues)
-
--- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN)
--- entries.
-describeJobQueues_jobQueues :: Lens.Lens' DescribeJobQueues (Prelude.Maybe [Prelude.Text])
-describeJobQueues_jobQueues = Lens.lens (\DescribeJobQueues' {jobQueues} -> jobQueues) (\s@DescribeJobQueues' {} a -> s {jobQueues = a} :: DescribeJobQueues) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeJobQueues where
   page rq rs
@@ -202,8 +202,8 @@ instance Core.ToJSON DescribeJobQueues where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("jobQueues" Core..=) Prelude.<$> jobQueues
+            ("jobQueues" Core..=) Prelude.<$> jobQueues,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -264,7 +264,7 @@ describeJobQueuesResponse_nextToken = Lens.lens (\DescribeJobQueuesResponse' {ne
 
 -- | The list of job queues.
 describeJobQueuesResponse_jobQueues :: Lens.Lens' DescribeJobQueuesResponse (Prelude.Maybe [JobQueueDetail])
-describeJobQueuesResponse_jobQueues = Lens.lens (\DescribeJobQueuesResponse' {jobQueues} -> jobQueues) (\s@DescribeJobQueuesResponse' {} a -> s {jobQueues = a} :: DescribeJobQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeJobQueuesResponse_jobQueues = Lens.lens (\DescribeJobQueuesResponse' {jobQueues} -> jobQueues) (\s@DescribeJobQueuesResponse' {} a -> s {jobQueues = a} :: DescribeJobQueuesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeJobQueuesResponse_httpStatus :: Lens.Lens' DescribeJobQueuesResponse Prelude.Int

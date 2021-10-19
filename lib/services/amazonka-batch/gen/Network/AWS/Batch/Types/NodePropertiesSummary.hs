@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNodePropertiesSummary' smart constructor.
 data NodePropertiesSummary = NodePropertiesSummary'
-  { -- | Specifies whether the current node is the main node for a multi-node
-    -- parallel job.
-    isMainNode :: Prelude.Maybe Prelude.Bool,
+  { -- | The number of nodes associated with a multi-node parallel job.
+    numNodes :: Prelude.Maybe Prelude.Int,
     -- | The node index for the node. Node index numbering begins at zero. This
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
     nodeIndex :: Prelude.Maybe Prelude.Int,
-    -- | The number of nodes associated with a multi-node parallel job.
-    numNodes :: Prelude.Maybe Prelude.Int
+    -- | Specifies whether the current node is the main node for a multi-node
+    -- parallel job.
+    isMainNode :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,26 @@ data NodePropertiesSummary = NodePropertiesSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isMainNode', 'nodePropertiesSummary_isMainNode' - Specifies whether the current node is the main node for a multi-node
--- parallel job.
+-- 'numNodes', 'nodePropertiesSummary_numNodes' - The number of nodes associated with a multi-node parallel job.
 --
 -- 'nodeIndex', 'nodePropertiesSummary_nodeIndex' - The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
 --
--- 'numNodes', 'nodePropertiesSummary_numNodes' - The number of nodes associated with a multi-node parallel job.
+-- 'isMainNode', 'nodePropertiesSummary_isMainNode' - Specifies whether the current node is the main node for a multi-node
+-- parallel job.
 newNodePropertiesSummary ::
   NodePropertiesSummary
 newNodePropertiesSummary =
   NodePropertiesSummary'
-    { isMainNode =
-        Prelude.Nothing,
+    { numNodes = Prelude.Nothing,
       nodeIndex = Prelude.Nothing,
-      numNodes = Prelude.Nothing
+      isMainNode = Prelude.Nothing
     }
 
--- | Specifies whether the current node is the main node for a multi-node
--- parallel job.
-nodePropertiesSummary_isMainNode :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Bool)
-nodePropertiesSummary_isMainNode = Lens.lens (\NodePropertiesSummary' {isMainNode} -> isMainNode) (\s@NodePropertiesSummary' {} a -> s {isMainNode = a} :: NodePropertiesSummary)
+-- | The number of nodes associated with a multi-node parallel job.
+nodePropertiesSummary_numNodes :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
+nodePropertiesSummary_numNodes = Lens.lens (\NodePropertiesSummary' {numNodes} -> numNodes) (\s@NodePropertiesSummary' {} a -> s {numNodes = a} :: NodePropertiesSummary)
 
 -- | The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
@@ -77,9 +75,10 @@ nodePropertiesSummary_isMainNode = Lens.lens (\NodePropertiesSummary' {isMainNod
 nodePropertiesSummary_nodeIndex :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
 nodePropertiesSummary_nodeIndex = Lens.lens (\NodePropertiesSummary' {nodeIndex} -> nodeIndex) (\s@NodePropertiesSummary' {} a -> s {nodeIndex = a} :: NodePropertiesSummary)
 
--- | The number of nodes associated with a multi-node parallel job.
-nodePropertiesSummary_numNodes :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Int)
-nodePropertiesSummary_numNodes = Lens.lens (\NodePropertiesSummary' {numNodes} -> numNodes) (\s@NodePropertiesSummary' {} a -> s {numNodes = a} :: NodePropertiesSummary)
+-- | Specifies whether the current node is the main node for a multi-node
+-- parallel job.
+nodePropertiesSummary_isMainNode :: Lens.Lens' NodePropertiesSummary (Prelude.Maybe Prelude.Bool)
+nodePropertiesSummary_isMainNode = Lens.lens (\NodePropertiesSummary' {isMainNode} -> isMainNode) (\s@NodePropertiesSummary' {} a -> s {isMainNode = a} :: NodePropertiesSummary)
 
 instance Core.FromJSON NodePropertiesSummary where
   parseJSON =
@@ -87,9 +86,9 @@ instance Core.FromJSON NodePropertiesSummary where
       "NodePropertiesSummary"
       ( \x ->
           NodePropertiesSummary'
-            Prelude.<$> (x Core..:? "isMainNode")
+            Prelude.<$> (x Core..:? "numNodes")
             Prelude.<*> (x Core..:? "nodeIndex")
-            Prelude.<*> (x Core..:? "numNodes")
+            Prelude.<*> (x Core..:? "isMainNode")
       )
 
 instance Prelude.Hashable NodePropertiesSummary

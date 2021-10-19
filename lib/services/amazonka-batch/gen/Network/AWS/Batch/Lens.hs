@@ -15,9 +15,9 @@ module Network.AWS.Batch.Lens
   ( -- * Operations
 
     -- ** CreateComputeEnvironment
-    createComputeEnvironment_serviceRole,
     createComputeEnvironment_state,
     createComputeEnvironment_computeResources,
+    createComputeEnvironment_serviceRole,
     createComputeEnvironment_tags,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
@@ -25,109 +25,37 @@ module Network.AWS.Batch.Lens
     createComputeEnvironmentResponse_computeEnvironmentArn,
     createComputeEnvironmentResponse_httpStatus,
 
-    -- ** DescribeJobs
-    describeJobs_jobs,
-    describeJobsResponse_jobs,
-    describeJobsResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** UpdateComputeEnvironment
-    updateComputeEnvironment_serviceRole,
-    updateComputeEnvironment_state,
-    updateComputeEnvironment_computeResources,
-    updateComputeEnvironment_computeEnvironment,
-    updateComputeEnvironmentResponse_computeEnvironmentName,
-    updateComputeEnvironmentResponse_computeEnvironmentArn,
-    updateComputeEnvironmentResponse_httpStatus,
-
-    -- ** CancelJob
-    cancelJob_jobId,
-    cancelJob_reason,
-    cancelJobResponse_httpStatus,
-
-    -- ** DeleteComputeEnvironment
-    deleteComputeEnvironment_computeEnvironment,
-    deleteComputeEnvironmentResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** DescribeJobQueues
-    describeJobQueues_nextToken,
-    describeJobQueues_maxResults,
-    describeJobQueues_jobQueues,
-    describeJobQueuesResponse_nextToken,
-    describeJobQueuesResponse_jobQueues,
-    describeJobQueuesResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DeregisterJobDefinition
-    deregisterJobDefinition_jobDefinition,
-    deregisterJobDefinitionResponse_httpStatus,
-
-    -- ** UpdateJobQueue
-    updateJobQueue_computeEnvironmentOrder,
-    updateJobQueue_priority,
-    updateJobQueue_state,
-    updateJobQueue_jobQueue,
-    updateJobQueueResponse_jobQueueName,
-    updateJobQueueResponse_jobQueueArn,
-    updateJobQueueResponse_httpStatus,
-
-    -- ** DeleteJobQueue
-    deleteJobQueue_jobQueue,
-    deleteJobQueueResponse_httpStatus,
-
-    -- ** DescribeJobDefinitions
-    describeJobDefinitions_nextToken,
-    describeJobDefinitions_status,
-    describeJobDefinitions_jobDefinitions,
-    describeJobDefinitions_maxResults,
-    describeJobDefinitions_jobDefinitionName,
-    describeJobDefinitionsResponse_nextToken,
-    describeJobDefinitionsResponse_jobDefinitions,
-    describeJobDefinitionsResponse_httpStatus,
-
-    -- ** TerminateJob
-    terminateJob_jobId,
-    terminateJob_reason,
-    terminateJobResponse_httpStatus,
-
-    -- ** DescribeComputeEnvironments
-    describeComputeEnvironments_nextToken,
-    describeComputeEnvironments_maxResults,
-    describeComputeEnvironments_computeEnvironments,
-    describeComputeEnvironmentsResponse_nextToken,
-    describeComputeEnvironmentsResponse_computeEnvironments,
-    describeComputeEnvironmentsResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_nextToken,
-    listJobs_maxResults,
-    listJobs_jobQueue,
-    listJobs_jobStatus,
-    listJobs_filters,
-    listJobs_multiNodeJobId,
-    listJobs_arrayJobId,
-    listJobsResponse_nextToken,
-    listJobsResponse_httpStatus,
-    listJobsResponse_jobSummaryList,
+    -- ** RegisterJobDefinition
+    registerJobDefinition_propagateTags,
+    registerJobDefinition_retryStrategy,
+    registerJobDefinition_platformCapabilities,
+    registerJobDefinition_parameters,
+    registerJobDefinition_timeout,
+    registerJobDefinition_containerProperties,
+    registerJobDefinition_nodeProperties,
+    registerJobDefinition_tags,
+    registerJobDefinition_jobDefinitionName,
+    registerJobDefinition_type,
+    registerJobDefinitionResponse_httpStatus,
+    registerJobDefinitionResponse_jobDefinitionName,
+    registerJobDefinitionResponse_jobDefinitionArn,
+    registerJobDefinitionResponse_revision,
 
     -- ** SubmitJob
-    submitJob_dependsOn,
-    submitJob_timeout,
-    submitJob_containerOverrides,
-    submitJob_arrayProperties,
     submitJob_nodeOverrides,
-    submitJob_tags,
-    submitJob_retryStrategy,
-    submitJob_parameters,
     submitJob_propagateTags,
+    submitJob_containerOverrides,
+    submitJob_retryStrategy,
+    submitJob_dependsOn,
+    submitJob_parameters,
+    submitJob_arrayProperties,
+    submitJob_timeout,
+    submitJob_tags,
     submitJob_jobName,
     submitJob_jobQueue,
     submitJob_jobDefinition,
@@ -136,26 +64,63 @@ module Network.AWS.Batch.Lens
     submitJobResponse_jobName,
     submitJobResponse_jobId,
 
-    -- ** RegisterJobDefinition
-    registerJobDefinition_platformCapabilities,
-    registerJobDefinition_timeout,
-    registerJobDefinition_nodeProperties,
-    registerJobDefinition_tags,
-    registerJobDefinition_containerProperties,
-    registerJobDefinition_retryStrategy,
-    registerJobDefinition_parameters,
-    registerJobDefinition_propagateTags,
-    registerJobDefinition_jobDefinitionName,
-    registerJobDefinition_type,
-    registerJobDefinitionResponse_httpStatus,
-    registerJobDefinitionResponse_jobDefinitionName,
-    registerJobDefinitionResponse_jobDefinitionArn,
-    registerJobDefinitionResponse_revision,
+    -- ** ListJobs
+    listJobs_filters,
+    listJobs_nextToken,
+    listJobs_multiNodeJobId,
+    listJobs_jobStatus,
+    listJobs_arrayJobId,
+    listJobs_jobQueue,
+    listJobs_maxResults,
+    listJobsResponse_nextToken,
+    listJobsResponse_httpStatus,
+    listJobsResponse_jobSummaryList,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** TerminateJob
+    terminateJob_jobId,
+    terminateJob_reason,
+    terminateJobResponse_httpStatus,
+
+    -- ** DescribeJobs
+    describeJobs_jobs,
+    describeJobsResponse_jobs,
+    describeJobsResponse_httpStatus,
+
+    -- ** DeleteComputeEnvironment
+    deleteComputeEnvironment_computeEnvironment,
+    deleteComputeEnvironmentResponse_httpStatus,
+
+    -- ** UpdateComputeEnvironment
+    updateComputeEnvironment_state,
+    updateComputeEnvironment_computeResources,
+    updateComputeEnvironment_serviceRole,
+    updateComputeEnvironment_computeEnvironment,
+    updateComputeEnvironmentResponse_computeEnvironmentName,
+    updateComputeEnvironmentResponse_computeEnvironmentArn,
+    updateComputeEnvironmentResponse_httpStatus,
+
+    -- ** DescribeJobDefinitions
+    describeJobDefinitions_status,
+    describeJobDefinitions_jobDefinitionName,
+    describeJobDefinitions_jobDefinitions,
+    describeJobDefinitions_nextToken,
+    describeJobDefinitions_maxResults,
+    describeJobDefinitionsResponse_jobDefinitions,
+    describeJobDefinitionsResponse_nextToken,
+    describeJobDefinitionsResponse_httpStatus,
+
+    -- ** UpdateJobQueue
+    updateJobQueue_state,
+    updateJobQueue_priority,
+    updateJobQueue_computeEnvironmentOrder,
+    updateJobQueue_jobQueue,
+    updateJobQueueResponse_jobQueueArn,
+    updateJobQueueResponse_jobQueueName,
+    updateJobQueueResponse_httpStatus,
+
+    -- ** DeleteJobQueue
+    deleteJobQueue_jobQueue,
+    deleteJobQueueResponse_httpStatus,
 
     -- ** CreateJobQueue
     createJobQueue_state,
@@ -167,42 +132,77 @@ module Network.AWS.Batch.Lens
     createJobQueueResponse_jobQueueName,
     createJobQueueResponse_jobQueueArn,
 
+    -- ** DeregisterJobDefinition
+    deregisterJobDefinition_jobDefinition,
+    deregisterJobDefinitionResponse_httpStatus,
+
+    -- ** DescribeJobQueues
+    describeJobQueues_nextToken,
+    describeJobQueues_jobQueues,
+    describeJobQueues_maxResults,
+    describeJobQueuesResponse_nextToken,
+    describeJobQueuesResponse_jobQueues,
+    describeJobQueuesResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** DescribeComputeEnvironments
+    describeComputeEnvironments_computeEnvironments,
+    describeComputeEnvironments_nextToken,
+    describeComputeEnvironments_maxResults,
+    describeComputeEnvironmentsResponse_computeEnvironments,
+    describeComputeEnvironmentsResponse_nextToken,
+    describeComputeEnvironmentsResponse_httpStatus,
+
+    -- ** CancelJob
+    cancelJob_jobId,
+    cancelJob_reason,
+    cancelJobResponse_httpStatus,
+
     -- * Types
 
     -- ** ArrayProperties
     arrayProperties_size,
 
     -- ** ArrayPropertiesDetail
-    arrayPropertiesDetail_index,
-    arrayPropertiesDetail_statusSummary,
     arrayPropertiesDetail_size,
+    arrayPropertiesDetail_statusSummary,
+    arrayPropertiesDetail_index,
 
     -- ** ArrayPropertiesSummary
-    arrayPropertiesSummary_index,
     arrayPropertiesSummary_size,
+    arrayPropertiesSummary_index,
 
     -- ** AttemptContainerDetail
-    attemptContainerDetail_logStreamName,
-    attemptContainerDetail_containerInstanceArn,
-    attemptContainerDetail_exitCode,
-    attemptContainerDetail_reason,
     attemptContainerDetail_networkInterfaces,
     attemptContainerDetail_taskArn,
+    attemptContainerDetail_containerInstanceArn,
+    attemptContainerDetail_reason,
+    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_exitCode,
 
     -- ** AttemptDetail
-    attemptDetail_container,
-    attemptDetail_startedAt,
     attemptDetail_stoppedAt,
+    attemptDetail_startedAt,
+    attemptDetail_container,
     attemptDetail_statusReason,
 
     -- ** ComputeEnvironmentDetail
     computeEnvironmentDetail_status,
-    computeEnvironmentDetail_serviceRole,
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_computeResources,
-    computeEnvironmentDetail_tags,
-    computeEnvironmentDetail_type,
     computeEnvironmentDetail_statusReason,
+    computeEnvironmentDetail_type,
+    computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_tags,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
     computeEnvironmentDetail_ecsClusterArn,
@@ -213,95 +213,95 @@ module Network.AWS.Batch.Lens
 
     -- ** ComputeResource
     computeResource_securityGroupIds,
-    computeResource_bidPercentage,
-    computeResource_minvCpus,
+    computeResource_instanceTypes,
+    computeResource_instanceRole,
     computeResource_ec2KeyPair,
-    computeResource_placementGroup,
-    computeResource_launchTemplate,
-    computeResource_imageId,
-    computeResource_spotIamFleetRole,
+    computeResource_minvCpus,
     computeResource_ec2Configuration,
-    computeResource_tags,
+    computeResource_bidPercentage,
+    computeResource_spotIamFleetRole,
+    computeResource_imageId,
+    computeResource_launchTemplate,
     computeResource_desiredvCpus,
     computeResource_allocationStrategy,
-    computeResource_instanceRole,
-    computeResource_instanceTypes,
+    computeResource_placementGroup,
+    computeResource_tags,
     computeResource_type,
     computeResource_maxvCpus,
     computeResource_subnets,
 
     -- ** ComputeResourceUpdate
     computeResourceUpdate_securityGroupIds,
+    computeResourceUpdate_subnets,
     computeResourceUpdate_minvCpus,
     computeResourceUpdate_maxvCpus,
     computeResourceUpdate_desiredvCpus,
-    computeResourceUpdate_subnets,
 
     -- ** ContainerDetail
-    containerDetail_logStreamName,
-    containerDetail_linuxParameters,
-    containerDetail_memory,
-    containerDetail_instanceType,
-    containerDetail_user,
-    containerDetail_networkConfiguration,
-    containerDetail_containerInstanceArn,
-    containerDetail_privileged,
-    containerDetail_volumes,
-    containerDetail_vcpus,
-    containerDetail_executionRoleArn,
-    containerDetail_environment,
-    containerDetail_fargatePlatformConfiguration,
-    containerDetail_exitCode,
-    containerDetail_secrets,
-    containerDetail_mountPoints,
-    containerDetail_command,
     containerDetail_image,
-    containerDetail_logConfiguration,
-    containerDetail_reason,
-    containerDetail_resourceRequirements,
-    containerDetail_jobRoleArn,
-    containerDetail_ulimits,
-    containerDetail_readonlyRootFilesystem,
+    containerDetail_command,
+    containerDetail_secrets,
+    containerDetail_environment,
     containerDetail_networkInterfaces,
     containerDetail_taskArn,
+    containerDetail_ulimits,
+    containerDetail_containerInstanceArn,
+    containerDetail_executionRoleArn,
+    containerDetail_privileged,
+    containerDetail_jobRoleArn,
+    containerDetail_resourceRequirements,
+    containerDetail_instanceType,
+    containerDetail_memory,
+    containerDetail_user,
+    containerDetail_logConfiguration,
+    containerDetail_linuxParameters,
+    containerDetail_reason,
+    containerDetail_logStreamName,
+    containerDetail_mountPoints,
+    containerDetail_exitCode,
+    containerDetail_fargatePlatformConfiguration,
+    containerDetail_vcpus,
+    containerDetail_readonlyRootFilesystem,
+    containerDetail_volumes,
+    containerDetail_networkConfiguration,
 
     -- ** ContainerOverrides
-    containerOverrides_memory,
-    containerOverrides_instanceType,
-    containerOverrides_vcpus,
-    containerOverrides_environment,
     containerOverrides_command,
+    containerOverrides_environment,
     containerOverrides_resourceRequirements,
+    containerOverrides_instanceType,
+    containerOverrides_memory,
+    containerOverrides_vcpus,
 
     -- ** ContainerProperties
-    containerProperties_linuxParameters,
-    containerProperties_memory,
-    containerProperties_instanceType,
-    containerProperties_user,
-    containerProperties_networkConfiguration,
-    containerProperties_privileged,
-    containerProperties_volumes,
-    containerProperties_vcpus,
-    containerProperties_executionRoleArn,
-    containerProperties_environment,
-    containerProperties_fargatePlatformConfiguration,
-    containerProperties_secrets,
-    containerProperties_mountPoints,
-    containerProperties_command,
     containerProperties_image,
-    containerProperties_logConfiguration,
-    containerProperties_resourceRequirements,
-    containerProperties_jobRoleArn,
+    containerProperties_command,
+    containerProperties_secrets,
+    containerProperties_environment,
     containerProperties_ulimits,
+    containerProperties_executionRoleArn,
+    containerProperties_privileged,
+    containerProperties_jobRoleArn,
+    containerProperties_resourceRequirements,
+    containerProperties_instanceType,
+    containerProperties_memory,
+    containerProperties_user,
+    containerProperties_logConfiguration,
+    containerProperties_linuxParameters,
+    containerProperties_mountPoints,
+    containerProperties_fargatePlatformConfiguration,
+    containerProperties_vcpus,
     containerProperties_readonlyRootFilesystem,
+    containerProperties_volumes,
+    containerProperties_networkConfiguration,
 
     -- ** ContainerSummary
-    containerSummary_exitCode,
     containerSummary_reason,
+    containerSummary_exitCode,
 
     -- ** Device
-    device_permissions,
     device_containerPath,
+    device_permissions,
     device_hostPath,
 
     -- ** EFSAuthorizationConfig
@@ -309,10 +309,10 @@ module Network.AWS.Batch.Lens
     eFSAuthorizationConfig_iam,
 
     -- ** EFSVolumeConfiguration
-    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_rootDirectory,
-    eFSVolumeConfiguration_authorizationConfig,
     eFSVolumeConfiguration_transitEncryption,
+    eFSVolumeConfiguration_authorizationConfig,
+    eFSVolumeConfiguration_transitEncryptionPort,
     eFSVolumeConfiguration_fileSystemId,
 
     -- ** Ec2Configuration
@@ -321,8 +321,8 @@ module Network.AWS.Batch.Lens
 
     -- ** EvaluateOnExit
     evaluateOnExit_onExitCode,
-    evaluateOnExit_onStatusReason,
     evaluateOnExit_onReason,
+    evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
     -- ** FargatePlatformConfiguration
@@ -333,41 +333,41 @@ module Network.AWS.Batch.Lens
 
     -- ** JobDefinition
     jobDefinition_status,
+    jobDefinition_propagateTags,
+    jobDefinition_retryStrategy,
     jobDefinition_platformCapabilities,
+    jobDefinition_parameters,
     jobDefinition_timeout,
+    jobDefinition_containerProperties,
     jobDefinition_nodeProperties,
     jobDefinition_tags,
-    jobDefinition_containerProperties,
-    jobDefinition_retryStrategy,
-    jobDefinition_parameters,
-    jobDefinition_propagateTags,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
     jobDefinition_revision,
     jobDefinition_type,
 
     -- ** JobDependency
-    jobDependency_type,
     jobDependency_jobId,
+    jobDependency_type,
 
     -- ** JobDetail
-    jobDetail_container,
-    jobDetail_dependsOn,
-    jobDetail_startedAt,
-    jobDetail_platformCapabilities,
-    jobDetail_timeout,
-    jobDetail_arrayProperties,
-    jobDetail_createdAt,
-    jobDetail_jobArn,
-    jobDetail_nodeDetails,
     jobDetail_stoppedAt,
+    jobDetail_jobArn,
+    jobDetail_propagateTags,
+    jobDetail_createdAt,
+    jobDetail_retryStrategy,
+    jobDetail_attempts,
+    jobDetail_platformCapabilities,
+    jobDetail_startedAt,
+    jobDetail_dependsOn,
+    jobDetail_container,
+    jobDetail_nodeDetails,
+    jobDetail_parameters,
+    jobDetail_statusReason,
+    jobDetail_arrayProperties,
+    jobDetail_timeout,
     jobDetail_nodeProperties,
     jobDetail_tags,
-    jobDetail_attempts,
-    jobDetail_retryStrategy,
-    jobDetail_statusReason,
-    jobDetail_parameters,
-    jobDetail_propagateTags,
     jobDetail_jobName,
     jobDetail_jobId,
     jobDetail_jobQueue,
@@ -376,8 +376,8 @@ module Network.AWS.Batch.Lens
 
     -- ** JobQueueDetail
     jobQueueDetail_status,
-    jobQueueDetail_tags,
     jobQueueDetail_statusReason,
+    jobQueueDetail_tags,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -385,16 +385,16 @@ module Network.AWS.Batch.Lens
     jobQueueDetail_computeEnvironmentOrder,
 
     -- ** JobSummary
-    jobSummary_container,
-    jobSummary_startedAt,
-    jobSummary_status,
-    jobSummary_arrayProperties,
-    jobSummary_createdAt,
-    jobSummary_jobArn,
-    jobSummary_jobDefinition,
     jobSummary_stoppedAt,
-    jobSummary_nodeProperties,
+    jobSummary_status,
+    jobSummary_jobArn,
+    jobSummary_createdAt,
+    jobSummary_startedAt,
+    jobSummary_container,
+    jobSummary_jobDefinition,
     jobSummary_statusReason,
+    jobSummary_arrayProperties,
+    jobSummary_nodeProperties,
     jobSummary_jobId,
     jobSummary_jobName,
 
@@ -402,25 +402,25 @@ module Network.AWS.Batch.Lens
     jobTimeout_attemptDurationSeconds,
 
     -- ** KeyValuePair
-    keyValuePair_name,
     keyValuePair_value,
+    keyValuePair_name,
 
     -- ** KeyValuesPair
     keyValuesPair_values,
     keyValuesPair_name,
 
     -- ** LaunchTemplateSpecification
+    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_launchTemplateId,
     launchTemplateSpecification_version,
-    launchTemplateSpecification_launchTemplateName,
 
     -- ** LinuxParameters
-    linuxParameters_tmpfs,
-    linuxParameters_maxSwap,
-    linuxParameters_devices,
-    linuxParameters_swappiness,
-    linuxParameters_initProcessEnabled,
     linuxParameters_sharedMemorySize,
+    linuxParameters_initProcessEnabled,
+    linuxParameters_tmpfs,
+    linuxParameters_swappiness,
+    linuxParameters_devices,
+    linuxParameters_maxSwap,
 
     -- ** LogConfiguration
     logConfiguration_options,
@@ -428,25 +428,25 @@ module Network.AWS.Batch.Lens
     logConfiguration_logDriver,
 
     -- ** MountPoint
-    mountPoint_readOnly,
-    mountPoint_sourceVolume,
     mountPoint_containerPath,
+    mountPoint_sourceVolume,
+    mountPoint_readOnly,
 
     -- ** NetworkConfiguration
     networkConfiguration_assignPublicIp,
 
     -- ** NetworkInterface
-    networkInterface_privateIpv4Address,
     networkInterface_ipv6Address,
+    networkInterface_privateIpv4Address,
     networkInterface_attachmentId,
 
     -- ** NodeDetails
-    nodeDetails_isMainNode,
     nodeDetails_nodeIndex,
+    nodeDetails_isMainNode,
 
     -- ** NodeOverrides
-    nodeOverrides_nodePropertyOverrides,
     nodeOverrides_numNodes,
+    nodeOverrides_nodePropertyOverrides,
 
     -- ** NodeProperties
     nodeProperties_numNodes,
@@ -454,9 +454,9 @@ module Network.AWS.Batch.Lens
     nodeProperties_nodeRangeProperties,
 
     -- ** NodePropertiesSummary
-    nodePropertiesSummary_isMainNode,
-    nodePropertiesSummary_nodeIndex,
     nodePropertiesSummary_numNodes,
+    nodePropertiesSummary_nodeIndex,
+    nodePropertiesSummary_isMainNode,
 
     -- ** NodePropertyOverride
     nodePropertyOverride_containerOverrides,
@@ -490,8 +490,8 @@ module Network.AWS.Batch.Lens
 
     -- ** Volume
     volume_name,
-    volume_host,
     volume_efsVolumeConfiguration,
+    volume_host,
   )
 where
 

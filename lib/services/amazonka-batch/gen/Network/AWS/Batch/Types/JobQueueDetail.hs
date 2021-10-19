@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 data JobQueueDetail = JobQueueDetail'
   { -- | The status of the job queue (for example, @CREATING@ or @VALID@).
     status :: Prelude.Maybe JQStatus,
+    -- | A short, human-readable string to provide additional details about the
+    -- current status of the job queue.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The tags applied to the job queue. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
     -- in /Batch User Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A short, human-readable string to provide additional details about the
-    -- current status of the job queue.
-    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the job queue.
     jobQueueName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the job queue.
@@ -74,12 +74,12 @@ data JobQueueDetail = JobQueueDetail'
 --
 -- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
 --
+-- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the
+-- current status of the job queue.
+--
 -- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
 -- in /Batch User Guide/.
---
--- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the
--- current status of the job queue.
 --
 -- 'jobQueueName', 'jobQueueDetail_jobQueueName' - The name of the job queue.
 --
@@ -119,8 +119,8 @@ newJobQueueDetail
   pPriority_ =
     JobQueueDetail'
       { status = Prelude.Nothing,
-        tags = Prelude.Nothing,
         statusReason = Prelude.Nothing,
+        tags = Prelude.Nothing,
         jobQueueName = pJobQueueName_,
         jobQueueArn = pJobQueueArn_,
         state = pState_,
@@ -132,16 +132,16 @@ newJobQueueDetail
 jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
 jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
 
--- | The tags applied to the job queue. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
--- in /Batch User Guide/.
-jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A short, human-readable string to provide additional details about the
 -- current status of the job queue.
 jobQueueDetail_statusReason :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
 jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> statusReason) (\s@JobQueueDetail' {} a -> s {statusReason = a} :: JobQueueDetail)
+
+-- | The tags applied to the job queue. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources>
+-- in /Batch User Guide/.
+jobQueueDetail_tags :: Lens.Lens' JobQueueDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobQueueDetail_tags = Lens.lens (\JobQueueDetail' {tags} -> tags) (\s@JobQueueDetail' {} a -> s {tags = a} :: JobQueueDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the job queue.
 jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Prelude.Text
@@ -173,7 +173,7 @@ jobQueueDetail_priority = Lens.lens (\JobQueueDetail' {priority} -> priority) (\
 -- order that job placement is preferred. Compute environments are selected
 -- for job placement in ascending order.
 jobQueueDetail_computeEnvironmentOrder :: Lens.Lens' JobQueueDetail [ComputeEnvironmentOrder]
-jobQueueDetail_computeEnvironmentOrder = Lens.lens (\JobQueueDetail' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@JobQueueDetail' {} a -> s {computeEnvironmentOrder = a} :: JobQueueDetail) Prelude.. Lens._Coerce
+jobQueueDetail_computeEnvironmentOrder = Lens.lens (\JobQueueDetail' {computeEnvironmentOrder} -> computeEnvironmentOrder) (\s@JobQueueDetail' {} a -> s {computeEnvironmentOrder = a} :: JobQueueDetail) Prelude.. Lens.coerced
 
 instance Core.FromJSON JobQueueDetail where
   parseJSON =
@@ -182,8 +182,8 @@ instance Core.FromJSON JobQueueDetail where
       ( \x ->
           JobQueueDetail'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "statusReason")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "jobQueueName")
             Prelude.<*> (x Core..: "jobQueueArn")
             Prelude.<*> (x Core..: "state")

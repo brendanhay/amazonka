@@ -49,7 +49,7 @@ newHlsIngest =
 
 -- | A list of endpoints to which the source stream should be sent.
 hlsIngest_ingestEndpoints :: Lens.Lens' HlsIngest (Prelude.Maybe [IngestEndpoint])
-hlsIngest_ingestEndpoints = Lens.lens (\HlsIngest' {ingestEndpoints} -> ingestEndpoints) (\s@HlsIngest' {} a -> s {ingestEndpoints = a} :: HlsIngest) Prelude.. Lens.mapping Lens._Coerce
+hlsIngest_ingestEndpoints = Lens.lens (\HlsIngest' {ingestEndpoints} -> ingestEndpoints) (\s@HlsIngest' {} a -> s {ingestEndpoints = a} :: HlsIngest) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON HlsIngest where
   parseJSON =

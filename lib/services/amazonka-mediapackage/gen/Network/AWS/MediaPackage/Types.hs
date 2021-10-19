@@ -17,12 +17,12 @@ module Network.AWS.MediaPackage.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _ServiceUnavailableException,
-    _InternalServerErrorException,
-    _ForbiddenException,
     _UnprocessableEntityException,
+    _ForbiddenException,
+    _NotFoundException,
     _TooManyRequestsException,
+    _InternalServerErrorException,
+    _ServiceUnavailableException,
 
     -- * AdMarkers
     AdMarkers (..),
@@ -78,38 +78,38 @@ module Network.AWS.MediaPackage.Types
     -- * Channel
     Channel (..),
     newChannel,
-    channel_egressAccessLogs,
+    channel_ingressAccessLogs,
+    channel_hlsIngest,
     channel_arn,
     channel_id,
-    channel_hlsIngest,
-    channel_ingressAccessLogs,
-    channel_tags,
     channel_description,
+    channel_egressAccessLogs,
+    channel_tags,
 
     -- * CmafEncryption
     CmafEncryption (..),
     newCmafEncryption,
-    cmafEncryption_constantInitializationVector,
     cmafEncryption_keyRotationIntervalSeconds,
+    cmafEncryption_constantInitializationVector,
     cmafEncryption_spekeKeyProvider,
 
     -- * CmafPackage
     CmafPackage (..),
     newCmafPackage,
-    cmafPackage_streamSelection,
     cmafPackage_hlsManifests,
-    cmafPackage_segmentPrefix,
-    cmafPackage_encryption,
     cmafPackage_segmentDurationSeconds,
+    cmafPackage_streamSelection,
+    cmafPackage_encryption,
+    cmafPackage_segmentPrefix,
 
     -- * CmafPackageCreateOrUpdateParameters
     CmafPackageCreateOrUpdateParameters (..),
     newCmafPackageCreateOrUpdateParameters,
-    cmafPackageCreateOrUpdateParameters_streamSelection,
     cmafPackageCreateOrUpdateParameters_hlsManifests,
-    cmafPackageCreateOrUpdateParameters_segmentPrefix,
-    cmafPackageCreateOrUpdateParameters_encryption,
     cmafPackageCreateOrUpdateParameters_segmentDurationSeconds,
+    cmafPackageCreateOrUpdateParameters_streamSelection,
+    cmafPackageCreateOrUpdateParameters_encryption,
+    cmafPackageCreateOrUpdateParameters_segmentPrefix,
 
     -- * DashEncryption
     DashEncryption (..),
@@ -120,21 +120,21 @@ module Network.AWS.MediaPackage.Types
     -- * DashPackage
     DashPackage (..),
     newDashPackage,
+    dashPackage_adsOnDeliveryRestrictions,
     dashPackage_minBufferTimeSeconds,
+    dashPackage_utcTiming,
+    dashPackage_segmentTemplateFormat,
+    dashPackage_profile,
+    dashPackage_segmentDurationSeconds,
+    dashPackage_utcTimingUri,
     dashPackage_streamSelection,
-    dashPackage_periodTriggers,
-    dashPackage_adTriggers,
-    dashPackage_manifestWindowSeconds,
+    dashPackage_encryption,
     dashPackage_minUpdatePeriodSeconds,
     dashPackage_manifestLayout,
-    dashPackage_encryption,
-    dashPackage_adsOnDeliveryRestrictions,
-    dashPackage_utcTimingUri,
-    dashPackage_segmentDurationSeconds,
-    dashPackage_profile,
-    dashPackage_segmentTemplateFormat,
     dashPackage_suggestedPresentationDelaySeconds,
-    dashPackage_utcTiming,
+    dashPackage_manifestWindowSeconds,
+    dashPackage_adTriggers,
+    dashPackage_periodTriggers,
 
     -- * EgressAccessLogs
     EgressAccessLogs (..),
@@ -150,23 +150,23 @@ module Network.AWS.MediaPackage.Types
     -- * HarvestJob
     HarvestJob (..),
     newHarvestJob,
-    harvestJob_s3Destination,
     harvestJob_status,
-    harvestJob_channelId,
-    harvestJob_createdAt,
-    harvestJob_arn,
-    harvestJob_id,
-    harvestJob_startTime,
-    harvestJob_endTime,
     harvestJob_originEndpointId,
+    harvestJob_startTime,
+    harvestJob_arn,
+    harvestJob_createdAt,
+    harvestJob_channelId,
+    harvestJob_s3Destination,
+    harvestJob_endTime,
+    harvestJob_id,
 
     -- * HlsEncryption
     HlsEncryption (..),
     newHlsEncryption,
-    hlsEncryption_repeatExtXKey,
     hlsEncryption_encryptionMethod,
-    hlsEncryption_constantInitializationVector,
     hlsEncryption_keyRotationIntervalSeconds,
+    hlsEncryption_constantInitializationVector,
+    hlsEncryption_repeatExtXKey,
     hlsEncryption_spekeKeyProvider,
 
     -- * HlsIngest
@@ -177,50 +177,50 @@ module Network.AWS.MediaPackage.Types
     -- * HlsManifest
     HlsManifest (..),
     newHlsManifest,
-    hlsManifest_adMarkers,
-    hlsManifest_programDateTimeIntervalSeconds,
-    hlsManifest_playlistWindowSeconds,
-    hlsManifest_includeIframeOnlyStream,
     hlsManifest_manifestName,
-    hlsManifest_playlistType,
     hlsManifest_url,
+    hlsManifest_playlistType,
+    hlsManifest_programDateTimeIntervalSeconds,
+    hlsManifest_adMarkers,
+    hlsManifest_includeIframeOnlyStream,
+    hlsManifest_playlistWindowSeconds,
     hlsManifest_id,
 
     -- * HlsManifestCreateOrUpdateParameters
     HlsManifestCreateOrUpdateParameters (..),
     newHlsManifestCreateOrUpdateParameters,
-    hlsManifestCreateOrUpdateParameters_adMarkers,
-    hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds,
-    hlsManifestCreateOrUpdateParameters_playlistWindowSeconds,
-    hlsManifestCreateOrUpdateParameters_adTriggers,
-    hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream,
-    hlsManifestCreateOrUpdateParameters_manifestName,
     hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions,
+    hlsManifestCreateOrUpdateParameters_manifestName,
     hlsManifestCreateOrUpdateParameters_playlistType,
+    hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds,
+    hlsManifestCreateOrUpdateParameters_adMarkers,
+    hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream,
+    hlsManifestCreateOrUpdateParameters_adTriggers,
+    hlsManifestCreateOrUpdateParameters_playlistWindowSeconds,
     hlsManifestCreateOrUpdateParameters_id,
 
     -- * HlsPackage
     HlsPackage (..),
     newHlsPackage,
-    hlsPackage_adMarkers,
-    hlsPackage_streamSelection,
-    hlsPackage_programDateTimeIntervalSeconds,
-    hlsPackage_playlistWindowSeconds,
-    hlsPackage_adTriggers,
-    hlsPackage_includeIframeOnlyStream,
-    hlsPackage_useAudioRenditionGroup,
-    hlsPackage_encryption,
     hlsPackage_adsOnDeliveryRestrictions,
-    hlsPackage_segmentDurationSeconds,
+    hlsPackage_useAudioRenditionGroup,
     hlsPackage_playlistType,
+    hlsPackage_segmentDurationSeconds,
+    hlsPackage_programDateTimeIntervalSeconds,
+    hlsPackage_streamSelection,
+    hlsPackage_adMarkers,
+    hlsPackage_encryption,
+    hlsPackage_includeIframeOnlyStream,
+    hlsPackage_adTriggers,
+    hlsPackage_playlistWindowSeconds,
 
     -- * IngestEndpoint
     IngestEndpoint (..),
     newIngestEndpoint,
-    ingestEndpoint_id,
-    ingestEndpoint_password,
-    ingestEndpoint_username,
     ingestEndpoint_url,
+    ingestEndpoint_username,
+    ingestEndpoint_password,
+    ingestEndpoint_id,
 
     -- * IngressAccessLogs
     IngressAccessLogs (..),
@@ -235,30 +235,30 @@ module Network.AWS.MediaPackage.Types
     -- * MssPackage
     MssPackage (..),
     newMssPackage,
-    mssPackage_streamSelection,
-    mssPackage_manifestWindowSeconds,
-    mssPackage_encryption,
     mssPackage_segmentDurationSeconds,
+    mssPackage_streamSelection,
+    mssPackage_encryption,
+    mssPackage_manifestWindowSeconds,
 
     -- * OriginEndpoint
     OriginEndpoint (..),
     newOriginEndpoint,
-    originEndpoint_dashPackage,
-    originEndpoint_origination,
-    originEndpoint_startoverWindowSeconds,
-    originEndpoint_channelId,
-    originEndpoint_cmafPackage,
-    originEndpoint_manifestName,
-    originEndpoint_arn,
-    originEndpoint_id,
     originEndpoint_whitelist,
-    originEndpoint_mssPackage,
-    originEndpoint_tags,
-    originEndpoint_description,
-    originEndpoint_url,
-    originEndpoint_timeDelaySeconds,
-    originEndpoint_authorization,
     originEndpoint_hlsPackage,
+    originEndpoint_arn,
+    originEndpoint_manifestName,
+    originEndpoint_url,
+    originEndpoint_authorization,
+    originEndpoint_channelId,
+    originEndpoint_startoverWindowSeconds,
+    originEndpoint_dashPackage,
+    originEndpoint_mssPackage,
+    originEndpoint_id,
+    originEndpoint_timeDelaySeconds,
+    originEndpoint_cmafPackage,
+    originEndpoint_description,
+    originEndpoint_tags,
+    originEndpoint_origination,
 
     -- * S3Destination
     S3Destination (..),
@@ -270,8 +270,8 @@ module Network.AWS.MediaPackage.Types
     -- * SpekeKeyProvider
     SpekeKeyProvider (..),
     newSpekeKeyProvider,
-    spekeKeyProvider_certificateArn,
     spekeKeyProvider_encryptionContractConfiguration,
+    spekeKeyProvider_certificateArn,
     spekeKeyProvider_resourceId,
     spekeKeyProvider_systemIds,
     spekeKeyProvider_url,
@@ -280,9 +280,9 @@ module Network.AWS.MediaPackage.Types
     -- * StreamSelection
     StreamSelection (..),
     newStreamSelection,
+    streamSelection_streamOrder,
     streamSelection_minVideoBitsPerSecond,
     streamSelection_maxVideoBitsPerSecond,
-    streamSelection_streamOrder,
   )
 where
 
@@ -355,37 +355,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -398,39 +375,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The requested resource does not exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | An unexpected error occurred.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | An unexpected error occurred.
-_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerErrorException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerErrorException"
-    Prelude.. Core.hasStatus 500
-
--- | The client is not authorized to access the requested resource.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
-  Core._MatchServiceError
-    defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
 
 -- | The parameters sent in the request are not valid.
 _UnprocessableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -440,6 +408,22 @@ _UnprocessableEntityException =
     "UnprocessableEntityException"
     Prelude.. Core.hasStatus 422
 
+-- | The client is not authorized to access the requested resource.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
+
+-- | The requested resource does not exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | The client has exceeded their resource or throttling limits.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
@@ -447,3 +431,19 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | An unexpected error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Core.hasStatus 500
+
+-- | An unexpected error occurred.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503

@@ -19,23 +19,23 @@ module Network.AWS.MediaPackage
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** UnprocessableEntityException
-    _UnprocessableEntityException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- * Waiters
     -- $waiters
@@ -43,23 +43,101 @@ module Network.AWS.MediaPackage
     -- * Operations
     -- $operations
 
-    -- ** CreateChannel
-    CreateChannel (CreateChannel'),
-    newCreateChannel,
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
-
     -- ** CreateHarvestJob
     CreateHarvestJob (CreateHarvestJob'),
     newCreateHarvestJob,
     CreateHarvestJobResponse (CreateHarvestJobResponse'),
     newCreateHarvestJobResponse,
 
+    -- ** ConfigureLogs
+    ConfigureLogs (ConfigureLogs'),
+    newConfigureLogs,
+    ConfigureLogsResponse (ConfigureLogsResponse'),
+    newConfigureLogsResponse,
+
+    -- ** DescribeOriginEndpoint
+    DescribeOriginEndpoint (DescribeOriginEndpoint'),
+    newDescribeOriginEndpoint,
+    DescribeOriginEndpointResponse (DescribeOriginEndpointResponse'),
+    newDescribeOriginEndpointResponse,
+
+    -- ** ListChannels (Paginated)
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
+
+    -- ** DescribeHarvestJob
+    DescribeHarvestJob (DescribeHarvestJob'),
+    newDescribeHarvestJob,
+    DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
+    newDescribeHarvestJobResponse,
+
+    -- ** RotateIngestEndpointCredentials
+    RotateIngestEndpointCredentials (RotateIngestEndpointCredentials'),
+    newRotateIngestEndpointCredentials,
+    RotateIngestEndpointCredentialsResponse (RotateIngestEndpointCredentialsResponse'),
+    newRotateIngestEndpointCredentialsResponse,
+
+    -- ** CreateOriginEndpoint
+    CreateOriginEndpoint (CreateOriginEndpoint'),
+    newCreateOriginEndpoint,
+    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
+    newCreateOriginEndpointResponse,
+
     -- ** ListOriginEndpoints (Paginated)
     ListOriginEndpoints (ListOriginEndpoints'),
     newListOriginEndpoints,
     ListOriginEndpointsResponse (ListOriginEndpointsResponse'),
     newListOriginEndpointsResponse,
+
+    -- ** ListHarvestJobs (Paginated)
+    ListHarvestJobs (ListHarvestJobs'),
+    newListHarvestJobs,
+    ListHarvestJobsResponse (ListHarvestJobsResponse'),
+    newListHarvestJobsResponse,
+
+    -- ** CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
 
     -- ** DeleteOriginEndpoint
     DeleteOriginEndpoint (DeleteOriginEndpoint'),
@@ -72,84 +150,6 @@ module Network.AWS.MediaPackage
     newUpdateOriginEndpoint,
     UpdateOriginEndpointResponse (UpdateOriginEndpointResponse'),
     newUpdateOriginEndpointResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateOriginEndpoint
-    CreateOriginEndpoint (CreateOriginEndpoint'),
-    newCreateOriginEndpoint,
-    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
-    newCreateOriginEndpointResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListChannels (Paginated)
-    ListChannels (ListChannels'),
-    newListChannels,
-    ListChannelsResponse (ListChannelsResponse'),
-    newListChannelsResponse,
-
-    -- ** DescribeOriginEndpoint
-    DescribeOriginEndpoint (DescribeOriginEndpoint'),
-    newDescribeOriginEndpoint,
-    DescribeOriginEndpointResponse (DescribeOriginEndpointResponse'),
-    newDescribeOriginEndpointResponse,
-
-    -- ** ConfigureLogs
-    ConfigureLogs (ConfigureLogs'),
-    newConfigureLogs,
-    ConfigureLogsResponse (ConfigureLogsResponse'),
-    newConfigureLogsResponse,
-
-    -- ** ListHarvestJobs (Paginated)
-    ListHarvestJobs (ListHarvestJobs'),
-    newListHarvestJobs,
-    ListHarvestJobsResponse (ListHarvestJobsResponse'),
-    newListHarvestJobsResponse,
-
-    -- ** DescribeChannel
-    DescribeChannel (DescribeChannel'),
-    newDescribeChannel,
-    DescribeChannelResponse (DescribeChannelResponse'),
-    newDescribeChannelResponse,
-
-    -- ** RotateIngestEndpointCredentials
-    RotateIngestEndpointCredentials (RotateIngestEndpointCredentials'),
-    newRotateIngestEndpointCredentials,
-    RotateIngestEndpointCredentialsResponse (RotateIngestEndpointCredentialsResponse'),
-    newRotateIngestEndpointCredentialsResponse,
-
-    -- ** DescribeHarvestJob
-    DescribeHarvestJob (DescribeHarvestJob'),
-    newDescribeHarvestJob,
-    DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
-    newDescribeHarvestJobResponse,
-
-    -- ** UpdateChannel
-    UpdateChannel (UpdateChannel'),
-    newUpdateChannel,
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
-
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
 
     -- * Types
 

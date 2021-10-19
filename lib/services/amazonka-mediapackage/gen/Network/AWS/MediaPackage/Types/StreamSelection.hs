@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
-  { -- | The minimum video bitrate (bps) to include in output.
+  { -- | A directive that determines the order of streams in the output.
+    streamOrder :: Prelude.Maybe StreamOrder,
+    -- | The minimum video bitrate (bps) to include in output.
     minVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The maximum video bitrate (bps) to include in output.
-    maxVideoBitsPerSecond :: Prelude.Maybe Prelude.Int,
-    -- | A directive that determines the order of streams in the output.
-    streamOrder :: Prelude.Maybe StreamOrder
+    maxVideoBitsPerSecond :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,23 @@ data StreamSelection = StreamSelection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.
+--
 -- 'minVideoBitsPerSecond', 'streamSelection_minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
 --
 -- 'maxVideoBitsPerSecond', 'streamSelection_maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
---
--- 'streamOrder', 'streamSelection_streamOrder' - A directive that determines the order of streams in the output.
 newStreamSelection ::
   StreamSelection
 newStreamSelection =
   StreamSelection'
-    { minVideoBitsPerSecond =
-        Prelude.Nothing,
-      maxVideoBitsPerSecond = Prelude.Nothing,
-      streamOrder = Prelude.Nothing
+    { streamOrder = Prelude.Nothing,
+      minVideoBitsPerSecond = Prelude.Nothing,
+      maxVideoBitsPerSecond = Prelude.Nothing
     }
+
+-- | A directive that determines the order of streams in the output.
+streamSelection_streamOrder :: Lens.Lens' StreamSelection (Prelude.Maybe StreamOrder)
+streamSelection_streamOrder = Lens.lens (\StreamSelection' {streamOrder} -> streamOrder) (\s@StreamSelection' {} a -> s {streamOrder = a} :: StreamSelection)
 
 -- | The minimum video bitrate (bps) to include in output.
 streamSelection_minVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
@@ -68,19 +71,15 @@ streamSelection_minVideoBitsPerSecond = Lens.lens (\StreamSelection' {minVideoBi
 streamSelection_maxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Prelude.Maybe Prelude.Int)
 streamSelection_maxVideoBitsPerSecond = Lens.lens (\StreamSelection' {maxVideoBitsPerSecond} -> maxVideoBitsPerSecond) (\s@StreamSelection' {} a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
 
--- | A directive that determines the order of streams in the output.
-streamSelection_streamOrder :: Lens.Lens' StreamSelection (Prelude.Maybe StreamOrder)
-streamSelection_streamOrder = Lens.lens (\StreamSelection' {streamOrder} -> streamOrder) (\s@StreamSelection' {} a -> s {streamOrder = a} :: StreamSelection)
-
 instance Core.FromJSON StreamSelection where
   parseJSON =
     Core.withObject
       "StreamSelection"
       ( \x ->
           StreamSelection'
-            Prelude.<$> (x Core..:? "minVideoBitsPerSecond")
+            Prelude.<$> (x Core..:? "streamOrder")
+            Prelude.<*> (x Core..:? "minVideoBitsPerSecond")
             Prelude.<*> (x Core..:? "maxVideoBitsPerSecond")
-            Prelude.<*> (x Core..:? "streamOrder")
       )
 
 instance Prelude.Hashable StreamSelection
@@ -91,10 +90,10 @@ instance Core.ToJSON StreamSelection where
   toJSON StreamSelection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("minVideoBitsPerSecond" Core..=)
+          [ ("streamOrder" Core..=) Prelude.<$> streamOrder,
+            ("minVideoBitsPerSecond" Core..=)
               Prelude.<$> minVideoBitsPerSecond,
             ("maxVideoBitsPerSecond" Core..=)
-              Prelude.<$> maxVideoBitsPerSecond,
-            ("streamOrder" Core..=) Prelude.<$> streamOrder
+              Prelude.<$> maxVideoBitsPerSecond
           ]
       )

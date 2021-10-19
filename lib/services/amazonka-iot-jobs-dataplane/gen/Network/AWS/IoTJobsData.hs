@@ -39,23 +39,23 @@ module Network.AWS.IoTJobsData
     -- ** TerminalStateException
     _TerminalStateException,
 
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
     -- ** CertificateValidationException
     _CertificateValidationException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** InvalidStateTransitionException
     _InvalidStateTransitionException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -63,17 +63,17 @@ module Network.AWS.IoTJobsData
     -- * Operations
     -- $operations
 
-    -- ** GetPendingJobExecutions
-    GetPendingJobExecutions (GetPendingJobExecutions'),
-    newGetPendingJobExecutions,
-    GetPendingJobExecutionsResponse (GetPendingJobExecutionsResponse'),
-    newGetPendingJobExecutionsResponse,
-
     -- ** UpdateJobExecution
     UpdateJobExecution (UpdateJobExecution'),
     newUpdateJobExecution,
     UpdateJobExecutionResponse (UpdateJobExecutionResponse'),
     newUpdateJobExecutionResponse,
+
+    -- ** StartNextPendingJobExecution
+    StartNextPendingJobExecution (StartNextPendingJobExecution'),
+    newStartNextPendingJobExecution,
+    StartNextPendingJobExecutionResponse (StartNextPendingJobExecutionResponse'),
+    newStartNextPendingJobExecutionResponse,
 
     -- ** DescribeJobExecution
     DescribeJobExecution (DescribeJobExecution'),
@@ -81,11 +81,11 @@ module Network.AWS.IoTJobsData
     DescribeJobExecutionResponse (DescribeJobExecutionResponse'),
     newDescribeJobExecutionResponse,
 
-    -- ** StartNextPendingJobExecution
-    StartNextPendingJobExecution (StartNextPendingJobExecution'),
-    newStartNextPendingJobExecution,
-    StartNextPendingJobExecutionResponse (StartNextPendingJobExecutionResponse'),
-    newStartNextPendingJobExecutionResponse,
+    -- ** GetPendingJobExecutions
+    GetPendingJobExecutions (GetPendingJobExecutions'),
+    newGetPendingJobExecutions,
+    GetPendingJobExecutionsResponse (GetPendingJobExecutionsResponse'),
+    newGetPendingJobExecutionsResponse,
 
     -- * Types
 

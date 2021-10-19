@@ -76,7 +76,7 @@ jobExecutionState_status = Lens.lens (\JobExecutionState' {status} -> status) (\
 -- | A collection of name\/value pairs that describe the status of the job
 -- execution.
 jobExecutionState_statusDetails :: Lens.Lens' JobExecutionState (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Prelude.. Lens.mapping Lens._Coerce
+jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.

@@ -141,11 +141,11 @@ newGetPendingJobExecutionsResponse pHttpStatus_ =
 
 -- | A list of JobExecutionSummary objects with status IN_PROGRESS.
 getPendingJobExecutionsResponse_inProgressJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Prelude.Maybe [JobExecutionSummary])
-getPendingJobExecutionsResponse_inProgressJobs = Lens.lens (\GetPendingJobExecutionsResponse' {inProgressJobs} -> inProgressJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getPendingJobExecutionsResponse_inProgressJobs = Lens.lens (\GetPendingJobExecutionsResponse' {inProgressJobs} -> inProgressJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {inProgressJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of JobExecutionSummary objects with status QUEUED.
 getPendingJobExecutionsResponse_queuedJobs :: Lens.Lens' GetPendingJobExecutionsResponse (Prelude.Maybe [JobExecutionSummary])
-getPendingJobExecutionsResponse_queuedJobs = Lens.lens (\GetPendingJobExecutionsResponse' {queuedJobs} -> queuedJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getPendingJobExecutionsResponse_queuedJobs = Lens.lens (\GetPendingJobExecutionsResponse' {queuedJobs} -> queuedJobs) (\s@GetPendingJobExecutionsResponse' {} a -> s {queuedJobs = a} :: GetPendingJobExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getPendingJobExecutionsResponse_httpStatus :: Lens.Lens' GetPendingJobExecutionsResponse Prelude.Int

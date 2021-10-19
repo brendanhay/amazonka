@@ -18,12 +18,12 @@ module Network.AWS.IoTJobsData.Types
 
     -- * Errors
     _TerminalStateException,
-    _CertificateValidationException,
-    _ServiceUnavailableException,
-    _ThrottlingException,
     _InvalidRequestException,
-    _ResourceNotFoundException,
+    _CertificateValidationException,
+    _ThrottlingException,
+    _ServiceUnavailableException,
     _InvalidStateTransitionException,
+    _ResourceNotFoundException,
 
     -- * JobExecutionStatus
     JobExecutionStatus (..),
@@ -31,17 +31,17 @@ module Network.AWS.IoTJobsData.Types
     -- * JobExecution
     JobExecution (..),
     newJobExecution,
-    jobExecution_startedAt,
     jobExecution_status,
-    jobExecution_statusDetails,
-    jobExecution_thingName,
-    jobExecution_queuedAt,
-    jobExecution_executionNumber,
-    jobExecution_versionNumber,
-    jobExecution_jobDocument,
-    jobExecution_approximateSecondsBeforeTimedOut,
     jobExecution_jobId,
     jobExecution_lastUpdatedAt,
+    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_queuedAt,
+    jobExecution_jobDocument,
+    jobExecution_statusDetails,
+    jobExecution_executionNumber,
+    jobExecution_versionNumber,
+    jobExecution_startedAt,
+    jobExecution_thingName,
 
     -- * JobExecutionState
     JobExecutionState (..),
@@ -53,12 +53,12 @@ module Network.AWS.IoTJobsData.Types
     -- * JobExecutionSummary
     JobExecutionSummary (..),
     newJobExecutionSummary,
-    jobExecutionSummary_startedAt,
+    jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
     jobExecutionSummary_queuedAt,
     jobExecutionSummary_executionNumber,
     jobExecutionSummary_versionNumber,
-    jobExecutionSummary_jobId,
-    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_startedAt,
   )
 where
 
@@ -97,37 +97,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -140,6 +117,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The job is in a terminal state.
@@ -149,30 +149,6 @@ _TerminalStateException =
     defaultService
     "TerminalStateException"
     Prelude.. Core.hasStatus 410
-
--- | The certificate is invalid.
-_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateValidationException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateValidationException"
-    Prelude.. Core.hasStatus 400
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | The contents of the request were invalid. For example, this code is
 -- returned when an UpdateJobExecution request contains invalid status
@@ -184,13 +160,29 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The certificate is invalid.
+_CertificateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateValidationException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "CertificateValidationException"
+    Prelude.. Core.hasStatus 400
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | An update attempted to change the job execution to a state that is
 -- invalid because of the job execution\'s current state (for example, an
@@ -203,3 +195,11 @@ _InvalidStateTransitionException =
     defaultService
     "InvalidStateTransitionException"
     Prelude.. Core.hasStatus 409
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404

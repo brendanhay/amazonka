@@ -14,25 +14,26 @@
 module Network.AWS.IoTJobsData.Lens
   ( -- * Operations
 
-    -- ** GetPendingJobExecutions
-    getPendingJobExecutions_thingName,
-    getPendingJobExecutionsResponse_inProgressJobs,
-    getPendingJobExecutionsResponse_queuedJobs,
-    getPendingJobExecutionsResponse_httpStatus,
-
     -- ** UpdateJobExecution
     updateJobExecution_includeJobDocument,
+    updateJobExecution_stepTimeoutInMinutes,
+    updateJobExecution_statusDetails,
+    updateJobExecution_executionNumber,
     updateJobExecution_expectedVersion,
     updateJobExecution_includeJobExecutionState,
-    updateJobExecution_statusDetails,
-    updateJobExecution_stepTimeoutInMinutes,
-    updateJobExecution_executionNumber,
     updateJobExecution_jobId,
     updateJobExecution_thingName,
     updateJobExecution_status,
-    updateJobExecutionResponse_executionState,
     updateJobExecutionResponse_jobDocument,
+    updateJobExecutionResponse_executionState,
     updateJobExecutionResponse_httpStatus,
+
+    -- ** StartNextPendingJobExecution
+    startNextPendingJobExecution_stepTimeoutInMinutes,
+    startNextPendingJobExecution_statusDetails,
+    startNextPendingJobExecution_thingName,
+    startNextPendingJobExecutionResponse_execution,
+    startNextPendingJobExecutionResponse_httpStatus,
 
     -- ** DescribeJobExecution
     describeJobExecution_includeJobDocument,
@@ -42,27 +43,26 @@ module Network.AWS.IoTJobsData.Lens
     describeJobExecutionResponse_execution,
     describeJobExecutionResponse_httpStatus,
 
-    -- ** StartNextPendingJobExecution
-    startNextPendingJobExecution_statusDetails,
-    startNextPendingJobExecution_stepTimeoutInMinutes,
-    startNextPendingJobExecution_thingName,
-    startNextPendingJobExecutionResponse_execution,
-    startNextPendingJobExecutionResponse_httpStatus,
+    -- ** GetPendingJobExecutions
+    getPendingJobExecutions_thingName,
+    getPendingJobExecutionsResponse_inProgressJobs,
+    getPendingJobExecutionsResponse_queuedJobs,
+    getPendingJobExecutionsResponse_httpStatus,
 
     -- * Types
 
     -- ** JobExecution
-    jobExecution_startedAt,
     jobExecution_status,
-    jobExecution_statusDetails,
-    jobExecution_thingName,
-    jobExecution_queuedAt,
-    jobExecution_executionNumber,
-    jobExecution_versionNumber,
-    jobExecution_jobDocument,
-    jobExecution_approximateSecondsBeforeTimedOut,
     jobExecution_jobId,
     jobExecution_lastUpdatedAt,
+    jobExecution_approximateSecondsBeforeTimedOut,
+    jobExecution_queuedAt,
+    jobExecution_jobDocument,
+    jobExecution_statusDetails,
+    jobExecution_executionNumber,
+    jobExecution_versionNumber,
+    jobExecution_startedAt,
+    jobExecution_thingName,
 
     -- ** JobExecutionState
     jobExecutionState_status,
@@ -70,12 +70,12 @@ module Network.AWS.IoTJobsData.Lens
     jobExecutionState_versionNumber,
 
     -- ** JobExecutionSummary
-    jobExecutionSummary_startedAt,
+    jobExecutionSummary_jobId,
+    jobExecutionSummary_lastUpdatedAt,
     jobExecutionSummary_queuedAt,
     jobExecutionSummary_executionNumber,
     jobExecutionSummary_versionNumber,
-    jobExecutionSummary_jobId,
-    jobExecutionSummary_lastUpdatedAt,
+    jobExecutionSummary_startedAt,
   )
 where
 

@@ -87,7 +87,7 @@ batchWrite_directoryArn = Lens.lens (\BatchWrite' {directoryArn} -> directoryArn
 
 -- | A list of operations that are part of the batch.
 batchWrite_operations :: Lens.Lens' BatchWrite [BatchWriteOperation]
-batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Prelude.. Lens._Coerce
+batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchWrite where
   type AWSResponse BatchWrite = BatchWriteResponse
@@ -156,7 +156,7 @@ newBatchWriteResponse pHttpStatus_ =
 
 -- | A list of all the responses for each batch write.
 batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Prelude.Maybe [BatchWriteOperationResponse])
-batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Prelude.. Lens.mapping Lens._Coerce
+batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Prelude.Int

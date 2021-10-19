@@ -223,7 +223,7 @@ listTypedLinkFacetAttributesResponse_nextToken = Lens.lens (\ListTypedLinkFacetA
 
 -- | An ordered set of attributes associate with the typed link.
 listTypedLinkFacetAttributesResponse_attributes :: Lens.Lens' ListTypedLinkFacetAttributesResponse (Prelude.Maybe [TypedLinkAttributeDefinition])
-listTypedLinkFacetAttributesResponse_attributes = Lens.lens (\ListTypedLinkFacetAttributesResponse' {attributes} -> attributes) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {attributes = a} :: ListTypedLinkFacetAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+listTypedLinkFacetAttributesResponse_attributes = Lens.lens (\ListTypedLinkFacetAttributesResponse' {attributes} -> attributes) (\s@ListTypedLinkFacetAttributesResponse' {} a -> s {attributes = a} :: ListTypedLinkFacetAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTypedLinkFacetAttributesResponse_httpStatus :: Lens.Lens' ListTypedLinkFacetAttributesResponse Prelude.Int

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListOutgoingTypedLinksResponse' smart constructor.
 data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a typed link specifier as output.
-    typedLinkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier]
+  { -- | Returns a typed link specifier as output.
+    typedLinkSpecifiers :: Prelude.Maybe [TypedLinkSpecifier],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data BatchListOutgoingTypedLinksResponse = BatchListOutgoingTypedLinksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListOutgoingTypedLinksResponse_nextToken' - The pagination token.
---
 -- 'typedLinkSpecifiers', 'batchListOutgoingTypedLinksResponse_typedLinkSpecifiers' - Returns a typed link specifier as output.
+--
+-- 'nextToken', 'batchListOutgoingTypedLinksResponse_nextToken' - The pagination token.
 newBatchListOutgoingTypedLinksResponse ::
   BatchListOutgoingTypedLinksResponse
 newBatchListOutgoingTypedLinksResponse =
   BatchListOutgoingTypedLinksResponse'
-    { nextToken =
+    { typedLinkSpecifiers =
         Prelude.Nothing,
-      typedLinkSpecifiers = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | Returns a typed link specifier as output.
+batchListOutgoingTypedLinksResponse_typedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
+batchListOutgoingTypedLinksResponse_typedLinkSpecifiers = Lens.lens (\BatchListOutgoingTypedLinksResponse' {typedLinkSpecifiers} -> typedLinkSpecifiers) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {typedLinkSpecifiers = a} :: BatchListOutgoingTypedLinksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 batchListOutgoingTypedLinksResponse_nextToken :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Prelude.Maybe Prelude.Text)
 batchListOutgoingTypedLinksResponse_nextToken = Lens.lens (\BatchListOutgoingTypedLinksResponse' {nextToken} -> nextToken) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {nextToken = a} :: BatchListOutgoingTypedLinksResponse)
-
--- | Returns a typed link specifier as output.
-batchListOutgoingTypedLinksResponse_typedLinkSpecifiers :: Lens.Lens' BatchListOutgoingTypedLinksResponse (Prelude.Maybe [TypedLinkSpecifier])
-batchListOutgoingTypedLinksResponse_typedLinkSpecifiers = Lens.lens (\BatchListOutgoingTypedLinksResponse' {typedLinkSpecifiers} -> typedLinkSpecifiers) (\s@BatchListOutgoingTypedLinksResponse' {} a -> s {typedLinkSpecifiers = a} :: BatchListOutgoingTypedLinksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -72,10 +72,10 @@ instance
       "BatchListOutgoingTypedLinksResponse"
       ( \x ->
           BatchListOutgoingTypedLinksResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "TypedLinkSpecifiers"
+            Prelude.<$> ( x Core..:? "TypedLinkSpecifiers"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "NextToken")
       )
 
 instance

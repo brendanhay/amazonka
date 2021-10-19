@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyToPath' smart constructor.
 data PolicyToPath = PolicyToPath'
-  { -- | List of policy objects.
-    policies :: Prelude.Maybe [PolicyAttachment],
-    -- | The path that is referenced from the root.
-    path :: Prelude.Maybe Prelude.Text
+  { -- | The path that is referenced from the root.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | List of policy objects.
+    policies :: Prelude.Maybe [PolicyAttachment]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data PolicyToPath = PolicyToPath'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policies', 'policyToPath_policies' - List of policy objects.
---
 -- 'path', 'policyToPath_path' - The path that is referenced from the root.
+--
+-- 'policies', 'policyToPath_policies' - List of policy objects.
 newPolicyToPath ::
   PolicyToPath
 newPolicyToPath =
   PolicyToPath'
-    { policies = Prelude.Nothing,
-      path = Prelude.Nothing
+    { path = Prelude.Nothing,
+      policies = Prelude.Nothing
     }
-
--- | List of policy objects.
-policyToPath_policies :: Lens.Lens' PolicyToPath (Prelude.Maybe [PolicyAttachment])
-policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path that is referenced from the root.
 policyToPath_path :: Lens.Lens' PolicyToPath (Prelude.Maybe Prelude.Text)
 policyToPath_path = Lens.lens (\PolicyToPath' {path} -> path) (\s@PolicyToPath' {} a -> s {path = a} :: PolicyToPath)
+
+-- | List of policy objects.
+policyToPath_policies :: Lens.Lens' PolicyToPath (Prelude.Maybe [PolicyAttachment])
+policyToPath_policies = Lens.lens (\PolicyToPath' {policies} -> policies) (\s@PolicyToPath' {} a -> s {policies = a} :: PolicyToPath) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PolicyToPath where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON PolicyToPath where
       "PolicyToPath"
       ( \x ->
           PolicyToPath'
-            Prelude.<$> (x Core..:? "Policies" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "Policies" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PolicyToPath

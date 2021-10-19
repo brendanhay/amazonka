@@ -29,10 +29,10 @@ module Network.AWS.CloudDirectory.ListIndex
     newListIndex,
 
     -- * Request Lenses
+    listIndex_rangesOnIndexedValues,
+    listIndex_consistencyLevel,
     listIndex_nextToken,
     listIndex_maxResults,
-    listIndex_consistencyLevel,
-    listIndex_rangesOnIndexedValues,
     listIndex_directoryArn,
     listIndex_indexReference,
 
@@ -41,8 +41,8 @@ module Network.AWS.CloudDirectory.ListIndex
     newListIndexResponse,
 
     -- * Response Lenses
-    listIndexResponse_nextToken,
     listIndexResponse_indexAttachments,
+    listIndexResponse_nextToken,
     listIndexResponse_httpStatus,
   )
 where
@@ -56,16 +56,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListIndex' smart constructor.
 data ListIndex = ListIndex'
-  { -- | The pagination token.
+  { -- | Specifies the ranges of indexed values that you want to query.
+    rangesOnIndexedValues :: Prelude.Maybe [ObjectAttributeRange],
+    -- | The consistency level to execute the request at.
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects in a single page to retrieve from the
     -- index during a request. For more information, see
     -- <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The consistency level to execute the request at.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
-    -- | Specifies the ranges of indexed values that you want to query.
-    rangesOnIndexedValues :: Prelude.Maybe [ObjectAttributeRange],
     -- | The ARN of the directory that the index exists in.
     directoryArn :: Prelude.Text,
     -- | The reference to the index to list.
@@ -81,15 +81,15 @@ data ListIndex = ListIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rangesOnIndexedValues', 'listIndex_rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
+--
+-- 'consistencyLevel', 'listIndex_consistencyLevel' - The consistency level to execute the request at.
+--
 -- 'nextToken', 'listIndex_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listIndex_maxResults' - The maximum number of objects in a single page to retrieve from the
 -- index during a request. For more information, see
 -- <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits>.
---
--- 'consistencyLevel', 'listIndex_consistencyLevel' - The consistency level to execute the request at.
---
--- 'rangesOnIndexedValues', 'listIndex_rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
 --
 -- 'directoryArn', 'listIndex_directoryArn' - The ARN of the directory that the index exists in.
 --
@@ -102,13 +102,21 @@ newListIndex ::
   ListIndex
 newListIndex pDirectoryArn_ pIndexReference_ =
   ListIndex'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { rangesOnIndexedValues = Prelude.Nothing,
       consistencyLevel = Prelude.Nothing,
-      rangesOnIndexedValues = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       indexReference = pIndexReference_
     }
+
+-- | Specifies the ranges of indexed values that you want to query.
+listIndex_rangesOnIndexedValues :: Lens.Lens' ListIndex (Prelude.Maybe [ObjectAttributeRange])
+listIndex_rangesOnIndexedValues = Lens.lens (\ListIndex' {rangesOnIndexedValues} -> rangesOnIndexedValues) (\s@ListIndex' {} a -> s {rangesOnIndexedValues = a} :: ListIndex) Prelude.. Lens.mapping Lens.coerced
+
+-- | The consistency level to execute the request at.
+listIndex_consistencyLevel :: Lens.Lens' ListIndex (Prelude.Maybe ConsistencyLevel)
+listIndex_consistencyLevel = Lens.lens (\ListIndex' {consistencyLevel} -> consistencyLevel) (\s@ListIndex' {} a -> s {consistencyLevel = a} :: ListIndex)
 
 -- | The pagination token.
 listIndex_nextToken :: Lens.Lens' ListIndex (Prelude.Maybe Prelude.Text)
@@ -119,14 +127,6 @@ listIndex_nextToken = Lens.lens (\ListIndex' {nextToken} -> nextToken) (\s@ListI
 -- <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits>.
 listIndex_maxResults :: Lens.Lens' ListIndex (Prelude.Maybe Prelude.Natural)
 listIndex_maxResults = Lens.lens (\ListIndex' {maxResults} -> maxResults) (\s@ListIndex' {} a -> s {maxResults = a} :: ListIndex)
-
--- | The consistency level to execute the request at.
-listIndex_consistencyLevel :: Lens.Lens' ListIndex (Prelude.Maybe ConsistencyLevel)
-listIndex_consistencyLevel = Lens.lens (\ListIndex' {consistencyLevel} -> consistencyLevel) (\s@ListIndex' {} a -> s {consistencyLevel = a} :: ListIndex)
-
--- | Specifies the ranges of indexed values that you want to query.
-listIndex_rangesOnIndexedValues :: Lens.Lens' ListIndex (Prelude.Maybe [ObjectAttributeRange])
-listIndex_rangesOnIndexedValues = Lens.lens (\ListIndex' {rangesOnIndexedValues} -> rangesOnIndexedValues) (\s@ListIndex' {} a -> s {rangesOnIndexedValues = a} :: ListIndex) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the directory that the index exists in.
 listIndex_directoryArn :: Lens.Lens' ListIndex Prelude.Text
@@ -163,10 +163,10 @@ instance Core.AWSRequest ListIndex where
     Response.receiveJSON
       ( \s h x ->
           ListIndexResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "IndexAttachments"
+            Prelude.<$> ( x Core..?> "IndexAttachments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,10 +185,10 @@ instance Core.ToJSON ListIndex where
   toJSON ListIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("RangesOnIndexedValues" Core..=)
+          [ ("RangesOnIndexedValues" Core..=)
               Prelude.<$> rangesOnIndexedValues,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("IndexReference" Core..= indexReference)
           ]
@@ -204,10 +204,10 @@ instance Core.ToQuery ListIndex where
 
 -- | /See:/ 'newListIndexResponse' smart constructor.
 data ListIndexResponse = ListIndexResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The objects and indexed values attached to the index.
+  { -- | The objects and indexed values attached to the index.
     indexAttachments :: Prelude.Maybe [IndexAttachment],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,9 +221,9 @@ data ListIndexResponse = ListIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listIndexResponse_nextToken' - The pagination token.
---
 -- 'indexAttachments', 'listIndexResponse_indexAttachments' - The objects and indexed values attached to the index.
+--
+-- 'nextToken', 'listIndexResponse_nextToken' - The pagination token.
 --
 -- 'httpStatus', 'listIndexResponse_httpStatus' - The response's http status code.
 newListIndexResponse ::
@@ -232,18 +232,19 @@ newListIndexResponse ::
   ListIndexResponse
 newListIndexResponse pHttpStatus_ =
   ListIndexResponse'
-    { nextToken = Prelude.Nothing,
-      indexAttachments = Prelude.Nothing,
+    { indexAttachments =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The objects and indexed values attached to the index.
+listIndexResponse_indexAttachments :: Lens.Lens' ListIndexResponse (Prelude.Maybe [IndexAttachment])
+listIndexResponse_indexAttachments = Lens.lens (\ListIndexResponse' {indexAttachments} -> indexAttachments) (\s@ListIndexResponse' {} a -> s {indexAttachments = a} :: ListIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listIndexResponse_nextToken :: Lens.Lens' ListIndexResponse (Prelude.Maybe Prelude.Text)
 listIndexResponse_nextToken = Lens.lens (\ListIndexResponse' {nextToken} -> nextToken) (\s@ListIndexResponse' {} a -> s {nextToken = a} :: ListIndexResponse)
-
--- | The objects and indexed values attached to the index.
-listIndexResponse_indexAttachments :: Lens.Lens' ListIndexResponse (Prelude.Maybe [IndexAttachment])
-listIndexResponse_indexAttachments = Lens.lens (\ListIndexResponse' {indexAttachments} -> indexAttachments) (\s@ListIndexResponse' {} a -> s {indexAttachments = a} :: ListIndexResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listIndexResponse_httpStatus :: Lens.Lens' ListIndexResponse Prelude.Int

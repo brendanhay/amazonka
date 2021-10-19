@@ -36,8 +36,8 @@ module Network.AWS.CloudDirectory.GetObjectInformation
     newGetObjectInformationResponse,
 
     -- * Response Lenses
-    getObjectInformationResponse_schemaFacets,
     getObjectInformationResponse_objectIdentifier,
+    getObjectInformationResponse_schemaFacets,
     getObjectInformationResponse_httpStatus,
   )
 where
@@ -110,8 +110,8 @@ instance Core.AWSRequest GetObjectInformation where
     Response.receiveJSON
       ( \s h x ->
           GetObjectInformationResponse'
-            Prelude.<$> (x Core..?> "SchemaFacets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ObjectIdentifier")
+            Prelude.<$> (x Core..?> "ObjectIdentifier")
+            Prelude.<*> (x Core..?> "SchemaFacets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,13 +145,13 @@ instance Core.ToQuery GetObjectInformation where
 
 -- | /See:/ 'newGetObjectInformationResponse' smart constructor.
 data GetObjectInformationResponse = GetObjectInformationResponse'
-  { -- | The facets attached to the specified object. Although the response does
+  { -- | The @ObjectIdentifier@ of the specified object.
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The facets attached to the specified object. Although the response does
     -- not include minor version information, the most recently applied minor
     -- version of each Facet is in effect. See GetAppliedSchemaVersion for
     -- details.
     schemaFacets :: Prelude.Maybe [SchemaFacet],
-    -- | The @ObjectIdentifier@ of the specified object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,12 +165,12 @@ data GetObjectInformationResponse = GetObjectInformationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'objectIdentifier', 'getObjectInformationResponse_objectIdentifier' - The @ObjectIdentifier@ of the specified object.
+--
 -- 'schemaFacets', 'getObjectInformationResponse_schemaFacets' - The facets attached to the specified object. Although the response does
 -- not include minor version information, the most recently applied minor
 -- version of each Facet is in effect. See GetAppliedSchemaVersion for
 -- details.
---
--- 'objectIdentifier', 'getObjectInformationResponse_objectIdentifier' - The @ObjectIdentifier@ of the specified object.
 --
 -- 'httpStatus', 'getObjectInformationResponse_httpStatus' - The response's http status code.
 newGetObjectInformationResponse ::
@@ -179,22 +179,22 @@ newGetObjectInformationResponse ::
   GetObjectInformationResponse
 newGetObjectInformationResponse pHttpStatus_ =
   GetObjectInformationResponse'
-    { schemaFacets =
+    { objectIdentifier =
         Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing,
+      schemaFacets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @ObjectIdentifier@ of the specified object.
+getObjectInformationResponse_objectIdentifier :: Lens.Lens' GetObjectInformationResponse (Prelude.Maybe Prelude.Text)
+getObjectInformationResponse_objectIdentifier = Lens.lens (\GetObjectInformationResponse' {objectIdentifier} -> objectIdentifier) (\s@GetObjectInformationResponse' {} a -> s {objectIdentifier = a} :: GetObjectInformationResponse)
 
 -- | The facets attached to the specified object. Although the response does
 -- not include minor version information, the most recently applied minor
 -- version of each Facet is in effect. See GetAppliedSchemaVersion for
 -- details.
 getObjectInformationResponse_schemaFacets :: Lens.Lens' GetObjectInformationResponse (Prelude.Maybe [SchemaFacet])
-getObjectInformationResponse_schemaFacets = Lens.lens (\GetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@GetObjectInformationResponse' {} a -> s {schemaFacets = a} :: GetObjectInformationResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The @ObjectIdentifier@ of the specified object.
-getObjectInformationResponse_objectIdentifier :: Lens.Lens' GetObjectInformationResponse (Prelude.Maybe Prelude.Text)
-getObjectInformationResponse_objectIdentifier = Lens.lens (\GetObjectInformationResponse' {objectIdentifier} -> objectIdentifier) (\s@GetObjectInformationResponse' {} a -> s {objectIdentifier = a} :: GetObjectInformationResponse)
+getObjectInformationResponse_schemaFacets = Lens.lens (\GetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@GetObjectInformationResponse' {} a -> s {schemaFacets = a} :: GetObjectInformationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getObjectInformationResponse_httpStatus :: Lens.Lens' GetObjectInformationResponse Prelude.Int

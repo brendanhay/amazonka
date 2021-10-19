@@ -82,7 +82,7 @@ batchGetObjectAttributes_schemaFacet = Lens.lens (\BatchGetObjectAttributes' {sc
 
 -- | List of attribute names whose values will be retrieved.
 batchGetObjectAttributes_attributeNames :: Lens.Lens' BatchGetObjectAttributes [Prelude.Text]
-batchGetObjectAttributes_attributeNames = Lens.lens (\BatchGetObjectAttributes' {attributeNames} -> attributeNames) (\s@BatchGetObjectAttributes' {} a -> s {attributeNames = a} :: BatchGetObjectAttributes) Prelude.. Lens._Coerce
+batchGetObjectAttributes_attributeNames = Lens.lens (\BatchGetObjectAttributes' {attributeNames} -> attributeNames) (\s@BatchGetObjectAttributes' {} a -> s {attributeNames = a} :: BatchGetObjectAttributes) Prelude.. Lens.coerced
 
 instance Prelude.Hashable BatchGetObjectAttributes
 

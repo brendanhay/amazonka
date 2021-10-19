@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLinkAttributeAction' smart constructor.
 data LinkAttributeAction = LinkAttributeAction'
-  { -- | The value that you want to update to.
-    attributeUpdateValue :: Prelude.Maybe TypedAttributeValue,
-    -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
-    attributeActionType :: Prelude.Maybe UpdateActionType
+  { -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
+    attributeActionType :: Prelude.Maybe UpdateActionType,
+    -- | The value that you want to update to.
+    attributeUpdateValue :: Prelude.Maybe TypedAttributeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data LinkAttributeAction = LinkAttributeAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeUpdateValue', 'linkAttributeAction_attributeUpdateValue' - The value that you want to update to.
---
 -- 'attributeActionType', 'linkAttributeAction_attributeActionType' - A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
+--
+-- 'attributeUpdateValue', 'linkAttributeAction_attributeUpdateValue' - The value that you want to update to.
 newLinkAttributeAction ::
   LinkAttributeAction
 newLinkAttributeAction =
   LinkAttributeAction'
-    { attributeUpdateValue =
+    { attributeActionType =
         Prelude.Nothing,
-      attributeActionType = Prelude.Nothing
+      attributeUpdateValue = Prelude.Nothing
     }
-
--- | The value that you want to update to.
-linkAttributeAction_attributeUpdateValue :: Lens.Lens' LinkAttributeAction (Prelude.Maybe TypedAttributeValue)
-linkAttributeAction_attributeUpdateValue = Lens.lens (\LinkAttributeAction' {attributeUpdateValue} -> attributeUpdateValue) (\s@LinkAttributeAction' {} a -> s {attributeUpdateValue = a} :: LinkAttributeAction)
 
 -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
 linkAttributeAction_attributeActionType :: Lens.Lens' LinkAttributeAction (Prelude.Maybe UpdateActionType)
 linkAttributeAction_attributeActionType = Lens.lens (\LinkAttributeAction' {attributeActionType} -> attributeActionType) (\s@LinkAttributeAction' {} a -> s {attributeActionType = a} :: LinkAttributeAction)
+
+-- | The value that you want to update to.
+linkAttributeAction_attributeUpdateValue :: Lens.Lens' LinkAttributeAction (Prelude.Maybe TypedAttributeValue)
+linkAttributeAction_attributeUpdateValue = Lens.lens (\LinkAttributeAction' {attributeUpdateValue} -> attributeUpdateValue) (\s@LinkAttributeAction' {} a -> s {attributeUpdateValue = a} :: LinkAttributeAction)
 
 instance Prelude.Hashable LinkAttributeAction
 
@@ -73,9 +73,9 @@ instance Core.ToJSON LinkAttributeAction where
   toJSON LinkAttributeAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AttributeUpdateValue" Core..=)
-              Prelude.<$> attributeUpdateValue,
-            ("AttributeActionType" Core..=)
-              Prelude.<$> attributeActionType
+          [ ("AttributeActionType" Core..=)
+              Prelude.<$> attributeActionType,
+            ("AttributeUpdateValue" Core..=)
+              Prelude.<$> attributeUpdateValue
           ]
       )

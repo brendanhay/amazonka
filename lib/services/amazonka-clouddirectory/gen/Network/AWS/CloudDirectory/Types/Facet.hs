@@ -37,11 +37,11 @@ data Facet = Facet'
     -- defined in the schema. For dynamic facets, attributes can be defined
     -- during data plane operations.
     facetStyle :: Prelude.Maybe FacetStyle,
-    -- | The name of the Facet.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The object type that is associated with the facet. See
     -- CreateFacetRequest$ObjectType for more details.
-    objectType :: Prelude.Maybe ObjectType
+    objectType :: Prelude.Maybe ObjectType,
+    -- | The name of the Facet.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,17 +58,17 @@ data Facet = Facet'
 -- defined in the schema. For dynamic facets, attributes can be defined
 -- during data plane operations.
 --
--- 'name', 'facet_name' - The name of the Facet.
---
 -- 'objectType', 'facet_objectType' - The object type that is associated with the facet. See
 -- CreateFacetRequest$ObjectType for more details.
+--
+-- 'name', 'facet_name' - The name of the Facet.
 newFacet ::
   Facet
 newFacet =
   Facet'
     { facetStyle = Prelude.Nothing,
-      name = Prelude.Nothing,
-      objectType = Prelude.Nothing
+      objectType = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | There are two different styles that you can define on any given facet,
@@ -78,14 +78,14 @@ newFacet =
 facet_facetStyle :: Lens.Lens' Facet (Prelude.Maybe FacetStyle)
 facet_facetStyle = Lens.lens (\Facet' {facetStyle} -> facetStyle) (\s@Facet' {} a -> s {facetStyle = a} :: Facet)
 
--- | The name of the Facet.
-facet_name :: Lens.Lens' Facet (Prelude.Maybe Prelude.Text)
-facet_name = Lens.lens (\Facet' {name} -> name) (\s@Facet' {} a -> s {name = a} :: Facet)
-
 -- | The object type that is associated with the facet. See
 -- CreateFacetRequest$ObjectType for more details.
 facet_objectType :: Lens.Lens' Facet (Prelude.Maybe ObjectType)
 facet_objectType = Lens.lens (\Facet' {objectType} -> objectType) (\s@Facet' {} a -> s {objectType = a} :: Facet)
+
+-- | The name of the Facet.
+facet_name :: Lens.Lens' Facet (Prelude.Maybe Prelude.Text)
+facet_name = Lens.lens (\Facet' {name} -> name) (\s@Facet' {} a -> s {name = a} :: Facet)
 
 instance Core.FromJSON Facet where
   parseJSON =
@@ -94,8 +94,8 @@ instance Core.FromJSON Facet where
       ( \x ->
           Facet'
             Prelude.<$> (x Core..:? "FacetStyle")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ObjectType")
+            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable Facet

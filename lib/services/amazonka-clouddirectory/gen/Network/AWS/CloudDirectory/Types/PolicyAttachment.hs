@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyAttachment' smart constructor.
 data PolicyAttachment = PolicyAttachment'
-  { -- | The type of policy that can be associated with @PolicyAttachment@.
+  { -- | The ID of @PolicyAttachment@.
+    policyId :: Prelude.Maybe Prelude.Text,
+    -- | The type of policy that can be associated with @PolicyAttachment@.
     policyType :: Prelude.Maybe Prelude.Text,
     -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@.
-    objectIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The ID of @PolicyAttachment@.
-    policyId :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,19 +46,23 @@ data PolicyAttachment = PolicyAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'policyId', 'policyAttachment_policyId' - The ID of @PolicyAttachment@.
+--
 -- 'policyType', 'policyAttachment_policyType' - The type of policy that can be associated with @PolicyAttachment@.
 --
 -- 'objectIdentifier', 'policyAttachment_objectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@.
---
--- 'policyId', 'policyAttachment_policyId' - The ID of @PolicyAttachment@.
 newPolicyAttachment ::
   PolicyAttachment
 newPolicyAttachment =
   PolicyAttachment'
-    { policyType = Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing,
-      policyId = Prelude.Nothing
+    { policyId = Prelude.Nothing,
+      policyType = Prelude.Nothing,
+      objectIdentifier = Prelude.Nothing
     }
+
+-- | The ID of @PolicyAttachment@.
+policyAttachment_policyId :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
+policyAttachment_policyId = Lens.lens (\PolicyAttachment' {policyId} -> policyId) (\s@PolicyAttachment' {} a -> s {policyId = a} :: PolicyAttachment)
 
 -- | The type of policy that can be associated with @PolicyAttachment@.
 policyAttachment_policyType :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
@@ -68,19 +72,15 @@ policyAttachment_policyType = Lens.lens (\PolicyAttachment' {policyType} -> poli
 policyAttachment_objectIdentifier :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
 policyAttachment_objectIdentifier = Lens.lens (\PolicyAttachment' {objectIdentifier} -> objectIdentifier) (\s@PolicyAttachment' {} a -> s {objectIdentifier = a} :: PolicyAttachment)
 
--- | The ID of @PolicyAttachment@.
-policyAttachment_policyId :: Lens.Lens' PolicyAttachment (Prelude.Maybe Prelude.Text)
-policyAttachment_policyId = Lens.lens (\PolicyAttachment' {policyId} -> policyId) (\s@PolicyAttachment' {} a -> s {policyId = a} :: PolicyAttachment)
-
 instance Core.FromJSON PolicyAttachment where
   parseJSON =
     Core.withObject
       "PolicyAttachment"
       ( \x ->
           PolicyAttachment'
-            Prelude.<$> (x Core..:? "PolicyType")
+            Prelude.<$> (x Core..:? "PolicyId")
+            Prelude.<*> (x Core..:? "PolicyType")
             Prelude.<*> (x Core..:? "ObjectIdentifier")
-            Prelude.<*> (x Core..:? "PolicyId")
       )
 
 instance Prelude.Hashable PolicyAttachment

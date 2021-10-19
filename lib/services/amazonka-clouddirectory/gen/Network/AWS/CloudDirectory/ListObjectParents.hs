@@ -28,10 +28,10 @@ module Network.AWS.CloudDirectory.ListObjectParents
     newListObjectParents,
 
     -- * Request Lenses
+    listObjectParents_consistencyLevel,
+    listObjectParents_includeAllLinksToEachParent,
     listObjectParents_nextToken,
     listObjectParents_maxResults,
-    listObjectParents_includeAllLinksToEachParent,
-    listObjectParents_consistencyLevel,
     listObjectParents_directoryArn,
     listObjectParents_objectReference,
 
@@ -40,9 +40,9 @@ module Network.AWS.CloudDirectory.ListObjectParents
     newListObjectParentsResponse,
 
     -- * Response Lenses
-    listObjectParentsResponse_parentLinks,
-    listObjectParentsResponse_parents,
     listObjectParentsResponse_nextToken,
+    listObjectParentsResponse_parents,
+    listObjectParentsResponse_parentLinks,
     listObjectParentsResponse_httpStatus,
   )
 where
@@ -56,18 +56,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListObjectParents' smart constructor.
 data ListObjectParents = ListObjectParents'
-  { -- | The pagination token.
+  { -- | Represents the manner and timing in which the successful write or update
+    -- of an object is reflected in a subsequent read operation of that same
+    -- object.
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    -- | When set to True, returns all ListObjectParentsResponse$ParentLinks.
+    -- There could be multiple links between a parent-child pair.
+    includeAllLinksToEachParent :: Prelude.Maybe Prelude.Bool,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | When set to True, returns all ListObjectParentsResponse$ParentLinks.
-    -- There could be multiple links between a parent-child pair.
-    includeAllLinksToEachParent :: Prelude.Maybe Prelude.Bool,
-    -- | Represents the manner and timing in which the successful write or update
-    -- of an object is reflected in a subsequent read operation of that same
-    -- object.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -85,17 +85,17 @@ data ListObjectParents = ListObjectParents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listObjectParents_nextToken' - The pagination token.
---
--- 'maxResults', 'listObjectParents_maxResults' - The maximum number of items to be retrieved in a single call. This is an
--- approximate number.
+-- 'consistencyLevel', 'listObjectParents_consistencyLevel' - Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
 --
 -- 'includeAllLinksToEachParent', 'listObjectParents_includeAllLinksToEachParent' - When set to True, returns all ListObjectParentsResponse$ParentLinks.
 -- There could be multiple links between a parent-child pair.
 --
--- 'consistencyLevel', 'listObjectParents_consistencyLevel' - Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
+-- 'nextToken', 'listObjectParents_nextToken' - The pagination token.
+--
+-- 'maxResults', 'listObjectParents_maxResults' - The maximum number of items to be retrieved in a single call. This is an
+-- approximate number.
 --
 -- 'directoryArn', 'listObjectParents_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
@@ -110,13 +110,25 @@ newListObjectParents ::
   ListObjectParents
 newListObjectParents pDirectoryArn_ pObjectReference_ =
   ListObjectParents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { consistencyLevel =
+        Prelude.Nothing,
       includeAllLinksToEachParent = Prelude.Nothing,
-      consistencyLevel = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       objectReference = pObjectReference_
     }
+
+-- | Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+listObjectParents_consistencyLevel :: Lens.Lens' ListObjectParents (Prelude.Maybe ConsistencyLevel)
+listObjectParents_consistencyLevel = Lens.lens (\ListObjectParents' {consistencyLevel} -> consistencyLevel) (\s@ListObjectParents' {} a -> s {consistencyLevel = a} :: ListObjectParents)
+
+-- | When set to True, returns all ListObjectParentsResponse$ParentLinks.
+-- There could be multiple links between a parent-child pair.
+listObjectParents_includeAllLinksToEachParent :: Lens.Lens' ListObjectParents (Prelude.Maybe Prelude.Bool)
+listObjectParents_includeAllLinksToEachParent = Lens.lens (\ListObjectParents' {includeAllLinksToEachParent} -> includeAllLinksToEachParent) (\s@ListObjectParents' {} a -> s {includeAllLinksToEachParent = a} :: ListObjectParents)
 
 -- | The pagination token.
 listObjectParents_nextToken :: Lens.Lens' ListObjectParents (Prelude.Maybe Prelude.Text)
@@ -126,17 +138,6 @@ listObjectParents_nextToken = Lens.lens (\ListObjectParents' {nextToken} -> next
 -- approximate number.
 listObjectParents_maxResults :: Lens.Lens' ListObjectParents (Prelude.Maybe Prelude.Natural)
 listObjectParents_maxResults = Lens.lens (\ListObjectParents' {maxResults} -> maxResults) (\s@ListObjectParents' {} a -> s {maxResults = a} :: ListObjectParents)
-
--- | When set to True, returns all ListObjectParentsResponse$ParentLinks.
--- There could be multiple links between a parent-child pair.
-listObjectParents_includeAllLinksToEachParent :: Lens.Lens' ListObjectParents (Prelude.Maybe Prelude.Bool)
-listObjectParents_includeAllLinksToEachParent = Lens.lens (\ListObjectParents' {includeAllLinksToEachParent} -> includeAllLinksToEachParent) (\s@ListObjectParents' {} a -> s {includeAllLinksToEachParent = a} :: ListObjectParents)
-
--- | Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
-listObjectParents_consistencyLevel :: Lens.Lens' ListObjectParents (Prelude.Maybe ConsistencyLevel)
-listObjectParents_consistencyLevel = Lens.lens (\ListObjectParents' {consistencyLevel} -> consistencyLevel) (\s@ListObjectParents' {} a -> s {consistencyLevel = a} :: ListObjectParents)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
@@ -157,9 +158,9 @@ instance Core.AWSRequest ListObjectParents where
     Response.receiveJSON
       ( \s h x ->
           ListObjectParentsResponse'
-            Prelude.<$> (x Core..?> "ParentLinks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Parents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "ParentLinks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,10 +179,10 @@ instance Core.ToJSON ListObjectParents where
   toJSON ListObjectParents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("IncludeAllLinksToEachParent" Core..=)
+          [ ("IncludeAllLinksToEachParent" Core..=)
               Prelude.<$> includeAllLinksToEachParent,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]
@@ -197,13 +198,13 @@ instance Core.ToQuery ListObjectParents where
 
 -- | /See:/ 'newListObjectParentsResponse' smart constructor.
 data ListObjectParentsResponse = ListObjectParentsResponse'
-  { -- | Returns a list of parent reference and LinkName Tuples.
-    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The parent structure, which is a map with key as the @ObjectIdentifier@
     -- and LinkName as the value.
     parents :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of parent reference and LinkName Tuples.
+    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,12 +218,12 @@ data ListObjectParentsResponse = ListObjectParentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentLinks', 'listObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
+-- 'nextToken', 'listObjectParentsResponse_nextToken' - The pagination token.
 --
 -- 'parents', 'listObjectParentsResponse_parents' - The parent structure, which is a map with key as the @ObjectIdentifier@
 -- and LinkName as the value.
 --
--- 'nextToken', 'listObjectParentsResponse_nextToken' - The pagination token.
+-- 'parentLinks', 'listObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
 --
 -- 'httpStatus', 'listObjectParentsResponse_httpStatus' - The response's http status code.
 newListObjectParentsResponse ::
@@ -231,25 +232,25 @@ newListObjectParentsResponse ::
   ListObjectParentsResponse
 newListObjectParentsResponse pHttpStatus_ =
   ListObjectParentsResponse'
-    { parentLinks =
+    { nextToken =
         Prelude.Nothing,
       parents = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      parentLinks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Returns a list of parent reference and LinkName Tuples.
-listObjectParentsResponse_parentLinks :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
-listObjectParentsResponse_parentLinks = Lens.lens (\ListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@ListObjectParentsResponse' {} a -> s {parentLinks = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The parent structure, which is a map with key as the @ObjectIdentifier@
--- and LinkName as the value.
-listObjectParentsResponse_parents :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listObjectParentsResponse_parents = Lens.lens (\ListObjectParentsResponse' {parents} -> parents) (\s@ListObjectParentsResponse' {} a -> s {parents = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
 listObjectParentsResponse_nextToken :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe Prelude.Text)
 listObjectParentsResponse_nextToken = Lens.lens (\ListObjectParentsResponse' {nextToken} -> nextToken) (\s@ListObjectParentsResponse' {} a -> s {nextToken = a} :: ListObjectParentsResponse)
+
+-- | The parent structure, which is a map with key as the @ObjectIdentifier@
+-- and LinkName as the value.
+listObjectParentsResponse_parents :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listObjectParentsResponse_parents = Lens.lens (\ListObjectParentsResponse' {parents} -> parents) (\s@ListObjectParentsResponse' {} a -> s {parents = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns a list of parent reference and LinkName Tuples.
+listObjectParentsResponse_parentLinks :: Lens.Lens' ListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
+listObjectParentsResponse_parentLinks = Lens.lens (\ListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@ListObjectParentsResponse' {} a -> s {parentLinks = a} :: ListObjectParentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listObjectParentsResponse_httpStatus :: Lens.Lens' ListObjectParentsResponse Prelude.Int

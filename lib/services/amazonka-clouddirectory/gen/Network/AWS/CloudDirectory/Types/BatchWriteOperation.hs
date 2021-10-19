@@ -42,43 +42,43 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchWriteOperation' smart constructor.
 data BatchWriteOperation = BatchWriteOperation'
-  { -- | Attaches a typed link to a specified source and target object. For more
+  { -- | Deletes an object in a Directory.
+    deleteObject :: Prelude.Maybe BatchDeleteObject,
+    -- | Detaches the specified object from the specified index.
+    detachFromIndex :: Prelude.Maybe BatchDetachFromIndex,
+    -- | A batch operation that removes a facet from an object.
+    removeFacetFromObject :: Prelude.Maybe BatchRemoveFacetFromObject,
+    -- | Attaches an object to a Directory.
+    attachObject :: Prelude.Maybe BatchAttachObject,
+    -- | Creates an object.
+    createObject :: Prelude.Maybe BatchCreateObject,
+    -- | Attaches a typed link to a specified source and target object. For more
     -- information, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
     attachTypedLink :: Prelude.Maybe BatchAttachTypedLink,
-    -- | Deletes an object in a Directory.
-    deleteObject :: Prelude.Maybe BatchDeleteObject,
-    -- | Creates an object.
-    createObject :: Prelude.Maybe BatchCreateObject,
-    -- | Updates a given object\'s attributes.
-    updateLinkAttributes :: Prelude.Maybe BatchUpdateLinkAttributes,
-    -- | Detaches a typed link from a specified source and target object. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-    detachTypedLink :: Prelude.Maybe BatchDetachTypedLink,
+    -- | Detaches a policy from a Directory.
+    detachPolicy :: Prelude.Maybe BatchDetachPolicy,
     -- | Creates an index object. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search>
     -- for more information.
     createIndex :: Prelude.Maybe BatchCreateIndex,
-    -- | Detaches the specified object from the specified index.
-    detachFromIndex :: Prelude.Maybe BatchDetachFromIndex,
-    -- | Detaches a policy from a Directory.
-    detachPolicy :: Prelude.Maybe BatchDetachPolicy,
-    -- | Attaches an object to a Directory.
-    attachObject :: Prelude.Maybe BatchAttachObject,
-    -- | Attaches the specified object to the specified index.
-    attachToIndex :: Prelude.Maybe BatchAttachToIndex,
+    -- | Detaches an object from a Directory.
+    detachObject :: Prelude.Maybe BatchDetachObject,
+    -- | A batch operation that adds a facet to an object.
+    addFacetToObject :: Prelude.Maybe BatchAddFacetToObject,
+    -- | Detaches a typed link from a specified source and target object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+    detachTypedLink :: Prelude.Maybe BatchDetachTypedLink,
+    -- | Updates a given object\'s attributes.
+    updateObjectAttributes :: Prelude.Maybe BatchUpdateObjectAttributes,
     -- | Attaches a policy object to a regular object. An object can have a
     -- limited number of attached policies.
     attachPolicy :: Prelude.Maybe BatchAttachPolicy,
     -- | Updates a given object\'s attributes.
-    updateObjectAttributes :: Prelude.Maybe BatchUpdateObjectAttributes,
-    -- | A batch operation that removes a facet from an object.
-    removeFacetFromObject :: Prelude.Maybe BatchRemoveFacetFromObject,
-    -- | Detaches an object from a Directory.
-    detachObject :: Prelude.Maybe BatchDetachObject,
-    -- | A batch operation that adds a facet to an object.
-    addFacetToObject :: Prelude.Maybe BatchAddFacetToObject
+    updateLinkAttributes :: Prelude.Maybe BatchUpdateLinkAttributes,
+    -- | Attaches the specified object to the specified index.
+    attachToIndex :: Prelude.Maybe BatchAttachToIndex
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,63 +90,83 @@ data BatchWriteOperation = BatchWriteOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deleteObject', 'batchWriteOperation_deleteObject' - Deletes an object in a Directory.
+--
+-- 'detachFromIndex', 'batchWriteOperation_detachFromIndex' - Detaches the specified object from the specified index.
+--
+-- 'removeFacetFromObject', 'batchWriteOperation_removeFacetFromObject' - A batch operation that removes a facet from an object.
+--
+-- 'attachObject', 'batchWriteOperation_attachObject' - Attaches an object to a Directory.
+--
+-- 'createObject', 'batchWriteOperation_createObject' - Creates an object.
+--
 -- 'attachTypedLink', 'batchWriteOperation_attachTypedLink' - Attaches a typed link to a specified source and target object. For more
 -- information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 --
--- 'deleteObject', 'batchWriteOperation_deleteObject' - Deletes an object in a Directory.
---
--- 'createObject', 'batchWriteOperation_createObject' - Creates an object.
---
--- 'updateLinkAttributes', 'batchWriteOperation_updateLinkAttributes' - Updates a given object\'s attributes.
---
--- 'detachTypedLink', 'batchWriteOperation_detachTypedLink' - Detaches a typed link from a specified source and target object. For
--- more information, see
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+-- 'detachPolicy', 'batchWriteOperation_detachPolicy' - Detaches a policy from a Directory.
 --
 -- 'createIndex', 'batchWriteOperation_createIndex' - Creates an index object. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search>
 -- for more information.
 --
--- 'detachFromIndex', 'batchWriteOperation_detachFromIndex' - Detaches the specified object from the specified index.
+-- 'detachObject', 'batchWriteOperation_detachObject' - Detaches an object from a Directory.
 --
--- 'detachPolicy', 'batchWriteOperation_detachPolicy' - Detaches a policy from a Directory.
+-- 'addFacetToObject', 'batchWriteOperation_addFacetToObject' - A batch operation that adds a facet to an object.
 --
--- 'attachObject', 'batchWriteOperation_attachObject' - Attaches an object to a Directory.
+-- 'detachTypedLink', 'batchWriteOperation_detachTypedLink' - Detaches a typed link from a specified source and target object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 --
--- 'attachToIndex', 'batchWriteOperation_attachToIndex' - Attaches the specified object to the specified index.
+-- 'updateObjectAttributes', 'batchWriteOperation_updateObjectAttributes' - Updates a given object\'s attributes.
 --
 -- 'attachPolicy', 'batchWriteOperation_attachPolicy' - Attaches a policy object to a regular object. An object can have a
 -- limited number of attached policies.
 --
--- 'updateObjectAttributes', 'batchWriteOperation_updateObjectAttributes' - Updates a given object\'s attributes.
+-- 'updateLinkAttributes', 'batchWriteOperation_updateLinkAttributes' - Updates a given object\'s attributes.
 --
--- 'removeFacetFromObject', 'batchWriteOperation_removeFacetFromObject' - A batch operation that removes a facet from an object.
---
--- 'detachObject', 'batchWriteOperation_detachObject' - Detaches an object from a Directory.
---
--- 'addFacetToObject', 'batchWriteOperation_addFacetToObject' - A batch operation that adds a facet to an object.
+-- 'attachToIndex', 'batchWriteOperation_attachToIndex' - Attaches the specified object to the specified index.
 newBatchWriteOperation ::
   BatchWriteOperation
 newBatchWriteOperation =
   BatchWriteOperation'
-    { attachTypedLink =
+    { deleteObject =
         Prelude.Nothing,
-      deleteObject = Prelude.Nothing,
-      createObject = Prelude.Nothing,
-      updateLinkAttributes = Prelude.Nothing,
-      detachTypedLink = Prelude.Nothing,
-      createIndex = Prelude.Nothing,
       detachFromIndex = Prelude.Nothing,
-      detachPolicy = Prelude.Nothing,
-      attachObject = Prelude.Nothing,
-      attachToIndex = Prelude.Nothing,
-      attachPolicy = Prelude.Nothing,
-      updateObjectAttributes = Prelude.Nothing,
       removeFacetFromObject = Prelude.Nothing,
+      attachObject = Prelude.Nothing,
+      createObject = Prelude.Nothing,
+      attachTypedLink = Prelude.Nothing,
+      detachPolicy = Prelude.Nothing,
+      createIndex = Prelude.Nothing,
       detachObject = Prelude.Nothing,
-      addFacetToObject = Prelude.Nothing
+      addFacetToObject = Prelude.Nothing,
+      detachTypedLink = Prelude.Nothing,
+      updateObjectAttributes = Prelude.Nothing,
+      attachPolicy = Prelude.Nothing,
+      updateLinkAttributes = Prelude.Nothing,
+      attachToIndex = Prelude.Nothing
     }
+
+-- | Deletes an object in a Directory.
+batchWriteOperation_deleteObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDeleteObject)
+batchWriteOperation_deleteObject = Lens.lens (\BatchWriteOperation' {deleteObject} -> deleteObject) (\s@BatchWriteOperation' {} a -> s {deleteObject = a} :: BatchWriteOperation)
+
+-- | Detaches the specified object from the specified index.
+batchWriteOperation_detachFromIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachFromIndex)
+batchWriteOperation_detachFromIndex = Lens.lens (\BatchWriteOperation' {detachFromIndex} -> detachFromIndex) (\s@BatchWriteOperation' {} a -> s {detachFromIndex = a} :: BatchWriteOperation)
+
+-- | A batch operation that removes a facet from an object.
+batchWriteOperation_removeFacetFromObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchRemoveFacetFromObject)
+batchWriteOperation_removeFacetFromObject = Lens.lens (\BatchWriteOperation' {removeFacetFromObject} -> removeFacetFromObject) (\s@BatchWriteOperation' {} a -> s {removeFacetFromObject = a} :: BatchWriteOperation)
+
+-- | Attaches an object to a Directory.
+batchWriteOperation_attachObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachObject)
+batchWriteOperation_attachObject = Lens.lens (\BatchWriteOperation' {attachObject} -> attachObject) (\s@BatchWriteOperation' {} a -> s {attachObject = a} :: BatchWriteOperation)
+
+-- | Creates an object.
+batchWriteOperation_createObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchCreateObject)
+batchWriteOperation_createObject = Lens.lens (\BatchWriteOperation' {createObject} -> createObject) (\s@BatchWriteOperation' {} a -> s {createObject = a} :: BatchWriteOperation)
 
 -- | Attaches a typed link to a specified source and target object. For more
 -- information, see
@@ -154,58 +174,15 @@ newBatchWriteOperation =
 batchWriteOperation_attachTypedLink :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachTypedLink)
 batchWriteOperation_attachTypedLink = Lens.lens (\BatchWriteOperation' {attachTypedLink} -> attachTypedLink) (\s@BatchWriteOperation' {} a -> s {attachTypedLink = a} :: BatchWriteOperation)
 
--- | Deletes an object in a Directory.
-batchWriteOperation_deleteObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDeleteObject)
-batchWriteOperation_deleteObject = Lens.lens (\BatchWriteOperation' {deleteObject} -> deleteObject) (\s@BatchWriteOperation' {} a -> s {deleteObject = a} :: BatchWriteOperation)
-
--- | Creates an object.
-batchWriteOperation_createObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchCreateObject)
-batchWriteOperation_createObject = Lens.lens (\BatchWriteOperation' {createObject} -> createObject) (\s@BatchWriteOperation' {} a -> s {createObject = a} :: BatchWriteOperation)
-
--- | Updates a given object\'s attributes.
-batchWriteOperation_updateLinkAttributes :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchUpdateLinkAttributes)
-batchWriteOperation_updateLinkAttributes = Lens.lens (\BatchWriteOperation' {updateLinkAttributes} -> updateLinkAttributes) (\s@BatchWriteOperation' {} a -> s {updateLinkAttributes = a} :: BatchWriteOperation)
-
--- | Detaches a typed link from a specified source and target object. For
--- more information, see
--- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
-batchWriteOperation_detachTypedLink :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachTypedLink)
-batchWriteOperation_detachTypedLink = Lens.lens (\BatchWriteOperation' {detachTypedLink} -> detachTypedLink) (\s@BatchWriteOperation' {} a -> s {detachTypedLink = a} :: BatchWriteOperation)
+-- | Detaches a policy from a Directory.
+batchWriteOperation_detachPolicy :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachPolicy)
+batchWriteOperation_detachPolicy = Lens.lens (\BatchWriteOperation' {detachPolicy} -> detachPolicy) (\s@BatchWriteOperation' {} a -> s {detachPolicy = a} :: BatchWriteOperation)
 
 -- | Creates an index object. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search>
 -- for more information.
 batchWriteOperation_createIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchCreateIndex)
 batchWriteOperation_createIndex = Lens.lens (\BatchWriteOperation' {createIndex} -> createIndex) (\s@BatchWriteOperation' {} a -> s {createIndex = a} :: BatchWriteOperation)
-
--- | Detaches the specified object from the specified index.
-batchWriteOperation_detachFromIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachFromIndex)
-batchWriteOperation_detachFromIndex = Lens.lens (\BatchWriteOperation' {detachFromIndex} -> detachFromIndex) (\s@BatchWriteOperation' {} a -> s {detachFromIndex = a} :: BatchWriteOperation)
-
--- | Detaches a policy from a Directory.
-batchWriteOperation_detachPolicy :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachPolicy)
-batchWriteOperation_detachPolicy = Lens.lens (\BatchWriteOperation' {detachPolicy} -> detachPolicy) (\s@BatchWriteOperation' {} a -> s {detachPolicy = a} :: BatchWriteOperation)
-
--- | Attaches an object to a Directory.
-batchWriteOperation_attachObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachObject)
-batchWriteOperation_attachObject = Lens.lens (\BatchWriteOperation' {attachObject} -> attachObject) (\s@BatchWriteOperation' {} a -> s {attachObject = a} :: BatchWriteOperation)
-
--- | Attaches the specified object to the specified index.
-batchWriteOperation_attachToIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachToIndex)
-batchWriteOperation_attachToIndex = Lens.lens (\BatchWriteOperation' {attachToIndex} -> attachToIndex) (\s@BatchWriteOperation' {} a -> s {attachToIndex = a} :: BatchWriteOperation)
-
--- | Attaches a policy object to a regular object. An object can have a
--- limited number of attached policies.
-batchWriteOperation_attachPolicy :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachPolicy)
-batchWriteOperation_attachPolicy = Lens.lens (\BatchWriteOperation' {attachPolicy} -> attachPolicy) (\s@BatchWriteOperation' {} a -> s {attachPolicy = a} :: BatchWriteOperation)
-
--- | Updates a given object\'s attributes.
-batchWriteOperation_updateObjectAttributes :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchUpdateObjectAttributes)
-batchWriteOperation_updateObjectAttributes = Lens.lens (\BatchWriteOperation' {updateObjectAttributes} -> updateObjectAttributes) (\s@BatchWriteOperation' {} a -> s {updateObjectAttributes = a} :: BatchWriteOperation)
-
--- | A batch operation that removes a facet from an object.
-batchWriteOperation_removeFacetFromObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchRemoveFacetFromObject)
-batchWriteOperation_removeFacetFromObject = Lens.lens (\BatchWriteOperation' {removeFacetFromObject} -> removeFacetFromObject) (\s@BatchWriteOperation' {} a -> s {removeFacetFromObject = a} :: BatchWriteOperation)
 
 -- | Detaches an object from a Directory.
 batchWriteOperation_detachObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachObject)
@@ -215,6 +192,29 @@ batchWriteOperation_detachObject = Lens.lens (\BatchWriteOperation' {detachObjec
 batchWriteOperation_addFacetToObject :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAddFacetToObject)
 batchWriteOperation_addFacetToObject = Lens.lens (\BatchWriteOperation' {addFacetToObject} -> addFacetToObject) (\s@BatchWriteOperation' {} a -> s {addFacetToObject = a} :: BatchWriteOperation)
 
+-- | Detaches a typed link from a specified source and target object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+batchWriteOperation_detachTypedLink :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchDetachTypedLink)
+batchWriteOperation_detachTypedLink = Lens.lens (\BatchWriteOperation' {detachTypedLink} -> detachTypedLink) (\s@BatchWriteOperation' {} a -> s {detachTypedLink = a} :: BatchWriteOperation)
+
+-- | Updates a given object\'s attributes.
+batchWriteOperation_updateObjectAttributes :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchUpdateObjectAttributes)
+batchWriteOperation_updateObjectAttributes = Lens.lens (\BatchWriteOperation' {updateObjectAttributes} -> updateObjectAttributes) (\s@BatchWriteOperation' {} a -> s {updateObjectAttributes = a} :: BatchWriteOperation)
+
+-- | Attaches a policy object to a regular object. An object can have a
+-- limited number of attached policies.
+batchWriteOperation_attachPolicy :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachPolicy)
+batchWriteOperation_attachPolicy = Lens.lens (\BatchWriteOperation' {attachPolicy} -> attachPolicy) (\s@BatchWriteOperation' {} a -> s {attachPolicy = a} :: BatchWriteOperation)
+
+-- | Updates a given object\'s attributes.
+batchWriteOperation_updateLinkAttributes :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchUpdateLinkAttributes)
+batchWriteOperation_updateLinkAttributes = Lens.lens (\BatchWriteOperation' {updateLinkAttributes} -> updateLinkAttributes) (\s@BatchWriteOperation' {} a -> s {updateLinkAttributes = a} :: BatchWriteOperation)
+
+-- | Attaches the specified object to the specified index.
+batchWriteOperation_attachToIndex :: Lens.Lens' BatchWriteOperation (Prelude.Maybe BatchAttachToIndex)
+batchWriteOperation_attachToIndex = Lens.lens (\BatchWriteOperation' {attachToIndex} -> attachToIndex) (\s@BatchWriteOperation' {} a -> s {attachToIndex = a} :: BatchWriteOperation)
+
 instance Prelude.Hashable BatchWriteOperation
 
 instance Prelude.NFData BatchWriteOperation
@@ -223,27 +223,27 @@ instance Core.ToJSON BatchWriteOperation where
   toJSON BatchWriteOperation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AttachTypedLink" Core..=)
-              Prelude.<$> attachTypedLink,
-            ("DeleteObject" Core..=) Prelude.<$> deleteObject,
-            ("CreateObject" Core..=) Prelude.<$> createObject,
-            ("UpdateLinkAttributes" Core..=)
-              Prelude.<$> updateLinkAttributes,
-            ("DetachTypedLink" Core..=)
-              Prelude.<$> detachTypedLink,
-            ("CreateIndex" Core..=) Prelude.<$> createIndex,
+          [ ("DeleteObject" Core..=) Prelude.<$> deleteObject,
             ("DetachFromIndex" Core..=)
               Prelude.<$> detachFromIndex,
-            ("DetachPolicy" Core..=) Prelude.<$> detachPolicy,
-            ("AttachObject" Core..=) Prelude.<$> attachObject,
-            ("AttachToIndex" Core..=) Prelude.<$> attachToIndex,
-            ("AttachPolicy" Core..=) Prelude.<$> attachPolicy,
-            ("UpdateObjectAttributes" Core..=)
-              Prelude.<$> updateObjectAttributes,
             ("RemoveFacetFromObject" Core..=)
               Prelude.<$> removeFacetFromObject,
+            ("AttachObject" Core..=) Prelude.<$> attachObject,
+            ("CreateObject" Core..=) Prelude.<$> createObject,
+            ("AttachTypedLink" Core..=)
+              Prelude.<$> attachTypedLink,
+            ("DetachPolicy" Core..=) Prelude.<$> detachPolicy,
+            ("CreateIndex" Core..=) Prelude.<$> createIndex,
             ("DetachObject" Core..=) Prelude.<$> detachObject,
             ("AddFacetToObject" Core..=)
-              Prelude.<$> addFacetToObject
+              Prelude.<$> addFacetToObject,
+            ("DetachTypedLink" Core..=)
+              Prelude.<$> detachTypedLink,
+            ("UpdateObjectAttributes" Core..=)
+              Prelude.<$> updateObjectAttributes,
+            ("AttachPolicy" Core..=) Prelude.<$> attachPolicy,
+            ("UpdateLinkAttributes" Core..=)
+              Prelude.<$> updateLinkAttributes,
+            ("AttachToIndex" Core..=) Prelude.<$> attachToIndex
           ]
       )

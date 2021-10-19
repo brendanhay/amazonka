@@ -96,7 +96,7 @@ typedLinkSpecifier_targetObjectReference = Lens.lens (\TypedLinkSpecifier' {targ
 
 -- | Identifies the attribute value to update.
 typedLinkSpecifier_identityAttributeValues :: Lens.Lens' TypedLinkSpecifier [AttributeNameAndValue]
-typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Prelude.. Lens._Coerce
+typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Prelude.. Lens.coerced
 
 instance Core.FromJSON TypedLinkSpecifier where
   parseJSON =

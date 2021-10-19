@@ -52,7 +52,7 @@ newBatchGetObjectAttributesResponse =
 
 -- | The attribute values that are associated with an object.
 batchGetObjectAttributesResponse_attributes :: Lens.Lens' BatchGetObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-batchGetObjectAttributesResponse_attributes = Lens.lens (\BatchGetObjectAttributesResponse' {attributes} -> attributes) (\s@BatchGetObjectAttributesResponse' {} a -> s {attributes = a} :: BatchGetObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetObjectAttributesResponse_attributes = Lens.lens (\BatchGetObjectAttributesResponse' {attributes} -> attributes) (\s@BatchGetObjectAttributesResponse' {} a -> s {attributes = a} :: BatchGetObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

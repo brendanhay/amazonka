@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectAttributes' smart constructor.
 data BatchListObjectAttributes = BatchListObjectAttributes'
-  { -- | The pagination token.
+  { -- | Used to filter the list of object attributes that are associated with a
+    -- certain facet.
+    facetFilter :: Prelude.Maybe SchemaFacet,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Used to filter the list of object attributes that are associated with a
-    -- certain facet.
-    facetFilter :: Prelude.Maybe SchemaFacet,
     -- | Reference of the object whose attributes need to be listed.
     objectReference :: ObjectReference
   }
@@ -50,13 +50,13 @@ data BatchListObjectAttributes = BatchListObjectAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'facetFilter', 'batchListObjectAttributes_facetFilter' - Used to filter the list of object attributes that are associated with a
+-- certain facet.
+--
 -- 'nextToken', 'batchListObjectAttributes_nextToken' - The pagination token.
 --
 -- 'maxResults', 'batchListObjectAttributes_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
---
--- 'facetFilter', 'batchListObjectAttributes_facetFilter' - Used to filter the list of object attributes that are associated with a
--- certain facet.
 --
 -- 'objectReference', 'batchListObjectAttributes_objectReference' - Reference of the object whose attributes need to be listed.
 newBatchListObjectAttributes ::
@@ -65,12 +65,17 @@ newBatchListObjectAttributes ::
   BatchListObjectAttributes
 newBatchListObjectAttributes pObjectReference_ =
   BatchListObjectAttributes'
-    { nextToken =
+    { facetFilter =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      facetFilter = Prelude.Nothing,
       objectReference = pObjectReference_
     }
+
+-- | Used to filter the list of object attributes that are associated with a
+-- certain facet.
+batchListObjectAttributes_facetFilter :: Lens.Lens' BatchListObjectAttributes (Prelude.Maybe SchemaFacet)
+batchListObjectAttributes_facetFilter = Lens.lens (\BatchListObjectAttributes' {facetFilter} -> facetFilter) (\s@BatchListObjectAttributes' {} a -> s {facetFilter = a} :: BatchListObjectAttributes)
 
 -- | The pagination token.
 batchListObjectAttributes_nextToken :: Lens.Lens' BatchListObjectAttributes (Prelude.Maybe Prelude.Text)
@@ -80,11 +85,6 @@ batchListObjectAttributes_nextToken = Lens.lens (\BatchListObjectAttributes' {ne
 -- approximate number.
 batchListObjectAttributes_maxResults :: Lens.Lens' BatchListObjectAttributes (Prelude.Maybe Prelude.Natural)
 batchListObjectAttributes_maxResults = Lens.lens (\BatchListObjectAttributes' {maxResults} -> maxResults) (\s@BatchListObjectAttributes' {} a -> s {maxResults = a} :: BatchListObjectAttributes)
-
--- | Used to filter the list of object attributes that are associated with a
--- certain facet.
-batchListObjectAttributes_facetFilter :: Lens.Lens' BatchListObjectAttributes (Prelude.Maybe SchemaFacet)
-batchListObjectAttributes_facetFilter = Lens.lens (\BatchListObjectAttributes' {facetFilter} -> facetFilter) (\s@BatchListObjectAttributes' {} a -> s {facetFilter = a} :: BatchListObjectAttributes)
 
 -- | Reference of the object whose attributes need to be listed.
 batchListObjectAttributes_objectReference :: Lens.Lens' BatchListObjectAttributes ObjectReference
@@ -98,9 +98,9 @@ instance Core.ToJSON BatchListObjectAttributes where
   toJSON BatchListObjectAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("FacetFilter" Core..=) Prelude.<$> facetFilter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FacetFilter" Core..=) Prelude.<$> facetFilter,
             Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]

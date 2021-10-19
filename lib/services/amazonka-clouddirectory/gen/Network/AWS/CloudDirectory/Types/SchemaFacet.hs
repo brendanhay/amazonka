@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSchemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
-  { -- | The ARN of the schema that contains the facet with no minor component.
+  { -- | The name of the facet. If this value is set, SchemaArn must also be set.
+    facetName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the schema that contains the facet with no minor component.
     -- See arns and
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
     -- for a description of when to provide minor versions. If this value is
     -- set, FacetName must also be set.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the facet. If this value is set, SchemaArn must also be set.
-    facetName :: Prelude.Maybe Prelude.Text
+    schemaArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data SchemaFacet = SchemaFacet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'facetName', 'schemaFacet_facetName' - The name of the facet. If this value is set, SchemaArn must also be set.
+--
 -- 'schemaArn', 'schemaFacet_schemaArn' - The ARN of the schema that contains the facet with no minor component.
 -- See arns and
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade>
 -- for a description of when to provide minor versions. If this value is
 -- set, FacetName must also be set.
---
--- 'facetName', 'schemaFacet_facetName' - The name of the facet. If this value is set, SchemaArn must also be set.
 newSchemaFacet ::
   SchemaFacet
 newSchemaFacet =
   SchemaFacet'
-    { schemaArn = Prelude.Nothing,
-      facetName = Prelude.Nothing
+    { facetName = Prelude.Nothing,
+      schemaArn = Prelude.Nothing
     }
+
+-- | The name of the facet. If this value is set, SchemaArn must also be set.
+schemaFacet_facetName :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
+schemaFacet_facetName = Lens.lens (\SchemaFacet' {facetName} -> facetName) (\s@SchemaFacet' {} a -> s {facetName = a} :: SchemaFacet)
 
 -- | The ARN of the schema that contains the facet with no minor component.
 -- See arns and
@@ -69,18 +73,14 @@ newSchemaFacet =
 schemaFacet_schemaArn :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
 schemaFacet_schemaArn = Lens.lens (\SchemaFacet' {schemaArn} -> schemaArn) (\s@SchemaFacet' {} a -> s {schemaArn = a} :: SchemaFacet)
 
--- | The name of the facet. If this value is set, SchemaArn must also be set.
-schemaFacet_facetName :: Lens.Lens' SchemaFacet (Prelude.Maybe Prelude.Text)
-schemaFacet_facetName = Lens.lens (\SchemaFacet' {facetName} -> facetName) (\s@SchemaFacet' {} a -> s {facetName = a} :: SchemaFacet)
-
 instance Core.FromJSON SchemaFacet where
   parseJSON =
     Core.withObject
       "SchemaFacet"
       ( \x ->
           SchemaFacet'
-            Prelude.<$> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "FacetName")
+            Prelude.<$> (x Core..:? "FacetName")
+            Prelude.<*> (x Core..:? "SchemaArn")
       )
 
 instance Prelude.Hashable SchemaFacet
@@ -91,7 +91,7 @@ instance Core.ToJSON SchemaFacet where
   toJSON SchemaFacet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SchemaArn" Core..=) Prelude.<$> schemaArn,
-            ("FacetName" Core..=) Prelude.<$> facetName
+          [ ("FacetName" Core..=) Prelude.<$> facetName,
+            ("SchemaArn" Core..=) Prelude.<$> schemaArn
           ]
       )

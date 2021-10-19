@@ -105,7 +105,7 @@ updateLinkAttributes_typedLinkSpecifier = Lens.lens (\UpdateLinkAttributes' {typ
 
 -- | The attributes update structure.
 updateLinkAttributes_attributeUpdates :: Lens.Lens' UpdateLinkAttributes [LinkAttributeUpdate]
-updateLinkAttributes_attributeUpdates = Lens.lens (\UpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: UpdateLinkAttributes) Prelude.. Lens._Coerce
+updateLinkAttributes_attributeUpdates = Lens.lens (\UpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: UpdateLinkAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateLinkAttributes where
   type

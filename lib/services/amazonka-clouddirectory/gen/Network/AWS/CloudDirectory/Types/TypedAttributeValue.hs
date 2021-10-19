@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTypedAttributeValue' smart constructor.
 data TypedAttributeValue = TypedAttributeValue'
-  { -- | A string data value.
-    stringValue :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean data value.
-    booleanValue :: Prelude.Maybe Prelude.Bool,
-    -- | A binary data value.
+  { -- | A binary data value.
     binaryValue :: Prelude.Maybe Core.Base64,
+    -- | A date and time value.
+    datetimeValue :: Prelude.Maybe Core.POSIX,
     -- | A number data value.
     numberValue :: Prelude.Maybe Prelude.Text,
-    -- | A date and time value.
-    datetimeValue :: Prelude.Maybe Core.POSIX
+    -- | A string data value.
+    stringValue :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean data value.
+    booleanValue :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,37 +50,29 @@ data TypedAttributeValue = TypedAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringValue', 'typedAttributeValue_stringValue' - A string data value.
---
--- 'booleanValue', 'typedAttributeValue_booleanValue' - A Boolean data value.
---
 -- 'binaryValue', 'typedAttributeValue_binaryValue' - A binary data value.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'datetimeValue', 'typedAttributeValue_datetimeValue' - A date and time value.
+--
 -- 'numberValue', 'typedAttributeValue_numberValue' - A number data value.
 --
--- 'datetimeValue', 'typedAttributeValue_datetimeValue' - A date and time value.
+-- 'stringValue', 'typedAttributeValue_stringValue' - A string data value.
+--
+-- 'booleanValue', 'typedAttributeValue_booleanValue' - A Boolean data value.
 newTypedAttributeValue ::
   TypedAttributeValue
 newTypedAttributeValue =
   TypedAttributeValue'
-    { stringValue = Prelude.Nothing,
-      booleanValue = Prelude.Nothing,
-      binaryValue = Prelude.Nothing,
+    { binaryValue = Prelude.Nothing,
+      datetimeValue = Prelude.Nothing,
       numberValue = Prelude.Nothing,
-      datetimeValue = Prelude.Nothing
+      stringValue = Prelude.Nothing,
+      booleanValue = Prelude.Nothing
     }
-
--- | A string data value.
-typedAttributeValue_stringValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
-typedAttributeValue_stringValue = Lens.lens (\TypedAttributeValue' {stringValue} -> stringValue) (\s@TypedAttributeValue' {} a -> s {stringValue = a} :: TypedAttributeValue)
-
--- | A Boolean data value.
-typedAttributeValue_booleanValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Bool)
-typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValue} -> booleanValue) (\s@TypedAttributeValue' {} a -> s {booleanValue = a} :: TypedAttributeValue)
 
 -- | A binary data value.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -90,13 +82,21 @@ typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValu
 typedAttributeValue_binaryValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.ByteString)
 typedAttributeValue_binaryValue = Lens.lens (\TypedAttributeValue' {binaryValue} -> binaryValue) (\s@TypedAttributeValue' {} a -> s {binaryValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Core._Base64
 
+-- | A date and time value.
+typedAttributeValue_datetimeValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.UTCTime)
+typedAttributeValue_datetimeValue = Lens.lens (\TypedAttributeValue' {datetimeValue} -> datetimeValue) (\s@TypedAttributeValue' {} a -> s {datetimeValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Core._Time
+
 -- | A number data value.
 typedAttributeValue_numberValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
 typedAttributeValue_numberValue = Lens.lens (\TypedAttributeValue' {numberValue} -> numberValue) (\s@TypedAttributeValue' {} a -> s {numberValue = a} :: TypedAttributeValue)
 
--- | A date and time value.
-typedAttributeValue_datetimeValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.UTCTime)
-typedAttributeValue_datetimeValue = Lens.lens (\TypedAttributeValue' {datetimeValue} -> datetimeValue) (\s@TypedAttributeValue' {} a -> s {datetimeValue = a} :: TypedAttributeValue) Prelude.. Lens.mapping Core._Time
+-- | A string data value.
+typedAttributeValue_stringValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Text)
+typedAttributeValue_stringValue = Lens.lens (\TypedAttributeValue' {stringValue} -> stringValue) (\s@TypedAttributeValue' {} a -> s {stringValue = a} :: TypedAttributeValue)
+
+-- | A Boolean data value.
+typedAttributeValue_booleanValue :: Lens.Lens' TypedAttributeValue (Prelude.Maybe Prelude.Bool)
+typedAttributeValue_booleanValue = Lens.lens (\TypedAttributeValue' {booleanValue} -> booleanValue) (\s@TypedAttributeValue' {} a -> s {booleanValue = a} :: TypedAttributeValue)
 
 instance Core.FromJSON TypedAttributeValue where
   parseJSON =
@@ -104,11 +104,11 @@ instance Core.FromJSON TypedAttributeValue where
       "TypedAttributeValue"
       ( \x ->
           TypedAttributeValue'
-            Prelude.<$> (x Core..:? "StringValue")
-            Prelude.<*> (x Core..:? "BooleanValue")
-            Prelude.<*> (x Core..:? "BinaryValue")
-            Prelude.<*> (x Core..:? "NumberValue")
+            Prelude.<$> (x Core..:? "BinaryValue")
             Prelude.<*> (x Core..:? "DatetimeValue")
+            Prelude.<*> (x Core..:? "NumberValue")
+            Prelude.<*> (x Core..:? "StringValue")
+            Prelude.<*> (x Core..:? "BooleanValue")
       )
 
 instance Prelude.Hashable TypedAttributeValue
@@ -119,10 +119,10 @@ instance Core.ToJSON TypedAttributeValue where
   toJSON TypedAttributeValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StringValue" Core..=) Prelude.<$> stringValue,
-            ("BooleanValue" Core..=) Prelude.<$> booleanValue,
-            ("BinaryValue" Core..=) Prelude.<$> binaryValue,
+          [ ("BinaryValue" Core..=) Prelude.<$> binaryValue,
+            ("DatetimeValue" Core..=) Prelude.<$> datetimeValue,
             ("NumberValue" Core..=) Prelude.<$> numberValue,
-            ("DatetimeValue" Core..=) Prelude.<$> datetimeValue
+            ("StringValue" Core..=) Prelude.<$> stringValue,
+            ("BooleanValue" Core..=) Prelude.<$> booleanValue
           ]
       )

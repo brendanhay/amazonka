@@ -128,7 +128,7 @@ attachTypedLink_typedLinkFacet = Lens.lens (\AttachTypedLink' {typedLinkFacet} -
 
 -- | A set of attributes that are associated with the typed link.
 attachTypedLink_attributes :: Lens.Lens' AttachTypedLink [AttributeNameAndValue]
-attachTypedLink_attributes = Lens.lens (\AttachTypedLink' {attributes} -> attributes) (\s@AttachTypedLink' {} a -> s {attributes = a} :: AttachTypedLink) Prelude.. Lens._Coerce
+attachTypedLink_attributes = Lens.lens (\AttachTypedLink' {attributes} -> attributes) (\s@AttachTypedLink' {} a -> s {attributes = a} :: AttachTypedLink) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AttachTypedLink where
   type

@@ -29,9 +29,9 @@ module Network.AWS.CloudDirectory.ListObjectPolicies
     newListObjectPolicies,
 
     -- * Request Lenses
+    listObjectPolicies_consistencyLevel,
     listObjectPolicies_nextToken,
     listObjectPolicies_maxResults,
-    listObjectPolicies_consistencyLevel,
     listObjectPolicies_directoryArn,
     listObjectPolicies_objectReference,
 
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListObjectPolicies' smart constructor.
 data ListObjectPolicies = ListObjectPolicies'
-  { -- | The pagination token.
+  { -- | Represents the manner and timing in which the successful write or update
+    -- of an object is reflected in a subsequent read operation of that same
+    -- object.
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Represents the manner and timing in which the successful write or update
-    -- of an object is reflected in a subsequent read operation of that same
-    -- object.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where objects reside. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -80,14 +80,14 @@ data ListObjectPolicies = ListObjectPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consistencyLevel', 'listObjectPolicies_consistencyLevel' - Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+--
 -- 'nextToken', 'listObjectPolicies_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listObjectPolicies_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
---
--- 'consistencyLevel', 'listObjectPolicies_consistencyLevel' - Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
 --
 -- 'directoryArn', 'listObjectPolicies_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -103,12 +103,19 @@ newListObjectPolicies
   pDirectoryArn_
   pObjectReference_ =
     ListObjectPolicies'
-      { nextToken = Prelude.Nothing,
+      { consistencyLevel =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
+
+-- | Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+listObjectPolicies_consistencyLevel :: Lens.Lens' ListObjectPolicies (Prelude.Maybe ConsistencyLevel)
+listObjectPolicies_consistencyLevel = Lens.lens (\ListObjectPolicies' {consistencyLevel} -> consistencyLevel) (\s@ListObjectPolicies' {} a -> s {consistencyLevel = a} :: ListObjectPolicies)
 
 -- | The pagination token.
 listObjectPolicies_nextToken :: Lens.Lens' ListObjectPolicies (Prelude.Maybe Prelude.Text)
@@ -118,12 +125,6 @@ listObjectPolicies_nextToken = Lens.lens (\ListObjectPolicies' {nextToken} -> ne
 -- approximate number.
 listObjectPolicies_maxResults :: Lens.Lens' ListObjectPolicies (Prelude.Maybe Prelude.Natural)
 listObjectPolicies_maxResults = Lens.lens (\ListObjectPolicies' {maxResults} -> maxResults) (\s@ListObjectPolicies' {} a -> s {maxResults = a} :: ListObjectPolicies)
-
--- | Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
-listObjectPolicies_consistencyLevel :: Lens.Lens' ListObjectPolicies (Prelude.Maybe ConsistencyLevel)
-listObjectPolicies_consistencyLevel = Lens.lens (\ListObjectPolicies' {consistencyLevel} -> consistencyLevel) (\s@ListObjectPolicies' {} a -> s {consistencyLevel = a} :: ListObjectPolicies)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -244,7 +245,7 @@ listObjectPoliciesResponse_nextToken = Lens.lens (\ListObjectPoliciesResponse' {
 
 -- | A list of policy @ObjectIdentifiers@, that are attached to the object.
 listObjectPoliciesResponse_attachedPolicyIds :: Lens.Lens' ListObjectPoliciesResponse (Prelude.Maybe [Prelude.Text])
-listObjectPoliciesResponse_attachedPolicyIds = Lens.lens (\ListObjectPoliciesResponse' {attachedPolicyIds} -> attachedPolicyIds) (\s@ListObjectPoliciesResponse' {} a -> s {attachedPolicyIds = a} :: ListObjectPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+listObjectPoliciesResponse_attachedPolicyIds = Lens.lens (\ListObjectPoliciesResponse' {attachedPolicyIds} -> attachedPolicyIds) (\s@ListObjectPoliciesResponse' {} a -> s {attachedPolicyIds = a} :: ListObjectPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listObjectPoliciesResponse_httpStatus :: Lens.Lens' ListObjectPoliciesResponse Prelude.Int

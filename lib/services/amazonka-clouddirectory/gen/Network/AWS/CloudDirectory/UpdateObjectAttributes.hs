@@ -101,7 +101,7 @@ updateObjectAttributes_objectReference = Lens.lens (\UpdateObjectAttributes' {ob
 
 -- | The attributes update structure.
 updateObjectAttributes_attributeUpdates :: Lens.Lens' UpdateObjectAttributes [ObjectAttributeUpdate]
-updateObjectAttributes_attributeUpdates = Lens.lens (\UpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: UpdateObjectAttributes) Prelude.. Lens._Coerce
+updateObjectAttributes_attributeUpdates = Lens.lens (\UpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@UpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: UpdateObjectAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateObjectAttributes where
   type

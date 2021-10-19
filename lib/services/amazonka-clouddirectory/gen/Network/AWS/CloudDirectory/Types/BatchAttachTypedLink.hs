@@ -92,7 +92,7 @@ batchAttachTypedLink_typedLinkFacet = Lens.lens (\BatchAttachTypedLink' {typedLi
 
 -- | A set of attributes that are associated with the typed link.
 batchAttachTypedLink_attributes :: Lens.Lens' BatchAttachTypedLink [AttributeNameAndValue]
-batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes} -> attributes) (\s@BatchAttachTypedLink' {} a -> s {attributes = a} :: BatchAttachTypedLink) Prelude.. Lens._Coerce
+batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes} -> attributes) (\s@BatchAttachTypedLink' {} a -> s {attributes = a} :: BatchAttachTypedLink) Prelude.. Lens.coerced
 
 instance Prelude.Hashable BatchAttachTypedLink
 

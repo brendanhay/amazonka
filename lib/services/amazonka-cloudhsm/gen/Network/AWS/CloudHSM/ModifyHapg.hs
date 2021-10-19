@@ -102,7 +102,7 @@ newModifyHapg pHapgArn_ =
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
 modifyHapg_partitionSerialList :: Lens.Lens' ModifyHapg (Prelude.Maybe [Prelude.Text])
-modifyHapg_partitionSerialList = Lens.lens (\ModifyHapg' {partitionSerialList} -> partitionSerialList) (\s@ModifyHapg' {} a -> s {partitionSerialList = a} :: ModifyHapg) Prelude.. Lens.mapping Lens._Coerce
+modifyHapg_partitionSerialList = Lens.lens (\ModifyHapg' {partitionSerialList} -> partitionSerialList) (\s@ModifyHapg' {} a -> s {partitionSerialList = a} :: ModifyHapg) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new label for the high-availability partition group.
 modifyHapg_label :: Lens.Lens' ModifyHapg (Prelude.Maybe Prelude.Text)

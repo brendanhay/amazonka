@@ -33,14 +33,14 @@ module Network.AWS.CloudHSM
     -- * Errors
     -- $errors
 
-    -- ** CloudHsmInternalException
-    _CloudHsmInternalException,
-
     -- ** InvalidRequestException
     _InvalidRequestException,
 
     -- ** CloudHsmServiceException
     _CloudHsmServiceException,
+
+    -- ** CloudHsmInternalException
+    _CloudHsmInternalException,
 
     -- * Waiters
     -- $waiters
@@ -54,11 +54,11 @@ module Network.AWS.CloudHSM
     DeleteHapgResponse (DeleteHapgResponse'),
     newDeleteHapgResponse,
 
-    -- ** DeleteHsm
-    DeleteHsm (DeleteHsm'),
-    newDeleteHsm,
-    DeleteHsmResponse (DeleteHsmResponse'),
-    newDeleteHsmResponse,
+    -- ** ListHapgs (Paginated)
+    ListHapgs (ListHapgs'),
+    newListHapgs,
+    ListHapgsResponse (ListHapgsResponse'),
+    newListHapgsResponse,
 
     -- ** ModifyLunaClient
     ModifyLunaClient (ModifyLunaClient'),
@@ -72,59 +72,17 @@ module Network.AWS.CloudHSM
     ListHsmsResponse (ListHsmsResponse'),
     newListHsmsResponse,
 
-    -- ** GetConfig
-    GetConfig (GetConfig'),
-    newGetConfig,
-    GetConfigResponse (GetConfigResponse'),
-    newGetConfigResponse,
+    -- ** DescribeLunaClient
+    DescribeLunaClient (DescribeLunaClient'),
+    newDescribeLunaClient,
+    DescribeLunaClientResponse (DescribeLunaClientResponse'),
+    newDescribeLunaClientResponse,
 
-    -- ** DeleteLunaClient
-    DeleteLunaClient (DeleteLunaClient'),
-    newDeleteLunaClient,
-    DeleteLunaClientResponse (DeleteLunaClientResponse'),
-    newDeleteLunaClientResponse,
-
-    -- ** ListAvailableZones
-    ListAvailableZones (ListAvailableZones'),
-    newListAvailableZones,
-    ListAvailableZonesResponse (ListAvailableZonesResponse'),
-    newListAvailableZonesResponse,
-
-    -- ** ModifyHapg
-    ModifyHapg (ModifyHapg'),
-    newModifyHapg,
-    ModifyHapgResponse (ModifyHapgResponse'),
-    newModifyHapgResponse,
-
-    -- ** ListLunaClients (Paginated)
-    ListLunaClients (ListLunaClients'),
-    newListLunaClients,
-    ListLunaClientsResponse (ListLunaClientsResponse'),
-    newListLunaClientsResponse,
-
-    -- ** DescribeHsm
-    DescribeHsm (DescribeHsm'),
-    newDescribeHsm,
-    DescribeHsmResponse (DescribeHsmResponse'),
-    newDescribeHsmResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** CreateLunaClient
-    CreateLunaClient (CreateLunaClient'),
-    newCreateLunaClient,
-    CreateLunaClientResponse (CreateLunaClientResponse'),
-    newCreateLunaClientResponse,
-
-    -- ** DescribeHapg
-    DescribeHapg (DescribeHapg'),
-    newDescribeHapg,
-    DescribeHapgResponse (DescribeHapgResponse'),
-    newDescribeHapgResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** CreateHapg
     CreateHapg (CreateHapg'),
@@ -132,17 +90,35 @@ module Network.AWS.CloudHSM
     CreateHapgResponse (CreateHapgResponse'),
     newCreateHapgResponse,
 
-    -- ** DescribeLunaClient
-    DescribeLunaClient (DescribeLunaClient'),
-    newDescribeLunaClient,
-    DescribeLunaClientResponse (DescribeLunaClientResponse'),
-    newDescribeLunaClientResponse,
+    -- ** CreateHsm
+    CreateHsm (CreateHsm'),
+    newCreateHsm,
+    CreateHsmResponse (CreateHsmResponse'),
+    newCreateHsmResponse,
 
-    -- ** ListHapgs (Paginated)
-    ListHapgs (ListHapgs'),
-    newListHapgs,
-    ListHapgsResponse (ListHapgsResponse'),
-    newListHapgsResponse,
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** DescribeHapg
+    DescribeHapg (DescribeHapg'),
+    newDescribeHapg,
+    DescribeHapgResponse (DescribeHapgResponse'),
+    newDescribeHapgResponse,
+
+    -- ** CreateLunaClient
+    CreateLunaClient (CreateLunaClient'),
+    newCreateLunaClient,
+    CreateLunaClientResponse (CreateLunaClientResponse'),
+    newCreateLunaClientResponse,
+
+    -- ** ListLunaClients (Paginated)
+    ListLunaClients (ListLunaClients'),
+    newListLunaClients,
+    ListLunaClientsResponse (ListLunaClientsResponse'),
+    newListLunaClientsResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
@@ -150,23 +126,47 @@ module Network.AWS.CloudHSM
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
 
+    -- ** GetConfig
+    GetConfig (GetConfig'),
+    newGetConfig,
+    GetConfigResponse (GetConfigResponse'),
+    newGetConfigResponse,
+
+    -- ** DeleteHsm
+    DeleteHsm (DeleteHsm'),
+    newDeleteHsm,
+    DeleteHsmResponse (DeleteHsmResponse'),
+    newDeleteHsmResponse,
+
+    -- ** DescribeHsm
+    DescribeHsm (DescribeHsm'),
+    newDescribeHsm,
+    DescribeHsmResponse (DescribeHsmResponse'),
+    newDescribeHsmResponse,
+
+    -- ** ModifyHapg
+    ModifyHapg (ModifyHapg'),
+    newModifyHapg,
+    ModifyHapgResponse (ModifyHapgResponse'),
+    newModifyHapgResponse,
+
+    -- ** DeleteLunaClient
+    DeleteLunaClient (DeleteLunaClient'),
+    newDeleteLunaClient,
+    DeleteLunaClientResponse (DeleteLunaClientResponse'),
+    newDeleteLunaClientResponse,
+
     -- ** ModifyHsm
     ModifyHsm (ModifyHsm'),
     newModifyHsm,
     ModifyHsmResponse (ModifyHsmResponse'),
     newModifyHsmResponse,
 
-    -- ** CreateHsm
-    CreateHsm (CreateHsm'),
-    newCreateHsm,
-    CreateHsmResponse (CreateHsmResponse'),
-    newCreateHsmResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListAvailableZones
+    ListAvailableZones (ListAvailableZones'),
+    newListAvailableZones,
+    ListAvailableZonesResponse (ListAvailableZonesResponse'),
+    newListAvailableZonesResponse,
 
     -- * Types
 

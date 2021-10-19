@@ -52,10 +52,10 @@ module Network.AWS.CloudHSM.CreateHsm
     newCreateHsm,
 
     -- * Request Lenses
-    createHsm_eniIp,
+    createHsm_clientToken,
     createHsm_syslogIp,
     createHsm_externalId,
-    createHsm_clientToken,
+    createHsm_eniIp,
     createHsm_subnetId,
     createHsm_sshKey,
     createHsm_iamRoleArn,
@@ -82,19 +82,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateHsm' smart constructor.
 data CreateHsm = CreateHsm'
-  { -- | The IP address to assign to the HSM\'s ENI.
-    --
-    -- If an IP address is not specified, an IP address will be randomly chosen
-    -- from the CIDR range of the subnet.
-    eniIp :: Prelude.Maybe Prelude.Text,
+  { -- | A user-defined token to ensure idempotence. Subsequent calls to this
+    -- operation with the same token will be ignored.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The IP address for the syslog monitoring server. The AWS CloudHSM
     -- service only supports one syslog monitoring server.
     syslogIp :: Prelude.Maybe Prelude.Text,
     -- | The external ID from @IamRoleArn@, if present.
     externalId :: Prelude.Maybe Prelude.Text,
-    -- | A user-defined token to ensure idempotence. Subsequent calls to this
-    -- operation with the same token will be ignored.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The IP address to assign to the HSM\'s ENI.
+    --
+    -- If an IP address is not specified, an IP address will be randomly chosen
+    -- from the CIDR range of the subnet.
+    eniIp :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the subnet in your VPC in which to place the HSM.
     subnetId :: Prelude.Text,
     -- | The SSH public key to install on the HSM.
@@ -114,18 +114,18 @@ data CreateHsm = CreateHsm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eniIp', 'createHsm_eniIp' - The IP address to assign to the HSM\'s ENI.
---
--- If an IP address is not specified, an IP address will be randomly chosen
--- from the CIDR range of the subnet.
+-- 'clientToken', 'createHsm_clientToken' - A user-defined token to ensure idempotence. Subsequent calls to this
+-- operation with the same token will be ignored.
 --
 -- 'syslogIp', 'createHsm_syslogIp' - The IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
 --
 -- 'externalId', 'createHsm_externalId' - The external ID from @IamRoleArn@, if present.
 --
--- 'clientToken', 'createHsm_clientToken' - A user-defined token to ensure idempotence. Subsequent calls to this
--- operation with the same token will be ignored.
+-- 'eniIp', 'createHsm_eniIp' - The IP address to assign to the HSM\'s ENI.
+--
+-- If an IP address is not specified, an IP address will be randomly chosen
+-- from the CIDR range of the subnet.
 --
 -- 'subnetId', 'createHsm_subnetId' - The identifier of the subnet in your VPC in which to place the HSM.
 --
@@ -151,22 +151,20 @@ newCreateHsm
   pIamRoleArn_
   pSubscriptionType_ =
     CreateHsm'
-      { eniIp = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
         syslogIp = Prelude.Nothing,
         externalId = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        eniIp = Prelude.Nothing,
         subnetId = pSubnetId_,
         sshKey = pSshKey_,
         iamRoleArn = pIamRoleArn_,
         subscriptionType = pSubscriptionType_
       }
 
--- | The IP address to assign to the HSM\'s ENI.
---
--- If an IP address is not specified, an IP address will be randomly chosen
--- from the CIDR range of the subnet.
-createHsm_eniIp :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
-createHsm_eniIp = Lens.lens (\CreateHsm' {eniIp} -> eniIp) (\s@CreateHsm' {} a -> s {eniIp = a} :: CreateHsm)
+-- | A user-defined token to ensure idempotence. Subsequent calls to this
+-- operation with the same token will be ignored.
+createHsm_clientToken :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_clientToken = Lens.lens (\CreateHsm' {clientToken} -> clientToken) (\s@CreateHsm' {} a -> s {clientToken = a} :: CreateHsm)
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
@@ -177,10 +175,12 @@ createHsm_syslogIp = Lens.lens (\CreateHsm' {syslogIp} -> syslogIp) (\s@CreateHs
 createHsm_externalId :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
 createHsm_externalId = Lens.lens (\CreateHsm' {externalId} -> externalId) (\s@CreateHsm' {} a -> s {externalId = a} :: CreateHsm)
 
--- | A user-defined token to ensure idempotence. Subsequent calls to this
--- operation with the same token will be ignored.
-createHsm_clientToken :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
-createHsm_clientToken = Lens.lens (\CreateHsm' {clientToken} -> clientToken) (\s@CreateHsm' {} a -> s {clientToken = a} :: CreateHsm)
+-- | The IP address to assign to the HSM\'s ENI.
+--
+-- If an IP address is not specified, an IP address will be randomly chosen
+-- from the CIDR range of the subnet.
+createHsm_eniIp :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_eniIp = Lens.lens (\CreateHsm' {eniIp} -> eniIp) (\s@CreateHsm' {} a -> s {eniIp = a} :: CreateHsm)
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
 createHsm_subnetId :: Lens.Lens' CreateHsm Prelude.Text
@@ -233,10 +233,10 @@ instance Core.ToJSON CreateHsm where
   toJSON CreateHsm' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EniIp" Core..=) Prelude.<$> eniIp,
+          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("SyslogIp" Core..=) Prelude.<$> syslogIp,
             ("ExternalId" Core..=) Prelude.<$> externalId,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("EniIp" Core..=) Prelude.<$> eniIp,
             Prelude.Just ("SubnetId" Core..= subnetId),
             Prelude.Just ("SshKey" Core..= sshKey),
             Prelude.Just ("IamRoleArn" Core..= iamRoleArn),

@@ -101,7 +101,7 @@ addTagsToResource_resourceArn = Lens.lens (\AddTagsToResource' {resourceArn} -> 
 
 -- | One or more tags.
 addTagsToResource_tagList :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tagList = Lens.lens (\AddTagsToResource' {tagList} -> tagList) (\s@AddTagsToResource' {} a -> s {tagList = a} :: AddTagsToResource) Prelude.. Lens._Coerce
+addTagsToResource_tagList = Lens.lens (\AddTagsToResource' {tagList} -> tagList) (\s@AddTagsToResource' {} a -> s {tagList = a} :: AddTagsToResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToResource where
   type

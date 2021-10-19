@@ -210,6 +210,6 @@ listLunaClientsResponse_httpStatus = Lens.lens (\ListLunaClientsResponse' {httpS
 
 -- | The list of clients.
 listLunaClientsResponse_clientList :: Lens.Lens' ListLunaClientsResponse [Prelude.Text]
-listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Prelude.. Lens._Coerce
+listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListLunaClientsResponse

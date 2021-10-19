@@ -115,7 +115,7 @@ getConfig_clientVersion = Lens.lens (\GetConfig' {clientVersion} -> clientVersio
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
 getConfig_hapgList :: Lens.Lens' GetConfig [Prelude.Text]
-getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfig' {} a -> s {hapgList = a} :: GetConfig) Prelude.. Lens._Coerce
+getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfig' {} a -> s {hapgList = a} :: GetConfig) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse

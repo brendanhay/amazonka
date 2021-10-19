@@ -110,7 +110,7 @@ removeTagsFromResource_resourceArn = Lens.lens (\RemoveTagsFromResource' {resour
 -- Specify only the tag key to remove (not the value). To overwrite the
 -- value for an existing tag, use AddTagsToResource.
 removeTagsFromResource_tagKeyList :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
-removeTagsFromResource_tagKeyList = Lens.lens (\RemoveTagsFromResource' {tagKeyList} -> tagKeyList) (\s@RemoveTagsFromResource' {} a -> s {tagKeyList = a} :: RemoveTagsFromResource) Prelude.. Lens._Coerce
+removeTagsFromResource_tagKeyList = Lens.lens (\RemoveTagsFromResource' {tagKeyList} -> tagKeyList) (\s@RemoveTagsFromResource' {} a -> s {tagKeyList = a} :: RemoveTagsFromResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTagsFromResource where
   type

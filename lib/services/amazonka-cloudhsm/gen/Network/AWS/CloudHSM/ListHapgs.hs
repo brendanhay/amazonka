@@ -204,6 +204,6 @@ listHapgsResponse_httpStatus = Lens.lens (\ListHapgsResponse' {httpStatus} -> ht
 
 -- | The list of high-availability partition groups.
 listHapgsResponse_hapgList :: Lens.Lens' ListHapgsResponse [Prelude.Text]
-listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Prelude.. Lens._Coerce
+listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListHapgsResponse

@@ -37,10 +37,10 @@ module Network.AWS.Redshift.AuthorizeDataShare
     newDataShare,
 
     -- * Response Lenses
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
     dataShare_producerArn,
+    dataShare_dataShareAssociations,
     dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
   )
 where
 

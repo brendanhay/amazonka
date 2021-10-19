@@ -28,9 +28,9 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     newEnableSnapshotCopy,
 
     -- * Request Lenses
-    enableSnapshotCopy_snapshotCopyGrantName,
     enableSnapshotCopy_manualSnapshotRetentionPeriod,
     enableSnapshotCopy_retentionPeriod,
+    enableSnapshotCopy_snapshotCopyGrantName,
     enableSnapshotCopy_clusterIdentifier,
     enableSnapshotCopy_destinationRegion,
 
@@ -55,10 +55,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newEnableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-  { -- | The name of the snapshot copy grant to use when snapshots of an Amazon
-    -- Web Services KMS-encrypted cluster are copied to the destination region.
-    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
-    -- | The number of days to retain newly copied snapshots in the destination
+  { -- | The number of days to retain newly copied snapshots in the destination
     -- Amazon Web Services Region after they are copied from the source Amazon
     -- Web Services Region. If the value is -1, the manual snapshot is retained
     -- indefinitely.
@@ -72,6 +69,9 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
     --
     -- Constraints: Must be at least 1 and no more than 35.
     retentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The name of the snapshot copy grant to use when snapshots of an Amazon
+    -- Web Services KMS-encrypted cluster are copied to the destination region.
+    snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the source cluster to copy snapshots from.
     --
     -- Constraints: Must be the valid name of an existing cluster that does not
@@ -96,9 +96,6 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon
--- Web Services KMS-encrypted cluster are copied to the destination region.
---
 -- 'manualSnapshotRetentionPeriod', 'enableSnapshotCopy_manualSnapshotRetentionPeriod' - The number of days to retain newly copied snapshots in the destination
 -- Amazon Web Services Region after they are copied from the source Amazon
 -- Web Services Region. If the value is -1, the manual snapshot is retained
@@ -112,6 +109,9 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 -- Default: 7.
 --
 -- Constraints: Must be at least 1 and no more than 35.
+--
+-- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
 --
 -- 'clusterIdentifier', 'enableSnapshotCopy_clusterIdentifier' - The unique identifier of the source cluster to copy snapshots from.
 --
@@ -135,18 +135,13 @@ newEnableSnapshotCopy
   pClusterIdentifier_
   pDestinationRegion_ =
     EnableSnapshotCopy'
-      { snapshotCopyGrantName =
+      { manualSnapshotRetentionPeriod =
           Prelude.Nothing,
-        manualSnapshotRetentionPeriod = Prelude.Nothing,
         retentionPeriod = Prelude.Nothing,
+        snapshotCopyGrantName = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         destinationRegion = pDestinationRegion_
       }
-
--- | The name of the snapshot copy grant to use when snapshots of an Amazon
--- Web Services KMS-encrypted cluster are copied to the destination region.
-enableSnapshotCopy_snapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Text)
-enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@EnableSnapshotCopy' {} a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
 
 -- | The number of days to retain newly copied snapshots in the destination
 -- Amazon Web Services Region after they are copied from the source Amazon
@@ -165,6 +160,11 @@ enableSnapshotCopy_manualSnapshotRetentionPeriod = Lens.lens (\EnableSnapshotCop
 -- Constraints: Must be at least 1 and no more than 35.
 enableSnapshotCopy_retentionPeriod :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Int)
 enableSnapshotCopy_retentionPeriod = Lens.lens (\EnableSnapshotCopy' {retentionPeriod} -> retentionPeriod) (\s@EnableSnapshotCopy' {} a -> s {retentionPeriod = a} :: EnableSnapshotCopy)
+
+-- | The name of the snapshot copy grant to use when snapshots of an Amazon
+-- Web Services KMS-encrypted cluster are copied to the destination region.
+enableSnapshotCopy_snapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Prelude.Maybe Prelude.Text)
+enableSnapshotCopy_snapshotCopyGrantName = Lens.lens (\EnableSnapshotCopy' {snapshotCopyGrantName} -> snapshotCopyGrantName) (\s@EnableSnapshotCopy' {} a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 --
@@ -214,11 +214,11 @@ instance Core.ToQuery EnableSnapshotCopy where
           Core.=: ("EnableSnapshotCopy" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "SnapshotCopyGrantName"
-          Core.=: snapshotCopyGrantName,
         "ManualSnapshotRetentionPeriod"
           Core.=: manualSnapshotRetentionPeriod,
         "RetentionPeriod" Core.=: retentionPeriod,
+        "SnapshotCopyGrantName"
+          Core.=: snapshotCopyGrantName,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "DestinationRegion" Core.=: destinationRegion
       ]

@@ -194,7 +194,7 @@ newDescribePartnersResponse pHttpStatus_ =
 
 -- | A list of partner integrations.
 describePartnersResponse_partnerIntegrationInfoList :: Lens.Lens' DescribePartnersResponse (Prelude.Maybe [PartnerIntegrationInfo])
-describePartnersResponse_partnerIntegrationInfoList = Lens.lens (\DescribePartnersResponse' {partnerIntegrationInfoList} -> partnerIntegrationInfoList) (\s@DescribePartnersResponse' {} a -> s {partnerIntegrationInfoList = a} :: DescribePartnersResponse) Prelude.. Lens.mapping Lens._Coerce
+describePartnersResponse_partnerIntegrationInfoList = Lens.lens (\DescribePartnersResponse' {partnerIntegrationInfoList} -> partnerIntegrationInfoList) (\s@DescribePartnersResponse' {} a -> s {partnerIntegrationInfoList = a} :: DescribePartnersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePartnersResponse_httpStatus :: Lens.Lens' DescribePartnersResponse Prelude.Int

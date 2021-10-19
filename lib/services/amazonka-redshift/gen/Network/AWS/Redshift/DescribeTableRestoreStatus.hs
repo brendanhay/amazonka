@@ -35,18 +35,18 @@ module Network.AWS.Redshift.DescribeTableRestoreStatus
     newDescribeTableRestoreStatus,
 
     -- * Request Lenses
-    describeTableRestoreStatus_clusterIdentifier,
-    describeTableRestoreStatus_maxRecords,
     describeTableRestoreStatus_tableRestoreRequestId,
+    describeTableRestoreStatus_clusterIdentifier,
     describeTableRestoreStatus_marker,
+    describeTableRestoreStatus_maxRecords,
 
     -- * Destructuring the Response
     DescribeTableRestoreStatusResponse (..),
     newDescribeTableRestoreStatusResponse,
 
     -- * Response Lenses
-    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
     describeTableRestoreStatusResponse_marker,
+    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
     describeTableRestoreStatusResponse_httpStatus,
   )
 where
@@ -62,23 +62,23 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
-  { -- | The Amazon Redshift cluster that the table is being restored to.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified @MaxRecords@ value, a pagination token
-    -- called a marker is included in the response so that the remaining
-    -- results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The identifier of the table restore request to return status for. If you
+  { -- | The identifier of the table restore request to return status for. If you
     -- don\'t specify a @TableRestoreRequestId@ value, then
     -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
     -- restore requests.
     tableRestoreRequestId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Redshift cluster that the table is being restored to.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous
     -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,43 +90,32 @@ data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterIdentifier', 'describeTableRestoreStatus_clusterIdentifier' - The Amazon Redshift cluster that the table is being restored to.
---
--- 'maxRecords', 'describeTableRestoreStatus_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
---
 -- 'tableRestoreRequestId', 'describeTableRestoreStatus_tableRestoreRequestId' - The identifier of the table restore request to return status for. If you
 -- don\'t specify a @TableRestoreRequestId@ value, then
 -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
 -- restore requests.
 --
+-- 'clusterIdentifier', 'describeTableRestoreStatus_clusterIdentifier' - The Amazon Redshift cluster that the table is being restored to.
+--
 -- 'marker', 'describeTableRestoreStatus_marker' - An optional pagination token provided by a previous
 -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
+--
+-- 'maxRecords', 'describeTableRestoreStatus_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
 newDescribeTableRestoreStatus ::
   DescribeTableRestoreStatus
 newDescribeTableRestoreStatus =
   DescribeTableRestoreStatus'
-    { clusterIdentifier =
+    { tableRestoreRequestId =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      tableRestoreRequestId = Prelude.Nothing,
-      marker = Prelude.Nothing
+      clusterIdentifier = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
-
--- | The Amazon Redshift cluster that the table is being restored to.
-describeTableRestoreStatus_clusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
-describeTableRestoreStatus_clusterIdentifier = Lens.lens (\DescribeTableRestoreStatus' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeTableRestoreStatus' {} a -> s {clusterIdentifier = a} :: DescribeTableRestoreStatus)
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
--- called a marker is included in the response so that the remaining
--- results can be retrieved.
-describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Int)
-describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' {maxRecords} -> maxRecords) (\s@DescribeTableRestoreStatus' {} a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
 
 -- | The identifier of the table restore request to return status for. If you
 -- don\'t specify a @TableRestoreRequestId@ value, then
@@ -135,12 +124,23 @@ describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' 
 describeTableRestoreStatus_tableRestoreRequestId :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
 describeTableRestoreStatus_tableRestoreRequestId = Lens.lens (\DescribeTableRestoreStatus' {tableRestoreRequestId} -> tableRestoreRequestId) (\s@DescribeTableRestoreStatus' {} a -> s {tableRestoreRequestId = a} :: DescribeTableRestoreStatus)
 
+-- | The Amazon Redshift cluster that the table is being restored to.
+describeTableRestoreStatus_clusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatus_clusterIdentifier = Lens.lens (\DescribeTableRestoreStatus' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeTableRestoreStatus' {} a -> s {clusterIdentifier = a} :: DescribeTableRestoreStatus)
+
 -- | An optional pagination token provided by a previous
 -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
 describeTableRestoreStatus_marker :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
 describeTableRestoreStatus_marker = Lens.lens (\DescribeTableRestoreStatus' {marker} -> marker) (\s@DescribeTableRestoreStatus' {} a -> s {marker = a} :: DescribeTableRestoreStatus)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Int)
+describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' {maxRecords} -> maxRecords) (\s@DescribeTableRestoreStatus' {} a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
 
 instance Core.AWSPager DescribeTableRestoreStatus where
   page rq rs
@@ -174,11 +174,11 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
       "DescribeTableRestoreStatusResult"
       ( \s h x ->
           DescribeTableRestoreStatusResponse'
-            Prelude.<$> ( x Core..@? "TableRestoreStatusDetails"
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> ( x Core..@? "TableRestoreStatusDetails"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "TableRestoreStatus")
                         )
-            Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,22 +199,22 @@ instance Core.ToQuery DescribeTableRestoreStatus where
           Core.=: ("DescribeTableRestoreStatus" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Core.=: clusterIdentifier,
-        "MaxRecords" Core.=: maxRecords,
         "TableRestoreRequestId"
           Core.=: tableRestoreRequestId,
-        "Marker" Core.=: marker
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
 --
 -- /See:/ 'newDescribeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
-  { -- | A list of status details for one or more table restore requests.
-    tableRestoreStatusDetails :: Prelude.Maybe [TableRestoreStatus],
-    -- | A pagination token that can be used in a subsequent
+  { -- | A pagination token that can be used in a subsequent
     -- DescribeTableRestoreStatus request.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | A list of status details for one or more table restore requests.
+    tableRestoreStatusDetails :: Prelude.Maybe [TableRestoreStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,10 +228,10 @@ data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableRestoreStatusDetails', 'describeTableRestoreStatusResponse_tableRestoreStatusDetails' - A list of status details for one or more table restore requests.
---
 -- 'marker', 'describeTableRestoreStatusResponse_marker' - A pagination token that can be used in a subsequent
 -- DescribeTableRestoreStatus request.
+--
+-- 'tableRestoreStatusDetails', 'describeTableRestoreStatusResponse_tableRestoreStatusDetails' - A list of status details for one or more table restore requests.
 --
 -- 'httpStatus', 'describeTableRestoreStatusResponse_httpStatus' - The response's http status code.
 newDescribeTableRestoreStatusResponse ::
@@ -240,20 +240,21 @@ newDescribeTableRestoreStatusResponse ::
   DescribeTableRestoreStatusResponse
 newDescribeTableRestoreStatusResponse pHttpStatus_ =
   DescribeTableRestoreStatusResponse'
-    { tableRestoreStatusDetails =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      tableRestoreStatusDetails =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of status details for one or more table restore requests.
-describeTableRestoreStatusResponse_tableRestoreStatusDetails :: Lens.Lens' DescribeTableRestoreStatusResponse (Prelude.Maybe [TableRestoreStatus])
-describeTableRestoreStatusResponse_tableRestoreStatusDetails = Lens.lens (\DescribeTableRestoreStatusResponse' {tableRestoreStatusDetails} -> tableRestoreStatusDetails) (\s@DescribeTableRestoreStatusResponse' {} a -> s {tableRestoreStatusDetails = a} :: DescribeTableRestoreStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a subsequent
 -- DescribeTableRestoreStatus request.
 describeTableRestoreStatusResponse_marker :: Lens.Lens' DescribeTableRestoreStatusResponse (Prelude.Maybe Prelude.Text)
 describeTableRestoreStatusResponse_marker = Lens.lens (\DescribeTableRestoreStatusResponse' {marker} -> marker) (\s@DescribeTableRestoreStatusResponse' {} a -> s {marker = a} :: DescribeTableRestoreStatusResponse)
+
+-- | A list of status details for one or more table restore requests.
+describeTableRestoreStatusResponse_tableRestoreStatusDetails :: Lens.Lens' DescribeTableRestoreStatusResponse (Prelude.Maybe [TableRestoreStatus])
+describeTableRestoreStatusResponse_tableRestoreStatusDetails = Lens.lens (\DescribeTableRestoreStatusResponse' {tableRestoreStatusDetails} -> tableRestoreStatusDetails) (\s@DescribeTableRestoreStatusResponse' {} a -> s {tableRestoreStatusDetails = a} :: DescribeTableRestoreStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTableRestoreStatusResponse_httpStatus :: Lens.Lens' DescribeTableRestoreStatusResponse Prelude.Int

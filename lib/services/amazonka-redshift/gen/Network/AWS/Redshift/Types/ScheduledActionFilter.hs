@@ -66,7 +66,7 @@ scheduledActionFilter_name = Lens.lens (\ScheduledActionFilter' {name} -> name) 
 -- | List of values. Compare if the value (of type defined by @Name@) equals
 -- an item in the list of scheduled actions.
 scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Prelude.Text]
-scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Prelude.. Lens._Coerce
+scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ScheduledActionFilter
 

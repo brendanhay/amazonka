@@ -29,16 +29,7 @@ import Network.AWS.Redshift.Types.ParameterApplyType
 --
 -- /See:/ 'newParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | The valid range of values for the parameter.
-    allowedValues :: Prelude.Maybe Prelude.Text,
-    -- | The source of the parameter value, such as \"engine-default\" or
-    -- \"user\".
-    source :: Prelude.Maybe Prelude.Text,
-    -- | The value of the parameter. If @ParameterName@ is
-    -- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
-    -- 8000 characters.
-    parameterValue :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how to apply the WLM configuration parameter. Some properties
+  { -- | Specifies how to apply the WLM configuration parameter. Some properties
     -- can be applied dynamically, while other properties require that any
     -- associated clusters be rebooted for the configuration changes to be
     -- applied. For more information about parameters and parameter groups, go
@@ -46,17 +37,26 @@ data Parameter = Parameter'
     -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
     -- in the /Amazon Redshift Cluster Management Guide/.
     applyType :: Prelude.Maybe ParameterApplyType,
-    -- | The name of the parameter.
-    parameterName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the parameter.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The data type of the parameter.
-    dataType :: Prelude.Maybe Prelude.Text,
+    -- | The value of the parameter. If @ParameterName@ is
+    -- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+    -- 8000 characters.
+    parameterValue :: Prelude.Maybe Prelude.Text,
+    -- | The earliest engine version to which the parameter can apply.
+    minimumEngineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The source of the parameter value, such as \"engine-default\" or
+    -- \"user\".
+    source :: Prelude.Maybe Prelude.Text,
     -- | If @true@, the parameter can be modified. Some parameters have security
     -- or operational implications that prevent them from being changed.
     isModifiable :: Prelude.Maybe Prelude.Bool,
-    -- | The earliest engine version to which the parameter can apply.
-    minimumEngineVersion :: Prelude.Maybe Prelude.Text
+    -- | The data type of the parameter.
+    dataType :: Prelude.Maybe Prelude.Text,
+    -- | The valid range of values for the parameter.
+    allowedValues :: Prelude.Maybe Prelude.Text,
+    -- | The name of the parameter.
+    parameterName :: Prelude.Maybe Prelude.Text,
+    -- | A description of the parameter.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,15 +68,6 @@ data Parameter = Parameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowedValues', 'parameter_allowedValues' - The valid range of values for the parameter.
---
--- 'source', 'parameter_source' - The source of the parameter value, such as \"engine-default\" or
--- \"user\".
---
--- 'parameterValue', 'parameter_parameterValue' - The value of the parameter. If @ParameterName@ is
--- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
--- 8000 characters.
---
 -- 'applyType', 'parameter_applyType' - Specifies how to apply the WLM configuration parameter. Some properties
 -- can be applied dynamically, while other properties require that any
 -- associated clusters be rebooted for the configuration changes to be
@@ -85,45 +76,39 @@ data Parameter = Parameter'
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- 'parameterName', 'parameter_parameterName' - The name of the parameter.
+-- 'parameterValue', 'parameter_parameterValue' - The value of the parameter. If @ParameterName@ is
+-- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+-- 8000 characters.
 --
--- 'description', 'parameter_description' - A description of the parameter.
+-- 'minimumEngineVersion', 'parameter_minimumEngineVersion' - The earliest engine version to which the parameter can apply.
 --
--- 'dataType', 'parameter_dataType' - The data type of the parameter.
+-- 'source', 'parameter_source' - The source of the parameter value, such as \"engine-default\" or
+-- \"user\".
 --
 -- 'isModifiable', 'parameter_isModifiable' - If @true@, the parameter can be modified. Some parameters have security
 -- or operational implications that prevent them from being changed.
 --
--- 'minimumEngineVersion', 'parameter_minimumEngineVersion' - The earliest engine version to which the parameter can apply.
+-- 'dataType', 'parameter_dataType' - The data type of the parameter.
+--
+-- 'allowedValues', 'parameter_allowedValues' - The valid range of values for the parameter.
+--
+-- 'parameterName', 'parameter_parameterName' - The name of the parameter.
+--
+-- 'description', 'parameter_description' - A description of the parameter.
 newParameter ::
   Parameter
 newParameter =
   Parameter'
-    { allowedValues = Prelude.Nothing,
-      source = Prelude.Nothing,
+    { applyType = Prelude.Nothing,
       parameterValue = Prelude.Nothing,
-      applyType = Prelude.Nothing,
-      parameterName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dataType = Prelude.Nothing,
+      minimumEngineVersion = Prelude.Nothing,
+      source = Prelude.Nothing,
       isModifiable = Prelude.Nothing,
-      minimumEngineVersion = Prelude.Nothing
+      dataType = Prelude.Nothing,
+      allowedValues = Prelude.Nothing,
+      parameterName = Prelude.Nothing,
+      description = Prelude.Nothing
     }
-
--- | The valid range of values for the parameter.
-parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
-
--- | The source of the parameter value, such as \"engine-default\" or
--- \"user\".
-parameter_source :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_source = Lens.lens (\Parameter' {source} -> source) (\s@Parameter' {} a -> s {source = a} :: Parameter)
-
--- | The value of the parameter. If @ParameterName@ is
--- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
--- 8000 characters.
-parameter_parameterValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterValue) (\s@Parameter' {} a -> s {parameterValue = a} :: Parameter)
 
 -- | Specifies how to apply the WLM configuration parameter. Some properties
 -- can be applied dynamically, while other properties require that any
@@ -135,6 +120,34 @@ parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterV
 parameter_applyType :: Lens.Lens' Parameter (Prelude.Maybe ParameterApplyType)
 parameter_applyType = Lens.lens (\Parameter' {applyType} -> applyType) (\s@Parameter' {} a -> s {applyType = a} :: Parameter)
 
+-- | The value of the parameter. If @ParameterName@ is
+-- @wlm_json_configuration@, then the maximum size of @ParameterValue@ is
+-- 8000 characters.
+parameter_parameterValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterValue) (\s@Parameter' {} a -> s {parameterValue = a} :: Parameter)
+
+-- | The earliest engine version to which the parameter can apply.
+parameter_minimumEngineVersion :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_minimumEngineVersion = Lens.lens (\Parameter' {minimumEngineVersion} -> minimumEngineVersion) (\s@Parameter' {} a -> s {minimumEngineVersion = a} :: Parameter)
+
+-- | The source of the parameter value, such as \"engine-default\" or
+-- \"user\".
+parameter_source :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_source = Lens.lens (\Parameter' {source} -> source) (\s@Parameter' {} a -> s {source = a} :: Parameter)
+
+-- | If @true@, the parameter can be modified. Some parameters have security
+-- or operational implications that prevent them from being changed.
+parameter_isModifiable :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
+parameter_isModifiable = Lens.lens (\Parameter' {isModifiable} -> isModifiable) (\s@Parameter' {} a -> s {isModifiable = a} :: Parameter)
+
+-- | The data type of the parameter.
+parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
+
+-- | The valid range of values for the parameter.
+parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
+
 -- | The name of the parameter.
 parameter_parameterName :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_parameterName = Lens.lens (\Parameter' {parameterName} -> parameterName) (\s@Parameter' {} a -> s {parameterName = a} :: Parameter)
@@ -143,31 +156,18 @@ parameter_parameterName = Lens.lens (\Parameter' {parameterName} -> parameterNam
 parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
 
--- | The data type of the parameter.
-parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
-
--- | If @true@, the parameter can be modified. Some parameters have security
--- or operational implications that prevent them from being changed.
-parameter_isModifiable :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
-parameter_isModifiable = Lens.lens (\Parameter' {isModifiable} -> isModifiable) (\s@Parameter' {} a -> s {isModifiable = a} :: Parameter)
-
--- | The earliest engine version to which the parameter can apply.
-parameter_minimumEngineVersion :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_minimumEngineVersion = Lens.lens (\Parameter' {minimumEngineVersion} -> minimumEngineVersion) (\s@Parameter' {} a -> s {minimumEngineVersion = a} :: Parameter)
-
 instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Core..@? "AllowedValues")
-      Prelude.<*> (x Core..@? "Source")
+      Prelude.<$> (x Core..@? "ApplyType")
       Prelude.<*> (x Core..@? "ParameterValue")
-      Prelude.<*> (x Core..@? "ApplyType")
+      Prelude.<*> (x Core..@? "MinimumEngineVersion")
+      Prelude.<*> (x Core..@? "Source")
+      Prelude.<*> (x Core..@? "IsModifiable")
+      Prelude.<*> (x Core..@? "DataType")
+      Prelude.<*> (x Core..@? "AllowedValues")
       Prelude.<*> (x Core..@? "ParameterName")
       Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "DataType")
-      Prelude.<*> (x Core..@? "IsModifiable")
-      Prelude.<*> (x Core..@? "MinimumEngineVersion")
 
 instance Prelude.Hashable Parameter
 
@@ -176,13 +176,13 @@ instance Prelude.NFData Parameter
 instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
-      [ "AllowedValues" Core.=: allowedValues,
-        "Source" Core.=: source,
+      [ "ApplyType" Core.=: applyType,
         "ParameterValue" Core.=: parameterValue,
-        "ApplyType" Core.=: applyType,
-        "ParameterName" Core.=: parameterName,
-        "Description" Core.=: description,
-        "DataType" Core.=: dataType,
+        "MinimumEngineVersion" Core.=: minimumEngineVersion,
+        "Source" Core.=: source,
         "IsModifiable" Core.=: isModifiable,
-        "MinimumEngineVersion" Core.=: minimumEngineVersion
+        "DataType" Core.=: dataType,
+        "AllowedValues" Core.=: allowedValues,
+        "ParameterName" Core.=: parameterName,
+        "Description" Core.=: description
       ]

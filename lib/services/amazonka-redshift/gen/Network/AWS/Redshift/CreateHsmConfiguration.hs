@@ -146,7 +146,7 @@ newCreateHsmConfiguration
 
 -- | A list of tag instances.
 createHsmConfiguration_tags :: Lens.Lens' CreateHsmConfiguration (Prelude.Maybe [Tag])
-createHsmConfiguration_tags = Lens.lens (\CreateHsmConfiguration' {tags} -> tags) (\s@CreateHsmConfiguration' {} a -> s {tags = a} :: CreateHsmConfiguration) Prelude.. Lens.mapping Lens._Coerce
+createHsmConfiguration_tags = Lens.lens (\CreateHsmConfiguration' {tags} -> tags) (\s@CreateHsmConfiguration' {} a -> s {tags = a} :: CreateHsmConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.

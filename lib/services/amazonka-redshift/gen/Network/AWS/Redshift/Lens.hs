@@ -14,14 +14,170 @@
 module Network.AWS.Redshift.Lens
   ( -- * Operations
 
+    -- ** CancelResize
+    cancelResize_clusterIdentifier,
+    resizeProgressMessage_importTablesNotStarted,
+    resizeProgressMessage_status,
+    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
+    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
+    resizeProgressMessage_targetNumberOfNodes,
+    resizeProgressMessage_targetEncryptionType,
+    resizeProgressMessage_targetNodeType,
+    resizeProgressMessage_importTablesInProgress,
+    resizeProgressMessage_resizeType,
+    resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_dataTransferProgressPercent,
+    resizeProgressMessage_totalResizeDataInMegaBytes,
+    resizeProgressMessage_targetClusterType,
+    resizeProgressMessage_message,
+    resizeProgressMessage_elapsedTimeInSeconds,
+
+    -- ** DescribeStorage
+    describeStorageResponse_totalProvisionedStorageInMegaBytes,
+    describeStorageResponse_totalBackupSizeInMegaBytes,
+    describeStorageResponse_httpStatus,
+
+    -- ** DescribeClusters
+    describeClusters_tagValues,
+    describeClusters_tagKeys,
+    describeClusters_clusterIdentifier,
+    describeClusters_marker,
+    describeClusters_maxRecords,
+    describeClustersResponse_marker,
+    describeClustersResponse_clusters,
+    describeClustersResponse_httpStatus,
+
+    -- ** DescribeTags
+    describeTags_tagValues,
+    describeTags_resourceType,
+    describeTags_resourceName,
+    describeTags_tagKeys,
+    describeTags_marker,
+    describeTags_maxRecords,
+    describeTagsResponse_marker,
+    describeTagsResponse_taggedResources,
+    describeTagsResponse_httpStatus,
+
+    -- ** CreateUsageLimit
+    createUsageLimit_period,
+    createUsageLimit_breachAction,
+    createUsageLimit_tags,
+    createUsageLimit_clusterIdentifier,
+    createUsageLimit_featureType,
+    createUsageLimit_limitType,
+    createUsageLimit_amount,
+    usageLimit_amount,
+    usageLimit_limitType,
+    usageLimit_usageLimitId,
+    usageLimit_period,
+    usageLimit_clusterIdentifier,
+    usageLimit_breachAction,
+    usageLimit_featureType,
+    usageLimit_tags,
+
+    -- ** ModifyEndpointAccess
+    modifyEndpointAccess_vpcSecurityGroupIds,
+    modifyEndpointAccess_endpointName,
+    endpointAccess_endpointName,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
+
+    -- ** AssociateDataShareConsumer
+    associateDataShareConsumer_associateEntireAccount,
+    associateDataShareConsumer_consumerArn,
+    associateDataShareConsumer_dataShareArn,
+    dataShare_producerArn,
+    dataShare_dataShareAssociations,
+    dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
+
+    -- ** DeleteClusterSubnetGroup
+    deleteClusterSubnetGroup_clusterSubnetGroupName,
+
+    -- ** ModifyScheduledAction
+    modifyScheduledAction_targetAction,
+    modifyScheduledAction_startTime,
+    modifyScheduledAction_schedule,
+    modifyScheduledAction_scheduledActionDescription,
+    modifyScheduledAction_enable,
+    modifyScheduledAction_endTime,
+    modifyScheduledAction_iamRole,
+    modifyScheduledAction_scheduledActionName,
+    scheduledAction_state,
+    scheduledAction_targetAction,
+    scheduledAction_startTime,
+    scheduledAction_schedule,
+    scheduledAction_scheduledActionName,
+    scheduledAction_scheduledActionDescription,
+    scheduledAction_nextInvocations,
+    scheduledAction_endTime,
+    scheduledAction_iamRole,
+
     -- ** DisableLogging
     disableLogging_clusterIdentifier,
+    loggingStatus_lastFailureTime,
     loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_s3KeyPrefix,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
+
+    -- ** DescribeSnapshotSchedules
+    describeSnapshotSchedules_tagValues,
+    describeSnapshotSchedules_tagKeys,
+    describeSnapshotSchedules_clusterIdentifier,
+    describeSnapshotSchedules_marker,
+    describeSnapshotSchedules_maxRecords,
+    describeSnapshotSchedules_scheduleIdentifier,
+    describeSnapshotSchedulesResponse_snapshotSchedules,
+    describeSnapshotSchedulesResponse_marker,
+    describeSnapshotSchedulesResponse_httpStatus,
+
+    -- ** RevokeEndpointAccess
+    revokeEndpointAccess_force,
+    revokeEndpointAccess_clusterIdentifier,
+    revokeEndpointAccess_account,
+    revokeEndpointAccess_vpcIds,
+    endpointAuthorization_status,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_endpointCount,
+    endpointAuthorization_grantor,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_authorizeTime,
+
+    -- ** ModifyEventSubscription
+    modifyEventSubscription_snsTopicArn,
+    modifyEventSubscription_enabled,
+    modifyEventSubscription_sourceType,
+    modifyEventSubscription_severity,
+    modifyEventSubscription_eventCategories,
+    modifyEventSubscription_sourceIds,
+    modifyEventSubscription_subscriptionName,
+    modifyEventSubscriptionResponse_eventSubscription,
+    modifyEventSubscriptionResponse_httpStatus,
+
+    -- ** ModifyClusterDbRevision
+    modifyClusterDbRevision_clusterIdentifier,
+    modifyClusterDbRevision_revisionTarget,
+    modifyClusterDbRevisionResponse_cluster,
+    modifyClusterDbRevisionResponse_httpStatus,
+
+    -- ** DeleteClusterSnapshot
+    deleteClusterSnapshot_snapshotClusterIdentifier,
+    deleteClusterSnapshot_snapshotIdentifier,
+    deleteClusterSnapshotResponse_snapshot,
+    deleteClusterSnapshotResponse_httpStatus,
 
     -- ** AddPartner
     addPartner_accountId,
@@ -37,594 +193,78 @@ module Network.AWS.Redshift.Lens
     purchaseReservedNodeOfferingResponse_reservedNode,
     purchaseReservedNodeOfferingResponse_httpStatus,
 
-    -- ** DescribeEventCategories
-    describeEventCategories_sourceType,
-    describeEventCategoriesResponse_eventCategoriesMapList,
-    describeEventCategoriesResponse_httpStatus,
-
-    -- ** ModifyEndpointAccess
-    modifyEndpointAccess_vpcSecurityGroupIds,
-    modifyEndpointAccess_endpointName,
-    endpointAccess_vpcSecurityGroups,
-    endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
-    endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
-    endpointAccess_subnetGroupName,
-
-    -- ** DeleteClusterSubnetGroup
-    deleteClusterSubnetGroup_clusterSubnetGroupName,
-
-    -- ** AssociateDataShareConsumer
-    associateDataShareConsumer_associateEntireAccount,
-    associateDataShareConsumer_consumerArn,
-    associateDataShareConsumer_dataShareArn,
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
-    dataShare_producerArn,
-    dataShare_dataShareArn,
-
-    -- ** RevokeEndpointAccess
-    revokeEndpointAccess_force,
-    revokeEndpointAccess_account,
-    revokeEndpointAccess_clusterIdentifier,
-    revokeEndpointAccess_vpcIds,
-    endpointAuthorization_allowedAllVPCs,
-    endpointAuthorization_status,
-    endpointAuthorization_clusterIdentifier,
-    endpointAuthorization_grantee,
-    endpointAuthorization_authorizeTime,
-    endpointAuthorization_allowedVPCs,
-    endpointAuthorization_clusterStatus,
-    endpointAuthorization_grantor,
-    endpointAuthorization_endpointCount,
-
-    -- ** DeletePartner
-    deletePartner_accountId,
-    deletePartner_clusterIdentifier,
-    deletePartner_databaseName,
-    deletePartner_partnerName,
-    partnerIntegrationOutputMessage_partnerName,
-    partnerIntegrationOutputMessage_databaseName,
-
-    -- ** CreateAuthenticationProfile
-    createAuthenticationProfile_authenticationProfileName,
-    createAuthenticationProfile_authenticationProfileContent,
-    createAuthenticationProfileResponse_authenticationProfileName,
-    createAuthenticationProfileResponse_authenticationProfileContent,
-    createAuthenticationProfileResponse_httpStatus,
-
-    -- ** ModifyAquaConfiguration
-    modifyAquaConfiguration_aquaConfigurationStatus,
-    modifyAquaConfiguration_clusterIdentifier,
-    modifyAquaConfigurationResponse_aquaConfiguration,
-    modifyAquaConfigurationResponse_httpStatus,
-
-    -- ** CreateUsageLimit
-    createUsageLimit_breachAction,
-    createUsageLimit_tags,
-    createUsageLimit_period,
-    createUsageLimit_clusterIdentifier,
-    createUsageLimit_featureType,
-    createUsageLimit_limitType,
-    createUsageLimit_amount,
-    usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
-    usageLimit_limitType,
-    usageLimit_tags,
-    usageLimit_clusterIdentifier,
-    usageLimit_period,
-    usageLimit_usageLimitId,
-
-    -- ** AuthorizeEndpointAccess
-    authorizeEndpointAccess_clusterIdentifier,
-    authorizeEndpointAccess_vpcIds,
-    authorizeEndpointAccess_account,
-    endpointAuthorization_allowedAllVPCs,
-    endpointAuthorization_status,
-    endpointAuthorization_clusterIdentifier,
-    endpointAuthorization_grantee,
-    endpointAuthorization_authorizeTime,
-    endpointAuthorization_allowedVPCs,
-    endpointAuthorization_clusterStatus,
-    endpointAuthorization_grantor,
-    endpointAuthorization_endpointCount,
-
-    -- ** DescribeHsmClientCertificates
-    describeHsmClientCertificates_hsmClientCertificateIdentifier,
-    describeHsmClientCertificates_tagKeys,
-    describeHsmClientCertificates_tagValues,
-    describeHsmClientCertificates_maxRecords,
-    describeHsmClientCertificates_marker,
-    describeHsmClientCertificatesResponse_hsmClientCertificates,
-    describeHsmClientCertificatesResponse_marker,
-    describeHsmClientCertificatesResponse_httpStatus,
-
-    -- ** CancelResize
-    cancelResize_clusterIdentifier,
-    resizeProgressMessage_status,
-    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
-    resizeProgressMessage_importTablesNotStarted,
-    resizeProgressMessage_targetNodeType,
-    resizeProgressMessage_message,
-    resizeProgressMessage_targetClusterType,
-    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
-    resizeProgressMessage_targetEncryptionType,
-    resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_targetNumberOfNodes,
-    resizeProgressMessage_dataTransferProgressPercent,
-    resizeProgressMessage_importTablesCompleted,
-    resizeProgressMessage_progressInMegaBytes,
-    resizeProgressMessage_importTablesInProgress,
-    resizeProgressMessage_resizeType,
-
-    -- ** DescribeClusters
-    describeClusters_tagKeys,
-    describeClusters_clusterIdentifier,
-    describeClusters_tagValues,
-    describeClusters_maxRecords,
-    describeClusters_marker,
-    describeClustersResponse_clusters,
-    describeClustersResponse_marker,
-    describeClustersResponse_httpStatus,
-
-    -- ** GetClusterCredentials
-    getClusterCredentials_dbGroups,
-    getClusterCredentials_dbName,
-    getClusterCredentials_autoCreate,
-    getClusterCredentials_durationSeconds,
-    getClusterCredentials_dbUser,
-    getClusterCredentials_clusterIdentifier,
-    getClusterCredentialsResponse_dbUser,
-    getClusterCredentialsResponse_expiration,
-    getClusterCredentialsResponse_dbPassword,
-    getClusterCredentialsResponse_httpStatus,
-
-    -- ** DescribeTags
-    describeTags_tagKeys,
-    describeTags_resourceType,
-    describeTags_resourceName,
-    describeTags_tagValues,
-    describeTags_maxRecords,
-    describeTags_marker,
-    describeTagsResponse_taggedResources,
-    describeTagsResponse_marker,
-    describeTagsResponse_httpStatus,
-
-    -- ** ModifyClusterParameterGroup
-    modifyClusterParameterGroup_parameterGroupName,
-    modifyClusterParameterGroup_parameters,
-    clusterParameterGroupNameMessage_parameterGroupStatus,
-    clusterParameterGroupNameMessage_parameterGroupName,
-
-    -- ** RevokeClusterSecurityGroupIngress
-    revokeClusterSecurityGroupIngress_cidrip,
-    revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    revokeClusterSecurityGroupIngress_eC2SecurityGroupName,
-    revokeClusterSecurityGroupIngress_clusterSecurityGroupName,
-    revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
-    revokeClusterSecurityGroupIngressResponse_httpStatus,
-
-    -- ** ResetClusterParameterGroup
-    resetClusterParameterGroup_resetAllParameters,
-    resetClusterParameterGroup_parameters,
-    resetClusterParameterGroup_parameterGroupName,
-    clusterParameterGroupNameMessage_parameterGroupStatus,
-    clusterParameterGroupNameMessage_parameterGroupName,
-
-    -- ** DeleteUsageLimit
-    deleteUsageLimit_usageLimitId,
-
-    -- ** DescribeClusterDbRevisions
-    describeClusterDbRevisions_clusterIdentifier,
-    describeClusterDbRevisions_maxRecords,
-    describeClusterDbRevisions_marker,
-    describeClusterDbRevisionsResponse_clusterDbRevisions,
-    describeClusterDbRevisionsResponse_marker,
-    describeClusterDbRevisionsResponse_httpStatus,
-
-    -- ** RotateEncryptionKey
-    rotateEncryptionKey_clusterIdentifier,
-    rotateEncryptionKeyResponse_cluster,
-    rotateEncryptionKeyResponse_httpStatus,
-
-    -- ** DescribeScheduledActions
-    describeScheduledActions_startTime,
-    describeScheduledActions_endTime,
-    describeScheduledActions_targetActionType,
-    describeScheduledActions_active,
-    describeScheduledActions_filters,
-    describeScheduledActions_scheduledActionName,
-    describeScheduledActions_maxRecords,
-    describeScheduledActions_marker,
-    describeScheduledActionsResponse_scheduledActions,
-    describeScheduledActionsResponse_marker,
-    describeScheduledActionsResponse_httpStatus,
-
-    -- ** DescribeEventSubscriptions
-    describeEventSubscriptions_subscriptionName,
-    describeEventSubscriptions_tagKeys,
-    describeEventSubscriptions_tagValues,
-    describeEventSubscriptions_maxRecords,
-    describeEventSubscriptions_marker,
-    describeEventSubscriptionsResponse_eventSubscriptionsList,
-    describeEventSubscriptionsResponse_marker,
-    describeEventSubscriptionsResponse_httpStatus,
-
-    -- ** DeleteEventSubscription
-    deleteEventSubscription_subscriptionName,
-
-    -- ** DescribeDataSharesForConsumer
-    describeDataSharesForConsumer_status,
-    describeDataSharesForConsumer_consumerArn,
-    describeDataSharesForConsumer_maxRecords,
-    describeDataSharesForConsumer_marker,
-    describeDataSharesForConsumerResponse_dataShares,
-    describeDataSharesForConsumerResponse_marker,
-    describeDataSharesForConsumerResponse_httpStatus,
-
-    -- ** ModifyClusterSnapshot
-    modifyClusterSnapshot_force,
-    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
-    modifyClusterSnapshot_snapshotIdentifier,
-    modifyClusterSnapshotResponse_snapshot,
-    modifyClusterSnapshotResponse_httpStatus,
-
-    -- ** ModifyClusterSubnetGroup
-    modifyClusterSubnetGroup_description,
-    modifyClusterSubnetGroup_clusterSubnetGroupName,
-    modifyClusterSubnetGroup_subnetIds,
-    modifyClusterSubnetGroupResponse_clusterSubnetGroup,
-    modifyClusterSubnetGroupResponse_httpStatus,
-
-    -- ** DeleteScheduledAction
-    deleteScheduledAction_scheduledActionName,
-
-    -- ** DeleteEndpointAccess
-    deleteEndpointAccess_endpointName,
-    endpointAccess_vpcSecurityGroups,
-    endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
-    endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
-    endpointAccess_subnetGroupName,
-
-    -- ** RestoreTableFromClusterSnapshot
-    restoreTableFromClusterSnapshot_targetSchemaName,
-    restoreTableFromClusterSnapshot_sourceSchemaName,
-    restoreTableFromClusterSnapshot_targetDatabaseName,
-    restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier,
-    restoreTableFromClusterSnapshot_clusterIdentifier,
-    restoreTableFromClusterSnapshot_snapshotIdentifier,
-    restoreTableFromClusterSnapshot_sourceDatabaseName,
-    restoreTableFromClusterSnapshot_sourceTableName,
-    restoreTableFromClusterSnapshot_newTableName,
-    restoreTableFromClusterSnapshotResponse_tableRestoreStatus,
-    restoreTableFromClusterSnapshotResponse_httpStatus,
-
-    -- ** CreateCluster
-    createCluster_enhancedVpcRouting,
-    createCluster_additionalInfo,
-    createCluster_elasticIp,
-    createCluster_clusterSubnetGroupName,
-    createCluster_hsmClientCertificateIdentifier,
-    createCluster_encrypted,
-    createCluster_allowVersionUpgrade,
-    createCluster_clusterParameterGroupName,
-    createCluster_automatedSnapshotRetentionPeriod,
-    createCluster_availabilityZoneRelocation,
-    createCluster_publiclyAccessible,
-    createCluster_clusterType,
-    createCluster_snapshotScheduleIdentifier,
-    createCluster_vpcSecurityGroupIds,
-    createCluster_kmsKeyId,
-    createCluster_manualSnapshotRetentionPeriod,
-    createCluster_availabilityZone,
-    createCluster_preferredMaintenanceWindow,
-    createCluster_tags,
-    createCluster_dbName,
-    createCluster_port,
-    createCluster_numberOfNodes,
-    createCluster_clusterVersion,
-    createCluster_clusterSecurityGroups,
-    createCluster_aquaConfigurationStatus,
-    createCluster_hsmConfigurationIdentifier,
-    createCluster_maintenanceTrackName,
-    createCluster_iamRoles,
-    createCluster_clusterIdentifier,
-    createCluster_nodeType,
-    createCluster_masterUsername,
-    createCluster_masterUserPassword,
-    createClusterResponse_cluster,
-    createClusterResponse_httpStatus,
-
-    -- ** CreateEndpointAccess
-    createEndpointAccess_resourceOwner,
-    createEndpointAccess_vpcSecurityGroupIds,
-    createEndpointAccess_clusterIdentifier,
-    createEndpointAccess_endpointName,
-    createEndpointAccess_subnetGroupName,
-    endpointAccess_vpcSecurityGroups,
-    endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
-    endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
-    endpointAccess_subnetGroupName,
-
-    -- ** ModifyClusterSnapshotSchedule
-    modifyClusterSnapshotSchedule_disassociateSchedule,
-    modifyClusterSnapshotSchedule_scheduleIdentifier,
-    modifyClusterSnapshotSchedule_clusterIdentifier,
-
-    -- ** DescribeAccountAttributes
-    describeAccountAttributes_attributeNames,
-    describeAccountAttributesResponse_accountAttributes,
-    describeAccountAttributesResponse_httpStatus,
-
-    -- ** ModifyAuthenticationProfile
-    modifyAuthenticationProfile_authenticationProfileName,
-    modifyAuthenticationProfile_authenticationProfileContent,
-    modifyAuthenticationProfileResponse_authenticationProfileName,
-    modifyAuthenticationProfileResponse_authenticationProfileContent,
-    modifyAuthenticationProfileResponse_httpStatus,
-
-    -- ** CopyClusterSnapshot
-    copyClusterSnapshot_manualSnapshotRetentionPeriod,
-    copyClusterSnapshot_sourceSnapshotClusterIdentifier,
-    copyClusterSnapshot_sourceSnapshotIdentifier,
-    copyClusterSnapshot_targetSnapshotIdentifier,
-    copyClusterSnapshotResponse_snapshot,
-    copyClusterSnapshotResponse_httpStatus,
-
-    -- ** CreateSnapshotCopyGrant
-    createSnapshotCopyGrant_kmsKeyId,
-    createSnapshotCopyGrant_tags,
-    createSnapshotCopyGrant_snapshotCopyGrantName,
-    createSnapshotCopyGrantResponse_snapshotCopyGrant,
-    createSnapshotCopyGrantResponse_httpStatus,
-
-    -- ** UpdatePartnerStatus
-    updatePartnerStatus_statusMessage,
-    updatePartnerStatus_accountId,
-    updatePartnerStatus_clusterIdentifier,
-    updatePartnerStatus_databaseName,
-    updatePartnerStatus_partnerName,
-    updatePartnerStatus_status,
-    partnerIntegrationOutputMessage_partnerName,
-    partnerIntegrationOutputMessage_databaseName,
-
-    -- ** DescribeDataSharesForProducer
-    describeDataSharesForProducer_status,
-    describeDataSharesForProducer_producerArn,
-    describeDataSharesForProducer_maxRecords,
-    describeDataSharesForProducer_marker,
-    describeDataSharesForProducerResponse_dataShares,
-    describeDataSharesForProducerResponse_marker,
-    describeDataSharesForProducerResponse_httpStatus,
-
-    -- ** DescribeHsmConfigurations
-    describeHsmConfigurations_tagKeys,
-    describeHsmConfigurations_hsmConfigurationIdentifier,
-    describeHsmConfigurations_tagValues,
-    describeHsmConfigurations_maxRecords,
-    describeHsmConfigurations_marker,
-    describeHsmConfigurationsResponse_hsmConfigurations,
-    describeHsmConfigurationsResponse_marker,
-    describeHsmConfigurationsResponse_httpStatus,
-
-    -- ** DescribeClusterSnapshots
-    describeClusterSnapshots_sortingEntities,
-    describeClusterSnapshots_snapshotIdentifier,
-    describeClusterSnapshots_tagKeys,
-    describeClusterSnapshots_startTime,
-    describeClusterSnapshots_endTime,
-    describeClusterSnapshots_snapshotType,
-    describeClusterSnapshots_clusterIdentifier,
-    describeClusterSnapshots_ownerAccount,
-    describeClusterSnapshots_tagValues,
-    describeClusterSnapshots_maxRecords,
-    describeClusterSnapshots_marker,
-    describeClusterSnapshots_clusterExists,
-    describeClusterSnapshotsResponse_snapshots,
-    describeClusterSnapshotsResponse_marker,
-    describeClusterSnapshotsResponse_httpStatus,
-
-    -- ** DeleteTags
-    deleteTags_resourceName,
-    deleteTags_tagKeys,
-
-    -- ** EnableSnapshotCopy
-    enableSnapshotCopy_snapshotCopyGrantName,
-    enableSnapshotCopy_manualSnapshotRetentionPeriod,
-    enableSnapshotCopy_retentionPeriod,
-    enableSnapshotCopy_clusterIdentifier,
-    enableSnapshotCopy_destinationRegion,
-    enableSnapshotCopyResponse_cluster,
-    enableSnapshotCopyResponse_httpStatus,
-
-    -- ** ModifyUsageLimit
-    modifyUsageLimit_amount,
-    modifyUsageLimit_breachAction,
-    modifyUsageLimit_usageLimitId,
-    usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
-    usageLimit_limitType,
-    usageLimit_tags,
-    usageLimit_clusterIdentifier,
-    usageLimit_period,
-    usageLimit_usageLimitId,
-
-    -- ** CreateClusterParameterGroup
-    createClusterParameterGroup_tags,
-    createClusterParameterGroup_parameterGroupName,
-    createClusterParameterGroup_parameterGroupFamily,
-    createClusterParameterGroup_description,
-    createClusterParameterGroupResponse_clusterParameterGroup,
-    createClusterParameterGroupResponse_httpStatus,
-
-    -- ** CreateSnapshotSchedule
-    createSnapshotSchedule_nextInvocations,
-    createSnapshotSchedule_scheduleIdentifier,
-    createSnapshotSchedule_dryRun,
-    createSnapshotSchedule_scheduleDescription,
-    createSnapshotSchedule_scheduleDefinitions,
-    createSnapshotSchedule_tags,
-    snapshotSchedule_nextInvocations,
-    snapshotSchedule_associatedClusters,
-    snapshotSchedule_scheduleIdentifier,
-    snapshotSchedule_scheduleDescription,
-    snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_tags,
-    snapshotSchedule_associatedClusterCount,
-
-    -- ** DescribeEndpointAuthorization
-    describeEndpointAuthorization_account,
-    describeEndpointAuthorization_clusterIdentifier,
-    describeEndpointAuthorization_grantee,
-    describeEndpointAuthorization_maxRecords,
-    describeEndpointAuthorization_marker,
-    describeEndpointAuthorizationResponse_endpointAuthorizationList,
-    describeEndpointAuthorizationResponse_marker,
-    describeEndpointAuthorizationResponse_httpStatus,
-
-    -- ** DeleteClusterParameterGroup
-    deleteClusterParameterGroup_parameterGroupName,
-
-    -- ** DescribeClusterSecurityGroups
-    describeClusterSecurityGroups_tagKeys,
-    describeClusterSecurityGroups_clusterSecurityGroupName,
-    describeClusterSecurityGroups_tagValues,
-    describeClusterSecurityGroups_maxRecords,
-    describeClusterSecurityGroups_marker,
-    describeClusterSecurityGroupsResponse_clusterSecurityGroups,
-    describeClusterSecurityGroupsResponse_marker,
-    describeClusterSecurityGroupsResponse_httpStatus,
-
-    -- ** DescribeNodeConfigurationOptions
-    describeNodeConfigurationOptions_snapshotIdentifier,
-    describeNodeConfigurationOptions_clusterIdentifier,
-    describeNodeConfigurationOptions_filters,
-    describeNodeConfigurationOptions_ownerAccount,
-    describeNodeConfigurationOptions_maxRecords,
-    describeNodeConfigurationOptions_marker,
-    describeNodeConfigurationOptions_actionType,
-    describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList,
-    describeNodeConfigurationOptionsResponse_marker,
-    describeNodeConfigurationOptionsResponse_httpStatus,
-
-    -- ** DescribeAuthenticationProfiles
-    describeAuthenticationProfiles_authenticationProfileName,
-    describeAuthenticationProfilesResponse_authenticationProfiles,
-    describeAuthenticationProfilesResponse_httpStatus,
+    -- ** DescribeReservedNodeOfferings
+    describeReservedNodeOfferings_reservedNodeOfferingId,
+    describeReservedNodeOfferings_marker,
+    describeReservedNodeOfferings_maxRecords,
+    describeReservedNodeOfferingsResponse_reservedNodeOfferings,
+    describeReservedNodeOfferingsResponse_marker,
+    describeReservedNodeOfferingsResponse_httpStatus,
 
     -- ** DescribeEndpointAccess
     describeEndpointAccess_endpointName,
-    describeEndpointAccess_resourceOwner,
-    describeEndpointAccess_clusterIdentifier,
     describeEndpointAccess_vpcId,
-    describeEndpointAccess_maxRecords,
+    describeEndpointAccess_clusterIdentifier,
     describeEndpointAccess_marker,
-    describeEndpointAccessResponse_endpointAccessList,
+    describeEndpointAccess_maxRecords,
+    describeEndpointAccess_resourceOwner,
     describeEndpointAccessResponse_marker,
+    describeEndpointAccessResponse_endpointAccessList,
     describeEndpointAccessResponse_httpStatus,
 
     -- ** DescribeEvents
-    describeEvents_duration,
     describeEvents_startTime,
-    describeEvents_endTime,
-    describeEvents_sourceIdentifier,
     describeEvents_sourceType,
-    describeEvents_maxRecords,
+    describeEvents_sourceIdentifier,
     describeEvents_marker,
+    describeEvents_maxRecords,
+    describeEvents_endTime,
+    describeEvents_duration,
     describeEventsResponse_events,
     describeEventsResponse_marker,
     describeEventsResponse_httpStatus,
 
-    -- ** CreateClusterSnapshot
-    createClusterSnapshot_manualSnapshotRetentionPeriod,
-    createClusterSnapshot_tags,
-    createClusterSnapshot_snapshotIdentifier,
-    createClusterSnapshot_clusterIdentifier,
-    createClusterSnapshotResponse_snapshot,
-    createClusterSnapshotResponse_httpStatus,
-
-    -- ** DescribeLoggingStatus
-    describeLoggingStatus_clusterIdentifier,
-    loggingStatus_lastSuccessfulDeliveryTime,
-    loggingStatus_bucketName,
-    loggingStatus_loggingEnabled,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureTime,
-    loggingStatus_lastFailureMessage,
-
-    -- ** DescribeClusterParameterGroups
-    describeClusterParameterGroups_tagKeys,
-    describeClusterParameterGroups_parameterGroupName,
-    describeClusterParameterGroups_tagValues,
-    describeClusterParameterGroups_maxRecords,
-    describeClusterParameterGroups_marker,
-    describeClusterParameterGroupsResponse_parameterGroups,
-    describeClusterParameterGroupsResponse_marker,
-    describeClusterParameterGroupsResponse_httpStatus,
-
-    -- ** ModifyCluster
-    modifyCluster_enhancedVpcRouting,
-    modifyCluster_elasticIp,
-    modifyCluster_hsmClientCertificateIdentifier,
-    modifyCluster_encrypted,
-    modifyCluster_allowVersionUpgrade,
-    modifyCluster_clusterParameterGroupName,
-    modifyCluster_automatedSnapshotRetentionPeriod,
-    modifyCluster_availabilityZoneRelocation,
-    modifyCluster_newClusterIdentifier,
-    modifyCluster_masterUserPassword,
-    modifyCluster_publiclyAccessible,
-    modifyCluster_clusterType,
-    modifyCluster_vpcSecurityGroupIds,
-    modifyCluster_kmsKeyId,
-    modifyCluster_manualSnapshotRetentionPeriod,
-    modifyCluster_availabilityZone,
-    modifyCluster_preferredMaintenanceWindow,
-    modifyCluster_port,
-    modifyCluster_numberOfNodes,
-    modifyCluster_clusterVersion,
-    modifyCluster_clusterSecurityGroups,
-    modifyCluster_nodeType,
-    modifyCluster_hsmConfigurationIdentifier,
-    modifyCluster_maintenanceTrackName,
-    modifyCluster_clusterIdentifier,
-    modifyClusterResponse_cluster,
-    modifyClusterResponse_httpStatus,
+    -- ** DescribeReservedNodes
+    describeReservedNodes_reservedNodeId,
+    describeReservedNodes_marker,
+    describeReservedNodes_maxRecords,
+    describeReservedNodesResponse_reservedNodes,
+    describeReservedNodesResponse_marker,
+    describeReservedNodesResponse_httpStatus,
 
     -- ** GetReservedNodeExchangeOfferings
-    getReservedNodeExchangeOfferings_maxRecords,
     getReservedNodeExchangeOfferings_marker,
+    getReservedNodeExchangeOfferings_maxRecords,
     getReservedNodeExchangeOfferings_reservedNodeId,
     getReservedNodeExchangeOfferingsResponse_reservedNodeOfferings,
     getReservedNodeExchangeOfferingsResponse_marker,
     getReservedNodeExchangeOfferingsResponse_httpStatus,
 
-    -- ** RejectDataShare
-    rejectDataShare_dataShareArn,
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
-    dataShare_producerArn,
-    dataShare_dataShareArn,
+    -- ** DeleteAuthenticationProfile
+    deleteAuthenticationProfile_authenticationProfileName,
+    deleteAuthenticationProfileResponse_authenticationProfileName,
+    deleteAuthenticationProfileResponse_httpStatus,
+
+    -- ** DescribeClusterParameterGroups
+    describeClusterParameterGroups_tagValues,
+    describeClusterParameterGroups_tagKeys,
+    describeClusterParameterGroups_marker,
+    describeClusterParameterGroups_maxRecords,
+    describeClusterParameterGroups_parameterGroupName,
+    describeClusterParameterGroupsResponse_marker,
+    describeClusterParameterGroupsResponse_parameterGroups,
+    describeClusterParameterGroupsResponse_httpStatus,
+
+    -- ** EnableLogging
+    enableLogging_s3KeyPrefix,
+    enableLogging_clusterIdentifier,
+    enableLogging_bucketName,
+    loggingStatus_lastFailureTime,
+    loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_s3KeyPrefix,
+    loggingStatus_bucketName,
+    loggingStatus_loggingEnabled,
+    loggingStatus_lastFailureMessage,
 
     -- ** CreateClusterSubnetGroup
     createClusterSubnetGroup_tags,
@@ -634,264 +274,114 @@ module Network.AWS.Redshift.Lens
     createClusterSubnetGroupResponse_clusterSubnetGroup,
     createClusterSubnetGroupResponse_httpStatus,
 
-    -- ** DeleteHsmConfiguration
-    deleteHsmConfiguration_hsmConfigurationIdentifier,
+    -- ** DeleteClusterParameterGroup
+    deleteClusterParameterGroup_parameterGroupName,
 
-    -- ** DescribeTableRestoreStatus
-    describeTableRestoreStatus_clusterIdentifier,
-    describeTableRestoreStatus_maxRecords,
-    describeTableRestoreStatus_tableRestoreRequestId,
-    describeTableRestoreStatus_marker,
-    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
-    describeTableRestoreStatusResponse_marker,
-    describeTableRestoreStatusResponse_httpStatus,
+    -- ** DescribeClusterSecurityGroups
+    describeClusterSecurityGroups_tagValues,
+    describeClusterSecurityGroups_tagKeys,
+    describeClusterSecurityGroups_clusterSecurityGroupName,
+    describeClusterSecurityGroups_marker,
+    describeClusterSecurityGroups_maxRecords,
+    describeClusterSecurityGroupsResponse_clusterSecurityGroups,
+    describeClusterSecurityGroupsResponse_marker,
+    describeClusterSecurityGroupsResponse_httpStatus,
 
-    -- ** DeleteClusterSnapshot
-    deleteClusterSnapshot_snapshotClusterIdentifier,
-    deleteClusterSnapshot_snapshotIdentifier,
-    deleteClusterSnapshotResponse_snapshot,
-    deleteClusterSnapshotResponse_httpStatus,
+    -- ** CreateTags
+    createTags_resourceName,
+    createTags_tags,
 
-    -- ** ModifyClusterDbRevision
-    modifyClusterDbRevision_clusterIdentifier,
-    modifyClusterDbRevision_revisionTarget,
-    modifyClusterDbRevisionResponse_cluster,
-    modifyClusterDbRevisionResponse_httpStatus,
+    -- ** DescribeEndpointAuthorization
+    describeEndpointAuthorization_clusterIdentifier,
+    describeEndpointAuthorization_account,
+    describeEndpointAuthorization_marker,
+    describeEndpointAuthorization_maxRecords,
+    describeEndpointAuthorization_grantee,
+    describeEndpointAuthorizationResponse_endpointAuthorizationList,
+    describeEndpointAuthorizationResponse_marker,
+    describeEndpointAuthorizationResponse_httpStatus,
 
-    -- ** AuthorizeClusterSecurityGroupIngress
-    authorizeClusterSecurityGroupIngress_cidrip,
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
-    authorizeClusterSecurityGroupIngress_clusterSecurityGroupName,
-    authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
-    authorizeClusterSecurityGroupIngressResponse_httpStatus,
+    -- ** EnableSnapshotCopy
+    enableSnapshotCopy_manualSnapshotRetentionPeriod,
+    enableSnapshotCopy_retentionPeriod,
+    enableSnapshotCopy_snapshotCopyGrantName,
+    enableSnapshotCopy_clusterIdentifier,
+    enableSnapshotCopy_destinationRegion,
+    enableSnapshotCopyResponse_cluster,
+    enableSnapshotCopyResponse_httpStatus,
 
-    -- ** DeauthorizeDataShare
-    deauthorizeDataShare_dataShareArn,
-    deauthorizeDataShare_consumerIdentifier,
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
-    dataShare_producerArn,
-    dataShare_dataShareArn,
+    -- ** DescribeClusterSnapshots
+    describeClusterSnapshots_snapshotIdentifier,
+    describeClusterSnapshots_tagValues,
+    describeClusterSnapshots_clusterExists,
+    describeClusterSnapshots_startTime,
+    describeClusterSnapshots_tagKeys,
+    describeClusterSnapshots_clusterIdentifier,
+    describeClusterSnapshots_snapshotType,
+    describeClusterSnapshots_sortingEntities,
+    describeClusterSnapshots_marker,
+    describeClusterSnapshots_maxRecords,
+    describeClusterSnapshots_endTime,
+    describeClusterSnapshots_ownerAccount,
+    describeClusterSnapshotsResponse_snapshots,
+    describeClusterSnapshotsResponse_marker,
+    describeClusterSnapshotsResponse_httpStatus,
 
-    -- ** ModifyScheduledAction
-    modifyScheduledAction_targetAction,
-    modifyScheduledAction_iamRole,
-    modifyScheduledAction_scheduledActionDescription,
-    modifyScheduledAction_enable,
-    modifyScheduledAction_startTime,
-    modifyScheduledAction_endTime,
-    modifyScheduledAction_schedule,
-    modifyScheduledAction_scheduledActionName,
-    scheduledAction_targetAction,
-    scheduledAction_nextInvocations,
-    scheduledAction_iamRole,
-    scheduledAction_scheduledActionDescription,
-    scheduledAction_startTime,
-    scheduledAction_endTime,
-    scheduledAction_state,
-    scheduledAction_scheduledActionName,
-    scheduledAction_schedule,
+    -- ** BatchDeleteClusterSnapshots
+    batchDeleteClusterSnapshots_identifiers,
+    batchDeleteClusterSnapshotsResponse_resources,
+    batchDeleteClusterSnapshotsResponse_errors,
+    batchDeleteClusterSnapshotsResponse_httpStatus,
 
-    -- ** ModifyEventSubscription
-    modifyEventSubscription_sourceIds,
-    modifyEventSubscription_severity,
-    modifyEventSubscription_enabled,
-    modifyEventSubscription_eventCategories,
-    modifyEventSubscription_sourceType,
-    modifyEventSubscription_snsTopicArn,
-    modifyEventSubscription_subscriptionName,
-    modifyEventSubscriptionResponse_eventSubscription,
-    modifyEventSubscriptionResponse_httpStatus,
+    -- ** DeleteTags
+    deleteTags_resourceName,
+    deleteTags_tagKeys,
 
-    -- ** CreateClusterSecurityGroup
-    createClusterSecurityGroup_tags,
-    createClusterSecurityGroup_clusterSecurityGroupName,
-    createClusterSecurityGroup_description,
-    createClusterSecurityGroupResponse_clusterSecurityGroup,
-    createClusterSecurityGroupResponse_httpStatus,
+    -- ** ModifyUsageLimit
+    modifyUsageLimit_amount,
+    modifyUsageLimit_breachAction,
+    modifyUsageLimit_usageLimitId,
+    usageLimit_amount,
+    usageLimit_limitType,
+    usageLimit_usageLimitId,
+    usageLimit_period,
+    usageLimit_clusterIdentifier,
+    usageLimit_breachAction,
+    usageLimit_featureType,
+    usageLimit_tags,
 
-    -- ** DescribeResize
-    describeResize_clusterIdentifier,
-    resizeProgressMessage_status,
-    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
-    resizeProgressMessage_importTablesNotStarted,
-    resizeProgressMessage_targetNodeType,
-    resizeProgressMessage_message,
-    resizeProgressMessage_targetClusterType,
-    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
-    resizeProgressMessage_targetEncryptionType,
-    resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_totalResizeDataInMegaBytes,
-    resizeProgressMessage_targetNumberOfNodes,
-    resizeProgressMessage_dataTransferProgressPercent,
-    resizeProgressMessage_importTablesCompleted,
-    resizeProgressMessage_progressInMegaBytes,
-    resizeProgressMessage_importTablesInProgress,
-    resizeProgressMessage_resizeType,
+    -- ** DescribeClusterSubnetGroups
+    describeClusterSubnetGroups_tagValues,
+    describeClusterSubnetGroups_tagKeys,
+    describeClusterSubnetGroups_clusterSubnetGroupName,
+    describeClusterSubnetGroups_marker,
+    describeClusterSubnetGroups_maxRecords,
+    describeClusterSubnetGroupsResponse_clusterSubnetGroups,
+    describeClusterSubnetGroupsResponse_marker,
+    describeClusterSubnetGroupsResponse_httpStatus,
 
-    -- ** AcceptReservedNodeExchange
-    acceptReservedNodeExchange_reservedNodeId,
-    acceptReservedNodeExchange_targetReservedNodeOfferingId,
-    acceptReservedNodeExchangeResponse_exchangedReservedNode,
-    acceptReservedNodeExchangeResponse_httpStatus,
+    -- ** ResizeCluster
+    resizeCluster_numberOfNodes,
+    resizeCluster_classic,
+    resizeCluster_clusterType,
+    resizeCluster_nodeType,
+    resizeCluster_clusterIdentifier,
+    resizeClusterResponse_cluster,
+    resizeClusterResponse_httpStatus,
 
-    -- ** DescribeSnapshotSchedules
-    describeSnapshotSchedules_scheduleIdentifier,
-    describeSnapshotSchedules_tagKeys,
-    describeSnapshotSchedules_clusterIdentifier,
-    describeSnapshotSchedules_tagValues,
-    describeSnapshotSchedules_maxRecords,
-    describeSnapshotSchedules_marker,
-    describeSnapshotSchedulesResponse_snapshotSchedules,
-    describeSnapshotSchedulesResponse_marker,
-    describeSnapshotSchedulesResponse_httpStatus,
+    -- ** ModifySnapshotCopyRetentionPeriod
+    modifySnapshotCopyRetentionPeriod_manual,
+    modifySnapshotCopyRetentionPeriod_clusterIdentifier,
+    modifySnapshotCopyRetentionPeriod_retentionPeriod,
+    modifySnapshotCopyRetentionPeriodResponse_cluster,
+    modifySnapshotCopyRetentionPeriodResponse_httpStatus,
 
-    -- ** ModifyClusterMaintenance
-    modifyClusterMaintenance_deferMaintenanceIdentifier,
-    modifyClusterMaintenance_deferMaintenanceDuration,
-    modifyClusterMaintenance_deferMaintenanceStartTime,
-    modifyClusterMaintenance_deferMaintenanceEndTime,
-    modifyClusterMaintenance_deferMaintenance,
-    modifyClusterMaintenance_clusterIdentifier,
-    modifyClusterMaintenanceResponse_cluster,
-    modifyClusterMaintenanceResponse_httpStatus,
-
-    -- ** DescribeStorage
-    describeStorageResponse_totalProvisionedStorageInMegaBytes,
-    describeStorageResponse_totalBackupSizeInMegaBytes,
-    describeStorageResponse_httpStatus,
-
-    -- ** DisassociateDataShareConsumer
-    disassociateDataShareConsumer_consumerArn,
-    disassociateDataShareConsumer_disassociateEntireAccount,
-    disassociateDataShareConsumer_dataShareArn,
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
-    dataShare_producerArn,
-    dataShare_dataShareArn,
-
-    -- ** BatchModifyClusterSnapshots
-    batchModifyClusterSnapshots_force,
-    batchModifyClusterSnapshots_manualSnapshotRetentionPeriod,
-    batchModifyClusterSnapshots_snapshotIdentifierList,
-    batchModifyClusterSnapshotsResponse_resources,
-    batchModifyClusterSnapshotsResponse_errors,
-    batchModifyClusterSnapshotsResponse_httpStatus,
-
-    -- ** DescribeSnapshotCopyGrants
-    describeSnapshotCopyGrants_tagKeys,
-    describeSnapshotCopyGrants_snapshotCopyGrantName,
-    describeSnapshotCopyGrants_tagValues,
-    describeSnapshotCopyGrants_maxRecords,
-    describeSnapshotCopyGrants_marker,
-    describeSnapshotCopyGrantsResponse_snapshotCopyGrants,
-    describeSnapshotCopyGrantsResponse_marker,
-    describeSnapshotCopyGrantsResponse_httpStatus,
-
-    -- ** ModifySnapshotSchedule
-    modifySnapshotSchedule_scheduleIdentifier,
-    modifySnapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_nextInvocations,
-    snapshotSchedule_associatedClusters,
-    snapshotSchedule_scheduleIdentifier,
-    snapshotSchedule_scheduleDescription,
-    snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_tags,
-    snapshotSchedule_associatedClusterCount,
-
-    -- ** CreateHsmClientCertificate
-    createHsmClientCertificate_tags,
-    createHsmClientCertificate_hsmClientCertificateIdentifier,
-    createHsmClientCertificateResponse_hsmClientCertificate,
-    createHsmClientCertificateResponse_httpStatus,
-
-    -- ** DescribeClusterVersions
-    describeClusterVersions_clusterParameterGroupFamily,
-    describeClusterVersions_clusterVersion,
-    describeClusterVersions_maxRecords,
-    describeClusterVersions_marker,
-    describeClusterVersionsResponse_clusterVersions,
-    describeClusterVersionsResponse_marker,
-    describeClusterVersionsResponse_httpStatus,
-
-    -- ** AuthorizeDataShare
-    authorizeDataShare_dataShareArn,
-    authorizeDataShare_consumerIdentifier,
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
-    dataShare_producerArn,
-    dataShare_dataShareArn,
-
-    -- ** DescribeDefaultClusterParameters
-    describeDefaultClusterParameters_maxRecords,
-    describeDefaultClusterParameters_marker,
-    describeDefaultClusterParameters_parameterGroupFamily,
-    describeDefaultClusterParametersResponse_httpStatus,
-    describeDefaultClusterParametersResponse_defaultClusterParameters,
-
-    -- ** DeleteSnapshotCopyGrant
-    deleteSnapshotCopyGrant_snapshotCopyGrantName,
-
-    -- ** DescribeUsageLimits
-    describeUsageLimits_featureType,
-    describeUsageLimits_tagKeys,
-    describeUsageLimits_clusterIdentifier,
-    describeUsageLimits_usageLimitId,
-    describeUsageLimits_tagValues,
-    describeUsageLimits_maxRecords,
-    describeUsageLimits_marker,
-    describeUsageLimitsResponse_usageLimits,
-    describeUsageLimitsResponse_marker,
-    describeUsageLimitsResponse_httpStatus,
-
-    -- ** DescribeClusterTracks
-    describeClusterTracks_maintenanceTrackName,
-    describeClusterTracks_maxRecords,
-    describeClusterTracks_marker,
-    describeClusterTracksResponse_maintenanceTracks,
-    describeClusterTracksResponse_marker,
-    describeClusterTracksResponse_httpStatus,
-
-    -- ** DescribeOrderableClusterOptions
-    describeOrderableClusterOptions_clusterVersion,
-    describeOrderableClusterOptions_nodeType,
-    describeOrderableClusterOptions_maxRecords,
-    describeOrderableClusterOptions_marker,
-    describeOrderableClusterOptionsResponse_orderableClusterOptions,
-    describeOrderableClusterOptionsResponse_marker,
-    describeOrderableClusterOptionsResponse_httpStatus,
-
-    -- ** CreateEventSubscription
-    createEventSubscription_sourceIds,
-    createEventSubscription_severity,
-    createEventSubscription_enabled,
-    createEventSubscription_eventCategories,
-    createEventSubscription_tags,
-    createEventSubscription_sourceType,
-    createEventSubscription_subscriptionName,
-    createEventSubscription_snsTopicArn,
-    createEventSubscriptionResponse_eventSubscription,
-    createEventSubscriptionResponse_httpStatus,
-
-    -- ** CreateScheduledAction
-    createScheduledAction_scheduledActionDescription,
-    createScheduledAction_enable,
-    createScheduledAction_startTime,
-    createScheduledAction_endTime,
-    createScheduledAction_scheduledActionName,
-    createScheduledAction_targetAction,
-    createScheduledAction_schedule,
-    createScheduledAction_iamRole,
-    scheduledAction_targetAction,
-    scheduledAction_nextInvocations,
-    scheduledAction_iamRole,
-    scheduledAction_scheduledActionDescription,
-    scheduledAction_startTime,
-    scheduledAction_endTime,
-    scheduledAction_state,
-    scheduledAction_scheduledActionName,
-    scheduledAction_schedule,
+    -- ** ModifyClusterIamRoles
+    modifyClusterIamRoles_removeIamRoles,
+    modifyClusterIamRoles_addIamRoles,
+    modifyClusterIamRoles_clusterIdentifier,
+    modifyClusterIamRolesResponse_cluster,
+    modifyClusterIamRolesResponse_httpStatus,
 
     -- ** AuthorizeSnapshotAccess
     authorizeSnapshotAccess_snapshotClusterIdentifier,
@@ -899,25 +389,6 @@ module Network.AWS.Redshift.Lens
     authorizeSnapshotAccess_accountWithRestoreAccess,
     authorizeSnapshotAccessResponse_snapshot,
     authorizeSnapshotAccessResponse_httpStatus,
-
-    -- ** DeleteHsmClientCertificate
-    deleteHsmClientCertificate_hsmClientCertificateIdentifier,
-
-    -- ** DeleteCluster
-    deleteCluster_finalClusterSnapshotIdentifier,
-    deleteCluster_skipFinalClusterSnapshot,
-    deleteCluster_finalClusterSnapshotRetentionPeriod,
-    deleteCluster_clusterIdentifier,
-    deleteClusterResponse_cluster,
-    deleteClusterResponse_httpStatus,
-
-    -- ** DescribeDataShares
-    describeDataShares_dataShareArn,
-    describeDataShares_maxRecords,
-    describeDataShares_marker,
-    describeDataSharesResponse_dataShares,
-    describeDataSharesResponse_marker,
-    describeDataSharesResponse_httpStatus,
 
     -- ** RebootCluster
     rebootCluster_clusterIdentifier,
@@ -929,84 +400,544 @@ module Network.AWS.Redshift.Lens
     resumeClusterResponse_cluster,
     resumeClusterResponse_httpStatus,
 
-    -- ** ModifyClusterIamRoles
-    modifyClusterIamRoles_removeIamRoles,
-    modifyClusterIamRoles_addIamRoles,
-    modifyClusterIamRoles_clusterIdentifier,
-    modifyClusterIamRolesResponse_cluster,
-    modifyClusterIamRolesResponse_httpStatus,
+    -- ** DeleteCluster
+    deleteCluster_skipFinalClusterSnapshot,
+    deleteCluster_finalClusterSnapshotRetentionPeriod,
+    deleteCluster_finalClusterSnapshotIdentifier,
+    deleteCluster_clusterIdentifier,
+    deleteClusterResponse_cluster,
+    deleteClusterResponse_httpStatus,
 
-    -- ** RestoreFromClusterSnapshot
-    restoreFromClusterSnapshot_enhancedVpcRouting,
-    restoreFromClusterSnapshot_additionalInfo,
-    restoreFromClusterSnapshot_elasticIp,
-    restoreFromClusterSnapshot_clusterSubnetGroupName,
-    restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
-    restoreFromClusterSnapshot_allowVersionUpgrade,
-    restoreFromClusterSnapshot_clusterParameterGroupName,
-    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
-    restoreFromClusterSnapshot_availabilityZoneRelocation,
-    restoreFromClusterSnapshot_snapshotClusterIdentifier,
-    restoreFromClusterSnapshot_publiclyAccessible,
-    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
-    restoreFromClusterSnapshot_vpcSecurityGroupIds,
-    restoreFromClusterSnapshot_kmsKeyId,
-    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
-    restoreFromClusterSnapshot_availabilityZone,
-    restoreFromClusterSnapshot_preferredMaintenanceWindow,
-    restoreFromClusterSnapshot_port,
-    restoreFromClusterSnapshot_numberOfNodes,
-    restoreFromClusterSnapshot_clusterSecurityGroups,
-    restoreFromClusterSnapshot_ownerAccount,
-    restoreFromClusterSnapshot_nodeType,
-    restoreFromClusterSnapshot_aquaConfigurationStatus,
-    restoreFromClusterSnapshot_hsmConfigurationIdentifier,
-    restoreFromClusterSnapshot_maintenanceTrackName,
-    restoreFromClusterSnapshot_iamRoles,
-    restoreFromClusterSnapshot_clusterIdentifier,
-    restoreFromClusterSnapshot_snapshotIdentifier,
-    restoreFromClusterSnapshotResponse_cluster,
-    restoreFromClusterSnapshotResponse_httpStatus,
+    -- ** CreateEventSubscription
+    createEventSubscription_enabled,
+    createEventSubscription_sourceType,
+    createEventSubscription_severity,
+    createEventSubscription_eventCategories,
+    createEventSubscription_sourceIds,
+    createEventSubscription_tags,
+    createEventSubscription_subscriptionName,
+    createEventSubscription_snsTopicArn,
+    createEventSubscriptionResponse_eventSubscription,
+    createEventSubscriptionResponse_httpStatus,
+
+    -- ** CreateScheduledAction
+    createScheduledAction_startTime,
+    createScheduledAction_scheduledActionDescription,
+    createScheduledAction_enable,
+    createScheduledAction_endTime,
+    createScheduledAction_scheduledActionName,
+    createScheduledAction_targetAction,
+    createScheduledAction_schedule,
+    createScheduledAction_iamRole,
+    scheduledAction_state,
+    scheduledAction_targetAction,
+    scheduledAction_startTime,
+    scheduledAction_schedule,
+    scheduledAction_scheduledActionName,
+    scheduledAction_scheduledActionDescription,
+    scheduledAction_nextInvocations,
+    scheduledAction_endTime,
+    scheduledAction_iamRole,
+
+    -- ** DescribeOrderableClusterOptions
+    describeOrderableClusterOptions_marker,
+    describeOrderableClusterOptions_maxRecords,
+    describeOrderableClusterOptions_clusterVersion,
+    describeOrderableClusterOptions_nodeType,
+    describeOrderableClusterOptionsResponse_marker,
+    describeOrderableClusterOptionsResponse_orderableClusterOptions,
+    describeOrderableClusterOptionsResponse_httpStatus,
+
+    -- ** CreateEndpointAccess
+    createEndpointAccess_clusterIdentifier,
+    createEndpointAccess_vpcSecurityGroupIds,
+    createEndpointAccess_resourceOwner,
+    createEndpointAccess_endpointName,
+    createEndpointAccess_subnetGroupName,
+    endpointAccess_endpointName,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
+
+    -- ** DescribeClusterTracks
+    describeClusterTracks_maintenanceTrackName,
+    describeClusterTracks_marker,
+    describeClusterTracks_maxRecords,
+    describeClusterTracksResponse_maintenanceTracks,
+    describeClusterTracksResponse_marker,
+    describeClusterTracksResponse_httpStatus,
+
+    -- ** CreateCluster
+    createCluster_manualSnapshotRetentionPeriod,
+    createCluster_enhancedVpcRouting,
+    createCluster_additionalInfo,
+    createCluster_snapshotScheduleIdentifier,
+    createCluster_publiclyAccessible,
+    createCluster_maintenanceTrackName,
+    createCluster_hsmConfigurationIdentifier,
+    createCluster_aquaConfigurationStatus,
+    createCluster_clusterSecurityGroups,
+    createCluster_automatedSnapshotRetentionPeriod,
+    createCluster_encrypted,
+    createCluster_clusterSubnetGroupName,
+    createCluster_hsmClientCertificateIdentifier,
+    createCluster_numberOfNodes,
+    createCluster_elasticIp,
+    createCluster_preferredMaintenanceWindow,
+    createCluster_kmsKeyId,
+    createCluster_availabilityZone,
+    createCluster_vpcSecurityGroupIds,
+    createCluster_iamRoles,
+    createCluster_clusterType,
+    createCluster_availabilityZoneRelocation,
+    createCluster_clusterVersion,
+    createCluster_allowVersionUpgrade,
+    createCluster_clusterParameterGroupName,
+    createCluster_tags,
+    createCluster_port,
+    createCluster_dbName,
+    createCluster_clusterIdentifier,
+    createCluster_nodeType,
+    createCluster_masterUsername,
+    createCluster_masterUserPassword,
+    createClusterResponse_cluster,
+    createClusterResponse_httpStatus,
+
+    -- ** CreateHsmClientCertificate
+    createHsmClientCertificate_tags,
+    createHsmClientCertificate_hsmClientCertificateIdentifier,
+    createHsmClientCertificateResponse_hsmClientCertificate,
+    createHsmClientCertificateResponse_httpStatus,
+
+    -- ** RestoreTableFromClusterSnapshot
+    restoreTableFromClusterSnapshot_targetSchemaName,
+    restoreTableFromClusterSnapshot_enableCaseSensitiveIdentifier,
+    restoreTableFromClusterSnapshot_targetDatabaseName,
+    restoreTableFromClusterSnapshot_sourceSchemaName,
+    restoreTableFromClusterSnapshot_clusterIdentifier,
+    restoreTableFromClusterSnapshot_snapshotIdentifier,
+    restoreTableFromClusterSnapshot_sourceDatabaseName,
+    restoreTableFromClusterSnapshot_sourceTableName,
+    restoreTableFromClusterSnapshot_newTableName,
+    restoreTableFromClusterSnapshotResponse_tableRestoreStatus,
+    restoreTableFromClusterSnapshotResponse_httpStatus,
+
+    -- ** DeleteScheduledAction
+    deleteScheduledAction_scheduledActionName,
+
+    -- ** DescribeDefaultClusterParameters
+    describeDefaultClusterParameters_marker,
+    describeDefaultClusterParameters_maxRecords,
+    describeDefaultClusterParameters_parameterGroupFamily,
+    describeDefaultClusterParametersResponse_httpStatus,
+    describeDefaultClusterParametersResponse_defaultClusterParameters,
+
+    -- ** DeleteEventSubscription
+    deleteEventSubscription_subscriptionName,
+
+    -- ** ModifyClusterSnapshot
+    modifyClusterSnapshot_manualSnapshotRetentionPeriod,
+    modifyClusterSnapshot_force,
+    modifyClusterSnapshot_snapshotIdentifier,
+    modifyClusterSnapshotResponse_snapshot,
+    modifyClusterSnapshotResponse_httpStatus,
+
+    -- ** DescribeDataSharesForConsumer
+    describeDataSharesForConsumer_status,
+    describeDataSharesForConsumer_consumerArn,
+    describeDataSharesForConsumer_marker,
+    describeDataSharesForConsumer_maxRecords,
+    describeDataSharesForConsumerResponse_marker,
+    describeDataSharesForConsumerResponse_dataShares,
+    describeDataSharesForConsumerResponse_httpStatus,
+
+    -- ** AuthorizeDataShare
+    authorizeDataShare_dataShareArn,
+    authorizeDataShare_consumerIdentifier,
+    dataShare_producerArn,
+    dataShare_dataShareAssociations,
+    dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
+
+    -- ** ResetClusterParameterGroup
+    resetClusterParameterGroup_resetAllParameters,
+    resetClusterParameterGroup_parameters,
+    resetClusterParameterGroup_parameterGroupName,
+    clusterParameterGroupNameMessage_parameterGroupStatus,
+    clusterParameterGroupNameMessage_parameterGroupName,
+
+    -- ** DescribeScheduledActions
+    describeScheduledActions_startTime,
+    describeScheduledActions_scheduledActionName,
+    describeScheduledActions_filters,
+    describeScheduledActions_active,
+    describeScheduledActions_targetActionType,
+    describeScheduledActions_marker,
+    describeScheduledActions_maxRecords,
+    describeScheduledActions_endTime,
+    describeScheduledActionsResponse_scheduledActions,
+    describeScheduledActionsResponse_marker,
+    describeScheduledActionsResponse_httpStatus,
+
+    -- ** DisassociateDataShareConsumer
+    disassociateDataShareConsumer_disassociateEntireAccount,
+    disassociateDataShareConsumer_consumerArn,
+    disassociateDataShareConsumer_dataShareArn,
+    dataShare_producerArn,
+    dataShare_dataShareAssociations,
+    dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
+
+    -- ** DescribeEventSubscriptions
+    describeEventSubscriptions_subscriptionName,
+    describeEventSubscriptions_tagValues,
+    describeEventSubscriptions_tagKeys,
+    describeEventSubscriptions_marker,
+    describeEventSubscriptions_maxRecords,
+    describeEventSubscriptionsResponse_eventSubscriptionsList,
+    describeEventSubscriptionsResponse_marker,
+    describeEventSubscriptionsResponse_httpStatus,
+
+    -- ** DescribeClusterDbRevisions
+    describeClusterDbRevisions_clusterIdentifier,
+    describeClusterDbRevisions_marker,
+    describeClusterDbRevisions_maxRecords,
+    describeClusterDbRevisionsResponse_clusterDbRevisions,
+    describeClusterDbRevisionsResponse_marker,
+    describeClusterDbRevisionsResponse_httpStatus,
+
+    -- ** BatchModifyClusterSnapshots
+    batchModifyClusterSnapshots_manualSnapshotRetentionPeriod,
+    batchModifyClusterSnapshots_force,
+    batchModifyClusterSnapshots_snapshotIdentifierList,
+    batchModifyClusterSnapshotsResponse_resources,
+    batchModifyClusterSnapshotsResponse_errors,
+    batchModifyClusterSnapshotsResponse_httpStatus,
+
+    -- ** DeleteUsageLimit
+    deleteUsageLimit_usageLimitId,
+
+    -- ** RevokeClusterSecurityGroupIngress
+    revokeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
+    revokeClusterSecurityGroupIngress_eC2SecurityGroupName,
+    revokeClusterSecurityGroupIngress_cidrip,
+    revokeClusterSecurityGroupIngress_clusterSecurityGroupName,
+    revokeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
+    revokeClusterSecurityGroupIngressResponse_httpStatus,
+
+    -- ** DescribeHsmClientCertificates
+    describeHsmClientCertificates_tagValues,
+    describeHsmClientCertificates_tagKeys,
+    describeHsmClientCertificates_hsmClientCertificateIdentifier,
+    describeHsmClientCertificates_marker,
+    describeHsmClientCertificates_maxRecords,
+    describeHsmClientCertificatesResponse_marker,
+    describeHsmClientCertificatesResponse_hsmClientCertificates,
+    describeHsmClientCertificatesResponse_httpStatus,
+
+    -- ** ModifyClusterParameterGroup
+    modifyClusterParameterGroup_parameterGroupName,
+    modifyClusterParameterGroup_parameters,
+    clusterParameterGroupNameMessage_parameterGroupStatus,
+    clusterParameterGroupNameMessage_parameterGroupName,
+
+    -- ** AuthorizeEndpointAccess
+    authorizeEndpointAccess_clusterIdentifier,
+    authorizeEndpointAccess_vpcIds,
+    authorizeEndpointAccess_account,
+    endpointAuthorization_status,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_endpointCount,
+    endpointAuthorization_grantor,
+    endpointAuthorization_clusterIdentifier,
+    endpointAuthorization_grantee,
+    endpointAuthorization_allowedVPCs,
+    endpointAuthorization_clusterStatus,
+    endpointAuthorization_authorizeTime,
+
+    -- ** ModifyAquaConfiguration
+    modifyAquaConfiguration_aquaConfigurationStatus,
+    modifyAquaConfiguration_clusterIdentifier,
+    modifyAquaConfigurationResponse_aquaConfiguration,
+    modifyAquaConfigurationResponse_httpStatus,
+
+    -- ** GetClusterCredentials
+    getClusterCredentials_dbGroups,
+    getClusterCredentials_durationSeconds,
+    getClusterCredentials_autoCreate,
+    getClusterCredentials_dbName,
+    getClusterCredentials_dbUser,
+    getClusterCredentials_clusterIdentifier,
+    getClusterCredentialsResponse_dbUser,
+    getClusterCredentialsResponse_expiration,
+    getClusterCredentialsResponse_dbPassword,
+    getClusterCredentialsResponse_httpStatus,
+
+    -- ** ModifyClusterMaintenance
+    modifyClusterMaintenance_deferMaintenanceEndTime,
+    modifyClusterMaintenance_deferMaintenance,
+    modifyClusterMaintenance_deferMaintenanceDuration,
+    modifyClusterMaintenance_deferMaintenanceStartTime,
+    modifyClusterMaintenance_deferMaintenanceIdentifier,
+    modifyClusterMaintenance_clusterIdentifier,
+    modifyClusterMaintenanceResponse_cluster,
+    modifyClusterMaintenanceResponse_httpStatus,
+
+    -- ** CreateClusterSecurityGroup
+    createClusterSecurityGroup_tags,
+    createClusterSecurityGroup_clusterSecurityGroupName,
+    createClusterSecurityGroup_description,
+    createClusterSecurityGroupResponse_clusterSecurityGroup,
+    createClusterSecurityGroupResponse_httpStatus,
+
+    -- ** DescribeEventCategories
+    describeEventCategories_sourceType,
+    describeEventCategoriesResponse_eventCategoriesMapList,
+    describeEventCategoriesResponse_httpStatus,
+
+    -- ** DescribeResize
+    describeResize_clusterIdentifier,
+    resizeProgressMessage_importTablesNotStarted,
+    resizeProgressMessage_status,
+    resizeProgressMessage_estimatedTimeToCompletionInSeconds,
+    resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
+    resizeProgressMessage_targetNumberOfNodes,
+    resizeProgressMessage_targetEncryptionType,
+    resizeProgressMessage_targetNodeType,
+    resizeProgressMessage_importTablesInProgress,
+    resizeProgressMessage_resizeType,
+    resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_dataTransferProgressPercent,
+    resizeProgressMessage_totalResizeDataInMegaBytes,
+    resizeProgressMessage_targetClusterType,
+    resizeProgressMessage_message,
+    resizeProgressMessage_elapsedTimeInSeconds,
+
+    -- ** DeleteHsmConfiguration
+    deleteHsmConfiguration_hsmConfigurationIdentifier,
+
+    -- ** CreateAuthenticationProfile
+    createAuthenticationProfile_authenticationProfileName,
+    createAuthenticationProfile_authenticationProfileContent,
+    createAuthenticationProfileResponse_authenticationProfileName,
+    createAuthenticationProfileResponse_authenticationProfileContent,
+    createAuthenticationProfileResponse_httpStatus,
+
+    -- ** DeauthorizeDataShare
+    deauthorizeDataShare_dataShareArn,
+    deauthorizeDataShare_consumerIdentifier,
+    dataShare_producerArn,
+    dataShare_dataShareAssociations,
+    dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
+
+    -- ** AcceptReservedNodeExchange
+    acceptReservedNodeExchange_reservedNodeId,
+    acceptReservedNodeExchange_targetReservedNodeOfferingId,
+    acceptReservedNodeExchangeResponse_exchangedReservedNode,
+    acceptReservedNodeExchangeResponse_httpStatus,
+
+    -- ** AuthorizeClusterSecurityGroupIngress
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
+    authorizeClusterSecurityGroupIngress_eC2SecurityGroupName,
+    authorizeClusterSecurityGroupIngress_cidrip,
+    authorizeClusterSecurityGroupIngress_clusterSecurityGroupName,
+    authorizeClusterSecurityGroupIngressResponse_clusterSecurityGroup,
+    authorizeClusterSecurityGroupIngressResponse_httpStatus,
+
+    -- ** DeletePartner
+    deletePartner_accountId,
+    deletePartner_clusterIdentifier,
+    deletePartner_databaseName,
+    deletePartner_partnerName,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
+
+    -- ** DescribeTableRestoreStatus
+    describeTableRestoreStatus_tableRestoreRequestId,
+    describeTableRestoreStatus_clusterIdentifier,
+    describeTableRestoreStatus_marker,
+    describeTableRestoreStatus_maxRecords,
+    describeTableRestoreStatusResponse_marker,
+    describeTableRestoreStatusResponse_tableRestoreStatusDetails,
+    describeTableRestoreStatusResponse_httpStatus,
+
+    -- ** CreateClusterSnapshot
+    createClusterSnapshot_manualSnapshotRetentionPeriod,
+    createClusterSnapshot_tags,
+    createClusterSnapshot_snapshotIdentifier,
+    createClusterSnapshot_clusterIdentifier,
+    createClusterSnapshotResponse_snapshot,
+    createClusterSnapshotResponse_httpStatus,
+
+    -- ** RejectDataShare
+    rejectDataShare_dataShareArn,
+    dataShare_producerArn,
+    dataShare_dataShareAssociations,
+    dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
+
+    -- ** CreateHsmConfiguration
+    createHsmConfiguration_tags,
+    createHsmConfiguration_hsmConfigurationIdentifier,
+    createHsmConfiguration_description,
+    createHsmConfiguration_hsmIpAddress,
+    createHsmConfiguration_hsmPartitionName,
+    createHsmConfiguration_hsmPartitionPassword,
+    createHsmConfiguration_hsmServerPublicCertificate,
+    createHsmConfigurationResponse_hsmConfiguration,
+    createHsmConfigurationResponse_httpStatus,
+
+    -- ** DescribeLoggingStatus
+    describeLoggingStatus_clusterIdentifier,
+    loggingStatus_lastFailureTime,
+    loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_s3KeyPrefix,
+    loggingStatus_bucketName,
+    loggingStatus_loggingEnabled,
+    loggingStatus_lastFailureMessage,
+
+    -- ** ModifyCluster
+    modifyCluster_manualSnapshotRetentionPeriod,
+    modifyCluster_enhancedVpcRouting,
+    modifyCluster_masterUserPassword,
+    modifyCluster_publiclyAccessible,
+    modifyCluster_maintenanceTrackName,
+    modifyCluster_hsmConfigurationIdentifier,
+    modifyCluster_clusterSecurityGroups,
+    modifyCluster_automatedSnapshotRetentionPeriod,
+    modifyCluster_encrypted,
+    modifyCluster_hsmClientCertificateIdentifier,
+    modifyCluster_numberOfNodes,
+    modifyCluster_elasticIp,
+    modifyCluster_preferredMaintenanceWindow,
+    modifyCluster_kmsKeyId,
+    modifyCluster_availabilityZone,
+    modifyCluster_vpcSecurityGroupIds,
+    modifyCluster_clusterType,
+    modifyCluster_newClusterIdentifier,
+    modifyCluster_availabilityZoneRelocation,
+    modifyCluster_clusterVersion,
+    modifyCluster_nodeType,
+    modifyCluster_allowVersionUpgrade,
+    modifyCluster_clusterParameterGroupName,
+    modifyCluster_port,
+    modifyCluster_clusterIdentifier,
+    modifyClusterResponse_cluster,
+    modifyClusterResponse_httpStatus,
+
+    -- ** DeleteClusterSecurityGroup
+    deleteClusterSecurityGroup_clusterSecurityGroupName,
+
+    -- ** CreateSnapshotSchedule
+    createSnapshotSchedule_nextInvocations,
+    createSnapshotSchedule_scheduleDefinitions,
+    createSnapshotSchedule_scheduleDescription,
+    createSnapshotSchedule_scheduleIdentifier,
+    createSnapshotSchedule_dryRun,
+    createSnapshotSchedule_tags,
+    snapshotSchedule_associatedClusters,
+    snapshotSchedule_nextInvocations,
+    snapshotSchedule_scheduleDefinitions,
+    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_scheduleIdentifier,
+    snapshotSchedule_associatedClusterCount,
+    snapshotSchedule_tags,
+
+    -- ** DescribeAuthenticationProfiles
+    describeAuthenticationProfiles_authenticationProfileName,
+    describeAuthenticationProfilesResponse_authenticationProfiles,
+    describeAuthenticationProfilesResponse_httpStatus,
+
+    -- ** DescribeNodeConfigurationOptions
+    describeNodeConfigurationOptions_snapshotIdentifier,
+    describeNodeConfigurationOptions_filters,
+    describeNodeConfigurationOptions_clusterIdentifier,
+    describeNodeConfigurationOptions_marker,
+    describeNodeConfigurationOptions_maxRecords,
+    describeNodeConfigurationOptions_ownerAccount,
+    describeNodeConfigurationOptions_actionType,
+    describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList,
+    describeNodeConfigurationOptionsResponse_marker,
+    describeNodeConfigurationOptionsResponse_httpStatus,
+
+    -- ** DisableSnapshotCopy
+    disableSnapshotCopy_clusterIdentifier,
+    disableSnapshotCopyResponse_cluster,
+    disableSnapshotCopyResponse_httpStatus,
+
+    -- ** DescribeClusterParameters
+    describeClusterParameters_marker,
+    describeClusterParameters_maxRecords,
+    describeClusterParameters_source,
+    describeClusterParameters_parameterGroupName,
+    describeClusterParametersResponse_marker,
+    describeClusterParametersResponse_parameters,
+    describeClusterParametersResponse_httpStatus,
 
     -- ** PauseCluster
     pauseCluster_clusterIdentifier,
     pauseClusterResponse_cluster,
     pauseClusterResponse_httpStatus,
 
+    -- ** DescribeDataSharesForProducer
+    describeDataSharesForProducer_status,
+    describeDataSharesForProducer_producerArn,
+    describeDataSharesForProducer_marker,
+    describeDataSharesForProducer_maxRecords,
+    describeDataSharesForProducerResponse_marker,
+    describeDataSharesForProducerResponse_dataShares,
+    describeDataSharesForProducerResponse_httpStatus,
+
     -- ** DeleteSnapshotSchedule
     deleteSnapshotSchedule_scheduleIdentifier,
 
-    -- ** ModifySnapshotCopyRetentionPeriod
-    modifySnapshotCopyRetentionPeriod_manual,
-    modifySnapshotCopyRetentionPeriod_clusterIdentifier,
-    modifySnapshotCopyRetentionPeriod_retentionPeriod,
-    modifySnapshotCopyRetentionPeriodResponse_cluster,
-    modifySnapshotCopyRetentionPeriodResponse_httpStatus,
+    -- ** RestoreFromClusterSnapshot
+    restoreFromClusterSnapshot_manualSnapshotRetentionPeriod,
+    restoreFromClusterSnapshot_enhancedVpcRouting,
+    restoreFromClusterSnapshot_additionalInfo,
+    restoreFromClusterSnapshot_snapshotScheduleIdentifier,
+    restoreFromClusterSnapshot_publiclyAccessible,
+    restoreFromClusterSnapshot_snapshotClusterIdentifier,
+    restoreFromClusterSnapshot_maintenanceTrackName,
+    restoreFromClusterSnapshot_hsmConfigurationIdentifier,
+    restoreFromClusterSnapshot_aquaConfigurationStatus,
+    restoreFromClusterSnapshot_clusterSecurityGroups,
+    restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
+    restoreFromClusterSnapshot_clusterSubnetGroupName,
+    restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
+    restoreFromClusterSnapshot_numberOfNodes,
+    restoreFromClusterSnapshot_elasticIp,
+    restoreFromClusterSnapshot_preferredMaintenanceWindow,
+    restoreFromClusterSnapshot_kmsKeyId,
+    restoreFromClusterSnapshot_availabilityZone,
+    restoreFromClusterSnapshot_vpcSecurityGroupIds,
+    restoreFromClusterSnapshot_iamRoles,
+    restoreFromClusterSnapshot_availabilityZoneRelocation,
+    restoreFromClusterSnapshot_ownerAccount,
+    restoreFromClusterSnapshot_nodeType,
+    restoreFromClusterSnapshot_allowVersionUpgrade,
+    restoreFromClusterSnapshot_clusterParameterGroupName,
+    restoreFromClusterSnapshot_port,
+    restoreFromClusterSnapshot_clusterIdentifier,
+    restoreFromClusterSnapshot_snapshotIdentifier,
+    restoreFromClusterSnapshotResponse_cluster,
+    restoreFromClusterSnapshotResponse_httpStatus,
 
-    -- ** DescribeClusterSubnetGroups
-    describeClusterSubnetGroups_clusterSubnetGroupName,
-    describeClusterSubnetGroups_tagKeys,
-    describeClusterSubnetGroups_tagValues,
-    describeClusterSubnetGroups_maxRecords,
-    describeClusterSubnetGroups_marker,
-    describeClusterSubnetGroupsResponse_clusterSubnetGroups,
-    describeClusterSubnetGroupsResponse_marker,
-    describeClusterSubnetGroupsResponse_httpStatus,
-
-    -- ** ResizeCluster
-    resizeCluster_classic,
-    resizeCluster_clusterType,
-    resizeCluster_numberOfNodes,
-    resizeCluster_nodeType,
-    resizeCluster_clusterIdentifier,
-    resizeClusterResponse_cluster,
-    resizeClusterResponse_httpStatus,
-
-    -- ** BatchDeleteClusterSnapshots
-    batchDeleteClusterSnapshots_identifiers,
-    batchDeleteClusterSnapshotsResponse_resources,
-    batchDeleteClusterSnapshotsResponse_errors,
-    batchDeleteClusterSnapshotsResponse_httpStatus,
+    -- ** CreateClusterParameterGroup
+    createClusterParameterGroup_tags,
+    createClusterParameterGroup_parameterGroupName,
+    createClusterParameterGroup_parameterGroupFamily,
+    createClusterParameterGroup_description,
+    createClusterParameterGroupResponse_clusterParameterGroup,
+    createClusterParameterGroupResponse_httpStatus,
 
     -- ** DescribePartners
     describePartners_partnerName,
@@ -1023,83 +954,152 @@ module Network.AWS.Redshift.Lens
     revokeSnapshotAccessResponse_snapshot,
     revokeSnapshotAccessResponse_httpStatus,
 
-    -- ** CreateTags
-    createTags_resourceName,
-    createTags_tags,
+    -- ** DescribeHsmConfigurations
+    describeHsmConfigurations_tagValues,
+    describeHsmConfigurations_hsmConfigurationIdentifier,
+    describeHsmConfigurations_tagKeys,
+    describeHsmConfigurations_marker,
+    describeHsmConfigurations_maxRecords,
+    describeHsmConfigurationsResponse_marker,
+    describeHsmConfigurationsResponse_hsmConfigurations,
+    describeHsmConfigurationsResponse_httpStatus,
 
-    -- ** DisableSnapshotCopy
-    disableSnapshotCopy_clusterIdentifier,
-    disableSnapshotCopyResponse_cluster,
-    disableSnapshotCopyResponse_httpStatus,
+    -- ** DescribeAccountAttributes
+    describeAccountAttributes_attributeNames,
+    describeAccountAttributesResponse_accountAttributes,
+    describeAccountAttributesResponse_httpStatus,
 
-    -- ** DescribeClusterParameters
-    describeClusterParameters_source,
-    describeClusterParameters_maxRecords,
-    describeClusterParameters_marker,
-    describeClusterParameters_parameterGroupName,
-    describeClusterParametersResponse_parameters,
-    describeClusterParametersResponse_marker,
-    describeClusterParametersResponse_httpStatus,
+    -- ** CreateSnapshotCopyGrant
+    createSnapshotCopyGrant_kmsKeyId,
+    createSnapshotCopyGrant_tags,
+    createSnapshotCopyGrant_snapshotCopyGrantName,
+    createSnapshotCopyGrantResponse_snapshotCopyGrant,
+    createSnapshotCopyGrantResponse_httpStatus,
 
-    -- ** DeleteAuthenticationProfile
-    deleteAuthenticationProfile_authenticationProfileName,
-    deleteAuthenticationProfileResponse_authenticationProfileName,
-    deleteAuthenticationProfileResponse_httpStatus,
+    -- ** CopyClusterSnapshot
+    copyClusterSnapshot_manualSnapshotRetentionPeriod,
+    copyClusterSnapshot_sourceSnapshotClusterIdentifier,
+    copyClusterSnapshot_sourceSnapshotIdentifier,
+    copyClusterSnapshot_targetSnapshotIdentifier,
+    copyClusterSnapshotResponse_snapshot,
+    copyClusterSnapshotResponse_httpStatus,
 
-    -- ** DeleteClusterSecurityGroup
-    deleteClusterSecurityGroup_clusterSecurityGroupName,
+    -- ** DescribeDataShares
+    describeDataShares_marker,
+    describeDataShares_maxRecords,
+    describeDataShares_dataShareArn,
+    describeDataSharesResponse_marker,
+    describeDataSharesResponse_dataShares,
+    describeDataSharesResponse_httpStatus,
 
-    -- ** DescribeReservedNodeOfferings
-    describeReservedNodeOfferings_reservedNodeOfferingId,
-    describeReservedNodeOfferings_maxRecords,
-    describeReservedNodeOfferings_marker,
-    describeReservedNodeOfferingsResponse_reservedNodeOfferings,
-    describeReservedNodeOfferingsResponse_marker,
-    describeReservedNodeOfferingsResponse_httpStatus,
+    -- ** DeleteHsmClientCertificate
+    deleteHsmClientCertificate_hsmClientCertificateIdentifier,
 
-    -- ** EnableLogging
-    enableLogging_s3KeyPrefix,
-    enableLogging_clusterIdentifier,
-    enableLogging_bucketName,
-    loggingStatus_lastSuccessfulDeliveryTime,
-    loggingStatus_bucketName,
-    loggingStatus_loggingEnabled,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureTime,
-    loggingStatus_lastFailureMessage,
+    -- ** ModifyAuthenticationProfile
+    modifyAuthenticationProfile_authenticationProfileName,
+    modifyAuthenticationProfile_authenticationProfileContent,
+    modifyAuthenticationProfileResponse_authenticationProfileName,
+    modifyAuthenticationProfileResponse_authenticationProfileContent,
+    modifyAuthenticationProfileResponse_httpStatus,
 
-    -- ** DescribeReservedNodes
-    describeReservedNodes_reservedNodeId,
-    describeReservedNodes_maxRecords,
-    describeReservedNodes_marker,
-    describeReservedNodesResponse_reservedNodes,
-    describeReservedNodesResponse_marker,
-    describeReservedNodesResponse_httpStatus,
+    -- ** UpdatePartnerStatus
+    updatePartnerStatus_statusMessage,
+    updatePartnerStatus_accountId,
+    updatePartnerStatus_clusterIdentifier,
+    updatePartnerStatus_databaseName,
+    updatePartnerStatus_partnerName,
+    updatePartnerStatus_status,
+    partnerIntegrationOutputMessage_partnerName,
+    partnerIntegrationOutputMessage_databaseName,
 
-    -- ** CreateHsmConfiguration
-    createHsmConfiguration_tags,
-    createHsmConfiguration_hsmConfigurationIdentifier,
-    createHsmConfiguration_description,
-    createHsmConfiguration_hsmIpAddress,
-    createHsmConfiguration_hsmPartitionName,
-    createHsmConfiguration_hsmPartitionPassword,
-    createHsmConfiguration_hsmServerPublicCertificate,
-    createHsmConfigurationResponse_hsmConfiguration,
-    createHsmConfigurationResponse_httpStatus,
+    -- ** ModifyClusterSnapshotSchedule
+    modifyClusterSnapshotSchedule_disassociateSchedule,
+    modifyClusterSnapshotSchedule_scheduleIdentifier,
+    modifyClusterSnapshotSchedule_clusterIdentifier,
+
+    -- ** DeleteEndpointAccess
+    deleteEndpointAccess_endpointName,
+    endpointAccess_endpointName,
+    endpointAccess_endpointCreateTime,
+    endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
+
+    -- ** DeleteSnapshotCopyGrant
+    deleteSnapshotCopyGrant_snapshotCopyGrantName,
+
+    -- ** DescribeClusterVersions
+    describeClusterVersions_clusterParameterGroupFamily,
+    describeClusterVersions_marker,
+    describeClusterVersions_maxRecords,
+    describeClusterVersions_clusterVersion,
+    describeClusterVersionsResponse_clusterVersions,
+    describeClusterVersionsResponse_marker,
+    describeClusterVersionsResponse_httpStatus,
+
+    -- ** ModifyClusterSubnetGroup
+    modifyClusterSubnetGroup_description,
+    modifyClusterSubnetGroup_clusterSubnetGroupName,
+    modifyClusterSubnetGroup_subnetIds,
+    modifyClusterSubnetGroupResponse_clusterSubnetGroup,
+    modifyClusterSubnetGroupResponse_httpStatus,
+
+    -- ** DescribeUsageLimits
+    describeUsageLimits_tagValues,
+    describeUsageLimits_usageLimitId,
+    describeUsageLimits_tagKeys,
+    describeUsageLimits_clusterIdentifier,
+    describeUsageLimits_featureType,
+    describeUsageLimits_marker,
+    describeUsageLimits_maxRecords,
+    describeUsageLimitsResponse_usageLimits,
+    describeUsageLimitsResponse_marker,
+    describeUsageLimitsResponse_httpStatus,
+
+    -- ** ModifySnapshotSchedule
+    modifySnapshotSchedule_scheduleIdentifier,
+    modifySnapshotSchedule_scheduleDefinitions,
+    snapshotSchedule_associatedClusters,
+    snapshotSchedule_nextInvocations,
+    snapshotSchedule_scheduleDefinitions,
+    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_scheduleIdentifier,
+    snapshotSchedule_associatedClusterCount,
+    snapshotSchedule_tags,
+
+    -- ** RotateEncryptionKey
+    rotateEncryptionKey_clusterIdentifier,
+    rotateEncryptionKeyResponse_cluster,
+    rotateEncryptionKeyResponse_httpStatus,
+
+    -- ** DescribeSnapshotCopyGrants
+    describeSnapshotCopyGrants_tagValues,
+    describeSnapshotCopyGrants_tagKeys,
+    describeSnapshotCopyGrants_marker,
+    describeSnapshotCopyGrants_maxRecords,
+    describeSnapshotCopyGrants_snapshotCopyGrantName,
+    describeSnapshotCopyGrantsResponse_snapshotCopyGrants,
+    describeSnapshotCopyGrantsResponse_marker,
+    describeSnapshotCopyGrantsResponse_httpStatus,
 
     -- * Types
 
     -- ** AccountAttribute
-    accountAttribute_attributeName,
     accountAttribute_attributeValues,
+    accountAttribute_attributeName,
 
     -- ** AccountWithRestoreAccess
     accountWithRestoreAccess_accountAlias,
     accountWithRestoreAccess_accountId,
 
     -- ** AquaConfiguration
-    aquaConfiguration_aquaStatus,
     aquaConfiguration_aquaConfigurationStatus,
+    aquaConfiguration_aquaStatus,
 
     -- ** AttributeValueTarget
     attributeValueTarget_attributeValue,
@@ -1113,66 +1113,66 @@ module Network.AWS.Redshift.Lens
     availabilityZone_supportedPlatforms,
 
     -- ** Cluster
-    cluster_totalStorageCapacityInMegaBytes,
-    cluster_vpcSecurityGroups,
-    cluster_enhancedVpcRouting,
-    cluster_clusterNamespaceArn,
+    cluster_aquaConfiguration,
     cluster_resizeInfo,
-    cluster_clusterSubnetGroupName,
-    cluster_expectedNextSnapshotScheduleTimeStatus,
-    cluster_deferredMaintenanceWindows,
-    cluster_snapshotScheduleState,
-    cluster_encrypted,
-    cluster_clusterCreateTime,
-    cluster_allowVersionUpgrade,
-    cluster_automatedSnapshotRetentionPeriod,
-    cluster_elasticIpStatus,
-    cluster_publiclyAccessible,
-    cluster_masterUsername,
-    cluster_snapshotScheduleIdentifier,
-    cluster_hsmStatus,
-    cluster_kmsKeyId,
+    cluster_restoreStatus,
     cluster_manualSnapshotRetentionPeriod,
-    cluster_clusterParameterGroups,
+    cluster_enhancedVpcRouting,
     cluster_clusterSnapshotCopyStatus,
     cluster_clusterAvailabilityStatus,
-    cluster_availabilityZone,
-    cluster_modifyStatus,
-    cluster_preferredMaintenanceWindow,
-    cluster_clusterPublicKey,
-    cluster_restoreStatus,
-    cluster_aquaConfiguration,
-    cluster_tags,
-    cluster_clusterNodes,
-    cluster_dbName,
-    cluster_availabilityZoneRelocationStatus,
-    cluster_clusterIdentifier,
-    cluster_numberOfNodes,
-    cluster_dataTransferProgress,
-    cluster_pendingModifiedValues,
-    cluster_clusterStatus,
-    cluster_endpoint,
-    cluster_nextMaintenanceWindowStartTime,
-    cluster_clusterVersion,
-    cluster_clusterSecurityGroups,
-    cluster_vpcId,
-    cluster_nodeType,
+    cluster_clusterRevisionNumber,
+    cluster_snapshotScheduleIdentifier,
+    cluster_publiclyAccessible,
+    cluster_masterUsername,
+    cluster_maintenanceTrackName,
     cluster_expectedNextSnapshotScheduleTime,
     cluster_elasticResizeNumberOfNodeOptions,
-    cluster_maintenanceTrackName,
+    cluster_vpcId,
+    cluster_clusterSecurityGroups,
+    cluster_automatedSnapshotRetentionPeriod,
+    cluster_snapshotScheduleState,
+    cluster_dataTransferProgress,
+    cluster_encrypted,
+    cluster_clusterSubnetGroupName,
+    cluster_expectedNextSnapshotScheduleTimeStatus,
+    cluster_clusterIdentifier,
+    cluster_deferredMaintenanceWindows,
+    cluster_numberOfNodes,
+    cluster_clusterPublicKey,
+    cluster_preferredMaintenanceWindow,
+    cluster_modifyStatus,
+    cluster_clusterNamespaceArn,
+    cluster_kmsKeyId,
+    cluster_clusterParameterGroups,
+    cluster_totalStorageCapacityInMegaBytes,
+    cluster_availabilityZone,
+    cluster_vpcSecurityGroups,
+    cluster_hsmStatus,
     cluster_iamRoles,
     cluster_pendingActions,
-    cluster_clusterRevisionNumber,
+    cluster_elasticIpStatus,
+    cluster_clusterVersion,
+    cluster_nodeType,
+    cluster_nextMaintenanceWindowStartTime,
+    cluster_clusterCreateTime,
+    cluster_endpoint,
+    cluster_allowVersionUpgrade,
+    cluster_clusterStatus,
+    cluster_pendingModifiedValues,
+    cluster_tags,
+    cluster_availabilityZoneRelocationStatus,
+    cluster_clusterNodes,
+    cluster_dbName,
 
     -- ** ClusterAssociatedToSchedule
     clusterAssociatedToSchedule_scheduleAssociationState,
     clusterAssociatedToSchedule_clusterIdentifier,
 
     -- ** ClusterDbRevision
+    clusterDbRevision_databaseRevisionReleaseDate,
+    clusterDbRevision_clusterIdentifier,
     clusterDbRevision_currentDatabaseRevision,
     clusterDbRevision_revisionTargets,
-    clusterDbRevision_clusterIdentifier,
-    clusterDbRevision_databaseRevisionReleaseDate,
 
     -- ** ClusterIamRole
     clusterIamRole_iamRoleArn,
@@ -1180,14 +1180,14 @@ module Network.AWS.Redshift.Lens
 
     -- ** ClusterNode
     clusterNode_nodeRole,
-    clusterNode_publicIPAddress,
     clusterNode_privateIPAddress,
+    clusterNode_publicIPAddress,
 
     -- ** ClusterParameterGroup
+    clusterParameterGroup_parameterGroupFamily,
+    clusterParameterGroup_description,
     clusterParameterGroup_tags,
     clusterParameterGroup_parameterGroupName,
-    clusterParameterGroup_description,
-    clusterParameterGroup_parameterGroupFamily,
 
     -- ** ClusterParameterGroupNameMessage
     clusterParameterGroupNameMessage_parameterGroupStatus,
@@ -1195,73 +1195,73 @@ module Network.AWS.Redshift.Lens
 
     -- ** ClusterParameterGroupStatus
     clusterParameterGroupStatus_clusterParameterStatusList,
-    clusterParameterGroupStatus_parameterGroupName,
     clusterParameterGroupStatus_parameterApplyStatus,
+    clusterParameterGroupStatus_parameterGroupName,
 
     -- ** ClusterParameterStatus
-    clusterParameterStatus_parameterApplyStatus,
-    clusterParameterStatus_parameterName,
     clusterParameterStatus_parameterApplyErrorDescription,
+    clusterParameterStatus_parameterName,
+    clusterParameterStatus_parameterApplyStatus,
 
     -- ** ClusterSecurityGroup
-    clusterSecurityGroup_iPRanges,
     clusterSecurityGroup_clusterSecurityGroupName,
-    clusterSecurityGroup_tags,
+    clusterSecurityGroup_iPRanges,
     clusterSecurityGroup_eC2SecurityGroups,
     clusterSecurityGroup_description,
+    clusterSecurityGroup_tags,
 
     -- ** ClusterSecurityGroupMembership
     clusterSecurityGroupMembership_status,
     clusterSecurityGroupMembership_clusterSecurityGroupName,
 
     -- ** ClusterSnapshotCopyStatus
-    clusterSnapshotCopyStatus_destinationRegion,
-    clusterSnapshotCopyStatus_snapshotCopyGrantName,
     clusterSnapshotCopyStatus_manualSnapshotRetentionPeriod,
     clusterSnapshotCopyStatus_retentionPeriod,
+    clusterSnapshotCopyStatus_destinationRegion,
+    clusterSnapshotCopyStatus_snapshotCopyGrantName,
 
     -- ** ClusterSubnetGroup
-    clusterSubnetGroup_clusterSubnetGroupName,
-    clusterSubnetGroup_subnetGroupStatus,
-    clusterSubnetGroup_tags,
-    clusterSubnetGroup_description,
     clusterSubnetGroup_vpcId,
     clusterSubnetGroup_subnets,
+    clusterSubnetGroup_clusterSubnetGroupName,
+    clusterSubnetGroup_subnetGroupStatus,
+    clusterSubnetGroup_description,
+    clusterSubnetGroup_tags,
 
     -- ** ClusterVersion
     clusterVersion_clusterParameterGroupFamily,
-    clusterVersion_description,
     clusterVersion_clusterVersion,
+    clusterVersion_description,
 
     -- ** DataShare
-    dataShare_dataShareAssociations,
-    dataShare_allowPubliclyAccessibleConsumers,
     dataShare_producerArn,
+    dataShare_dataShareAssociations,
     dataShare_dataShareArn,
+    dataShare_allowPubliclyAccessibleConsumers,
 
     -- ** DataShareAssociation
-    dataShareAssociation_createdDate,
     dataShareAssociation_status,
-    dataShareAssociation_statusChangeDate,
     dataShareAssociation_consumerIdentifier,
+    dataShareAssociation_createdDate,
+    dataShareAssociation_statusChangeDate,
 
     -- ** DataTransferProgress
+    dataTransferProgress_currentRateInMegaBytesPerSecond,
     dataTransferProgress_status,
     dataTransferProgress_estimatedTimeToCompletionInSeconds,
     dataTransferProgress_dataTransferredInMegaBytes,
-    dataTransferProgress_currentRateInMegaBytesPerSecond,
-    dataTransferProgress_elapsedTimeInSeconds,
     dataTransferProgress_totalDataInMegaBytes,
+    dataTransferProgress_elapsedTimeInSeconds,
 
     -- ** DefaultClusterParameters
-    defaultClusterParameters_parameterGroupFamily,
-    defaultClusterParameters_parameters,
     defaultClusterParameters_marker,
+    defaultClusterParameters_parameters,
+    defaultClusterParameters_parameterGroupFamily,
 
     -- ** DeferredMaintenanceWindow
-    deferredMaintenanceWindow_deferMaintenanceIdentifier,
-    deferredMaintenanceWindow_deferMaintenanceStartTime,
     deferredMaintenanceWindow_deferMaintenanceEndTime,
+    deferredMaintenanceWindow_deferMaintenanceStartTime,
+    deferredMaintenanceWindow_deferMaintenanceIdentifier,
 
     -- ** DeleteClusterSnapshotMessage
     deleteClusterSnapshotMessage_snapshotClusterIdentifier,
@@ -1269,9 +1269,9 @@ module Network.AWS.Redshift.Lens
 
     -- ** EC2SecurityGroup
     eC2SecurityGroup_status,
-    eC2SecurityGroup_tags,
     eC2SecurityGroup_eC2SecurityGroupOwnerId,
     eC2SecurityGroup_eC2SecurityGroupName,
+    eC2SecurityGroup_tags,
 
     -- ** ElasticIpStatus
     elasticIpStatus_status,
@@ -1283,76 +1283,76 @@ module Network.AWS.Redshift.Lens
     endpoint_port,
 
     -- ** EndpointAccess
-    endpointAccess_vpcSecurityGroups,
     endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
     endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
     endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
 
     -- ** EndpointAuthorization
-    endpointAuthorization_allowedAllVPCs,
     endpointAuthorization_status,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_endpointCount,
+    endpointAuthorization_grantor,
     endpointAuthorization_clusterIdentifier,
     endpointAuthorization_grantee,
-    endpointAuthorization_authorizeTime,
     endpointAuthorization_allowedVPCs,
     endpointAuthorization_clusterStatus,
-    endpointAuthorization_grantor,
-    endpointAuthorization_endpointCount,
+    endpointAuthorization_authorizeTime,
 
     -- ** Event
-    event_eventId,
-    event_severity,
-    event_message,
-    event_eventCategories,
-    event_date,
-    event_sourceIdentifier,
     event_sourceType,
+    event_severity,
+    event_sourceIdentifier,
+    event_date,
+    event_eventCategories,
+    event_message,
+    event_eventId,
 
     -- ** EventCategoriesMap
-    eventCategoriesMap_events,
     eventCategoriesMap_sourceType,
+    eventCategoriesMap_events,
 
     -- ** EventInfoMap
-    eventInfoMap_eventId,
+    eventInfoMap_eventDescription,
     eventInfoMap_severity,
     eventInfoMap_eventCategories,
-    eventInfoMap_eventDescription,
+    eventInfoMap_eventId,
 
     -- ** EventSubscription
-    eventSubscription_custSubscriptionId,
     eventSubscription_status,
-    eventSubscription_sourceIdsList,
-    eventSubscription_severity,
-    eventSubscription_eventCategoriesList,
-    eventSubscription_enabled,
-    eventSubscription_subscriptionCreationTime,
     eventSubscription_customerAwsId,
-    eventSubscription_tags,
-    eventSubscription_sourceType,
+    eventSubscription_custSubscriptionId,
     eventSubscription_snsTopicArn,
+    eventSubscription_enabled,
+    eventSubscription_sourceType,
+    eventSubscription_severity,
+    eventSubscription_subscriptionCreationTime,
+    eventSubscription_eventCategoriesList,
+    eventSubscription_tags,
+    eventSubscription_sourceIdsList,
 
     -- ** HsmClientCertificate
-    hsmClientCertificate_hsmClientCertificatePublicKey,
     hsmClientCertificate_hsmClientCertificateIdentifier,
+    hsmClientCertificate_hsmClientCertificatePublicKey,
     hsmClientCertificate_tags,
 
     -- ** HsmConfiguration
+    hsmConfiguration_hsmConfigurationIdentifier,
+    hsmConfiguration_hsmPartitionName,
+    hsmConfiguration_description,
     hsmConfiguration_tags,
     hsmConfiguration_hsmIpAddress,
-    hsmConfiguration_description,
-    hsmConfiguration_hsmPartitionName,
-    hsmConfiguration_hsmConfigurationIdentifier,
 
     -- ** HsmStatus
     hsmStatus_status,
-    hsmStatus_hsmClientCertificateIdentifier,
     hsmStatus_hsmConfigurationIdentifier,
+    hsmStatus_hsmClientCertificateIdentifier,
 
     -- ** IPRange
     iPRange_status,
@@ -1360,29 +1360,29 @@ module Network.AWS.Redshift.Lens
     iPRange_tags,
 
     -- ** LoggingStatus
+    loggingStatus_lastFailureTime,
     loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_s3KeyPrefix,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
 
     -- ** MaintenanceTrack
-    maintenanceTrack_updateTargets,
     maintenanceTrack_databaseVersion,
     maintenanceTrack_maintenanceTrackName,
+    maintenanceTrack_updateTargets,
 
     -- ** NetworkInterface
-    networkInterface_availabilityZone,
-    networkInterface_subnetId,
     networkInterface_networkInterfaceId,
+    networkInterface_subnetId,
+    networkInterface_availabilityZone,
     networkInterface_privateIpAddress,
 
     -- ** NodeConfigurationOption
     nodeConfigurationOption_mode,
     nodeConfigurationOption_numberOfNodes,
-    nodeConfigurationOption_estimatedDiskUtilizationPercent,
     nodeConfigurationOption_nodeType,
+    nodeConfigurationOption_estimatedDiskUtilizationPercent,
 
     -- ** NodeConfigurationOptionsFilter
     nodeConfigurationOptionsFilter_values,
@@ -1396,23 +1396,23 @@ module Network.AWS.Redshift.Lens
     orderableClusterOption_nodeType,
 
     -- ** Parameter
-    parameter_allowedValues,
-    parameter_source,
-    parameter_parameterValue,
     parameter_applyType,
+    parameter_parameterValue,
+    parameter_minimumEngineVersion,
+    parameter_source,
+    parameter_isModifiable,
+    parameter_dataType,
+    parameter_allowedValues,
     parameter_parameterName,
     parameter_description,
-    parameter_dataType,
-    parameter_isModifiable,
-    parameter_minimumEngineVersion,
 
     -- ** PartnerIntegrationInfo
-    partnerIntegrationInfo_statusMessage,
     partnerIntegrationInfo_status,
-    partnerIntegrationInfo_updatedAt,
     partnerIntegrationInfo_createdAt,
     partnerIntegrationInfo_partnerName,
+    partnerIntegrationInfo_statusMessage,
     partnerIntegrationInfo_databaseName,
+    partnerIntegrationInfo_updatedAt,
 
     -- ** PartnerIntegrationInputMessage
     partnerIntegrationInputMessage_accountId,
@@ -1428,17 +1428,17 @@ module Network.AWS.Redshift.Lens
     pauseClusterMessage_clusterIdentifier,
 
     -- ** PendingModifiedValues
-    pendingModifiedValues_enhancedVpcRouting,
     pendingModifiedValues_encryptionType,
-    pendingModifiedValues_automatedSnapshotRetentionPeriod,
+    pendingModifiedValues_enhancedVpcRouting,
     pendingModifiedValues_masterUserPassword,
     pendingModifiedValues_publiclyAccessible,
-    pendingModifiedValues_clusterType,
+    pendingModifiedValues_maintenanceTrackName,
+    pendingModifiedValues_automatedSnapshotRetentionPeriod,
     pendingModifiedValues_clusterIdentifier,
     pendingModifiedValues_numberOfNodes,
+    pendingModifiedValues_clusterType,
     pendingModifiedValues_clusterVersion,
     pendingModifiedValues_nodeType,
-    pendingModifiedValues_maintenanceTrackName,
 
     -- ** RecurringCharge
     recurringCharge_recurringChargeFrequency,
@@ -1446,34 +1446,34 @@ module Network.AWS.Redshift.Lens
 
     -- ** ReservedNode
     reservedNode_reservedNodeOfferingType,
+    reservedNode_state,
+    reservedNode_currencyCode,
+    reservedNode_startTime,
+    reservedNode_nodeCount,
     reservedNode_reservedNodeId,
     reservedNode_reservedNodeOfferingId,
-    reservedNode_duration,
-    reservedNode_startTime,
-    reservedNode_currencyCode,
-    reservedNode_state,
-    reservedNode_fixedPrice,
-    reservedNode_nodeCount,
-    reservedNode_usagePrice,
-    reservedNode_offeringType,
-    reservedNode_nodeType,
     reservedNode_recurringCharges,
+    reservedNode_offeringType,
+    reservedNode_usagePrice,
+    reservedNode_nodeType,
+    reservedNode_fixedPrice,
+    reservedNode_duration,
 
     -- ** ReservedNodeOffering
     reservedNodeOffering_reservedNodeOfferingType,
-    reservedNodeOffering_reservedNodeOfferingId,
-    reservedNodeOffering_duration,
     reservedNodeOffering_currencyCode,
-    reservedNodeOffering_fixedPrice,
-    reservedNodeOffering_usagePrice,
-    reservedNodeOffering_offeringType,
-    reservedNodeOffering_nodeType,
+    reservedNodeOffering_reservedNodeOfferingId,
     reservedNodeOffering_recurringCharges,
+    reservedNodeOffering_offeringType,
+    reservedNodeOffering_usagePrice,
+    reservedNodeOffering_nodeType,
+    reservedNodeOffering_fixedPrice,
+    reservedNodeOffering_duration,
 
     -- ** ResizeClusterMessage
+    resizeClusterMessage_numberOfNodes,
     resizeClusterMessage_classic,
     resizeClusterMessage_clusterType,
-    resizeClusterMessage_numberOfNodes,
     resizeClusterMessage_nodeType,
     resizeClusterMessage_clusterIdentifier,
 
@@ -1482,114 +1482,114 @@ module Network.AWS.Redshift.Lens
     resizeInfo_resizeType,
 
     -- ** ResizeProgressMessage
+    resizeProgressMessage_importTablesNotStarted,
     resizeProgressMessage_status,
     resizeProgressMessage_estimatedTimeToCompletionInSeconds,
-    resizeProgressMessage_importTablesNotStarted,
-    resizeProgressMessage_targetNodeType,
-    resizeProgressMessage_message,
-    resizeProgressMessage_targetClusterType,
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
-    resizeProgressMessage_targetEncryptionType,
-    resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_totalResizeDataInMegaBytes,
     resizeProgressMessage_targetNumberOfNodes,
-    resizeProgressMessage_dataTransferProgressPercent,
-    resizeProgressMessage_importTablesCompleted,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetEncryptionType,
+    resizeProgressMessage_targetNodeType,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
+    resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_dataTransferProgressPercent,
+    resizeProgressMessage_totalResizeDataInMegaBytes,
+    resizeProgressMessage_targetClusterType,
+    resizeProgressMessage_message,
+    resizeProgressMessage_elapsedTimeInSeconds,
 
     -- ** RestoreStatus
     restoreStatus_status,
     restoreStatus_estimatedTimeToCompletionInSeconds,
-    restoreStatus_snapshotSizeInMegaBytes,
     restoreStatus_currentRestoreRateInMegaBytesPerSecond,
-    restoreStatus_elapsedTimeInSeconds,
     restoreStatus_progressInMegaBytes,
+    restoreStatus_elapsedTimeInSeconds,
+    restoreStatus_snapshotSizeInMegaBytes,
 
     -- ** ResumeClusterMessage
     resumeClusterMessage_clusterIdentifier,
 
     -- ** RevisionTarget
-    revisionTarget_description,
-    revisionTarget_databaseRevision,
     revisionTarget_databaseRevisionReleaseDate,
+    revisionTarget_databaseRevision,
+    revisionTarget_description,
 
     -- ** ScheduledAction
-    scheduledAction_targetAction,
-    scheduledAction_nextInvocations,
-    scheduledAction_iamRole,
-    scheduledAction_scheduledActionDescription,
-    scheduledAction_startTime,
-    scheduledAction_endTime,
     scheduledAction_state,
-    scheduledAction_scheduledActionName,
+    scheduledAction_targetAction,
+    scheduledAction_startTime,
     scheduledAction_schedule,
+    scheduledAction_scheduledActionName,
+    scheduledAction_scheduledActionDescription,
+    scheduledAction_nextInvocations,
+    scheduledAction_endTime,
+    scheduledAction_iamRole,
 
     -- ** ScheduledActionFilter
     scheduledActionFilter_name,
     scheduledActionFilter_values,
 
     -- ** ScheduledActionType
+    scheduledActionType_resizeCluster,
     scheduledActionType_resumeCluster,
     scheduledActionType_pauseCluster,
-    scheduledActionType_resizeCluster,
 
     -- ** Snapshot
-    snapshot_enhancedVpcRouting,
-    snapshot_snapshotIdentifier,
     snapshot_status,
-    snapshot_estimatedSecondsToCompletion,
-    snapshot_encrypted,
-    snapshot_clusterCreateTime,
-    snapshot_manualSnapshotRemainingDays,
-    snapshot_snapshotCreateTime,
-    snapshot_encryptedWithHSM,
-    snapshot_currentBackupRateInMegaBytesPerSecond,
-    snapshot_masterUsername,
-    snapshot_kmsKeyId,
-    snapshot_manualSnapshotRetentionPeriod,
-    snapshot_engineFullVersion,
-    snapshot_availabilityZone,
-    snapshot_snapshotType,
     snapshot_restorableNodeTypes,
     snapshot_accountsWithRestoreAccess,
-    snapshot_tags,
-    snapshot_dbName,
-    snapshot_actualIncrementalBackupSizeInMegaBytes,
-    snapshot_clusterIdentifier,
-    snapshot_totalBackupSizeInMegaBytes,
-    snapshot_port,
-    snapshot_numberOfNodes,
-    snapshot_elapsedTimeInSeconds,
-    snapshot_backupProgressInMegaBytes,
-    snapshot_clusterVersion,
+    snapshot_manualSnapshotRetentionPeriod,
+    snapshot_enhancedVpcRouting,
+    snapshot_snapshotIdentifier,
+    snapshot_engineFullVersion,
+    snapshot_encryptedWithHSM,
+    snapshot_masterUsername,
+    snapshot_sourceRegion,
+    snapshot_maintenanceTrackName,
+    snapshot_snapshotRetentionStartTime,
+    snapshot_manualSnapshotRemainingDays,
     snapshot_vpcId,
+    snapshot_backupProgressInMegaBytes,
+    snapshot_encrypted,
+    snapshot_clusterIdentifier,
+    snapshot_numberOfNodes,
+    snapshot_snapshotType,
+    snapshot_kmsKeyId,
+    snapshot_availabilityZone,
+    snapshot_currentBackupRateInMegaBytesPerSecond,
+    snapshot_snapshotCreateTime,
+    snapshot_clusterVersion,
     snapshot_ownerAccount,
     snapshot_nodeType,
-    snapshot_sourceRegion,
-    snapshot_snapshotRetentionStartTime,
-    snapshot_maintenanceTrackName,
+    snapshot_elapsedTimeInSeconds,
+    snapshot_clusterCreateTime,
+    snapshot_estimatedSecondsToCompletion,
+    snapshot_actualIncrementalBackupSizeInMegaBytes,
+    snapshot_tags,
+    snapshot_port,
+    snapshot_totalBackupSizeInMegaBytes,
+    snapshot_dbName,
 
     -- ** SnapshotCopyGrant
-    snapshotCopyGrant_snapshotCopyGrantName,
     snapshotCopyGrant_kmsKeyId,
+    snapshotCopyGrant_snapshotCopyGrantName,
     snapshotCopyGrant_tags,
 
     -- ** SnapshotErrorMessage
-    snapshotErrorMessage_snapshotIdentifier,
-    snapshotErrorMessage_failureCode,
-    snapshotErrorMessage_snapshotClusterIdentifier,
     snapshotErrorMessage_failureReason,
+    snapshotErrorMessage_snapshotIdentifier,
+    snapshotErrorMessage_snapshotClusterIdentifier,
+    snapshotErrorMessage_failureCode,
 
     -- ** SnapshotSchedule
-    snapshotSchedule_nextInvocations,
     snapshotSchedule_associatedClusters,
-    snapshotSchedule_scheduleIdentifier,
-    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_nextInvocations,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_tags,
+    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_associatedClusterCount,
+    snapshotSchedule_tags,
 
     -- ** SnapshotSortingEntity
     snapshotSortingEntity_sortOrder,
@@ -1607,49 +1607,49 @@ module Network.AWS.Redshift.Lens
     supportedPlatform_name,
 
     -- ** TableRestoreStatus
+    tableRestoreStatus_status,
     tableRestoreStatus_targetSchemaName,
     tableRestoreStatus_snapshotIdentifier,
     tableRestoreStatus_sourceDatabaseName,
-    tableRestoreStatus_status,
-    tableRestoreStatus_sourceTableName,
-    tableRestoreStatus_requestTime,
-    tableRestoreStatus_sourceSchemaName,
-    tableRestoreStatus_targetDatabaseName,
-    tableRestoreStatus_message,
-    tableRestoreStatus_clusterIdentifier,
-    tableRestoreStatus_newTableName,
-    tableRestoreStatus_progressInMegaBytes,
     tableRestoreStatus_tableRestoreRequestId,
+    tableRestoreStatus_newTableName,
+    tableRestoreStatus_targetDatabaseName,
+    tableRestoreStatus_sourceSchemaName,
+    tableRestoreStatus_clusterIdentifier,
+    tableRestoreStatus_requestTime,
+    tableRestoreStatus_sourceTableName,
     tableRestoreStatus_totalDataInMegaBytes,
+    tableRestoreStatus_progressInMegaBytes,
+    tableRestoreStatus_message,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TaggedResource
+    taggedResource_tag,
     taggedResource_resourceType,
     taggedResource_resourceName,
-    taggedResource_tag,
 
     -- ** UpdateTarget
-    updateTarget_supportedOperations,
     updateTarget_databaseVersion,
     updateTarget_maintenanceTrackName,
+    updateTarget_supportedOperations,
 
     -- ** UsageLimit
     usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_tags,
-    usageLimit_clusterIdentifier,
-    usageLimit_period,
     usageLimit_usageLimitId,
+    usageLimit_period,
+    usageLimit_clusterIdentifier,
+    usageLimit_breachAction,
+    usageLimit_featureType,
+    usageLimit_tags,
 
     -- ** VpcEndpoint
-    vpcEndpoint_vpcEndpointId,
     vpcEndpoint_vpcId,
     vpcEndpoint_networkInterfaces,
+    vpcEndpoint_vpcEndpointId,
 
     -- ** VpcSecurityGroupMembership
     vpcSecurityGroupMembership_status,

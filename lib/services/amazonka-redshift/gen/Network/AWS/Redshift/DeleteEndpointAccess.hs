@@ -34,16 +34,16 @@ module Network.AWS.Redshift.DeleteEndpointAccess
     newEndpointAccess,
 
     -- * Response Lenses
-    endpointAccess_vpcSecurityGroups,
     endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
     endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
     endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
   )
 where
 

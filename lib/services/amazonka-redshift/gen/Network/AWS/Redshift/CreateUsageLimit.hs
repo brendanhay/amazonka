@@ -29,9 +29,9 @@ module Network.AWS.Redshift.CreateUsageLimit
     newCreateUsageLimit,
 
     -- * Request Lenses
+    createUsageLimit_period,
     createUsageLimit_breachAction,
     createUsageLimit_tags,
-    createUsageLimit_period,
     createUsageLimit_clusterIdentifier,
     createUsageLimit_featureType,
     createUsageLimit_limitType,
@@ -43,13 +43,13 @@ module Network.AWS.Redshift.CreateUsageLimit
 
     -- * Response Lenses
     usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_tags,
-    usageLimit_clusterIdentifier,
-    usageLimit_period,
     usageLimit_usageLimitId,
+    usageLimit_period,
+    usageLimit_clusterIdentifier,
+    usageLimit_breachAction,
+    usageLimit_featureType,
+    usageLimit_tags,
   )
 where
 
@@ -62,15 +62,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUsageLimit' smart constructor.
 data CreateUsageLimit = CreateUsageLimit'
-  { -- | The action that Amazon Redshift takes when the limit is reached. The
+  { -- | The time period that the amount applies to. A @weekly@ period begins on
+    -- Sunday. The default is @monthly@.
+    period :: Prelude.Maybe UsageLimitPeriod,
+    -- | The action that Amazon Redshift takes when the limit is reached. The
     -- default is log. For more information about this parameter, see
     -- UsageLimit.
     breachAction :: Prelude.Maybe UsageLimitBreachAction,
     -- | A list of tag instances.
     tags :: Prelude.Maybe [Tag],
-    -- | The time period that the amount applies to. A @weekly@ period begins on
-    -- Sunday. The default is @monthly@.
-    period :: Prelude.Maybe UsageLimitPeriod,
     -- | The identifier of the cluster that you want to limit usage.
     clusterIdentifier :: Prelude.Text,
     -- | The Amazon Redshift feature that you want to limit.
@@ -95,14 +95,14 @@ data CreateUsageLimit = CreateUsageLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'period', 'createUsageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on
+-- Sunday. The default is @monthly@.
+--
 -- 'breachAction', 'createUsageLimit_breachAction' - The action that Amazon Redshift takes when the limit is reached. The
 -- default is log. For more information about this parameter, see
 -- UsageLimit.
 --
 -- 'tags', 'createUsageLimit_tags' - A list of tag instances.
---
--- 'period', 'createUsageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on
--- Sunday. The default is @monthly@.
 --
 -- 'clusterIdentifier', 'createUsageLimit_clusterIdentifier' - The identifier of the cluster that you want to limit usage.
 --
@@ -132,14 +132,19 @@ newCreateUsageLimit
   pLimitType_
   pAmount_ =
     CreateUsageLimit'
-      { breachAction = Prelude.Nothing,
+      { period = Prelude.Nothing,
+        breachAction = Prelude.Nothing,
         tags = Prelude.Nothing,
-        period = Prelude.Nothing,
         clusterIdentifier = pClusterIdentifier_,
         featureType = pFeatureType_,
         limitType = pLimitType_,
         amount = pAmount_
       }
+
+-- | The time period that the amount applies to. A @weekly@ period begins on
+-- Sunday. The default is @monthly@.
+createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
+createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
 
 -- | The action that Amazon Redshift takes when the limit is reached. The
 -- default is log. For more information about this parameter, see
@@ -149,12 +154,7 @@ createUsageLimit_breachAction = Lens.lens (\CreateUsageLimit' {breachAction} -> 
 
 -- | A list of tag instances.
 createUsageLimit_tags :: Lens.Lens' CreateUsageLimit (Prelude.Maybe [Tag])
-createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time period that the amount applies to. A @weekly@ period begins on
--- Sunday. The default is @monthly@.
-createUsageLimit_period :: Lens.Lens' CreateUsageLimit (Prelude.Maybe UsageLimitPeriod)
-createUsageLimit_period = Lens.lens (\CreateUsageLimit' {period} -> period) (\s@CreateUsageLimit' {} a -> s {period = a} :: CreateUsageLimit)
+createUsageLimit_tags = Lens.lens (\CreateUsageLimit' {tags} -> tags) (\s@CreateUsageLimit' {} a -> s {tags = a} :: CreateUsageLimit) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the cluster that you want to limit usage.
 createUsageLimit_clusterIdentifier :: Lens.Lens' CreateUsageLimit Prelude.Text
@@ -202,11 +202,11 @@ instance Core.ToQuery CreateUsageLimit where
           Core.=: ("CreateUsageLimit" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "Period" Core.=: period,
         "BreachAction" Core.=: breachAction,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Period" Core.=: period,
         "ClusterIdentifier" Core.=: clusterIdentifier,
         "FeatureType" Core.=: featureType,
         "LimitType" Core.=: limitType,

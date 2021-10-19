@@ -28,14 +28,14 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'newSnapshotErrorMessage' smart constructor.
 data SnapshotErrorMessage = SnapshotErrorMessage'
-  { -- | A unique identifier for the snapshot returning the error.
+  { -- | The text message describing the error.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the snapshot returning the error.
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The failure code for the error.
-    failureCode :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the cluster.
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The text message describing the error.
-    failureReason :: Prelude.Maybe Prelude.Text
+    -- | The failure code for the error.
+    failureCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,47 +47,47 @@ data SnapshotErrorMessage = SnapshotErrorMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotIdentifier', 'snapshotErrorMessage_snapshotIdentifier' - A unique identifier for the snapshot returning the error.
+-- 'failureReason', 'snapshotErrorMessage_failureReason' - The text message describing the error.
 --
--- 'failureCode', 'snapshotErrorMessage_failureCode' - The failure code for the error.
+-- 'snapshotIdentifier', 'snapshotErrorMessage_snapshotIdentifier' - A unique identifier for the snapshot returning the error.
 --
 -- 'snapshotClusterIdentifier', 'snapshotErrorMessage_snapshotClusterIdentifier' - A unique identifier for the cluster.
 --
--- 'failureReason', 'snapshotErrorMessage_failureReason' - The text message describing the error.
+-- 'failureCode', 'snapshotErrorMessage_failureCode' - The failure code for the error.
 newSnapshotErrorMessage ::
   SnapshotErrorMessage
 newSnapshotErrorMessage =
   SnapshotErrorMessage'
-    { snapshotIdentifier =
+    { failureReason =
         Prelude.Nothing,
-      failureCode = Prelude.Nothing,
+      snapshotIdentifier = Prelude.Nothing,
       snapshotClusterIdentifier = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureCode = Prelude.Nothing
     }
-
--- | A unique identifier for the snapshot returning the error.
-snapshotErrorMessage_snapshotIdentifier :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
-snapshotErrorMessage_snapshotIdentifier = Lens.lens (\SnapshotErrorMessage' {snapshotIdentifier} -> snapshotIdentifier) (\s@SnapshotErrorMessage' {} a -> s {snapshotIdentifier = a} :: SnapshotErrorMessage)
-
--- | The failure code for the error.
-snapshotErrorMessage_failureCode :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
-snapshotErrorMessage_failureCode = Lens.lens (\SnapshotErrorMessage' {failureCode} -> failureCode) (\s@SnapshotErrorMessage' {} a -> s {failureCode = a} :: SnapshotErrorMessage)
-
--- | A unique identifier for the cluster.
-snapshotErrorMessage_snapshotClusterIdentifier :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
-snapshotErrorMessage_snapshotClusterIdentifier = Lens.lens (\SnapshotErrorMessage' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@SnapshotErrorMessage' {} a -> s {snapshotClusterIdentifier = a} :: SnapshotErrorMessage)
 
 -- | The text message describing the error.
 snapshotErrorMessage_failureReason :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
 snapshotErrorMessage_failureReason = Lens.lens (\SnapshotErrorMessage' {failureReason} -> failureReason) (\s@SnapshotErrorMessage' {} a -> s {failureReason = a} :: SnapshotErrorMessage)
 
+-- | A unique identifier for the snapshot returning the error.
+snapshotErrorMessage_snapshotIdentifier :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
+snapshotErrorMessage_snapshotIdentifier = Lens.lens (\SnapshotErrorMessage' {snapshotIdentifier} -> snapshotIdentifier) (\s@SnapshotErrorMessage' {} a -> s {snapshotIdentifier = a} :: SnapshotErrorMessage)
+
+-- | A unique identifier for the cluster.
+snapshotErrorMessage_snapshotClusterIdentifier :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
+snapshotErrorMessage_snapshotClusterIdentifier = Lens.lens (\SnapshotErrorMessage' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@SnapshotErrorMessage' {} a -> s {snapshotClusterIdentifier = a} :: SnapshotErrorMessage)
+
+-- | The failure code for the error.
+snapshotErrorMessage_failureCode :: Lens.Lens' SnapshotErrorMessage (Prelude.Maybe Prelude.Text)
+snapshotErrorMessage_failureCode = Lens.lens (\SnapshotErrorMessage' {failureCode} -> failureCode) (\s@SnapshotErrorMessage' {} a -> s {failureCode = a} :: SnapshotErrorMessage)
+
 instance Core.FromXML SnapshotErrorMessage where
   parseXML x =
     SnapshotErrorMessage'
-      Prelude.<$> (x Core..@? "SnapshotIdentifier")
-      Prelude.<*> (x Core..@? "FailureCode")
+      Prelude.<$> (x Core..@? "FailureReason")
+      Prelude.<*> (x Core..@? "SnapshotIdentifier")
       Prelude.<*> (x Core..@? "SnapshotClusterIdentifier")
-      Prelude.<*> (x Core..@? "FailureReason")
+      Prelude.<*> (x Core..@? "FailureCode")
 
 instance Prelude.Hashable SnapshotErrorMessage
 

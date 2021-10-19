@@ -53,9 +53,9 @@ module Network.AWS.Redshift.GetClusterCredentials
 
     -- * Request Lenses
     getClusterCredentials_dbGroups,
-    getClusterCredentials_dbName,
-    getClusterCredentials_autoCreate,
     getClusterCredentials_durationSeconds,
+    getClusterCredentials_autoCreate,
+    getClusterCredentials_dbName,
     getClusterCredentials_dbUser,
     getClusterCredentials_clusterIdentifier,
 
@@ -102,6 +102,15 @@ data GetClusterCredentials = GetClusterCredentials'
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
     dbGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The number of seconds until the returned temporary password expires.
+    --
+    -- Constraint: minimum 900, maximum 3600.
+    --
+    -- Default: 900
+    durationSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Create a database user with the name specified for the user named in
+    -- @DbUser@ if one does not exist.
+    autoCreate :: Prelude.Maybe Prelude.Bool,
     -- | The name of a database that @DbUser@ is authorized to log on to. If
     -- @DbName@ is not specified, @DbUser@ can log on to any existing database.
     --
@@ -120,15 +129,6 @@ data GetClusterCredentials = GetClusterCredentials'
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
     dbName :: Prelude.Maybe Prelude.Text,
-    -- | Create a database user with the name specified for the user named in
-    -- @DbUser@ if one does not exist.
-    autoCreate :: Prelude.Maybe Prelude.Bool,
-    -- | The number of seconds until the returned temporary password expires.
-    --
-    -- Constraint: minimum 900, maximum 3600.
-    --
-    -- Default: 900
-    durationSeconds :: Prelude.Maybe Prelude.Int,
     -- | The name of a database user. If a user name matching @DbUser@ exists in
     -- the database, the temporary user credentials have the same permissions
     -- as the existing user. If @DbUser@ doesn\'t exist in the database and
@@ -192,6 +192,15 @@ data GetClusterCredentials = GetClusterCredentials'
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
 --
+-- 'durationSeconds', 'getClusterCredentials_durationSeconds' - The number of seconds until the returned temporary password expires.
+--
+-- Constraint: minimum 900, maximum 3600.
+--
+-- Default: 900
+--
+-- 'autoCreate', 'getClusterCredentials_autoCreate' - Create a database user with the name specified for the user named in
+-- @DbUser@ if one does not exist.
+--
 -- 'dbName', 'getClusterCredentials_dbName' - The name of a database that @DbUser@ is authorized to log on to. If
 -- @DbName@ is not specified, @DbUser@ can log on to any existing database.
 --
@@ -209,15 +218,6 @@ data GetClusterCredentials = GetClusterCredentials'
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
---
--- 'autoCreate', 'getClusterCredentials_autoCreate' - Create a database user with the name specified for the user named in
--- @DbUser@ if one does not exist.
---
--- 'durationSeconds', 'getClusterCredentials_durationSeconds' - The number of seconds until the returned temporary password expires.
---
--- Constraint: minimum 900, maximum 3600.
---
--- Default: 900
 --
 -- 'dbUser', 'getClusterCredentials_dbUser' - The name of a database user. If a user name matching @DbUser@ exists in
 -- the database, the temporary user credentials have the same permissions
@@ -259,9 +259,9 @@ newGetClusterCredentials ::
 newGetClusterCredentials pDbUser_ pClusterIdentifier_ =
   GetClusterCredentials'
     { dbGroups = Prelude.Nothing,
-      dbName = Prelude.Nothing,
-      autoCreate = Prelude.Nothing,
       durationSeconds = Prelude.Nothing,
+      autoCreate = Prelude.Nothing,
+      dbName = Prelude.Nothing,
       dbUser = pDbUser_,
       clusterIdentifier = pClusterIdentifier_
     }
@@ -286,7 +286,20 @@ newGetClusterCredentials pDbUser_ pClusterIdentifier_ =
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
 getClusterCredentials_dbGroups :: Lens.Lens' GetClusterCredentials (Prelude.Maybe [Prelude.Text])
-getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -> dbGroups) (\s@GetClusterCredentials' {} a -> s {dbGroups = a} :: GetClusterCredentials) Prelude.. Lens.mapping Lens._Coerce
+getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -> dbGroups) (\s@GetClusterCredentials' {} a -> s {dbGroups = a} :: GetClusterCredentials) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of seconds until the returned temporary password expires.
+--
+-- Constraint: minimum 900, maximum 3600.
+--
+-- Default: 900
+getClusterCredentials_durationSeconds :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Int)
+getClusterCredentials_durationSeconds = Lens.lens (\GetClusterCredentials' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentials' {} a -> s {durationSeconds = a} :: GetClusterCredentials)
+
+-- | Create a database user with the name specified for the user named in
+-- @DbUser@ if one does not exist.
+getClusterCredentials_autoCreate :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Bool)
+getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreate} -> autoCreate) (\s@GetClusterCredentials' {} a -> s {autoCreate = a} :: GetClusterCredentials)
 
 -- | The name of a database that @DbUser@ is authorized to log on to. If
 -- @DbName@ is not specified, @DbUser@ can log on to any existing database.
@@ -307,19 +320,6 @@ getClusterCredentials_dbGroups = Lens.lens (\GetClusterCredentials' {dbGroups} -
 --     in the Amazon Redshift Database Developer Guide.
 getClusterCredentials_dbName :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Text)
 getClusterCredentials_dbName = Lens.lens (\GetClusterCredentials' {dbName} -> dbName) (\s@GetClusterCredentials' {} a -> s {dbName = a} :: GetClusterCredentials)
-
--- | Create a database user with the name specified for the user named in
--- @DbUser@ if one does not exist.
-getClusterCredentials_autoCreate :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Bool)
-getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreate} -> autoCreate) (\s@GetClusterCredentials' {} a -> s {autoCreate = a} :: GetClusterCredentials)
-
--- | The number of seconds until the returned temporary password expires.
---
--- Constraint: minimum 900, maximum 3600.
---
--- Default: 900
-getClusterCredentials_durationSeconds :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Int)
-getClusterCredentials_durationSeconds = Lens.lens (\GetClusterCredentials' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentials' {} a -> s {durationSeconds = a} :: GetClusterCredentials)
 
 -- | The name of a database user. If a user name matching @DbUser@ exists in
 -- the database, the temporary user credentials have the same permissions
@@ -393,9 +393,9 @@ instance Core.ToQuery GetClusterCredentials where
         "DbGroups"
           Core.=: Core.toQuery
             (Core.toQueryList "DbGroup" Prelude.<$> dbGroups),
-        "DbName" Core.=: dbName,
-        "AutoCreate" Core.=: autoCreate,
         "DurationSeconds" Core.=: durationSeconds,
+        "AutoCreate" Core.=: autoCreate,
+        "DbName" Core.=: dbName,
         "DbUser" Core.=: dbUser,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

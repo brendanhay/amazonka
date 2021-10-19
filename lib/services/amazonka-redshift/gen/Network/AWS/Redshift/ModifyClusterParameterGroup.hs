@@ -115,7 +115,7 @@ modifyClusterParameterGroup_parameterGroupName = Lens.lens (\ModifyClusterParame
 -- For the workload management (WLM) configuration, you must supply all the
 -- name-value pairs in the wlm_json_configuration parameter.
 modifyClusterParameterGroup_parameters :: Lens.Lens' ModifyClusterParameterGroup [Parameter]
-modifyClusterParameterGroup_parameters = Lens.lens (\ModifyClusterParameterGroup' {parameters} -> parameters) (\s@ModifyClusterParameterGroup' {} a -> s {parameters = a} :: ModifyClusterParameterGroup) Prelude.. Lens._Coerce
+modifyClusterParameterGroup_parameters = Lens.lens (\ModifyClusterParameterGroup' {parameters} -> parameters) (\s@ModifyClusterParameterGroup' {} a -> s {parameters = a} :: ModifyClusterParameterGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyClusterParameterGroup where
   type

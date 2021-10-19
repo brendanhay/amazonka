@@ -97,7 +97,7 @@ newCreateHsmClientCertificate
 
 -- | A list of tag instances.
 createHsmClientCertificate_tags :: Lens.Lens' CreateHsmClientCertificate (Prelude.Maybe [Tag])
-createHsmClientCertificate_tags = Lens.lens (\CreateHsmClientCertificate' {tags} -> tags) (\s@CreateHsmClientCertificate' {} a -> s {tags = a} :: CreateHsmClientCertificate) Prelude.. Lens.mapping Lens._Coerce
+createHsmClientCertificate_tags = Lens.lens (\CreateHsmClientCertificate' {tags} -> tags) (\s@CreateHsmClientCertificate' {} a -> s {tags = a} :: CreateHsmClientCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption

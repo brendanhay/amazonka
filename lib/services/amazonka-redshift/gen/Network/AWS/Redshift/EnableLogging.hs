@@ -37,11 +37,11 @@ module Network.AWS.Redshift.EnableLogging
     newLoggingStatus,
 
     -- * Response Lenses
+    loggingStatus_lastFailureTime,
     loggingStatus_lastSuccessfulDeliveryTime,
+    loggingStatus_s3KeyPrefix,
     loggingStatus_bucketName,
     loggingStatus_loggingEnabled,
-    loggingStatus_s3KeyPrefix,
-    loggingStatus_lastFailureTime,
     loggingStatus_lastFailureMessage,
   )
 where

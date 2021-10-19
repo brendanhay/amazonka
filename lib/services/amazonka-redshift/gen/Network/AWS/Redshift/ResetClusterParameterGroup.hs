@@ -117,7 +117,7 @@ resetClusterParameterGroup_resetAllParameters = Lens.lens (\ResetClusterParamete
 -- Constraints: A maximum of 20 parameters can be reset in a single
 -- request.
 resetClusterParameterGroup_parameters :: Lens.Lens' ResetClusterParameterGroup (Prelude.Maybe [Parameter])
-resetClusterParameterGroup_parameters = Lens.lens (\ResetClusterParameterGroup' {parameters} -> parameters) (\s@ResetClusterParameterGroup' {} a -> s {parameters = a} :: ResetClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+resetClusterParameterGroup_parameters = Lens.lens (\ResetClusterParameterGroup' {parameters} -> parameters) (\s@ResetClusterParameterGroup' {} a -> s {parameters = a} :: ResetClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster parameter group to be reset.
 resetClusterParameterGroup_parameterGroupName :: Lens.Lens' ResetClusterParameterGroup Prelude.Text

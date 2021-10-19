@@ -38,13 +38,13 @@ module Network.AWS.Redshift.ModifyUsageLimit
 
     -- * Response Lenses
     usageLimit_amount,
-    usageLimit_featureType,
-    usageLimit_breachAction,
     usageLimit_limitType,
-    usageLimit_tags,
-    usageLimit_clusterIdentifier,
-    usageLimit_period,
     usageLimit_usageLimitId,
+    usageLimit_period,
+    usageLimit_clusterIdentifier,
+    usageLimit_breachAction,
+    usageLimit_featureType,
+    usageLimit_tags,
   )
 where
 

@@ -36,21 +36,21 @@ data RestoreStatus = RestoreStatus'
     -- Returns 0 for a completed restore. This field is only updated when you
     -- restore to DC2 and DS2 node types.
     estimatedTimeToCompletionInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The size of the set of snapshot data used to restore the cluster. This
-    -- field is only updated when you restore to DC2 and DS2 node types.
-    snapshotSizeInMegaBytes :: Prelude.Maybe Prelude.Integer,
     -- | The number of megabytes per second being transferred from the backup
     -- storage. Returns the average rate for a completed backup. This field is
     -- only updated when you restore to DC2 and DS2 node types.
     currentRestoreRateInMegaBytesPerSecond :: Prelude.Maybe Prelude.Double,
+    -- | The number of megabytes that have been transferred from snapshot
+    -- storage. This field is only updated when you restore to DC2 and DS2 node
+    -- types.
+    progressInMegaBytes :: Prelude.Maybe Prelude.Integer,
     -- | The amount of time an in-progress restore has been running, or the
     -- amount of time it took a completed restore to finish. This field is only
     -- updated when you restore to DC2 and DS2 node types.
     elapsedTimeInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | The number of megabytes that have been transferred from snapshot
-    -- storage. This field is only updated when you restore to DC2 and DS2 node
-    -- types.
-    progressInMegaBytes :: Prelude.Maybe Prelude.Integer
+    -- | The size of the set of snapshot data used to restore the cluster. This
+    -- field is only updated when you restore to DC2 and DS2 node types.
+    snapshotSizeInMegaBytes :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,31 +69,31 @@ data RestoreStatus = RestoreStatus'
 -- Returns 0 for a completed restore. This field is only updated when you
 -- restore to DC2 and DS2 node types.
 --
--- 'snapshotSizeInMegaBytes', 'restoreStatus_snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This
--- field is only updated when you restore to DC2 and DS2 node types.
---
 -- 'currentRestoreRateInMegaBytesPerSecond', 'restoreStatus_currentRestoreRateInMegaBytesPerSecond' - The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup. This field is
 -- only updated when you restore to DC2 and DS2 node types.
+--
+-- 'progressInMegaBytes', 'restoreStatus_progressInMegaBytes' - The number of megabytes that have been transferred from snapshot
+-- storage. This field is only updated when you restore to DC2 and DS2 node
+-- types.
 --
 -- 'elapsedTimeInSeconds', 'restoreStatus_elapsedTimeInSeconds' - The amount of time an in-progress restore has been running, or the
 -- amount of time it took a completed restore to finish. This field is only
 -- updated when you restore to DC2 and DS2 node types.
 --
--- 'progressInMegaBytes', 'restoreStatus_progressInMegaBytes' - The number of megabytes that have been transferred from snapshot
--- storage. This field is only updated when you restore to DC2 and DS2 node
--- types.
+-- 'snapshotSizeInMegaBytes', 'restoreStatus_snapshotSizeInMegaBytes' - The size of the set of snapshot data used to restore the cluster. This
+-- field is only updated when you restore to DC2 and DS2 node types.
 newRestoreStatus ::
   RestoreStatus
 newRestoreStatus =
   RestoreStatus'
     { status = Prelude.Nothing,
       estimatedTimeToCompletionInSeconds = Prelude.Nothing,
-      snapshotSizeInMegaBytes = Prelude.Nothing,
       currentRestoreRateInMegaBytesPerSecond =
         Prelude.Nothing,
+      progressInMegaBytes = Prelude.Nothing,
       elapsedTimeInSeconds = Prelude.Nothing,
-      progressInMegaBytes = Prelude.Nothing
+      snapshotSizeInMegaBytes = Prelude.Nothing
     }
 
 -- | The status of the restore action. Returns starting, restoring,
@@ -107,22 +107,11 @@ restoreStatus_status = Lens.lens (\RestoreStatus' {status} -> status) (\s@Restor
 restoreStatus_estimatedTimeToCompletionInSeconds :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
 restoreStatus_estimatedTimeToCompletionInSeconds = Lens.lens (\RestoreStatus' {estimatedTimeToCompletionInSeconds} -> estimatedTimeToCompletionInSeconds) (\s@RestoreStatus' {} a -> s {estimatedTimeToCompletionInSeconds = a} :: RestoreStatus)
 
--- | The size of the set of snapshot data used to restore the cluster. This
--- field is only updated when you restore to DC2 and DS2 node types.
-restoreStatus_snapshotSizeInMegaBytes :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
-restoreStatus_snapshotSizeInMegaBytes = Lens.lens (\RestoreStatus' {snapshotSizeInMegaBytes} -> snapshotSizeInMegaBytes) (\s@RestoreStatus' {} a -> s {snapshotSizeInMegaBytes = a} :: RestoreStatus)
-
 -- | The number of megabytes per second being transferred from the backup
 -- storage. Returns the average rate for a completed backup. This field is
 -- only updated when you restore to DC2 and DS2 node types.
 restoreStatus_currentRestoreRateInMegaBytesPerSecond :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Double)
 restoreStatus_currentRestoreRateInMegaBytesPerSecond = Lens.lens (\RestoreStatus' {currentRestoreRateInMegaBytesPerSecond} -> currentRestoreRateInMegaBytesPerSecond) (\s@RestoreStatus' {} a -> s {currentRestoreRateInMegaBytesPerSecond = a} :: RestoreStatus)
-
--- | The amount of time an in-progress restore has been running, or the
--- amount of time it took a completed restore to finish. This field is only
--- updated when you restore to DC2 and DS2 node types.
-restoreStatus_elapsedTimeInSeconds :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
-restoreStatus_elapsedTimeInSeconds = Lens.lens (\RestoreStatus' {elapsedTimeInSeconds} -> elapsedTimeInSeconds) (\s@RestoreStatus' {} a -> s {elapsedTimeInSeconds = a} :: RestoreStatus)
 
 -- | The number of megabytes that have been transferred from snapshot
 -- storage. This field is only updated when you restore to DC2 and DS2 node
@@ -130,15 +119,26 @@ restoreStatus_elapsedTimeInSeconds = Lens.lens (\RestoreStatus' {elapsedTimeInSe
 restoreStatus_progressInMegaBytes :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
 restoreStatus_progressInMegaBytes = Lens.lens (\RestoreStatus' {progressInMegaBytes} -> progressInMegaBytes) (\s@RestoreStatus' {} a -> s {progressInMegaBytes = a} :: RestoreStatus)
 
+-- | The amount of time an in-progress restore has been running, or the
+-- amount of time it took a completed restore to finish. This field is only
+-- updated when you restore to DC2 and DS2 node types.
+restoreStatus_elapsedTimeInSeconds :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
+restoreStatus_elapsedTimeInSeconds = Lens.lens (\RestoreStatus' {elapsedTimeInSeconds} -> elapsedTimeInSeconds) (\s@RestoreStatus' {} a -> s {elapsedTimeInSeconds = a} :: RestoreStatus)
+
+-- | The size of the set of snapshot data used to restore the cluster. This
+-- field is only updated when you restore to DC2 and DS2 node types.
+restoreStatus_snapshotSizeInMegaBytes :: Lens.Lens' RestoreStatus (Prelude.Maybe Prelude.Integer)
+restoreStatus_snapshotSizeInMegaBytes = Lens.lens (\RestoreStatus' {snapshotSizeInMegaBytes} -> snapshotSizeInMegaBytes) (\s@RestoreStatus' {} a -> s {snapshotSizeInMegaBytes = a} :: RestoreStatus)
+
 instance Core.FromXML RestoreStatus where
   parseXML x =
     RestoreStatus'
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "EstimatedTimeToCompletionInSeconds")
-      Prelude.<*> (x Core..@? "SnapshotSizeInMegaBytes")
       Prelude.<*> (x Core..@? "CurrentRestoreRateInMegaBytesPerSecond")
-      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
       Prelude.<*> (x Core..@? "ProgressInMegaBytes")
+      Prelude.<*> (x Core..@? "ElapsedTimeInSeconds")
+      Prelude.<*> (x Core..@? "SnapshotSizeInMegaBytes")
 
 instance Prelude.Hashable RestoreStatus
 

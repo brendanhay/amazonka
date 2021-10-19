@@ -154,7 +154,7 @@ newCreateClusterParameterGroup
 
 -- | A list of tag instances.
 createClusterParameterGroup_tags :: Lens.Lens' CreateClusterParameterGroup (Prelude.Maybe [Tag])
-createClusterParameterGroup_tags = Lens.lens (\CreateClusterParameterGroup' {tags} -> tags) (\s@CreateClusterParameterGroup' {} a -> s {tags = a} :: CreateClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+createClusterParameterGroup_tags = Lens.lens (\CreateClusterParameterGroup' {tags} -> tags) (\s@CreateClusterParameterGroup' {} a -> s {tags = a} :: CreateClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster parameter group.
 --

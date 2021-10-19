@@ -34,22 +34,22 @@ module Network.AWS.Redshift.CancelResize
     newResizeProgressMessage,
 
     -- * Response Lenses
+    resizeProgressMessage_importTablesNotStarted,
     resizeProgressMessage_status,
     resizeProgressMessage_estimatedTimeToCompletionInSeconds,
-    resizeProgressMessage_importTablesNotStarted,
-    resizeProgressMessage_targetNodeType,
-    resizeProgressMessage_message,
-    resizeProgressMessage_targetClusterType,
     resizeProgressMessage_avgResizeRateInMegaBytesPerSecond,
-    resizeProgressMessage_targetEncryptionType,
-    resizeProgressMessage_elapsedTimeInSeconds,
-    resizeProgressMessage_totalResizeDataInMegaBytes,
     resizeProgressMessage_targetNumberOfNodes,
-    resizeProgressMessage_dataTransferProgressPercent,
-    resizeProgressMessage_importTablesCompleted,
-    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_targetEncryptionType,
+    resizeProgressMessage_targetNodeType,
     resizeProgressMessage_importTablesInProgress,
     resizeProgressMessage_resizeType,
+    resizeProgressMessage_importTablesCompleted,
+    resizeProgressMessage_progressInMegaBytes,
+    resizeProgressMessage_dataTransferProgressPercent,
+    resizeProgressMessage_totalResizeDataInMegaBytes,
+    resizeProgressMessage_targetClusterType,
+    resizeProgressMessage_message,
+    resizeProgressMessage_elapsedTimeInSeconds,
   )
 where
 

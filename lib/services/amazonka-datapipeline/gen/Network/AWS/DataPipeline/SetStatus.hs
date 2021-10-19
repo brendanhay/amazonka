@@ -101,7 +101,7 @@ setStatus_pipelineId = Lens.lens (\SetStatus' {pipelineId} -> pipelineId) (\s@Se
 -- | The IDs of the objects. The corresponding objects can be either physical
 -- or components, but not a mix of both types.
 setStatus_objectIds :: Lens.Lens' SetStatus [Prelude.Text]
-setStatus_objectIds = Lens.lens (\SetStatus' {objectIds} -> objectIds) (\s@SetStatus' {} a -> s {objectIds = a} :: SetStatus) Prelude.. Lens._Coerce
+setStatus_objectIds = Lens.lens (\SetStatus' {objectIds} -> objectIds) (\s@SetStatus' {} a -> s {objectIds = a} :: SetStatus) Prelude.. Lens.coerced
 
 -- | The status to be set on all the objects specified in @objectIds@. For
 -- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,

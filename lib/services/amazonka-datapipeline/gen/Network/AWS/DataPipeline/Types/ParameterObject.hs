@@ -62,7 +62,7 @@ parameterObject_id = Lens.lens (\ParameterObject' {id} -> id) (\s@ParameterObjec
 
 -- | The attributes of the parameter object.
 parameterObject_attributes :: Lens.Lens' ParameterObject [ParameterAttribute]
-parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Prelude.. Lens._Coerce
+parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Prelude.. Lens.coerced
 
 instance Core.FromJSON ParameterObject where
   parseJSON =

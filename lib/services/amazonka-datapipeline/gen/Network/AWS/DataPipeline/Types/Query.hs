@@ -51,7 +51,7 @@ newQuery = Query' {selectors = Prelude.Nothing}
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
 query_selectors :: Lens.Lens' Query (Prelude.Maybe [Selector])
-query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
+query_selectors = Lens.lens (\Query' {selectors} -> selectors) (\s@Query' {} a -> s {selectors = a} :: Query) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable Query
 

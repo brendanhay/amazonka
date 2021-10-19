@@ -41,20 +41,20 @@ module Network.AWS.DataPipeline
     -- * Errors
     -- $errors
 
-    -- ** TaskNotFoundException
-    _TaskNotFoundException,
-
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** PipelineNotFoundException
-    _PipelineNotFoundException,
+    -- ** InternalServiceError
+    _InternalServiceError,
 
     -- ** PipelineDeletedException
     _PipelineDeletedException,
 
-    -- ** InternalServiceError
-    _InternalServiceError,
+    -- ** PipelineNotFoundException
+    _PipelineNotFoundException,
+
+    -- ** TaskNotFoundException
+    _TaskNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -62,11 +62,11 @@ module Network.AWS.DataPipeline
     -- * Operations
     -- $operations
 
-    -- ** RemoveTags
-    RemoveTags (RemoveTags'),
-    newRemoveTags,
-    RemoveTagsResponse (RemoveTagsResponse'),
-    newRemoveTagsResponse,
+    -- ** DescribePipelines
+    DescribePipelines (DescribePipelines'),
+    newDescribePipelines,
+    DescribePipelinesResponse (DescribePipelinesResponse'),
+    newDescribePipelinesResponse,
 
     -- ** QueryObjects (Paginated)
     QueryObjects (QueryObjects'),
@@ -74,11 +74,83 @@ module Network.AWS.DataPipeline
     QueryObjectsResponse (QueryObjectsResponse'),
     newQueryObjectsResponse,
 
+    -- ** RemoveTags
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
+
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
+
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
     -- ** EvaluateExpression
     EvaluateExpression (EvaluateExpression'),
     newEvaluateExpression,
     EvaluateExpressionResponse (EvaluateExpressionResponse'),
     newEvaluateExpressionResponse,
+
+    -- ** GetPipelineDefinition
+    GetPipelineDefinition (GetPipelineDefinition'),
+    newGetPipelineDefinition,
+    GetPipelineDefinitionResponse (GetPipelineDefinitionResponse'),
+    newGetPipelineDefinitionResponse,
+
+    -- ** PollForTask
+    PollForTask (PollForTask'),
+    newPollForTask,
+    PollForTaskResponse (PollForTaskResponse'),
+    newPollForTaskResponse,
+
+    -- ** DeactivatePipeline
+    DeactivatePipeline (DeactivatePipeline'),
+    newDeactivatePipeline,
+    DeactivatePipelineResponse (DeactivatePipelineResponse'),
+    newDeactivatePipelineResponse,
+
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
+
+    -- ** DescribeObjects (Paginated)
+    DescribeObjects (DescribeObjects'),
+    newDescribeObjects,
+    DescribeObjectsResponse (DescribeObjectsResponse'),
+    newDescribeObjectsResponse,
+
+    -- ** ReportTaskRunnerHeartbeat
+    ReportTaskRunnerHeartbeat (ReportTaskRunnerHeartbeat'),
+    newReportTaskRunnerHeartbeat,
+    ReportTaskRunnerHeartbeatResponse (ReportTaskRunnerHeartbeatResponse'),
+    newReportTaskRunnerHeartbeatResponse,
+
+    -- ** ActivatePipeline
+    ActivatePipeline (ActivatePipeline'),
+    newActivatePipeline,
+    ActivatePipelineResponse (ActivatePipelineResponse'),
+    newActivatePipelineResponse,
+
+    -- ** SetTaskStatus
+    SetTaskStatus (SetTaskStatus'),
+    newSetTaskStatus,
+    SetTaskStatusResponse (SetTaskStatusResponse'),
+    newSetTaskStatusResponse,
+
+    -- ** SetStatus
+    SetStatus (SetStatus'),
+    newSetStatus,
+    SetStatusResponse (SetStatusResponse'),
+    newSetStatusResponse,
 
     -- ** ReportTaskProgress
     ReportTaskProgress (ReportTaskProgress'),
@@ -92,89 +164,17 @@ module Network.AWS.DataPipeline
     CreatePipelineResponse (CreatePipelineResponse'),
     newCreatePipelineResponse,
 
-    -- ** DeletePipeline
-    DeletePipeline (DeletePipeline'),
-    newDeletePipeline,
-    DeletePipelineResponse (DeletePipelineResponse'),
-    newDeletePipelineResponse,
-
-    -- ** SetTaskStatus
-    SetTaskStatus (SetTaskStatus'),
-    newSetTaskStatus,
-    SetTaskStatusResponse (SetTaskStatusResponse'),
-    newSetTaskStatusResponse,
-
-    -- ** ReportTaskRunnerHeartbeat
-    ReportTaskRunnerHeartbeat (ReportTaskRunnerHeartbeat'),
-    newReportTaskRunnerHeartbeat,
-    ReportTaskRunnerHeartbeatResponse (ReportTaskRunnerHeartbeatResponse'),
-    newReportTaskRunnerHeartbeatResponse,
-
-    -- ** DescribeObjects (Paginated)
-    DescribeObjects (DescribeObjects'),
-    newDescribeObjects,
-    DescribeObjectsResponse (DescribeObjectsResponse'),
-    newDescribeObjectsResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** DescribePipelines
-    DescribePipelines (DescribePipelines'),
-    newDescribePipelines,
-    DescribePipelinesResponse (DescribePipelinesResponse'),
-    newDescribePipelinesResponse,
-
-    -- ** PollForTask
-    PollForTask (PollForTask'),
-    newPollForTask,
-    PollForTaskResponse (PollForTaskResponse'),
-    newPollForTaskResponse,
-
-    -- ** ValidatePipelineDefinition
-    ValidatePipelineDefinition (ValidatePipelineDefinition'),
-    newValidatePipelineDefinition,
-    ValidatePipelineDefinitionResponse (ValidatePipelineDefinitionResponse'),
-    newValidatePipelineDefinitionResponse,
-
-    -- ** GetPipelineDefinition
-    GetPipelineDefinition (GetPipelineDefinition'),
-    newGetPipelineDefinition,
-    GetPipelineDefinitionResponse (GetPipelineDefinitionResponse'),
-    newGetPipelineDefinitionResponse,
-
     -- ** PutPipelineDefinition
     PutPipelineDefinition (PutPipelineDefinition'),
     newPutPipelineDefinition,
     PutPipelineDefinitionResponse (PutPipelineDefinitionResponse'),
     newPutPipelineDefinitionResponse,
 
-    -- ** SetStatus
-    SetStatus (SetStatus'),
-    newSetStatus,
-    SetStatusResponse (SetStatusResponse'),
-    newSetStatusResponse,
-
-    -- ** ListPipelines (Paginated)
-    ListPipelines (ListPipelines'),
-    newListPipelines,
-    ListPipelinesResponse (ListPipelinesResponse'),
-    newListPipelinesResponse,
-
-    -- ** ActivatePipeline
-    ActivatePipeline (ActivatePipeline'),
-    newActivatePipeline,
-    ActivatePipelineResponse (ActivatePipelineResponse'),
-    newActivatePipelineResponse,
-
-    -- ** DeactivatePipeline
-    DeactivatePipeline (DeactivatePipeline'),
-    newDeactivatePipeline,
-    DeactivatePipelineResponse (DeactivatePipelineResponse'),
-    newDeactivatePipelineResponse,
+    -- ** ValidatePipelineDefinition
+    ValidatePipelineDefinition (ValidatePipelineDefinition'),
+    newValidatePipelineDefinition,
+    ValidatePipelineDefinitionResponse (ValidatePipelineDefinitionResponse'),
+    newValidatePipelineDefinitionResponse,
 
     -- * Types
 

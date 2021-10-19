@@ -37,9 +37,9 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     newGetPipelineDefinitionResponse,
 
     -- * Response Lenses
-    getPipelineDefinitionResponse_parameterValues,
-    getPipelineDefinitionResponse_parameterObjects,
     getPipelineDefinitionResponse_pipelineObjects,
+    getPipelineDefinitionResponse_parameterObjects,
+    getPipelineDefinitionResponse_parameterValues,
     getPipelineDefinitionResponse_httpStatus,
   )
 where
@@ -106,13 +106,13 @@ instance Core.AWSRequest GetPipelineDefinition where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineDefinitionResponse'
-            Prelude.<$> ( x Core..?> "parameterValues"
+            Prelude.<$> ( x Core..?> "pipelineObjects"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> ( x Core..?> "parameterObjects"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Core..?> "pipelineObjects"
+            Prelude.<*> ( x Core..?> "parameterValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,12 +156,12 @@ instance Core.ToQuery GetPipelineDefinition where
 --
 -- /See:/ 'newGetPipelineDefinitionResponse' smart constructor.
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
-  { -- | The parameter values used in the pipeline definition.
-    parameterValues :: Prelude.Maybe [ParameterValue],
+  { -- | The objects defined in the pipeline.
+    pipelineObjects :: Prelude.Maybe [PipelineObject],
     -- | The parameter objects used in the pipeline definition.
     parameterObjects :: Prelude.Maybe [ParameterObject],
-    -- | The objects defined in the pipeline.
-    pipelineObjects :: Prelude.Maybe [PipelineObject],
+    -- | The parameter values used in the pipeline definition.
+    parameterValues :: Prelude.Maybe [ParameterValue],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,11 +175,11 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterValues', 'getPipelineDefinitionResponse_parameterValues' - The parameter values used in the pipeline definition.
+-- 'pipelineObjects', 'getPipelineDefinitionResponse_pipelineObjects' - The objects defined in the pipeline.
 --
 -- 'parameterObjects', 'getPipelineDefinitionResponse_parameterObjects' - The parameter objects used in the pipeline definition.
 --
--- 'pipelineObjects', 'getPipelineDefinitionResponse_pipelineObjects' - The objects defined in the pipeline.
+-- 'parameterValues', 'getPipelineDefinitionResponse_parameterValues' - The parameter values used in the pipeline definition.
 --
 -- 'httpStatus', 'getPipelineDefinitionResponse_httpStatus' - The response's http status code.
 newGetPipelineDefinitionResponse ::
@@ -188,24 +188,24 @@ newGetPipelineDefinitionResponse ::
   GetPipelineDefinitionResponse
 newGetPipelineDefinitionResponse pHttpStatus_ =
   GetPipelineDefinitionResponse'
-    { parameterValues =
+    { pipelineObjects =
         Prelude.Nothing,
       parameterObjects = Prelude.Nothing,
-      pipelineObjects = Prelude.Nothing,
+      parameterValues = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The parameter values used in the pipeline definition.
-getPipelineDefinitionResponse_parameterValues :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [ParameterValue])
-getPipelineDefinitionResponse_parameterValues = Lens.lens (\GetPipelineDefinitionResponse' {parameterValues} -> parameterValues) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterValues = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The objects defined in the pipeline.
+getPipelineDefinitionResponse_pipelineObjects :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [PipelineObject])
+getPipelineDefinitionResponse_pipelineObjects = Lens.lens (\GetPipelineDefinitionResponse' {pipelineObjects} -> pipelineObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {pipelineObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The parameter objects used in the pipeline definition.
 getPipelineDefinitionResponse_parameterObjects :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [ParameterObject])
-getPipelineDefinitionResponse_parameterObjects = Lens.lens (\GetPipelineDefinitionResponse' {parameterObjects} -> parameterObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+getPipelineDefinitionResponse_parameterObjects = Lens.lens (\GetPipelineDefinitionResponse' {parameterObjects} -> parameterObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The objects defined in the pipeline.
-getPipelineDefinitionResponse_pipelineObjects :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [PipelineObject])
-getPipelineDefinitionResponse_pipelineObjects = Lens.lens (\GetPipelineDefinitionResponse' {pipelineObjects} -> pipelineObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {pipelineObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The parameter values used in the pipeline definition.
+getPipelineDefinitionResponse_parameterValues :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [ParameterValue])
+getPipelineDefinitionResponse_parameterValues = Lens.lens (\GetPipelineDefinitionResponse' {parameterValues} -> parameterValues) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterValues = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getPipelineDefinitionResponse_httpStatus :: Lens.Lens' GetPipelineDefinitionResponse Prelude.Int

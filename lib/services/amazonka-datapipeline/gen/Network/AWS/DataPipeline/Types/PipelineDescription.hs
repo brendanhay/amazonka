@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPipelineDescription' smart constructor.
 data PipelineDescription = PipelineDescription'
-  { -- | A list of tags to associated with a pipeline. Tags let you control
+  { -- | Description of the pipeline.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to associated with a pipeline. Tags let you control
     -- access to pipelines. For more information, see
     -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
     -- in the /AWS Data Pipeline Developer Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | Description of the pipeline.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
     -- a string of the form @df-297EG78HU43EEXAMPLE@.
     pipelineId :: Prelude.Text,
@@ -55,12 +55,12 @@ data PipelineDescription = PipelineDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'pipelineDescription_description' - Description of the pipeline.
+--
 -- 'tags', 'pipelineDescription_tags' - A list of tags to associated with a pipeline. Tags let you control
 -- access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
---
--- 'description', 'pipelineDescription_description' - Description of the pipeline.
 --
 -- 'pipelineId', 'pipelineDescription_pipelineId' - The pipeline identifier that was assigned by AWS Data Pipeline. This is
 -- a string of the form @df-297EG78HU43EEXAMPLE@.
@@ -77,23 +77,23 @@ newPipelineDescription ::
   PipelineDescription
 newPipelineDescription pPipelineId_ pName_ =
   PipelineDescription'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       pipelineId = pPipelineId_,
       name = pName_,
       fields = Prelude.mempty
     }
+
+-- | Description of the pipeline.
+pipelineDescription_description :: Lens.Lens' PipelineDescription (Prelude.Maybe Prelude.Text)
+pipelineDescription_description = Lens.lens (\PipelineDescription' {description} -> description) (\s@PipelineDescription' {} a -> s {description = a} :: PipelineDescription)
 
 -- | A list of tags to associated with a pipeline. Tags let you control
 -- access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
 pipelineDescription_tags :: Lens.Lens' PipelineDescription (Prelude.Maybe [Tag])
-pipelineDescription_tags = Lens.lens (\PipelineDescription' {tags} -> tags) (\s@PipelineDescription' {} a -> s {tags = a} :: PipelineDescription) Prelude.. Lens.mapping Lens._Coerce
-
--- | Description of the pipeline.
-pipelineDescription_description :: Lens.Lens' PipelineDescription (Prelude.Maybe Prelude.Text)
-pipelineDescription_description = Lens.lens (\PipelineDescription' {description} -> description) (\s@PipelineDescription' {} a -> s {description = a} :: PipelineDescription)
+pipelineDescription_tags = Lens.lens (\PipelineDescription' {tags} -> tags) (\s@PipelineDescription' {} a -> s {tags = a} :: PipelineDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
 -- a string of the form @df-297EG78HU43EEXAMPLE@.
@@ -107,7 +107,7 @@ pipelineDescription_name = Lens.lens (\PipelineDescription' {name} -> name) (\s@
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- \@userId, \@accountId, and \@pipelineState.
 pipelineDescription_fields :: Lens.Lens' PipelineDescription [Field]
-pipelineDescription_fields = Lens.lens (\PipelineDescription' {fields} -> fields) (\s@PipelineDescription' {} a -> s {fields = a} :: PipelineDescription) Prelude.. Lens._Coerce
+pipelineDescription_fields = Lens.lens (\PipelineDescription' {fields} -> fields) (\s@PipelineDescription' {} a -> s {fields = a} :: PipelineDescription) Prelude.. Lens.coerced
 
 instance Core.FromJSON PipelineDescription where
   parseJSON =
@@ -115,8 +115,8 @@ instance Core.FromJSON PipelineDescription where
       "PipelineDescription"
       ( \x ->
           PipelineDescription'
-            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "description")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "pipelineId")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)

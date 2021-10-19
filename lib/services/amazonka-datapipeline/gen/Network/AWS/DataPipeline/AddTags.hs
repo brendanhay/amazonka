@@ -84,7 +84,7 @@ addTags_pipelineId = Lens.lens (\AddTags' {pipelineId} -> pipelineId) (\s@AddTag
 
 -- | The tags to add, as key\/value pairs.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse

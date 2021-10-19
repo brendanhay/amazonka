@@ -121,7 +121,7 @@ newOperator =
 
 -- | The value that the actual field value will be compared with.
 operator_values :: Lens.Lens' Operator (Prelude.Maybe [Prelude.Text])
-operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -> s {values = a} :: Operator) Prelude.. Lens.mapping Lens._Coerce
+operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -> s {values = a} :: Operator) Prelude.. Lens.mapping Lens.coerced
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
 -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or

@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCurrentMetric' smart constructor.
 data CurrentMetric = CurrentMetric'
-  { -- | The unit for the metric.
-    unit :: Prelude.Maybe Unit,
-    -- | The name of the metric.
-    name :: Prelude.Maybe CurrentMetricName
+  { -- | The name of the metric.
+    name :: Prelude.Maybe CurrentMetricName,
+    -- | The unit for the metric.
+    unit :: Prelude.Maybe Unit
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,24 @@ data CurrentMetric = CurrentMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'currentMetric_unit' - The unit for the metric.
---
 -- 'name', 'currentMetric_name' - The name of the metric.
+--
+-- 'unit', 'currentMetric_unit' - The unit for the metric.
 newCurrentMetric ::
   CurrentMetric
 newCurrentMetric =
   CurrentMetric'
-    { unit = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      unit = Prelude.Nothing
     }
-
--- | The unit for the metric.
-currentMetric_unit :: Lens.Lens' CurrentMetric (Prelude.Maybe Unit)
-currentMetric_unit = Lens.lens (\CurrentMetric' {unit} -> unit) (\s@CurrentMetric' {} a -> s {unit = a} :: CurrentMetric)
 
 -- | The name of the metric.
 currentMetric_name :: Lens.Lens' CurrentMetric (Prelude.Maybe CurrentMetricName)
 currentMetric_name = Lens.lens (\CurrentMetric' {name} -> name) (\s@CurrentMetric' {} a -> s {name = a} :: CurrentMetric)
+
+-- | The unit for the metric.
+currentMetric_unit :: Lens.Lens' CurrentMetric (Prelude.Maybe Unit)
+currentMetric_unit = Lens.lens (\CurrentMetric' {unit} -> unit) (\s@CurrentMetric' {} a -> s {unit = a} :: CurrentMetric)
 
 instance Core.FromJSON CurrentMetric where
   parseJSON =
@@ -72,7 +72,7 @@ instance Core.FromJSON CurrentMetric where
       "CurrentMetric"
       ( \x ->
           CurrentMetric'
-            Prelude.<$> (x Core..:? "Unit") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Unit")
       )
 
 instance Prelude.Hashable CurrentMetric
@@ -83,7 +83,7 @@ instance Core.ToJSON CurrentMetric where
   toJSON CurrentMetric' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Unit" Core..=) Prelude.<$> unit
           ]
       )

@@ -39,9 +39,9 @@ module Network.AWS.Connect.CreateInstance
     newCreateInstance,
 
     -- * Request Lenses
-    createInstance_instanceAlias,
     createInstance_directoryId,
     createInstance_clientToken,
+    createInstance_instanceAlias,
     createInstance_identityManagementType,
     createInstance_inboundCallsEnabled,
     createInstance_outboundCallsEnabled,
@@ -66,12 +66,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
-  { -- | The name for your instance.
-    instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The identifier for the directory.
+  { -- | The identifier for the directory.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name for your instance.
+    instanceAlias :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The type of identity management for your Amazon Connect users.
     identityManagementType :: DirectoryType,
     -- | Your contact center handles incoming contacts.
@@ -89,11 +89,11 @@ data CreateInstance = CreateInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceAlias', 'createInstance_instanceAlias' - The name for your instance.
---
 -- 'directoryId', 'createInstance_directoryId' - The identifier for the directory.
 --
 -- 'clientToken', 'createInstance_clientToken' - The idempotency token.
+--
+-- 'instanceAlias', 'createInstance_instanceAlias' - The name for your instance.
 --
 -- 'identityManagementType', 'createInstance_identityManagementType' - The type of identity management for your Amazon Connect users.
 --
@@ -113,17 +113,13 @@ newCreateInstance
   pInboundCallsEnabled_
   pOutboundCallsEnabled_ =
     CreateInstance'
-      { instanceAlias = Prelude.Nothing,
-        directoryId = Prelude.Nothing,
+      { directoryId = Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        instanceAlias = Prelude.Nothing,
         identityManagementType = pIdentityManagementType_,
         inboundCallsEnabled = pInboundCallsEnabled_,
         outboundCallsEnabled = pOutboundCallsEnabled_
       }
-
--- | The name for your instance.
-createInstance_instanceAlias :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The identifier for the directory.
 createInstance_directoryId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
@@ -132,6 +128,10 @@ createInstance_directoryId = Lens.lens (\CreateInstance' {directoryId} -> direct
 -- | The idempotency token.
 createInstance_clientToken :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
 createInstance_clientToken = Lens.lens (\CreateInstance' {clientToken} -> clientToken) (\s@CreateInstance' {} a -> s {clientToken = a} :: CreateInstance)
+
+-- | The name for your instance.
+createInstance_instanceAlias :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The type of identity management for your Amazon Connect users.
 createInstance_identityManagementType :: Lens.Lens' CreateInstance DirectoryType
@@ -178,9 +178,9 @@ instance Core.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceAlias" Core..=) Prelude.<$> instanceAlias,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
             ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("InstanceAlias" Core..=) Prelude.<$> instanceAlias,
             Prelude.Just
               ( "IdentityManagementType"
                   Core..= identityManagementType

@@ -98,7 +98,7 @@ updateRoutingProfileConcurrency_routingProfileId = Lens.lens (\UpdateRoutingProf
 
 -- | The channels that agents can handle in the Contact Control Panel (CCP).
 updateRoutingProfileConcurrency_mediaConcurrencies :: Lens.Lens' UpdateRoutingProfileConcurrency [MediaConcurrency]
-updateRoutingProfileConcurrency_mediaConcurrencies = Lens.lens (\UpdateRoutingProfileConcurrency' {mediaConcurrencies} -> mediaConcurrencies) (\s@UpdateRoutingProfileConcurrency' {} a -> s {mediaConcurrencies = a} :: UpdateRoutingProfileConcurrency) Prelude.. Lens._Coerce
+updateRoutingProfileConcurrency_mediaConcurrencies = Lens.lens (\UpdateRoutingProfileConcurrency' {mediaConcurrencies} -> mediaConcurrencies) (\s@UpdateRoutingProfileConcurrency' {} a -> s {mediaConcurrencies = a} :: UpdateRoutingProfileConcurrency) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

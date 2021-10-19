@@ -30,8 +30,8 @@ module Network.AWS.Connect.CreateContactFlow
     newCreateContactFlow,
 
     -- * Request Lenses
-    createContactFlow_tags,
     createContactFlow_description,
+    createContactFlow_tags,
     createContactFlow_instanceId,
     createContactFlow_name,
     createContactFlow_type,
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the contact flow.
+  { -- | The description of the contact flow.
     description :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
     -- | The name of the contact flow.
@@ -83,9 +83,9 @@ data CreateContactFlow = CreateContactFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContactFlow_tags' - One or more tags.
---
 -- 'description', 'createContactFlow_description' - The description of the contact flow.
+--
+-- 'tags', 'createContactFlow_tags' - One or more tags.
 --
 -- 'instanceId', 'createContactFlow_instanceId' - The identifier of the Amazon Connect instance.
 --
@@ -113,21 +113,21 @@ newCreateContactFlow
   pType_
   pContent_ =
     CreateContactFlow'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         type' = pType_,
         content = pContent_
       }
 
--- | One or more tags.
-createContactFlow_tags :: Lens.Lens' CreateContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The description of the contact flow.
 createContactFlow_description :: Lens.Lens' CreateContactFlow (Prelude.Maybe Prelude.Text)
 createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> description) (\s@CreateContactFlow' {} a -> s {description = a} :: CreateContactFlow)
+
+-- | One or more tags.
+createContactFlow_tags :: Lens.Lens' CreateContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance.
 createContactFlow_instanceId :: Lens.Lens' CreateContactFlow Prelude.Text
@@ -181,8 +181,8 @@ instance Core.ToJSON CreateContactFlow where
   toJSON CreateContactFlow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Content" Core..= content)

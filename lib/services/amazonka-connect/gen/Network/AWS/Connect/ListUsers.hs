@@ -39,8 +39,8 @@ module Network.AWS.Connect.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
-    listUsersResponse_userSummaryList,
     listUsersResponse_nextToken,
+    listUsersResponse_userSummaryList,
     listUsersResponse_httpStatus,
   )
 where
@@ -135,10 +135,10 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> ( x Core..?> "UserSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "UserSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,11 +171,11 @@ instance Core.ToQuery ListUsers where
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | Information about the users.
-    userSummaryList :: Prelude.Maybe [UserSummary],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the users.
+    userSummaryList :: Prelude.Maybe [UserSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userSummaryList', 'listUsersResponse_userSummaryList' - Information about the users.
---
 -- 'nextToken', 'listUsersResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'userSummaryList', 'listUsersResponse_userSummaryList' - Information about the users.
 --
 -- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
 newListUsersResponse ::
@@ -201,20 +201,19 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { userSummaryList =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      userSummaryList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the users.
-listUsersResponse_userSummaryList :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
-listUsersResponse_userSummaryList = Lens.lens (\ListUsersResponse' {userSummaryList} -> userSummaryList) (\s@ListUsersResponse' {} a -> s {userSummaryList = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
+
+-- | Information about the users.
+listUsersResponse_userSummaryList :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
+listUsersResponse_userSummaryList = Lens.lens (\ListUsersResponse' {userSummaryList} -> userSummaryList) (\s@ListUsersResponse' {} a -> s {userSummaryList = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int

@@ -32,9 +32,9 @@ module Network.AWS.Connect.ListAgentStatuses
     newListAgentStatuses,
 
     -- * Request Lenses
+    listAgentStatuses_agentStatusTypes,
     listAgentStatuses_nextToken,
     listAgentStatuses_maxResults,
-    listAgentStatuses_agentStatusTypes,
     listAgentStatuses_instanceId,
 
     -- * Destructuring the Response
@@ -57,14 +57,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAgentStatuses' smart constructor.
 data ListAgentStatuses = ListAgentStatuses'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | Available agent status types.
+    agentStatusTypes :: Prelude.Maybe [AgentStatusType],
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Available agent status types.
-    agentStatusTypes :: Prelude.Maybe [AgentStatusType],
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -79,13 +79,13 @@ data ListAgentStatuses = ListAgentStatuses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'agentStatusTypes', 'listAgentStatuses_agentStatusTypes' - Available agent status types.
+--
 -- 'nextToken', 'listAgentStatuses_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
 -- 'maxResults', 'listAgentStatuses_maxResults' - The maximum number of results to return per page.
---
--- 'agentStatusTypes', 'listAgentStatuses_agentStatusTypes' - Available agent status types.
 --
 -- 'instanceId', 'listAgentStatuses_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -95,11 +95,16 @@ newListAgentStatuses ::
   ListAgentStatuses
 newListAgentStatuses pInstanceId_ =
   ListAgentStatuses'
-    { nextToken = Prelude.Nothing,
+    { agentStatusTypes =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      agentStatusTypes = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | Available agent status types.
+listAgentStatuses_agentStatusTypes :: Lens.Lens' ListAgentStatuses (Prelude.Maybe [AgentStatusType])
+listAgentStatuses_agentStatusTypes = Lens.lens (\ListAgentStatuses' {agentStatusTypes} -> agentStatusTypes) (\s@ListAgentStatuses' {} a -> s {agentStatusTypes = a} :: ListAgentStatuses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -110,10 +115,6 @@ listAgentStatuses_nextToken = Lens.lens (\ListAgentStatuses' {nextToken} -> next
 -- | The maximum number of results to return per page.
 listAgentStatuses_maxResults :: Lens.Lens' ListAgentStatuses (Prelude.Maybe Prelude.Natural)
 listAgentStatuses_maxResults = Lens.lens (\ListAgentStatuses' {maxResults} -> maxResults) (\s@ListAgentStatuses' {} a -> s {maxResults = a} :: ListAgentStatuses)
-
--- | Available agent status types.
-listAgentStatuses_agentStatusTypes :: Lens.Lens' ListAgentStatuses (Prelude.Maybe [AgentStatusType])
-listAgentStatuses_agentStatusTypes = Lens.lens (\ListAgentStatuses' {agentStatusTypes} -> agentStatusTypes) (\s@ListAgentStatuses' {} a -> s {agentStatusTypes = a} :: ListAgentStatuses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -181,13 +182,13 @@ instance Core.ToPath ListAgentStatuses where
 instance Core.ToQuery ListAgentStatuses where
   toQuery ListAgentStatuses' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "AgentStatusTypes"
+      [ "AgentStatusTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> agentStatusTypes
-            )
+            ),
+        "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListAgentStatusesResponse' smart constructor.
@@ -235,7 +236,7 @@ listAgentStatusesResponse_nextToken = Lens.lens (\ListAgentStatusesResponse' {ne
 
 -- | A summary of agent statuses.
 listAgentStatusesResponse_agentStatusSummaryList :: Lens.Lens' ListAgentStatusesResponse (Prelude.Maybe [AgentStatusSummary])
-listAgentStatusesResponse_agentStatusSummaryList = Lens.lens (\ListAgentStatusesResponse' {agentStatusSummaryList} -> agentStatusSummaryList) (\s@ListAgentStatusesResponse' {} a -> s {agentStatusSummaryList = a} :: ListAgentStatusesResponse) Prelude.. Lens.mapping Lens._Coerce
+listAgentStatusesResponse_agentStatusSummaryList = Lens.lens (\ListAgentStatusesResponse' {agentStatusSummaryList} -> agentStatusSummaryList) (\s@ListAgentStatusesResponse' {} a -> s {agentStatusSummaryList = a} :: ListAgentStatusesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAgentStatusesResponse_httpStatus :: Lens.Lens' ListAgentStatusesResponse Prelude.Int

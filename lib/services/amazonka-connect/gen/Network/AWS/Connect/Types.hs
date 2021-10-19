@@ -17,22 +17,22 @@ module Network.AWS.Connect.Types
     defaultService,
 
     -- * Errors
-    _ServiceQuotaExceededException,
+    _InvalidContactFlowException,
     _OutboundContactNotPermittedException,
-    _ResourceConflictException,
-    _ContactFlowNotPublishedException,
-    _UserNotFoundException,
-    _InternalServiceException,
-    _DuplicateResourceException,
-    _ThrottlingException,
     _InvalidParameterException,
     _InvalidRequestException,
-    _InvalidContactFlowException,
+    _DuplicateResourceException,
+    _UserNotFoundException,
+    _ContactFlowNotPublishedException,
+    _DestinationNotAllowedException,
     _ContactNotFoundException,
+    _ServiceQuotaExceededException,
+    _ThrottlingException,
+    _InternalServiceException,
+    _ResourceConflictException,
+    _ResourceNotFoundException,
     _LimitExceededException,
     _ResourceInUseException,
-    _ResourceNotFoundException,
-    _DestinationNotAllowedException,
 
     -- * AgentStatusState
     AgentStatusState (..),
@@ -128,20 +128,20 @@ module Network.AWS.Connect.Types
     AgentStatus (..),
     newAgentStatus,
     agentStatus_displayOrder,
-    agentStatus_agentStatusId,
-    agentStatus_name,
     agentStatus_state,
-    agentStatus_tags,
-    agentStatus_description,
-    agentStatus_agentStatusARN,
+    agentStatus_name,
+    agentStatus_agentStatusId,
     agentStatus_type,
+    agentStatus_agentStatusARN,
+    agentStatus_description,
+    agentStatus_tags,
 
     -- * AgentStatusSummary
     AgentStatusSummary (..),
     newAgentStatusSummary,
     agentStatusSummary_arn,
-    agentStatusSummary_id,
     agentStatusSummary_name,
+    agentStatusSummary_id,
     agentStatusSummary_type,
 
     -- * AnswerMachineDetectionConfig
@@ -153,8 +153,8 @@ module Network.AWS.Connect.Types
     -- * Attribute
     Attribute (..),
     newAttribute,
-    attribute_attributeType,
     attribute_value,
+    attribute_attributeType,
 
     -- * ChatMessage
     ChatMessage (..),
@@ -166,40 +166,40 @@ module Network.AWS.Connect.Types
     ContactFlow (..),
     newContactFlow,
     contactFlow_arn,
-    contactFlow_id,
-    contactFlow_name,
     contactFlow_content,
-    contactFlow_tags,
-    contactFlow_description,
+    contactFlow_name,
+    contactFlow_id,
     contactFlow_type,
+    contactFlow_description,
+    contactFlow_tags,
 
     -- * ContactFlowSummary
     ContactFlowSummary (..),
     newContactFlowSummary,
     contactFlowSummary_arn,
-    contactFlowSummary_id,
-    contactFlowSummary_contactFlowType,
     contactFlowSummary_name,
+    contactFlowSummary_contactFlowType,
+    contactFlowSummary_id,
 
     -- * Credentials
     Credentials (..),
     newCredentials,
-    credentials_refreshTokenExpiration,
-    credentials_accessToken,
     credentials_accessTokenExpiration,
+    credentials_accessToken,
     credentials_refreshToken,
+    credentials_refreshTokenExpiration,
 
     -- * CurrentMetric
     CurrentMetric (..),
     newCurrentMetric,
-    currentMetric_unit,
     currentMetric_name,
+    currentMetric_unit,
 
     -- * CurrentMetricData
     CurrentMetricData (..),
     newCurrentMetricData,
-    currentMetricData_metric,
     currentMetricData_value,
+    currentMetricData_metric,
 
     -- * CurrentMetricResult
     CurrentMetricResult (..),
@@ -210,8 +210,8 @@ module Network.AWS.Connect.Types
     -- * Dimensions
     Dimensions (..),
     newDimensions,
-    dimensions_queue,
     dimensions_channel,
+    dimensions_queue,
 
     -- * EncryptionConfig
     EncryptionConfig (..),
@@ -222,31 +222,31 @@ module Network.AWS.Connect.Types
     -- * Filters
     Filters (..),
     newFilters,
-    filters_channels,
     filters_queues,
+    filters_channels,
 
     -- * HierarchyGroup
     HierarchyGroup (..),
     newHierarchyGroup,
-    hierarchyGroup_levelId,
     hierarchyGroup_arn,
-    hierarchyGroup_id,
-    hierarchyGroup_hierarchyPath,
     hierarchyGroup_name,
+    hierarchyGroup_hierarchyPath,
+    hierarchyGroup_id,
+    hierarchyGroup_levelId,
 
     -- * HierarchyGroupSummary
     HierarchyGroupSummary (..),
     newHierarchyGroupSummary,
     hierarchyGroupSummary_arn,
-    hierarchyGroupSummary_id,
     hierarchyGroupSummary_name,
+    hierarchyGroupSummary_id,
 
     -- * HierarchyLevel
     HierarchyLevel (..),
     newHierarchyLevel,
     hierarchyLevel_arn,
-    hierarchyLevel_id,
     hierarchyLevel_name,
+    hierarchyLevel_id,
 
     -- * HierarchyLevelUpdate
     HierarchyLevelUpdate (..),
@@ -256,43 +256,43 @@ module Network.AWS.Connect.Types
     -- * HierarchyPath
     HierarchyPath (..),
     newHierarchyPath,
+    hierarchyPath_levelFive,
     hierarchyPath_levelThree,
     hierarchyPath_levelFour,
-    hierarchyPath_levelFive,
-    hierarchyPath_levelOne,
     hierarchyPath_levelTwo,
+    hierarchyPath_levelOne,
 
     -- * HierarchyStructure
     HierarchyStructure (..),
     newHierarchyStructure,
+    hierarchyStructure_levelFive,
     hierarchyStructure_levelThree,
     hierarchyStructure_levelFour,
-    hierarchyStructure_levelFive,
-    hierarchyStructure_levelOne,
     hierarchyStructure_levelTwo,
+    hierarchyStructure_levelOne,
 
     -- * HierarchyStructureUpdate
     HierarchyStructureUpdate (..),
     newHierarchyStructureUpdate,
+    hierarchyStructureUpdate_levelFive,
     hierarchyStructureUpdate_levelThree,
     hierarchyStructureUpdate_levelFour,
-    hierarchyStructureUpdate_levelFive,
-    hierarchyStructureUpdate_levelOne,
     hierarchyStructureUpdate_levelTwo,
+    hierarchyStructureUpdate_levelOne,
 
     -- * HistoricalMetric
     HistoricalMetric (..),
     newHistoricalMetric,
+    historicalMetric_name,
     historicalMetric_threshold,
     historicalMetric_unit,
-    historicalMetric_name,
     historicalMetric_statistic,
 
     -- * HistoricalMetricData
     HistoricalMetricData (..),
     newHistoricalMetricData,
-    historicalMetricData_metric,
     historicalMetricData_value,
+    historicalMetricData_metric,
 
     -- * HistoricalMetricResult
     HistoricalMetricResult (..),
@@ -304,12 +304,12 @@ module Network.AWS.Connect.Types
     HoursOfOperation (..),
     newHoursOfOperation,
     hoursOfOperation_config,
-    hoursOfOperation_hoursOfOperationArn,
     hoursOfOperation_name,
-    hoursOfOperation_tags,
-    hoursOfOperation_description,
-    hoursOfOperation_timeZone,
+    hoursOfOperation_hoursOfOperationArn,
     hoursOfOperation_hoursOfOperationId,
+    hoursOfOperation_timeZone,
+    hoursOfOperation_description,
+    hoursOfOperation_tags,
 
     -- * HoursOfOperationConfig
     HoursOfOperationConfig (..),
@@ -322,8 +322,8 @@ module Network.AWS.Connect.Types
     HoursOfOperationSummary (..),
     newHoursOfOperationSummary,
     hoursOfOperationSummary_arn,
-    hoursOfOperationSummary_id,
     hoursOfOperationSummary_name,
+    hoursOfOperationSummary_id,
 
     -- * HoursOfOperationTimeSlice
     HoursOfOperationTimeSlice (..),
@@ -334,16 +334,16 @@ module Network.AWS.Connect.Types
     -- * Instance
     Instance (..),
     newInstance,
-    instance_instanceAlias,
-    instance_serviceRole,
-    instance_outboundCallsEnabled,
     instance_arn,
-    instance_identityManagementType,
-    instance_instanceStatus,
-    instance_id,
     instance_createdTime,
+    instance_outboundCallsEnabled,
     instance_inboundCallsEnabled,
+    instance_instanceAlias,
+    instance_id,
+    instance_instanceStatus,
+    instance_identityManagementType,
     instance_statusReason,
+    instance_serviceRole,
 
     -- * InstanceStatusReason
     InstanceStatusReason (..),
@@ -353,37 +353,37 @@ module Network.AWS.Connect.Types
     -- * InstanceStorageConfig
     InstanceStorageConfig (..),
     newInstanceStorageConfig,
-    instanceStorageConfig_kinesisStreamConfig,
-    instanceStorageConfig_kinesisFirehoseConfig,
-    instanceStorageConfig_kinesisVideoStreamConfig,
     instanceStorageConfig_associationId,
+    instanceStorageConfig_kinesisStreamConfig,
+    instanceStorageConfig_kinesisVideoStreamConfig,
     instanceStorageConfig_s3Config,
+    instanceStorageConfig_kinesisFirehoseConfig,
     instanceStorageConfig_storageType,
 
     -- * InstanceSummary
     InstanceSummary (..),
     newInstanceSummary,
-    instanceSummary_instanceAlias,
-    instanceSummary_serviceRole,
-    instanceSummary_outboundCallsEnabled,
     instanceSummary_arn,
-    instanceSummary_identityManagementType,
-    instanceSummary_instanceStatus,
-    instanceSummary_id,
     instanceSummary_createdTime,
+    instanceSummary_outboundCallsEnabled,
     instanceSummary_inboundCallsEnabled,
+    instanceSummary_instanceAlias,
+    instanceSummary_id,
+    instanceSummary_instanceStatus,
+    instanceSummary_identityManagementType,
+    instanceSummary_serviceRole,
 
     -- * IntegrationAssociationSummary
     IntegrationAssociationSummary (..),
     newIntegrationAssociationSummary,
     integrationAssociationSummary_instanceId,
-    integrationAssociationSummary_sourceApplicationName,
-    integrationAssociationSummary_integrationAssociationArn,
-    integrationAssociationSummary_sourceApplicationUrl,
-    integrationAssociationSummary_integrationType,
-    integrationAssociationSummary_integrationArn,
     integrationAssociationSummary_sourceType,
+    integrationAssociationSummary_sourceApplicationUrl,
     integrationAssociationSummary_integrationAssociationId,
+    integrationAssociationSummary_integrationAssociationArn,
+    integrationAssociationSummary_sourceApplicationName,
+    integrationAssociationSummary_integrationArn,
+    integrationAssociationSummary_integrationType,
 
     -- * KinesisFirehoseConfig
     KinesisFirehoseConfig (..),
@@ -405,8 +405,8 @@ module Network.AWS.Connect.Types
     -- * LexBot
     LexBot (..),
     newLexBot,
-    lexBot_name,
     lexBot_lexRegion,
+    lexBot_name,
 
     -- * LexBotConfig
     LexBotConfig (..),
@@ -445,31 +445,31 @@ module Network.AWS.Connect.Types
     -- * PhoneNumberSummary
     PhoneNumberSummary (..),
     newPhoneNumberSummary,
-    phoneNumberSummary_phoneNumber,
-    phoneNumberSummary_arn,
-    phoneNumberSummary_id,
     phoneNumberSummary_phoneNumberType,
+    phoneNumberSummary_arn,
+    phoneNumberSummary_phoneNumber,
     phoneNumberSummary_phoneNumberCountryCode,
+    phoneNumberSummary_id,
 
     -- * PromptSummary
     PromptSummary (..),
     newPromptSummary,
     promptSummary_arn,
-    promptSummary_id,
     promptSummary_name,
+    promptSummary_id,
 
     -- * Queue
     Queue (..),
     newQueue,
-    queue_maxContacts,
     queue_status,
-    queue_queueId,
-    queue_name,
     queue_queueArn,
-    queue_tags,
-    queue_description,
-    queue_outboundCallerConfig,
+    queue_queueId,
+    queue_maxContacts,
+    queue_name,
     queue_hoursOfOperationId,
+    queue_outboundCallerConfig,
+    queue_description,
+    queue_tags,
 
     -- * QueueQuickConnectConfig
     QueueQuickConnectConfig (..),
@@ -486,36 +486,36 @@ module Network.AWS.Connect.Types
     -- * QueueSummary
     QueueSummary (..),
     newQueueSummary,
-    queueSummary_queueType,
     queueSummary_arn,
-    queueSummary_id,
     queueSummary_name,
+    queueSummary_id,
+    queueSummary_queueType,
 
     -- * QuickConnect
     QuickConnect (..),
     newQuickConnect,
-    quickConnect_quickConnectId,
     quickConnect_name,
-    quickConnect_quickConnectConfig,
-    quickConnect_tags,
-    quickConnect_quickConnectARN,
+    quickConnect_quickConnectId,
     quickConnect_description,
+    quickConnect_quickConnectARN,
+    quickConnect_tags,
+    quickConnect_quickConnectConfig,
 
     -- * QuickConnectConfig
     QuickConnectConfig (..),
     newQuickConnectConfig,
+    quickConnectConfig_queueConfig,
     quickConnectConfig_userConfig,
     quickConnectConfig_phoneConfig,
-    quickConnectConfig_queueConfig,
     quickConnectConfig_quickConnectType,
 
     -- * QuickConnectSummary
     QuickConnectSummary (..),
     newQuickConnectSummary,
-    quickConnectSummary_quickConnectType,
     quickConnectSummary_arn,
-    quickConnectSummary_id,
+    quickConnectSummary_quickConnectType,
     quickConnectSummary_name,
+    quickConnectSummary_id,
 
     -- * Reference
     Reference (..),
@@ -527,13 +527,13 @@ module Network.AWS.Connect.Types
     RoutingProfile (..),
     newRoutingProfile,
     routingProfile_instanceId,
-    routingProfile_defaultOutboundQueueId,
+    routingProfile_routingProfileArn,
     routingProfile_routingProfileId,
+    routingProfile_defaultOutboundQueueId,
     routingProfile_name,
     routingProfile_mediaConcurrencies,
-    routingProfile_tags,
     routingProfile_description,
-    routingProfile_routingProfileArn,
+    routingProfile_tags,
 
     -- * RoutingProfileQueueConfig
     RoutingProfileQueueConfig (..),
@@ -562,8 +562,8 @@ module Network.AWS.Connect.Types
     RoutingProfileSummary (..),
     newRoutingProfileSummary,
     routingProfileSummary_arn,
-    routingProfileSummary_id,
     routingProfileSummary_name,
+    routingProfileSummary_id,
 
     -- * S3Config
     S3Config (..),
@@ -575,16 +575,16 @@ module Network.AWS.Connect.Types
     -- * SecurityKey
     SecurityKey (..),
     newSecurityKey,
-    securityKey_key,
     securityKey_creationTime,
     securityKey_associationId,
+    securityKey_key,
 
     -- * SecurityProfileSummary
     SecurityProfileSummary (..),
     newSecurityProfileSummary,
     securityProfileSummary_arn,
-    securityProfileSummary_id,
     securityProfileSummary_name,
+    securityProfileSummary_id,
 
     -- * Threshold
     Threshold (..),
@@ -595,23 +595,23 @@ module Network.AWS.Connect.Types
     -- * UseCase
     UseCase (..),
     newUseCase,
-    useCase_useCaseArn,
     useCase_useCaseType,
+    useCase_useCaseArn,
     useCase_useCaseId,
 
     -- * User
     User (..),
     newUser,
-    user_securityProfileIds,
-    user_identityInfo,
+    user_routingProfileId,
+    user_directoryUserId,
     user_arn,
+    user_identityInfo,
+    user_securityProfileIds,
+    user_username,
     user_id,
     user_hierarchyGroupId,
-    user_directoryUserId,
-    user_routingProfileId,
-    user_tags,
     user_phoneConfig,
-    user_username,
+    user_tags,
 
     -- * UserIdentityInfo
     UserIdentityInfo (..),
@@ -638,8 +638,8 @@ module Network.AWS.Connect.Types
     UserSummary (..),
     newUserSummary,
     userSummary_arn,
-    userSummary_id,
     userSummary_username,
+    userSummary_id,
 
     -- * VoiceRecordingConfiguration
     VoiceRecordingConfiguration (..),
@@ -777,37 +777,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -820,15 +797,38 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
+-- | The contact flow is not valid.
+_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContactFlowException =
   Core._MatchServiceError
     defaultService
-    "ServiceQuotaExceededException"
-    Prelude.. Core.hasStatus 402
+    "InvalidContactFlowException"
+    Prelude.. Core.hasStatus 400
 
 -- | The contact is not permitted.
 _OutboundContactNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -837,56 +837,6 @@ _OutboundContactNotPermittedException =
     defaultService
     "OutboundContactNotPermittedException"
     Prelude.. Core.hasStatus 403
-
--- | A resource already has that name.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The contact flow has not been published.
-_ContactFlowNotPublishedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ContactFlowNotPublishedException =
-  Core._MatchServiceError
-    defaultService
-    "ContactFlowNotPublishedException"
-    Prelude.. Core.hasStatus 404
-
--- | No user with the specified credentials was found in the Amazon Connect
--- instance.
-_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UserNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "UserNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Request processing failed because of an error or failure with the
--- service.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-    Prelude.. Core.hasStatus 500
-
--- | A resource with the specified name already exists.
-_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateResourceException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateResourceException"
-    Prelude.. Core.hasStatus 409
-
--- | The throttling limit has been exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | One or more of the specified parameters are not valid.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -904,13 +854,38 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | The contact flow is not valid.
-_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidContactFlowException =
+-- | A resource with the specified name already exists.
+_DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateResourceException =
   Core._MatchServiceError
     defaultService
-    "InvalidContactFlowException"
-    Prelude.. Core.hasStatus 400
+    "DuplicateResourceException"
+    Prelude.. Core.hasStatus 409
+
+-- | No user with the specified credentials was found in the Amazon Connect
+-- instance.
+_UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "UserNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The contact flow has not been published.
+_ContactFlowNotPublishedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContactFlowNotPublishedException =
+  Core._MatchServiceError
+    defaultService
+    "ContactFlowNotPublishedException"
+    Prelude.. Core.hasStatus 404
+
+-- | Outbound calls to the destination number are not allowed.
+_DestinationNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DestinationNotAllowedException =
+  Core._MatchServiceError
+    defaultService
+    "DestinationNotAllowedException"
+    Prelude.. Core.hasStatus 403
 
 -- | The contact with the specified ID is not active or does not exist.
 _ContactNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -919,6 +894,47 @@ _ContactNotFoundException =
     defaultService
     "ContactNotFoundException"
     Prelude.. Core.hasStatus 410
+
+-- | The service quota has been exceeded.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
+-- | The throttling limit has been exceeded.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | Request processing failed because of an error or failure with the
+-- service.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+    Prelude.. Core.hasStatus 500
+
+-- | A resource already has that name.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The allowed limit for the resource has been exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -935,19 +951,3 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 409
-
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Outbound calls to the destination number are not allowed.
-_DestinationNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DestinationNotAllowedException =
-  Core._MatchServiceError
-    defaultService
-    "DestinationNotAllowedException"
-    Prelude.. Core.hasStatus 403

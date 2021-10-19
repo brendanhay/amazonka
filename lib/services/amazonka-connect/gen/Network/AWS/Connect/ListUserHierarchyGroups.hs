@@ -43,8 +43,8 @@ module Network.AWS.Connect.ListUserHierarchyGroups
     newListUserHierarchyGroupsResponse,
 
     -- * Response Lenses
-    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
     listUserHierarchyGroupsResponse_nextToken,
+    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
     listUserHierarchyGroupsResponse_httpStatus,
   )
 where
@@ -144,10 +144,10 @@ instance Core.AWSRequest ListUserHierarchyGroups where
     Response.receiveJSON
       ( \s h x ->
           ListUserHierarchyGroupsResponse'
-            Prelude.<$> ( x Core..?> "UserHierarchyGroupSummaryList"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "UserHierarchyGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance Core.ToQuery ListUserHierarchyGroups where
 
 -- | /See:/ 'newListUserHierarchyGroupsResponse' smart constructor.
 data ListUserHierarchyGroupsResponse = ListUserHierarchyGroupsResponse'
-  { -- | Information about the hierarchy groups.
-    userHierarchyGroupSummaryList :: Prelude.Maybe [HierarchyGroupSummary],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the hierarchy groups.
+    userHierarchyGroupSummaryList :: Prelude.Maybe [HierarchyGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data ListUserHierarchyGroupsResponse = ListUserHierarchyGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userHierarchyGroupSummaryList', 'listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList' - Information about the hierarchy groups.
---
 -- 'nextToken', 'listUserHierarchyGroupsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'userHierarchyGroupSummaryList', 'listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList' - Information about the hierarchy groups.
 --
 -- 'httpStatus', 'listUserHierarchyGroupsResponse_httpStatus' - The response's http status code.
 newListUserHierarchyGroupsResponse ::
@@ -212,20 +212,21 @@ newListUserHierarchyGroupsResponse ::
   ListUserHierarchyGroupsResponse
 newListUserHierarchyGroupsResponse pHttpStatus_ =
   ListUserHierarchyGroupsResponse'
-    { userHierarchyGroupSummaryList =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      userHierarchyGroupSummaryList =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the hierarchy groups.
-listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Prelude.Maybe [HierarchyGroupSummary])
-listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList = Lens.lens (\ListUserHierarchyGroupsResponse' {userHierarchyGroupSummaryList} -> userHierarchyGroupSummaryList) (\s@ListUserHierarchyGroupsResponse' {} a -> s {userHierarchyGroupSummaryList = a} :: ListUserHierarchyGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listUserHierarchyGroupsResponse_nextToken :: Lens.Lens' ListUserHierarchyGroupsResponse (Prelude.Maybe Prelude.Text)
 listUserHierarchyGroupsResponse_nextToken = Lens.lens (\ListUserHierarchyGroupsResponse' {nextToken} -> nextToken) (\s@ListUserHierarchyGroupsResponse' {} a -> s {nextToken = a} :: ListUserHierarchyGroupsResponse)
+
+-- | Information about the hierarchy groups.
+listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList :: Lens.Lens' ListUserHierarchyGroupsResponse (Prelude.Maybe [HierarchyGroupSummary])
+listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList = Lens.lens (\ListUserHierarchyGroupsResponse' {userHierarchyGroupSummaryList} -> userHierarchyGroupSummaryList) (\s@ListUserHierarchyGroupsResponse' {} a -> s {userHierarchyGroupSummaryList = a} :: ListUserHierarchyGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUserHierarchyGroupsResponse_httpStatus :: Lens.Lens' ListUserHierarchyGroupsResponse Prelude.Int

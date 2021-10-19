@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data HierarchyLevel = HierarchyLevel'
   { -- | The Amazon Resource Name (ARN) of the hierarchy level.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the hierarchy level.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the hierarchy level.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the hierarchy level.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data HierarchyLevel = HierarchyLevel'
 --
 -- 'arn', 'hierarchyLevel_arn' - The Amazon Resource Name (ARN) of the hierarchy level.
 --
--- 'id', 'hierarchyLevel_id' - The identifier of the hierarchy level.
---
 -- 'name', 'hierarchyLevel_name' - The name of the hierarchy level.
+--
+-- 'id', 'hierarchyLevel_id' - The identifier of the hierarchy level.
 newHierarchyLevel ::
   HierarchyLevel
 newHierarchyLevel =
   HierarchyLevel'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy level.
 hierarchyLevel_arn :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
 hierarchyLevel_arn = Lens.lens (\HierarchyLevel' {arn} -> arn) (\s@HierarchyLevel' {} a -> s {arn = a} :: HierarchyLevel)
 
--- | The identifier of the hierarchy level.
-hierarchyLevel_id :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
-hierarchyLevel_id = Lens.lens (\HierarchyLevel' {id} -> id) (\s@HierarchyLevel' {} a -> s {id = a} :: HierarchyLevel)
-
 -- | The name of the hierarchy level.
 hierarchyLevel_name :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
 hierarchyLevel_name = Lens.lens (\HierarchyLevel' {name} -> name) (\s@HierarchyLevel' {} a -> s {name = a} :: HierarchyLevel)
+
+-- | The identifier of the hierarchy level.
+hierarchyLevel_id :: Lens.Lens' HierarchyLevel (Prelude.Maybe Prelude.Text)
+hierarchyLevel_id = Lens.lens (\HierarchyLevel' {id} -> id) (\s@HierarchyLevel' {} a -> s {id = a} :: HierarchyLevel)
 
 instance Core.FromJSON HierarchyLevel where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON HierarchyLevel where
       ( \x ->
           HierarchyLevel'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable HierarchyLevel

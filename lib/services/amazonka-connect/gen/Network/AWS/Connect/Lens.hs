@@ -14,45 +14,10 @@
 module Network.AWS.Connect.Lens
   ( -- * Operations
 
-    -- ** UpdateUserHierarchyGroupName
-    updateUserHierarchyGroupName_name,
-    updateUserHierarchyGroupName_hierarchyGroupId,
-    updateUserHierarchyGroupName_instanceId,
-
-    -- ** UpdateUserRoutingProfile
-    updateUserRoutingProfile_routingProfileId,
-    updateUserRoutingProfile_userId,
-    updateUserRoutingProfile_instanceId,
-
-    -- ** SuspendContactRecording
-    suspendContactRecording_instanceId,
-    suspendContactRecording_contactId,
-    suspendContactRecording_initialContactId,
-    suspendContactRecordingResponse_httpStatus,
-
-    -- ** UpdateQueueName
-    updateQueueName_name,
-    updateQueueName_description,
-    updateQueueName_instanceId,
-    updateQueueName_queueId,
-
-    -- ** CreateQuickConnect
-    createQuickConnect_tags,
-    createQuickConnect_description,
-    createQuickConnect_instanceId,
-    createQuickConnect_name,
-    createQuickConnect_quickConnectConfig,
-    createQuickConnectResponse_quickConnectId,
-    createQuickConnectResponse_quickConnectARN,
-    createQuickConnectResponse_httpStatus,
-
-    -- ** ListInstanceAttributes
-    listInstanceAttributes_nextToken,
-    listInstanceAttributes_maxResults,
-    listInstanceAttributes_instanceId,
-    listInstanceAttributesResponse_nextToken,
-    listInstanceAttributesResponse_attributes,
-    listInstanceAttributesResponse_httpStatus,
+    -- ** DescribeInstance
+    describeInstance_instanceId,
+    describeInstanceResponse_instance,
+    describeInstanceResponse_httpStatus,
 
     -- ** ListSecurityProfiles
     listSecurityProfiles_nextToken,
@@ -62,287 +27,90 @@ module Network.AWS.Connect.Lens
     listSecurityProfilesResponse_securityProfileSummaryList,
     listSecurityProfilesResponse_httpStatus,
 
+    -- ** AssociateLexBot
+    associateLexBot_instanceId,
+    associateLexBot_lexBot,
+
+    -- ** UpdateInstanceAttribute
+    updateInstanceAttribute_instanceId,
+    updateInstanceAttribute_attributeType,
+    updateInstanceAttribute_value,
+
+    -- ** UpdateQueueStatus
+    updateQueueStatus_instanceId,
+    updateQueueStatus_queueId,
+    updateQueueStatus_status,
+
     -- ** UpdateRoutingProfileQueues
     updateRoutingProfileQueues_instanceId,
     updateRoutingProfileQueues_routingProfileId,
     updateRoutingProfileQueues_queueConfigs,
 
-    -- ** DescribeInstance
-    describeInstance_instanceId,
-    describeInstanceResponse_instance,
-    describeInstanceResponse_httpStatus,
+    -- ** DescribeQueue
+    describeQueue_instanceId,
+    describeQueue_queueId,
+    describeQueueResponse_queue,
+    describeQueueResponse_httpStatus,
 
-    -- ** UpdateContactFlowName
-    updateContactFlowName_name,
-    updateContactFlowName_description,
-    updateContactFlowName_instanceId,
-    updateContactFlowName_contactFlowId,
+    -- ** ListInstanceAttributes
+    listInstanceAttributes_nextToken,
+    listInstanceAttributes_maxResults,
+    listInstanceAttributes_instanceId,
+    listInstanceAttributesResponse_nextToken,
+    listInstanceAttributesResponse_attributes,
+    listInstanceAttributesResponse_httpStatus,
 
-    -- ** ListLambdaFunctions
-    listLambdaFunctions_nextToken,
-    listLambdaFunctions_maxResults,
-    listLambdaFunctions_instanceId,
-    listLambdaFunctionsResponse_nextToken,
-    listLambdaFunctionsResponse_lambdaFunctions,
-    listLambdaFunctionsResponse_httpStatus,
+    -- ** UpdateAgentStatus
+    updateAgentStatus_displayOrder,
+    updateAgentStatus_state,
+    updateAgentStatus_name,
+    updateAgentStatus_resetOrderNumber,
+    updateAgentStatus_description,
+    updateAgentStatus_instanceId,
+    updateAgentStatus_agentStatusId,
 
-    -- ** ListLexBots
-    listLexBots_nextToken,
-    listLexBots_maxResults,
-    listLexBots_instanceId,
-    listLexBotsResponse_nextToken,
-    listLexBotsResponse_lexBots,
-    listLexBotsResponse_httpStatus,
+    -- ** DescribeInstanceStorageConfig
+    describeInstanceStorageConfig_instanceId,
+    describeInstanceStorageConfig_associationId,
+    describeInstanceStorageConfig_resourceType,
+    describeInstanceStorageConfigResponse_storageConfig,
+    describeInstanceStorageConfigResponse_httpStatus,
 
-    -- ** AssociateRoutingProfileQueues
-    associateRoutingProfileQueues_instanceId,
-    associateRoutingProfileQueues_routingProfileId,
-    associateRoutingProfileQueues_queueConfigs,
+    -- ** CreateQuickConnect
+    createQuickConnect_description,
+    createQuickConnect_tags,
+    createQuickConnect_instanceId,
+    createQuickConnect_name,
+    createQuickConnect_quickConnectConfig,
+    createQuickConnectResponse_quickConnectId,
+    createQuickConnectResponse_quickConnectARN,
+    createQuickConnectResponse_httpStatus,
 
-    -- ** ListAgentStatuses
-    listAgentStatuses_nextToken,
-    listAgentStatuses_maxResults,
-    listAgentStatuses_agentStatusTypes,
-    listAgentStatuses_instanceId,
-    listAgentStatusesResponse_nextToken,
-    listAgentStatusesResponse_agentStatusSummaryList,
-    listAgentStatusesResponse_httpStatus,
+    -- ** DescribeContactFlow
+    describeContactFlow_instanceId,
+    describeContactFlow_contactFlowId,
+    describeContactFlowResponse_contactFlow,
+    describeContactFlowResponse_httpStatus,
 
-    -- ** AssociateLambdaFunction
-    associateLambdaFunction_instanceId,
-    associateLambdaFunction_functionArn,
+    -- ** UpdateUserHierarchy
+    updateUserHierarchy_hierarchyGroupId,
+    updateUserHierarchy_userId,
+    updateUserHierarchy_instanceId,
 
-    -- ** GetContactAttributes
-    getContactAttributes_instanceId,
-    getContactAttributes_initialContactId,
-    getContactAttributesResponse_attributes,
-    getContactAttributesResponse_httpStatus,
+    -- ** UpdateUserRoutingProfile
+    updateUserRoutingProfile_routingProfileId,
+    updateUserRoutingProfile_userId,
+    updateUserRoutingProfile_instanceId,
 
-    -- ** CreateAgentStatus
-    createAgentStatus_displayOrder,
-    createAgentStatus_tags,
-    createAgentStatus_description,
-    createAgentStatus_instanceId,
-    createAgentStatus_name,
-    createAgentStatus_state,
-    createAgentStatusResponse_agentStatusId,
-    createAgentStatusResponse_agentStatusARN,
-    createAgentStatusResponse_httpStatus,
+    -- ** UpdateUserHierarchyGroupName
+    updateUserHierarchyGroupName_name,
+    updateUserHierarchyGroupName_hierarchyGroupId,
+    updateUserHierarchyGroupName_instanceId,
 
-    -- ** ListApprovedOrigins
-    listApprovedOrigins_nextToken,
-    listApprovedOrigins_maxResults,
-    listApprovedOrigins_instanceId,
-    listApprovedOriginsResponse_origins,
-    listApprovedOriginsResponse_nextToken,
-    listApprovedOriginsResponse_httpStatus,
-
-    -- ** UpdateUserPhoneConfig
-    updateUserPhoneConfig_phoneConfig,
-    updateUserPhoneConfig_userId,
-    updateUserPhoneConfig_instanceId,
-
-    -- ** UpdateContactAttributes
-    updateContactAttributes_initialContactId,
-    updateContactAttributes_instanceId,
-    updateContactAttributes_attributes,
-    updateContactAttributesResponse_httpStatus,
-
-    -- ** DeleteUseCase
-    deleteUseCase_instanceId,
-    deleteUseCase_integrationAssociationId,
-    deleteUseCase_useCaseId,
-
-    -- ** ListRoutingProfiles
-    listRoutingProfiles_nextToken,
-    listRoutingProfiles_maxResults,
-    listRoutingProfiles_instanceId,
-    listRoutingProfilesResponse_nextToken,
-    listRoutingProfilesResponse_routingProfileSummaryList,
-    listRoutingProfilesResponse_httpStatus,
-
-    -- ** DescribeQuickConnect
-    describeQuickConnect_instanceId,
-    describeQuickConnect_quickConnectId,
-    describeQuickConnectResponse_quickConnect,
-    describeQuickConnectResponse_httpStatus,
-
-    -- ** AssociateInstanceStorageConfig
-    associateInstanceStorageConfig_instanceId,
-    associateInstanceStorageConfig_resourceType,
-    associateInstanceStorageConfig_storageConfig,
-    associateInstanceStorageConfigResponse_associationId,
-    associateInstanceStorageConfigResponse_httpStatus,
-
-    -- ** CreateContactFlow
-    createContactFlow_tags,
-    createContactFlow_description,
-    createContactFlow_instanceId,
-    createContactFlow_name,
-    createContactFlow_type,
-    createContactFlow_content,
-    createContactFlowResponse_contactFlowArn,
-    createContactFlowResponse_contactFlowId,
-    createContactFlowResponse_httpStatus,
-
-    -- ** ListQueueQuickConnects
-    listQueueQuickConnects_nextToken,
-    listQueueQuickConnects_maxResults,
-    listQueueQuickConnects_instanceId,
-    listQueueQuickConnects_queueId,
-    listQueueQuickConnectsResponse_nextToken,
-    listQueueQuickConnectsResponse_quickConnectSummaryList,
-    listQueueQuickConnectsResponse_httpStatus,
-
-    -- ** UpdateRoutingProfileConcurrency
-    updateRoutingProfileConcurrency_instanceId,
-    updateRoutingProfileConcurrency_routingProfileId,
-    updateRoutingProfileConcurrency_mediaConcurrencies,
-
-    -- ** DisassociateQueueQuickConnects
-    disassociateQueueQuickConnects_instanceId,
-    disassociateQueueQuickConnects_queueId,
-    disassociateQueueQuickConnects_quickConnectIds,
-
-    -- ** UpdateQueueOutboundCallerConfig
-    updateQueueOutboundCallerConfig_instanceId,
-    updateQueueOutboundCallerConfig_queueId,
-    updateQueueOutboundCallerConfig_outboundCallerConfig,
-
-    -- ** GetCurrentMetricData
-    getCurrentMetricData_nextToken,
-    getCurrentMetricData_groupings,
-    getCurrentMetricData_maxResults,
-    getCurrentMetricData_instanceId,
-    getCurrentMetricData_filters,
-    getCurrentMetricData_currentMetrics,
-    getCurrentMetricDataResponse_nextToken,
-    getCurrentMetricDataResponse_dataSnapshotTime,
-    getCurrentMetricDataResponse_metricResults,
-    getCurrentMetricDataResponse_httpStatus,
-
-    -- ** CreateRoutingProfile
-    createRoutingProfile_queueConfigs,
-    createRoutingProfile_tags,
-    createRoutingProfile_instanceId,
-    createRoutingProfile_name,
-    createRoutingProfile_description,
-    createRoutingProfile_defaultOutboundQueueId,
-    createRoutingProfile_mediaConcurrencies,
-    createRoutingProfileResponse_routingProfileId,
-    createRoutingProfileResponse_routingProfileArn,
-    createRoutingProfileResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-
-    -- ** DisassociateSecurityKey
-    disassociateSecurityKey_instanceId,
-    disassociateSecurityKey_associationId,
-
-    -- ** AssociateApprovedOrigin
-    associateApprovedOrigin_instanceId,
-    associateApprovedOrigin_origin,
-
-    -- ** ListQueues
-    listQueues_nextToken,
-    listQueues_maxResults,
-    listQueues_queueTypes,
-    listQueues_instanceId,
-    listQueuesResponse_nextToken,
-    listQueuesResponse_queueSummaryList,
-    listQueuesResponse_httpStatus,
-
-    -- ** ListBots
-    listBots_nextToken,
-    listBots_maxResults,
-    listBots_instanceId,
-    listBots_lexVersion,
-    listBotsResponse_nextToken,
-    listBotsResponse_lexBots,
-    listBotsResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** UpdateQuickConnectConfig
-    updateQuickConnectConfig_instanceId,
-    updateQuickConnectConfig_quickConnectId,
-    updateQuickConnectConfig_quickConnectConfig,
-
-    -- ** ListInstances
-    listInstances_nextToken,
-    listInstances_maxResults,
-    listInstancesResponse_nextToken,
-    listInstancesResponse_instanceSummaryList,
-    listInstancesResponse_httpStatus,
-
-    -- ** DeleteInstance
-    deleteInstance_instanceId,
-
-    -- ** StopContact
-    stopContact_contactId,
-    stopContact_instanceId,
-    stopContactResponse_httpStatus,
-
-    -- ** AssociateSecurityKey
-    associateSecurityKey_instanceId,
-    associateSecurityKey_key,
-    associateSecurityKeyResponse_associationId,
-    associateSecurityKeyResponse_httpStatus,
-
-    -- ** StopContactRecording
-    stopContactRecording_instanceId,
-    stopContactRecording_contactId,
-    stopContactRecording_initialContactId,
-    stopContactRecordingResponse_httpStatus,
-
-    -- ** UpdateQuickConnectName
-    updateQuickConnectName_name,
-    updateQuickConnectName_description,
-    updateQuickConnectName_instanceId,
-    updateQuickConnectName_quickConnectId,
-
-    -- ** CreateUser
-    createUser_identityInfo,
-    createUser_hierarchyGroupId,
-    createUser_directoryUserId,
-    createUser_password,
-    createUser_tags,
-    createUser_username,
-    createUser_phoneConfig,
-    createUser_securityProfileIds,
-    createUser_routingProfileId,
-    createUser_instanceId,
-    createUserResponse_userArn,
-    createUserResponse_userId,
-    createUserResponse_httpStatus,
-
-    -- ** CreateUserHierarchyGroup
-    createUserHierarchyGroup_parentGroupId,
-    createUserHierarchyGroup_name,
-    createUserHierarchyGroup_instanceId,
-    createUserHierarchyGroupResponse_hierarchyGroupArn,
-    createUserHierarchyGroupResponse_hierarchyGroupId,
-    createUserHierarchyGroupResponse_httpStatus,
-
-    -- ** StartContactRecording
-    startContactRecording_instanceId,
-    startContactRecording_contactId,
-    startContactRecording_initialContactId,
-    startContactRecording_voiceRecordingConfiguration,
-    startContactRecordingResponse_httpStatus,
-
-    -- ** DisassociateApprovedOrigin
-    disassociateApprovedOrigin_instanceId,
-    disassociateApprovedOrigin_origin,
-
-    -- ** AssociateQueueQuickConnects
-    associateQueueQuickConnects_instanceId,
-    associateQueueQuickConnects_queueId,
-    associateQueueQuickConnects_quickConnectIds,
+    -- ** UpdateQueueHoursOfOperation
+    updateQueueHoursOfOperation_instanceId,
+    updateQueueHoursOfOperation_queueId,
+    updateQueueHoursOfOperation_hoursOfOperationId,
 
     -- ** DescribeRoutingProfile
     describeRoutingProfile_instanceId,
@@ -355,220 +123,163 @@ module Network.AWS.Connect.Lens
     disassociateLexBot_botName,
     disassociateLexBot_lexRegion,
 
-    -- ** ListQuickConnects
-    listQuickConnects_nextToken,
-    listQuickConnects_maxResults,
-    listQuickConnects_quickConnectTypes,
-    listQuickConnects_instanceId,
-    listQuickConnectsResponse_nextToken,
-    listQuickConnectsResponse_quickConnectSummaryList,
-    listQuickConnectsResponse_httpStatus,
-
     -- ** DeleteQuickConnect
     deleteQuickConnect_instanceId,
     deleteQuickConnect_quickConnectId,
 
-    -- ** DescribeContactFlow
-    describeContactFlow_instanceId,
-    describeContactFlow_contactFlowId,
-    describeContactFlowResponse_contactFlow,
-    describeContactFlowResponse_httpStatus,
+    -- ** StartOutboundVoiceContact
+    startOutboundVoiceContact_answerMachineDetectionConfig,
+    startOutboundVoiceContact_clientToken,
+    startOutboundVoiceContact_trafficType,
+    startOutboundVoiceContact_campaignId,
+    startOutboundVoiceContact_queueId,
+    startOutboundVoiceContact_attributes,
+    startOutboundVoiceContact_sourcePhoneNumber,
+    startOutboundVoiceContact_destinationPhoneNumber,
+    startOutboundVoiceContact_contactFlowId,
+    startOutboundVoiceContact_instanceId,
+    startOutboundVoiceContactResponse_contactId,
+    startOutboundVoiceContactResponse_httpStatus,
 
-    -- ** DisassociateRoutingProfileQueues
-    disassociateRoutingProfileQueues_instanceId,
-    disassociateRoutingProfileQueues_routingProfileId,
-    disassociateRoutingProfileQueues_queueReferences,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** UpdateQueueHoursOfOperation
-    updateQueueHoursOfOperation_instanceId,
-    updateQueueHoursOfOperation_queueId,
-    updateQueueHoursOfOperation_hoursOfOperationId,
+    -- ** GetMetricData
+    getMetricData_nextToken,
+    getMetricData_groupings,
+    getMetricData_maxResults,
+    getMetricData_instanceId,
+    getMetricData_startTime,
+    getMetricData_endTime,
+    getMetricData_filters,
+    getMetricData_historicalMetrics,
+    getMetricDataResponse_metricResults,
+    getMetricDataResponse_nextToken,
+    getMetricDataResponse_httpStatus,
 
-    -- ** UpdateUserHierarchy
-    updateUserHierarchy_hierarchyGroupId,
-    updateUserHierarchy_userId,
-    updateUserHierarchy_instanceId,
+    -- ** StartContactRecording
+    startContactRecording_instanceId,
+    startContactRecording_contactId,
+    startContactRecording_initialContactId,
+    startContactRecording_voiceRecordingConfiguration,
+    startContactRecordingResponse_httpStatus,
 
-    -- ** DisassociateLambdaFunction
-    disassociateLambdaFunction_instanceId,
-    disassociateLambdaFunction_functionArn,
+    -- ** CreateInstance
+    createInstance_directoryId,
+    createInstance_clientToken,
+    createInstance_instanceAlias,
+    createInstance_identityManagementType,
+    createInstance_inboundCallsEnabled,
+    createInstance_outboundCallsEnabled,
+    createInstanceResponse_arn,
+    createInstanceResponse_id,
+    createInstanceResponse_httpStatus,
 
-    -- ** UpdateQueueMaxContacts
-    updateQueueMaxContacts_maxContacts,
-    updateQueueMaxContacts_instanceId,
-    updateQueueMaxContacts_queueId,
+    -- ** AssociateBot
+    associateBot_lexBot,
+    associateBot_lexV2Bot,
+    associateBot_instanceId,
 
-    -- ** DescribeInstanceStorageConfig
-    describeInstanceStorageConfig_instanceId,
-    describeInstanceStorageConfig_associationId,
-    describeInstanceStorageConfig_resourceType,
-    describeInstanceStorageConfigResponse_storageConfig,
-    describeInstanceStorageConfigResponse_httpStatus,
+    -- ** AssociateQueueQuickConnects
+    associateQueueQuickConnects_instanceId,
+    associateQueueQuickConnects_queueId,
+    associateQueueQuickConnects_quickConnectIds,
 
-    -- ** ListRoutingProfileQueues
-    listRoutingProfileQueues_nextToken,
-    listRoutingProfileQueues_maxResults,
-    listRoutingProfileQueues_instanceId,
-    listRoutingProfileQueues_routingProfileId,
-    listRoutingProfileQueuesResponse_nextToken,
-    listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList,
-    listRoutingProfileQueuesResponse_httpStatus,
+    -- ** StartTaskContact
+    startTaskContact_clientToken,
+    startTaskContact_references,
+    startTaskContact_previousContactId,
+    startTaskContact_attributes,
+    startTaskContact_description,
+    startTaskContact_instanceId,
+    startTaskContact_contactFlowId,
+    startTaskContact_name,
+    startTaskContactResponse_contactId,
+    startTaskContactResponse_httpStatus,
 
-    -- ** UpdateInstanceAttribute
-    updateInstanceAttribute_instanceId,
-    updateInstanceAttribute_attributeType,
-    updateInstanceAttribute_value,
+    -- ** ListUsers
+    listUsers_nextToken,
+    listUsers_maxResults,
+    listUsers_instanceId,
+    listUsersResponse_nextToken,
+    listUsersResponse_userSummaryList,
+    listUsersResponse_httpStatus,
 
-    -- ** DescribeUser
-    describeUser_userId,
-    describeUser_instanceId,
-    describeUserResponse_user,
-    describeUserResponse_httpStatus,
+    -- ** ListUserHierarchyGroups
+    listUserHierarchyGroups_nextToken,
+    listUserHierarchyGroups_maxResults,
+    listUserHierarchyGroups_instanceId,
+    listUserHierarchyGroupsResponse_nextToken,
+    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
+    listUserHierarchyGroupsResponse_httpStatus,
 
-    -- ** AssociateLexBot
-    associateLexBot_instanceId,
-    associateLexBot_lexBot,
+    -- ** ListQueues
+    listQueues_nextToken,
+    listQueues_queueTypes,
+    listQueues_maxResults,
+    listQueues_instanceId,
+    listQueuesResponse_nextToken,
+    listQueuesResponse_queueSummaryList,
+    listQueuesResponse_httpStatus,
 
-    -- ** UpdateQueueStatus
-    updateQueueStatus_instanceId,
-    updateQueueStatus_queueId,
-    updateQueueStatus_status,
+    -- ** DescribeInstanceAttribute
+    describeInstanceAttribute_instanceId,
+    describeInstanceAttribute_attributeType,
+    describeInstanceAttributeResponse_attribute,
+    describeInstanceAttributeResponse_httpStatus,
 
-    -- ** ResumeContactRecording
-    resumeContactRecording_instanceId,
-    resumeContactRecording_contactId,
-    resumeContactRecording_initialContactId,
-    resumeContactRecordingResponse_httpStatus,
+    -- ** ListBots
+    listBots_nextToken,
+    listBots_maxResults,
+    listBots_instanceId,
+    listBots_lexVersion,
+    listBotsResponse_nextToken,
+    listBotsResponse_lexBots,
+    listBotsResponse_httpStatus,
 
-    -- ** UpdateAgentStatus
-    updateAgentStatus_displayOrder,
-    updateAgentStatus_name,
-    updateAgentStatus_state,
-    updateAgentStatus_description,
-    updateAgentStatus_resetOrderNumber,
-    updateAgentStatus_instanceId,
-    updateAgentStatus_agentStatusId,
+    -- ** UpdateQuickConnectConfig
+    updateQuickConnectConfig_instanceId,
+    updateQuickConnectConfig_quickConnectId,
+    updateQuickConnectConfig_quickConnectConfig,
 
-    -- ** DescribeUserHierarchyGroup
-    describeUserHierarchyGroup_hierarchyGroupId,
-    describeUserHierarchyGroup_instanceId,
-    describeUserHierarchyGroupResponse_hierarchyGroup,
-    describeUserHierarchyGroupResponse_httpStatus,
+    -- ** DescribeAgentStatus
+    describeAgentStatus_instanceId,
+    describeAgentStatus_agentStatusId,
+    describeAgentStatusResponse_agentStatus,
+    describeAgentStatusResponse_httpStatus,
 
-    -- ** DescribeQueue
-    describeQueue_instanceId,
-    describeQueue_queueId,
-    describeQueueResponse_queue,
-    describeQueueResponse_httpStatus,
+    -- ** DeleteInstance
+    deleteInstance_instanceId,
 
-    -- ** UpdateRoutingProfileName
-    updateRoutingProfileName_name,
-    updateRoutingProfileName_description,
-    updateRoutingProfileName_instanceId,
-    updateRoutingProfileName_routingProfileId,
+    -- ** DisassociateInstanceStorageConfig
+    disassociateInstanceStorageConfig_instanceId,
+    disassociateInstanceStorageConfig_associationId,
+    disassociateInstanceStorageConfig_resourceType,
 
-    -- ** DescribeUserHierarchyStructure
-    describeUserHierarchyStructure_instanceId,
-    describeUserHierarchyStructureResponse_hierarchyStructure,
-    describeUserHierarchyStructureResponse_httpStatus,
+    -- ** CreateRoutingProfile
+    createRoutingProfile_queueConfigs,
+    createRoutingProfile_tags,
+    createRoutingProfile_instanceId,
+    createRoutingProfile_name,
+    createRoutingProfile_description,
+    createRoutingProfile_defaultOutboundQueueId,
+    createRoutingProfile_mediaConcurrencies,
+    createRoutingProfileResponse_routingProfileArn,
+    createRoutingProfileResponse_routingProfileId,
+    createRoutingProfileResponse_httpStatus,
 
-    -- ** StartChatContact
-    startChatContact_initialMessage,
-    startChatContact_attributes,
-    startChatContact_clientToken,
-    startChatContact_instanceId,
-    startChatContact_contactFlowId,
-    startChatContact_participantDetails,
-    startChatContactResponse_participantToken,
-    startChatContactResponse_contactId,
-    startChatContactResponse_participantId,
-    startChatContactResponse_httpStatus,
+    -- ** UpdateInstanceStorageConfig
+    updateInstanceStorageConfig_instanceId,
+    updateInstanceStorageConfig_associationId,
+    updateInstanceStorageConfig_resourceType,
+    updateInstanceStorageConfig_storageConfig,
 
-    -- ** DeleteIntegrationAssociation
-    deleteIntegrationAssociation_instanceId,
-    deleteIntegrationAssociation_integrationAssociationId,
-
-    -- ** ListUseCases
-    listUseCases_nextToken,
-    listUseCases_maxResults,
-    listUseCases_instanceId,
-    listUseCases_integrationAssociationId,
-    listUseCasesResponse_nextToken,
-    listUseCasesResponse_useCaseSummaryList,
-    listUseCasesResponse_httpStatus,
-
-    -- ** UpdateUserSecurityProfiles
-    updateUserSecurityProfiles_securityProfileIds,
-    updateUserSecurityProfiles_userId,
-    updateUserSecurityProfiles_instanceId,
-
-    -- ** DeleteHoursOfOperation
-    deleteHoursOfOperation_instanceId,
-    deleteHoursOfOperation_hoursOfOperationId,
-
-    -- ** UpdateHoursOfOperation
-    updateHoursOfOperation_config,
-    updateHoursOfOperation_name,
-    updateHoursOfOperation_description,
-    updateHoursOfOperation_timeZone,
-    updateHoursOfOperation_instanceId,
-    updateHoursOfOperation_hoursOfOperationId,
-
-    -- ** ListPhoneNumbers
-    listPhoneNumbers_nextToken,
-    listPhoneNumbers_phoneNumberTypes,
-    listPhoneNumbers_maxResults,
-    listPhoneNumbers_phoneNumberCountryCodes,
-    listPhoneNumbers_instanceId,
-    listPhoneNumbersResponse_nextToken,
-    listPhoneNumbersResponse_phoneNumberSummaryList,
-    listPhoneNumbersResponse_httpStatus,
-
-    -- ** ListHoursOfOperations
-    listHoursOfOperations_nextToken,
-    listHoursOfOperations_maxResults,
-    listHoursOfOperations_instanceId,
-    listHoursOfOperationsResponse_nextToken,
-    listHoursOfOperationsResponse_hoursOfOperationSummaryList,
-    listHoursOfOperationsResponse_httpStatus,
-
-    -- ** ListIntegrationAssociations
-    listIntegrationAssociations_nextToken,
-    listIntegrationAssociations_maxResults,
-    listIntegrationAssociations_integrationType,
-    listIntegrationAssociations_instanceId,
-    listIntegrationAssociationsResponse_nextToken,
-    listIntegrationAssociationsResponse_integrationAssociationSummaryList,
-    listIntegrationAssociationsResponse_httpStatus,
-
-    -- ** ListContactFlows
-    listContactFlows_nextToken,
-    listContactFlows_contactFlowTypes,
-    listContactFlows_maxResults,
-    listContactFlows_instanceId,
-    listContactFlowsResponse_nextToken,
-    listContactFlowsResponse_contactFlowSummaryList,
-    listContactFlowsResponse_httpStatus,
-
-    -- ** ListInstanceStorageConfigs
-    listInstanceStorageConfigs_nextToken,
-    listInstanceStorageConfigs_maxResults,
-    listInstanceStorageConfigs_instanceId,
-    listInstanceStorageConfigs_resourceType,
-    listInstanceStorageConfigsResponse_nextToken,
-    listInstanceStorageConfigsResponse_storageConfigs,
-    listInstanceStorageConfigsResponse_httpStatus,
-
-    -- ** CreateHoursOfOperation
-    createHoursOfOperation_tags,
-    createHoursOfOperation_description,
-    createHoursOfOperation_instanceId,
-    createHoursOfOperation_name,
-    createHoursOfOperation_timeZone,
-    createHoursOfOperation_config,
-    createHoursOfOperationResponse_hoursOfOperationArn,
-    createHoursOfOperationResponse_hoursOfOperationId,
-    createHoursOfOperationResponse_httpStatus,
+    -- ** DisassociateQueueQuickConnects
+    disassociateQueueQuickConnects_instanceId,
+    disassociateQueueQuickConnects_queueId,
+    disassociateQueueQuickConnects_quickConnectIds,
 
     -- ** CreateUseCase
     createUseCase_tags,
@@ -584,62 +295,289 @@ module Network.AWS.Connect.Lens
     disassociateBot_lexV2Bot,
     disassociateBot_instanceId,
 
-    -- ** CreateIntegrationAssociation
-    createIntegrationAssociation_sourceApplicationName,
-    createIntegrationAssociation_sourceApplicationUrl,
-    createIntegrationAssociation_tags,
-    createIntegrationAssociation_sourceType,
-    createIntegrationAssociation_instanceId,
-    createIntegrationAssociation_integrationType,
-    createIntegrationAssociation_integrationArn,
-    createIntegrationAssociationResponse_integrationAssociationArn,
-    createIntegrationAssociationResponse_integrationAssociationId,
-    createIntegrationAssociationResponse_httpStatus,
+    -- ** ListQueueQuickConnects
+    listQueueQuickConnects_nextToken,
+    listQueueQuickConnects_maxResults,
+    listQueueQuickConnects_instanceId,
+    listQueueQuickConnects_queueId,
+    listQueueQuickConnectsResponse_quickConnectSummaryList,
+    listQueueQuickConnectsResponse_nextToken,
+    listQueueQuickConnectsResponse_httpStatus,
 
-    -- ** UpdateInstanceStorageConfig
-    updateInstanceStorageConfig_instanceId,
-    updateInstanceStorageConfig_associationId,
-    updateInstanceStorageConfig_resourceType,
-    updateInstanceStorageConfig_storageConfig,
+    -- ** GetCurrentMetricData
+    getCurrentMetricData_nextToken,
+    getCurrentMetricData_groupings,
+    getCurrentMetricData_maxResults,
+    getCurrentMetricData_instanceId,
+    getCurrentMetricData_filters,
+    getCurrentMetricData_currentMetrics,
+    getCurrentMetricDataResponse_metricResults,
+    getCurrentMetricDataResponse_dataSnapshotTime,
+    getCurrentMetricDataResponse_nextToken,
+    getCurrentMetricDataResponse_httpStatus,
 
-    -- ** UpdateUserIdentityInfo
-    updateUserIdentityInfo_identityInfo,
-    updateUserIdentityInfo_userId,
-    updateUserIdentityInfo_instanceId,
+    -- ** CreateContactFlow
+    createContactFlow_description,
+    createContactFlow_tags,
+    createContactFlow_instanceId,
+    createContactFlow_name,
+    createContactFlow_type,
+    createContactFlow_content,
+    createContactFlowResponse_contactFlowArn,
+    createContactFlowResponse_contactFlowId,
+    createContactFlowResponse_httpStatus,
 
-    -- ** UpdateRoutingProfileDefaultOutboundQueue
-    updateRoutingProfileDefaultOutboundQueue_instanceId,
-    updateRoutingProfileDefaultOutboundQueue_routingProfileId,
-    updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId,
+    -- ** ListRoutingProfiles
+    listRoutingProfiles_nextToken,
+    listRoutingProfiles_maxResults,
+    listRoutingProfiles_instanceId,
+    listRoutingProfilesResponse_routingProfileSummaryList,
+    listRoutingProfilesResponse_nextToken,
+    listRoutingProfilesResponse_httpStatus,
 
-    -- ** ListUsers
-    listUsers_nextToken,
-    listUsers_maxResults,
-    listUsers_instanceId,
-    listUsersResponse_userSummaryList,
-    listUsersResponse_nextToken,
-    listUsersResponse_httpStatus,
+    -- ** DeleteIntegrationAssociation
+    deleteIntegrationAssociation_instanceId,
+    deleteIntegrationAssociation_integrationAssociationId,
 
-    -- ** GetFederationToken
-    getFederationToken_instanceId,
-    getFederationTokenResponse_credentials,
-    getFederationTokenResponse_httpStatus,
+    -- ** DeleteHoursOfOperation
+    deleteHoursOfOperation_instanceId,
+    deleteHoursOfOperation_hoursOfOperationId,
 
-    -- ** DeleteUserHierarchyGroup
-    deleteUserHierarchyGroup_hierarchyGroupId,
-    deleteUserHierarchyGroup_instanceId,
+    -- ** UpdateUserPhoneConfig
+    updateUserPhoneConfig_phoneConfig,
+    updateUserPhoneConfig_userId,
+    updateUserPhoneConfig_instanceId,
 
-    -- ** DescribeInstanceAttribute
-    describeInstanceAttribute_instanceId,
-    describeInstanceAttribute_attributeType,
-    describeInstanceAttributeResponse_attribute,
-    describeInstanceAttributeResponse_httpStatus,
+    -- ** UpdateHoursOfOperation
+    updateHoursOfOperation_config,
+    updateHoursOfOperation_name,
+    updateHoursOfOperation_timeZone,
+    updateHoursOfOperation_description,
+    updateHoursOfOperation_instanceId,
+    updateHoursOfOperation_hoursOfOperationId,
 
-    -- ** DescribeAgentStatus
-    describeAgentStatus_instanceId,
-    describeAgentStatus_agentStatusId,
-    describeAgentStatusResponse_agentStatus,
-    describeAgentStatusResponse_httpStatus,
+    -- ** ListApprovedOrigins
+    listApprovedOrigins_nextToken,
+    listApprovedOrigins_maxResults,
+    listApprovedOrigins_instanceId,
+    listApprovedOriginsResponse_nextToken,
+    listApprovedOriginsResponse_origins,
+    listApprovedOriginsResponse_httpStatus,
+
+    -- ** DescribeUserHierarchyStructure
+    describeUserHierarchyStructure_instanceId,
+    describeUserHierarchyStructureResponse_hierarchyStructure,
+    describeUserHierarchyStructureResponse_httpStatus,
+
+    -- ** ListPhoneNumbers
+    listPhoneNumbers_phoneNumberTypes,
+    listPhoneNumbers_phoneNumberCountryCodes,
+    listPhoneNumbers_nextToken,
+    listPhoneNumbers_maxResults,
+    listPhoneNumbers_instanceId,
+    listPhoneNumbersResponse_phoneNumberSummaryList,
+    listPhoneNumbersResponse_nextToken,
+    listPhoneNumbersResponse_httpStatus,
+
+    -- ** UpdateContactAttributes
+    updateContactAttributes_initialContactId,
+    updateContactAttributes_instanceId,
+    updateContactAttributes_attributes,
+    updateContactAttributesResponse_httpStatus,
+
+    -- ** ListUseCases
+    listUseCases_nextToken,
+    listUseCases_maxResults,
+    listUseCases_instanceId,
+    listUseCases_integrationAssociationId,
+    listUseCasesResponse_useCaseSummaryList,
+    listUseCasesResponse_nextToken,
+    listUseCasesResponse_httpStatus,
+
+    -- ** StartChatContact
+    startChatContact_clientToken,
+    startChatContact_attributes,
+    startChatContact_initialMessage,
+    startChatContact_instanceId,
+    startChatContact_contactFlowId,
+    startChatContact_participantDetails,
+    startChatContactResponse_participantToken,
+    startChatContactResponse_participantId,
+    startChatContactResponse_contactId,
+    startChatContactResponse_httpStatus,
+
+    -- ** DeleteUseCase
+    deleteUseCase_instanceId,
+    deleteUseCase_integrationAssociationId,
+    deleteUseCase_useCaseId,
+
+    -- ** UpdateUserSecurityProfiles
+    updateUserSecurityProfiles_securityProfileIds,
+    updateUserSecurityProfiles_userId,
+    updateUserSecurityProfiles_instanceId,
+
+    -- ** GetContactAttributes
+    getContactAttributes_instanceId,
+    getContactAttributes_initialContactId,
+    getContactAttributesResponse_attributes,
+    getContactAttributesResponse_httpStatus,
+
+    -- ** ListLambdaFunctions
+    listLambdaFunctions_nextToken,
+    listLambdaFunctions_maxResults,
+    listLambdaFunctions_instanceId,
+    listLambdaFunctionsResponse_lambdaFunctions,
+    listLambdaFunctionsResponse_nextToken,
+    listLambdaFunctionsResponse_httpStatus,
+
+    -- ** DescribeUserHierarchyGroup
+    describeUserHierarchyGroup_hierarchyGroupId,
+    describeUserHierarchyGroup_instanceId,
+    describeUserHierarchyGroupResponse_hierarchyGroup,
+    describeUserHierarchyGroupResponse_httpStatus,
+
+    -- ** DescribeUser
+    describeUser_userId,
+    describeUser_instanceId,
+    describeUserResponse_user,
+    describeUserResponse_httpStatus,
+
+    -- ** ResumeContactRecording
+    resumeContactRecording_instanceId,
+    resumeContactRecording_contactId,
+    resumeContactRecording_initialContactId,
+    resumeContactRecordingResponse_httpStatus,
+
+    -- ** UpdateContactFlowName
+    updateContactFlowName_name,
+    updateContactFlowName_description,
+    updateContactFlowName_instanceId,
+    updateContactFlowName_contactFlowId,
+
+    -- ** SuspendContactRecording
+    suspendContactRecording_instanceId,
+    suspendContactRecording_contactId,
+    suspendContactRecording_initialContactId,
+    suspendContactRecordingResponse_httpStatus,
+
+    -- ** UpdateQueueName
+    updateQueueName_name,
+    updateQueueName_description,
+    updateQueueName_instanceId,
+    updateQueueName_queueId,
+
+    -- ** UpdateQueueMaxContacts
+    updateQueueMaxContacts_maxContacts,
+    updateQueueMaxContacts_instanceId,
+    updateQueueMaxContacts_queueId,
+
+    -- ** ListRoutingProfileQueues
+    listRoutingProfileQueues_nextToken,
+    listRoutingProfileQueues_maxResults,
+    listRoutingProfileQueues_instanceId,
+    listRoutingProfileQueues_routingProfileId,
+    listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList,
+    listRoutingProfileQueuesResponse_nextToken,
+    listRoutingProfileQueuesResponse_httpStatus,
+
+    -- ** DisassociateRoutingProfileQueues
+    disassociateRoutingProfileQueues_instanceId,
+    disassociateRoutingProfileQueues_routingProfileId,
+    disassociateRoutingProfileQueues_queueReferences,
+
+    -- ** DisassociateLambdaFunction
+    disassociateLambdaFunction_instanceId,
+    disassociateLambdaFunction_functionArn,
+
+    -- ** UpdateContactFlowContent
+    updateContactFlowContent_instanceId,
+    updateContactFlowContent_contactFlowId,
+    updateContactFlowContent_content,
+
+    -- ** UpdateUserHierarchyStructure
+    updateUserHierarchyStructure_hierarchyStructure,
+    updateUserHierarchyStructure_instanceId,
+
+    -- ** DescribeHoursOfOperation
+    describeHoursOfOperation_instanceId,
+    describeHoursOfOperation_hoursOfOperationId,
+    describeHoursOfOperationResponse_hoursOfOperation,
+    describeHoursOfOperationResponse_httpStatus,
+
+    -- ** ListQuickConnects
+    listQuickConnects_quickConnectTypes,
+    listQuickConnects_nextToken,
+    listQuickConnects_maxResults,
+    listQuickConnects_instanceId,
+    listQuickConnectsResponse_quickConnectSummaryList,
+    listQuickConnectsResponse_nextToken,
+    listQuickConnectsResponse_httpStatus,
+
+    -- ** CreateUserHierarchyGroup
+    createUserHierarchyGroup_parentGroupId,
+    createUserHierarchyGroup_name,
+    createUserHierarchyGroup_instanceId,
+    createUserHierarchyGroupResponse_hierarchyGroupArn,
+    createUserHierarchyGroupResponse_hierarchyGroupId,
+    createUserHierarchyGroupResponse_httpStatus,
+
+    -- ** CreateUser
+    createUser_directoryUserId,
+    createUser_identityInfo,
+    createUser_password,
+    createUser_hierarchyGroupId,
+    createUser_tags,
+    createUser_username,
+    createUser_phoneConfig,
+    createUser_securityProfileIds,
+    createUser_routingProfileId,
+    createUser_instanceId,
+    createUserResponse_userId,
+    createUserResponse_userArn,
+    createUserResponse_httpStatus,
+
+    -- ** CreateQueue
+    createQueue_maxContacts,
+    createQueue_quickConnectIds,
+    createQueue_outboundCallerConfig,
+    createQueue_description,
+    createQueue_tags,
+    createQueue_instanceId,
+    createQueue_name,
+    createQueue_hoursOfOperationId,
+    createQueueResponse_queueArn,
+    createQueueResponse_queueId,
+    createQueueResponse_httpStatus,
+
+    -- ** UpdateQuickConnectName
+    updateQuickConnectName_name,
+    updateQuickConnectName_description,
+    updateQuickConnectName_instanceId,
+    updateQuickConnectName_quickConnectId,
+
+    -- ** ListPrompts
+    listPrompts_nextToken,
+    listPrompts_maxResults,
+    listPrompts_instanceId,
+    listPromptsResponse_promptSummaryList,
+    listPromptsResponse_nextToken,
+    listPromptsResponse_httpStatus,
+
+    -- ** AssociateSecurityKey
+    associateSecurityKey_instanceId,
+    associateSecurityKey_key,
+    associateSecurityKeyResponse_associationId,
+    associateSecurityKeyResponse_httpStatus,
+
+    -- ** StopContactRecording
+    stopContactRecording_instanceId,
+    stopContactRecording_contactId,
+    stopContactRecording_initialContactId,
+    stopContactRecordingResponse_httpStatus,
+
+    -- ** DisassociateApprovedOrigin
+    disassociateApprovedOrigin_instanceId,
+    disassociateApprovedOrigin_origin,
 
     -- ** ListSecurityKeys
     listSecurityKeys_nextToken,
@@ -649,135 +587,197 @@ module Network.AWS.Connect.Lens
     listSecurityKeysResponse_securityKeys,
     listSecurityKeysResponse_httpStatus,
 
-    -- ** ListUserHierarchyGroups
-    listUserHierarchyGroups_nextToken,
-    listUserHierarchyGroups_maxResults,
-    listUserHierarchyGroups_instanceId,
-    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
-    listUserHierarchyGroupsResponse_nextToken,
-    listUserHierarchyGroupsResponse_httpStatus,
+    -- ** GetFederationToken
+    getFederationToken_instanceId,
+    getFederationTokenResponse_credentials,
+    getFederationTokenResponse_httpStatus,
+
+    -- ** StopContact
+    stopContact_contactId,
+    stopContact_instanceId,
+    stopContactResponse_httpStatus,
 
     -- ** DeleteUser
     deleteUser_instanceId,
     deleteUser_userId,
 
-    -- ** DisassociateInstanceStorageConfig
-    disassociateInstanceStorageConfig_instanceId,
-    disassociateInstanceStorageConfig_associationId,
-    disassociateInstanceStorageConfig_resourceType,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
 
-    -- ** AssociateBot
-    associateBot_lexBot,
-    associateBot_lexV2Bot,
-    associateBot_instanceId,
+    -- ** UpdateUserIdentityInfo
+    updateUserIdentityInfo_identityInfo,
+    updateUserIdentityInfo_userId,
+    updateUserIdentityInfo_instanceId,
 
-    -- ** CreateInstance
-    createInstance_instanceAlias,
-    createInstance_directoryId,
-    createInstance_clientToken,
-    createInstance_identityManagementType,
-    createInstance_inboundCallsEnabled,
-    createInstance_outboundCallsEnabled,
-    createInstanceResponse_arn,
-    createInstanceResponse_id,
-    createInstanceResponse_httpStatus,
+    -- ** ListInstances
+    listInstances_nextToken,
+    listInstances_maxResults,
+    listInstancesResponse_instanceSummaryList,
+    listInstancesResponse_nextToken,
+    listInstancesResponse_httpStatus,
 
-    -- ** CreateQueue
-    createQueue_maxContacts,
-    createQueue_tags,
-    createQueue_description,
-    createQueue_outboundCallerConfig,
-    createQueue_quickConnectIds,
-    createQueue_instanceId,
-    createQueue_name,
-    createQueue_hoursOfOperationId,
-    createQueueResponse_queueId,
-    createQueueResponse_queueArn,
-    createQueueResponse_httpStatus,
+    -- ** DeleteUserHierarchyGroup
+    deleteUserHierarchyGroup_hierarchyGroupId,
+    deleteUserHierarchyGroup_instanceId,
 
-    -- ** ListPrompts
-    listPrompts_nextToken,
-    listPrompts_maxResults,
-    listPrompts_instanceId,
-    listPromptsResponse_nextToken,
-    listPromptsResponse_promptSummaryList,
-    listPromptsResponse_httpStatus,
+    -- ** UpdateRoutingProfileDefaultOutboundQueue
+    updateRoutingProfileDefaultOutboundQueue_instanceId,
+    updateRoutingProfileDefaultOutboundQueue_routingProfileId,
+    updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId,
 
-    -- ** StartTaskContact
-    startTaskContact_previousContactId,
-    startTaskContact_references,
-    startTaskContact_attributes,
-    startTaskContact_description,
-    startTaskContact_clientToken,
-    startTaskContact_instanceId,
-    startTaskContact_contactFlowId,
-    startTaskContact_name,
-    startTaskContactResponse_contactId,
-    startTaskContactResponse_httpStatus,
+    -- ** UpdateQueueOutboundCallerConfig
+    updateQueueOutboundCallerConfig_instanceId,
+    updateQueueOutboundCallerConfig_queueId,
+    updateQueueOutboundCallerConfig_outboundCallerConfig,
 
-    -- ** UpdateContactFlowContent
-    updateContactFlowContent_instanceId,
-    updateContactFlowContent_contactFlowId,
-    updateContactFlowContent_content,
+    -- ** ListContactFlows
+    listContactFlows_contactFlowTypes,
+    listContactFlows_nextToken,
+    listContactFlows_maxResults,
+    listContactFlows_instanceId,
+    listContactFlowsResponse_contactFlowSummaryList,
+    listContactFlowsResponse_nextToken,
+    listContactFlowsResponse_httpStatus,
 
-    -- ** DescribeHoursOfOperation
-    describeHoursOfOperation_instanceId,
-    describeHoursOfOperation_hoursOfOperationId,
-    describeHoursOfOperationResponse_hoursOfOperation,
-    describeHoursOfOperationResponse_httpStatus,
+    -- ** CreateIntegrationAssociation
+    createIntegrationAssociation_sourceType,
+    createIntegrationAssociation_sourceApplicationUrl,
+    createIntegrationAssociation_sourceApplicationName,
+    createIntegrationAssociation_tags,
+    createIntegrationAssociation_instanceId,
+    createIntegrationAssociation_integrationType,
+    createIntegrationAssociation_integrationArn,
+    createIntegrationAssociationResponse_integrationAssociationId,
+    createIntegrationAssociationResponse_integrationAssociationArn,
+    createIntegrationAssociationResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
 
-    -- ** StartOutboundVoiceContact
-    startOutboundVoiceContact_answerMachineDetectionConfig,
-    startOutboundVoiceContact_queueId,
-    startOutboundVoiceContact_campaignId,
-    startOutboundVoiceContact_trafficType,
-    startOutboundVoiceContact_sourcePhoneNumber,
-    startOutboundVoiceContact_attributes,
-    startOutboundVoiceContact_clientToken,
-    startOutboundVoiceContact_destinationPhoneNumber,
-    startOutboundVoiceContact_contactFlowId,
-    startOutboundVoiceContact_instanceId,
-    startOutboundVoiceContactResponse_contactId,
-    startOutboundVoiceContactResponse_httpStatus,
+    -- ** AssociateApprovedOrigin
+    associateApprovedOrigin_instanceId,
+    associateApprovedOrigin_origin,
 
-    -- ** UpdateUserHierarchyStructure
-    updateUserHierarchyStructure_hierarchyStructure,
-    updateUserHierarchyStructure_instanceId,
+    -- ** CreateHoursOfOperation
+    createHoursOfOperation_description,
+    createHoursOfOperation_tags,
+    createHoursOfOperation_instanceId,
+    createHoursOfOperation_name,
+    createHoursOfOperation_timeZone,
+    createHoursOfOperation_config,
+    createHoursOfOperationResponse_hoursOfOperationArn,
+    createHoursOfOperationResponse_hoursOfOperationId,
+    createHoursOfOperationResponse_httpStatus,
 
-    -- ** GetMetricData
-    getMetricData_nextToken,
-    getMetricData_groupings,
-    getMetricData_maxResults,
-    getMetricData_instanceId,
-    getMetricData_startTime,
-    getMetricData_endTime,
-    getMetricData_filters,
-    getMetricData_historicalMetrics,
-    getMetricDataResponse_nextToken,
-    getMetricDataResponse_metricResults,
-    getMetricDataResponse_httpStatus,
+    -- ** DisassociateSecurityKey
+    disassociateSecurityKey_instanceId,
+    disassociateSecurityKey_associationId,
+
+    -- ** UpdateRoutingProfileConcurrency
+    updateRoutingProfileConcurrency_instanceId,
+    updateRoutingProfileConcurrency_routingProfileId,
+    updateRoutingProfileConcurrency_mediaConcurrencies,
+
+    -- ** ListInstanceStorageConfigs
+    listInstanceStorageConfigs_nextToken,
+    listInstanceStorageConfigs_maxResults,
+    listInstanceStorageConfigs_instanceId,
+    listInstanceStorageConfigs_resourceType,
+    listInstanceStorageConfigsResponse_storageConfigs,
+    listInstanceStorageConfigsResponse_nextToken,
+    listInstanceStorageConfigsResponse_httpStatus,
+
+    -- ** DescribeQuickConnect
+    describeQuickConnect_instanceId,
+    describeQuickConnect_quickConnectId,
+    describeQuickConnectResponse_quickConnect,
+    describeQuickConnectResponse_httpStatus,
+
+    -- ** AssociateInstanceStorageConfig
+    associateInstanceStorageConfig_instanceId,
+    associateInstanceStorageConfig_resourceType,
+    associateInstanceStorageConfig_storageConfig,
+    associateInstanceStorageConfigResponse_associationId,
+    associateInstanceStorageConfigResponse_httpStatus,
+
+    -- ** ListHoursOfOperations
+    listHoursOfOperations_nextToken,
+    listHoursOfOperations_maxResults,
+    listHoursOfOperations_instanceId,
+    listHoursOfOperationsResponse_nextToken,
+    listHoursOfOperationsResponse_hoursOfOperationSummaryList,
+    listHoursOfOperationsResponse_httpStatus,
+
+    -- ** ListIntegrationAssociations
+    listIntegrationAssociations_nextToken,
+    listIntegrationAssociations_integrationType,
+    listIntegrationAssociations_maxResults,
+    listIntegrationAssociations_instanceId,
+    listIntegrationAssociationsResponse_nextToken,
+    listIntegrationAssociationsResponse_integrationAssociationSummaryList,
+    listIntegrationAssociationsResponse_httpStatus,
+
+    -- ** CreateAgentStatus
+    createAgentStatus_displayOrder,
+    createAgentStatus_description,
+    createAgentStatus_tags,
+    createAgentStatus_instanceId,
+    createAgentStatus_name,
+    createAgentStatus_state,
+    createAgentStatusResponse_agentStatusId,
+    createAgentStatusResponse_agentStatusARN,
+    createAgentStatusResponse_httpStatus,
+
+    -- ** UpdateRoutingProfileName
+    updateRoutingProfileName_name,
+    updateRoutingProfileName_description,
+    updateRoutingProfileName_instanceId,
+    updateRoutingProfileName_routingProfileId,
+
+    -- ** ListLexBots
+    listLexBots_nextToken,
+    listLexBots_maxResults,
+    listLexBots_instanceId,
+    listLexBotsResponse_nextToken,
+    listLexBotsResponse_lexBots,
+    listLexBotsResponse_httpStatus,
+
+    -- ** ListAgentStatuses
+    listAgentStatuses_agentStatusTypes,
+    listAgentStatuses_nextToken,
+    listAgentStatuses_maxResults,
+    listAgentStatuses_instanceId,
+    listAgentStatusesResponse_nextToken,
+    listAgentStatusesResponse_agentStatusSummaryList,
+    listAgentStatusesResponse_httpStatus,
+
+    -- ** AssociateLambdaFunction
+    associateLambdaFunction_instanceId,
+    associateLambdaFunction_functionArn,
+
+    -- ** AssociateRoutingProfileQueues
+    associateRoutingProfileQueues_instanceId,
+    associateRoutingProfileQueues_routingProfileId,
+    associateRoutingProfileQueues_queueConfigs,
 
     -- * Types
 
     -- ** AgentStatus
     agentStatus_displayOrder,
-    agentStatus_agentStatusId,
-    agentStatus_name,
     agentStatus_state,
-    agentStatus_tags,
-    agentStatus_description,
-    agentStatus_agentStatusARN,
+    agentStatus_name,
+    agentStatus_agentStatusId,
     agentStatus_type,
+    agentStatus_agentStatusARN,
+    agentStatus_description,
+    agentStatus_tags,
 
     -- ** AgentStatusSummary
     agentStatusSummary_arn,
-    agentStatusSummary_id,
     agentStatusSummary_name,
+    agentStatusSummary_id,
     agentStatusSummary_type,
 
     -- ** AnswerMachineDetectionConfig
@@ -785,8 +785,8 @@ module Network.AWS.Connect.Lens
     answerMachineDetectionConfig_awaitAnswerMachinePrompt,
 
     -- ** Attribute
-    attribute_attributeType,
     attribute_value,
+    attribute_attributeType,
 
     -- ** ChatMessage
     chatMessage_contentType,
@@ -794,99 +794,99 @@ module Network.AWS.Connect.Lens
 
     -- ** ContactFlow
     contactFlow_arn,
-    contactFlow_id,
-    contactFlow_name,
     contactFlow_content,
-    contactFlow_tags,
-    contactFlow_description,
+    contactFlow_name,
+    contactFlow_id,
     contactFlow_type,
+    contactFlow_description,
+    contactFlow_tags,
 
     -- ** ContactFlowSummary
     contactFlowSummary_arn,
-    contactFlowSummary_id,
-    contactFlowSummary_contactFlowType,
     contactFlowSummary_name,
+    contactFlowSummary_contactFlowType,
+    contactFlowSummary_id,
 
     -- ** Credentials
-    credentials_refreshTokenExpiration,
-    credentials_accessToken,
     credentials_accessTokenExpiration,
+    credentials_accessToken,
     credentials_refreshToken,
+    credentials_refreshTokenExpiration,
 
     -- ** CurrentMetric
-    currentMetric_unit,
     currentMetric_name,
+    currentMetric_unit,
 
     -- ** CurrentMetricData
-    currentMetricData_metric,
     currentMetricData_value,
+    currentMetricData_metric,
 
     -- ** CurrentMetricResult
     currentMetricResult_collections,
     currentMetricResult_dimensions,
 
     -- ** Dimensions
-    dimensions_queue,
     dimensions_channel,
+    dimensions_queue,
 
     -- ** EncryptionConfig
     encryptionConfig_encryptionType,
     encryptionConfig_keyId,
 
     -- ** Filters
-    filters_channels,
     filters_queues,
+    filters_channels,
 
     -- ** HierarchyGroup
-    hierarchyGroup_levelId,
     hierarchyGroup_arn,
-    hierarchyGroup_id,
-    hierarchyGroup_hierarchyPath,
     hierarchyGroup_name,
+    hierarchyGroup_hierarchyPath,
+    hierarchyGroup_id,
+    hierarchyGroup_levelId,
 
     -- ** HierarchyGroupSummary
     hierarchyGroupSummary_arn,
-    hierarchyGroupSummary_id,
     hierarchyGroupSummary_name,
+    hierarchyGroupSummary_id,
 
     -- ** HierarchyLevel
     hierarchyLevel_arn,
-    hierarchyLevel_id,
     hierarchyLevel_name,
+    hierarchyLevel_id,
 
     -- ** HierarchyLevelUpdate
     hierarchyLevelUpdate_name,
 
     -- ** HierarchyPath
+    hierarchyPath_levelFive,
     hierarchyPath_levelThree,
     hierarchyPath_levelFour,
-    hierarchyPath_levelFive,
-    hierarchyPath_levelOne,
     hierarchyPath_levelTwo,
+    hierarchyPath_levelOne,
 
     -- ** HierarchyStructure
+    hierarchyStructure_levelFive,
     hierarchyStructure_levelThree,
     hierarchyStructure_levelFour,
-    hierarchyStructure_levelFive,
-    hierarchyStructure_levelOne,
     hierarchyStructure_levelTwo,
+    hierarchyStructure_levelOne,
 
     -- ** HierarchyStructureUpdate
+    hierarchyStructureUpdate_levelFive,
     hierarchyStructureUpdate_levelThree,
     hierarchyStructureUpdate_levelFour,
-    hierarchyStructureUpdate_levelFive,
-    hierarchyStructureUpdate_levelOne,
     hierarchyStructureUpdate_levelTwo,
+    hierarchyStructureUpdate_levelOne,
 
     -- ** HistoricalMetric
+    historicalMetric_name,
     historicalMetric_threshold,
     historicalMetric_unit,
-    historicalMetric_name,
     historicalMetric_statistic,
 
     -- ** HistoricalMetricData
-    historicalMetricData_metric,
     historicalMetricData_value,
+    historicalMetricData_metric,
 
     -- ** HistoricalMetricResult
     historicalMetricResult_collections,
@@ -894,12 +894,12 @@ module Network.AWS.Connect.Lens
 
     -- ** HoursOfOperation
     hoursOfOperation_config,
-    hoursOfOperation_hoursOfOperationArn,
     hoursOfOperation_name,
-    hoursOfOperation_tags,
-    hoursOfOperation_description,
-    hoursOfOperation_timeZone,
+    hoursOfOperation_hoursOfOperationArn,
     hoursOfOperation_hoursOfOperationId,
+    hoursOfOperation_timeZone,
+    hoursOfOperation_description,
+    hoursOfOperation_tags,
 
     -- ** HoursOfOperationConfig
     hoursOfOperationConfig_day,
@@ -908,56 +908,56 @@ module Network.AWS.Connect.Lens
 
     -- ** HoursOfOperationSummary
     hoursOfOperationSummary_arn,
-    hoursOfOperationSummary_id,
     hoursOfOperationSummary_name,
+    hoursOfOperationSummary_id,
 
     -- ** HoursOfOperationTimeSlice
     hoursOfOperationTimeSlice_hours,
     hoursOfOperationTimeSlice_minutes,
 
     -- ** Instance
-    instance_instanceAlias,
-    instance_serviceRole,
-    instance_outboundCallsEnabled,
     instance_arn,
-    instance_identityManagementType,
-    instance_instanceStatus,
-    instance_id,
     instance_createdTime,
+    instance_outboundCallsEnabled,
     instance_inboundCallsEnabled,
+    instance_instanceAlias,
+    instance_id,
+    instance_instanceStatus,
+    instance_identityManagementType,
     instance_statusReason,
+    instance_serviceRole,
 
     -- ** InstanceStatusReason
     instanceStatusReason_message,
 
     -- ** InstanceStorageConfig
-    instanceStorageConfig_kinesisStreamConfig,
-    instanceStorageConfig_kinesisFirehoseConfig,
-    instanceStorageConfig_kinesisVideoStreamConfig,
     instanceStorageConfig_associationId,
+    instanceStorageConfig_kinesisStreamConfig,
+    instanceStorageConfig_kinesisVideoStreamConfig,
     instanceStorageConfig_s3Config,
+    instanceStorageConfig_kinesisFirehoseConfig,
     instanceStorageConfig_storageType,
 
     -- ** InstanceSummary
-    instanceSummary_instanceAlias,
-    instanceSummary_serviceRole,
-    instanceSummary_outboundCallsEnabled,
     instanceSummary_arn,
-    instanceSummary_identityManagementType,
-    instanceSummary_instanceStatus,
-    instanceSummary_id,
     instanceSummary_createdTime,
+    instanceSummary_outboundCallsEnabled,
     instanceSummary_inboundCallsEnabled,
+    instanceSummary_instanceAlias,
+    instanceSummary_id,
+    instanceSummary_instanceStatus,
+    instanceSummary_identityManagementType,
+    instanceSummary_serviceRole,
 
     -- ** IntegrationAssociationSummary
     integrationAssociationSummary_instanceId,
-    integrationAssociationSummary_sourceApplicationName,
-    integrationAssociationSummary_integrationAssociationArn,
-    integrationAssociationSummary_sourceApplicationUrl,
-    integrationAssociationSummary_integrationType,
-    integrationAssociationSummary_integrationArn,
     integrationAssociationSummary_sourceType,
+    integrationAssociationSummary_sourceApplicationUrl,
     integrationAssociationSummary_integrationAssociationId,
+    integrationAssociationSummary_integrationAssociationArn,
+    integrationAssociationSummary_sourceApplicationName,
+    integrationAssociationSummary_integrationArn,
+    integrationAssociationSummary_integrationType,
 
     -- ** KinesisFirehoseConfig
     kinesisFirehoseConfig_firehoseArn,
@@ -971,8 +971,8 @@ module Network.AWS.Connect.Lens
     kinesisVideoStreamConfig_encryptionConfig,
 
     -- ** LexBot
-    lexBot_name,
     lexBot_lexRegion,
+    lexBot_name,
 
     -- ** LexBotConfig
     lexBotConfig_lexBot,
@@ -997,27 +997,27 @@ module Network.AWS.Connect.Lens
     phoneNumberQuickConnectConfig_phoneNumber,
 
     -- ** PhoneNumberSummary
-    phoneNumberSummary_phoneNumber,
-    phoneNumberSummary_arn,
-    phoneNumberSummary_id,
     phoneNumberSummary_phoneNumberType,
+    phoneNumberSummary_arn,
+    phoneNumberSummary_phoneNumber,
     phoneNumberSummary_phoneNumberCountryCode,
+    phoneNumberSummary_id,
 
     -- ** PromptSummary
     promptSummary_arn,
-    promptSummary_id,
     promptSummary_name,
+    promptSummary_id,
 
     -- ** Queue
-    queue_maxContacts,
     queue_status,
-    queue_queueId,
-    queue_name,
     queue_queueArn,
-    queue_tags,
-    queue_description,
-    queue_outboundCallerConfig,
+    queue_queueId,
+    queue_maxContacts,
+    queue_name,
     queue_hoursOfOperationId,
+    queue_outboundCallerConfig,
+    queue_description,
+    queue_tags,
 
     -- ** QueueQuickConnectConfig
     queueQuickConnectConfig_queueId,
@@ -1028,30 +1028,30 @@ module Network.AWS.Connect.Lens
     queueReference_id,
 
     -- ** QueueSummary
-    queueSummary_queueType,
     queueSummary_arn,
-    queueSummary_id,
     queueSummary_name,
+    queueSummary_id,
+    queueSummary_queueType,
 
     -- ** QuickConnect
-    quickConnect_quickConnectId,
     quickConnect_name,
-    quickConnect_quickConnectConfig,
-    quickConnect_tags,
-    quickConnect_quickConnectARN,
+    quickConnect_quickConnectId,
     quickConnect_description,
+    quickConnect_quickConnectARN,
+    quickConnect_tags,
+    quickConnect_quickConnectConfig,
 
     -- ** QuickConnectConfig
+    quickConnectConfig_queueConfig,
     quickConnectConfig_userConfig,
     quickConnectConfig_phoneConfig,
-    quickConnectConfig_queueConfig,
     quickConnectConfig_quickConnectType,
 
     -- ** QuickConnectSummary
-    quickConnectSummary_quickConnectType,
     quickConnectSummary_arn,
-    quickConnectSummary_id,
+    quickConnectSummary_quickConnectType,
     quickConnectSummary_name,
+    quickConnectSummary_id,
 
     -- ** Reference
     reference_value,
@@ -1059,13 +1059,13 @@ module Network.AWS.Connect.Lens
 
     -- ** RoutingProfile
     routingProfile_instanceId,
-    routingProfile_defaultOutboundQueueId,
+    routingProfile_routingProfileArn,
     routingProfile_routingProfileId,
+    routingProfile_defaultOutboundQueueId,
     routingProfile_name,
     routingProfile_mediaConcurrencies,
-    routingProfile_tags,
     routingProfile_description,
-    routingProfile_routingProfileArn,
+    routingProfile_tags,
 
     -- ** RoutingProfileQueueConfig
     routingProfileQueueConfig_queueReference,
@@ -1086,8 +1086,8 @@ module Network.AWS.Connect.Lens
 
     -- ** RoutingProfileSummary
     routingProfileSummary_arn,
-    routingProfileSummary_id,
     routingProfileSummary_name,
+    routingProfileSummary_id,
 
     -- ** S3Config
     s3Config_encryptionConfig,
@@ -1095,35 +1095,35 @@ module Network.AWS.Connect.Lens
     s3Config_bucketPrefix,
 
     -- ** SecurityKey
-    securityKey_key,
     securityKey_creationTime,
     securityKey_associationId,
+    securityKey_key,
 
     -- ** SecurityProfileSummary
     securityProfileSummary_arn,
-    securityProfileSummary_id,
     securityProfileSummary_name,
+    securityProfileSummary_id,
 
     -- ** Threshold
     threshold_thresholdValue,
     threshold_comparison,
 
     -- ** UseCase
-    useCase_useCaseArn,
     useCase_useCaseType,
+    useCase_useCaseArn,
     useCase_useCaseId,
 
     -- ** User
-    user_securityProfileIds,
-    user_identityInfo,
+    user_routingProfileId,
+    user_directoryUserId,
     user_arn,
+    user_identityInfo,
+    user_securityProfileIds,
+    user_username,
     user_id,
     user_hierarchyGroupId,
-    user_directoryUserId,
-    user_routingProfileId,
-    user_tags,
     user_phoneConfig,
-    user_username,
+    user_tags,
 
     -- ** UserIdentityInfo
     userIdentityInfo_email,
@@ -1142,8 +1142,8 @@ module Network.AWS.Connect.Lens
 
     -- ** UserSummary
     userSummary_arn,
-    userSummary_id,
     userSummary_username,
+    userSummary_id,
 
     -- ** VoiceRecordingConfiguration
     voiceRecordingConfiguration_voiceRecordingTrack,

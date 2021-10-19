@@ -144,7 +144,7 @@ updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {insta
 -- contact. Attribute keys can include only alphanumeric, dash, and
 -- underscore characters.
 updateContactAttributes_attributes :: Lens.Lens' UpdateContactAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-updateContactAttributes_attributes = Lens.lens (\UpdateContactAttributes' {attributes} -> attributes) (\s@UpdateContactAttributes' {} a -> s {attributes = a} :: UpdateContactAttributes) Prelude.. Lens._Coerce
+updateContactAttributes_attributes = Lens.lens (\UpdateContactAttributes' {attributes} -> attributes) (\s@UpdateContactAttributes' {} a -> s {attributes = a} :: UpdateContactAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateContactAttributes where
   type

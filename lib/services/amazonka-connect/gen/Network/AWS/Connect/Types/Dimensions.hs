@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDimensions' smart constructor.
 data Dimensions = Dimensions'
-  { -- | Information about the queue for which metrics are returned.
-    queue :: Prelude.Maybe QueueReference,
-    -- | The channel used for grouping and filters.
-    channel :: Prelude.Maybe Channel
+  { -- | The channel used for grouping and filters.
+    channel :: Prelude.Maybe Channel,
+    -- | Information about the queue for which metrics are returned.
+    queue :: Prelude.Maybe QueueReference
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Dimensions = Dimensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queue', 'dimensions_queue' - Information about the queue for which metrics are returned.
---
 -- 'channel', 'dimensions_channel' - The channel used for grouping and filters.
+--
+-- 'queue', 'dimensions_queue' - Information about the queue for which metrics are returned.
 newDimensions ::
   Dimensions
 newDimensions =
   Dimensions'
-    { queue = Prelude.Nothing,
-      channel = Prelude.Nothing
+    { channel = Prelude.Nothing,
+      queue = Prelude.Nothing
     }
-
--- | Information about the queue for which metrics are returned.
-dimensions_queue :: Lens.Lens' Dimensions (Prelude.Maybe QueueReference)
-dimensions_queue = Lens.lens (\Dimensions' {queue} -> queue) (\s@Dimensions' {} a -> s {queue = a} :: Dimensions)
 
 -- | The channel used for grouping and filters.
 dimensions_channel :: Lens.Lens' Dimensions (Prelude.Maybe Channel)
 dimensions_channel = Lens.lens (\Dimensions' {channel} -> channel) (\s@Dimensions' {} a -> s {channel = a} :: Dimensions)
+
+-- | Information about the queue for which metrics are returned.
+dimensions_queue :: Lens.Lens' Dimensions (Prelude.Maybe QueueReference)
+dimensions_queue = Lens.lens (\Dimensions' {queue} -> queue) (\s@Dimensions' {} a -> s {queue = a} :: Dimensions)
 
 instance Core.FromJSON Dimensions where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON Dimensions where
       "Dimensions"
       ( \x ->
           Dimensions'
-            Prelude.<$> (x Core..:? "Queue")
-            Prelude.<*> (x Core..:? "Channel")
+            Prelude.<$> (x Core..:? "Channel")
+            Prelude.<*> (x Core..:? "Queue")
       )
 
 instance Prelude.Hashable Dimensions

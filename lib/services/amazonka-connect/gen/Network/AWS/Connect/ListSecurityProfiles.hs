@@ -222,7 +222,7 @@ listSecurityProfilesResponse_nextToken = Lens.lens (\ListSecurityProfilesRespons
 
 -- | Information about the security profiles.
 listSecurityProfilesResponse_securityProfileSummaryList :: Lens.Lens' ListSecurityProfilesResponse (Prelude.Maybe [SecurityProfileSummary])
-listSecurityProfilesResponse_securityProfileSummaryList = Lens.lens (\ListSecurityProfilesResponse' {securityProfileSummaryList} -> securityProfileSummaryList) (\s@ListSecurityProfilesResponse' {} a -> s {securityProfileSummaryList = a} :: ListSecurityProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
+listSecurityProfilesResponse_securityProfileSummaryList = Lens.lens (\ListSecurityProfilesResponse' {securityProfileSummaryList} -> securityProfileSummaryList) (\s@ListSecurityProfilesResponse' {} a -> s {securityProfileSummaryList = a} :: ListSecurityProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSecurityProfilesResponse_httpStatus :: Lens.Lens' ListSecurityProfilesResponse Prelude.Int

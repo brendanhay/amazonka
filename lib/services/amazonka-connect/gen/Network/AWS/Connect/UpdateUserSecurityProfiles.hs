@@ -84,14 +84,14 @@ newUpdateUserSecurityProfiles
   pInstanceId_ =
     UpdateUserSecurityProfiles'
       { securityProfileIds =
-          Lens._Coerce Lens.# pSecurityProfileIds_,
+          Lens.coerced Lens.# pSecurityProfileIds_,
         userId = pUserId_,
         instanceId = pInstanceId_
       }
 
 -- | The identifiers of the security profiles for the user.
 updateUserSecurityProfiles_securityProfileIds :: Lens.Lens' UpdateUserSecurityProfiles (Prelude.NonEmpty Prelude.Text)
-updateUserSecurityProfiles_securityProfileIds = Lens.lens (\UpdateUserSecurityProfiles' {securityProfileIds} -> securityProfileIds) (\s@UpdateUserSecurityProfiles' {} a -> s {securityProfileIds = a} :: UpdateUserSecurityProfiles) Prelude.. Lens._Coerce
+updateUserSecurityProfiles_securityProfileIds = Lens.lens (\UpdateUserSecurityProfiles' {securityProfileIds} -> securityProfileIds) (\s@UpdateUserSecurityProfiles' {} a -> s {securityProfileIds = a} :: UpdateUserSecurityProfiles) Prelude.. Lens.coerced
 
 -- | The identifier of the user account.
 updateUserSecurityProfiles_userId :: Lens.Lens' UpdateUserSecurityProfiles Prelude.Text

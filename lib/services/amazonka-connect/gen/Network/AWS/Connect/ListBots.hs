@@ -229,7 +229,7 @@ listBotsResponse_nextToken = Lens.lens (\ListBotsResponse' {nextToken} -> nextTo
 -- | The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated
 -- with the specified instance.
 listBotsResponse_lexBots :: Lens.Lens' ListBotsResponse (Prelude.Maybe [LexBotConfig])
-listBotsResponse_lexBots = Lens.lens (\ListBotsResponse' {lexBots} -> lexBots) (\s@ListBotsResponse' {} a -> s {lexBots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens._Coerce
+listBotsResponse_lexBots = Lens.lens (\ListBotsResponse' {lexBots} -> lexBots) (\s@ListBotsResponse' {} a -> s {lexBots = a} :: ListBotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBotsResponse_httpStatus :: Lens.Lens' ListBotsResponse Prelude.Int

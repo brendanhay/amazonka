@@ -90,7 +90,7 @@ newDisassociateQueueQuickConnects
           pInstanceId_,
         queueId = pQueueId_,
         quickConnectIds =
-          Lens._Coerce Lens.# pQuickConnectIds_
+          Lens.coerced Lens.# pQuickConnectIds_
       }
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -104,7 +104,7 @@ disassociateQueueQuickConnects_queueId = Lens.lens (\DisassociateQueueQuickConne
 
 -- | The quick connects to disassociate from the queue.
 disassociateQueueQuickConnects_quickConnectIds :: Lens.Lens' DisassociateQueueQuickConnects (Prelude.NonEmpty Prelude.Text)
-disassociateQueueQuickConnects_quickConnectIds = Lens.lens (\DisassociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@DisassociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: DisassociateQueueQuickConnects) Prelude.. Lens._Coerce
+disassociateQueueQuickConnects_quickConnectIds = Lens.lens (\DisassociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@DisassociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: DisassociateQueueQuickConnects) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

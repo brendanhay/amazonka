@@ -40,8 +40,8 @@ module Network.AWS.Connect.CreateRoutingProfile
     newCreateRoutingProfileResponse,
 
     -- * Response Lenses
-    createRoutingProfileResponse_routingProfileId,
     createRoutingProfileResponse_routingProfileArn,
+    createRoutingProfileResponse_routingProfileId,
     createRoutingProfileResponse_httpStatus,
   )
 where
@@ -130,11 +130,11 @@ newCreateRoutingProfile
 -- | The inbound queues associated with the routing profile. If no queue is
 -- added, the agent can make only outbound calls.
 createRoutingProfile_queueConfigs :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.NonEmpty RoutingProfileQueueConfig))
-createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConfigs} -> queueConfigs) (\s@CreateRoutingProfile' {} a -> s {queueConfigs = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens._Coerce
+createRoutingProfile_queueConfigs = Lens.lens (\CreateRoutingProfile' {queueConfigs} -> queueConfigs) (\s@CreateRoutingProfile' {} a -> s {queueConfigs = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more tags.
 createRoutingProfile_tags :: Lens.Lens' CreateRoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens._Coerce
+createRoutingProfile_tags = Lens.lens (\CreateRoutingProfile' {tags} -> tags) (\s@CreateRoutingProfile' {} a -> s {tags = a} :: CreateRoutingProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -157,7 +157,7 @@ createRoutingProfile_defaultOutboundQueueId = Lens.lens (\CreateRoutingProfile' 
 -- | The channels that agents can handle in the Contact Control Panel (CCP)
 -- for this routing profile.
 createRoutingProfile_mediaConcurrencies :: Lens.Lens' CreateRoutingProfile [MediaConcurrency]
-createRoutingProfile_mediaConcurrencies = Lens.lens (\CreateRoutingProfile' {mediaConcurrencies} -> mediaConcurrencies) (\s@CreateRoutingProfile' {} a -> s {mediaConcurrencies = a} :: CreateRoutingProfile) Prelude.. Lens._Coerce
+createRoutingProfile_mediaConcurrencies = Lens.lens (\CreateRoutingProfile' {mediaConcurrencies} -> mediaConcurrencies) (\s@CreateRoutingProfile' {} a -> s {mediaConcurrencies = a} :: CreateRoutingProfile) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateRoutingProfile where
   type
@@ -168,8 +168,8 @@ instance Core.AWSRequest CreateRoutingProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateRoutingProfileResponse'
-            Prelude.<$> (x Core..?> "RoutingProfileId")
-            Prelude.<*> (x Core..?> "RoutingProfileArn")
+            Prelude.<$> (x Core..?> "RoutingProfileArn")
+            Prelude.<*> (x Core..?> "RoutingProfileId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -215,10 +215,10 @@ instance Core.ToQuery CreateRoutingProfile where
 
 -- | /See:/ 'newCreateRoutingProfileResponse' smart constructor.
 data CreateRoutingProfileResponse = CreateRoutingProfileResponse'
-  { -- | The identifier of the routing profile.
-    routingProfileId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the routing profile.
+  { -- | The Amazon Resource Name (ARN) of the routing profile.
     routingProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the routing profile.
+    routingProfileId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,9 +232,9 @@ data CreateRoutingProfileResponse = CreateRoutingProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routingProfileId', 'createRoutingProfileResponse_routingProfileId' - The identifier of the routing profile.
---
 -- 'routingProfileArn', 'createRoutingProfileResponse_routingProfileArn' - The Amazon Resource Name (ARN) of the routing profile.
+--
+-- 'routingProfileId', 'createRoutingProfileResponse_routingProfileId' - The identifier of the routing profile.
 --
 -- 'httpStatus', 'createRoutingProfileResponse_httpStatus' - The response's http status code.
 newCreateRoutingProfileResponse ::
@@ -243,19 +243,19 @@ newCreateRoutingProfileResponse ::
   CreateRoutingProfileResponse
 newCreateRoutingProfileResponse pHttpStatus_ =
   CreateRoutingProfileResponse'
-    { routingProfileId =
+    { routingProfileArn =
         Prelude.Nothing,
-      routingProfileArn = Prelude.Nothing,
+      routingProfileId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifier of the routing profile.
-createRoutingProfileResponse_routingProfileId :: Lens.Lens' CreateRoutingProfileResponse (Prelude.Maybe Prelude.Text)
-createRoutingProfileResponse_routingProfileId = Lens.lens (\CreateRoutingProfileResponse' {routingProfileId} -> routingProfileId) (\s@CreateRoutingProfileResponse' {} a -> s {routingProfileId = a} :: CreateRoutingProfileResponse)
 
 -- | The Amazon Resource Name (ARN) of the routing profile.
 createRoutingProfileResponse_routingProfileArn :: Lens.Lens' CreateRoutingProfileResponse (Prelude.Maybe Prelude.Text)
 createRoutingProfileResponse_routingProfileArn = Lens.lens (\CreateRoutingProfileResponse' {routingProfileArn} -> routingProfileArn) (\s@CreateRoutingProfileResponse' {} a -> s {routingProfileArn = a} :: CreateRoutingProfileResponse)
+
+-- | The identifier of the routing profile.
+createRoutingProfileResponse_routingProfileId :: Lens.Lens' CreateRoutingProfileResponse (Prelude.Maybe Prelude.Text)
+createRoutingProfileResponse_routingProfileId = Lens.lens (\CreateRoutingProfileResponse' {routingProfileId} -> routingProfileId) (\s@CreateRoutingProfileResponse' {} a -> s {routingProfileId = a} :: CreateRoutingProfileResponse)
 
 -- | The response's http status code.
 createRoutingProfileResponse_httpStatus :: Lens.Lens' CreateRoutingProfileResponse Prelude.Int

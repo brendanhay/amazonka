@@ -42,8 +42,8 @@ module Network.AWS.Connect.ListQueueQuickConnects
     newListQueueQuickConnectsResponse,
 
     -- * Response Lenses
-    listQueueQuickConnectsResponse_nextToken,
     listQueueQuickConnectsResponse_quickConnectSummaryList,
+    listQueueQuickConnectsResponse_nextToken,
     listQueueQuickConnectsResponse_httpStatus,
   )
 where
@@ -154,10 +154,10 @@ instance Core.AWSRequest ListQueueQuickConnects where
     Response.receiveJSON
       ( \s h x ->
           ListQueueQuickConnectsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "QuickConnectSummaryList"
+            Prelude.<$> ( x Core..?> "QuickConnectSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,11 +195,11 @@ instance Core.ToQuery ListQueueQuickConnects where
 
 -- | /See:/ 'newListQueueQuickConnectsResponse' smart constructor.
 data ListQueueQuickConnectsResponse = ListQueueQuickConnectsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | Information about the quick connects.
+    quickConnectSummaryList :: Prelude.Maybe [QuickConnectSummary],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the quick connects.
-    quickConnectSummaryList :: Prelude.Maybe [QuickConnectSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data ListQueueQuickConnectsResponse = ListQueueQuickConnectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'quickConnectSummaryList', 'listQueueQuickConnectsResponse_quickConnectSummaryList' - Information about the quick connects.
+--
 -- 'nextToken', 'listQueueQuickConnectsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'quickConnectSummaryList', 'listQueueQuickConnectsResponse_quickConnectSummaryList' - Information about the quick connects.
 --
 -- 'httpStatus', 'listQueueQuickConnectsResponse_httpStatus' - The response's http status code.
 newListQueueQuickConnectsResponse ::
@@ -225,20 +225,20 @@ newListQueueQuickConnectsResponse ::
   ListQueueQuickConnectsResponse
 newListQueueQuickConnectsResponse pHttpStatus_ =
   ListQueueQuickConnectsResponse'
-    { nextToken =
+    { quickConnectSummaryList =
         Prelude.Nothing,
-      quickConnectSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the quick connects.
+listQueueQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQueueQuickConnectsResponse (Prelude.Maybe [QuickConnectSummary])
+listQueueQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQueueQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQueueQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQueueQuickConnectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listQueueQuickConnectsResponse_nextToken :: Lens.Lens' ListQueueQuickConnectsResponse (Prelude.Maybe Prelude.Text)
 listQueueQuickConnectsResponse_nextToken = Lens.lens (\ListQueueQuickConnectsResponse' {nextToken} -> nextToken) (\s@ListQueueQuickConnectsResponse' {} a -> s {nextToken = a} :: ListQueueQuickConnectsResponse)
-
--- | Information about the quick connects.
-listQueueQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQueueQuickConnectsResponse (Prelude.Maybe [QuickConnectSummary])
-listQueueQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQueueQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQueueQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQueueQuickConnectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listQueueQuickConnectsResponse_httpStatus :: Lens.Lens' ListQueueQuickConnectsResponse Prelude.Int

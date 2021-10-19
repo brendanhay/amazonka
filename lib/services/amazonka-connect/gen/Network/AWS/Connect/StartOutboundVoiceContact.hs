@@ -50,12 +50,12 @@ module Network.AWS.Connect.StartOutboundVoiceContact
 
     -- * Request Lenses
     startOutboundVoiceContact_answerMachineDetectionConfig,
-    startOutboundVoiceContact_queueId,
-    startOutboundVoiceContact_campaignId,
-    startOutboundVoiceContact_trafficType,
-    startOutboundVoiceContact_sourcePhoneNumber,
-    startOutboundVoiceContact_attributes,
     startOutboundVoiceContact_clientToken,
+    startOutboundVoiceContact_trafficType,
+    startOutboundVoiceContact_campaignId,
+    startOutboundVoiceContact_queueId,
+    startOutboundVoiceContact_attributes,
+    startOutboundVoiceContact_sourcePhoneNumber,
     startOutboundVoiceContact_destinationPhoneNumber,
     startOutboundVoiceContact_contactFlowId,
     startOutboundVoiceContact_instanceId,
@@ -81,22 +81,22 @@ import qualified Network.AWS.Response as Response
 data StartOutboundVoiceContact = StartOutboundVoiceContact'
   { -- | Configuration of the answering machine detection for this outbound call.
     answerMachineDetectionConfig :: Prelude.Maybe AnswerMachineDetectionConfig,
-    -- | The queue for the call. If you specify a queue, the phone displayed for
-    -- caller ID is the phone number specified in the queue. If you do not
-    -- specify a queue, the queue defined in the contact flow is used. If you
-    -- do not specify a queue, you must specify a source phone number.
-    queueId :: Prelude.Maybe Prelude.Text,
-    -- | The campaign identifier of the outbound communication.
-    campaignId :: Prelude.Maybe Prelude.Text,
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. The token is valid for 7 days after
+    -- creation. If a contact is already started, the contact ID is returned.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Denotes the class of traffic. Calls with different traffic types are
     -- handled differently by Amazon Connect. The default value is @GENERAL@.
     -- Use @CAMPAIGN@ if @EnableAnswerMachineDetection@ is set to @true@. For
     -- all other cases, use @GENERAL@.
     trafficType :: Prelude.Maybe TrafficType,
-    -- | The phone number associated with the Amazon Connect instance, in E.164
-    -- format. If you do not specify a source phone number, you must specify a
-    -- queue.
-    sourcePhoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The campaign identifier of the outbound communication.
+    campaignId :: Prelude.Maybe Prelude.Text,
+    -- | The queue for the call. If you specify a queue, the phone displayed for
+    -- caller ID is the phone number specified in the queue. If you do not
+    -- specify a queue, the queue defined in the contact flow is used. If you
+    -- do not specify a queue, you must specify a source phone number.
+    queueId :: Prelude.Maybe Prelude.Text,
     -- | A custom key-value pair using an attribute map. The attributes are
     -- standard Amazon Connect attributes, and can be accessed in contact flows
     -- just like any other contact attributes.
@@ -105,10 +105,10 @@ data StartOutboundVoiceContact = StartOutboundVoiceContact'
     -- contact. Attribute keys can include only alphanumeric, dash, and
     -- underscore characters.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. The token is valid for 7 days after
-    -- creation. If a contact is already started, the contact ID is returned.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The phone number associated with the Amazon Connect instance, in E.164
+    -- format. If you do not specify a source phone number, you must specify a
+    -- queue.
+    sourcePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The phone number of the customer, in E.164 format.
     destinationPhoneNumber :: Prelude.Text,
     -- | The identifier of the contact flow for the outbound call. To see the
@@ -136,21 +136,21 @@ data StartOutboundVoiceContact = StartOutboundVoiceContact'
 --
 -- 'answerMachineDetectionConfig', 'startOutboundVoiceContact_answerMachineDetectionConfig' - Configuration of the answering machine detection for this outbound call.
 --
--- 'queueId', 'startOutboundVoiceContact_queueId' - The queue for the call. If you specify a queue, the phone displayed for
--- caller ID is the phone number specified in the queue. If you do not
--- specify a queue, the queue defined in the contact flow is used. If you
--- do not specify a queue, you must specify a source phone number.
---
--- 'campaignId', 'startOutboundVoiceContact_campaignId' - The campaign identifier of the outbound communication.
+-- 'clientToken', 'startOutboundVoiceContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. The token is valid for 7 days after
+-- creation. If a contact is already started, the contact ID is returned.
 --
 -- 'trafficType', 'startOutboundVoiceContact_trafficType' - Denotes the class of traffic. Calls with different traffic types are
 -- handled differently by Amazon Connect. The default value is @GENERAL@.
 -- Use @CAMPAIGN@ if @EnableAnswerMachineDetection@ is set to @true@. For
 -- all other cases, use @GENERAL@.
 --
--- 'sourcePhoneNumber', 'startOutboundVoiceContact_sourcePhoneNumber' - The phone number associated with the Amazon Connect instance, in E.164
--- format. If you do not specify a source phone number, you must specify a
--- queue.
+-- 'campaignId', 'startOutboundVoiceContact_campaignId' - The campaign identifier of the outbound communication.
+--
+-- 'queueId', 'startOutboundVoiceContact_queueId' - The queue for the call. If you specify a queue, the phone displayed for
+-- caller ID is the phone number specified in the queue. If you do not
+-- specify a queue, the queue defined in the contact flow is used. If you
+-- do not specify a queue, you must specify a source phone number.
 --
 -- 'attributes', 'startOutboundVoiceContact_attributes' - A custom key-value pair using an attribute map. The attributes are
 -- standard Amazon Connect attributes, and can be accessed in contact flows
@@ -160,9 +160,9 @@ data StartOutboundVoiceContact = StartOutboundVoiceContact'
 -- contact. Attribute keys can include only alphanumeric, dash, and
 -- underscore characters.
 --
--- 'clientToken', 'startOutboundVoiceContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. The token is valid for 7 days after
--- creation. If a contact is already started, the contact ID is returned.
+-- 'sourcePhoneNumber', 'startOutboundVoiceContact_sourcePhoneNumber' - The phone number associated with the Amazon Connect instance, in E.164
+-- format. If you do not specify a source phone number, you must specify a
+-- queue.
 --
 -- 'destinationPhoneNumber', 'startOutboundVoiceContact_destinationPhoneNumber' - The phone number of the customer, in E.164 format.
 --
@@ -192,12 +192,12 @@ newStartOutboundVoiceContact
     StartOutboundVoiceContact'
       { answerMachineDetectionConfig =
           Prelude.Nothing,
-        queueId = Prelude.Nothing,
-        campaignId = Prelude.Nothing,
-        trafficType = Prelude.Nothing,
-        sourcePhoneNumber = Prelude.Nothing,
-        attributes = Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        trafficType = Prelude.Nothing,
+        campaignId = Prelude.Nothing,
+        queueId = Prelude.Nothing,
+        attributes = Prelude.Nothing,
+        sourcePhoneNumber = Prelude.Nothing,
         destinationPhoneNumber =
           pDestinationPhoneNumber_,
         contactFlowId = pContactFlowId_,
@@ -208,16 +208,11 @@ newStartOutboundVoiceContact
 startOutboundVoiceContact_answerMachineDetectionConfig :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe AnswerMachineDetectionConfig)
 startOutboundVoiceContact_answerMachineDetectionConfig = Lens.lens (\StartOutboundVoiceContact' {answerMachineDetectionConfig} -> answerMachineDetectionConfig) (\s@StartOutboundVoiceContact' {} a -> s {answerMachineDetectionConfig = a} :: StartOutboundVoiceContact)
 
--- | The queue for the call. If you specify a queue, the phone displayed for
--- caller ID is the phone number specified in the queue. If you do not
--- specify a queue, the queue defined in the contact flow is used. If you
--- do not specify a queue, you must specify a source phone number.
-startOutboundVoiceContact_queueId :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
-startOutboundVoiceContact_queueId = Lens.lens (\StartOutboundVoiceContact' {queueId} -> queueId) (\s@StartOutboundVoiceContact' {} a -> s {queueId = a} :: StartOutboundVoiceContact)
-
--- | The campaign identifier of the outbound communication.
-startOutboundVoiceContact_campaignId :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
-startOutboundVoiceContact_campaignId = Lens.lens (\StartOutboundVoiceContact' {campaignId} -> campaignId) (\s@StartOutboundVoiceContact' {} a -> s {campaignId = a} :: StartOutboundVoiceContact)
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. The token is valid for 7 days after
+-- creation. If a contact is already started, the contact ID is returned.
+startOutboundVoiceContact_clientToken :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
+startOutboundVoiceContact_clientToken = Lens.lens (\StartOutboundVoiceContact' {clientToken} -> clientToken) (\s@StartOutboundVoiceContact' {} a -> s {clientToken = a} :: StartOutboundVoiceContact)
 
 -- | Denotes the class of traffic. Calls with different traffic types are
 -- handled differently by Amazon Connect. The default value is @GENERAL@.
@@ -226,11 +221,16 @@ startOutboundVoiceContact_campaignId = Lens.lens (\StartOutboundVoiceContact' {c
 startOutboundVoiceContact_trafficType :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe TrafficType)
 startOutboundVoiceContact_trafficType = Lens.lens (\StartOutboundVoiceContact' {trafficType} -> trafficType) (\s@StartOutboundVoiceContact' {} a -> s {trafficType = a} :: StartOutboundVoiceContact)
 
--- | The phone number associated with the Amazon Connect instance, in E.164
--- format. If you do not specify a source phone number, you must specify a
--- queue.
-startOutboundVoiceContact_sourcePhoneNumber :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
-startOutboundVoiceContact_sourcePhoneNumber = Lens.lens (\StartOutboundVoiceContact' {sourcePhoneNumber} -> sourcePhoneNumber) (\s@StartOutboundVoiceContact' {} a -> s {sourcePhoneNumber = a} :: StartOutboundVoiceContact)
+-- | The campaign identifier of the outbound communication.
+startOutboundVoiceContact_campaignId :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
+startOutboundVoiceContact_campaignId = Lens.lens (\StartOutboundVoiceContact' {campaignId} -> campaignId) (\s@StartOutboundVoiceContact' {} a -> s {campaignId = a} :: StartOutboundVoiceContact)
+
+-- | The queue for the call. If you specify a queue, the phone displayed for
+-- caller ID is the phone number specified in the queue. If you do not
+-- specify a queue, the queue defined in the contact flow is used. If you
+-- do not specify a queue, you must specify a source phone number.
+startOutboundVoiceContact_queueId :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
+startOutboundVoiceContact_queueId = Lens.lens (\StartOutboundVoiceContact' {queueId} -> queueId) (\s@StartOutboundVoiceContact' {} a -> s {queueId = a} :: StartOutboundVoiceContact)
 
 -- | A custom key-value pair using an attribute map. The attributes are
 -- standard Amazon Connect attributes, and can be accessed in contact flows
@@ -240,13 +240,13 @@ startOutboundVoiceContact_sourcePhoneNumber = Lens.lens (\StartOutboundVoiceCont
 -- contact. Attribute keys can include only alphanumeric, dash, and
 -- underscore characters.
 startOutboundVoiceContact_attributes :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startOutboundVoiceContact_attributes = Lens.lens (\StartOutboundVoiceContact' {attributes} -> attributes) (\s@StartOutboundVoiceContact' {} a -> s {attributes = a} :: StartOutboundVoiceContact) Prelude.. Lens.mapping Lens._Coerce
+startOutboundVoiceContact_attributes = Lens.lens (\StartOutboundVoiceContact' {attributes} -> attributes) (\s@StartOutboundVoiceContact' {} a -> s {attributes = a} :: StartOutboundVoiceContact) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. The token is valid for 7 days after
--- creation. If a contact is already started, the contact ID is returned.
-startOutboundVoiceContact_clientToken :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
-startOutboundVoiceContact_clientToken = Lens.lens (\StartOutboundVoiceContact' {clientToken} -> clientToken) (\s@StartOutboundVoiceContact' {} a -> s {clientToken = a} :: StartOutboundVoiceContact)
+-- | The phone number associated with the Amazon Connect instance, in E.164
+-- format. If you do not specify a source phone number, you must specify a
+-- queue.
+startOutboundVoiceContact_sourcePhoneNumber :: Lens.Lens' StartOutboundVoiceContact (Prelude.Maybe Prelude.Text)
+startOutboundVoiceContact_sourcePhoneNumber = Lens.lens (\StartOutboundVoiceContact' {sourcePhoneNumber} -> sourcePhoneNumber) (\s@StartOutboundVoiceContact' {} a -> s {sourcePhoneNumber = a} :: StartOutboundVoiceContact)
 
 -- | The phone number of the customer, in E.164 format.
 startOutboundVoiceContact_destinationPhoneNumber :: Lens.Lens' StartOutboundVoiceContact Prelude.Text
@@ -302,13 +302,13 @@ instance Core.ToJSON StartOutboundVoiceContact where
       ( Prelude.catMaybes
           [ ("AnswerMachineDetectionConfig" Core..=)
               Prelude.<$> answerMachineDetectionConfig,
-            ("QueueId" Core..=) Prelude.<$> queueId,
-            ("CampaignId" Core..=) Prelude.<$> campaignId,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("TrafficType" Core..=) Prelude.<$> trafficType,
+            ("CampaignId" Core..=) Prelude.<$> campaignId,
+            ("QueueId" Core..=) Prelude.<$> queueId,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("SourcePhoneNumber" Core..=)
               Prelude.<$> sourcePhoneNumber,
-            ("Attributes" Core..=) Prelude.<$> attributes,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just
               ( "DestinationPhoneNumber"
                   Core..= destinationPhoneNumber

@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFilters' smart constructor.
 data Filters = Filters'
-  { -- | The channel to use to filter the metrics.
-    channels :: Prelude.Maybe [Channel],
-    -- | The queues to use to filter the metrics. You can specify up to 100
+  { -- | The queues to use to filter the metrics. You can specify up to 100
     -- queues per request.
-    queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    queues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The channel to use to filter the metrics.
+    channels :: Prelude.Maybe [Channel]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Filters = Filters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channels', 'filters_channels' - The channel to use to filter the metrics.
---
 -- 'queues', 'filters_queues' - The queues to use to filter the metrics. You can specify up to 100
 -- queues per request.
+--
+-- 'channels', 'filters_channels' - The channel to use to filter the metrics.
 newFilters ::
   Filters
 newFilters =
   Filters'
-    { channels = Prelude.Nothing,
-      queues = Prelude.Nothing
+    { queues = Prelude.Nothing,
+      channels = Prelude.Nothing
     }
-
--- | The channel to use to filter the metrics.
-filters_channels :: Lens.Lens' Filters (Prelude.Maybe [Channel])
-filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The queues to use to filter the metrics. You can specify up to 100
 -- queues per request.
 filters_queues :: Lens.Lens' Filters (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s {queues = a} :: Filters) Prelude.. Lens.mapping Lens._Coerce
+filters_queues = Lens.lens (\Filters' {queues} -> queues) (\s@Filters' {} a -> s {queues = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
+
+-- | The channel to use to filter the metrics.
+filters_channels :: Lens.Lens' Filters (Prelude.Maybe [Channel])
+filters_channels = Lens.lens (\Filters' {channels} -> channels) (\s@Filters' {} a -> s {channels = a} :: Filters) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable Filters
 
@@ -73,7 +73,7 @@ instance Core.ToJSON Filters where
   toJSON Filters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Channels" Core..=) Prelude.<$> channels,
-            ("Queues" Core..=) Prelude.<$> queues
+          [ ("Queues" Core..=) Prelude.<$> queues,
+            ("Channels" Core..=) Prelude.<$> channels
           ]
       )

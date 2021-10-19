@@ -42,8 +42,8 @@ module Network.AWS.Connect.ListApprovedOrigins
     newListApprovedOriginsResponse,
 
     -- * Response Lenses
-    listApprovedOriginsResponse_origins,
     listApprovedOriginsResponse_nextToken,
+    listApprovedOriginsResponse_origins,
     listApprovedOriginsResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest ListApprovedOrigins where
     Response.receiveJSON
       ( \s h x ->
           ListApprovedOriginsResponse'
-            Prelude.<$> (x Core..?> "Origins" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Origins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -179,11 +179,11 @@ instance Core.ToQuery ListApprovedOrigins where
 
 -- | /See:/ 'newListApprovedOriginsResponse' smart constructor.
 data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
-  { -- | The approved origins.
-    origins :: Prelude.Maybe [Prelude.Text],
-    -- | If there are additional results, this is the token for the next set of
+  { -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The approved origins.
+    origins :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origins', 'listApprovedOriginsResponse_origins' - The approved origins.
---
 -- 'nextToken', 'listApprovedOriginsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
+--
+-- 'origins', 'listApprovedOriginsResponse_origins' - The approved origins.
 --
 -- 'httpStatus', 'listApprovedOriginsResponse_httpStatus' - The response's http status code.
 newListApprovedOriginsResponse ::
@@ -209,20 +209,20 @@ newListApprovedOriginsResponse ::
   ListApprovedOriginsResponse
 newListApprovedOriginsResponse pHttpStatus_ =
   ListApprovedOriginsResponse'
-    { origins =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      origins = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The approved origins.
-listApprovedOriginsResponse_origins :: Lens.Lens' ListApprovedOriginsResponse (Prelude.Maybe [Prelude.Text])
-listApprovedOriginsResponse_origins = Lens.lens (\ListApprovedOriginsResponse' {origins} -> origins) (\s@ListApprovedOriginsResponse' {} a -> s {origins = a} :: ListApprovedOriginsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listApprovedOriginsResponse_nextToken :: Lens.Lens' ListApprovedOriginsResponse (Prelude.Maybe Prelude.Text)
 listApprovedOriginsResponse_nextToken = Lens.lens (\ListApprovedOriginsResponse' {nextToken} -> nextToken) (\s@ListApprovedOriginsResponse' {} a -> s {nextToken = a} :: ListApprovedOriginsResponse)
+
+-- | The approved origins.
+listApprovedOriginsResponse_origins :: Lens.Lens' ListApprovedOriginsResponse (Prelude.Maybe [Prelude.Text])
+listApprovedOriginsResponse_origins = Lens.lens (\ListApprovedOriginsResponse' {origins} -> origins) (\s@ListApprovedOriginsResponse' {} a -> s {origins = a} :: ListApprovedOriginsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApprovedOriginsResponse_httpStatus :: Lens.Lens' ListApprovedOriginsResponse Prelude.Int

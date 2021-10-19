@@ -87,7 +87,7 @@ newAssociateRoutingProfileQueues
           pInstanceId_,
         routingProfileId = pRoutingProfileId_,
         queueConfigs =
-          Lens._Coerce Lens.# pQueueConfigs_
+          Lens.coerced Lens.# pQueueConfigs_
       }
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -101,7 +101,7 @@ associateRoutingProfileQueues_routingProfileId = Lens.lens (\AssociateRoutingPro
 
 -- | The queues to associate with this routing profile.
 associateRoutingProfileQueues_queueConfigs :: Lens.Lens' AssociateRoutingProfileQueues (Prelude.NonEmpty RoutingProfileQueueConfig)
-associateRoutingProfileQueues_queueConfigs = Lens.lens (\AssociateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@AssociateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: AssociateRoutingProfileQueues) Prelude.. Lens._Coerce
+associateRoutingProfileQueues_queueConfigs = Lens.lens (\AssociateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@AssociateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: AssociateRoutingProfileQueues) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

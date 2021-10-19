@@ -58,7 +58,7 @@ newHistoricalMetricResult =
 
 -- | The set of metrics.
 historicalMetricResult_collections :: Lens.Lens' HistoricalMetricResult (Prelude.Maybe [HistoricalMetricData])
-historicalMetricResult_collections = Lens.lens (\HistoricalMetricResult' {collections} -> collections) (\s@HistoricalMetricResult' {} a -> s {collections = a} :: HistoricalMetricResult) Prelude.. Lens.mapping Lens._Coerce
+historicalMetricResult_collections = Lens.lens (\HistoricalMetricResult' {collections} -> collections) (\s@HistoricalMetricResult' {} a -> s {collections = a} :: HistoricalMetricResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The dimension for the metrics.
 historicalMetricResult_dimensions :: Lens.Lens' HistoricalMetricResult (Prelude.Maybe Dimensions)

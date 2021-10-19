@@ -90,7 +90,7 @@ newAssociateQueueQuickConnects
           pInstanceId_,
         queueId = pQueueId_,
         quickConnectIds =
-          Lens._Coerce Lens.# pQuickConnectIds_
+          Lens.coerced Lens.# pQuickConnectIds_
       }
 
 -- | The identifier of the Amazon Connect instance. You can find the
@@ -104,7 +104,7 @@ associateQueueQuickConnects_queueId = Lens.lens (\AssociateQueueQuickConnects' {
 
 -- | The quick connects to associate with this queue.
 associateQueueQuickConnects_quickConnectIds :: Lens.Lens' AssociateQueueQuickConnects (Prelude.NonEmpty Prelude.Text)
-associateQueueQuickConnects_quickConnectIds = Lens.lens (\AssociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@AssociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: AssociateQueueQuickConnects) Prelude.. Lens._Coerce
+associateQueueQuickConnects_quickConnectIds = Lens.lens (\AssociateQueueQuickConnects' {quickConnectIds} -> quickConnectIds) (\s@AssociateQueueQuickConnects' {} a -> s {quickConnectIds = a} :: AssociateQueueQuickConnects) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AssociateQueueQuickConnects where
   type

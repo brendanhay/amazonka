@@ -47,8 +47,8 @@ module Network.AWS.Connect.GetMetricData
     newGetMetricDataResponse,
 
     -- * Response Lenses
-    getMetricDataResponse_nextToken,
     getMetricDataResponse_metricResults,
+    getMetricDataResponse_nextToken,
     getMetricDataResponse_httpStatus,
   )
 where
@@ -476,7 +476,7 @@ getMetricData_nextToken = Lens.lens (\GetMetricData' {nextToken} -> nextToken) (
 -- If no grouping is specified, a summary of metrics for all queues is
 -- returned.
 getMetricData_groupings :: Lens.Lens' GetMetricData (Prelude.Maybe [Grouping])
-getMetricData_groupings = Lens.lens (\GetMetricData' {groupings} -> groupings) (\s@GetMetricData' {} a -> s {groupings = a} :: GetMetricData) Prelude.. Lens.mapping Lens._Coerce
+getMetricData_groupings = Lens.lens (\GetMetricData' {groupings} -> groupings) (\s@GetMetricData' {} a -> s {groupings = a} :: GetMetricData) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return per page.
 getMetricData_maxResults :: Lens.Lens' GetMetricData (Prelude.Maybe Prelude.Natural)
@@ -658,7 +658,7 @@ getMetricData_filters = Lens.lens (\GetMetricData' {filters} -> filters) (\s@Get
 --     604800 (inclusive), in seconds. For @Comparison@, you must enter
 --     @LT@ (for \"Less than\").
 getMetricData_historicalMetrics :: Lens.Lens' GetMetricData [HistoricalMetric]
-getMetricData_historicalMetrics = Lens.lens (\GetMetricData' {historicalMetrics} -> historicalMetrics) (\s@GetMetricData' {} a -> s {historicalMetrics = a} :: GetMetricData) Prelude.. Lens._Coerce
+getMetricData_historicalMetrics = Lens.lens (\GetMetricData' {historicalMetrics} -> historicalMetrics) (\s@GetMetricData' {} a -> s {historicalMetrics = a} :: GetMetricData) Prelude.. Lens.coerced
 
 instance Core.AWSPager GetMetricData where
   page rq rs
@@ -689,8 +689,8 @@ instance Core.AWSRequest GetMetricData where
     Response.receiveJSON
       ( \s h x ->
           GetMetricDataResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -734,17 +734,17 @@ instance Core.ToQuery GetMetricData where
 
 -- | /See:/ 'newGetMetricDataResponse' smart constructor.
 data GetMetricDataResponse = GetMetricDataResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | Information about the historical metrics.
+    --
+    -- If no grouping is specified, a summary of metric data is returned.
+    metricResults :: Prelude.Maybe [HistoricalMetricResult],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     --
     -- The token expires after 5 minutes from the time it is created.
     -- Subsequent requests that use the token must use the same request
     -- parameters as the request that generated the token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the historical metrics.
-    --
-    -- If no grouping is specified, a summary of metric data is returned.
-    metricResults :: Prelude.Maybe [HistoricalMetricResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -758,16 +758,16 @@ data GetMetricDataResponse = GetMetricDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricResults', 'getMetricDataResponse_metricResults' - Information about the historical metrics.
+--
+-- If no grouping is specified, a summary of metric data is returned.
+--
 -- 'nextToken', 'getMetricDataResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
 --
 -- The token expires after 5 minutes from the time it is created.
 -- Subsequent requests that use the token must use the same request
 -- parameters as the request that generated the token.
---
--- 'metricResults', 'getMetricDataResponse_metricResults' - Information about the historical metrics.
---
--- If no grouping is specified, a summary of metric data is returned.
 --
 -- 'httpStatus', 'getMetricDataResponse_httpStatus' - The response's http status code.
 newGetMetricDataResponse ::
@@ -776,10 +776,17 @@ newGetMetricDataResponse ::
   GetMetricDataResponse
 newGetMetricDataResponse pHttpStatus_ =
   GetMetricDataResponse'
-    { nextToken = Prelude.Nothing,
-      metricResults = Prelude.Nothing,
+    { metricResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the historical metrics.
+--
+-- If no grouping is specified, a summary of metric data is returned.
+getMetricDataResponse_metricResults :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe [HistoricalMetricResult])
+getMetricDataResponse_metricResults = Lens.lens (\GetMetricDataResponse' {metricResults} -> metricResults) (\s@GetMetricDataResponse' {} a -> s {metricResults = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
@@ -789,12 +796,6 @@ newGetMetricDataResponse pHttpStatus_ =
 -- parameters as the request that generated the token.
 getMetricDataResponse_nextToken :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe Prelude.Text)
 getMetricDataResponse_nextToken = Lens.lens (\GetMetricDataResponse' {nextToken} -> nextToken) (\s@GetMetricDataResponse' {} a -> s {nextToken = a} :: GetMetricDataResponse)
-
--- | Information about the historical metrics.
---
--- If no grouping is specified, a summary of metric data is returned.
-getMetricDataResponse_metricResults :: Lens.Lens' GetMetricDataResponse (Prelude.Maybe [HistoricalMetricResult])
-getMetricDataResponse_metricResults = Lens.lens (\GetMetricDataResponse' {metricResults} -> metricResults) (\s@GetMetricDataResponse' {} a -> s {metricResults = a} :: GetMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getMetricDataResponse_httpStatus :: Lens.Lens' GetMetricDataResponse Prelude.Int

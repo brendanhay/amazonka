@@ -30,8 +30,8 @@ module Network.AWS.Connect.CreateHoursOfOperation
     newCreateHoursOfOperation,
 
     -- * Request Lenses
-    createHoursOfOperation_tags,
     createHoursOfOperation_description,
+    createHoursOfOperation_tags,
     createHoursOfOperation_instanceId,
     createHoursOfOperation_name,
     createHoursOfOperation_timeZone,
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateHoursOfOperation' smart constructor.
 data CreateHoursOfOperation = CreateHoursOfOperation'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the hours of operation.
+  { -- | The description of the hours of operation.
     description :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -82,9 +82,9 @@ data CreateHoursOfOperation = CreateHoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createHoursOfOperation_tags' - One or more tags.
---
 -- 'description', 'createHoursOfOperation_description' - The description of the hours of operation.
+--
+-- 'tags', 'createHoursOfOperation_tags' - One or more tags.
 --
 -- 'instanceId', 'createHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -108,21 +108,22 @@ newCreateHoursOfOperation
   pName_
   pTimeZone_ =
     CreateHoursOfOperation'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         timeZone = pTimeZone_,
         config = Prelude.mempty
       }
 
--- | One or more tags.
-createHoursOfOperation_tags :: Lens.Lens' CreateHoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createHoursOfOperation_tags = Lens.lens (\CreateHoursOfOperation' {tags} -> tags) (\s@CreateHoursOfOperation' {} a -> s {tags = a} :: CreateHoursOfOperation) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The description of the hours of operation.
 createHoursOfOperation_description :: Lens.Lens' CreateHoursOfOperation (Prelude.Maybe Prelude.Text)
 createHoursOfOperation_description = Lens.lens (\CreateHoursOfOperation' {description} -> description) (\s@CreateHoursOfOperation' {} a -> s {description = a} :: CreateHoursOfOperation)
+
+-- | One or more tags.
+createHoursOfOperation_tags :: Lens.Lens' CreateHoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createHoursOfOperation_tags = Lens.lens (\CreateHoursOfOperation' {tags} -> tags) (\s@CreateHoursOfOperation' {} a -> s {tags = a} :: CreateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -140,7 +141,7 @@ createHoursOfOperation_timeZone = Lens.lens (\CreateHoursOfOperation' {timeZone}
 -- | Configuration information for the hours of operation: day, start time,
 -- and end time.
 createHoursOfOperation_config :: Lens.Lens' CreateHoursOfOperation [HoursOfOperationConfig]
-createHoursOfOperation_config = Lens.lens (\CreateHoursOfOperation' {config} -> config) (\s@CreateHoursOfOperation' {} a -> s {config = a} :: CreateHoursOfOperation) Prelude.. Lens._Coerce
+createHoursOfOperation_config = Lens.lens (\CreateHoursOfOperation' {config} -> config) (\s@CreateHoursOfOperation' {} a -> s {config = a} :: CreateHoursOfOperation) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateHoursOfOperation where
   type
@@ -175,8 +176,8 @@ instance Core.ToJSON CreateHoursOfOperation where
   toJSON CreateHoursOfOperation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("TimeZone" Core..= timeZone),
             Prelude.Just ("Config" Core..= config)

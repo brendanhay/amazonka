@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data AgentStatusSummary = AgentStatusSummary'
   { -- | The Amazon Resource Name (ARN) for the agent status.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for an agent status.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the agent status.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for an agent status.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The type of the agent status.
     type' :: Prelude.Maybe AgentStatusType
   }
@@ -49,9 +49,9 @@ data AgentStatusSummary = AgentStatusSummary'
 --
 -- 'arn', 'agentStatusSummary_arn' - The Amazon Resource Name (ARN) for the agent status.
 --
--- 'id', 'agentStatusSummary_id' - The identifier for an agent status.
---
 -- 'name', 'agentStatusSummary_name' - The name of the agent status.
+--
+-- 'id', 'agentStatusSummary_id' - The identifier for an agent status.
 --
 -- 'type'', 'agentStatusSummary_type' - The type of the agent status.
 newAgentStatusSummary ::
@@ -59,8 +59,8 @@ newAgentStatusSummary ::
 newAgentStatusSummary =
   AgentStatusSummary'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -68,13 +68,13 @@ newAgentStatusSummary =
 agentStatusSummary_arn :: Lens.Lens' AgentStatusSummary (Prelude.Maybe Prelude.Text)
 agentStatusSummary_arn = Lens.lens (\AgentStatusSummary' {arn} -> arn) (\s@AgentStatusSummary' {} a -> s {arn = a} :: AgentStatusSummary)
 
--- | The identifier for an agent status.
-agentStatusSummary_id :: Lens.Lens' AgentStatusSummary (Prelude.Maybe Prelude.Text)
-agentStatusSummary_id = Lens.lens (\AgentStatusSummary' {id} -> id) (\s@AgentStatusSummary' {} a -> s {id = a} :: AgentStatusSummary)
-
 -- | The name of the agent status.
 agentStatusSummary_name :: Lens.Lens' AgentStatusSummary (Prelude.Maybe Prelude.Text)
 agentStatusSummary_name = Lens.lens (\AgentStatusSummary' {name} -> name) (\s@AgentStatusSummary' {} a -> s {name = a} :: AgentStatusSummary)
+
+-- | The identifier for an agent status.
+agentStatusSummary_id :: Lens.Lens' AgentStatusSummary (Prelude.Maybe Prelude.Text)
+agentStatusSummary_id = Lens.lens (\AgentStatusSummary' {id} -> id) (\s@AgentStatusSummary' {} a -> s {id = a} :: AgentStatusSummary)
 
 -- | The type of the agent status.
 agentStatusSummary_type :: Lens.Lens' AgentStatusSummary (Prelude.Maybe AgentStatusType)
@@ -87,8 +87,8 @@ instance Core.FromJSON AgentStatusSummary where
       ( \x ->
           AgentStatusSummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Type")
       )
 

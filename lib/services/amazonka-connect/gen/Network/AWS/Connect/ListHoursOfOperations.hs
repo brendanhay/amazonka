@@ -225,7 +225,7 @@ listHoursOfOperationsResponse_nextToken = Lens.lens (\ListHoursOfOperationsRespo
 
 -- | Information about the hours of operation.
 listHoursOfOperationsResponse_hoursOfOperationSummaryList :: Lens.Lens' ListHoursOfOperationsResponse (Prelude.Maybe [HoursOfOperationSummary])
-listHoursOfOperationsResponse_hoursOfOperationSummaryList = Lens.lens (\ListHoursOfOperationsResponse' {hoursOfOperationSummaryList} -> hoursOfOperationSummaryList) (\s@ListHoursOfOperationsResponse' {} a -> s {hoursOfOperationSummaryList = a} :: ListHoursOfOperationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listHoursOfOperationsResponse_hoursOfOperationSummaryList = Lens.lens (\ListHoursOfOperationsResponse' {hoursOfOperationSummaryList} -> hoursOfOperationSummaryList) (\s@ListHoursOfOperationsResponse' {} a -> s {hoursOfOperationSummaryList = a} :: ListHoursOfOperationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listHoursOfOperationsResponse_httpStatus :: Lens.Lens' ListHoursOfOperationsResponse Prelude.Int

@@ -76,9 +76,9 @@ module Network.AWS.SecretsManager.CancelRotateSecret
     newCancelRotateSecretResponse,
 
     -- * Response Lenses
+    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_arn,
     cancelRotateSecretResponse_name,
-    cancelRotateSecretResponse_versionId,
     cancelRotateSecretResponse_httpStatus,
   )
 where
@@ -96,24 +96,8 @@ data CancelRotateSecret = CancelRotateSecret'
     -- either the Amazon Resource Name (ARN) or the friendly name of the
     -- secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,24 +114,8 @@ data CancelRotateSecret = CancelRotateSecret'
 -- either the Amazon Resource Name (ARN) or the friendly name of the
 -- secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 newCancelRotateSecret ::
   -- | 'secretId'
   Prelude.Text ->
@@ -159,24 +127,8 @@ newCancelRotateSecret pSecretId_ =
 -- either the Amazon Resource Name (ARN) or the friendly name of the
 -- secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 cancelRotateSecret_secretId :: Lens.Lens' CancelRotateSecret Prelude.Text
 cancelRotateSecret_secretId = Lens.lens (\CancelRotateSecret' {secretId} -> secretId) (\s@CancelRotateSecret' {} a -> s {secretId = a} :: CancelRotateSecret)
 
@@ -189,9 +141,9 @@ instance Core.AWSRequest CancelRotateSecret where
     Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,17 +181,17 @@ instance Core.ToQuery CancelRotateSecret where
 
 -- | /See:/ 'newCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { -- | The ARN of the secret for which rotation was canceled.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret for which rotation was canceled.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the version of the secret created during the
+  { -- | The unique identifier of the version of the secret created during the
     -- rotation. This version might not be complete, and should be evaluated
     -- for possible deletion. At the very least, you should remove the
     -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
     -- Failing to clean up a cancelled rotation can block you from successfully
     -- starting future rotations.
     versionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret for which rotation was canceled.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret for which rotation was canceled.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,16 +205,16 @@ data CancelRotateSecretResponse = CancelRotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
---
--- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
---
 -- 'versionId', 'cancelRotateSecretResponse_versionId' - The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
 -- for possible deletion. At the very least, you should remove the
 -- @VersionStage@ value @AWSPENDING@ to enable this version to be deleted.
 -- Failing to clean up a cancelled rotation can block you from successfully
 -- starting future rotations.
+--
+-- 'arn', 'cancelRotateSecretResponse_arn' - The ARN of the secret for which rotation was canceled.
+--
+-- 'name', 'cancelRotateSecretResponse_name' - The friendly name of the secret for which rotation was canceled.
 --
 -- 'httpStatus', 'cancelRotateSecretResponse_httpStatus' - The response's http status code.
 newCancelRotateSecretResponse ::
@@ -271,19 +223,12 @@ newCancelRotateSecretResponse ::
   CancelRotateSecretResponse
 newCancelRotateSecretResponse pHttpStatus_ =
   CancelRotateSecretResponse'
-    { arn = Prelude.Nothing,
+    { versionId =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret for which rotation was canceled.
-cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
-
--- | The friendly name of the secret for which rotation was canceled.
-cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
-cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The unique identifier of the version of the secret created during the
 -- rotation. This version might not be complete, and should be evaluated
@@ -293,6 +238,14 @@ cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name}
 -- starting future rotations.
 cancelRotateSecretResponse_versionId :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
 cancelRotateSecretResponse_versionId = Lens.lens (\CancelRotateSecretResponse' {versionId} -> versionId) (\s@CancelRotateSecretResponse' {} a -> s {versionId = a} :: CancelRotateSecretResponse)
+
+-- | The ARN of the secret for which rotation was canceled.
+cancelRotateSecretResponse_arn :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_arn = Lens.lens (\CancelRotateSecretResponse' {arn} -> arn) (\s@CancelRotateSecretResponse' {} a -> s {arn = a} :: CancelRotateSecretResponse)
+
+-- | The friendly name of the secret for which rotation was canceled.
+cancelRotateSecretResponse_name :: Lens.Lens' CancelRotateSecretResponse (Prelude.Maybe Prelude.Text)
+cancelRotateSecretResponse_name = Lens.lens (\CancelRotateSecretResponse' {name} -> name) (\s@CancelRotateSecretResponse' {} a -> s {name = a} :: CancelRotateSecretResponse)
 
 -- | The response's http status code.
 cancelRotateSecretResponse_httpStatus :: Lens.Lens' CancelRotateSecretResponse Prelude.Int

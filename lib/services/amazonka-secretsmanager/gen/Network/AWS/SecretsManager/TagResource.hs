@@ -92,34 +92,18 @@ data TagResource = TagResource'
     -- specify either the Amazon Resource Name (ARN) or the friendly name of
     -- the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text,
     -- | The tags to attach to the secret. Each element in the list consists of a
     -- @Key@ and a @Value@.
     --
-    -- This parameter to the API requires a JSON text string argument. For
-    -- information on how to format a JSON parameter for the various command
-    -- line tool environments, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /CLI User Guide/. For the CLI, you can also use the syntax:
-    -- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
+    -- This parameter to the API requires a JSON text string argument.
+    --
+    -- For storing multiple values, we recommend that you use a JSON text
+    -- string argument and specify key\/value pairs. For more information, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+    -- in the Amazon Web Services CLI User Guide.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -136,34 +120,18 @@ data TagResource = TagResource'
 -- specify either the Amazon Resource Name (ARN) or the friendly name of
 -- the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 --
 -- 'tags', 'tagResource_tags' - The tags to attach to the secret. Each element in the list consists of a
 -- @Key@ and a @Value@.
 --
--- This parameter to the API requires a JSON text string argument. For
--- information on how to format a JSON parameter for the various command
--- line tool environments, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /CLI User Guide/. For the CLI, you can also use the syntax:
--- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
+-- This parameter to the API requires a JSON text string argument.
+--
+-- For storing multiple values, we recommend that you use a JSON text
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
 newTagResource ::
   -- | 'secretId'
   Prelude.Text ->
@@ -178,38 +146,22 @@ newTagResource pSecretId_ =
 -- specify either the Amazon Resource Name (ARN) or the friendly name of
 -- the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 tagResource_secretId :: Lens.Lens' TagResource Prelude.Text
 tagResource_secretId = Lens.lens (\TagResource' {secretId} -> secretId) (\s@TagResource' {} a -> s {secretId = a} :: TagResource)
 
 -- | The tags to attach to the secret. Each element in the list consists of a
 -- @Key@ and a @Value@.
 --
--- This parameter to the API requires a JSON text string argument. For
--- information on how to format a JSON parameter for the various command
--- line tool environments, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /CLI User Guide/. For the CLI, you can also use the syntax:
--- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
+-- This parameter to the API requires a JSON text string argument.
+--
+-- For storing multiple values, we recommend that you use a JSON text
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

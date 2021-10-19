@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecretVersionsListEntry' smart constructor.
 data SecretVersionsListEntry = SecretVersionsListEntry'
-  { -- | The date and time this version of the secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | The KMS keys used to encrypt the secret version.
-    kmsKeyIds :: Prelude.Maybe [Prelude.Text],
+  { -- | The unique version identifier of this version of the secret.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | An array of staging labels that are currently associated with this
     -- version of the secret.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The unique version identifier of this version of the secret.
-    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time this version of the secret was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The KMS keys used to encrypt the secret version.
+    kmsKeyIds :: Prelude.Maybe [Prelude.Text],
     -- | The date that this version of the secret was last accessed. Note that
     -- the resolution of this field is at the date level and does not include
     -- the time.
@@ -51,14 +51,14 @@ data SecretVersionsListEntry = SecretVersionsListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'secretVersionsListEntry_createdDate' - The date and time this version of the secret was created.
---
--- 'kmsKeyIds', 'secretVersionsListEntry_kmsKeyIds' - The KMS keys used to encrypt the secret version.
+-- 'versionId', 'secretVersionsListEntry_versionId' - The unique version identifier of this version of the secret.
 --
 -- 'versionStages', 'secretVersionsListEntry_versionStages' - An array of staging labels that are currently associated with this
 -- version of the secret.
 --
--- 'versionId', 'secretVersionsListEntry_versionId' - The unique version identifier of this version of the secret.
+-- 'createdDate', 'secretVersionsListEntry_createdDate' - The date and time this version of the secret was created.
+--
+-- 'kmsKeyIds', 'secretVersionsListEntry_kmsKeyIds' - The KMS keys used to encrypt the secret version.
 --
 -- 'lastAccessedDate', 'secretVersionsListEntry_lastAccessedDate' - The date that this version of the secret was last accessed. Note that
 -- the resolution of this field is at the date level and does not include
@@ -67,13 +67,22 @@ newSecretVersionsListEntry ::
   SecretVersionsListEntry
 newSecretVersionsListEntry =
   SecretVersionsListEntry'
-    { createdDate =
+    { versionId =
         Prelude.Nothing,
-      kmsKeyIds = Prelude.Nothing,
       versionStages = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      kmsKeyIds = Prelude.Nothing,
       lastAccessedDate = Prelude.Nothing
     }
+
+-- | The unique version identifier of this version of the secret.
+secretVersionsListEntry_versionId :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.Text)
+secretVersionsListEntry_versionId = Lens.lens (\SecretVersionsListEntry' {versionId} -> versionId) (\s@SecretVersionsListEntry' {} a -> s {versionId = a} :: SecretVersionsListEntry)
+
+-- | An array of staging labels that are currently associated with this
+-- version of the secret.
+secretVersionsListEntry_versionStages :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+secretVersionsListEntry_versionStages = Lens.lens (\SecretVersionsListEntry' {versionStages} -> versionStages) (\s@SecretVersionsListEntry' {} a -> s {versionStages = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time this version of the secret was created.
 secretVersionsListEntry_createdDate :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.UTCTime)
@@ -81,16 +90,7 @@ secretVersionsListEntry_createdDate = Lens.lens (\SecretVersionsListEntry' {crea
 
 -- | The KMS keys used to encrypt the secret version.
 secretVersionsListEntry_kmsKeyIds :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe [Prelude.Text])
-secretVersionsListEntry_kmsKeyIds = Lens.lens (\SecretVersionsListEntry' {kmsKeyIds} -> kmsKeyIds) (\s@SecretVersionsListEntry' {} a -> s {kmsKeyIds = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of staging labels that are currently associated with this
--- version of the secret.
-secretVersionsListEntry_versionStages :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-secretVersionsListEntry_versionStages = Lens.lens (\SecretVersionsListEntry' {versionStages} -> versionStages) (\s@SecretVersionsListEntry' {} a -> s {versionStages = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | The unique version identifier of this version of the secret.
-secretVersionsListEntry_versionId :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.Text)
-secretVersionsListEntry_versionId = Lens.lens (\SecretVersionsListEntry' {versionId} -> versionId) (\s@SecretVersionsListEntry' {} a -> s {versionId = a} :: SecretVersionsListEntry)
+secretVersionsListEntry_kmsKeyIds = Lens.lens (\SecretVersionsListEntry' {kmsKeyIds} -> kmsKeyIds) (\s@SecretVersionsListEntry' {} a -> s {kmsKeyIds = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date that this version of the secret was last accessed. Note that
 -- the resolution of this field is at the date level and does not include
@@ -104,10 +104,10 @@ instance Core.FromJSON SecretVersionsListEntry where
       "SecretVersionsListEntry"
       ( \x ->
           SecretVersionsListEntry'
-            Prelude.<$> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "KmsKeyIds" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "VersionStages")
-            Prelude.<*> (x Core..:? "VersionId")
+            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<*> (x Core..:? "KmsKeyIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastAccessedDate")
       )
 

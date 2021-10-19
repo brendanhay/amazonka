@@ -20,12 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies many of the details of the specified secret. If you include a
--- @ClientRequestToken@ and /either/ @SecretString@ or @SecretBinary@ then
--- it also creates a new version attached to the secret.
+-- Modifies many of the details of the specified secret.
 --
--- To modify the rotation configuration of a secret, use RotateSecret
+-- To change the secret value, you can also use PutSecretValue.
+--
+-- To change the rotation configuration of a secret, use RotateSecret
 -- instead.
+--
+-- We recommend you avoid calling @UpdateSecret@ at a sustained rate of
+-- more than once every 10 minutes. When you call @UpdateSecret@ to update
+-- the secret value, Secrets Manager creates a new version of the secret.
+-- Secrets Manager removes outdated versions when there are more than 100,
+-- but it does not remove versions created less than 24 hours ago. If you
+-- update the secret value more than once every 10 minutes, you create more
+-- versions than Secrets Manager removes, and you will reach the quota for
+-- secret versions.
 --
 -- The Secrets Manager console uses only the @SecretString@ parameter and
 -- therefore limits you to encrypting and storing only a text string. To
@@ -102,9 +111,9 @@ module Network.AWS.SecretsManager.UpdateSecret
     -- * Request Lenses
     updateSecret_secretBinary,
     updateSecret_kmsKeyId,
-    updateSecret_description,
     updateSecret_secretString,
     updateSecret_clientRequestToken,
+    updateSecret_description,
     updateSecret_secretId,
 
     -- * Destructuring the Response
@@ -112,9 +121,9 @@ module Network.AWS.SecretsManager.UpdateSecret
     newUpdateSecretResponse,
 
     -- * Response Lenses
+    updateSecretResponse_versionId,
     updateSecretResponse_arn,
     updateSecretResponse_name,
-    updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
   )
 where
@@ -139,8 +148,13 @@ data UpdateSecret = UpdateSecret'
     -- This parameter is not accessible using the Secrets Manager console.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | (Optional) Specifies an updated ARN or alias of the Amazon Web Services
-    -- KMS customer master key (CMK) to be used to encrypt the protected text
-    -- in new versions of this secret.
+    -- KMS customer master key (CMK) that Secrets Manager uses to encrypt the
+    -- protected text in new versions of this secret as well as any existing
+    -- versions of this secret that have the staging labels AWSCURRENT,
+    -- AWSPENDING, or AWSPREVIOUS. For more information about staging labels,
+    -- see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels>
+    -- in the /Amazon Web Services Secrets Manager User Guide/.
     --
     -- You can only use the account\'s default CMK to encrypt and decrypt if
     -- you call this operation using credentials from the same account that
@@ -149,8 +163,6 @@ data UpdateSecret = UpdateSecret'
     -- user making the call must have permissions to both the secret and the
     -- CMK in their respective accounts.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Specifies an updated user-provided description of the secret.
-    description :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies updated text data that you want to encrypt and
     -- store in this new version of the secret. Either @SecretBinary@ or
     -- @SecretString@ must have a value, but not both. They cannot both be
@@ -163,22 +175,9 @@ data UpdateSecret = UpdateSecret'
     -- Lambda rotation function knows how to parse.
     --
     -- For storing multiple values, we recommend that you use a JSON text
-    -- string argument and specify key\/value pairs. For information on how to
-    -- format a JSON parameter for the various command line tool environments,
-    -- see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /CLI User Guide/. For example:
-    --
-    -- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
-    --
-    -- If your command-line tool or SDK requires quotation marks around the
-    -- parameter, you should use single quotes to avoid confusion with the
-    -- double quotes required in the JSON text. You can also \'escape\' the
-    -- double quote character in the embedded JSON text by prefacing each with
-    -- a backslash. For example, the following string is surrounded by
-    -- double-quotes. All of the embedded double quotes are escaped:
-    --
-    -- @\"[{\\\"username\\\":\\\"bob\\\"},{\\\"password\\\":\\\"abc123xyz456\\\"}]\"@
+    -- string argument and specify key\/value pairs. For more information, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+    -- in the Amazon Web Services CLI User Guide.
     secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | (Optional) If you want to add a new version to the secret, this
     -- parameter specifies a unique identifier for the new version that helps
@@ -217,28 +216,14 @@ data UpdateSecret = UpdateSecret'
     --
     -- This value becomes the @VersionId@ of the new version.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies an updated user-provided description of the secret.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret that you want to modify or to which you want to add
     -- a new version. You can specify either the Amazon Resource Name (ARN) or
     -- the friendly name of the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -266,8 +251,13 @@ data UpdateSecret = UpdateSecret'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'kmsKeyId', 'updateSecret_kmsKeyId' - (Optional) Specifies an updated ARN or alias of the Amazon Web Services
--- KMS customer master key (CMK) to be used to encrypt the protected text
--- in new versions of this secret.
+-- KMS customer master key (CMK) that Secrets Manager uses to encrypt the
+-- protected text in new versions of this secret as well as any existing
+-- versions of this secret that have the staging labels AWSCURRENT,
+-- AWSPENDING, or AWSPREVIOUS. For more information about staging labels,
+-- see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- You can only use the account\'s default CMK to encrypt and decrypt if
 -- you call this operation using credentials from the same account that
@@ -275,8 +265,6 @@ data UpdateSecret = UpdateSecret'
 -- create a custom CMK and provide the ARN of that CMK in this field. The
 -- user making the call must have permissions to both the secret and the
 -- CMK in their respective accounts.
---
--- 'description', 'updateSecret_description' - (Optional) Specifies an updated user-provided description of the secret.
 --
 -- 'secretString', 'updateSecret_secretString' - (Optional) Specifies updated text data that you want to encrypt and
 -- store in this new version of the secret. Either @SecretBinary@ or
@@ -290,22 +278,9 @@ data UpdateSecret = UpdateSecret'
 -- Lambda rotation function knows how to parse.
 --
 -- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For information on how to
--- format a JSON parameter for the various command line tool environments,
--- see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /CLI User Guide/. For example:
---
--- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
---
--- If your command-line tool or SDK requires quotation marks around the
--- parameter, you should use single quotes to avoid confusion with the
--- double quotes required in the JSON text. You can also \'escape\' the
--- double quote character in the embedded JSON text by prefacing each with
--- a backslash. For example, the following string is surrounded by
--- double-quotes. All of the embedded double quotes are escaped:
---
--- @\"[{\\\"username\\\":\\\"bob\\\"},{\\\"password\\\":\\\"abc123xyz456\\\"}]\"@
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
 --
 -- 'clientRequestToken', 'updateSecret_clientRequestToken' - (Optional) If you want to add a new version to the secret, this
 -- parameter specifies a unique identifier for the new version that helps
@@ -344,28 +319,14 @@ data UpdateSecret = UpdateSecret'
 --
 -- This value becomes the @VersionId@ of the new version.
 --
+-- 'description', 'updateSecret_description' - (Optional) Specifies an updated user-provided description of the secret.
+--
 -- 'secretId', 'updateSecret_secretId' - Specifies the secret that you want to modify or to which you want to add
 -- a new version. You can specify either the Amazon Resource Name (ARN) or
 -- the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 newUpdateSecret ::
   -- | 'secretId'
   Prelude.Text ->
@@ -374,9 +335,9 @@ newUpdateSecret pSecretId_ =
   UpdateSecret'
     { secretBinary = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      description = Prelude.Nothing,
       secretString = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      description = Prelude.Nothing,
       secretId = pSecretId_
     }
 
@@ -397,8 +358,13 @@ updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Byte
 updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
 -- | (Optional) Specifies an updated ARN or alias of the Amazon Web Services
--- KMS customer master key (CMK) to be used to encrypt the protected text
--- in new versions of this secret.
+-- KMS customer master key (CMK) that Secrets Manager uses to encrypt the
+-- protected text in new versions of this secret as well as any existing
+-- versions of this secret that have the staging labels AWSCURRENT,
+-- AWSPENDING, or AWSPREVIOUS. For more information about staging labels,
+-- see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- You can only use the account\'s default CMK to encrypt and decrypt if
 -- you call this operation using credentials from the same account that
@@ -408,10 +374,6 @@ updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBi
 -- CMK in their respective accounts.
 updateSecret_kmsKeyId :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_kmsKeyId = Lens.lens (\UpdateSecret' {kmsKeyId} -> kmsKeyId) (\s@UpdateSecret' {} a -> s {kmsKeyId = a} :: UpdateSecret)
-
--- | (Optional) Specifies an updated user-provided description of the secret.
-updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
-updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
 
 -- | (Optional) Specifies updated text data that you want to encrypt and
 -- store in this new version of the secret. Either @SecretBinary@ or
@@ -425,22 +387,9 @@ updateSecret_description = Lens.lens (\UpdateSecret' {description} -> descriptio
 -- Lambda rotation function knows how to parse.
 --
 -- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For information on how to
--- format a JSON parameter for the various command line tool environments,
--- see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /CLI User Guide/. For example:
---
--- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
---
--- If your command-line tool or SDK requires quotation marks around the
--- parameter, you should use single quotes to avoid confusion with the
--- double quotes required in the JSON text. You can also \'escape\' the
--- double quote character in the embedded JSON text by prefacing each with
--- a backslash. For example, the following string is surrounded by
--- double-quotes. All of the embedded double quotes are escaped:
---
--- @\"[{\\\"username\\\":\\\"bob\\\"},{\\\"password\\\":\\\"abc123xyz456\\\"}]\"@
+-- string argument and specify key\/value pairs. For more information, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
+-- in the Amazon Web Services CLI User Guide.
 updateSecret_secretString :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretString) (\s@UpdateSecret' {} a -> s {secretString = a} :: UpdateSecret) Prelude.. Lens.mapping Core._Sensitive
 
@@ -483,28 +432,16 @@ updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretSt
 updateSecret_clientRequestToken :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
 updateSecret_clientRequestToken = Lens.lens (\UpdateSecret' {clientRequestToken} -> clientRequestToken) (\s@UpdateSecret' {} a -> s {clientRequestToken = a} :: UpdateSecret)
 
+-- | (Optional) Specifies an updated user-provided description of the secret.
+updateSecret_description :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.Text)
+updateSecret_description = Lens.lens (\UpdateSecret' {description} -> description) (\s@UpdateSecret' {} a -> s {description = a} :: UpdateSecret)
+
 -- | Specifies the secret that you want to modify or to which you want to add
 -- a new version. You can specify either the Amazon Resource Name (ARN) or
 -- the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 updateSecret_secretId :: Lens.Lens' UpdateSecret Prelude.Text
 updateSecret_secretId = Lens.lens (\UpdateSecret' {secretId} -> secretId) (\s@UpdateSecret' {} a -> s {secretId = a} :: UpdateSecret)
 
@@ -515,9 +452,9 @@ instance Core.AWSRequest UpdateSecret where
     Response.receiveJSON
       ( \s h x ->
           UpdateSecretResponse'
-            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -546,10 +483,10 @@ instance Core.ToJSON UpdateSecret where
       ( Prelude.catMaybes
           [ ("SecretBinary" Core..=) Prelude.<$> secretBinary,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Description" Core..=) Prelude.<$> description,
             ("SecretString" Core..=) Prelude.<$> secretString,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
@@ -562,7 +499,10 @@ instance Core.ToQuery UpdateSecret where
 
 -- | /See:/ 'newUpdateSecretResponse' smart constructor.
 data UpdateSecretResponse = UpdateSecretResponse'
-  { -- | The ARN of the secret that was updated.
+  { -- | If a new version of the secret was created by this operation, then
+    -- @VersionId@ contains the unique identifier of the new version.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret that was updated.
     --
     -- Secrets Manager automatically adds several random characters to the name
     -- at the end of the ARN when you initially create a secret. This affects
@@ -574,9 +514,6 @@ data UpdateSecretResponse = UpdateSecretResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that was updated.
     name :: Prelude.Maybe Prelude.Text,
-    -- | If a new version of the secret was created by this operation, then
-    -- @VersionId@ contains the unique identifier of the new version.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -590,6 +527,9 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionId', 'updateSecretResponse_versionId' - If a new version of the secret was created by this operation, then
+-- @VersionId@ contains the unique identifier of the new version.
+--
 -- 'arn', 'updateSecretResponse_arn' - The ARN of the secret that was updated.
 --
 -- Secrets Manager automatically adds several random characters to the name
@@ -602,9 +542,6 @@ data UpdateSecretResponse = UpdateSecretResponse'
 --
 -- 'name', 'updateSecretResponse_name' - The friendly name of the secret that was updated.
 --
--- 'versionId', 'updateSecretResponse_versionId' - If a new version of the secret was created by this operation, then
--- @VersionId@ contains the unique identifier of the new version.
---
 -- 'httpStatus', 'updateSecretResponse_httpStatus' - The response's http status code.
 newUpdateSecretResponse ::
   -- | 'httpStatus'
@@ -612,11 +549,16 @@ newUpdateSecretResponse ::
   UpdateSecretResponse
 newUpdateSecretResponse pHttpStatus_ =
   UpdateSecretResponse'
-    { arn = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | If a new version of the secret was created by this operation, then
+-- @VersionId@ contains the unique identifier of the new version.
+updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
+updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
 
 -- | The ARN of the secret that was updated.
 --
@@ -633,11 +575,6 @@ updateSecretResponse_arn = Lens.lens (\UpdateSecretResponse' {arn} -> arn) (\s@U
 -- | The friendly name of the secret that was updated.
 updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
-
--- | If a new version of the secret was created by this operation, then
--- @VersionId@ contains the unique identifier of the new version.
-updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
-updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
 
 -- | The response's http status code.
 updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Prelude.Int

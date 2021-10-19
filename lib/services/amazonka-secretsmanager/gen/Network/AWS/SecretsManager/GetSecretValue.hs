@@ -57,12 +57,12 @@ module Network.AWS.SecretsManager.GetSecretValue
     newGetSecretValueResponse,
 
     -- * Response Lenses
-    getSecretValueResponse_createdDate,
-    getSecretValueResponse_secretBinary,
-    getSecretValueResponse_versionStages,
-    getSecretValueResponse_arn,
-    getSecretValueResponse_name,
     getSecretValueResponse_versionId,
+    getSecretValueResponse_arn,
+    getSecretValueResponse_versionStages,
+    getSecretValueResponse_secretBinary,
+    getSecretValueResponse_createdDate,
+    getSecretValueResponse_name,
     getSecretValueResponse_secretString,
     getSecretValueResponse_httpStatus,
   )
@@ -102,24 +102,8 @@ data GetSecretValue = GetSecretValue'
     -- You can specify either the Amazon Resource Name (ARN) or the friendly
     -- name of the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -157,24 +141,8 @@ data GetSecretValue = GetSecretValue'
 -- You can specify either the Amazon Resource Name (ARN) or the friendly
 -- name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 newGetSecretValue ::
   -- | 'secretId'
   Prelude.Text ->
@@ -215,24 +183,8 @@ getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> vers
 -- You can specify either the Amazon Resource Name (ARN) or the friendly
 -- name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 getSecretValue_secretId :: Lens.Lens' GetSecretValue Prelude.Text
 getSecretValue_secretId = Lens.lens (\GetSecretValue' {secretId} -> secretId) (\s@GetSecretValue' {} a -> s {secretId = a} :: GetSecretValue)
 
@@ -245,12 +197,12 @@ instance Core.AWSRequest GetSecretValue where
     Response.receiveJSON
       ( \s h x ->
           GetSecretValueResponse'
-            Prelude.<$> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "SecretBinary")
-            Prelude.<*> (x Core..?> "VersionStages")
+            Prelude.<$> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "ARN")
+            Prelude.<*> (x Core..?> "VersionStages")
+            Prelude.<*> (x Core..?> "SecretBinary")
+            Prelude.<*> (x Core..?> "CreatedDate")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "SecretString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -292,8 +244,13 @@ instance Core.ToQuery GetSecretValue where
 
 -- | /See:/ 'newGetSecretValueResponse' smart constructor.
 data GetSecretValueResponse = GetSecretValueResponse'
-  { -- | The date and time that this version of the secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+  { -- | The unique identifier of this version of the secret.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | A list of all of the staging labels currently attached to this version
+    -- of the secret.
+    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The decrypted part of the protected secret information that was
     -- originally provided as binary data in the form of a byte array. The
     -- response parameter represents the binary data as a
@@ -306,15 +263,10 @@ data GetSecretValueResponse = GetSecretValueResponse'
     -- must code your Lambda rotation function to parse and interpret whatever
     -- you store in the @SecretString@ or @SecretBinary@ fields.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | A list of all of the staging labels currently attached to this version
-    -- of the secret.
-    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that this version of the secret was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The friendly name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of this version of the secret.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The decrypted part of the protected secret information that was
     -- originally provided as a string.
     --
@@ -342,7 +294,12 @@ data GetSecretValueResponse = GetSecretValueResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created.
+-- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
+--
+-- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
+--
+-- 'versionStages', 'getSecretValueResponse_versionStages' - A list of all of the staging labels currently attached to this version
+-- of the secret.
 --
 -- 'secretBinary', 'getSecretValueResponse_secretBinary' - The decrypted part of the protected secret information that was
 -- originally provided as binary data in the form of a byte array. The
@@ -360,14 +317,9 @@ data GetSecretValueResponse = GetSecretValueResponse'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'versionStages', 'getSecretValueResponse_versionStages' - A list of all of the staging labels currently attached to this version
--- of the secret.
---
--- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
+-- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created.
 --
 -- 'name', 'getSecretValueResponse_name' - The friendly name of the secret.
---
--- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
 --
 -- 'secretString', 'getSecretValueResponse_secretString' - The decrypted part of the protected secret information that was
 -- originally provided as a string.
@@ -390,20 +342,29 @@ newGetSecretValueResponse ::
   GetSecretValueResponse
 newGetSecretValueResponse pHttpStatus_ =
   GetSecretValueResponse'
-    { createdDate =
+    { versionId =
         Prelude.Nothing,
-      secretBinary = Prelude.Nothing,
-      versionStages = Prelude.Nothing,
       arn = Prelude.Nothing,
+      versionStages = Prelude.Nothing,
+      secretBinary = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       secretString = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time that this version of the secret was created.
-getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
-getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Time
+-- | The unique identifier of this version of the secret.
+getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
+
+-- | The ARN of the secret.
+getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
+
+-- | A list of all of the staging labels currently attached to this version
+-- of the secret.
+getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The decrypted part of the protected secret information that was
 -- originally provided as binary data in the form of a byte array. The
@@ -423,22 +384,13 @@ getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {create
 getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.ByteString)
 getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | A list of all of the staging labels currently attached to this version
--- of the secret.
-getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ARN of the secret.
-getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
+-- | The date and time that this version of the secret was created.
+getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
+getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The friendly name of the secret.
 getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
-
--- | The unique identifier of this version of the secret.
-getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
 
 -- | The decrypted part of the protected secret information that was
 -- originally provided as a string.

@@ -88,23 +88,8 @@ module Network.AWS.SecretsManager
     -- * Errors
     -- $errors
 
-    -- ** EncryptionFailure
-    _EncryptionFailure,
-
     -- ** MalformedPolicyDocumentException
     _MalformedPolicyDocumentException,
-
-    -- ** PublicPolicyException
-    _PublicPolicyException,
-
-    -- ** DecryptionFailure
-    _DecryptionFailure,
-
-    -- ** PreconditionNotMetException
-    _PreconditionNotMetException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
@@ -112,17 +97,32 @@ module Network.AWS.SecretsManager
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** DecryptionFailure
+    _DecryptionFailure,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** PublicPolicyException
+    _PublicPolicyException,
+
+    -- ** EncryptionFailure
+    _EncryptionFailure,
+
+    -- ** PreconditionNotMetException
+    _PreconditionNotMetException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InternalServiceError
+    _InternalServiceError,
 
     -- ** ResourceExistsException
     _ResourceExistsException,
 
-    -- ** InternalServiceError
-    _InternalServiceError,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -130,11 +130,23 @@ module Network.AWS.SecretsManager
     -- * Operations
     -- $operations
 
+    -- ** ValidateResourcePolicy
+    ValidateResourcePolicy (ValidateResourcePolicy'),
+    newValidateResourcePolicy,
+    ValidateResourcePolicyResponse (ValidateResourcePolicyResponse'),
+    newValidateResourcePolicyResponse,
+
     -- ** DeleteSecret
     DeleteSecret (DeleteSecret'),
     newDeleteSecret,
     DeleteSecretResponse (DeleteSecretResponse'),
     newDeleteSecretResponse,
+
+    -- ** ListSecrets (Paginated)
+    ListSecrets (ListSecrets'),
+    newListSecrets,
+    ListSecretsResponse (ListSecretsResponse'),
+    newListSecretsResponse,
 
     -- ** UpdateSecret
     UpdateSecret (UpdateSecret'),
@@ -142,71 +154,17 @@ module Network.AWS.SecretsManager
     UpdateSecretResponse (UpdateSecretResponse'),
     newUpdateSecretResponse,
 
-    -- ** RotateSecret
-    RotateSecret (RotateSecret'),
-    newRotateSecret,
-    RotateSecretResponse (RotateSecretResponse'),
-    newRotateSecretResponse,
-
     -- ** RemoveRegionsFromReplication
     RemoveRegionsFromReplication (RemoveRegionsFromReplication'),
     newRemoveRegionsFromReplication,
     RemoveRegionsFromReplicationResponse (RemoveRegionsFromReplicationResponse'),
     newRemoveRegionsFromReplicationResponse,
 
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
-
-    -- ** ValidateResourcePolicy
-    ValidateResourcePolicy (ValidateResourcePolicy'),
-    newValidateResourcePolicy,
-    ValidateResourcePolicyResponse (ValidateResourcePolicyResponse'),
-    newValidateResourcePolicyResponse,
-
-    -- ** CancelRotateSecret
-    CancelRotateSecret (CancelRotateSecret'),
-    newCancelRotateSecret,
-    CancelRotateSecretResponse (CancelRotateSecretResponse'),
-    newCancelRotateSecretResponse,
-
-    -- ** RestoreSecret
-    RestoreSecret (RestoreSecret'),
-    newRestoreSecret,
-    RestoreSecretResponse (RestoreSecretResponse'),
-    newRestoreSecretResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** DescribeSecret
-    DescribeSecret (DescribeSecret'),
-    newDescribeSecret,
-    DescribeSecretResponse (DescribeSecretResponse'),
-    newDescribeSecretResponse,
-
-    -- ** GetSecretValue
-    GetSecretValue (GetSecretValue'),
-    newGetSecretValue,
-    GetSecretValueResponse (GetSecretValueResponse'),
-    newGetSecretValueResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** RotateSecret
+    RotateSecret (RotateSecret'),
+    newRotateSecret,
+    RotateSecretResponse (RotateSecretResponse'),
+    newRotateSecretResponse,
 
     -- ** CreateSecret
     CreateSecret (CreateSecret'),
@@ -214,11 +172,41 @@ module Network.AWS.SecretsManager
     CreateSecretResponse (CreateSecretResponse'),
     newCreateSecretResponse,
 
-    -- ** GetRandomPassword
-    GetRandomPassword (GetRandomPassword'),
-    newGetRandomPassword,
-    GetRandomPasswordResponse (GetRandomPasswordResponse'),
-    newGetRandomPasswordResponse,
+    -- ** GetSecretValue
+    GetSecretValue (GetSecretValue'),
+    newGetSecretValue,
+    GetSecretValueResponse (GetSecretValueResponse'),
+    newGetSecretValueResponse,
+
+    -- ** DescribeSecret
+    DescribeSecret (DescribeSecret'),
+    newDescribeSecret,
+    DescribeSecretResponse (DescribeSecretResponse'),
+    newDescribeSecretResponse,
+
+    -- ** RestoreSecret
+    RestoreSecret (RestoreSecret'),
+    newRestoreSecret,
+    RestoreSecretResponse (RestoreSecretResponse'),
+    newRestoreSecretResponse,
+
+    -- ** CancelRotateSecret
+    CancelRotateSecret (CancelRotateSecret'),
+    newCancelRotateSecret,
+    CancelRotateSecretResponse (CancelRotateSecretResponse'),
+    newCancelRotateSecretResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** PutSecretValue
+    PutSecretValue (PutSecretValue'),
+    newPutSecretValue,
+    PutSecretValueResponse (PutSecretValueResponse'),
+    newPutSecretValueResponse,
 
     -- ** ReplicateSecretToRegions
     ReplicateSecretToRegions (ReplicateSecretToRegions'),
@@ -232,23 +220,29 @@ module Network.AWS.SecretsManager
     StopReplicationToReplicaResponse (StopReplicationToReplicaResponse'),
     newStopReplicationToReplicaResponse,
 
-    -- ** ListSecrets (Paginated)
-    ListSecrets (ListSecrets'),
-    newListSecrets,
-    ListSecretsResponse (ListSecretsResponse'),
-    newListSecretsResponse,
+    -- ** GetRandomPassword
+    GetRandomPassword (GetRandomPassword'),
+    newGetRandomPassword,
+    GetRandomPasswordResponse (GetRandomPasswordResponse'),
+    newGetRandomPasswordResponse,
 
-    -- ** PutSecretValue
-    PutSecretValue (PutSecretValue'),
-    newPutSecretValue,
-    PutSecretValueResponse (PutSecretValueResponse'),
-    newPutSecretValueResponse,
+    -- ** ListSecretVersionIds (Paginated)
+    ListSecretVersionIds (ListSecretVersionIds'),
+    newListSecretVersionIds,
+    ListSecretVersionIdsResponse (ListSecretVersionIdsResponse'),
+    newListSecretVersionIdsResponse,
 
-    -- ** UpdateSecretVersionStage
-    UpdateSecretVersionStage (UpdateSecretVersionStage'),
-    newUpdateSecretVersionStage,
-    UpdateSecretVersionStageResponse (UpdateSecretVersionStageResponse'),
-    newUpdateSecretVersionStageResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -256,11 +250,17 @@ module Network.AWS.SecretsManager
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
 
-    -- ** ListSecretVersionIds (Paginated)
-    ListSecretVersionIds (ListSecretVersionIds'),
-    newListSecretVersionIds,
-    ListSecretVersionIdsResponse (ListSecretVersionIdsResponse'),
-    newListSecretVersionIdsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateSecretVersionStage
+    UpdateSecretVersionStage (UpdateSecretVersionStage'),
+    newUpdateSecretVersionStage,
+    UpdateSecretVersionStageResponse (UpdateSecretVersionStageResponse'),
+    newUpdateSecretVersionStageResponse,
 
     -- * Types
 

@@ -55,7 +55,7 @@ newEC2TagSet =
 -- instance to be included in the deployment group, it must be identified
 -- by all of the tag groups in the list.
 eC2TagSet_ec2TagSetList :: Lens.Lens' EC2TagSet (Prelude.Maybe [[EC2TagFilter]])
-eC2TagSet_ec2TagSetList = Lens.lens (\EC2TagSet' {ec2TagSetList} -> ec2TagSetList) (\s@EC2TagSet' {} a -> s {ec2TagSetList = a} :: EC2TagSet) Prelude.. Lens.mapping Lens._Coerce
+eC2TagSet_ec2TagSetList = Lens.lens (\EC2TagSet' {ec2TagSetList} -> ec2TagSetList) (\s@EC2TagSet' {} a -> s {ec2TagSetList = a} :: EC2TagSet) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EC2TagSet where
   parseJSON =

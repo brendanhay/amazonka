@@ -32,18 +32,18 @@ import qualified Network.AWS.Prelude as Prelude
 data DeploymentConfigInfo = DeploymentConfigInfo'
   { -- | The deployment configuration name.
     deploymentConfigName :: Prelude.Maybe Prelude.Text,
-    -- | The deployment configuration ID.
-    deploymentConfigId :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the deployment configuration was created.
-    createTime :: Prelude.Maybe Core.POSIX,
+    -- | The destination platform type for the deployment (@Lambda@, @Server@, or
+    -- @ECS@).
+    computePlatform :: Prelude.Maybe ComputePlatform,
+    -- | Information about the number or percentage of minimum healthy instance.
+    minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
     -- | The configuration that specifies how the deployment traffic is routed.
     -- Used for deployments with a Lambda or ECS compute platform only.
     trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
-    -- | Information about the number or percentage of minimum healthy instance.
-    minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
-    -- | The destination platform type for the deployment (@Lambda@, @Server@, or
-    -- @ECS@).
-    computePlatform :: Prelude.Maybe ComputePlatform
+    -- | The deployment configuration ID.
+    deploymentConfigId :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the deployment configuration was created.
+    createTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,33 +57,47 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
 --
 -- 'deploymentConfigName', 'deploymentConfigInfo_deploymentConfigName' - The deployment configuration name.
 --
--- 'deploymentConfigId', 'deploymentConfigInfo_deploymentConfigId' - The deployment configuration ID.
+-- 'computePlatform', 'deploymentConfigInfo_computePlatform' - The destination platform type for the deployment (@Lambda@, @Server@, or
+-- @ECS@).
 --
--- 'createTime', 'deploymentConfigInfo_createTime' - The time at which the deployment configuration was created.
+-- 'minimumHealthyHosts', 'deploymentConfigInfo_minimumHealthyHosts' - Information about the number or percentage of minimum healthy instance.
 --
 -- 'trafficRoutingConfig', 'deploymentConfigInfo_trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed.
 -- Used for deployments with a Lambda or ECS compute platform only.
 --
--- 'minimumHealthyHosts', 'deploymentConfigInfo_minimumHealthyHosts' - Information about the number or percentage of minimum healthy instance.
+-- 'deploymentConfigId', 'deploymentConfigInfo_deploymentConfigId' - The deployment configuration ID.
 --
--- 'computePlatform', 'deploymentConfigInfo_computePlatform' - The destination platform type for the deployment (@Lambda@, @Server@, or
--- @ECS@).
+-- 'createTime', 'deploymentConfigInfo_createTime' - The time at which the deployment configuration was created.
 newDeploymentConfigInfo ::
   DeploymentConfigInfo
 newDeploymentConfigInfo =
   DeploymentConfigInfo'
     { deploymentConfigName =
         Prelude.Nothing,
-      deploymentConfigId = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      trafficRoutingConfig = Prelude.Nothing,
+      computePlatform = Prelude.Nothing,
       minimumHealthyHosts = Prelude.Nothing,
-      computePlatform = Prelude.Nothing
+      trafficRoutingConfig = Prelude.Nothing,
+      deploymentConfigId = Prelude.Nothing,
+      createTime = Prelude.Nothing
     }
 
 -- | The deployment configuration name.
 deploymentConfigInfo_deploymentConfigName :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.Text)
 deploymentConfigInfo_deploymentConfigName = Lens.lens (\DeploymentConfigInfo' {deploymentConfigName} -> deploymentConfigName) (\s@DeploymentConfigInfo' {} a -> s {deploymentConfigName = a} :: DeploymentConfigInfo)
+
+-- | The destination platform type for the deployment (@Lambda@, @Server@, or
+-- @ECS@).
+deploymentConfigInfo_computePlatform :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe ComputePlatform)
+deploymentConfigInfo_computePlatform = Lens.lens (\DeploymentConfigInfo' {computePlatform} -> computePlatform) (\s@DeploymentConfigInfo' {} a -> s {computePlatform = a} :: DeploymentConfigInfo)
+
+-- | Information about the number or percentage of minimum healthy instance.
+deploymentConfigInfo_minimumHealthyHosts :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe MinimumHealthyHosts)
+deploymentConfigInfo_minimumHealthyHosts = Lens.lens (\DeploymentConfigInfo' {minimumHealthyHosts} -> minimumHealthyHosts) (\s@DeploymentConfigInfo' {} a -> s {minimumHealthyHosts = a} :: DeploymentConfigInfo)
+
+-- | The configuration that specifies how the deployment traffic is routed.
+-- Used for deployments with a Lambda or ECS compute platform only.
+deploymentConfigInfo_trafficRoutingConfig :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe TrafficRoutingConfig)
+deploymentConfigInfo_trafficRoutingConfig = Lens.lens (\DeploymentConfigInfo' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@DeploymentConfigInfo' {} a -> s {trafficRoutingConfig = a} :: DeploymentConfigInfo)
 
 -- | The deployment configuration ID.
 deploymentConfigInfo_deploymentConfigId :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.Text)
@@ -93,20 +107,6 @@ deploymentConfigInfo_deploymentConfigId = Lens.lens (\DeploymentConfigInfo' {dep
 deploymentConfigInfo_createTime :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.UTCTime)
 deploymentConfigInfo_createTime = Lens.lens (\DeploymentConfigInfo' {createTime} -> createTime) (\s@DeploymentConfigInfo' {} a -> s {createTime = a} :: DeploymentConfigInfo) Prelude.. Lens.mapping Core._Time
 
--- | The configuration that specifies how the deployment traffic is routed.
--- Used for deployments with a Lambda or ECS compute platform only.
-deploymentConfigInfo_trafficRoutingConfig :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe TrafficRoutingConfig)
-deploymentConfigInfo_trafficRoutingConfig = Lens.lens (\DeploymentConfigInfo' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@DeploymentConfigInfo' {} a -> s {trafficRoutingConfig = a} :: DeploymentConfigInfo)
-
--- | Information about the number or percentage of minimum healthy instance.
-deploymentConfigInfo_minimumHealthyHosts :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe MinimumHealthyHosts)
-deploymentConfigInfo_minimumHealthyHosts = Lens.lens (\DeploymentConfigInfo' {minimumHealthyHosts} -> minimumHealthyHosts) (\s@DeploymentConfigInfo' {} a -> s {minimumHealthyHosts = a} :: DeploymentConfigInfo)
-
--- | The destination platform type for the deployment (@Lambda@, @Server@, or
--- @ECS@).
-deploymentConfigInfo_computePlatform :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe ComputePlatform)
-deploymentConfigInfo_computePlatform = Lens.lens (\DeploymentConfigInfo' {computePlatform} -> computePlatform) (\s@DeploymentConfigInfo' {} a -> s {computePlatform = a} :: DeploymentConfigInfo)
-
 instance Core.FromJSON DeploymentConfigInfo where
   parseJSON =
     Core.withObject
@@ -114,11 +114,11 @@ instance Core.FromJSON DeploymentConfigInfo where
       ( \x ->
           DeploymentConfigInfo'
             Prelude.<$> (x Core..:? "deploymentConfigName")
+            Prelude.<*> (x Core..:? "computePlatform")
+            Prelude.<*> (x Core..:? "minimumHealthyHosts")
+            Prelude.<*> (x Core..:? "trafficRoutingConfig")
             Prelude.<*> (x Core..:? "deploymentConfigId")
             Prelude.<*> (x Core..:? "createTime")
-            Prelude.<*> (x Core..:? "trafficRoutingConfig")
-            Prelude.<*> (x Core..:? "minimumHealthyHosts")
-            Prelude.<*> (x Core..:? "computePlatform")
       )
 
 instance Prelude.Hashable DeploymentConfigInfo

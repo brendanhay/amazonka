@@ -37,8 +37,8 @@ module Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
     newPutLifecycleEventHookExecutionStatus,
 
     -- * Request Lenses
-    putLifecycleEventHookExecutionStatus_deploymentId,
     putLifecycleEventHookExecutionStatus_status,
+    putLifecycleEventHookExecutionStatus_deploymentId,
     putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId,
 
     -- * Destructuring the Response
@@ -60,12 +60,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutLifecycleEventHookExecutionStatus' smart constructor.
 data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus'
-  { -- | The unique ID of a deployment. Pass this ID to a Lambda function that
-    -- validates a deployment lifecycle event.
-    deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The result of a Lambda function that validates a deployment lifecycle
+  { -- | The result of a Lambda function that validates a deployment lifecycle
     -- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
     status :: Prelude.Maybe LifecycleEventStatus,
+    -- | The unique ID of a deployment. Pass this ID to a Lambda function that
+    -- validates a deployment lifecycle event.
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The execution ID of a deployment\'s lifecycle hook. A deployment
     -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
     lifecycleEventHookExecutionId :: Prelude.Maybe Prelude.Text
@@ -80,11 +80,11 @@ data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentId', 'putLifecycleEventHookExecutionStatus_deploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that
--- validates a deployment lifecycle event.
---
 -- 'status', 'putLifecycleEventHookExecutionStatus_status' - The result of a Lambda function that validates a deployment lifecycle
 -- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
+--
+-- 'deploymentId', 'putLifecycleEventHookExecutionStatus_deploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that
+-- validates a deployment lifecycle event.
 --
 -- 'lifecycleEventHookExecutionId', 'putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId' - The execution ID of a deployment\'s lifecycle hook. A deployment
 -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
@@ -92,22 +92,22 @@ newPutLifecycleEventHookExecutionStatus ::
   PutLifecycleEventHookExecutionStatus
 newPutLifecycleEventHookExecutionStatus =
   PutLifecycleEventHookExecutionStatus'
-    { deploymentId =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       lifecycleEventHookExecutionId =
         Prelude.Nothing
     }
-
--- | The unique ID of a deployment. Pass this ID to a Lambda function that
--- validates a deployment lifecycle event.
-putLifecycleEventHookExecutionStatus_deploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe Prelude.Text)
-putLifecycleEventHookExecutionStatus_deploymentId = Lens.lens (\PutLifecycleEventHookExecutionStatus' {deploymentId} -> deploymentId) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {deploymentId = a} :: PutLifecycleEventHookExecutionStatus)
 
 -- | The result of a Lambda function that validates a deployment lifecycle
 -- event. @Succeeded@ and @Failed@ are the only valid values for @status@.
 putLifecycleEventHookExecutionStatus_status :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe LifecycleEventStatus)
 putLifecycleEventHookExecutionStatus_status = Lens.lens (\PutLifecycleEventHookExecutionStatus' {status} -> status) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {status = a} :: PutLifecycleEventHookExecutionStatus)
+
+-- | The unique ID of a deployment. Pass this ID to a Lambda function that
+-- validates a deployment lifecycle event.
+putLifecycleEventHookExecutionStatus_deploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe Prelude.Text)
+putLifecycleEventHookExecutionStatus_deploymentId = Lens.lens (\PutLifecycleEventHookExecutionStatus' {deploymentId} -> deploymentId) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {deploymentId = a} :: PutLifecycleEventHookExecutionStatus)
 
 -- | The execution ID of a deployment\'s lifecycle hook. A deployment
 -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
@@ -163,8 +163,8 @@ instance
   toJSON PutLifecycleEventHookExecutionStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentId" Core..=) Prelude.<$> deploymentId,
-            ("status" Core..=) Prelude.<$> status,
+          [ ("status" Core..=) Prelude.<$> status,
+            ("deploymentId" Core..=) Prelude.<$> deploymentId,
             ("lifecycleEventHookExecutionId" Core..=)
               Prelude.<$> lifecycleEventHookExecutionId
           ]

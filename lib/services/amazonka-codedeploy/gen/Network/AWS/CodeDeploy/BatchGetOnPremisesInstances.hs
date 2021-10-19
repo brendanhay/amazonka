@@ -78,7 +78,7 @@ newBatchGetOnPremisesInstances =
 -- | The names of the on-premises instances about which to get information.
 -- The maximum number of instance names you can specify is 25.
 batchGetOnPremisesInstances_instanceNames :: Lens.Lens' BatchGetOnPremisesInstances [Prelude.Text]
-batchGetOnPremisesInstances_instanceNames = Lens.lens (\BatchGetOnPremisesInstances' {instanceNames} -> instanceNames) (\s@BatchGetOnPremisesInstances' {} a -> s {instanceNames = a} :: BatchGetOnPremisesInstances) Prelude.. Lens._Coerce
+batchGetOnPremisesInstances_instanceNames = Lens.lens (\BatchGetOnPremisesInstances' {instanceNames} -> instanceNames) (\s@BatchGetOnPremisesInstances' {} a -> s {instanceNames = a} :: BatchGetOnPremisesInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetOnPremisesInstances where
   type
@@ -162,7 +162,7 @@ newBatchGetOnPremisesInstancesResponse pHttpStatus_ =
 
 -- | Information about the on-premises instances.
 batchGetOnPremisesInstancesResponse_instanceInfos :: Lens.Lens' BatchGetOnPremisesInstancesResponse (Prelude.Maybe [InstanceInfo])
-batchGetOnPremisesInstancesResponse_instanceInfos = Lens.lens (\BatchGetOnPremisesInstancesResponse' {instanceInfos} -> instanceInfos) (\s@BatchGetOnPremisesInstancesResponse' {} a -> s {instanceInfos = a} :: BatchGetOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetOnPremisesInstancesResponse_instanceInfos = Lens.lens (\BatchGetOnPremisesInstancesResponse' {instanceInfos} -> instanceInfos) (\s@BatchGetOnPremisesInstancesResponse' {} a -> s {instanceInfos = a} :: BatchGetOnPremisesInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetOnPremisesInstancesResponse_httpStatus :: Lens.Lens' BatchGetOnPremisesInstancesResponse Prelude.Int

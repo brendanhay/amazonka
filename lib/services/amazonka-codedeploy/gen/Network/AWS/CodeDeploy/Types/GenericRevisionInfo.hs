@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data GenericRevisionInfo = GenericRevisionInfo'
   { -- | When the revision was registered with AWS CodeDeploy.
     registerTime :: Prelude.Maybe Core.POSIX,
-    -- | The deployment groups for which this is the current target revision.
-    deploymentGroups :: Prelude.Maybe [Prelude.Text],
-    -- | A comment about the revision.
-    description :: Prelude.Maybe Prelude.Text,
     -- | When the revision was first used by AWS CodeDeploy.
     firstUsedTime :: Prelude.Maybe Core.POSIX,
+    -- | The deployment groups for which this is the current target revision.
+    deploymentGroups :: Prelude.Maybe [Prelude.Text],
     -- | When the revision was last used by AWS CodeDeploy.
-    lastUsedTime :: Prelude.Maybe Core.POSIX
+    lastUsedTime :: Prelude.Maybe Core.POSIX,
+    -- | A comment about the revision.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,44 +50,44 @@ data GenericRevisionInfo = GenericRevisionInfo'
 --
 -- 'registerTime', 'genericRevisionInfo_registerTime' - When the revision was registered with AWS CodeDeploy.
 --
--- 'deploymentGroups', 'genericRevisionInfo_deploymentGroups' - The deployment groups for which this is the current target revision.
---
--- 'description', 'genericRevisionInfo_description' - A comment about the revision.
---
 -- 'firstUsedTime', 'genericRevisionInfo_firstUsedTime' - When the revision was first used by AWS CodeDeploy.
 --
+-- 'deploymentGroups', 'genericRevisionInfo_deploymentGroups' - The deployment groups for which this is the current target revision.
+--
 -- 'lastUsedTime', 'genericRevisionInfo_lastUsedTime' - When the revision was last used by AWS CodeDeploy.
+--
+-- 'description', 'genericRevisionInfo_description' - A comment about the revision.
 newGenericRevisionInfo ::
   GenericRevisionInfo
 newGenericRevisionInfo =
   GenericRevisionInfo'
     { registerTime =
         Prelude.Nothing,
-      deploymentGroups = Prelude.Nothing,
-      description = Prelude.Nothing,
       firstUsedTime = Prelude.Nothing,
-      lastUsedTime = Prelude.Nothing
+      deploymentGroups = Prelude.Nothing,
+      lastUsedTime = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | When the revision was registered with AWS CodeDeploy.
 genericRevisionInfo_registerTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_registerTime = Lens.lens (\GenericRevisionInfo' {registerTime} -> registerTime) (\s@GenericRevisionInfo' {} a -> s {registerTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
 
--- | The deployment groups for which this is the current target revision.
-genericRevisionInfo_deploymentGroups :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe [Prelude.Text])
-genericRevisionInfo_deploymentGroups = Lens.lens (\GenericRevisionInfo' {deploymentGroups} -> deploymentGroups) (\s@GenericRevisionInfo' {} a -> s {deploymentGroups = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Lens._Coerce
-
--- | A comment about the revision.
-genericRevisionInfo_description :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.Text)
-genericRevisionInfo_description = Lens.lens (\GenericRevisionInfo' {description} -> description) (\s@GenericRevisionInfo' {} a -> s {description = a} :: GenericRevisionInfo)
-
 -- | When the revision was first used by AWS CodeDeploy.
 genericRevisionInfo_firstUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_firstUsedTime = Lens.lens (\GenericRevisionInfo' {firstUsedTime} -> firstUsedTime) (\s@GenericRevisionInfo' {} a -> s {firstUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
 
+-- | The deployment groups for which this is the current target revision.
+genericRevisionInfo_deploymentGroups :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe [Prelude.Text])
+genericRevisionInfo_deploymentGroups = Lens.lens (\GenericRevisionInfo' {deploymentGroups} -> deploymentGroups) (\s@GenericRevisionInfo' {} a -> s {deploymentGroups = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Lens.coerced
+
 -- | When the revision was last used by AWS CodeDeploy.
 genericRevisionInfo_lastUsedTime :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.UTCTime)
 genericRevisionInfo_lastUsedTime = Lens.lens (\GenericRevisionInfo' {lastUsedTime} -> lastUsedTime) (\s@GenericRevisionInfo' {} a -> s {lastUsedTime = a} :: GenericRevisionInfo) Prelude.. Lens.mapping Core._Time
+
+-- | A comment about the revision.
+genericRevisionInfo_description :: Lens.Lens' GenericRevisionInfo (Prelude.Maybe Prelude.Text)
+genericRevisionInfo_description = Lens.lens (\GenericRevisionInfo' {description} -> description) (\s@GenericRevisionInfo' {} a -> s {description = a} :: GenericRevisionInfo)
 
 instance Core.FromJSON GenericRevisionInfo where
   parseJSON =
@@ -96,12 +96,12 @@ instance Core.FromJSON GenericRevisionInfo where
       ( \x ->
           GenericRevisionInfo'
             Prelude.<$> (x Core..:? "registerTime")
+            Prelude.<*> (x Core..:? "firstUsedTime")
             Prelude.<*> ( x Core..:? "deploymentGroups"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "firstUsedTime")
             Prelude.<*> (x Core..:? "lastUsedTime")
+            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable GenericRevisionInfo

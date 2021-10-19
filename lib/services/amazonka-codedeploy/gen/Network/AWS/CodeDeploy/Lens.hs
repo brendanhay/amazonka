@@ -14,21 +14,9 @@
 module Network.AWS.CodeDeploy.Lens
   ( -- * Operations
 
-    -- ** CreateDeploymentConfig
-    createDeploymentConfig_trafficRoutingConfig,
-    createDeploymentConfig_minimumHealthyHosts,
-    createDeploymentConfig_computePlatform,
-    createDeploymentConfig_deploymentConfigName,
-    createDeploymentConfigResponse_deploymentConfigId,
-    createDeploymentConfigResponse_httpStatus,
-
-    -- ** GetApplicationRevision
-    getApplicationRevision_applicationName,
-    getApplicationRevision_revision,
-    getApplicationRevisionResponse_revisionInfo,
-    getApplicationRevisionResponse_revision,
-    getApplicationRevisionResponse_applicationName,
-    getApplicationRevisionResponse_httpStatus,
+    -- ** RemoveTagsFromOnPremisesInstances
+    removeTagsFromOnPremisesInstances_tags,
+    removeTagsFromOnPremisesInstances_instanceNames,
 
     -- ** BatchGetDeploymentGroups
     batchGetDeploymentGroups_applicationName,
@@ -37,25 +25,145 @@ module Network.AWS.CodeDeploy.Lens
     batchGetDeploymentGroupsResponse_errorMessage,
     batchGetDeploymentGroupsResponse_httpStatus,
 
-    -- ** BatchGetOnPremisesInstances
-    batchGetOnPremisesInstances_instanceNames,
-    batchGetOnPremisesInstancesResponse_instanceInfos,
-    batchGetOnPremisesInstancesResponse_httpStatus,
+    -- ** DeleteDeploymentGroup
+    deleteDeploymentGroup_applicationName,
+    deleteDeploymentGroup_deploymentGroupName,
+    deleteDeploymentGroupResponse_hooksNotCleanedUp,
+    deleteDeploymentGroupResponse_httpStatus,
 
-    -- ** StopDeployment
-    stopDeployment_autoRollbackEnabled,
-    stopDeployment_deploymentId,
-    stopDeploymentResponse_statusMessage,
-    stopDeploymentResponse_status,
-    stopDeploymentResponse_httpStatus,
+    -- ** UpdateDeploymentGroup
+    updateDeploymentGroup_serviceRoleArn,
+    updateDeploymentGroup_ec2TagSet,
+    updateDeploymentGroup_deploymentConfigName,
+    updateDeploymentGroup_onPremisesTagSet,
+    updateDeploymentGroup_newDeploymentGroupName,
+    updateDeploymentGroup_ec2TagFilters,
+    updateDeploymentGroup_ecsServices,
+    updateDeploymentGroup_blueGreenDeploymentConfiguration,
+    updateDeploymentGroup_loadBalancerInfo,
+    updateDeploymentGroup_outdatedInstancesStrategy,
+    updateDeploymentGroup_onPremisesInstanceTagFilters,
+    updateDeploymentGroup_alarmConfiguration,
+    updateDeploymentGroup_triggerConfigurations,
+    updateDeploymentGroup_autoScalingGroups,
+    updateDeploymentGroup_deploymentStyle,
+    updateDeploymentGroup_autoRollbackConfiguration,
+    updateDeploymentGroup_applicationName,
+    updateDeploymentGroup_currentDeploymentGroupName,
+    updateDeploymentGroupResponse_hooksNotCleanedUp,
+    updateDeploymentGroupResponse_httpStatus,
 
-    -- ** ListDeploymentTargets
-    listDeploymentTargets_deploymentId,
-    listDeploymentTargets_nextToken,
-    listDeploymentTargets_targetFilters,
-    listDeploymentTargetsResponse_targetIds,
-    listDeploymentTargetsResponse_nextToken,
-    listDeploymentTargetsResponse_httpStatus,
+    -- ** ListOnPremisesInstances
+    listOnPremisesInstances_tagFilters,
+    listOnPremisesInstances_nextToken,
+    listOnPremisesInstances_registrationStatus,
+    listOnPremisesInstancesResponse_nextToken,
+    listOnPremisesInstancesResponse_instanceNames,
+    listOnPremisesInstancesResponse_httpStatus,
+
+    -- ** CreateDeploymentConfig
+    createDeploymentConfig_computePlatform,
+    createDeploymentConfig_minimumHealthyHosts,
+    createDeploymentConfig_trafficRoutingConfig,
+    createDeploymentConfig_deploymentConfigName,
+    createDeploymentConfigResponse_deploymentConfigId,
+    createDeploymentConfigResponse_httpStatus,
+
+    -- ** GetApplicationRevision
+    getApplicationRevision_applicationName,
+    getApplicationRevision_revision,
+    getApplicationRevisionResponse_applicationName,
+    getApplicationRevisionResponse_revisionInfo,
+    getApplicationRevisionResponse_revision,
+    getApplicationRevisionResponse_httpStatus,
+
+    -- ** GetDeployment
+    getDeployment_deploymentId,
+    getDeploymentResponse_deploymentInfo,
+    getDeploymentResponse_httpStatus,
+
+    -- ** DeleteDeploymentConfig
+    deleteDeploymentConfig_deploymentConfigName,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** GetDeploymentConfig
+    getDeploymentConfig_deploymentConfigName,
+    getDeploymentConfigResponse_deploymentConfigInfo,
+    getDeploymentConfigResponse_httpStatus,
+
+    -- ** CreateDeployment
+    createDeployment_deploymentConfigName,
+    createDeployment_fileExistsBehavior,
+    createDeployment_targetInstances,
+    createDeployment_revision,
+    createDeployment_description,
+    createDeployment_autoRollbackConfiguration,
+    createDeployment_updateOutdatedInstancesOnly,
+    createDeployment_deploymentGroupName,
+    createDeployment_ignoreApplicationStopFailures,
+    createDeployment_applicationName,
+    createDeploymentResponse_deploymentId,
+    createDeploymentResponse_httpStatus,
+
+    -- ** BatchGetApplicationRevisions
+    batchGetApplicationRevisions_applicationName,
+    batchGetApplicationRevisions_revisions,
+    batchGetApplicationRevisionsResponse_applicationName,
+    batchGetApplicationRevisionsResponse_revisions,
+    batchGetApplicationRevisionsResponse_errorMessage,
+    batchGetApplicationRevisionsResponse_httpStatus,
+
+    -- ** BatchGetDeployments
+    batchGetDeployments_deploymentIds,
+    batchGetDeploymentsResponse_deploymentsInfo,
+    batchGetDeploymentsResponse_httpStatus,
+
+    -- ** GetOnPremisesInstance
+    getOnPremisesInstance_instanceName,
+    getOnPremisesInstanceResponse_instanceInfo,
+    getOnPremisesInstanceResponse_httpStatus,
+
+    -- ** RegisterApplicationRevision
+    registerApplicationRevision_description,
+    registerApplicationRevision_applicationName,
+    registerApplicationRevision_revision,
+
+    -- ** ContinueDeployment
+    continueDeployment_deploymentId,
+    continueDeployment_deploymentWaitType,
+
+    -- ** BatchGetApplications
+    batchGetApplications_applicationNames,
+    batchGetApplicationsResponse_applicationsInfo,
+    batchGetApplicationsResponse_httpStatus,
+
+    -- ** DeleteApplication
+    deleteApplication_applicationName,
+
+    -- ** UpdateApplication
+    updateApplication_newApplicationName,
+    updateApplication_applicationName,
+
+    -- ** DeleteGitHubAccountToken
+    deleteGitHubAccountToken_tokenName,
+    deleteGitHubAccountTokenResponse_tokenName,
+    deleteGitHubAccountTokenResponse_httpStatus,
+
+    -- ** DeregisterOnPremisesInstance
+    deregisterOnPremisesInstance_instanceName,
+
+    -- ** PutLifecycleEventHookExecutionStatus
+    putLifecycleEventHookExecutionStatus_status,
+    putLifecycleEventHookExecutionStatus_deploymentId,
+    putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId,
+    putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId,
+    putLifecycleEventHookExecutionStatusResponse_httpStatus,
 
     -- ** GetDeploymentTarget
     getDeploymentTarget_targetId,
@@ -63,83 +171,71 @@ module Network.AWS.CodeDeploy.Lens
     getDeploymentTargetResponse_deploymentTarget,
     getDeploymentTargetResponse_httpStatus,
 
-    -- ** AddTagsToOnPremisesInstances
-    addTagsToOnPremisesInstances_tags,
-    addTagsToOnPremisesInstances_instanceNames,
-
     -- ** CreateApplication
-    createApplication_tags,
     createApplication_computePlatform,
+    createApplication_tags,
     createApplication_applicationName,
     createApplicationResponse_applicationId,
     createApplicationResponse_httpStatus,
 
-    -- ** DeleteResourcesByExternalId
-    deleteResourcesByExternalId_externalId,
-    deleteResourcesByExternalIdResponse_httpStatus,
+    -- ** BatchGetDeploymentTargets
+    batchGetDeploymentTargets_deploymentId,
+    batchGetDeploymentTargets_targetIds,
+    batchGetDeploymentTargetsResponse_deploymentTargets,
+    batchGetDeploymentTargetsResponse_httpStatus,
 
-    -- ** BatchGetApplications
-    batchGetApplications_applicationNames,
-    batchGetApplicationsResponse_applicationsInfo,
-    batchGetApplicationsResponse_httpStatus,
+    -- ** StopDeployment
+    stopDeployment_autoRollbackEnabled,
+    stopDeployment_deploymentId,
+    stopDeploymentResponse_status,
+    stopDeploymentResponse_statusMessage,
+    stopDeploymentResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** ListGitHubAccountTokenNames
+    listGitHubAccountTokenNames_nextToken,
+    listGitHubAccountTokenNamesResponse_tokenNameList,
+    listGitHubAccountTokenNamesResponse_nextToken,
+    listGitHubAccountTokenNamesResponse_httpStatus,
 
-    -- ** ContinueDeployment
-    continueDeployment_deploymentId,
-    continueDeployment_deploymentWaitType,
+    -- ** GetApplication
+    getApplication_applicationName,
+    getApplicationResponse_application,
+    getApplicationResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** ListDeploymentGroups
+    listDeploymentGroups_nextToken,
+    listDeploymentGroups_applicationName,
+    listDeploymentGroupsResponse_nextToken,
+    listDeploymentGroupsResponse_applicationName,
+    listDeploymentGroupsResponse_deploymentGroups,
+    listDeploymentGroupsResponse_httpStatus,
 
-    -- ** BatchGetApplicationRevisions
-    batchGetApplicationRevisions_applicationName,
-    batchGetApplicationRevisions_revisions,
-    batchGetApplicationRevisionsResponse_revisions,
-    batchGetApplicationRevisionsResponse_errorMessage,
-    batchGetApplicationRevisionsResponse_applicationName,
-    batchGetApplicationRevisionsResponse_httpStatus,
+    -- ** BatchGetOnPremisesInstances
+    batchGetOnPremisesInstances_instanceNames,
+    batchGetOnPremisesInstancesResponse_instanceInfos,
+    batchGetOnPremisesInstancesResponse_httpStatus,
 
-    -- ** ListDeployments
-    listDeployments_nextToken,
-    listDeployments_deploymentGroupName,
-    listDeployments_createTimeRange,
-    listDeployments_includeOnlyStatuses,
-    listDeployments_externalId,
-    listDeployments_applicationName,
-    listDeploymentsResponse_nextToken,
-    listDeploymentsResponse_deployments,
-    listDeploymentsResponse_httpStatus,
-
-    -- ** GetDeploymentConfig
-    getDeploymentConfig_deploymentConfigName,
-    getDeploymentConfigResponse_deploymentConfigInfo,
-    getDeploymentConfigResponse_httpStatus,
-
-    -- ** DeleteDeploymentConfig
-    deleteDeploymentConfig_deploymentConfigName,
+    -- ** RegisterOnPremisesInstance
+    registerOnPremisesInstance_iamUserArn,
+    registerOnPremisesInstance_iamSessionArn,
+    registerOnPremisesInstance_instanceName,
 
     -- ** CreateDeploymentGroup
-    createDeploymentGroup_onPremisesTagSet,
-    createDeploymentGroup_outdatedInstancesStrategy,
+    createDeploymentGroup_ec2TagSet,
     createDeploymentGroup_deploymentConfigName,
-    createDeploymentGroup_autoRollbackConfiguration,
-    createDeploymentGroup_triggerConfigurations,
+    createDeploymentGroup_onPremisesTagSet,
     createDeploymentGroup_ec2TagFilters,
-    createDeploymentGroup_onPremisesInstanceTagFilters,
+    createDeploymentGroup_ecsServices,
     createDeploymentGroup_blueGreenDeploymentConfiguration,
     createDeploymentGroup_loadBalancerInfo,
-    createDeploymentGroup_ec2TagSet,
-    createDeploymentGroup_tags,
-    createDeploymentGroup_deploymentStyle,
-    createDeploymentGroup_autoScalingGroups,
-    createDeploymentGroup_ecsServices,
+    createDeploymentGroup_outdatedInstancesStrategy,
+    createDeploymentGroup_onPremisesInstanceTagFilters,
     createDeploymentGroup_alarmConfiguration,
+    createDeploymentGroup_triggerConfigurations,
+    createDeploymentGroup_autoScalingGroups,
+    createDeploymentGroup_deploymentStyle,
+    createDeploymentGroup_autoRollbackConfiguration,
+    createDeploymentGroup_tags,
     createDeploymentGroup_applicationName,
     createDeploymentGroup_deploymentGroupName,
     createDeploymentGroup_serviceRoleArn,
@@ -152,95 +248,39 @@ module Network.AWS.CodeDeploy.Lens
     listDeploymentConfigsResponse_deploymentConfigsList,
     listDeploymentConfigsResponse_httpStatus,
 
-    -- ** UpdateDeploymentGroup
-    updateDeploymentGroup_onPremisesTagSet,
-    updateDeploymentGroup_outdatedInstancesStrategy,
-    updateDeploymentGroup_serviceRoleArn,
-    updateDeploymentGroup_deploymentConfigName,
-    updateDeploymentGroup_autoRollbackConfiguration,
-    updateDeploymentGroup_triggerConfigurations,
-    updateDeploymentGroup_ec2TagFilters,
-    updateDeploymentGroup_onPremisesInstanceTagFilters,
-    updateDeploymentGroup_blueGreenDeploymentConfiguration,
-    updateDeploymentGroup_loadBalancerInfo,
-    updateDeploymentGroup_ec2TagSet,
-    updateDeploymentGroup_deploymentStyle,
-    updateDeploymentGroup_autoScalingGroups,
-    updateDeploymentGroup_ecsServices,
-    updateDeploymentGroup_alarmConfiguration,
-    updateDeploymentGroup_newDeploymentGroupName,
-    updateDeploymentGroup_applicationName,
-    updateDeploymentGroup_currentDeploymentGroupName,
-    updateDeploymentGroupResponse_hooksNotCleanedUp,
-    updateDeploymentGroupResponse_httpStatus,
+    -- ** GetDeploymentGroup
+    getDeploymentGroup_applicationName,
+    getDeploymentGroup_deploymentGroupName,
+    getDeploymentGroupResponse_deploymentGroupInfo,
+    getDeploymentGroupResponse_httpStatus,
 
-    -- ** DeleteDeploymentGroup
-    deleteDeploymentGroup_applicationName,
-    deleteDeploymentGroup_deploymentGroupName,
-    deleteDeploymentGroupResponse_hooksNotCleanedUp,
-    deleteDeploymentGroupResponse_httpStatus,
+    -- ** ListDeployments
+    listDeployments_createTimeRange,
+    listDeployments_nextToken,
+    listDeployments_includeOnlyStatuses,
+    listDeployments_applicationName,
+    listDeployments_externalId,
+    listDeployments_deploymentGroupName,
+    listDeploymentsResponse_nextToken,
+    listDeploymentsResponse_deployments,
+    listDeploymentsResponse_httpStatus,
 
-    -- ** ListDeploymentGroups
-    listDeploymentGroups_nextToken,
-    listDeploymentGroups_applicationName,
-    listDeploymentGroupsResponse_nextToken,
-    listDeploymentGroupsResponse_deploymentGroups,
-    listDeploymentGroupsResponse_applicationName,
-    listDeploymentGroupsResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
-    -- ** RegisterOnPremisesInstance
-    registerOnPremisesInstance_iamUserArn,
-    registerOnPremisesInstance_iamSessionArn,
-    registerOnPremisesInstance_instanceName,
-
-    -- ** ListOnPremisesInstances
-    listOnPremisesInstances_nextToken,
-    listOnPremisesInstances_tagFilters,
-    listOnPremisesInstances_registrationStatus,
-    listOnPremisesInstancesResponse_nextToken,
-    listOnPremisesInstancesResponse_instanceNames,
-    listOnPremisesInstancesResponse_httpStatus,
-
-    -- ** GetDeployment
-    getDeployment_deploymentId,
-    getDeploymentResponse_deploymentInfo,
-    getDeploymentResponse_httpStatus,
-
-    -- ** RemoveTagsFromOnPremisesInstances
-    removeTagsFromOnPremisesInstances_tags,
-    removeTagsFromOnPremisesInstances_instanceNames,
-
-    -- ** GetApplication
-    getApplication_applicationName,
-    getApplicationResponse_application,
-    getApplicationResponse_httpStatus,
-
-    -- ** ListGitHubAccountTokenNames
-    listGitHubAccountTokenNames_nextToken,
-    listGitHubAccountTokenNamesResponse_nextToken,
-    listGitHubAccountTokenNamesResponse_tokenNameList,
-    listGitHubAccountTokenNamesResponse_httpStatus,
-
-    -- ** BatchGetDeploymentTargets
-    batchGetDeploymentTargets_targetIds,
-    batchGetDeploymentTargets_deploymentId,
-    batchGetDeploymentTargetsResponse_deploymentTargets,
-    batchGetDeploymentTargetsResponse_httpStatus,
-
-    -- ** DeleteGitHubAccountToken
-    deleteGitHubAccountToken_tokenName,
-    deleteGitHubAccountTokenResponse_tokenName,
-    deleteGitHubAccountTokenResponse_httpStatus,
-
-    -- ** PutLifecycleEventHookExecutionStatus
-    putLifecycleEventHookExecutionStatus_deploymentId,
-    putLifecycleEventHookExecutionStatus_status,
-    putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId,
-    putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId,
-    putLifecycleEventHookExecutionStatusResponse_httpStatus,
-
-    -- ** DeregisterOnPremisesInstance
-    deregisterOnPremisesInstance_instanceName,
+    -- ** ListApplicationRevisions
+    listApplicationRevisions_s3KeyPrefix,
+    listApplicationRevisions_deployed,
+    listApplicationRevisions_sortOrder,
+    listApplicationRevisions_nextToken,
+    listApplicationRevisions_s3Bucket,
+    listApplicationRevisions_sortBy,
+    listApplicationRevisions_applicationName,
+    listApplicationRevisionsResponse_nextToken,
+    listApplicationRevisionsResponse_revisions,
+    listApplicationRevisionsResponse_httpStatus,
 
     -- ** ListApplications
     listApplications_nextToken,
@@ -248,66 +288,26 @@ module Network.AWS.CodeDeploy.Lens
     listApplicationsResponse_applications,
     listApplicationsResponse_httpStatus,
 
-    -- ** DeleteApplication
-    deleteApplication_applicationName,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
-    -- ** UpdateApplication
-    updateApplication_newApplicationName,
-    updateApplication_applicationName,
+    -- ** DeleteResourcesByExternalId
+    deleteResourcesByExternalId_externalId,
+    deleteResourcesByExternalIdResponse_httpStatus,
 
-    -- ** BatchGetDeployments
-    batchGetDeployments_deploymentIds,
-    batchGetDeploymentsResponse_deploymentsInfo,
-    batchGetDeploymentsResponse_httpStatus,
+    -- ** AddTagsToOnPremisesInstances
+    addTagsToOnPremisesInstances_tags,
+    addTagsToOnPremisesInstances_instanceNames,
 
-    -- ** RegisterApplicationRevision
-    registerApplicationRevision_description,
-    registerApplicationRevision_applicationName,
-    registerApplicationRevision_revision,
-
-    -- ** GetDeploymentGroup
-    getDeploymentGroup_applicationName,
-    getDeploymentGroup_deploymentGroupName,
-    getDeploymentGroupResponse_deploymentGroupInfo,
-    getDeploymentGroupResponse_httpStatus,
-
-    -- ** GetOnPremisesInstance
-    getOnPremisesInstance_instanceName,
-    getOnPremisesInstanceResponse_instanceInfo,
-    getOnPremisesInstanceResponse_httpStatus,
-
-    -- ** ListApplicationRevisions
-    listApplicationRevisions_nextToken,
-    listApplicationRevisions_sortOrder,
-    listApplicationRevisions_s3Bucket,
-    listApplicationRevisions_deployed,
-    listApplicationRevisions_s3KeyPrefix,
-    listApplicationRevisions_sortBy,
-    listApplicationRevisions_applicationName,
-    listApplicationRevisionsResponse_nextToken,
-    listApplicationRevisionsResponse_revisions,
-    listApplicationRevisionsResponse_httpStatus,
-
-    -- ** CreateDeployment
-    createDeployment_deploymentConfigName,
-    createDeployment_deploymentGroupName,
-    createDeployment_autoRollbackConfiguration,
-    createDeployment_updateOutdatedInstancesOnly,
-    createDeployment_ignoreApplicationStopFailures,
-    createDeployment_targetInstances,
-    createDeployment_description,
-    createDeployment_revision,
-    createDeployment_fileExistsBehavior,
-    createDeployment_applicationName,
-    createDeploymentResponse_deploymentId,
-    createDeploymentResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** ListDeploymentTargets
+    listDeploymentTargets_deploymentId,
+    listDeploymentTargets_targetFilters,
+    listDeploymentTargets_nextToken,
+    listDeploymentTargetsResponse_nextToken,
+    listDeploymentTargetsResponse_targetIds,
+    listDeploymentTargetsResponse_httpStatus,
 
     -- * Types
 
@@ -325,11 +325,11 @@ module Network.AWS.CodeDeploy.Lens
 
     -- ** ApplicationInfo
     applicationInfo_linkedToGitHub,
+    applicationInfo_computePlatform,
     applicationInfo_applicationId,
+    applicationInfo_applicationName,
     applicationInfo_gitHubAccountName,
     applicationInfo_createTime,
-    applicationInfo_applicationName,
-    applicationInfo_computePlatform,
 
     -- ** AutoRollbackConfiguration
     autoRollbackConfiguration_enabled,
@@ -340,8 +340,8 @@ module Network.AWS.CodeDeploy.Lens
     autoScalingGroup_name,
 
     -- ** BlueGreenDeploymentConfiguration
-    blueGreenDeploymentConfiguration_greenFleetProvisioningOption,
     blueGreenDeploymentConfiguration_deploymentReadyOption,
+    blueGreenDeploymentConfiguration_greenFleetProvisioningOption,
     blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess,
 
     -- ** BlueInstanceTerminationOption
@@ -350,108 +350,108 @@ module Network.AWS.CodeDeploy.Lens
 
     -- ** CloudFormationTarget
     cloudFormationTarget_targetId,
-    cloudFormationTarget_deploymentId,
     cloudFormationTarget_status,
-    cloudFormationTarget_targetVersionWeight,
+    cloudFormationTarget_deploymentId,
     cloudFormationTarget_resourceType,
-    cloudFormationTarget_lifecycleEvents,
     cloudFormationTarget_lastUpdatedAt,
+    cloudFormationTarget_lifecycleEvents,
+    cloudFormationTarget_targetVersionWeight,
 
     -- ** DeploymentConfigInfo
     deploymentConfigInfo_deploymentConfigName,
+    deploymentConfigInfo_computePlatform,
+    deploymentConfigInfo_minimumHealthyHosts,
+    deploymentConfigInfo_trafficRoutingConfig,
     deploymentConfigInfo_deploymentConfigId,
     deploymentConfigInfo_createTime,
-    deploymentConfigInfo_trafficRoutingConfig,
-    deploymentConfigInfo_minimumHealthyHosts,
-    deploymentConfigInfo_computePlatform,
 
     -- ** DeploymentGroupInfo
-    deploymentGroupInfo_onPremisesTagSet,
-    deploymentGroupInfo_outdatedInstancesStrategy,
     deploymentGroupInfo_serviceRoleArn,
+    deploymentGroupInfo_ec2TagSet,
     deploymentGroupInfo_deploymentConfigName,
-    deploymentGroupInfo_deploymentGroupName,
-    deploymentGroupInfo_autoRollbackConfiguration,
-    deploymentGroupInfo_deploymentGroupId,
-    deploymentGroupInfo_triggerConfigurations,
-    deploymentGroupInfo_ec2TagFilters,
-    deploymentGroupInfo_targetRevision,
     deploymentGroupInfo_lastAttemptedDeployment,
-    deploymentGroupInfo_lastSuccessfulDeployment,
-    deploymentGroupInfo_onPremisesInstanceTagFilters,
+    deploymentGroupInfo_onPremisesTagSet,
+    deploymentGroupInfo_computePlatform,
+    deploymentGroupInfo_targetRevision,
+    deploymentGroupInfo_ec2TagFilters,
+    deploymentGroupInfo_ecsServices,
     deploymentGroupInfo_blueGreenDeploymentConfiguration,
     deploymentGroupInfo_loadBalancerInfo,
-    deploymentGroupInfo_ec2TagSet,
-    deploymentGroupInfo_deploymentStyle,
-    deploymentGroupInfo_autoScalingGroups,
-    deploymentGroupInfo_ecsServices,
-    deploymentGroupInfo_alarmConfiguration,
+    deploymentGroupInfo_outdatedInstancesStrategy,
+    deploymentGroupInfo_onPremisesInstanceTagFilters,
+    deploymentGroupInfo_lastSuccessfulDeployment,
     deploymentGroupInfo_applicationName,
-    deploymentGroupInfo_computePlatform,
+    deploymentGroupInfo_alarmConfiguration,
+    deploymentGroupInfo_triggerConfigurations,
+    deploymentGroupInfo_deploymentGroupId,
+    deploymentGroupInfo_autoScalingGroups,
+    deploymentGroupInfo_deploymentStyle,
+    deploymentGroupInfo_autoRollbackConfiguration,
+    deploymentGroupInfo_deploymentGroupName,
 
     -- ** DeploymentInfo
-    deploymentInfo_deploymentConfigName,
-    deploymentInfo_deploymentId,
-    deploymentInfo_status,
-    deploymentInfo_deploymentGroupName,
-    deploymentInfo_autoRollbackConfiguration,
-    deploymentInfo_updateOutdatedInstancesOnly,
-    deploymentInfo_ignoreApplicationStopFailures,
-    deploymentInfo_targetInstances,
-    deploymentInfo_startTime,
-    deploymentInfo_instanceTerminationWaitTimeStarted,
-    deploymentInfo_previousRevision,
     deploymentInfo_creator,
+    deploymentInfo_status,
+    deploymentInfo_deploymentId,
+    deploymentInfo_deploymentConfigName,
+    deploymentInfo_computePlatform,
+    deploymentInfo_previousRevision,
+    deploymentInfo_instanceTerminationWaitTimeStarted,
+    deploymentInfo_deploymentStatusMessages,
+    deploymentInfo_relatedDeployments,
+    deploymentInfo_startTime,
+    deploymentInfo_completeTime,
     deploymentInfo_blueGreenDeploymentConfiguration,
     deploymentInfo_errorInformation,
     deploymentInfo_loadBalancerInfo,
-    deploymentInfo_completeTime,
-    deploymentInfo_createTime,
-    deploymentInfo_deploymentStyle,
-    deploymentInfo_description,
-    deploymentInfo_revision,
-    deploymentInfo_rollbackInfo,
-    deploymentInfo_externalId,
-    deploymentInfo_deploymentStatusMessages,
-    deploymentInfo_relatedDeployments,
-    deploymentInfo_applicationName,
-    deploymentInfo_fileExistsBehavior,
-    deploymentInfo_computePlatform,
     deploymentInfo_additionalDeploymentStatusInfo,
     deploymentInfo_deploymentOverview,
+    deploymentInfo_fileExistsBehavior,
+    deploymentInfo_applicationName,
+    deploymentInfo_rollbackInfo,
+    deploymentInfo_externalId,
+    deploymentInfo_targetInstances,
+    deploymentInfo_revision,
+    deploymentInfo_description,
+    deploymentInfo_deploymentStyle,
+    deploymentInfo_createTime,
+    deploymentInfo_autoRollbackConfiguration,
+    deploymentInfo_updateOutdatedInstancesOnly,
+    deploymentInfo_deploymentGroupName,
+    deploymentInfo_ignoreApplicationStopFailures,
 
     -- ** DeploymentOverview
-    deploymentOverview_succeeded,
-    deploymentOverview_ready,
     deploymentOverview_pending,
-    deploymentOverview_failed,
     deploymentOverview_skipped,
     deploymentOverview_inProgress,
+    deploymentOverview_succeeded,
+    deploymentOverview_ready,
+    deploymentOverview_failed,
 
     -- ** DeploymentReadyOption
-    deploymentReadyOption_waitTimeInMinutes,
     deploymentReadyOption_actionOnTimeout,
+    deploymentReadyOption_waitTimeInMinutes,
 
     -- ** DeploymentStyle
-    deploymentStyle_deploymentType,
     deploymentStyle_deploymentOption,
+    deploymentStyle_deploymentType,
 
     -- ** DeploymentTarget
-    deploymentTarget_ecsTarget,
-    deploymentTarget_lambdaTarget,
-    deploymentTarget_cloudFormationTarget,
     deploymentTarget_instanceTarget,
+    deploymentTarget_cloudFormationTarget,
+    deploymentTarget_ecsTarget,
     deploymentTarget_deploymentTargetType,
+    deploymentTarget_lambdaTarget,
 
     -- ** Diagnostics
     diagnostics_logTail,
-    diagnostics_message,
-    diagnostics_scriptName,
     diagnostics_errorCode,
+    diagnostics_scriptName,
+    diagnostics_message,
 
     -- ** EC2TagFilter
-    eC2TagFilter_key,
     eC2TagFilter_value,
+    eC2TagFilter_key,
     eC2TagFilter_type,
 
     -- ** EC2TagSet
@@ -462,37 +462,37 @@ module Network.AWS.CodeDeploy.Lens
     eCSService_clusterName,
 
     -- ** ECSTarget
-    eCSTarget_targetId,
-    eCSTarget_deploymentId,
-    eCSTarget_status,
-    eCSTarget_taskSetsInfo,
     eCSTarget_targetArn,
-    eCSTarget_lifecycleEvents,
+    eCSTarget_targetId,
+    eCSTarget_status,
+    eCSTarget_deploymentId,
     eCSTarget_lastUpdatedAt,
+    eCSTarget_taskSetsInfo,
+    eCSTarget_lifecycleEvents,
 
     -- ** ECSTaskSet
     eCSTaskSet_runningCount,
     eCSTaskSet_status,
+    eCSTaskSet_identifer,
     eCSTaskSet_desiredCount,
     eCSTaskSet_pendingCount,
-    eCSTaskSet_taskSetLabel,
-    eCSTaskSet_targetGroup,
     eCSTaskSet_trafficWeight,
-    eCSTaskSet_identifer,
+    eCSTaskSet_targetGroup,
+    eCSTaskSet_taskSetLabel,
 
     -- ** ELBInfo
     eLBInfo_name,
 
     -- ** ErrorInformation
-    errorInformation_message,
     errorInformation_code,
+    errorInformation_message,
 
     -- ** GenericRevisionInfo
     genericRevisionInfo_registerTime,
-    genericRevisionInfo_deploymentGroups,
-    genericRevisionInfo_description,
     genericRevisionInfo_firstUsedTime,
+    genericRevisionInfo_deploymentGroups,
     genericRevisionInfo_lastUsedTime,
+    genericRevisionInfo_description,
 
     -- ** GitHubLocation
     gitHubLocation_commitId,
@@ -503,55 +503,55 @@ module Network.AWS.CodeDeploy.Lens
 
     -- ** InstanceInfo
     instanceInfo_registerTime,
+    instanceInfo_instanceArn,
+    instanceInfo_deregisterTime,
     instanceInfo_iamUserArn,
     instanceInfo_instanceName,
-    instanceInfo_instanceArn,
-    instanceInfo_tags,
     instanceInfo_iamSessionArn,
-    instanceInfo_deregisterTime,
+    instanceInfo_tags,
 
     -- ** InstanceTarget
-    instanceTarget_targetId,
-    instanceTarget_deploymentId,
-    instanceTarget_status,
-    instanceTarget_instanceLabel,
     instanceTarget_targetArn,
-    instanceTarget_lifecycleEvents,
+    instanceTarget_targetId,
+    instanceTarget_status,
+    instanceTarget_deploymentId,
+    instanceTarget_instanceLabel,
     instanceTarget_lastUpdatedAt,
+    instanceTarget_lifecycleEvents,
 
     -- ** LambdaFunctionInfo
-    lambdaFunctionInfo_functionAlias,
     lambdaFunctionInfo_currentVersion,
+    lambdaFunctionInfo_functionAlias,
+    lambdaFunctionInfo_functionName,
     lambdaFunctionInfo_targetVersion,
     lambdaFunctionInfo_targetVersionWeight,
-    lambdaFunctionInfo_functionName,
 
     -- ** LambdaTarget
-    lambdaTarget_targetId,
-    lambdaTarget_deploymentId,
-    lambdaTarget_status,
     lambdaTarget_targetArn,
+    lambdaTarget_targetId,
+    lambdaTarget_status,
+    lambdaTarget_deploymentId,
+    lambdaTarget_lastUpdatedAt,
     lambdaTarget_lifecycleEvents,
     lambdaTarget_lambdaFunctionInfo,
-    lambdaTarget_lastUpdatedAt,
 
     -- ** LastDeploymentInfo
-    lastDeploymentInfo_deploymentId,
     lastDeploymentInfo_status,
+    lastDeploymentInfo_deploymentId,
     lastDeploymentInfo_endTime,
     lastDeploymentInfo_createTime,
 
     -- ** LifecycleEvent
-    lifecycleEvent_diagnostics,
     lifecycleEvent_status,
-    lifecycleEvent_startTime,
-    lifecycleEvent_endTime,
     lifecycleEvent_lifecycleEventName,
+    lifecycleEvent_startTime,
+    lifecycleEvent_diagnostics,
+    lifecycleEvent_endTime,
 
     -- ** LoadBalancerInfo
-    loadBalancerInfo_targetGroupPairInfoList,
     loadBalancerInfo_elbInfoList,
     loadBalancerInfo_targetGroupInfoList,
+    loadBalancerInfo_targetGroupPairInfoList,
 
     -- ** MinimumHealthyHosts
     minimumHealthyHosts_value,
@@ -565,52 +565,52 @@ module Network.AWS.CodeDeploy.Lens
     rawString_sha256,
 
     -- ** RelatedDeployments
-    relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId,
     relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds,
+    relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId,
 
     -- ** RevisionInfo
     revisionInfo_genericRevisionInfo,
     revisionInfo_revisionLocation,
 
     -- ** RevisionLocation
+    revisionLocation_string,
     revisionLocation_revisionType,
     revisionLocation_s3Location,
     revisionLocation_appSpecContent,
     revisionLocation_gitHubLocation,
-    revisionLocation_string,
 
     -- ** RollbackInfo
-    rollbackInfo_rollbackMessage,
     rollbackInfo_rollbackTriggeringDeploymentId,
+    rollbackInfo_rollbackMessage,
     rollbackInfo_rollbackDeploymentId,
 
     -- ** S3Location
-    s3Location_key,
-    s3Location_eTag,
     s3Location_bundleType,
-    s3Location_version,
+    s3Location_eTag,
     s3Location_bucket,
+    s3Location_key,
+    s3Location_version,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TagFilter
-    tagFilter_key,
     tagFilter_value,
+    tagFilter_key,
     tagFilter_type,
 
     -- ** TargetGroupInfo
     targetGroupInfo_name,
 
     -- ** TargetGroupPairInfo
-    targetGroupPairInfo_targetGroups,
     targetGroupPairInfo_prodTrafficRoute,
     targetGroupPairInfo_testTrafficRoute,
+    targetGroupPairInfo_targetGroups,
 
     -- ** TargetInstances
-    targetInstances_tagFilters,
     targetInstances_ec2TagSet,
+    targetInstances_tagFilters,
     targetInstances_autoScalingGroups,
 
     -- ** TimeBasedCanary
@@ -622,16 +622,16 @@ module Network.AWS.CodeDeploy.Lens
     timeBasedLinear_linearPercentage,
 
     -- ** TimeRange
-    timeRange_end,
     timeRange_start,
+    timeRange_end,
 
     -- ** TrafficRoute
     trafficRoute_listenerArns,
 
     -- ** TrafficRoutingConfig
+    trafficRoutingConfig_timeBasedCanary,
     trafficRoutingConfig_timeBasedLinear,
     trafficRoutingConfig_type,
-    trafficRoutingConfig_timeBasedCanary,
 
     -- ** TriggerConfig
     triggerConfig_triggerName,

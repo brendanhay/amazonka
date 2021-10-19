@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
-  { -- | Indicates whether to run an in-place deployment or a blue\/green
+  { -- | Indicates whether to route deployment traffic behind a load balancer.
+    deploymentOption :: Prelude.Maybe DeploymentOption,
+    -- | Indicates whether to run an in-place deployment or a blue\/green
     -- deployment.
-    deploymentType :: Prelude.Maybe DeploymentType,
-    -- | Indicates whether to route deployment traffic behind a load balancer.
-    deploymentOption :: Prelude.Maybe DeploymentOption
+    deploymentType :: Prelude.Maybe DeploymentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,27 @@ data DeploymentStyle = DeploymentStyle'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deploymentOption', 'deploymentStyle_deploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
+--
 -- 'deploymentType', 'deploymentStyle_deploymentType' - Indicates whether to run an in-place deployment or a blue\/green
 -- deployment.
---
--- 'deploymentOption', 'deploymentStyle_deploymentOption' - Indicates whether to route deployment traffic behind a load balancer.
 newDeploymentStyle ::
   DeploymentStyle
 newDeploymentStyle =
   DeploymentStyle'
-    { deploymentType = Prelude.Nothing,
-      deploymentOption = Prelude.Nothing
+    { deploymentOption =
+        Prelude.Nothing,
+      deploymentType = Prelude.Nothing
     }
+
+-- | Indicates whether to route deployment traffic behind a load balancer.
+deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
+deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
 -- | Indicates whether to run an in-place deployment or a blue\/green
 -- deployment.
 deploymentStyle_deploymentType :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentType)
 deploymentStyle_deploymentType = Lens.lens (\DeploymentStyle' {deploymentType} -> deploymentType) (\s@DeploymentStyle' {} a -> s {deploymentType = a} :: DeploymentStyle)
-
--- | Indicates whether to route deployment traffic behind a load balancer.
-deploymentStyle_deploymentOption :: Lens.Lens' DeploymentStyle (Prelude.Maybe DeploymentOption)
-deploymentStyle_deploymentOption = Lens.lens (\DeploymentStyle' {deploymentOption} -> deploymentOption) (\s@DeploymentStyle' {} a -> s {deploymentOption = a} :: DeploymentStyle)
 
 instance Core.FromJSON DeploymentStyle where
   parseJSON =
@@ -74,8 +75,8 @@ instance Core.FromJSON DeploymentStyle where
       "DeploymentStyle"
       ( \x ->
           DeploymentStyle'
-            Prelude.<$> (x Core..:? "deploymentType")
-            Prelude.<*> (x Core..:? "deploymentOption")
+            Prelude.<$> (x Core..:? "deploymentOption")
+            Prelude.<*> (x Core..:? "deploymentType")
       )
 
 instance Prelude.Hashable DeploymentStyle
@@ -86,9 +87,9 @@ instance Core.ToJSON DeploymentStyle where
   toJSON DeploymentStyle' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentType" Core..=)
-              Prelude.<$> deploymentType,
-            ("deploymentOption" Core..=)
-              Prelude.<$> deploymentOption
+          [ ("deploymentOption" Core..=)
+              Prelude.<$> deploymentOption,
+            ("deploymentType" Core..=)
+              Prelude.<$> deploymentType
           ]
       )

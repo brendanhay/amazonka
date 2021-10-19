@@ -55,7 +55,7 @@ newTrafficRoute =
 -- the route between a target group and a load balancer. This is an array
 -- of strings with a maximum size of one.
 trafficRoute_listenerArns :: Lens.Lens' TrafficRoute (Prelude.Maybe [Prelude.Text])
-trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Prelude.. Lens.mapping Lens._Coerce
+trafficRoute_listenerArns = Lens.lens (\TrafficRoute' {listenerArns} -> listenerArns) (\s@TrafficRoute' {} a -> s {listenerArns = a} :: TrafficRoute) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TrafficRoute where
   parseJSON =

@@ -32,19 +32,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentTarget' smart constructor.
 data DeploymentTarget = DeploymentTarget'
-  { -- | Information about the target for a deployment that uses the Amazon ECS
-    -- compute platform.
-    ecsTarget :: Prelude.Maybe ECSTarget,
-    -- | Information about the target for a deployment that uses the AWS Lambda
-    -- compute platform.
-    lambdaTarget :: Prelude.Maybe LambdaTarget,
-    cloudFormationTarget :: Prelude.Maybe CloudFormationTarget,
-    -- | Information about the target for a deployment that uses the
+  { -- | Information about the target for a deployment that uses the
     -- EC2\/On-premises compute platform.
     instanceTarget :: Prelude.Maybe InstanceTarget,
+    cloudFormationTarget :: Prelude.Maybe CloudFormationTarget,
+    -- | Information about the target for a deployment that uses the Amazon ECS
+    -- compute platform.
+    ecsTarget :: Prelude.Maybe ECSTarget,
     -- | The deployment type that is specific to the deployment\'s compute
     -- platform or deployments initiated by a CloudFormation stack update.
-    deploymentTargetType :: Prelude.Maybe DeploymentTargetType
+    deploymentTargetType :: Prelude.Maybe DeploymentTargetType,
+    -- | Information about the target for a deployment that uses the AWS Lambda
+    -- compute platform.
+    lambdaTarget :: Prelude.Maybe LambdaTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,53 +56,53 @@ data DeploymentTarget = DeploymentTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ecsTarget', 'deploymentTarget_ecsTarget' - Information about the target for a deployment that uses the Amazon ECS
--- compute platform.
---
--- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda
--- compute platform.
---
--- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.
---
 -- 'instanceTarget', 'deploymentTarget_instanceTarget' - Information about the target for a deployment that uses the
 -- EC2\/On-premises compute platform.
 --
+-- 'cloudFormationTarget', 'deploymentTarget_cloudFormationTarget' - Undocumented member.
+--
+-- 'ecsTarget', 'deploymentTarget_ecsTarget' - Information about the target for a deployment that uses the Amazon ECS
+-- compute platform.
+--
 -- 'deploymentTargetType', 'deploymentTarget_deploymentTargetType' - The deployment type that is specific to the deployment\'s compute
 -- platform or deployments initiated by a CloudFormation stack update.
+--
+-- 'lambdaTarget', 'deploymentTarget_lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda
+-- compute platform.
 newDeploymentTarget ::
   DeploymentTarget
 newDeploymentTarget =
   DeploymentTarget'
-    { ecsTarget = Prelude.Nothing,
-      lambdaTarget = Prelude.Nothing,
+    { instanceTarget = Prelude.Nothing,
       cloudFormationTarget = Prelude.Nothing,
-      instanceTarget = Prelude.Nothing,
-      deploymentTargetType = Prelude.Nothing
+      ecsTarget = Prelude.Nothing,
+      deploymentTargetType = Prelude.Nothing,
+      lambdaTarget = Prelude.Nothing
     }
-
--- | Information about the target for a deployment that uses the Amazon ECS
--- compute platform.
-deploymentTarget_ecsTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe ECSTarget)
-deploymentTarget_ecsTarget = Lens.lens (\DeploymentTarget' {ecsTarget} -> ecsTarget) (\s@DeploymentTarget' {} a -> s {ecsTarget = a} :: DeploymentTarget)
-
--- | Information about the target for a deployment that uses the AWS Lambda
--- compute platform.
-deploymentTarget_lambdaTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe LambdaTarget)
-deploymentTarget_lambdaTarget = Lens.lens (\DeploymentTarget' {lambdaTarget} -> lambdaTarget) (\s@DeploymentTarget' {} a -> s {lambdaTarget = a} :: DeploymentTarget)
-
--- | Undocumented member.
-deploymentTarget_cloudFormationTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe CloudFormationTarget)
-deploymentTarget_cloudFormationTarget = Lens.lens (\DeploymentTarget' {cloudFormationTarget} -> cloudFormationTarget) (\s@DeploymentTarget' {} a -> s {cloudFormationTarget = a} :: DeploymentTarget)
 
 -- | Information about the target for a deployment that uses the
 -- EC2\/On-premises compute platform.
 deploymentTarget_instanceTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe InstanceTarget)
 deploymentTarget_instanceTarget = Lens.lens (\DeploymentTarget' {instanceTarget} -> instanceTarget) (\s@DeploymentTarget' {} a -> s {instanceTarget = a} :: DeploymentTarget)
 
+-- | Undocumented member.
+deploymentTarget_cloudFormationTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe CloudFormationTarget)
+deploymentTarget_cloudFormationTarget = Lens.lens (\DeploymentTarget' {cloudFormationTarget} -> cloudFormationTarget) (\s@DeploymentTarget' {} a -> s {cloudFormationTarget = a} :: DeploymentTarget)
+
+-- | Information about the target for a deployment that uses the Amazon ECS
+-- compute platform.
+deploymentTarget_ecsTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe ECSTarget)
+deploymentTarget_ecsTarget = Lens.lens (\DeploymentTarget' {ecsTarget} -> ecsTarget) (\s@DeploymentTarget' {} a -> s {ecsTarget = a} :: DeploymentTarget)
+
 -- | The deployment type that is specific to the deployment\'s compute
 -- platform or deployments initiated by a CloudFormation stack update.
 deploymentTarget_deploymentTargetType :: Lens.Lens' DeploymentTarget (Prelude.Maybe DeploymentTargetType)
 deploymentTarget_deploymentTargetType = Lens.lens (\DeploymentTarget' {deploymentTargetType} -> deploymentTargetType) (\s@DeploymentTarget' {} a -> s {deploymentTargetType = a} :: DeploymentTarget)
+
+-- | Information about the target for a deployment that uses the AWS Lambda
+-- compute platform.
+deploymentTarget_lambdaTarget :: Lens.Lens' DeploymentTarget (Prelude.Maybe LambdaTarget)
+deploymentTarget_lambdaTarget = Lens.lens (\DeploymentTarget' {lambdaTarget} -> lambdaTarget) (\s@DeploymentTarget' {} a -> s {lambdaTarget = a} :: DeploymentTarget)
 
 instance Core.FromJSON DeploymentTarget where
   parseJSON =
@@ -110,11 +110,11 @@ instance Core.FromJSON DeploymentTarget where
       "DeploymentTarget"
       ( \x ->
           DeploymentTarget'
-            Prelude.<$> (x Core..:? "ecsTarget")
-            Prelude.<*> (x Core..:? "lambdaTarget")
+            Prelude.<$> (x Core..:? "instanceTarget")
             Prelude.<*> (x Core..:? "cloudFormationTarget")
-            Prelude.<*> (x Core..:? "instanceTarget")
+            Prelude.<*> (x Core..:? "ecsTarget")
             Prelude.<*> (x Core..:? "deploymentTargetType")
+            Prelude.<*> (x Core..:? "lambdaTarget")
       )
 
 instance Prelude.Hashable DeploymentTarget

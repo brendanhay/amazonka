@@ -39,8 +39,8 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
 
     -- * Response Lenses
     listDeploymentGroupsResponse_nextToken,
-    listDeploymentGroupsResponse_deploymentGroups,
     listDeploymentGroupsResponse_applicationName,
+    listDeploymentGroupsResponse_deploymentGroups,
     listDeploymentGroupsResponse_httpStatus,
   )
 where
@@ -130,10 +130,10 @@ instance Core.AWSRequest ListDeploymentGroups where
       ( \s h x ->
           ListDeploymentGroupsResponse'
             Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "applicationName")
             Prelude.<*> ( x Core..?> "deploymentGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,10 +180,10 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
     -- returned. It can be used in a subsequent list deployment groups call to
     -- return the next set of deployment groups in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of deployment group names.
-    deploymentGroups :: Prelude.Maybe [Prelude.Text],
     -- | The application name.
     applicationName :: Prelude.Maybe Prelude.Text,
+    -- | A list of deployment group names.
+    deploymentGroups :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,9 +201,9 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
 -- returned. It can be used in a subsequent list deployment groups call to
 -- return the next set of deployment groups in the list.
 --
--- 'deploymentGroups', 'listDeploymentGroupsResponse_deploymentGroups' - A list of deployment group names.
---
 -- 'applicationName', 'listDeploymentGroupsResponse_applicationName' - The application name.
+--
+-- 'deploymentGroups', 'listDeploymentGroupsResponse_deploymentGroups' - A list of deployment group names.
 --
 -- 'httpStatus', 'listDeploymentGroupsResponse_httpStatus' - The response's http status code.
 newListDeploymentGroupsResponse ::
@@ -214,8 +214,8 @@ newListDeploymentGroupsResponse pHttpStatus_ =
   ListDeploymentGroupsResponse'
     { nextToken =
         Prelude.Nothing,
-      deploymentGroups = Prelude.Nothing,
       applicationName = Prelude.Nothing,
+      deploymentGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -225,13 +225,13 @@ newListDeploymentGroupsResponse pHttpStatus_ =
 listDeploymentGroupsResponse_nextToken :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
 listDeploymentGroupsResponse_nextToken = Lens.lens (\ListDeploymentGroupsResponse' {nextToken} -> nextToken) (\s@ListDeploymentGroupsResponse' {} a -> s {nextToken = a} :: ListDeploymentGroupsResponse)
 
--- | A list of deployment group names.
-listDeploymentGroupsResponse_deploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe [Prelude.Text])
-listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroupsResponse' {deploymentGroups} -> deploymentGroups) (\s@ListDeploymentGroupsResponse' {} a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The application name.
 listDeploymentGroupsResponse_applicationName :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)
 listDeploymentGroupsResponse_applicationName = Lens.lens (\ListDeploymentGroupsResponse' {applicationName} -> applicationName) (\s@ListDeploymentGroupsResponse' {} a -> s {applicationName = a} :: ListDeploymentGroupsResponse)
+
+-- | A list of deployment group names.
+listDeploymentGroupsResponse_deploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Prelude.Maybe [Prelude.Text])
+listDeploymentGroupsResponse_deploymentGroups = Lens.lens (\ListDeploymentGroupsResponse' {deploymentGroups} -> deploymentGroups) (\s@ListDeploymentGroupsResponse' {} a -> s {deploymentGroups = a} :: ListDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeploymentGroupsResponse_httpStatus :: Lens.Lens' ListDeploymentGroupsResponse Prelude.Int

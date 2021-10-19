@@ -85,7 +85,7 @@ newDescribeTrustedAdvisorCheckSummaries =
 
 -- | The IDs of the Trusted Advisor checks.
 describeTrustedAdvisorCheckSummaries_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckSummaries [Prelude.Text]
-describeTrustedAdvisorCheckSummaries_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckSummaries' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckSummaries' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckSummaries) Prelude.. Lens._Coerce
+describeTrustedAdvisorCheckSummaries_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckSummaries' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckSummaries' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckSummaries) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -192,7 +192,7 @@ describeTrustedAdvisorCheckSummariesResponse_httpStatus = Lens.lens (\DescribeTr
 
 -- | The summary information for the requested Trusted Advisor checks.
 describeTrustedAdvisorCheckSummariesResponse_summaries :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-describeTrustedAdvisorCheckSummariesResponse_summaries = Lens.lens (\DescribeTrustedAdvisorCheckSummariesResponse' {summaries} -> summaries) (\s@DescribeTrustedAdvisorCheckSummariesResponse' {} a -> s {summaries = a} :: DescribeTrustedAdvisorCheckSummariesResponse) Prelude.. Lens._Coerce
+describeTrustedAdvisorCheckSummariesResponse_summaries = Lens.lens (\DescribeTrustedAdvisorCheckSummariesResponse' {summaries} -> summaries) (\s@DescribeTrustedAdvisorCheckSummariesResponse' {} a -> s {summaries = a} :: DescribeTrustedAdvisorCheckSummariesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

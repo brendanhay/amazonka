@@ -190,7 +190,7 @@ describeTrustedAdvisorChecksResponse_httpStatus = Lens.lens (\DescribeTrustedAdv
 
 -- | Information about all available Trusted Advisor checks.
 describeTrustedAdvisorChecksResponse_checks :: Lens.Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-describeTrustedAdvisorChecksResponse_checks = Lens.lens (\DescribeTrustedAdvisorChecksResponse' {checks} -> checks) (\s@DescribeTrustedAdvisorChecksResponse' {} a -> s {checks = a} :: DescribeTrustedAdvisorChecksResponse) Prelude.. Lens._Coerce
+describeTrustedAdvisorChecksResponse_checks = Lens.lens (\DescribeTrustedAdvisorChecksResponse' {checks} -> checks) (\s@DescribeTrustedAdvisorChecksResponse' {} a -> s {checks = a} :: DescribeTrustedAdvisorChecksResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

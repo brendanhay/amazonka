@@ -120,7 +120,7 @@ trustedAdvisorCheckResult_categorySpecificSummary = Lens.lens (\TrustedAdvisorCh
 
 -- | The details about each resource listed in the check result.
 trustedAdvisorCheckResult_flaggedResources :: Lens.Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
-trustedAdvisorCheckResult_flaggedResources = Lens.lens (\TrustedAdvisorCheckResult' {flaggedResources} -> flaggedResources) (\s@TrustedAdvisorCheckResult' {} a -> s {flaggedResources = a} :: TrustedAdvisorCheckResult) Prelude.. Lens._Coerce
+trustedAdvisorCheckResult_flaggedResources = Lens.lens (\TrustedAdvisorCheckResult' {flaggedResources} -> flaggedResources) (\s@TrustedAdvisorCheckResult' {} a -> s {flaggedResources = a} :: TrustedAdvisorCheckResult) Prelude.. Lens.coerced
 
 instance Core.FromJSON TrustedAdvisorCheckResult where
   parseJSON =

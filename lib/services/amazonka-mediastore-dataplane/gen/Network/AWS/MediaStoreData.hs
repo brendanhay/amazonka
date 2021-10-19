@@ -24,14 +24,14 @@ module Network.AWS.MediaStoreData
     -- ** RequestedRangeNotSatisfiableException
     _RequestedRangeNotSatisfiableException,
 
-    -- ** ObjectNotFoundException
-    _ObjectNotFoundException,
-
     -- ** InternalServerError
     _InternalServerError,
 
     -- ** ContainerNotFoundException
     _ContainerNotFoundException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -39,11 +39,11 @@ module Network.AWS.MediaStoreData
     -- * Operations
     -- $operations
 
-    -- ** ListItems (Paginated)
-    ListItems (ListItems'),
-    newListItems,
-    ListItemsResponse (ListItemsResponse'),
-    newListItemsResponse,
+    -- ** PutObject
+    PutObject (PutObject'),
+    newPutObject,
+    PutObjectResponse (PutObjectResponse'),
+    newPutObjectResponse,
 
     -- ** DeleteObject
     DeleteObject (DeleteObject'),
@@ -57,17 +57,17 @@ module Network.AWS.MediaStoreData
     DescribeObjectResponse (DescribeObjectResponse'),
     newDescribeObjectResponse,
 
-    -- ** PutObject
-    PutObject (PutObject'),
-    newPutObject,
-    PutObjectResponse (PutObjectResponse'),
-    newPutObjectResponse,
-
     -- ** GetObject
     GetObject (GetObject'),
     newGetObject,
     GetObjectResponse (GetObjectResponse'),
     newGetObjectResponse,
+
+    -- ** ListItems (Paginated)
+    ListItems (ListItems'),
+    newListItems,
+    ListItemsResponse (ListItemsResponse'),
+    newListItemsResponse,
 
     -- * Types
 

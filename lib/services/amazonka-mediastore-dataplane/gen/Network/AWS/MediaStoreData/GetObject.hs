@@ -38,11 +38,11 @@ module Network.AWS.MediaStoreData.GetObject
 
     -- * Response Lenses
     getObjectResponse_eTag,
-    getObjectResponse_contentType,
-    getObjectResponse_contentRange,
     getObjectResponse_contentLength,
     getObjectResponse_cacheControl,
     getObjectResponse_lastModified,
+    getObjectResponse_contentRange,
+    getObjectResponse_contentType,
     getObjectResponse_statusCode,
     getObjectResponse_body,
   )
@@ -185,11 +185,11 @@ instance Core.AWSRequest GetObject where
       ( \s h x ->
           GetObjectResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
-            Prelude.<*> (h Core..#? "Content-Range")
             Prelude.<*> (h Core..#? "Content-Length")
             Prelude.<*> (h Core..#? "Cache-Control")
             Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -213,10 +213,6 @@ instance Core.ToQuery GetObject where
 data GetObjectResponse = GetObjectResponse'
   { -- | The ETag that represents a unique instance of the object.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the object.
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | The range of bytes to retrieve.
-    contentRange :: Prelude.Maybe Prelude.Text,
     -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
     -- | An optional @CacheControl@ header that allows the caller to control the
@@ -228,6 +224,10 @@ data GetObjectResponse = GetObjectResponse'
     cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the object was last modified.
     lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The range of bytes to retrieve.
+    contentRange :: Prelude.Maybe Prelude.Text,
+    -- | The content type of the object.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The HTML status code of the request. Status codes ranging from 200 to
     -- 299 indicate success. All other status codes indicate the type of error
     -- that occurred.
@@ -247,10 +247,6 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- 'eTag', 'getObjectResponse_eTag' - The ETag that represents a unique instance of the object.
 --
--- 'contentType', 'getObjectResponse_contentType' - The content type of the object.
---
--- 'contentRange', 'getObjectResponse_contentRange' - The range of bytes to retrieve.
---
 -- 'contentLength', 'getObjectResponse_contentLength' - The length of the object in bytes.
 --
 -- 'cacheControl', 'getObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
@@ -261,6 +257,10 @@ data GetObjectResponse = GetObjectResponse'
 -- Headers with a custom user-defined value are also accepted.
 --
 -- 'lastModified', 'getObjectResponse_lastModified' - The date and time that the object was last modified.
+--
+-- 'contentRange', 'getObjectResponse_contentRange' - The range of bytes to retrieve.
+--
+-- 'contentType', 'getObjectResponse_contentType' - The content type of the object.
 --
 -- 'statusCode', 'getObjectResponse_statusCode' - The HTML status code of the request. Status codes ranging from 200 to
 -- 299 indicate success. All other status codes indicate the type of error
@@ -276,11 +276,11 @@ newGetObjectResponse ::
 newGetObjectResponse pStatusCode_ pBody_ =
   GetObjectResponse'
     { eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      contentRange = Prelude.Nothing,
       contentLength = Prelude.Nothing,
       cacheControl = Prelude.Nothing,
       lastModified = Prelude.Nothing,
+      contentRange = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       statusCode = pStatusCode_,
       body = pBody_
     }
@@ -288,14 +288,6 @@ newGetObjectResponse pStatusCode_ pBody_ =
 -- | The ETag that represents a unique instance of the object.
 getObjectResponse_eTag :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_eTag = Lens.lens (\GetObjectResponse' {eTag} -> eTag) (\s@GetObjectResponse' {} a -> s {eTag = a} :: GetObjectResponse)
-
--- | The content type of the object.
-getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
-getObjectResponse_contentType = Lens.lens (\GetObjectResponse' {contentType} -> contentType) (\s@GetObjectResponse' {} a -> s {contentType = a} :: GetObjectResponse)
-
--- | The range of bytes to retrieve.
-getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
-getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
 
 -- | The length of the object in bytes.
 getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Natural)
@@ -313,6 +305,14 @@ getObjectResponse_cacheControl = Lens.lens (\GetObjectResponse' {cacheControl} -
 -- | The date and time that the object was last modified.
 getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
 getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The range of bytes to retrieve.
+getObjectResponse_contentRange :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
+getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -> contentRange) (\s@GetObjectResponse' {} a -> s {contentRange = a} :: GetObjectResponse)
+
+-- | The content type of the object.
+getObjectResponse_contentType :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
+getObjectResponse_contentType = Lens.lens (\GetObjectResponse' {contentType} -> contentType) (\s@GetObjectResponse' {} a -> s {contentType = a} :: GetObjectResponse)
 
 -- | The HTML status code of the request. Status codes ranging from 200 to
 -- 299 indicate success. All other status codes indicate the type of error

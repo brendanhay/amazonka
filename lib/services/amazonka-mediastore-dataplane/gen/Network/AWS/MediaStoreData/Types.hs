@@ -18,9 +18,9 @@ module Network.AWS.MediaStoreData.Types
 
     -- * Errors
     _RequestedRangeNotSatisfiableException,
-    _ObjectNotFoundException,
     _InternalServerError,
     _ContainerNotFoundException,
+    _ObjectNotFoundException,
 
     -- * ItemType
     ItemType (..),
@@ -35,11 +35,11 @@ module Network.AWS.MediaStoreData.Types
     Item (..),
     newItem,
     item_eTag,
-    item_contentType,
     item_contentLength,
     item_name,
-    item_lastModified,
     item_type,
+    item_lastModified,
+    item_contentType,
   )
 where
 
@@ -79,37 +79,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -122,6 +99,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested content range is not valid.
@@ -131,14 +131,6 @@ _RequestedRangeNotSatisfiableException =
     defaultService
     "RequestedRangeNotSatisfiableException"
     Prelude.. Core.hasStatus 416
-
--- | Could not perform an operation on an object that does not exist.
-_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ObjectNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ObjectNotFoundException"
-    Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
 _InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -153,4 +145,12 @@ _ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
     "ContainerNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Could not perform an operation on an object that does not exist.
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ObjectNotFoundException"
     Prelude.. Core.hasStatus 404

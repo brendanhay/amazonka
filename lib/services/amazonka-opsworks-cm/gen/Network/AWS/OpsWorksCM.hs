@@ -89,8 +89,8 @@ module Network.AWS.OpsWorksCM
     -- * Errors
     -- $errors
 
-    -- ** InvalidStateException
-    _InvalidStateException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
@@ -98,14 +98,14 @@ module Network.AWS.OpsWorksCM
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
 
     -- ** LimitExceededException
     _LimitExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -116,11 +116,11 @@ module Network.AWS.OpsWorksCM
     -- * Operations
     -- $operations
 
-    -- ** DeleteBackup
-    DeleteBackup (DeleteBackup'),
-    newDeleteBackup,
-    DeleteBackupResponse (DeleteBackupResponse'),
-    newDeleteBackupResponse,
+    -- ** AssociateNode
+    AssociateNode (AssociateNode'),
+    newAssociateNode,
+    AssociateNodeResponse (AssociateNodeResponse'),
+    newAssociateNodeResponse,
 
     -- ** UpdateServer
     UpdateServer (UpdateServer'),
@@ -134,47 +134,11 @@ module Network.AWS.OpsWorksCM
     DeleteServerResponse (DeleteServerResponse'),
     newDeleteServerResponse,
 
-    -- ** CreateServer
-    CreateServer (CreateServer'),
-    newCreateServer,
-    CreateServerResponse (CreateServerResponse'),
-    newCreateServerResponse,
-
-    -- ** DescribeServers (Paginated)
-    DescribeServers (DescribeServers'),
-    newDescribeServers,
-    DescribeServersResponse (DescribeServersResponse'),
-    newDescribeServersResponse,
-
-    -- ** ExportServerEngineAttribute
-    ExportServerEngineAttribute (ExportServerEngineAttribute'),
-    newExportServerEngineAttribute,
-    ExportServerEngineAttributeResponse (ExportServerEngineAttributeResponse'),
-    newExportServerEngineAttributeResponse,
-
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeNodeAssociationStatus
-    DescribeNodeAssociationStatus (DescribeNodeAssociationStatus'),
-    newDescribeNodeAssociationStatus,
-    DescribeNodeAssociationStatusResponse (DescribeNodeAssociationStatusResponse'),
-    newDescribeNodeAssociationStatusResponse,
+    -- ** DeleteBackup
+    DeleteBackup (DeleteBackup'),
+    newDeleteBackup,
+    DeleteBackupResponse (DeleteBackupResponse'),
+    newDeleteBackupResponse,
 
     -- ** DescribeEvents (Paginated)
     DescribeEvents (DescribeEvents'),
@@ -188,35 +152,17 @@ module Network.AWS.OpsWorksCM
     DisassociateNodeResponse (DisassociateNodeResponse'),
     newDisassociateNodeResponse,
 
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** CreateBackup
     CreateBackup (CreateBackup'),
     newCreateBackup,
     CreateBackupResponse (CreateBackupResponse'),
     newCreateBackupResponse,
-
-    -- ** AssociateNode
-    AssociateNode (AssociateNode'),
-    newAssociateNode,
-    AssociateNodeResponse (AssociateNodeResponse'),
-    newAssociateNodeResponse,
-
-    -- ** DescribeBackups (Paginated)
-    DescribeBackups (DescribeBackups'),
-    newDescribeBackups,
-    DescribeBackupsResponse (DescribeBackupsResponse'),
-    newDescribeBackupsResponse,
-
-    -- ** StartMaintenance
-    StartMaintenance (StartMaintenance'),
-    newStartMaintenance,
-    StartMaintenanceResponse (StartMaintenanceResponse'),
-    newStartMaintenanceResponse,
-
-    -- ** RestoreServer
-    RestoreServer (RestoreServer'),
-    newRestoreServer,
-    RestoreServerResponse (RestoreServerResponse'),
-    newRestoreServerResponse,
 
     -- ** UpdateServerEngineAttributes
     UpdateServerEngineAttributes (UpdateServerEngineAttributes'),
@@ -224,11 +170,65 @@ module Network.AWS.OpsWorksCM
     UpdateServerEngineAttributesResponse (UpdateServerEngineAttributesResponse'),
     newUpdateServerEngineAttributesResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** StartMaintenance
+    StartMaintenance (StartMaintenance'),
+    newStartMaintenance,
+    StartMaintenanceResponse (StartMaintenanceResponse'),
+    newStartMaintenanceResponse,
+
+    -- ** DescribeBackups (Paginated)
+    DescribeBackups (DescribeBackups'),
+    newDescribeBackups,
+    DescribeBackupsResponse (DescribeBackupsResponse'),
+    newDescribeBackupsResponse,
+
+    -- ** CreateServer
+    CreateServer (CreateServer'),
+    newCreateServer,
+    CreateServerResponse (CreateServerResponse'),
+    newCreateServerResponse,
+
+    -- ** RestoreServer
+    RestoreServer (RestoreServer'),
+    newRestoreServer,
+    RestoreServerResponse (RestoreServerResponse'),
+    newRestoreServerResponse,
+
+    -- ** DescribeNodeAssociationStatus
+    DescribeNodeAssociationStatus (DescribeNodeAssociationStatus'),
+    newDescribeNodeAssociationStatus,
+    DescribeNodeAssociationStatusResponse (DescribeNodeAssociationStatusResponse'),
+    newDescribeNodeAssociationStatusResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DescribeServers (Paginated)
+    DescribeServers (DescribeServers'),
+    newDescribeServers,
+    DescribeServersResponse (DescribeServersResponse'),
+    newDescribeServersResponse,
+
+    -- ** ExportServerEngineAttribute
+    ExportServerEngineAttribute (ExportServerEngineAttribute'),
+    newExportServerEngineAttribute,
+    ExportServerEngineAttributeResponse (ExportServerEngineAttributeResponse'),
+    newExportServerEngineAttributeResponse,
 
     -- * Types
 

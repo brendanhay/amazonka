@@ -119,7 +119,7 @@ newDisassociateNode pServerName_ pNodeName_ =
 --     associated. By default only one organization named @default@ can
 --     exist.
 disassociateNode_engineAttributes :: Lens.Lens' DisassociateNode (Prelude.Maybe [EngineAttribute])
-disassociateNode_engineAttributes = Lens.lens (\DisassociateNode' {engineAttributes} -> engineAttributes) (\s@DisassociateNode' {} a -> s {engineAttributes = a} :: DisassociateNode) Prelude.. Lens.mapping Lens._Coerce
+disassociateNode_engineAttributes = Lens.lens (\DisassociateNode' {engineAttributes} -> engineAttributes) (\s@DisassociateNode' {} a -> s {engineAttributes = a} :: DisassociateNode) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the server from which to disassociate the node.
 disassociateNode_serverName :: Lens.Lens' DisassociateNode Prelude.Text

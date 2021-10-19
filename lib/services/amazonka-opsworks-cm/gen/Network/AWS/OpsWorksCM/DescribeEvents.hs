@@ -45,8 +45,8 @@ module Network.AWS.OpsWorksCM.DescribeEvents
     newDescribeEventsResponse,
 
     -- * Response Lenses
-    describeEventsResponse_nextToken,
     describeEventsResponse_serverEvents,
+    describeEventsResponse_nextToken,
     describeEventsResponse_httpStatus,
   )
 where
@@ -168,8 +168,8 @@ instance Core.AWSRequest DescribeEvents where
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ServerEvents" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ServerEvents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -210,7 +210,9 @@ instance Core.ToQuery DescribeEvents where
 
 -- | /See:/ 'newDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { -- | NextToken is a string that is returned in some command responses. It
+  { -- | Contains the response to a @DescribeEvents@ request.
+    serverEvents :: Prelude.Maybe [ServerEvent],
+    -- | NextToken is a string that is returned in some command responses. It
     -- indicates that not all entries have been returned, and that you must run
     -- at least one more request to get remaining items. To get remaining
     -- results, call @DescribeEvents@ again, and assign the token from the
@@ -219,8 +221,6 @@ data DescribeEventsResponse = DescribeEventsResponse'
     -- @null@. Setting a @nextToken@ value that was not returned in your
     -- previous results causes an @InvalidNextTokenException@ to occur.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains the response to a @DescribeEvents@ request.
-    serverEvents :: Prelude.Maybe [ServerEvent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,6 +234,8 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'serverEvents', 'describeEventsResponse_serverEvents' - Contains the response to a @DescribeEvents@ request.
+--
 -- 'nextToken', 'describeEventsResponse_nextToken' - NextToken is a string that is returned in some command responses. It
 -- indicates that not all entries have been returned, and that you must run
 -- at least one more request to get remaining items. To get remaining
@@ -243,8 +245,6 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- @null@. Setting a @nextToken@ value that was not returned in your
 -- previous results causes an @InvalidNextTokenException@ to occur.
 --
--- 'serverEvents', 'describeEventsResponse_serverEvents' - Contains the response to a @DescribeEvents@ request.
---
 -- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
 newDescribeEventsResponse ::
   -- | 'httpStatus'
@@ -252,11 +252,15 @@ newDescribeEventsResponse ::
   DescribeEventsResponse
 newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { nextToken =
+    { serverEvents =
         Prelude.Nothing,
-      serverEvents = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Contains the response to a @DescribeEvents@ request.
+describeEventsResponse_serverEvents :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [ServerEvent])
+describeEventsResponse_serverEvents = Lens.lens (\DescribeEventsResponse' {serverEvents} -> serverEvents) (\s@DescribeEventsResponse' {} a -> s {serverEvents = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | NextToken is a string that is returned in some command responses. It
 -- indicates that not all entries have been returned, and that you must run
@@ -268,10 +272,6 @@ newDescribeEventsResponse pHttpStatus_ =
 -- previous results causes an @InvalidNextTokenException@ to occur.
 describeEventsResponse_nextToken :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
 describeEventsResponse_nextToken = Lens.lens (\DescribeEventsResponse' {nextToken} -> nextToken) (\s@DescribeEventsResponse' {} a -> s {nextToken = a} :: DescribeEventsResponse)
-
--- | Contains the response to a @DescribeEvents@ request.
-describeEventsResponse_serverEvents :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [ServerEvent])
-describeEventsResponse_serverEvents = Lens.lens (\DescribeEventsResponse' {serverEvents} -> serverEvents) (\s@DescribeEventsResponse' {} a -> s {serverEvents = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int

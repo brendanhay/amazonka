@@ -157,7 +157,7 @@ associateNode_nodeName = Lens.lens (\AssociateNode' {nodeName} -> nodeName) (\s@
 -- -   @PUPPET_NODE_CSR@: A PEM-formatted certificate-signing request (CSR)
 --     that is created by the node.
 associateNode_engineAttributes :: Lens.Lens' AssociateNode [EngineAttribute]
-associateNode_engineAttributes = Lens.lens (\AssociateNode' {engineAttributes} -> engineAttributes) (\s@AssociateNode' {} a -> s {engineAttributes = a} :: AssociateNode) Prelude.. Lens._Coerce
+associateNode_engineAttributes = Lens.lens (\AssociateNode' {engineAttributes} -> engineAttributes) (\s@AssociateNode' {} a -> s {engineAttributes = a} :: AssociateNode) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AssociateNode where
   type

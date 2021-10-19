@@ -30,6 +30,8 @@ data AccountAttribute = AccountAttribute'
   { -- | The current usage, such as the current number of servers that are
     -- associated with the account.
     used :: Prelude.Maybe Prelude.Int,
+    -- | The maximum allowed value.
+    maximum :: Prelude.Maybe Prelude.Int,
     -- | The attribute name. The following are supported attribute names.
     --
     -- -   /ServerLimit:/ The number of current servers\/maximum number of
@@ -38,9 +40,7 @@ data AccountAttribute = AccountAttribute'
     -- -   /ManualBackupLimit:/ The number of current manual backups\/maximum
     --     number of backups allowed. By default, you can have a maximum of 50
     --     manual backups saved.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum allowed value.
-    maximum :: Prelude.Maybe Prelude.Int
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,8 @@ data AccountAttribute = AccountAttribute'
 -- 'used', 'accountAttribute_used' - The current usage, such as the current number of servers that are
 -- associated with the account.
 --
+-- 'maximum', 'accountAttribute_maximum' - The maximum allowed value.
+--
 -- 'name', 'accountAttribute_name' - The attribute name. The following are supported attribute names.
 --
 -- -   /ServerLimit:/ The number of current servers\/maximum number of
@@ -63,21 +65,23 @@ data AccountAttribute = AccountAttribute'
 -- -   /ManualBackupLimit:/ The number of current manual backups\/maximum
 --     number of backups allowed. By default, you can have a maximum of 50
 --     manual backups saved.
---
--- 'maximum', 'accountAttribute_maximum' - The maximum allowed value.
 newAccountAttribute ::
   AccountAttribute
 newAccountAttribute =
   AccountAttribute'
     { used = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maximum = Prelude.Nothing
+      maximum = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | The current usage, such as the current number of servers that are
 -- associated with the account.
 accountAttribute_used :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
 accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@AccountAttribute' {} a -> s {used = a} :: AccountAttribute)
+
+-- | The maximum allowed value.
+accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
+accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
 
 -- | The attribute name. The following are supported attribute names.
 --
@@ -90,10 +94,6 @@ accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@Accoun
 accountAttribute_name :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Text)
 accountAttribute_name = Lens.lens (\AccountAttribute' {name} -> name) (\s@AccountAttribute' {} a -> s {name = a} :: AccountAttribute)
 
--- | The maximum allowed value.
-accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
-accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
-
 instance Core.FromJSON AccountAttribute where
   parseJSON =
     Core.withObject
@@ -101,8 +101,8 @@ instance Core.FromJSON AccountAttribute where
       ( \x ->
           AccountAttribute'
             Prelude.<$> (x Core..:? "Used")
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Maximum")
+            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable AccountAttribute

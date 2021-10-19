@@ -36,22 +36,22 @@ module Network.AWS.CloudFormation.UpdateStack
     newUpdateStack,
 
     -- * Request Lenses
-    updateStack_stackPolicyDuringUpdateBody,
-    updateStack_roleARN,
-    updateStack_resourceTypes,
-    updateStack_stackPolicyBody,
-    updateStack_capabilities,
-    updateStack_notificationARNs,
-    updateStack_templateURL,
-    updateStack_stackPolicyURL,
-    updateStack_stackPolicyDuringUpdateURL,
-    updateStack_tags,
-    updateStack_rollbackConfiguration,
-    updateStack_clientRequestToken,
-    updateStack_templateBody,
     updateStack_disableRollback,
-    updateStack_parameters,
     updateStack_usePreviousTemplate,
+    updateStack_notificationARNs,
+    updateStack_stackPolicyBody,
+    updateStack_stackPolicyDuringUpdateBody,
+    updateStack_stackPolicyDuringUpdateURL,
+    updateStack_parameters,
+    updateStack_stackPolicyURL,
+    updateStack_templateBody,
+    updateStack_templateURL,
+    updateStack_clientRequestToken,
+    updateStack_capabilities,
+    updateStack_rollbackConfiguration,
+    updateStack_resourceTypes,
+    updateStack_tags,
+    updateStack_roleARN,
     updateStack_stackName,
 
     -- * Destructuring the Response
@@ -75,39 +75,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { -- | Structure containing the temporary overriding stack policy body. You can
-    -- specify either the @StackPolicyDuringUpdateBody@ or the
-    -- @StackPolicyDuringUpdateURL@ parameter, but not both.
+  { -- | Preserve the state of previously provisioned resources when an operation
+    -- fails.
     --
-    -- If you want to update protected resources, specify a temporary
-    -- overriding stack policy during this update. If you do not specify a
-    -- stack policy, the current policy that is associated with the stack will
-    -- be used.
-    stackPolicyDuringUpdateBody :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of an Identity and Access Management
-    -- (IAM) role that CloudFormation assumes to update the stack.
-    -- CloudFormation uses the role\'s credentials to make calls on your
-    -- behalf. CloudFormation always uses this role for all future operations
-    -- on the stack. As long as users have permission to operate on the stack,
-    -- CloudFormation uses this role even if the users don\'t have permission
-    -- to pass it. Ensure that the role grants least privilege.
+    -- Default: @False@
+    disableRollback :: Prelude.Maybe Prelude.Bool,
+    -- | Reuse the existing template that is associated with the stack that you
+    -- are updating.
     --
-    -- If you don\'t specify a value, CloudFormation uses the role that was
-    -- previously associated with the stack. If no role is available,
-    -- CloudFormation uses a temporary session that is generated from your user
-    -- credentials.
-    roleARN :: Prelude.Maybe Prelude.Text,
-    -- | The template resource types that you have permissions to work with for
-    -- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
-    -- or @Custom::MyCustomInstance@.
-    --
-    -- If the list of resource types doesn\'t include a resource that you\'re
-    -- updating, the stack update fails. By default, CloudFormation grants
-    -- permissions to all resource types. Identity and Access Management (IAM)
-    -- uses this parameter for CloudFormation-specific condition keys in IAM
-    -- policies. For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
-    resourceTypes :: Prelude.Maybe [Prelude.Text],
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+    -- @true@.
+    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
+    -- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
+    -- that CloudFormation associates with the stack. Specify an empty list to
+    -- remove all notification topics.
+    notificationARNs :: Prelude.Maybe [Prelude.Text],
     -- | Structure containing a new stack policy body. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     --
@@ -116,6 +99,80 @@ data UpdateStack = UpdateStack'
     -- specify a stack policy, the current policy that is associated with the
     -- stack is unchanged.
     stackPolicyBody :: Prelude.Maybe Prelude.Text,
+    -- | Structure containing the temporary overriding stack policy body. You can
+    -- specify either the @StackPolicyDuringUpdateBody@ or the
+    -- @StackPolicyDuringUpdateURL@ parameter, but not both.
+    --
+    -- If you want to update protected resources, specify a temporary
+    -- overriding stack policy during this update. If you do not specify a
+    -- stack policy, the current policy that is associated with the stack will
+    -- be used.
+    stackPolicyDuringUpdateBody :: Prelude.Maybe Prelude.Text,
+    -- | Location of a file containing the temporary overriding stack policy. The
+    -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
+    -- the same Region as the stack. You can specify either the
+    -- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
+    -- parameter, but not both.
+    --
+    -- If you want to update protected resources, specify a temporary
+    -- overriding stack policy during this update. If you do not specify a
+    -- stack policy, the current policy that is associated with the stack will
+    -- be used.
+    stackPolicyDuringUpdateURL :: Prelude.Maybe Prelude.Text,
+    -- | A list of @Parameter@ structures that specify input parameters for the
+    -- stack. For more information, see the
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
+    -- data type.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | Location of a file containing the updated stack policy. The URL must
+    -- point to a policy (max size: 16KB) located in an S3 bucket in the same
+    -- Region as the stack. You can specify either the @StackPolicyBody@ or the
+    -- @StackPolicyURL@ parameter, but not both.
+    --
+    -- You might update the stack policy, for example, in order to protect a
+    -- new resource that you created during a stack update. If you do not
+    -- specify a stack policy, the current policy that is associated with the
+    -- stack is unchanged.
+    stackPolicyURL :: Prelude.Maybe Prelude.Text,
+    -- | Structure containing the template body with a minimum length of 1 byte
+    -- and a maximum length of 51,200 bytes. (For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.)
+    --
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+    -- @true@.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | Location of file containing the template body. The URL must point to a
+    -- template that is located in an Amazon S3 bucket or a Systems Manager
+    -- document. For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+    -- @true@.
+    templateURL :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for this @UpdateStack@ request. Specify this token
+    -- if you plan to retry requests so that CloudFormation knows that you\'re
+    -- not attempting to update a stack with the same name. You might retry
+    -- @UpdateStack@ requests to ensure that CloudFormation successfully
+    -- received them.
+    --
+    -- All events triggered by a given stack operation are assigned the same
+    -- client request token, which you can use to track operations. For
+    -- example, if you execute a @CreateStack@ operation with the token
+    -- @token1@, then all the @StackEvents@ generated by that operation will
+    -- have @ClientRequestToken@ set as @token1@.
+    --
+    -- In the console, stack operations display the client request token on the
+    -- Events tab. Stack operations that are initiated from the console use the
+    -- token format /Console-StackOperation-ID/, which helps you easily
+    -- identify the stack operation . For example, if you create a stack using
+    -- the console, each stack event would be assigned the same token in the
+    -- following format:
+    -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | In some cases, you must explicitly acknowledge that your stack template
     -- contains certain capabilities in order for CloudFormation to update the
     -- stack.
@@ -192,41 +249,21 @@ data UpdateStack = UpdateStack'
     --     For more information, see
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
     capabilities :: Prelude.Maybe [Capability],
-    -- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
-    -- that CloudFormation associates with the stack. Specify an empty list to
-    -- remove all notification topics.
-    notificationARNs :: Prelude.Maybe [Prelude.Text],
-    -- | Location of file containing the template body. The URL must point to a
-    -- template that is located in an Amazon S3 bucket or a Systems Manager
-    -- document. For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.
+    -- | The rollback triggers for CloudFormation to monitor during stack
+    -- creation and updating operations, and for the specified monitoring
+    -- period afterwards.
+    rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
+    -- | The template resource types that you have permissions to work with for
+    -- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
+    -- or @Custom::MyCustomInstance@.
     --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
-    -- @true@.
-    templateURL :: Prelude.Maybe Prelude.Text,
-    -- | Location of a file containing the updated stack policy. The URL must
-    -- point to a policy (max size: 16KB) located in an S3 bucket in the same
-    -- Region as the stack. You can specify either the @StackPolicyBody@ or the
-    -- @StackPolicyURL@ parameter, but not both.
-    --
-    -- You might update the stack policy, for example, in order to protect a
-    -- new resource that you created during a stack update. If you do not
-    -- specify a stack policy, the current policy that is associated with the
-    -- stack is unchanged.
-    stackPolicyURL :: Prelude.Maybe Prelude.Text,
-    -- | Location of a file containing the temporary overriding stack policy. The
-    -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
-    -- the same Region as the stack. You can specify either the
-    -- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
-    -- parameter, but not both.
-    --
-    -- If you want to update protected resources, specify a temporary
-    -- overriding stack policy during this update. If you do not specify a
-    -- stack policy, the current policy that is associated with the stack will
-    -- be used.
-    stackPolicyDuringUpdateURL :: Prelude.Maybe Prelude.Text,
+    -- If the list of resource types doesn\'t include a resource that you\'re
+    -- updating, the stack update fails. By default, CloudFormation grants
+    -- permissions to all resource types. Identity and Access Management (IAM)
+    -- uses this parameter for CloudFormation-specific condition keys in IAM
+    -- policies. For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
+    resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | Key-value pairs to associate with this stack. CloudFormation also
     -- propagates these tags to supported resources in the stack. You can
     -- specify a maximum number of 50 tags.
@@ -235,56 +272,19 @@ data UpdateStack = UpdateStack'
     -- stack\'s tags. If you specify an empty value, CloudFormation removes all
     -- associated tags.
     tags :: Prelude.Maybe [Tag],
-    -- | The rollback triggers for CloudFormation to monitor during stack
-    -- creation and updating operations, and for the specified monitoring
-    -- period afterwards.
-    rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
-    -- | A unique identifier for this @UpdateStack@ request. Specify this token
-    -- if you plan to retry requests so that CloudFormation knows that you\'re
-    -- not attempting to update a stack with the same name. You might retry
-    -- @UpdateStack@ requests to ensure that CloudFormation successfully
-    -- received them.
+    -- | The Amazon Resource Name (ARN) of an Identity and Access Management
+    -- (IAM) role that CloudFormation assumes to update the stack.
+    -- CloudFormation uses the role\'s credentials to make calls on your
+    -- behalf. CloudFormation always uses this role for all future operations
+    -- on the stack. As long as users have permission to operate on the stack,
+    -- CloudFormation uses this role even if the users don\'t have permission
+    -- to pass it. Ensure that the role grants least privilege.
     --
-    -- All events triggered by a given stack operation are assigned the same
-    -- client request token, which you can use to track operations. For
-    -- example, if you execute a @CreateStack@ operation with the token
-    -- @token1@, then all the @StackEvents@ generated by that operation will
-    -- have @ClientRequestToken@ set as @token1@.
-    --
-    -- In the console, stack operations display the client request token on the
-    -- Events tab. Stack operations that are initiated from the console use the
-    -- token format /Console-StackOperation-ID/, which helps you easily
-    -- identify the stack operation . For example, if you create a stack using
-    -- the console, each stack event would be assigned the same token in the
-    -- following format:
-    -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Structure containing the template body with a minimum length of 1 byte
-    -- and a maximum length of 51,200 bytes. (For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.)
-    --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
-    -- @true@.
-    templateBody :: Prelude.Maybe Prelude.Text,
-    -- | Preserve the state of previously provisioned resources when an operation
-    -- fails.
-    --
-    -- Default: @False@
-    disableRollback :: Prelude.Maybe Prelude.Bool,
-    -- | A list of @Parameter@ structures that specify input parameters for the
-    -- stack. For more information, see the
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
-    -- data type.
-    parameters :: Prelude.Maybe [Parameter],
-    -- | Reuse the existing template that is associated with the stack that you
-    -- are updating.
-    --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
-    -- @true@.
-    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
+    -- If you don\'t specify a value, CloudFormation uses the role that was
+    -- previously associated with the stack. If no role is available,
+    -- CloudFormation uses a temporary session that is generated from your user
+    -- credentials.
+    roleARN :: Prelude.Maybe Prelude.Text,
     -- | The name or unique stack ID of the stack to update.
     stackName :: Prelude.Text
   }
@@ -298,6 +298,30 @@ data UpdateStack = UpdateStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'disableRollback', 'updateStack_disableRollback' - Preserve the state of previously provisioned resources when an operation
+-- fails.
+--
+-- Default: @False@
+--
+-- 'usePreviousTemplate', 'updateStack_usePreviousTemplate' - Reuse the existing template that is associated with the stack that you
+-- are updating.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+--
+-- 'notificationARNs', 'updateStack_notificationARNs' - Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
+-- that CloudFormation associates with the stack. Specify an empty list to
+-- remove all notification topics.
+--
+-- 'stackPolicyBody', 'updateStack_stackPolicyBody' - Structure containing a new stack policy body. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+--
+-- You might update the stack policy, for example, in order to protect a
+-- new resource that you created during a stack update. If you do not
+-- specify a stack policy, the current policy that is associated with the
+-- stack is unchanged.
+--
 -- 'stackPolicyDuringUpdateBody', 'updateStack_stackPolicyDuringUpdateBody' - Structure containing the temporary overriding stack policy body. You can
 -- specify either the @StackPolicyDuringUpdateBody@ or the
 -- @StackPolicyDuringUpdateURL@ parameter, but not both.
@@ -307,37 +331,70 @@ data UpdateStack = UpdateStack'
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
 --
--- 'roleARN', 'updateStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
--- (IAM) role that CloudFormation assumes to update the stack.
--- CloudFormation uses the role\'s credentials to make calls on your
--- behalf. CloudFormation always uses this role for all future operations
--- on the stack. As long as users have permission to operate on the stack,
--- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
+-- 'stackPolicyDuringUpdateURL', 'updateStack_stackPolicyDuringUpdateURL' - Location of a file containing the temporary overriding stack policy. The
+-- URL must point to a policy (max size: 16KB) located in an S3 bucket in
+-- the same Region as the stack. You can specify either the
+-- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
+-- parameter, but not both.
 --
--- If you don\'t specify a value, CloudFormation uses the role that was
--- previously associated with the stack. If no role is available,
--- CloudFormation uses a temporary session that is generated from your user
--- credentials.
+-- If you want to update protected resources, specify a temporary
+-- overriding stack policy during this update. If you do not specify a
+-- stack policy, the current policy that is associated with the stack will
+-- be used.
 --
--- 'resourceTypes', 'updateStack_resourceTypes' - The template resource types that you have permissions to work with for
--- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
--- or @Custom::MyCustomInstance@.
+-- 'parameters', 'updateStack_parameters' - A list of @Parameter@ structures that specify input parameters for the
+-- stack. For more information, see the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
+-- data type.
 --
--- If the list of resource types doesn\'t include a resource that you\'re
--- updating, the stack update fails. By default, CloudFormation grants
--- permissions to all resource types. Identity and Access Management (IAM)
--- uses this parameter for CloudFormation-specific condition keys in IAM
--- policies. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
---
--- 'stackPolicyBody', 'updateStack_stackPolicyBody' - Structure containing a new stack policy body. You can specify either the
--- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- 'stackPolicyURL', 'updateStack_stackPolicyURL' - Location of a file containing the updated stack policy. The URL must
+-- point to a policy (max size: 16KB) located in an S3 bucket in the same
+-- Region as the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
 --
 -- You might update the stack policy, for example, in order to protect a
 -- new resource that you created during a stack update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
+--
+-- 'templateBody', 'updateStack_templateBody' - Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.)
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+--
+-- 'templateURL', 'updateStack_templateURL' - Location of file containing the template body. The URL must point to a
+-- template that is located in an Amazon S3 bucket or a Systems Manager
+-- document. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+--
+-- 'clientRequestToken', 'updateStack_clientRequestToken' - A unique identifier for this @UpdateStack@ request. Specify this token
+-- if you plan to retry requests so that CloudFormation knows that you\'re
+-- not attempting to update a stack with the same name. You might retry
+-- @UpdateStack@ requests to ensure that CloudFormation successfully
+-- received them.
+--
+-- All events triggered by a given stack operation are assigned the same
+-- client request token, which you can use to track operations. For
+-- example, if you execute a @CreateStack@ operation with the token
+-- @token1@, then all the @StackEvents@ generated by that operation will
+-- have @ClientRequestToken@ set as @token1@.
+--
+-- In the console, stack operations display the client request token on the
+-- Events tab. Stack operations that are initiated from the console use the
+-- token format /Console-StackOperation-ID/, which helps you easily
+-- identify the stack operation . For example, if you create a stack using
+-- the console, each stack event would be assigned the same token in the
+-- following format:
+-- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
 --
 -- 'capabilities', 'updateStack_capabilities' - In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for CloudFormation to update the
@@ -415,40 +472,20 @@ data UpdateStack = UpdateStack'
 --     For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
 --
--- 'notificationARNs', 'updateStack_notificationARNs' - Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
--- that CloudFormation associates with the stack. Specify an empty list to
--- remove all notification topics.
+-- 'rollbackConfiguration', 'updateStack_rollbackConfiguration' - The rollback triggers for CloudFormation to monitor during stack
+-- creation and updating operations, and for the specified monitoring
+-- period afterwards.
 --
--- 'templateURL', 'updateStack_templateURL' - Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
--- document. For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
+-- 'resourceTypes', 'updateStack_resourceTypes' - The template resource types that you have permissions to work with for
+-- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
+-- or @Custom::MyCustomInstance@.
 --
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
---
--- 'stackPolicyURL', 'updateStack_stackPolicyURL' - Location of a file containing the updated stack policy. The URL must
--- point to a policy (max size: 16KB) located in an S3 bucket in the same
--- Region as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both.
---
--- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
--- specify a stack policy, the current policy that is associated with the
--- stack is unchanged.
---
--- 'stackPolicyDuringUpdateURL', 'updateStack_stackPolicyDuringUpdateURL' - Location of a file containing the temporary overriding stack policy. The
--- URL must point to a policy (max size: 16KB) located in an S3 bucket in
--- the same Region as the stack. You can specify either the
--- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
--- parameter, but not both.
---
--- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
--- stack policy, the current policy that is associated with the stack will
--- be used.
+-- If the list of resource types doesn\'t include a resource that you\'re
+-- updating, the stack update fails. By default, CloudFormation grants
+-- permissions to all resource types. Identity and Access Management (IAM)
+-- uses this parameter for CloudFormation-specific condition keys in IAM
+-- policies. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
 --
 -- 'tags', 'updateStack_tags' - Key-value pairs to associate with this stack. CloudFormation also
 -- propagates these tags to supported resources in the stack. You can
@@ -458,11 +495,144 @@ data UpdateStack = UpdateStack'
 -- stack\'s tags. If you specify an empty value, CloudFormation removes all
 -- associated tags.
 --
--- 'rollbackConfiguration', 'updateStack_rollbackConfiguration' - The rollback triggers for CloudFormation to monitor during stack
--- creation and updating operations, and for the specified monitoring
--- period afterwards.
+-- 'roleARN', 'updateStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
+-- (IAM) role that CloudFormation assumes to update the stack.
+-- CloudFormation uses the role\'s credentials to make calls on your
+-- behalf. CloudFormation always uses this role for all future operations
+-- on the stack. As long as users have permission to operate on the stack,
+-- CloudFormation uses this role even if the users don\'t have permission
+-- to pass it. Ensure that the role grants least privilege.
 --
--- 'clientRequestToken', 'updateStack_clientRequestToken' - A unique identifier for this @UpdateStack@ request. Specify this token
+-- If you don\'t specify a value, CloudFormation uses the role that was
+-- previously associated with the stack. If no role is available,
+-- CloudFormation uses a temporary session that is generated from your user
+-- credentials.
+--
+-- 'stackName', 'updateStack_stackName' - The name or unique stack ID of the stack to update.
+newUpdateStack ::
+  -- | 'stackName'
+  Prelude.Text ->
+  UpdateStack
+newUpdateStack pStackName_ =
+  UpdateStack'
+    { disableRollback = Prelude.Nothing,
+      usePreviousTemplate = Prelude.Nothing,
+      notificationARNs = Prelude.Nothing,
+      stackPolicyBody = Prelude.Nothing,
+      stackPolicyDuringUpdateBody = Prelude.Nothing,
+      stackPolicyDuringUpdateURL = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      stackPolicyURL = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      rollbackConfiguration = Prelude.Nothing,
+      resourceTypes = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      roleARN = Prelude.Nothing,
+      stackName = pStackName_
+    }
+
+-- | Preserve the state of previously provisioned resources when an operation
+-- fails.
+--
+-- Default: @False@
+updateStack_disableRollback :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
+updateStack_disableRollback = Lens.lens (\UpdateStack' {disableRollback} -> disableRollback) (\s@UpdateStack' {} a -> s {disableRollback = a} :: UpdateStack)
+
+-- | Reuse the existing template that is associated with the stack that you
+-- are updating.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+updateStack_usePreviousTemplate :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
+updateStack_usePreviousTemplate = Lens.lens (\UpdateStack' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStack' {} a -> s {usePreviousTemplate = a} :: UpdateStack)
+
+-- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
+-- that CloudFormation associates with the stack. Specify an empty list to
+-- remove all notification topics.
+updateStack_notificationARNs :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
+updateStack_notificationARNs = Lens.lens (\UpdateStack' {notificationARNs} -> notificationARNs) (\s@UpdateStack' {} a -> s {notificationARNs = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | Structure containing a new stack policy body. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+--
+-- You might update the stack policy, for example, in order to protect a
+-- new resource that you created during a stack update. If you do not
+-- specify a stack policy, the current policy that is associated with the
+-- stack is unchanged.
+updateStack_stackPolicyBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stackPolicyBody) (\s@UpdateStack' {} a -> s {stackPolicyBody = a} :: UpdateStack)
+
+-- | Structure containing the temporary overriding stack policy body. You can
+-- specify either the @StackPolicyDuringUpdateBody@ or the
+-- @StackPolicyDuringUpdateURL@ parameter, but not both.
+--
+-- If you want to update protected resources, specify a temporary
+-- overriding stack policy during this update. If you do not specify a
+-- stack policy, the current policy that is associated with the stack will
+-- be used.
+updateStack_stackPolicyDuringUpdateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_stackPolicyDuringUpdateBody = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateBody} -> stackPolicyDuringUpdateBody) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateBody = a} :: UpdateStack)
+
+-- | Location of a file containing the temporary overriding stack policy. The
+-- URL must point to a policy (max size: 16KB) located in an S3 bucket in
+-- the same Region as the stack. You can specify either the
+-- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
+-- parameter, but not both.
+--
+-- If you want to update protected resources, specify a temporary
+-- overriding stack policy during this update. If you do not specify a
+-- stack policy, the current policy that is associated with the stack will
+-- be used.
+updateStack_stackPolicyDuringUpdateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_stackPolicyDuringUpdateURL = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateURL} -> stackPolicyDuringUpdateURL) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateURL = a} :: UpdateStack)
+
+-- | A list of @Parameter@ structures that specify input parameters for the
+-- stack. For more information, see the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
+-- data type.
+updateStack_parameters :: Lens.Lens' UpdateStack (Prelude.Maybe [Parameter])
+updateStack_parameters = Lens.lens (\UpdateStack' {parameters} -> parameters) (\s@UpdateStack' {} a -> s {parameters = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
+
+-- | Location of a file containing the updated stack policy. The URL must
+-- point to a policy (max size: 16KB) located in an S3 bucket in the same
+-- Region as the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
+--
+-- You might update the stack policy, for example, in order to protect a
+-- new resource that you created during a stack update. If you do not
+-- specify a stack policy, the current policy that is associated with the
+-- stack is unchanged.
+updateStack_stackPolicyURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_stackPolicyURL = Lens.lens (\UpdateStack' {stackPolicyURL} -> stackPolicyURL) (\s@UpdateStack' {} a -> s {stackPolicyURL = a} :: UpdateStack)
+
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.)
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+updateStack_templateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_templateBody = Lens.lens (\UpdateStack' {templateBody} -> templateBody) (\s@UpdateStack' {} a -> s {templateBody = a} :: UpdateStack)
+
+-- | Location of file containing the template body. The URL must point to a
+-- template that is located in an Amazon S3 bucket or a Systems Manager
+-- document. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
+-- @true@.
+updateStack_templateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_templateURL = Lens.lens (\UpdateStack' {templateURL} -> templateURL) (\s@UpdateStack' {} a -> s {templateURL = a} :: UpdateStack)
+
+-- | A unique identifier for this @UpdateStack@ request. Specify this token
 -- if you plan to retry requests so that CloudFormation knows that you\'re
 -- not attempting to update a stack with the same name. You might retry
 -- @UpdateStack@ requests to ensure that CloudFormation successfully
@@ -481,108 +651,8 @@ data UpdateStack = UpdateStack'
 -- the console, each stack event would be assigned the same token in the
 -- following format:
 -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
---
--- 'templateBody', 'updateStack_templateBody' - Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.)
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
---
--- 'disableRollback', 'updateStack_disableRollback' - Preserve the state of previously provisioned resources when an operation
--- fails.
---
--- Default: @False@
---
--- 'parameters', 'updateStack_parameters' - A list of @Parameter@ structures that specify input parameters for the
--- stack. For more information, see the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
--- data type.
---
--- 'usePreviousTemplate', 'updateStack_usePreviousTemplate' - Reuse the existing template that is associated with the stack that you
--- are updating.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
---
--- 'stackName', 'updateStack_stackName' - The name or unique stack ID of the stack to update.
-newUpdateStack ::
-  -- | 'stackName'
-  Prelude.Text ->
-  UpdateStack
-newUpdateStack pStackName_ =
-  UpdateStack'
-    { stackPolicyDuringUpdateBody =
-        Prelude.Nothing,
-      roleARN = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      stackPolicyBody = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
-      notificationARNs = Prelude.Nothing,
-      templateURL = Prelude.Nothing,
-      stackPolicyURL = Prelude.Nothing,
-      stackPolicyDuringUpdateURL = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      rollbackConfiguration = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      templateBody = Prelude.Nothing,
-      disableRollback = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      usePreviousTemplate = Prelude.Nothing,
-      stackName = pStackName_
-    }
-
--- | Structure containing the temporary overriding stack policy body. You can
--- specify either the @StackPolicyDuringUpdateBody@ or the
--- @StackPolicyDuringUpdateURL@ parameter, but not both.
---
--- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
--- stack policy, the current policy that is associated with the stack will
--- be used.
-updateStack_stackPolicyDuringUpdateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_stackPolicyDuringUpdateBody = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateBody} -> stackPolicyDuringUpdateBody) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateBody = a} :: UpdateStack)
-
--- | The Amazon Resource Name (ARN) of an Identity and Access Management
--- (IAM) role that CloudFormation assumes to update the stack.
--- CloudFormation uses the role\'s credentials to make calls on your
--- behalf. CloudFormation always uses this role for all future operations
--- on the stack. As long as users have permission to operate on the stack,
--- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
---
--- If you don\'t specify a value, CloudFormation uses the role that was
--- previously associated with the stack. If no role is available,
--- CloudFormation uses a temporary session that is generated from your user
--- credentials.
-updateStack_roleARN :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_roleARN = Lens.lens (\UpdateStack' {roleARN} -> roleARN) (\s@UpdateStack' {} a -> s {roleARN = a} :: UpdateStack)
-
--- | The template resource types that you have permissions to work with for
--- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
--- or @Custom::MyCustomInstance@.
---
--- If the list of resource types doesn\'t include a resource that you\'re
--- updating, the stack update fails. By default, CloudFormation grants
--- permissions to all resource types. Identity and Access Management (IAM)
--- uses this parameter for CloudFormation-specific condition keys in IAM
--- policies. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
-updateStack_resourceTypes :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
-updateStack_resourceTypes = Lens.lens (\UpdateStack' {resourceTypes} -> resourceTypes) (\s@UpdateStack' {} a -> s {resourceTypes = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
-
--- | Structure containing a new stack policy body. You can specify either the
--- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
---
--- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
--- specify a stack policy, the current policy that is associated with the
--- stack is unchanged.
-updateStack_stackPolicyBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stackPolicyBody) (\s@UpdateStack' {} a -> s {stackPolicyBody = a} :: UpdateStack)
+updateStack_clientRequestToken :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_clientRequestToken = Lens.lens (\UpdateStack' {clientRequestToken} -> clientRequestToken) (\s@UpdateStack' {} a -> s {clientRequestToken = a} :: UpdateStack)
 
 -- | In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for CloudFormation to update the
@@ -660,50 +730,26 @@ updateStack_stackPolicyBody = Lens.lens (\UpdateStack' {stackPolicyBody} -> stac
 --     For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
 updateStack_capabilities :: Lens.Lens' UpdateStack (Prelude.Maybe [Capability])
-updateStack_capabilities = Lens.lens (\UpdateStack' {capabilities} -> capabilities) (\s@UpdateStack' {} a -> s {capabilities = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
+updateStack_capabilities = Lens.lens (\UpdateStack' {capabilities} -> capabilities) (\s@UpdateStack' {} a -> s {capabilities = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
 
--- | Amazon Simple Notification Service topic Amazon Resource Names (ARNs)
--- that CloudFormation associates with the stack. Specify an empty list to
--- remove all notification topics.
-updateStack_notificationARNs :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
-updateStack_notificationARNs = Lens.lens (\UpdateStack' {notificationARNs} -> notificationARNs) (\s@UpdateStack' {} a -> s {notificationARNs = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
+-- | The rollback triggers for CloudFormation to monitor during stack
+-- creation and updating operations, and for the specified monitoring
+-- period afterwards.
+updateStack_rollbackConfiguration :: Lens.Lens' UpdateStack (Prelude.Maybe RollbackConfiguration)
+updateStack_rollbackConfiguration = Lens.lens (\UpdateStack' {rollbackConfiguration} -> rollbackConfiguration) (\s@UpdateStack' {} a -> s {rollbackConfiguration = a} :: UpdateStack)
 
--- | Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
--- document. For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
+-- | The template resource types that you have permissions to work with for
+-- this update stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
+-- or @Custom::MyCustomInstance@.
 --
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
-updateStack_templateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_templateURL = Lens.lens (\UpdateStack' {templateURL} -> templateURL) (\s@UpdateStack' {} a -> s {templateURL = a} :: UpdateStack)
-
--- | Location of a file containing the updated stack policy. The URL must
--- point to a policy (max size: 16KB) located in an S3 bucket in the same
--- Region as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both.
---
--- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
--- specify a stack policy, the current policy that is associated with the
--- stack is unchanged.
-updateStack_stackPolicyURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_stackPolicyURL = Lens.lens (\UpdateStack' {stackPolicyURL} -> stackPolicyURL) (\s@UpdateStack' {} a -> s {stackPolicyURL = a} :: UpdateStack)
-
--- | Location of a file containing the temporary overriding stack policy. The
--- URL must point to a policy (max size: 16KB) located in an S3 bucket in
--- the same Region as the stack. You can specify either the
--- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
--- parameter, but not both.
---
--- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
--- stack policy, the current policy that is associated with the stack will
--- be used.
-updateStack_stackPolicyDuringUpdateURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_stackPolicyDuringUpdateURL = Lens.lens (\UpdateStack' {stackPolicyDuringUpdateURL} -> stackPolicyDuringUpdateURL) (\s@UpdateStack' {} a -> s {stackPolicyDuringUpdateURL = a} :: UpdateStack)
+-- If the list of resource types doesn\'t include a resource that you\'re
+-- updating, the stack update fails. By default, CloudFormation grants
+-- permissions to all resource types. Identity and Access Management (IAM)
+-- uses this parameter for CloudFormation-specific condition keys in IAM
+-- policies. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>.
+updateStack_resourceTypes :: Lens.Lens' UpdateStack (Prelude.Maybe [Prelude.Text])
+updateStack_resourceTypes = Lens.lens (\UpdateStack' {resourceTypes} -> resourceTypes) (\s@UpdateStack' {} a -> s {resourceTypes = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | Key-value pairs to associate with this stack. CloudFormation also
 -- propagates these tags to supported resources in the stack. You can
@@ -713,69 +759,22 @@ updateStack_stackPolicyDuringUpdateURL = Lens.lens (\UpdateStack' {stackPolicyDu
 -- stack\'s tags. If you specify an empty value, CloudFormation removes all
 -- associated tags.
 updateStack_tags :: Lens.Lens' UpdateStack (Prelude.Maybe [Tag])
-updateStack_tags = Lens.lens (\UpdateStack' {tags} -> tags) (\s@UpdateStack' {} a -> s {tags = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
+updateStack_tags = Lens.lens (\UpdateStack' {tags} -> tags) (\s@UpdateStack' {} a -> s {tags = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
 
--- | The rollback triggers for CloudFormation to monitor during stack
--- creation and updating operations, and for the specified monitoring
--- period afterwards.
-updateStack_rollbackConfiguration :: Lens.Lens' UpdateStack (Prelude.Maybe RollbackConfiguration)
-updateStack_rollbackConfiguration = Lens.lens (\UpdateStack' {rollbackConfiguration} -> rollbackConfiguration) (\s@UpdateStack' {} a -> s {rollbackConfiguration = a} :: UpdateStack)
-
--- | A unique identifier for this @UpdateStack@ request. Specify this token
--- if you plan to retry requests so that CloudFormation knows that you\'re
--- not attempting to update a stack with the same name. You might retry
--- @UpdateStack@ requests to ensure that CloudFormation successfully
--- received them.
+-- | The Amazon Resource Name (ARN) of an Identity and Access Management
+-- (IAM) role that CloudFormation assumes to update the stack.
+-- CloudFormation uses the role\'s credentials to make calls on your
+-- behalf. CloudFormation always uses this role for all future operations
+-- on the stack. As long as users have permission to operate on the stack,
+-- CloudFormation uses this role even if the users don\'t have permission
+-- to pass it. Ensure that the role grants least privilege.
 --
--- All events triggered by a given stack operation are assigned the same
--- client request token, which you can use to track operations. For
--- example, if you execute a @CreateStack@ operation with the token
--- @token1@, then all the @StackEvents@ generated by that operation will
--- have @ClientRequestToken@ set as @token1@.
---
--- In the console, stack operations display the client request token on the
--- Events tab. Stack operations that are initiated from the console use the
--- token format /Console-StackOperation-ID/, which helps you easily
--- identify the stack operation . For example, if you create a stack using
--- the console, each stack event would be assigned the same token in the
--- following format:
--- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-updateStack_clientRequestToken :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_clientRequestToken = Lens.lens (\UpdateStack' {clientRequestToken} -> clientRequestToken) (\s@UpdateStack' {} a -> s {clientRequestToken = a} :: UpdateStack)
-
--- | Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.)
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
-updateStack_templateBody :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
-updateStack_templateBody = Lens.lens (\UpdateStack' {templateBody} -> templateBody) (\s@UpdateStack' {} a -> s {templateBody = a} :: UpdateStack)
-
--- | Preserve the state of previously provisioned resources when an operation
--- fails.
---
--- Default: @False@
-updateStack_disableRollback :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
-updateStack_disableRollback = Lens.lens (\UpdateStack' {disableRollback} -> disableRollback) (\s@UpdateStack' {} a -> s {disableRollback = a} :: UpdateStack)
-
--- | A list of @Parameter@ structures that specify input parameters for the
--- stack. For more information, see the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
--- data type.
-updateStack_parameters :: Lens.Lens' UpdateStack (Prelude.Maybe [Parameter])
-updateStack_parameters = Lens.lens (\UpdateStack' {parameters} -> parameters) (\s@UpdateStack' {} a -> s {parameters = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
-
--- | Reuse the existing template that is associated with the stack that you
--- are updating.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@, @TemplateURL@, or set the @UsePreviousTemplate@ to
--- @true@.
-updateStack_usePreviousTemplate :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
-updateStack_usePreviousTemplate = Lens.lens (\UpdateStack' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStack' {} a -> s {usePreviousTemplate = a} :: UpdateStack)
+-- If you don\'t specify a value, CloudFormation uses the role that was
+-- previously associated with the stack. If no role is available,
+-- CloudFormation uses a temporary session that is generated from your user
+-- credentials.
+updateStack_roleARN :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_roleARN = Lens.lens (\UpdateStack' {roleARN} -> roleARN) (\s@UpdateStack' {} a -> s {roleARN = a} :: UpdateStack)
 
 -- | The name or unique stack ID of the stack to update.
 updateStack_stackName :: Lens.Lens' UpdateStack Prelude.Text
@@ -810,39 +809,39 @@ instance Core.ToQuery UpdateStack where
           Core.=: ("UpdateStack" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackPolicyDuringUpdateBody"
-          Core.=: stackPolicyDuringUpdateBody,
-        "RoleARN" Core.=: roleARN,
-        "ResourceTypes"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> resourceTypes
-            ),
-        "StackPolicyBody" Core.=: stackPolicyBody,
-        "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
+        "DisableRollback" Core.=: disableRollback,
+        "UsePreviousTemplate" Core.=: usePreviousTemplate,
         "NotificationARNs"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> notificationARNs
             ),
-        "TemplateURL" Core.=: templateURL,
-        "StackPolicyURL" Core.=: stackPolicyURL,
+        "StackPolicyBody" Core.=: stackPolicyBody,
+        "StackPolicyDuringUpdateBody"
+          Core.=: stackPolicyDuringUpdateBody,
         "StackPolicyDuringUpdateURL"
           Core.=: stackPolicyDuringUpdateURL,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "RollbackConfiguration"
-          Core.=: rollbackConfiguration,
-        "ClientRequestToken" Core.=: clientRequestToken,
-        "TemplateBody" Core.=: templateBody,
-        "DisableRollback" Core.=: disableRollback,
         "Parameters"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> parameters),
-        "UsePreviousTemplate" Core.=: usePreviousTemplate,
+        "StackPolicyURL" Core.=: stackPolicyURL,
+        "TemplateBody" Core.=: templateBody,
+        "TemplateURL" Core.=: templateURL,
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "Capabilities"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> capabilities),
+        "RollbackConfiguration"
+          Core.=: rollbackConfiguration,
+        "ResourceTypes"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> resourceTypes
+            ),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "RoleARN" Core.=: roleARN,
         "StackName" Core.=: stackName
       ]
 

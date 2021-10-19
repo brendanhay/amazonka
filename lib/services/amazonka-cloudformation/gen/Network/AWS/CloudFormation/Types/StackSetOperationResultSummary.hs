@@ -30,10 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackSetOperationResultSummary' smart constructor.
 data StackSetOperationResultSummary = StackSetOperationResultSummary'
-  { -- | The results of the account gate function CloudFormation invokes, if
-    -- present, before proceeding with stack set operations in an account
-    accountGateResult :: Prelude.Maybe AccountGateResult,
-    -- | The result status of the stack set operation for the given account in
+  { -- | The result status of the stack set operation for the given account in
     -- the given Region.
     --
     -- -   @CANCELLED@: The operation in the specified account and Region has
@@ -56,13 +53,16 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
     -- -   @SUCCEEDED@: The operation in the specified account and Region
     --     completed successfully.
     status :: Prelude.Maybe StackSetOperationResultStatus,
+    -- | [Self-managed permissions] The name of the Amazon Web Services account
+    -- for this operation result.
+    account :: Prelude.Maybe Prelude.Text,
+    -- | The results of the account gate function CloudFormation invokes, if
+    -- present, before proceeding with stack set operations in an account
+    accountGateResult :: Prelude.Maybe AccountGateResult,
     -- | [Service-managed permissions] The organization root ID or organizational
     -- unit (OU) IDs that you specified for
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
     organizationalUnitId :: Prelude.Maybe Prelude.Text,
-    -- | [Self-managed permissions] The name of the Amazon Web Services account
-    -- for this operation result.
-    account :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon Web Services Region for this operation result.
     region :: Prelude.Maybe Prelude.Text,
     -- | The reason for the assigned result status.
@@ -77,9 +77,6 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'accountGateResult', 'stackSetOperationResultSummary_accountGateResult' - The results of the account gate function CloudFormation invokes, if
--- present, before proceeding with stack set operations in an account
 --
 -- 'status', 'stackSetOperationResultSummary_status' - The result status of the stack set operation for the given account in
 -- the given Region.
@@ -104,12 +101,15 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
 -- -   @SUCCEEDED@: The operation in the specified account and Region
 --     completed successfully.
 --
+-- 'account', 'stackSetOperationResultSummary_account' - [Self-managed permissions] The name of the Amazon Web Services account
+-- for this operation result.
+--
+-- 'accountGateResult', 'stackSetOperationResultSummary_accountGateResult' - The results of the account gate function CloudFormation invokes, if
+-- present, before proceeding with stack set operations in an account
+--
 -- 'organizationalUnitId', 'stackSetOperationResultSummary_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational
 -- unit (OU) IDs that you specified for
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
---
--- 'account', 'stackSetOperationResultSummary_account' - [Self-managed permissions] The name of the Amazon Web Services account
--- for this operation result.
 --
 -- 'region', 'stackSetOperationResultSummary_region' - The name of the Amazon Web Services Region for this operation result.
 --
@@ -118,19 +118,14 @@ newStackSetOperationResultSummary ::
   StackSetOperationResultSummary
 newStackSetOperationResultSummary =
   StackSetOperationResultSummary'
-    { accountGateResult =
+    { status =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      organizationalUnitId = Prelude.Nothing,
       account = Prelude.Nothing,
+      accountGateResult = Prelude.Nothing,
+      organizationalUnitId = Prelude.Nothing,
       region = Prelude.Nothing,
       statusReason = Prelude.Nothing
     }
-
--- | The results of the account gate function CloudFormation invokes, if
--- present, before proceeding with stack set operations in an account
-stackSetOperationResultSummary_accountGateResult :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe AccountGateResult)
-stackSetOperationResultSummary_accountGateResult = Lens.lens (\StackSetOperationResultSummary' {accountGateResult} -> accountGateResult) (\s@StackSetOperationResultSummary' {} a -> s {accountGateResult = a} :: StackSetOperationResultSummary)
 
 -- | The result status of the stack set operation for the given account in
 -- the given Region.
@@ -157,16 +152,21 @@ stackSetOperationResultSummary_accountGateResult = Lens.lens (\StackSetOperation
 stackSetOperationResultSummary_status :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe StackSetOperationResultStatus)
 stackSetOperationResultSummary_status = Lens.lens (\StackSetOperationResultSummary' {status} -> status) (\s@StackSetOperationResultSummary' {} a -> s {status = a} :: StackSetOperationResultSummary)
 
+-- | [Self-managed permissions] The name of the Amazon Web Services account
+-- for this operation result.
+stackSetOperationResultSummary_account :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe Prelude.Text)
+stackSetOperationResultSummary_account = Lens.lens (\StackSetOperationResultSummary' {account} -> account) (\s@StackSetOperationResultSummary' {} a -> s {account = a} :: StackSetOperationResultSummary)
+
+-- | The results of the account gate function CloudFormation invokes, if
+-- present, before proceeding with stack set operations in an account
+stackSetOperationResultSummary_accountGateResult :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe AccountGateResult)
+stackSetOperationResultSummary_accountGateResult = Lens.lens (\StackSetOperationResultSummary' {accountGateResult} -> accountGateResult) (\s@StackSetOperationResultSummary' {} a -> s {accountGateResult = a} :: StackSetOperationResultSummary)
+
 -- | [Service-managed permissions] The organization root ID or organizational
 -- unit (OU) IDs that you specified for
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets>.
 stackSetOperationResultSummary_organizationalUnitId :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe Prelude.Text)
 stackSetOperationResultSummary_organizationalUnitId = Lens.lens (\StackSetOperationResultSummary' {organizationalUnitId} -> organizationalUnitId) (\s@StackSetOperationResultSummary' {} a -> s {organizationalUnitId = a} :: StackSetOperationResultSummary)
-
--- | [Self-managed permissions] The name of the Amazon Web Services account
--- for this operation result.
-stackSetOperationResultSummary_account :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe Prelude.Text)
-stackSetOperationResultSummary_account = Lens.lens (\StackSetOperationResultSummary' {account} -> account) (\s@StackSetOperationResultSummary' {} a -> s {account = a} :: StackSetOperationResultSummary)
 
 -- | The name of the Amazon Web Services Region for this operation result.
 stackSetOperationResultSummary_region :: Lens.Lens' StackSetOperationResultSummary (Prelude.Maybe Prelude.Text)
@@ -179,10 +179,10 @@ stackSetOperationResultSummary_statusReason = Lens.lens (\StackSetOperationResul
 instance Core.FromXML StackSetOperationResultSummary where
   parseXML x =
     StackSetOperationResultSummary'
-      Prelude.<$> (x Core..@? "AccountGateResult")
-      Prelude.<*> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "OrganizationalUnitId")
+      Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "Account")
+      Prelude.<*> (x Core..@? "AccountGateResult")
+      Prelude.<*> (x Core..@? "OrganizationalUnitId")
       Prelude.<*> (x Core..@? "Region")
       Prelude.<*> (x Core..@? "StatusReason")
 

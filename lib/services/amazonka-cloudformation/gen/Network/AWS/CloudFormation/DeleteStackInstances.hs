@@ -28,11 +28,11 @@ module Network.AWS.CloudFormation.DeleteStackInstances
     newDeleteStackInstances,
 
     -- * Request Lenses
-    deleteStackInstances_deploymentTargets,
-    deleteStackInstances_operationId,
+    deleteStackInstances_accounts,
     deleteStackInstances_callAs,
     deleteStackInstances_operationPreferences,
-    deleteStackInstances_accounts,
+    deleteStackInstances_operationId,
+    deleteStackInstances_deploymentTargets,
     deleteStackInstances_stackSetName,
     deleteStackInstances_regions,
     deleteStackInstances_retainStacks,
@@ -56,24 +56,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStackInstances' smart constructor.
 data DeleteStackInstances = DeleteStackInstances'
-  { -- | [Service-managed permissions] The Organizations accounts from which to
-    -- delete stack instances.
+  { -- | [Self-managed permissions] The names of the Amazon Web Services accounts
+    -- that you want to delete stack instances for.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    deploymentTargets :: Prelude.Maybe DeploymentTargets,
-    -- | The unique identifier for this stack set operation.
-    --
-    -- If you don\'t specify an operation ID, the SDK generates one
-    -- automatically.
-    --
-    -- The operation ID also functions as an idempotency token, to ensure that
-    -- CloudFormation performs the stack set operation only once, even if you
-    -- retry the request multiple times. You can retry stack set operation
-    -- requests to ensure that CloudFormation successfully received them.
-    --
-    -- Repeating this stack set operation with a new operation ID retries all
-    -- stack instances whose status is @OUTDATED@.
-    operationId :: Prelude.Maybe Prelude.Text,
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -93,11 +80,24 @@ data DeleteStackInstances = DeleteStackInstances'
     callAs :: Prelude.Maybe CallAs,
     -- | Preferences for how CloudFormation performs this stack set operation.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
-    -- | [Self-managed permissions] The names of the Amazon Web Services accounts
-    -- that you want to delete stack instances for.
+    -- | The unique identifier for this stack set operation.
+    --
+    -- If you don\'t specify an operation ID, the SDK generates one
+    -- automatically.
+    --
+    -- The operation ID also functions as an idempotency token, to ensure that
+    -- CloudFormation performs the stack set operation only once, even if you
+    -- retry the request multiple times. You can retry stack set operation
+    -- requests to ensure that CloudFormation successfully received them.
+    --
+    -- Repeating this stack set operation with a new operation ID retries all
+    -- stack instances whose status is @OUTDATED@.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] The Organizations accounts from which to
+    -- delete stack instances.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    accounts :: Prelude.Maybe [Prelude.Text],
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | The name or unique ID of the stack set that you want to delete stack
     -- instances for.
     stackSetName :: Prelude.Text,
@@ -121,23 +121,10 @@ data DeleteStackInstances = DeleteStackInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentTargets', 'deleteStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts from which to
--- delete stack instances.
+-- 'accounts', 'deleteStackInstances_accounts' - [Self-managed permissions] The names of the Amazon Web Services accounts
+-- that you want to delete stack instances for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
---
--- 'operationId', 'deleteStackInstances_operationId' - The unique identifier for this stack set operation.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You can retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
 --
 -- 'callAs', 'deleteStackInstances_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -158,8 +145,21 @@ data DeleteStackInstances = DeleteStackInstances'
 --
 -- 'operationPreferences', 'deleteStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
 --
--- 'accounts', 'deleteStackInstances_accounts' - [Self-managed permissions] The names of the Amazon Web Services accounts
--- that you want to delete stack instances for.
+-- 'operationId', 'deleteStackInstances_operationId' - The unique identifier for this stack set operation.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You can retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+--
+-- 'deploymentTargets', 'deleteStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts from which to
+-- delete stack instances.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
@@ -182,38 +182,22 @@ newDeleteStackInstances ::
   DeleteStackInstances
 newDeleteStackInstances pStackSetName_ pRetainStacks_ =
   DeleteStackInstances'
-    { deploymentTargets =
-        Prelude.Nothing,
-      operationId = Prelude.Nothing,
+    { accounts = Prelude.Nothing,
       callAs = Prelude.Nothing,
       operationPreferences = Prelude.Nothing,
-      accounts = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
       stackSetName = pStackSetName_,
       regions = Prelude.mempty,
       retainStacks = pRetainStacks_
     }
 
--- | [Service-managed permissions] The Organizations accounts from which to
--- delete stack instances.
+-- | [Self-managed permissions] The names of the Amazon Web Services accounts
+-- that you want to delete stack instances for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-deleteStackInstances_deploymentTargets :: Lens.Lens' DeleteStackInstances (Prelude.Maybe DeploymentTargets)
-deleteStackInstances_deploymentTargets = Lens.lens (\DeleteStackInstances' {deploymentTargets} -> deploymentTargets) (\s@DeleteStackInstances' {} a -> s {deploymentTargets = a} :: DeleteStackInstances)
-
--- | The unique identifier for this stack set operation.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You can retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
-deleteStackInstances_operationId :: Lens.Lens' DeleteStackInstances (Prelude.Maybe Prelude.Text)
-deleteStackInstances_operationId = Lens.lens (\DeleteStackInstances' {operationId} -> operationId) (\s@DeleteStackInstances' {} a -> s {operationId = a} :: DeleteStackInstances)
+deleteStackInstances_accounts :: Lens.Lens' DeleteStackInstances (Prelude.Maybe [Prelude.Text])
+deleteStackInstances_accounts = Lens.lens (\DeleteStackInstances' {accounts} -> accounts) (\s@DeleteStackInstances' {} a -> s {accounts = a} :: DeleteStackInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -238,12 +222,27 @@ deleteStackInstances_callAs = Lens.lens (\DeleteStackInstances' {callAs} -> call
 deleteStackInstances_operationPreferences :: Lens.Lens' DeleteStackInstances (Prelude.Maybe StackSetOperationPreferences)
 deleteStackInstances_operationPreferences = Lens.lens (\DeleteStackInstances' {operationPreferences} -> operationPreferences) (\s@DeleteStackInstances' {} a -> s {operationPreferences = a} :: DeleteStackInstances)
 
--- | [Self-managed permissions] The names of the Amazon Web Services accounts
--- that you want to delete stack instances for.
+-- | The unique identifier for this stack set operation.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You can retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+deleteStackInstances_operationId :: Lens.Lens' DeleteStackInstances (Prelude.Maybe Prelude.Text)
+deleteStackInstances_operationId = Lens.lens (\DeleteStackInstances' {operationId} -> operationId) (\s@DeleteStackInstances' {} a -> s {operationId = a} :: DeleteStackInstances)
+
+-- | [Service-managed permissions] The Organizations accounts from which to
+-- delete stack instances.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-deleteStackInstances_accounts :: Lens.Lens' DeleteStackInstances (Prelude.Maybe [Prelude.Text])
-deleteStackInstances_accounts = Lens.lens (\DeleteStackInstances' {accounts} -> accounts) (\s@DeleteStackInstances' {} a -> s {accounts = a} :: DeleteStackInstances) Prelude.. Lens.mapping Lens._Coerce
+deleteStackInstances_deploymentTargets :: Lens.Lens' DeleteStackInstances (Prelude.Maybe DeploymentTargets)
+deleteStackInstances_deploymentTargets = Lens.lens (\DeleteStackInstances' {deploymentTargets} -> deploymentTargets) (\s@DeleteStackInstances' {} a -> s {deploymentTargets = a} :: DeleteStackInstances)
 
 -- | The name or unique ID of the stack set that you want to delete stack
 -- instances for.
@@ -252,7 +251,7 @@ deleteStackInstances_stackSetName = Lens.lens (\DeleteStackInstances' {stackSetN
 
 -- | The Regions where you want to delete stack set instances.
 deleteStackInstances_regions :: Lens.Lens' DeleteStackInstances [Prelude.Text]
-deleteStackInstances_regions = Lens.lens (\DeleteStackInstances' {regions} -> regions) (\s@DeleteStackInstances' {} a -> s {regions = a} :: DeleteStackInstances) Prelude.. Lens._Coerce
+deleteStackInstances_regions = Lens.lens (\DeleteStackInstances' {regions} -> regions) (\s@DeleteStackInstances' {} a -> s {regions = a} :: DeleteStackInstances) Prelude.. Lens.coerced
 
 -- | Removes the stack instances from the specified stack set, but doesn\'t
 -- delete the stacks. You can\'t reassociate a retained stack or add an
@@ -294,13 +293,13 @@ instance Core.ToQuery DeleteStackInstances where
           Core.=: ("DeleteStackInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "OperationId" Core.=: operationId,
-        "CallAs" Core.=: callAs,
-        "OperationPreferences" Core.=: operationPreferences,
         "Accounts"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> accounts),
+        "CallAs" Core.=: callAs,
+        "OperationPreferences" Core.=: operationPreferences,
+        "OperationId" Core.=: operationId,
+        "DeploymentTargets" Core.=: deploymentTargets,
         "StackSetName" Core.=: stackSetName,
         "Regions" Core.=: Core.toQueryList "member" regions,
         "RetainStacks" Core.=: retainStacks

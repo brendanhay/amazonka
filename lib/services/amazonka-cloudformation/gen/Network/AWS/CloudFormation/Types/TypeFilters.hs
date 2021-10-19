@@ -30,11 +30,6 @@ import qualified Network.AWS.Prelude as Prelude
 data TypeFilters = TypeFilters'
   { -- | A prefix to use as a filter for results.
     typeNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The id of the publisher of the extension.
-    --
-    -- Extensions published by Amazon are not assigned a publisher ID. Use the
-    -- @AWS-TYPES@ category to specify a list of types published by Amazon.
-    publisherId :: Prelude.Maybe Prelude.Text,
     -- | The category of extensions to return.
     --
     -- -   @REGISTERED@: Private extensions that have been registered for this
@@ -52,7 +47,12 @@ data TypeFilters = TypeFilters'
     --         activated or not.
     --
     -- -   @AWS-TYPES@: Extensions available for use from Amazon.
-    category :: Prelude.Maybe Category
+    category :: Prelude.Maybe Category,
+    -- | The id of the publisher of the extension.
+    --
+    -- Extensions published by Amazon are not assigned a publisher ID. Use the
+    -- @AWS-TYPES@ category to specify a list of types published by Amazon.
+    publisherId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,11 +65,6 @@ data TypeFilters = TypeFilters'
 -- for backwards compatibility:
 --
 -- 'typeNamePrefix', 'typeFilters_typeNamePrefix' - A prefix to use as a filter for results.
---
--- 'publisherId', 'typeFilters_publisherId' - The id of the publisher of the extension.
---
--- Extensions published by Amazon are not assigned a publisher ID. Use the
--- @AWS-TYPES@ category to specify a list of types published by Amazon.
 --
 -- 'category', 'typeFilters_category' - The category of extensions to return.
 --
@@ -88,25 +83,23 @@ data TypeFilters = TypeFilters'
 --         activated or not.
 --
 -- -   @AWS-TYPES@: Extensions available for use from Amazon.
+--
+-- 'publisherId', 'typeFilters_publisherId' - The id of the publisher of the extension.
+--
+-- Extensions published by Amazon are not assigned a publisher ID. Use the
+-- @AWS-TYPES@ category to specify a list of types published by Amazon.
 newTypeFilters ::
   TypeFilters
 newTypeFilters =
   TypeFilters'
     { typeNamePrefix = Prelude.Nothing,
-      publisherId = Prelude.Nothing,
-      category = Prelude.Nothing
+      category = Prelude.Nothing,
+      publisherId = Prelude.Nothing
     }
 
 -- | A prefix to use as a filter for results.
 typeFilters_typeNamePrefix :: Lens.Lens' TypeFilters (Prelude.Maybe Prelude.Text)
 typeFilters_typeNamePrefix = Lens.lens (\TypeFilters' {typeNamePrefix} -> typeNamePrefix) (\s@TypeFilters' {} a -> s {typeNamePrefix = a} :: TypeFilters)
-
--- | The id of the publisher of the extension.
---
--- Extensions published by Amazon are not assigned a publisher ID. Use the
--- @AWS-TYPES@ category to specify a list of types published by Amazon.
-typeFilters_publisherId :: Lens.Lens' TypeFilters (Prelude.Maybe Prelude.Text)
-typeFilters_publisherId = Lens.lens (\TypeFilters' {publisherId} -> publisherId) (\s@TypeFilters' {} a -> s {publisherId = a} :: TypeFilters)
 
 -- | The category of extensions to return.
 --
@@ -128,6 +121,13 @@ typeFilters_publisherId = Lens.lens (\TypeFilters' {publisherId} -> publisherId)
 typeFilters_category :: Lens.Lens' TypeFilters (Prelude.Maybe Category)
 typeFilters_category = Lens.lens (\TypeFilters' {category} -> category) (\s@TypeFilters' {} a -> s {category = a} :: TypeFilters)
 
+-- | The id of the publisher of the extension.
+--
+-- Extensions published by Amazon are not assigned a publisher ID. Use the
+-- @AWS-TYPES@ category to specify a list of types published by Amazon.
+typeFilters_publisherId :: Lens.Lens' TypeFilters (Prelude.Maybe Prelude.Text)
+typeFilters_publisherId = Lens.lens (\TypeFilters' {publisherId} -> publisherId) (\s@TypeFilters' {} a -> s {publisherId = a} :: TypeFilters)
+
 instance Prelude.Hashable TypeFilters
 
 instance Prelude.NFData TypeFilters
@@ -136,6 +136,6 @@ instance Core.ToQuery TypeFilters where
   toQuery TypeFilters' {..} =
     Prelude.mconcat
       [ "TypeNamePrefix" Core.=: typeNamePrefix,
-        "PublisherId" Core.=: publisherId,
-        "Category" Core.=: category
+        "Category" Core.=: category,
+        "PublisherId" Core.=: publisherId
       ]

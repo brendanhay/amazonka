@@ -48,12 +48,12 @@ module Network.AWS.CloudFormation.UpdateStackInstances
     newUpdateStackInstances,
 
     -- * Request Lenses
-    updateStackInstances_parameterOverrides,
-    updateStackInstances_deploymentTargets,
-    updateStackInstances_operationId,
+    updateStackInstances_accounts,
     updateStackInstances_callAs,
     updateStackInstances_operationPreferences,
-    updateStackInstances_accounts,
+    updateStackInstances_operationId,
+    updateStackInstances_deploymentTargets,
+    updateStackInstances_parameterOverrides,
     updateStackInstances_stackSetName,
     updateStackInstances_regions,
 
@@ -76,7 +76,52 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateStackInstances' smart constructor.
 data UpdateStackInstances = UpdateStackInstances'
-  { -- | A list of input parameters whose values you want to update for the
+  { -- | [Self-managed permissions] The names of one or more Amazon Web Services
+    -- accounts for which you want to update parameter values for stack
+    -- instances. The overridden parameter values will be applied to all stack
+    -- instances in the specified accounts and Regions.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    accounts :: Prelude.Maybe [Prelude.Text],
+    -- | [Service-managed permissions] Specifies whether you are acting as an
+    -- account administrator in the organization\'s management account or as a
+    -- delegated administrator in a member account.
+    --
+    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+    -- self-managed permissions.
+    --
+    -- -   If you are signed in to the management account, specify @SELF@.
+    --
+    -- -   If you are signed in to a delegated administrator account, specify
+    --     @DELEGATED_ADMIN@.
+    --
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+    --     in the /CloudFormation User Guide/.
+    callAs :: Prelude.Maybe CallAs,
+    -- | Preferences for how CloudFormation performs this stack set operation.
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | The unique identifier for this stack set operation.
+    --
+    -- The operation ID also functions as an idempotency token, to ensure that
+    -- CloudFormation performs the stack set operation only once, even if you
+    -- retry the request multiple times. You might retry stack set operation
+    -- requests to ensure that CloudFormation successfully received them.
+    --
+    -- If you don\'t specify an operation ID, the SDK generates one
+    -- automatically.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] The Organizations accounts for which you
+    -- want to update parameter values for stack instances. If your update
+    -- targets OUs, the overridden parameter values only apply to the accounts
+    -- that are currently in the target OUs and their child OUs. Accounts added
+    -- to the target OUs and their child OUs in the future won\'t use the
+    -- overridden values.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
+    -- | A list of input parameters whose values you want to update for the
     -- specified stack instances.
     --
     -- Any overridden parameter values will be applied to all stack instances
@@ -112,51 +157,6 @@ data UpdateStackInstances = UpdateStackInstances'
     -- with the new parameter, you can then override the parameter value using
     -- @UpdateStackInstances@.
     parameterOverrides :: Prelude.Maybe [Parameter],
-    -- | [Service-managed permissions] The Organizations accounts for which you
-    -- want to update parameter values for stack instances. If your update
-    -- targets OUs, the overridden parameter values only apply to the accounts
-    -- that are currently in the target OUs and their child OUs. Accounts added
-    -- to the target OUs and their child OUs in the future won\'t use the
-    -- overridden values.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    deploymentTargets :: Prelude.Maybe DeploymentTargets,
-    -- | The unique identifier for this stack set operation.
-    --
-    -- The operation ID also functions as an idempotency token, to ensure that
-    -- CloudFormation performs the stack set operation only once, even if you
-    -- retry the request multiple times. You might retry stack set operation
-    -- requests to ensure that CloudFormation successfully received them.
-    --
-    -- If you don\'t specify an operation ID, the SDK generates one
-    -- automatically.
-    operationId :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] Specifies whether you are acting as an
-    -- account administrator in the organization\'s management account or as a
-    -- delegated administrator in a member account.
-    --
-    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
-    -- self-managed permissions.
-    --
-    -- -   If you are signed in to the management account, specify @SELF@.
-    --
-    -- -   If you are signed in to a delegated administrator account, specify
-    --     @DELEGATED_ADMIN@.
-    --
-    --     Your Amazon Web Services account must be registered as a delegated
-    --     administrator in the management account. For more information, see
-    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
-    -- | Preferences for how CloudFormation performs this stack set operation.
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
-    -- | [Self-managed permissions] The names of one or more Amazon Web Services
-    -- accounts for which you want to update parameter values for stack
-    -- instances. The overridden parameter values will be applied to all stack
-    -- instances in the specified accounts and Regions.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    accounts :: Prelude.Maybe [Prelude.Text],
     -- | The name or unique ID of the stack set associated with the stack
     -- instances.
     stackSetName :: Prelude.Text,
@@ -174,6 +174,51 @@ data UpdateStackInstances = UpdateStackInstances'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accounts', 'updateStackInstances_accounts' - [Self-managed permissions] The names of one or more Amazon Web Services
+-- accounts for which you want to update parameter values for stack
+-- instances. The overridden parameter values will be applied to all stack
+-- instances in the specified accounts and Regions.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+--
+-- 'callAs', 'updateStackInstances_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /CloudFormation User Guide/.
+--
+-- 'operationPreferences', 'updateStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
+--
+-- 'operationId', 'updateStackInstances_operationId' - The unique identifier for this stack set operation.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- 'deploymentTargets', 'updateStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts for which you
+-- want to update parameter values for stack instances. If your update
+-- targets OUs, the overridden parameter values only apply to the accounts
+-- that are currently in the target OUs and their child OUs. Accounts added
+-- to the target OUs and their child OUs in the future won\'t use the
+-- overridden values.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
 -- 'parameterOverrides', 'updateStackInstances_parameterOverrides' - A list of input parameters whose values you want to update for the
 -- specified stack instances.
@@ -211,26 +256,38 @@ data UpdateStackInstances = UpdateStackInstances'
 -- with the new parameter, you can then override the parameter value using
 -- @UpdateStackInstances@.
 --
--- 'deploymentTargets', 'updateStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts for which you
--- want to update parameter values for stack instances. If your update
--- targets OUs, the overridden parameter values only apply to the accounts
--- that are currently in the target OUs and their child OUs. Accounts added
--- to the target OUs and their child OUs in the future won\'t use the
--- overridden values.
+-- 'stackSetName', 'updateStackInstances_stackSetName' - The name or unique ID of the stack set associated with the stack
+-- instances.
+--
+-- 'regions', 'updateStackInstances_regions' - The names of one or more Regions in which you want to update parameter
+-- values for stack instances. The overridden parameter values will be
+-- applied to all stack instances in the specified accounts and Regions.
+newUpdateStackInstances ::
+  -- | 'stackSetName'
+  Prelude.Text ->
+  UpdateStackInstances
+newUpdateStackInstances pStackSetName_ =
+  UpdateStackInstances'
+    { accounts = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
+      parameterOverrides = Prelude.Nothing,
+      stackSetName = pStackSetName_,
+      regions = Prelude.mempty
+    }
+
+-- | [Self-managed permissions] The names of one or more Amazon Web Services
+-- accounts for which you want to update parameter values for stack
+-- instances. The overridden parameter values will be applied to all stack
+-- instances in the specified accounts and Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
---
--- 'operationId', 'updateStackInstances_operationId' - The unique identifier for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
---
--- 'callAs', 'updateStackInstances_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+updateStackInstances_accounts :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Prelude.Text])
+updateStackInstances_accounts = Lens.lens (\UpdateStackInstances' {accounts} -> accounts) (\s@UpdateStackInstances' {} a -> s {accounts = a} :: UpdateStackInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
 -- delegated administrator in a member account.
 --
@@ -246,38 +303,35 @@ data UpdateStackInstances = UpdateStackInstances'
 --     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
+updateStackInstances_callAs :: Lens.Lens' UpdateStackInstances (Prelude.Maybe CallAs)
+updateStackInstances_callAs = Lens.lens (\UpdateStackInstances' {callAs} -> callAs) (\s@UpdateStackInstances' {} a -> s {callAs = a} :: UpdateStackInstances)
+
+-- | Preferences for how CloudFormation performs this stack set operation.
+updateStackInstances_operationPreferences :: Lens.Lens' UpdateStackInstances (Prelude.Maybe StackSetOperationPreferences)
+updateStackInstances_operationPreferences = Lens.lens (\UpdateStackInstances' {operationPreferences} -> operationPreferences) (\s@UpdateStackInstances' {} a -> s {operationPreferences = a} :: UpdateStackInstances)
+
+-- | The unique identifier for this stack set operation.
 --
--- 'operationPreferences', 'updateStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
 --
--- 'accounts', 'updateStackInstances_accounts' - [Self-managed permissions] The names of one or more Amazon Web Services
--- accounts for which you want to update parameter values for stack
--- instances. The overridden parameter values will be applied to all stack
--- instances in the specified accounts and Regions.
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+updateStackInstances_operationId :: Lens.Lens' UpdateStackInstances (Prelude.Maybe Prelude.Text)
+updateStackInstances_operationId = Lens.lens (\UpdateStackInstances' {operationId} -> operationId) (\s@UpdateStackInstances' {} a -> s {operationId = a} :: UpdateStackInstances)
+
+-- | [Service-managed permissions] The Organizations accounts for which you
+-- want to update parameter values for stack instances. If your update
+-- targets OUs, the overridden parameter values only apply to the accounts
+-- that are currently in the target OUs and their child OUs. Accounts added
+-- to the target OUs and their child OUs in the future won\'t use the
+-- overridden values.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
---
--- 'stackSetName', 'updateStackInstances_stackSetName' - The name or unique ID of the stack set associated with the stack
--- instances.
---
--- 'regions', 'updateStackInstances_regions' - The names of one or more Regions in which you want to update parameter
--- values for stack instances. The overridden parameter values will be
--- applied to all stack instances in the specified accounts and Regions.
-newUpdateStackInstances ::
-  -- | 'stackSetName'
-  Prelude.Text ->
-  UpdateStackInstances
-newUpdateStackInstances pStackSetName_ =
-  UpdateStackInstances'
-    { parameterOverrides =
-        Prelude.Nothing,
-      deploymentTargets = Prelude.Nothing,
-      operationId = Prelude.Nothing,
-      callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
-      accounts = Prelude.Nothing,
-      stackSetName = pStackSetName_,
-      regions = Prelude.mempty
-    }
+updateStackInstances_deploymentTargets :: Lens.Lens' UpdateStackInstances (Prelude.Maybe DeploymentTargets)
+updateStackInstances_deploymentTargets = Lens.lens (\UpdateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackInstances' {} a -> s {deploymentTargets = a} :: UpdateStackInstances)
 
 -- | A list of input parameters whose values you want to update for the
 -- specified stack instances.
@@ -315,62 +369,7 @@ newUpdateStackInstances pStackSetName_ =
 -- with the new parameter, you can then override the parameter value using
 -- @UpdateStackInstances@.
 updateStackInstances_parameterOverrides :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Parameter])
-updateStackInstances_parameterOverrides = Lens.lens (\UpdateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@UpdateStackInstances' {} a -> s {parameterOverrides = a} :: UpdateStackInstances) Prelude.. Lens.mapping Lens._Coerce
-
--- | [Service-managed permissions] The Organizations accounts for which you
--- want to update parameter values for stack instances. If your update
--- targets OUs, the overridden parameter values only apply to the accounts
--- that are currently in the target OUs and their child OUs. Accounts added
--- to the target OUs and their child OUs in the future won\'t use the
--- overridden values.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-updateStackInstances_deploymentTargets :: Lens.Lens' UpdateStackInstances (Prelude.Maybe DeploymentTargets)
-updateStackInstances_deploymentTargets = Lens.lens (\UpdateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackInstances' {} a -> s {deploymentTargets = a} :: UpdateStackInstances)
-
--- | The unique identifier for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, the SDK generates one
--- automatically.
-updateStackInstances_operationId :: Lens.Lens' UpdateStackInstances (Prelude.Maybe Prelude.Text)
-updateStackInstances_operationId = Lens.lens (\UpdateStackInstances' {operationId} -> operationId) (\s@UpdateStackInstances' {} a -> s {operationId = a} :: UpdateStackInstances)
-
--- | [Service-managed permissions] Specifies whether you are acting as an
--- account administrator in the organization\'s management account or as a
--- delegated administrator in a member account.
---
--- By default, @SELF@ is specified. Use @SELF@ for stack sets with
--- self-managed permissions.
---
--- -   If you are signed in to the management account, specify @SELF@.
---
--- -   If you are signed in to a delegated administrator account, specify
---     @DELEGATED_ADMIN@.
---
---     Your Amazon Web Services account must be registered as a delegated
---     administrator in the management account. For more information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /CloudFormation User Guide/.
-updateStackInstances_callAs :: Lens.Lens' UpdateStackInstances (Prelude.Maybe CallAs)
-updateStackInstances_callAs = Lens.lens (\UpdateStackInstances' {callAs} -> callAs) (\s@UpdateStackInstances' {} a -> s {callAs = a} :: UpdateStackInstances)
-
--- | Preferences for how CloudFormation performs this stack set operation.
-updateStackInstances_operationPreferences :: Lens.Lens' UpdateStackInstances (Prelude.Maybe StackSetOperationPreferences)
-updateStackInstances_operationPreferences = Lens.lens (\UpdateStackInstances' {operationPreferences} -> operationPreferences) (\s@UpdateStackInstances' {} a -> s {operationPreferences = a} :: UpdateStackInstances)
-
--- | [Self-managed permissions] The names of one or more Amazon Web Services
--- accounts for which you want to update parameter values for stack
--- instances. The overridden parameter values will be applied to all stack
--- instances in the specified accounts and Regions.
---
--- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-updateStackInstances_accounts :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Prelude.Text])
-updateStackInstances_accounts = Lens.lens (\UpdateStackInstances' {accounts} -> accounts) (\s@UpdateStackInstances' {} a -> s {accounts = a} :: UpdateStackInstances) Prelude.. Lens.mapping Lens._Coerce
+updateStackInstances_parameterOverrides = Lens.lens (\UpdateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@UpdateStackInstances' {} a -> s {parameterOverrides = a} :: UpdateStackInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name or unique ID of the stack set associated with the stack
 -- instances.
@@ -381,7 +380,7 @@ updateStackInstances_stackSetName = Lens.lens (\UpdateStackInstances' {stackSetN
 -- values for stack instances. The overridden parameter values will be
 -- applied to all stack instances in the specified accounts and Regions.
 updateStackInstances_regions :: Lens.Lens' UpdateStackInstances [Prelude.Text]
-updateStackInstances_regions = Lens.lens (\UpdateStackInstances' {regions} -> regions) (\s@UpdateStackInstances' {} a -> s {regions = a} :: UpdateStackInstances) Prelude.. Lens._Coerce
+updateStackInstances_regions = Lens.lens (\UpdateStackInstances' {regions} -> regions) (\s@UpdateStackInstances' {} a -> s {regions = a} :: UpdateStackInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateStackInstances where
   type
@@ -414,18 +413,18 @@ instance Core.ToQuery UpdateStackInstances where
           Core.=: ("UpdateStackInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "Accounts"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> accounts),
+        "CallAs" Core.=: callAs,
+        "OperationPreferences" Core.=: operationPreferences,
+        "OperationId" Core.=: operationId,
+        "DeploymentTargets" Core.=: deploymentTargets,
         "ParameterOverrides"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> parameterOverrides
             ),
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "OperationId" Core.=: operationId,
-        "CallAs" Core.=: callAs,
-        "OperationPreferences" Core.=: operationPreferences,
-        "Accounts"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts),
         "StackSetName" Core.=: stackSetName,
         "Regions" Core.=: Core.toQueryList "member" regions
       ]

@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchDescribeTypeConfigurationsError' smart constructor.
 data BatchDescribeTypeConfigurationsError = BatchDescribeTypeConfigurationsError'
   { typeConfigurationIdentifier :: Prelude.Maybe TypeConfigurationIdentifier,
-    -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data BatchDescribeTypeConfigurationsError = BatchDescribeTypeConfigurationsError
 --
 -- 'typeConfigurationIdentifier', 'batchDescribeTypeConfigurationsError_typeConfigurationIdentifier' - Undocumented member.
 --
--- 'errorMessage', 'batchDescribeTypeConfigurationsError_errorMessage' - The error message.
---
 -- 'errorCode', 'batchDescribeTypeConfigurationsError_errorCode' - The error code.
+--
+-- 'errorMessage', 'batchDescribeTypeConfigurationsError_errorMessage' - The error message.
 newBatchDescribeTypeConfigurationsError ::
   BatchDescribeTypeConfigurationsError
 newBatchDescribeTypeConfigurationsError =
   BatchDescribeTypeConfigurationsError'
     { typeConfigurationIdentifier =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | Undocumented member.
 batchDescribeTypeConfigurationsError_typeConfigurationIdentifier :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe TypeConfigurationIdentifier)
 batchDescribeTypeConfigurationsError_typeConfigurationIdentifier = Lens.lens (\BatchDescribeTypeConfigurationsError' {typeConfigurationIdentifier} -> typeConfigurationIdentifier) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {typeConfigurationIdentifier = a} :: BatchDescribeTypeConfigurationsError)
 
--- | The error message.
-batchDescribeTypeConfigurationsError_errorMessage :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe Prelude.Text)
-batchDescribeTypeConfigurationsError_errorMessage = Lens.lens (\BatchDescribeTypeConfigurationsError' {errorMessage} -> errorMessage) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {errorMessage = a} :: BatchDescribeTypeConfigurationsError)
-
 -- | The error code.
 batchDescribeTypeConfigurationsError_errorCode :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe Prelude.Text)
 batchDescribeTypeConfigurationsError_errorCode = Lens.lens (\BatchDescribeTypeConfigurationsError' {errorCode} -> errorCode) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {errorCode = a} :: BatchDescribeTypeConfigurationsError)
+
+-- | The error message.
+batchDescribeTypeConfigurationsError_errorMessage :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe Prelude.Text)
+batchDescribeTypeConfigurationsError_errorMessage = Lens.lens (\BatchDescribeTypeConfigurationsError' {errorMessage} -> errorMessage) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {errorMessage = a} :: BatchDescribeTypeConfigurationsError)
 
 instance
   Core.FromXML
@@ -79,8 +79,8 @@ instance
   parseXML x =
     BatchDescribeTypeConfigurationsError'
       Prelude.<$> (x Core..@? "TypeConfigurationIdentifier")
-      Prelude.<*> (x Core..@? "ErrorMessage")
       Prelude.<*> (x Core..@? "ErrorCode")
+      Prelude.<*> (x Core..@? "ErrorMessage")
 
 instance
   Prelude.Hashable

@@ -64,9 +64,9 @@ module Network.AWS.CloudFormation.DetectStackSetDrift
     newDetectStackSetDrift,
 
     -- * Request Lenses
-    detectStackSetDrift_operationId,
     detectStackSetDrift_callAs,
     detectStackSetDrift_operationPreferences,
+    detectStackSetDrift_operationId,
     detectStackSetDrift_stackSetName,
 
     -- * Destructuring the Response
@@ -88,9 +88,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetectStackSetDrift' smart constructor.
 data DetectStackSetDrift = DetectStackSetDrift'
-  { -- | /The ID of the stack set operation./
-    operationId :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] Specifies whether you are acting as an
+  { -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
     --
@@ -108,6 +106,8 @@ data DetectStackSetDrift = DetectStackSetDrift'
     --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | /The ID of the stack set operation./
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the stack set on which to perform the drift detection
     -- operation.
     stackSetName :: Prelude.Text
@@ -121,8 +121,6 @@ data DetectStackSetDrift = DetectStackSetDrift'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'operationId', 'detectStackSetDrift_operationId' - /The ID of the stack set operation./
 --
 -- 'callAs', 'detectStackSetDrift_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -143,6 +141,8 @@ data DetectStackSetDrift = DetectStackSetDrift'
 --
 -- 'operationPreferences', 'detectStackSetDrift_operationPreferences' - Undocumented member.
 --
+-- 'operationId', 'detectStackSetDrift_operationId' - /The ID of the stack set operation./
+--
 -- 'stackSetName', 'detectStackSetDrift_stackSetName' - The name of the stack set on which to perform the drift detection
 -- operation.
 newDetectStackSetDrift ::
@@ -151,15 +151,11 @@ newDetectStackSetDrift ::
   DetectStackSetDrift
 newDetectStackSetDrift pStackSetName_ =
   DetectStackSetDrift'
-    { operationId = Prelude.Nothing,
-      callAs = Prelude.Nothing,
+    { callAs = Prelude.Nothing,
       operationPreferences = Prelude.Nothing,
+      operationId = Prelude.Nothing,
       stackSetName = pStackSetName_
     }
-
--- | /The ID of the stack set operation./
-detectStackSetDrift_operationId :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe Prelude.Text)
-detectStackSetDrift_operationId = Lens.lens (\DetectStackSetDrift' {operationId} -> operationId) (\s@DetectStackSetDrift' {} a -> s {operationId = a} :: DetectStackSetDrift)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the organization\'s management account or as a
@@ -183,6 +179,10 @@ detectStackSetDrift_callAs = Lens.lens (\DetectStackSetDrift' {callAs} -> callAs
 -- | Undocumented member.
 detectStackSetDrift_operationPreferences :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe StackSetOperationPreferences)
 detectStackSetDrift_operationPreferences = Lens.lens (\DetectStackSetDrift' {operationPreferences} -> operationPreferences) (\s@DetectStackSetDrift' {} a -> s {operationPreferences = a} :: DetectStackSetDrift)
+
+-- | /The ID of the stack set operation./
+detectStackSetDrift_operationId :: Lens.Lens' DetectStackSetDrift (Prelude.Maybe Prelude.Text)
+detectStackSetDrift_operationId = Lens.lens (\DetectStackSetDrift' {operationId} -> operationId) (\s@DetectStackSetDrift' {} a -> s {operationId = a} :: DetectStackSetDrift)
 
 -- | The name of the stack set on which to perform the drift detection
 -- operation.
@@ -220,9 +220,9 @@ instance Core.ToQuery DetectStackSetDrift where
           Core.=: ("DetectStackSetDrift" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationId" Core.=: operationId,
         "CallAs" Core.=: callAs,
         "OperationPreferences" Core.=: operationPreferences,
+        "OperationId" Core.=: operationId,
         "StackSetName" Core.=: stackSetName
       ]
 

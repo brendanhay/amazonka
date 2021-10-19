@@ -34,23 +34,23 @@ module Network.AWS.CloudFormation.UpdateStackSet
     newUpdateStackSet,
 
     -- * Request Lenses
-    updateStackSet_permissionModel,
-    updateStackSet_executionRoleName,
-    updateStackSet_capabilities,
-    updateStackSet_deploymentTargets,
-    updateStackSet_templateURL,
-    updateStackSet_operationId,
-    updateStackSet_callAs,
-    updateStackSet_operationPreferences,
-    updateStackSet_accounts,
     updateStackSet_administrationRoleARN,
-    updateStackSet_tags,
-    updateStackSet_autoDeployment,
-    updateStackSet_description,
-    updateStackSet_regions,
-    updateStackSet_templateBody,
-    updateStackSet_parameters,
     updateStackSet_usePreviousTemplate,
+    updateStackSet_accounts,
+    updateStackSet_callAs,
+    updateStackSet_regions,
+    updateStackSet_autoDeployment,
+    updateStackSet_permissionModel,
+    updateStackSet_parameters,
+    updateStackSet_operationPreferences,
+    updateStackSet_operationId,
+    updateStackSet_templateBody,
+    updateStackSet_templateURL,
+    updateStackSet_deploymentTargets,
+    updateStackSet_description,
+    updateStackSet_capabilities,
+    updateStackSet_tags,
+    updateStackSet_executionRoleName,
     updateStackSet_stackSetName,
 
     -- * Destructuring the Response
@@ -72,7 +72,83 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateStackSet' smart constructor.
 data UpdateStackSet = UpdateStackSet'
-  { -- | Describes how the IAM roles required for stack set operations are
+  { -- | The Amazon Resource Number (ARN) of the IAM role to use to update this
+    -- stack set.
+    --
+    -- Specify an IAM role only if you are using customized administrator roles
+    -- to control which users or groups can manage specific stack sets within
+    -- the same administrator account. For more information, see
+    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
+    -- in the /CloudFormation User Guide/.
+    --
+    -- If you specified a customized administrator role when you created the
+    -- stack set, you must specify a customized administrator role, even if it
+    -- is the same customized administrator role used with this stack set
+    -- previously.
+    administrationRoleARN :: Prelude.Maybe Prelude.Text,
+    -- | Use the existing template that\'s associated with the stack set that
+    -- you\'re updating.
+    --
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
+    -- | [Self-managed permissions] The accounts in which to update associated
+    -- stack instances. If you specify accounts, you must also specify the
+    -- Regions in which to update stack set instances.
+    --
+    -- To update /all/ the stack instances associated with this stack set, do
+    -- not specify the @Accounts@ or @Regions@ properties.
+    --
+    -- If the stack set update includes changes to the template (that is, if
+    -- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
+    -- @Parameters@ property, CloudFormation marks all stack instances with a
+    -- status of @OUTDATED@ prior to updating the stack instances in the
+    -- specified accounts and Regions. If the stack set update does not include
+    -- changes to the template or parameters, CloudFormation updates the stack
+    -- instances in the specified accounts and Regions, while leaving all other
+    -- stack instances with their existing stack instance status.
+    accounts :: Prelude.Maybe [Prelude.Text],
+    -- | [Service-managed permissions] Specifies whether you are acting as an
+    -- account administrator in the organization\'s management account or as a
+    -- delegated administrator in a member account.
+    --
+    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+    -- self-managed permissions.
+    --
+    -- -   If you are signed in to the management account, specify @SELF@.
+    --
+    -- -   If you are signed in to a delegated administrator account, specify
+    --     @DELEGATED_ADMIN@.
+    --
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+    --     in the /CloudFormation User Guide/.
+    callAs :: Prelude.Maybe CallAs,
+    -- | The Regions in which to update associated stack instances. If you
+    -- specify Regions, you must also specify accounts in which to update stack
+    -- set instances.
+    --
+    -- To update /all/ the stack instances associated with this stack set, do
+    -- not specify the @Accounts@ or @Regions@ properties.
+    --
+    -- If the stack set update includes changes to the template (that is, if
+    -- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
+    -- @Parameters@ property, CloudFormation marks all stack instances with a
+    -- status of @OUTDATED@ prior to updating the stack instances in the
+    -- specified accounts and Regions. If the stack set update does not include
+    -- changes to the template or parameters, CloudFormation updates the stack
+    -- instances in the specified accounts and Regions, while leaving all other
+    -- stack instances with their existing stack instance status.
+    regions :: Prelude.Maybe [Prelude.Text],
+    -- | [Service-managed permissions] Describes whether StackSets automatically
+    -- deploys to Organizations accounts that are added to a target
+    -- organization or organizational unit (OU).
+    --
+    -- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
+    -- @Regions@.
+    autoDeployment :: Prelude.Maybe AutoDeployment,
+    -- | Describes how the IAM roles required for stack set operations are
     -- created. You cannot modify @PermissionModel@ if there are stack
     -- instances associated with your stack set.
     --
@@ -86,21 +162,58 @@ data UpdateStackSet = UpdateStackSet'
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
     permissionModel :: Prelude.Maybe PermissionModels,
-    -- | The name of the IAM execution role to use to update the stack set. If
-    -- you do not specify an execution role, CloudFormation uses the
-    -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
-    -- operation.
+    -- | A list of input parameters for the stack set template.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | Preferences for how CloudFormation performs this stack set operation.
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | The unique ID for this stack set operation.
     --
-    -- Specify an IAM role only if you are using customized execution roles to
-    -- control which stack resources users and groups can include in their
-    -- stack sets.
+    -- The operation ID also functions as an idempotency token, to ensure that
+    -- CloudFormation performs the stack set operation only once, even if you
+    -- retry the request multiple times. You might retry stack set operation
+    -- requests to ensure that CloudFormation successfully received them.
     --
-    -- If you specify a customized execution role, CloudFormation uses that
-    -- role to update the stack. If you do not specify a customized execution
-    -- role, CloudFormation performs the update using the role previously
-    -- associated with the stack set, so long as you have permissions to
-    -- perform operations on the stack set.
-    executionRoleName :: Prelude.Maybe Prelude.Text,
+    -- If you don\'t specify an operation ID, CloudFormation generates one
+    -- automatically.
+    --
+    -- Repeating this stack set operation with a new operation ID retries all
+    -- stack instances whose status is @OUTDATED@.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The structure that contains the template body, with a minimum length of
+    -- 1 byte and a maximum length of 51,200 bytes. For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The location of the file that contains the template body. The URL must
+    -- point to a template (maximum size: 460,800 bytes) that is located in an
+    -- Amazon S3 bucket or a Systems Manager document. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters:
+    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+    templateURL :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] The Organizations accounts in which to
+    -- update associated stack instances.
+    --
+    -- To update all the stack instances associated with this stack set, do not
+    -- specify @DeploymentTargets@ or @Regions@.
+    --
+    -- If the stack set update includes changes to the template (that is, if
+    -- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
+    -- CloudFormation marks all stack instances with a status of @OUTDATED@
+    -- prior to updating the stack instances in the specified accounts and
+    -- Regions. If the stack set update does not include changes to the
+    -- template or parameters, CloudFormation updates the stack instances in
+    -- the specified accounts and Regions, while leaving all other stack
+    -- instances with their existing stack instance status.
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
+    -- | A brief description of updates that you are making.
+    description :: Prelude.Maybe Prelude.Text,
     -- | In some cases, you must explicitly acknowledge that your stack template
     -- contains certain capabilities in order for CloudFormation to update the
     -- stack set and its associated stack instances.
@@ -164,93 +277,6 @@ data UpdateStackSet = UpdateStackSet'
     --     permissions, if you reference a macro in your template the stack set
     --     operation will fail.
     capabilities :: Prelude.Maybe [Capability],
-    -- | [Service-managed permissions] The Organizations accounts in which to
-    -- update associated stack instances.
-    --
-    -- To update all the stack instances associated with this stack set, do not
-    -- specify @DeploymentTargets@ or @Regions@.
-    --
-    -- If the stack set update includes changes to the template (that is, if
-    -- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
-    -- CloudFormation marks all stack instances with a status of @OUTDATED@
-    -- prior to updating the stack instances in the specified accounts and
-    -- Regions. If the stack set update does not include changes to the
-    -- template or parameters, CloudFormation updates the stack instances in
-    -- the specified accounts and Regions, while leaving all other stack
-    -- instances with their existing stack instance status.
-    deploymentTargets :: Prelude.Maybe DeploymentTargets,
-    -- | The location of the file that contains the template body. The URL must
-    -- point to a template (maximum size: 460,800 bytes) that is located in an
-    -- Amazon S3 bucket or a Systems Manager document. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.
-    --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    templateURL :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID for this stack set operation.
-    --
-    -- The operation ID also functions as an idempotency token, to ensure that
-    -- CloudFormation performs the stack set operation only once, even if you
-    -- retry the request multiple times. You might retry stack set operation
-    -- requests to ensure that CloudFormation successfully received them.
-    --
-    -- If you don\'t specify an operation ID, CloudFormation generates one
-    -- automatically.
-    --
-    -- Repeating this stack set operation with a new operation ID retries all
-    -- stack instances whose status is @OUTDATED@.
-    operationId :: Prelude.Maybe Prelude.Text,
-    -- | [Service-managed permissions] Specifies whether you are acting as an
-    -- account administrator in the organization\'s management account or as a
-    -- delegated administrator in a member account.
-    --
-    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
-    -- self-managed permissions.
-    --
-    -- -   If you are signed in to the management account, specify @SELF@.
-    --
-    -- -   If you are signed in to a delegated administrator account, specify
-    --     @DELEGATED_ADMIN@.
-    --
-    --     Your Amazon Web Services account must be registered as a delegated
-    --     administrator in the management account. For more information, see
-    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
-    -- | Preferences for how CloudFormation performs this stack set operation.
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
-    -- | [Self-managed permissions] The accounts in which to update associated
-    -- stack instances. If you specify accounts, you must also specify the
-    -- Regions in which to update stack set instances.
-    --
-    -- To update /all/ the stack instances associated with this stack set, do
-    -- not specify the @Accounts@ or @Regions@ properties.
-    --
-    -- If the stack set update includes changes to the template (that is, if
-    -- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
-    -- @Parameters@ property, CloudFormation marks all stack instances with a
-    -- status of @OUTDATED@ prior to updating the stack instances in the
-    -- specified accounts and Regions. If the stack set update does not include
-    -- changes to the template or parameters, CloudFormation updates the stack
-    -- instances in the specified accounts and Regions, while leaving all other
-    -- stack instances with their existing stack instance status.
-    accounts :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Number (ARN) of the IAM role to use to update this
-    -- stack set.
-    --
-    -- Specify an IAM role only if you are using customized administrator roles
-    -- to control which users or groups can manage specific stack sets within
-    -- the same administrator account. For more information, see
-    -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
-    -- in the /CloudFormation User Guide/.
-    --
-    -- If you specified a customized administrator role when you created the
-    -- stack set, you must specify a customized administrator role, even if it
-    -- is the same customized administrator role used with this stack set
-    -- previously.
-    administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | The key-value pairs to associate with this stack set and the stacks
     -- created from it. CloudFormation also propagates these tags to supported
     -- resources that are created in the stacks. You can specify a maximum
@@ -281,47 +307,21 @@ data UpdateStackSet = UpdateStackSet'
     -- permission(s), the entire @UpdateStackSet@ action fails with an
     -- @access denied@ error, and the stack set is not updated.
     tags :: Prelude.Maybe [Tag],
-    -- | [Service-managed permissions] Describes whether StackSets automatically
-    -- deploys to Organizations accounts that are added to a target
-    -- organization or organizational unit (OU).
+    -- | The name of the IAM execution role to use to update the stack set. If
+    -- you do not specify an execution role, CloudFormation uses the
+    -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
+    -- operation.
     --
-    -- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
-    -- @Regions@.
-    autoDeployment :: Prelude.Maybe AutoDeployment,
-    -- | A brief description of updates that you are making.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The Regions in which to update associated stack instances. If you
-    -- specify Regions, you must also specify accounts in which to update stack
-    -- set instances.
+    -- Specify an IAM role only if you are using customized execution roles to
+    -- control which stack resources users and groups can include in their
+    -- stack sets.
     --
-    -- To update /all/ the stack instances associated with this stack set, do
-    -- not specify the @Accounts@ or @Regions@ properties.
-    --
-    -- If the stack set update includes changes to the template (that is, if
-    -- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
-    -- @Parameters@ property, CloudFormation marks all stack instances with a
-    -- status of @OUTDATED@ prior to updating the stack instances in the
-    -- specified accounts and Regions. If the stack set update does not include
-    -- changes to the template or parameters, CloudFormation updates the stack
-    -- instances in the specified accounts and Regions, while leaving all other
-    -- stack instances with their existing stack instance status.
-    regions :: Prelude.Maybe [Prelude.Text],
-    -- | The structure that contains the template body, with a minimum length of
-    -- 1 byte and a maximum length of 51,200 bytes. For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.
-    --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    templateBody :: Prelude.Maybe Prelude.Text,
-    -- | A list of input parameters for the stack set template.
-    parameters :: Prelude.Maybe [Parameter],
-    -- | Use the existing template that\'s associated with the stack set that
-    -- you\'re updating.
-    --
-    -- Conditional: You must specify only one of the following parameters:
-    -- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-    usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
+    -- If you specify a customized execution role, CloudFormation uses that
+    -- role to update the stack. If you do not specify a customized execution
+    -- role, CloudFormation performs the update using the role previously
+    -- associated with the stack set, so long as you have permissions to
+    -- perform operations on the stack set.
+    executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | The name or unique ID of the stack set that you want to update.
     stackSetName :: Prelude.Text
   }
@@ -334,6 +334,82 @@ data UpdateStackSet = UpdateStackSet'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'administrationRoleARN', 'updateStackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role to use to update this
+-- stack set.
+--
+-- Specify an IAM role only if you are using customized administrator roles
+-- to control which users or groups can manage specific stack sets within
+-- the same administrator account. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
+-- in the /CloudFormation User Guide/.
+--
+-- If you specified a customized administrator role when you created the
+-- stack set, you must specify a customized administrator role, even if it
+-- is the same customized administrator role used with this stack set
+-- previously.
+--
+-- 'usePreviousTemplate', 'updateStackSet_usePreviousTemplate' - Use the existing template that\'s associated with the stack set that
+-- you\'re updating.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+--
+-- 'accounts', 'updateStackSet_accounts' - [Self-managed permissions] The accounts in which to update associated
+-- stack instances. If you specify accounts, you must also specify the
+-- Regions in which to update stack set instances.
+--
+-- To update /all/ the stack instances associated with this stack set, do
+-- not specify the @Accounts@ or @Regions@ properties.
+--
+-- If the stack set update includes changes to the template (that is, if
+-- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
+-- @Parameters@ property, CloudFormation marks all stack instances with a
+-- status of @OUTDATED@ prior to updating the stack instances in the
+-- specified accounts and Regions. If the stack set update does not include
+-- changes to the template or parameters, CloudFormation updates the stack
+-- instances in the specified accounts and Regions, while leaving all other
+-- stack instances with their existing stack instance status.
+--
+-- 'callAs', 'updateStackSet_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /CloudFormation User Guide/.
+--
+-- 'regions', 'updateStackSet_regions' - The Regions in which to update associated stack instances. If you
+-- specify Regions, you must also specify accounts in which to update stack
+-- set instances.
+--
+-- To update /all/ the stack instances associated with this stack set, do
+-- not specify the @Accounts@ or @Regions@ properties.
+--
+-- If the stack set update includes changes to the template (that is, if
+-- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
+-- @Parameters@ property, CloudFormation marks all stack instances with a
+-- status of @OUTDATED@ prior to updating the stack instances in the
+-- specified accounts and Regions. If the stack set update does not include
+-- changes to the template or parameters, CloudFormation updates the stack
+-- instances in the specified accounts and Regions, while leaving all other
+-- stack instances with their existing stack instance status.
+--
+-- 'autoDeployment', 'updateStackSet_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
+-- deploys to Organizations accounts that are added to a target
+-- organization or organizational unit (OU).
+--
+-- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
+-- @Regions@.
 --
 -- 'permissionModel', 'updateStackSet_permissionModel' - Describes how the IAM roles required for stack set operations are
 -- created. You cannot modify @PermissionModel@ if there are stack
@@ -349,20 +425,57 @@ data UpdateStackSet = UpdateStackSet'
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
 --
--- 'executionRoleName', 'updateStackSet_executionRoleName' - The name of the IAM execution role to use to update the stack set. If
--- you do not specify an execution role, CloudFormation uses the
--- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
--- operation.
+-- 'parameters', 'updateStackSet_parameters' - A list of input parameters for the stack set template.
 --
--- Specify an IAM role only if you are using customized execution roles to
--- control which stack resources users and groups can include in their
--- stack sets.
+-- 'operationPreferences', 'updateStackSet_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
 --
--- If you specify a customized execution role, CloudFormation uses that
--- role to update the stack. If you do not specify a customized execution
--- role, CloudFormation performs the update using the role previously
--- associated with the stack set, so long as you have permissions to
--- perform operations on the stack set.
+-- 'operationId', 'updateStackSet_operationId' - The unique ID for this stack set operation.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
+--
+-- If you don\'t specify an operation ID, CloudFormation generates one
+-- automatically.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+--
+-- 'templateBody', 'updateStackSet_templateBody' - The structure that contains the template body, with a minimum length of
+-- 1 byte and a maximum length of 51,200 bytes. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+--
+-- 'templateURL', 'updateStackSet_templateURL' - The location of the file that contains the template body. The URL must
+-- point to a template (maximum size: 460,800 bytes) that is located in an
+-- Amazon S3 bucket or a Systems Manager document. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+--
+-- 'deploymentTargets', 'updateStackSet_deploymentTargets' - [Service-managed permissions] The Organizations accounts in which to
+-- update associated stack instances.
+--
+-- To update all the stack instances associated with this stack set, do not
+-- specify @DeploymentTargets@ or @Regions@.
+--
+-- If the stack set update includes changes to the template (that is, if
+-- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
+-- CloudFormation marks all stack instances with a status of @OUTDATED@
+-- prior to updating the stack instances in the specified accounts and
+-- Regions. If the stack set update does not include changes to the
+-- template or parameters, CloudFormation updates the stack instances in
+-- the specified accounts and Regions, while leaving all other stack
+-- instances with their existing stack instance status.
+--
+-- 'description', 'updateStackSet_description' - A brief description of updates that you are making.
 --
 -- 'capabilities', 'updateStackSet_capabilities' - In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for CloudFormation to update the
@@ -427,93 +540,6 @@ data UpdateStackSet = UpdateStackSet'
 --     permissions, if you reference a macro in your template the stack set
 --     operation will fail.
 --
--- 'deploymentTargets', 'updateStackSet_deploymentTargets' - [Service-managed permissions] The Organizations accounts in which to
--- update associated stack instances.
---
--- To update all the stack instances associated with this stack set, do not
--- specify @DeploymentTargets@ or @Regions@.
---
--- If the stack set update includes changes to the template (that is, if
--- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
--- CloudFormation marks all stack instances with a status of @OUTDATED@
--- prior to updating the stack instances in the specified accounts and
--- Regions. If the stack set update does not include changes to the
--- template or parameters, CloudFormation updates the stack instances in
--- the specified accounts and Regions, while leaving all other stack
--- instances with their existing stack instance status.
---
--- 'templateURL', 'updateStackSet_templateURL' - The location of the file that contains the template body. The URL must
--- point to a template (maximum size: 460,800 bytes) that is located in an
--- Amazon S3 bucket or a Systems Manager document. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
---
--- 'operationId', 'updateStackSet_operationId' - The unique ID for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, CloudFormation generates one
--- automatically.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
---
--- 'callAs', 'updateStackSet_callAs' - [Service-managed permissions] Specifies whether you are acting as an
--- account administrator in the organization\'s management account or as a
--- delegated administrator in a member account.
---
--- By default, @SELF@ is specified. Use @SELF@ for stack sets with
--- self-managed permissions.
---
--- -   If you are signed in to the management account, specify @SELF@.
---
--- -   If you are signed in to a delegated administrator account, specify
---     @DELEGATED_ADMIN@.
---
---     Your Amazon Web Services account must be registered as a delegated
---     administrator in the management account. For more information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /CloudFormation User Guide/.
---
--- 'operationPreferences', 'updateStackSet_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
---
--- 'accounts', 'updateStackSet_accounts' - [Self-managed permissions] The accounts in which to update associated
--- stack instances. If you specify accounts, you must also specify the
--- Regions in which to update stack set instances.
---
--- To update /all/ the stack instances associated with this stack set, do
--- not specify the @Accounts@ or @Regions@ properties.
---
--- If the stack set update includes changes to the template (that is, if
--- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
--- @Parameters@ property, CloudFormation marks all stack instances with a
--- status of @OUTDATED@ prior to updating the stack instances in the
--- specified accounts and Regions. If the stack set update does not include
--- changes to the template or parameters, CloudFormation updates the stack
--- instances in the specified accounts and Regions, while leaving all other
--- stack instances with their existing stack instance status.
---
--- 'administrationRoleARN', 'updateStackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role to use to update this
--- stack set.
---
--- Specify an IAM role only if you are using customized administrator roles
--- to control which users or groups can manage specific stack sets within
--- the same administrator account. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
--- in the /CloudFormation User Guide/.
---
--- If you specified a customized administrator role when you created the
--- stack set, you must specify a customized administrator role, even if it
--- is the same customized administrator role used with this stack set
--- previously.
---
 -- 'tags', 'updateStackSet_tags' - The key-value pairs to associate with this stack set and the stacks
 -- created from it. CloudFormation also propagates these tags to supported
 -- resources that are created in the stacks. You can specify a maximum
@@ -544,16 +570,111 @@ data UpdateStackSet = UpdateStackSet'
 -- permission(s), the entire @UpdateStackSet@ action fails with an
 -- @access denied@ error, and the stack set is not updated.
 --
--- 'autoDeployment', 'updateStackSet_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
--- deploys to Organizations accounts that are added to a target
--- organization or organizational unit (OU).
+-- 'executionRoleName', 'updateStackSet_executionRoleName' - The name of the IAM execution role to use to update the stack set. If
+-- you do not specify an execution role, CloudFormation uses the
+-- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
+-- operation.
 --
--- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
--- @Regions@.
+-- Specify an IAM role only if you are using customized execution roles to
+-- control which stack resources users and groups can include in their
+-- stack sets.
 --
--- 'description', 'updateStackSet_description' - A brief description of updates that you are making.
+-- If you specify a customized execution role, CloudFormation uses that
+-- role to update the stack. If you do not specify a customized execution
+-- role, CloudFormation performs the update using the role previously
+-- associated with the stack set, so long as you have permissions to
+-- perform operations on the stack set.
 --
--- 'regions', 'updateStackSet_regions' - The Regions in which to update associated stack instances. If you
+-- 'stackSetName', 'updateStackSet_stackSetName' - The name or unique ID of the stack set that you want to update.
+newUpdateStackSet ::
+  -- | 'stackSetName'
+  Prelude.Text ->
+  UpdateStackSet
+newUpdateStackSet pStackSetName_ =
+  UpdateStackSet'
+    { administrationRoleARN =
+        Prelude.Nothing,
+      usePreviousTemplate = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      regions = Prelude.Nothing,
+      autoDeployment = Prelude.Nothing,
+      permissionModel = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      templateURL = Prelude.Nothing,
+      deploymentTargets = Prelude.Nothing,
+      description = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      executionRoleName = Prelude.Nothing,
+      stackSetName = pStackSetName_
+    }
+
+-- | The Amazon Resource Number (ARN) of the IAM role to use to update this
+-- stack set.
+--
+-- Specify an IAM role only if you are using customized administrator roles
+-- to control which users or groups can manage specific stack sets within
+-- the same administrator account. For more information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
+-- in the /CloudFormation User Guide/.
+--
+-- If you specified a customized administrator role when you created the
+-- stack set, you must specify a customized administrator role, even if it
+-- is the same customized administrator role used with this stack set
+-- previously.
+updateStackSet_administrationRoleARN :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_administrationRoleARN = Lens.lens (\UpdateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@UpdateStackSet' {} a -> s {administrationRoleARN = a} :: UpdateStackSet)
+
+-- | Use the existing template that\'s associated with the stack set that
+-- you\'re updating.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+updateStackSet_usePreviousTemplate :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Bool)
+updateStackSet_usePreviousTemplate = Lens.lens (\UpdateStackSet' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStackSet' {} a -> s {usePreviousTemplate = a} :: UpdateStackSet)
+
+-- | [Self-managed permissions] The accounts in which to update associated
+-- stack instances. If you specify accounts, you must also specify the
+-- Regions in which to update stack set instances.
+--
+-- To update /all/ the stack instances associated with this stack set, do
+-- not specify the @Accounts@ or @Regions@ properties.
+--
+-- If the stack set update includes changes to the template (that is, if
+-- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
+-- @Parameters@ property, CloudFormation marks all stack instances with a
+-- status of @OUTDATED@ prior to updating the stack instances in the
+-- specified accounts and Regions. If the stack set update does not include
+-- changes to the template or parameters, CloudFormation updates the stack
+-- instances in the specified accounts and Regions, while leaving all other
+-- stack instances with their existing stack instance status.
+updateStackSet_accounts :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
+updateStackSet_accounts = Lens.lens (\UpdateStackSet' {accounts} -> accounts) (\s@UpdateStackSet' {} a -> s {accounts = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /CloudFormation User Guide/.
+updateStackSet_callAs :: Lens.Lens' UpdateStackSet (Prelude.Maybe CallAs)
+updateStackSet_callAs = Lens.lens (\UpdateStackSet' {callAs} -> callAs) (\s@UpdateStackSet' {} a -> s {callAs = a} :: UpdateStackSet)
+
+-- | The Regions in which to update associated stack instances. If you
 -- specify Regions, you must also specify accounts in which to update stack
 -- set instances.
 --
@@ -568,49 +689,17 @@ data UpdateStackSet = UpdateStackSet'
 -- changes to the template or parameters, CloudFormation updates the stack
 -- instances in the specified accounts and Regions, while leaving all other
 -- stack instances with their existing stack instance status.
+updateStackSet_regions :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
+updateStackSet_regions = Lens.lens (\UpdateStackSet' {regions} -> regions) (\s@UpdateStackSet' {} a -> s {regions = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Service-managed permissions] Describes whether StackSets automatically
+-- deploys to Organizations accounts that are added to a target
+-- organization or organizational unit (OU).
 --
--- 'templateBody', 'updateStackSet_templateBody' - The structure that contains the template body, with a minimum length of
--- 1 byte and a maximum length of 51,200 bytes. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
---
--- 'parameters', 'updateStackSet_parameters' - A list of input parameters for the stack set template.
---
--- 'usePreviousTemplate', 'updateStackSet_usePreviousTemplate' - Use the existing template that\'s associated with the stack set that
--- you\'re updating.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
---
--- 'stackSetName', 'updateStackSet_stackSetName' - The name or unique ID of the stack set that you want to update.
-newUpdateStackSet ::
-  -- | 'stackSetName'
-  Prelude.Text ->
-  UpdateStackSet
-newUpdateStackSet pStackSetName_ =
-  UpdateStackSet'
-    { permissionModel = Prelude.Nothing,
-      executionRoleName = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
-      deploymentTargets = Prelude.Nothing,
-      templateURL = Prelude.Nothing,
-      operationId = Prelude.Nothing,
-      callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
-      accounts = Prelude.Nothing,
-      administrationRoleARN = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      autoDeployment = Prelude.Nothing,
-      description = Prelude.Nothing,
-      regions = Prelude.Nothing,
-      templateBody = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      usePreviousTemplate = Prelude.Nothing,
-      stackSetName = pStackSetName_
-    }
+-- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
+-- @Regions@.
+updateStackSet_autoDeployment :: Lens.Lens' UpdateStackSet (Prelude.Maybe AutoDeployment)
+updateStackSet_autoDeployment = Lens.lens (\UpdateStackSet' {autoDeployment} -> autoDeployment) (\s@UpdateStackSet' {} a -> s {autoDeployment = a} :: UpdateStackSet)
 
 -- | Describes how the IAM roles required for stack set operations are
 -- created. You cannot modify @PermissionModel@ if there are stack
@@ -628,22 +717,71 @@ newUpdateStackSet pStackSetName_ =
 updateStackSet_permissionModel :: Lens.Lens' UpdateStackSet (Prelude.Maybe PermissionModels)
 updateStackSet_permissionModel = Lens.lens (\UpdateStackSet' {permissionModel} -> permissionModel) (\s@UpdateStackSet' {} a -> s {permissionModel = a} :: UpdateStackSet)
 
--- | The name of the IAM execution role to use to update the stack set. If
--- you do not specify an execution role, CloudFormation uses the
--- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
--- operation.
+-- | A list of input parameters for the stack set template.
+updateStackSet_parameters :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Parameter])
+updateStackSet_parameters = Lens.lens (\UpdateStackSet' {parameters} -> parameters) (\s@UpdateStackSet' {} a -> s {parameters = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | Preferences for how CloudFormation performs this stack set operation.
+updateStackSet_operationPreferences :: Lens.Lens' UpdateStackSet (Prelude.Maybe StackSetOperationPreferences)
+updateStackSet_operationPreferences = Lens.lens (\UpdateStackSet' {operationPreferences} -> operationPreferences) (\s@UpdateStackSet' {} a -> s {operationPreferences = a} :: UpdateStackSet)
+
+-- | The unique ID for this stack set operation.
 --
--- Specify an IAM role only if you are using customized execution roles to
--- control which stack resources users and groups can include in their
--- stack sets.
+-- The operation ID also functions as an idempotency token, to ensure that
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You might retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
 --
--- If you specify a customized execution role, CloudFormation uses that
--- role to update the stack. If you do not specify a customized execution
--- role, CloudFormation performs the update using the role previously
--- associated with the stack set, so long as you have permissions to
--- perform operations on the stack set.
-updateStackSet_executionRoleName :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_executionRoleName = Lens.lens (\UpdateStackSet' {executionRoleName} -> executionRoleName) (\s@UpdateStackSet' {} a -> s {executionRoleName = a} :: UpdateStackSet)
+-- If you don\'t specify an operation ID, CloudFormation generates one
+-- automatically.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+updateStackSet_operationId :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_operationId = Lens.lens (\UpdateStackSet' {operationId} -> operationId) (\s@UpdateStackSet' {} a -> s {operationId = a} :: UpdateStackSet)
+
+-- | The structure that contains the template body, with a minimum length of
+-- 1 byte and a maximum length of 51,200 bytes. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+updateStackSet_templateBody :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_templateBody = Lens.lens (\UpdateStackSet' {templateBody} -> templateBody) (\s@UpdateStackSet' {} a -> s {templateBody = a} :: UpdateStackSet)
+
+-- | The location of the file that contains the template body. The URL must
+-- point to a template (maximum size: 460,800 bytes) that is located in an
+-- Amazon S3 bucket or a Systems Manager document. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
+updateStackSet_templateURL :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_templateURL = Lens.lens (\UpdateStackSet' {templateURL} -> templateURL) (\s@UpdateStackSet' {} a -> s {templateURL = a} :: UpdateStackSet)
+
+-- | [Service-managed permissions] The Organizations accounts in which to
+-- update associated stack instances.
+--
+-- To update all the stack instances associated with this stack set, do not
+-- specify @DeploymentTargets@ or @Regions@.
+--
+-- If the stack set update includes changes to the template (that is, if
+-- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
+-- CloudFormation marks all stack instances with a status of @OUTDATED@
+-- prior to updating the stack instances in the specified accounts and
+-- Regions. If the stack set update does not include changes to the
+-- template or parameters, CloudFormation updates the stack instances in
+-- the specified accounts and Regions, while leaving all other stack
+-- instances with their existing stack instance status.
+updateStackSet_deploymentTargets :: Lens.Lens' UpdateStackSet (Prelude.Maybe DeploymentTargets)
+updateStackSet_deploymentTargets = Lens.lens (\UpdateStackSet' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackSet' {} a -> s {deploymentTargets = a} :: UpdateStackSet)
+
+-- | A brief description of updates that you are making.
+updateStackSet_description :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_description = Lens.lens (\UpdateStackSet' {description} -> description) (\s@UpdateStackSet' {} a -> s {description = a} :: UpdateStackSet)
 
 -- | In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for CloudFormation to update the
@@ -708,108 +846,7 @@ updateStackSet_executionRoleName = Lens.lens (\UpdateStackSet' {executionRoleNam
 --     permissions, if you reference a macro in your template the stack set
 --     operation will fail.
 updateStackSet_capabilities :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Capability])
-updateStackSet_capabilities = Lens.lens (\UpdateStackSet' {capabilities} -> capabilities) (\s@UpdateStackSet' {} a -> s {capabilities = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | [Service-managed permissions] The Organizations accounts in which to
--- update associated stack instances.
---
--- To update all the stack instances associated with this stack set, do not
--- specify @DeploymentTargets@ or @Regions@.
---
--- If the stack set update includes changes to the template (that is, if
--- @TemplateBody@ or @TemplateURL@ is specified), or the @Parameters@,
--- CloudFormation marks all stack instances with a status of @OUTDATED@
--- prior to updating the stack instances in the specified accounts and
--- Regions. If the stack set update does not include changes to the
--- template or parameters, CloudFormation updates the stack instances in
--- the specified accounts and Regions, while leaving all other stack
--- instances with their existing stack instance status.
-updateStackSet_deploymentTargets :: Lens.Lens' UpdateStackSet (Prelude.Maybe DeploymentTargets)
-updateStackSet_deploymentTargets = Lens.lens (\UpdateStackSet' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackSet' {} a -> s {deploymentTargets = a} :: UpdateStackSet)
-
--- | The location of the file that contains the template body. The URL must
--- point to a template (maximum size: 460,800 bytes) that is located in an
--- Amazon S3 bucket or a Systems Manager document. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_templateURL :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_templateURL = Lens.lens (\UpdateStackSet' {templateURL} -> templateURL) (\s@UpdateStackSet' {} a -> s {templateURL = a} :: UpdateStackSet)
-
--- | The unique ID for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that
--- CloudFormation performs the stack set operation only once, even if you
--- retry the request multiple times. You might retry stack set operation
--- requests to ensure that CloudFormation successfully received them.
---
--- If you don\'t specify an operation ID, CloudFormation generates one
--- automatically.
---
--- Repeating this stack set operation with a new operation ID retries all
--- stack instances whose status is @OUTDATED@.
-updateStackSet_operationId :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_operationId = Lens.lens (\UpdateStackSet' {operationId} -> operationId) (\s@UpdateStackSet' {} a -> s {operationId = a} :: UpdateStackSet)
-
--- | [Service-managed permissions] Specifies whether you are acting as an
--- account administrator in the organization\'s management account or as a
--- delegated administrator in a member account.
---
--- By default, @SELF@ is specified. Use @SELF@ for stack sets with
--- self-managed permissions.
---
--- -   If you are signed in to the management account, specify @SELF@.
---
--- -   If you are signed in to a delegated administrator account, specify
---     @DELEGATED_ADMIN@.
---
---     Your Amazon Web Services account must be registered as a delegated
---     administrator in the management account. For more information, see
---     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /CloudFormation User Guide/.
-updateStackSet_callAs :: Lens.Lens' UpdateStackSet (Prelude.Maybe CallAs)
-updateStackSet_callAs = Lens.lens (\UpdateStackSet' {callAs} -> callAs) (\s@UpdateStackSet' {} a -> s {callAs = a} :: UpdateStackSet)
-
--- | Preferences for how CloudFormation performs this stack set operation.
-updateStackSet_operationPreferences :: Lens.Lens' UpdateStackSet (Prelude.Maybe StackSetOperationPreferences)
-updateStackSet_operationPreferences = Lens.lens (\UpdateStackSet' {operationPreferences} -> operationPreferences) (\s@UpdateStackSet' {} a -> s {operationPreferences = a} :: UpdateStackSet)
-
--- | [Self-managed permissions] The accounts in which to update associated
--- stack instances. If you specify accounts, you must also specify the
--- Regions in which to update stack set instances.
---
--- To update /all/ the stack instances associated with this stack set, do
--- not specify the @Accounts@ or @Regions@ properties.
---
--- If the stack set update includes changes to the template (that is, if
--- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
--- @Parameters@ property, CloudFormation marks all stack instances with a
--- status of @OUTDATED@ prior to updating the stack instances in the
--- specified accounts and Regions. If the stack set update does not include
--- changes to the template or parameters, CloudFormation updates the stack
--- instances in the specified accounts and Regions, while leaving all other
--- stack instances with their existing stack instance status.
-updateStackSet_accounts :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
-updateStackSet_accounts = Lens.lens (\UpdateStackSet' {accounts} -> accounts) (\s@UpdateStackSet' {} a -> s {accounts = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Number (ARN) of the IAM role to use to update this
--- stack set.
---
--- Specify an IAM role only if you are using customized administrator roles
--- to control which users or groups can manage specific stack sets within
--- the same administrator account. For more information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Granting Permissions for Stack Set Operations>
--- in the /CloudFormation User Guide/.
---
--- If you specified a customized administrator role when you created the
--- stack set, you must specify a customized administrator role, even if it
--- is the same customized administrator role used with this stack set
--- previously.
-updateStackSet_administrationRoleARN :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_administrationRoleARN = Lens.lens (\UpdateStackSet' {administrationRoleARN} -> administrationRoleARN) (\s@UpdateStackSet' {} a -> s {administrationRoleARN = a} :: UpdateStackSet)
+updateStackSet_capabilities = Lens.lens (\UpdateStackSet' {capabilities} -> capabilities) (\s@UpdateStackSet' {} a -> s {capabilities = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key-value pairs to associate with this stack set and the stacks
 -- created from it. CloudFormation also propagates these tags to supported
@@ -841,60 +878,24 @@ updateStackSet_administrationRoleARN = Lens.lens (\UpdateStackSet' {administrati
 -- permission(s), the entire @UpdateStackSet@ action fails with an
 -- @access denied@ error, and the stack set is not updated.
 updateStackSet_tags :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Tag])
-updateStackSet_tags = Lens.lens (\UpdateStackSet' {tags} -> tags) (\s@UpdateStackSet' {} a -> s {tags = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
+updateStackSet_tags = Lens.lens (\UpdateStackSet' {tags} -> tags) (\s@UpdateStackSet' {} a -> s {tags = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens.coerced
 
--- | [Service-managed permissions] Describes whether StackSets automatically
--- deploys to Organizations accounts that are added to a target
--- organization or organizational unit (OU).
+-- | The name of the IAM execution role to use to update the stack set. If
+-- you do not specify an execution role, CloudFormation uses the
+-- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
+-- operation.
 --
--- If you specify @AutoDeployment@, do not specify @DeploymentTargets@ or
--- @Regions@.
-updateStackSet_autoDeployment :: Lens.Lens' UpdateStackSet (Prelude.Maybe AutoDeployment)
-updateStackSet_autoDeployment = Lens.lens (\UpdateStackSet' {autoDeployment} -> autoDeployment) (\s@UpdateStackSet' {} a -> s {autoDeployment = a} :: UpdateStackSet)
-
--- | A brief description of updates that you are making.
-updateStackSet_description :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_description = Lens.lens (\UpdateStackSet' {description} -> description) (\s@UpdateStackSet' {} a -> s {description = a} :: UpdateStackSet)
-
--- | The Regions in which to update associated stack instances. If you
--- specify Regions, you must also specify accounts in which to update stack
--- set instances.
+-- Specify an IAM role only if you are using customized execution roles to
+-- control which stack resources users and groups can include in their
+-- stack sets.
 --
--- To update /all/ the stack instances associated with this stack set, do
--- not specify the @Accounts@ or @Regions@ properties.
---
--- If the stack set update includes changes to the template (that is, if
--- the @TemplateBody@ or @TemplateURL@ properties are specified), or the
--- @Parameters@ property, CloudFormation marks all stack instances with a
--- status of @OUTDATED@ prior to updating the stack instances in the
--- specified accounts and Regions. If the stack set update does not include
--- changes to the template or parameters, CloudFormation updates the stack
--- instances in the specified accounts and Regions, while leaving all other
--- stack instances with their existing stack instance status.
-updateStackSet_regions :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Prelude.Text])
-updateStackSet_regions = Lens.lens (\UpdateStackSet' {regions} -> regions) (\s@UpdateStackSet' {} a -> s {regions = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | The structure that contains the template body, with a minimum length of
--- 1 byte and a maximum length of 51,200 bytes. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_templateBody :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
-updateStackSet_templateBody = Lens.lens (\UpdateStackSet' {templateBody} -> templateBody) (\s@UpdateStackSet' {} a -> s {templateBody = a} :: UpdateStackSet)
-
--- | A list of input parameters for the stack set template.
-updateStackSet_parameters :: Lens.Lens' UpdateStackSet (Prelude.Maybe [Parameter])
-updateStackSet_parameters = Lens.lens (\UpdateStackSet' {parameters} -> parameters) (\s@UpdateStackSet' {} a -> s {parameters = a} :: UpdateStackSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | Use the existing template that\'s associated with the stack set that
--- you\'re updating.
---
--- Conditional: You must specify only one of the following parameters:
--- @TemplateBody@ or @TemplateURL@—or set @UsePreviousTemplate@ to true.
-updateStackSet_usePreviousTemplate :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Bool)
-updateStackSet_usePreviousTemplate = Lens.lens (\UpdateStackSet' {usePreviousTemplate} -> usePreviousTemplate) (\s@UpdateStackSet' {} a -> s {usePreviousTemplate = a} :: UpdateStackSet)
+-- If you specify a customized execution role, CloudFormation uses that
+-- role to update the stack. If you do not specify a customized execution
+-- role, CloudFormation performs the update using the role previously
+-- associated with the stack set, so long as you have permissions to
+-- perform operations on the stack set.
+updateStackSet_executionRoleName :: Lens.Lens' UpdateStackSet (Prelude.Maybe Prelude.Text)
+updateStackSet_executionRoleName = Lens.lens (\UpdateStackSet' {executionRoleName} -> executionRoleName) (\s@UpdateStackSet' {} a -> s {executionRoleName = a} :: UpdateStackSet)
 
 -- | The name or unique ID of the stack set that you want to update.
 updateStackSet_stackSetName :: Lens.Lens' UpdateStackSet Prelude.Text
@@ -931,34 +932,34 @@ instance Core.ToQuery UpdateStackSet where
           Core.=: ("UpdateStackSet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "PermissionModel" Core.=: permissionModel,
-        "ExecutionRoleName" Core.=: executionRoleName,
-        "Capabilities"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> capabilities),
-        "DeploymentTargets" Core.=: deploymentTargets,
-        "TemplateURL" Core.=: templateURL,
-        "OperationId" Core.=: operationId,
-        "CallAs" Core.=: callAs,
-        "OperationPreferences" Core.=: operationPreferences,
+        "AdministrationRoleARN"
+          Core.=: administrationRoleARN,
+        "UsePreviousTemplate" Core.=: usePreviousTemplate,
         "Accounts"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> accounts),
-        "AdministrationRoleARN"
-          Core.=: administrationRoleARN,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
-        "AutoDeployment" Core.=: autoDeployment,
-        "Description" Core.=: description,
+        "CallAs" Core.=: callAs,
         "Regions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> regions),
-        "TemplateBody" Core.=: templateBody,
+        "AutoDeployment" Core.=: autoDeployment,
+        "PermissionModel" Core.=: permissionModel,
         "Parameters"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> parameters),
-        "UsePreviousTemplate" Core.=: usePreviousTemplate,
+        "OperationPreferences" Core.=: operationPreferences,
+        "OperationId" Core.=: operationId,
+        "TemplateBody" Core.=: templateBody,
+        "TemplateURL" Core.=: templateURL,
+        "DeploymentTargets" Core.=: deploymentTargets,
+        "Description" Core.=: description,
+        "Capabilities"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> capabilities),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
+        "ExecutionRoleName" Core.=: executionRoleName,
         "StackSetName" Core.=: stackSetName
       ]
 

@@ -33,13 +33,13 @@ data ResourceIdentifierSummary = ResourceIdentifierSummary'
   { -- | The template resource type of the target resources, such as
     -- @AWS::S3::Bucket@.
     resourceType :: Prelude.Maybe Prelude.Text,
+    -- | The logical IDs of the target resources of the specified @ResourceType@,
+    -- as defined in the import template.
+    logicalResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The resource properties you can provide during the import to identify
     -- your target resources. For example, @BucketName@ is a possible
     -- identifier property for @AWS::S3::Bucket@ resources.
-    resourceIdentifiers :: Prelude.Maybe [Prelude.Text],
-    -- | The logical IDs of the target resources of the specified @ResourceType@,
-    -- as defined in the import template.
-    logicalResourceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    resourceIdentifiers :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,20 +54,20 @@ data ResourceIdentifierSummary = ResourceIdentifierSummary'
 -- 'resourceType', 'resourceIdentifierSummary_resourceType' - The template resource type of the target resources, such as
 -- @AWS::S3::Bucket@.
 --
+-- 'logicalResourceIds', 'resourceIdentifierSummary_logicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@,
+-- as defined in the import template.
+--
 -- 'resourceIdentifiers', 'resourceIdentifierSummary_resourceIdentifiers' - The resource properties you can provide during the import to identify
 -- your target resources. For example, @BucketName@ is a possible
 -- identifier property for @AWS::S3::Bucket@ resources.
---
--- 'logicalResourceIds', 'resourceIdentifierSummary_logicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@,
--- as defined in the import template.
 newResourceIdentifierSummary ::
   ResourceIdentifierSummary
 newResourceIdentifierSummary =
   ResourceIdentifierSummary'
     { resourceType =
         Prelude.Nothing,
-      resourceIdentifiers = Prelude.Nothing,
-      logicalResourceIds = Prelude.Nothing
+      logicalResourceIds = Prelude.Nothing,
+      resourceIdentifiers = Prelude.Nothing
     }
 
 -- | The template resource type of the target resources, such as
@@ -75,28 +75,28 @@ newResourceIdentifierSummary =
 resourceIdentifierSummary_resourceType :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe Prelude.Text)
 resourceIdentifierSummary_resourceType = Lens.lens (\ResourceIdentifierSummary' {resourceType} -> resourceType) (\s@ResourceIdentifierSummary' {} a -> s {resourceType = a} :: ResourceIdentifierSummary)
 
+-- | The logical IDs of the target resources of the specified @ResourceType@,
+-- as defined in the import template.
+resourceIdentifierSummary_logicalResourceIds :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+resourceIdentifierSummary_logicalResourceIds = Lens.lens (\ResourceIdentifierSummary' {logicalResourceIds} -> logicalResourceIds) (\s@ResourceIdentifierSummary' {} a -> s {logicalResourceIds = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The resource properties you can provide during the import to identify
 -- your target resources. For example, @BucketName@ is a possible
 -- identifier property for @AWS::S3::Bucket@ resources.
 resourceIdentifierSummary_resourceIdentifiers :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe [Prelude.Text])
-resourceIdentifierSummary_resourceIdentifiers = Lens.lens (\ResourceIdentifierSummary' {resourceIdentifiers} -> resourceIdentifiers) (\s@ResourceIdentifierSummary' {} a -> s {resourceIdentifiers = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The logical IDs of the target resources of the specified @ResourceType@,
--- as defined in the import template.
-resourceIdentifierSummary_logicalResourceIds :: Lens.Lens' ResourceIdentifierSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-resourceIdentifierSummary_logicalResourceIds = Lens.lens (\ResourceIdentifierSummary' {logicalResourceIds} -> logicalResourceIds) (\s@ResourceIdentifierSummary' {} a -> s {logicalResourceIds = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens._Coerce
+resourceIdentifierSummary_resourceIdentifiers = Lens.lens (\ResourceIdentifierSummary' {resourceIdentifiers} -> resourceIdentifiers) (\s@ResourceIdentifierSummary' {} a -> s {resourceIdentifiers = a} :: ResourceIdentifierSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ResourceIdentifierSummary where
   parseXML x =
     ResourceIdentifierSummary'
       Prelude.<$> (x Core..@? "ResourceType")
-      Prelude.<*> ( x Core..@? "ResourceIdentifiers"
-                      Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "member")
-                  )
       Prelude.<*> ( x Core..@? "LogicalResourceIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "member")
+                  )
+      Prelude.<*> ( x Core..@? "ResourceIdentifiers"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ResourceIdentifierSummary

@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackResourceSummary' smart constructor.
 data StackResourceSummary = StackResourceSummary'
-  { -- | Information about whether the resource\'s actual configuration differs,
+  { -- | The name or unique identifier that corresponds to a physical instance ID
+    -- of the resource.
+    physicalResourceId :: Prelude.Maybe Prelude.Text,
+    -- | Success\/failure message associated with the resource.
+    resourceStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | Information about whether the resource\'s actual configuration differs,
     -- or has /drifted/, from its expected configuration, as defined in the
     -- stack template and any values specified as template parameters. For more
     -- information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
     driftInformation :: Prelude.Maybe StackResourceDriftInformationSummary,
-    -- | The name or unique identifier that corresponds to a physical instance ID
-    -- of the resource.
-    physicalResourceId :: Prelude.Maybe Prelude.Text,
-    -- | Success\/failure message associated with the resource.
-    resourceStatusReason :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the module from which the resource was
     -- created, if the resource was created from a module included in the stack
     -- template.
@@ -66,16 +66,16 @@ data StackResourceSummary = StackResourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'physicalResourceId', 'stackResourceSummary_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
+-- of the resource.
+--
+-- 'resourceStatusReason', 'stackResourceSummary_resourceStatusReason' - Success\/failure message associated with the resource.
+--
 -- 'driftInformation', 'stackResourceSummary_driftInformation' - Information about whether the resource\'s actual configuration differs,
 -- or has /drifted/, from its expected configuration, as defined in the
 -- stack template and any values specified as template parameters. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
---
--- 'physicalResourceId', 'stackResourceSummary_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
--- of the resource.
---
--- 'resourceStatusReason', 'stackResourceSummary_resourceStatusReason' - Success\/failure message associated with the resource.
 --
 -- 'moduleInfo', 'stackResourceSummary_moduleInfo' - Contains information about the module from which the resource was
 -- created, if the resource was created from a module included in the stack
@@ -106,10 +106,10 @@ newStackResourceSummary
   pLastUpdatedTimestamp_
   pResourceStatus_ =
     StackResourceSummary'
-      { driftInformation =
+      { physicalResourceId =
           Prelude.Nothing,
-        physicalResourceId = Prelude.Nothing,
         resourceStatusReason = Prelude.Nothing,
+        driftInformation = Prelude.Nothing,
         moduleInfo = Prelude.Nothing,
         logicalResourceId = pLogicalResourceId_,
         resourceType = pResourceType_,
@@ -117,14 +117,6 @@ newStackResourceSummary
           Core._Time Lens.# pLastUpdatedTimestamp_,
         resourceStatus = pResourceStatus_
       }
-
--- | Information about whether the resource\'s actual configuration differs,
--- or has /drifted/, from its expected configuration, as defined in the
--- stack template and any values specified as template parameters. For more
--- information, see
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
-stackResourceSummary_driftInformation :: Lens.Lens' StackResourceSummary (Prelude.Maybe StackResourceDriftInformationSummary)
-stackResourceSummary_driftInformation = Lens.lens (\StackResourceSummary' {driftInformation} -> driftInformation) (\s@StackResourceSummary' {} a -> s {driftInformation = a} :: StackResourceSummary)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of the resource.
@@ -134,6 +126,14 @@ stackResourceSummary_physicalResourceId = Lens.lens (\StackResourceSummary' {phy
 -- | Success\/failure message associated with the resource.
 stackResourceSummary_resourceStatusReason :: Lens.Lens' StackResourceSummary (Prelude.Maybe Prelude.Text)
 stackResourceSummary_resourceStatusReason = Lens.lens (\StackResourceSummary' {resourceStatusReason} -> resourceStatusReason) (\s@StackResourceSummary' {} a -> s {resourceStatusReason = a} :: StackResourceSummary)
+
+-- | Information about whether the resource\'s actual configuration differs,
+-- or has /drifted/, from its expected configuration, as defined in the
+-- stack template and any values specified as template parameters. For more
+-- information, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
+stackResourceSummary_driftInformation :: Lens.Lens' StackResourceSummary (Prelude.Maybe StackResourceDriftInformationSummary)
+stackResourceSummary_driftInformation = Lens.lens (\StackResourceSummary' {driftInformation} -> driftInformation) (\s@StackResourceSummary' {} a -> s {driftInformation = a} :: StackResourceSummary)
 
 -- | Contains information about the module from which the resource was
 -- created, if the resource was created from a module included in the stack
@@ -162,9 +162,9 @@ stackResourceSummary_resourceStatus = Lens.lens (\StackResourceSummary' {resourc
 instance Core.FromXML StackResourceSummary where
   parseXML x =
     StackResourceSummary'
-      Prelude.<$> (x Core..@? "DriftInformation")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
+      Prelude.<$> (x Core..@? "PhysicalResourceId")
       Prelude.<*> (x Core..@? "ResourceStatusReason")
+      Prelude.<*> (x Core..@? "DriftInformation")
       Prelude.<*> (x Core..@? "ModuleInfo")
       Prelude.<*> (x Core..@ "LogicalResourceId")
       Prelude.<*> (x Core..@ "ResourceType")

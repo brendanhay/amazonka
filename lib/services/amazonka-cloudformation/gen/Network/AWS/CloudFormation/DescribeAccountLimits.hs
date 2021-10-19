@@ -40,8 +40,8 @@ module Network.AWS.CloudFormation.DescribeAccountLimits
     newDescribeAccountLimitsResponse,
 
     -- * Response Lenses
-    describeAccountLimitsResponse_accountLimits,
     describeAccountLimitsResponse_nextToken,
+    describeAccountLimitsResponse_accountLimits,
     describeAccountLimitsResponse_httpStatus,
   )
 where
@@ -115,10 +115,10 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> ( x Core..@? "AccountLimits" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "AccountLimits" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,12 +146,12 @@ instance Core.ToQuery DescribeAccountLimits where
 --
 -- /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | An account limit structure that contain a list of CloudFormation account
-    -- limits and their values.
-    accountLimits :: Prelude.Maybe [AccountLimit],
-    -- | If the output exceeds 1 MB in size, a string that identifies the next
+  { -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of limits. If no additional page exists, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An account limit structure that contain a list of CloudFormation account
+    -- limits and their values.
+    accountLimits :: Prelude.Maybe [AccountLimit],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,11 +165,11 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An account limit structure that contain a list of CloudFormation account
--- limits and their values.
---
 -- 'nextToken', 'describeAccountLimitsResponse_nextToken' - If the output exceeds 1 MB in size, a string that identifies the next
 -- page of limits. If no additional page exists, this value is null.
+--
+-- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An account limit structure that contain a list of CloudFormation account
+-- limits and their values.
 --
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
@@ -178,21 +178,21 @@ newDescribeAccountLimitsResponse ::
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
-    { accountLimits =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      accountLimits = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An account limit structure that contain a list of CloudFormation account
--- limits and their values.
-describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
-describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of limits. If no additional page exists, this value is null.
 describeAccountLimitsResponse_nextToken :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
 describeAccountLimitsResponse_nextToken = Lens.lens (\DescribeAccountLimitsResponse' {nextToken} -> nextToken) (\s@DescribeAccountLimitsResponse' {} a -> s {nextToken = a} :: DescribeAccountLimitsResponse)
+
+-- | An account limit structure that contain a list of CloudFormation account
+-- limits and their values.
+describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
+describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int

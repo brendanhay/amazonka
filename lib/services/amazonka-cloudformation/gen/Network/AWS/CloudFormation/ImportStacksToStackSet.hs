@@ -32,9 +32,9 @@ module Network.AWS.CloudFormation.ImportStacksToStackSet
     newImportStacksToStackSet,
 
     -- * Request Lenses
-    importStacksToStackSet_operationId,
     importStacksToStackSet_callAs,
     importStacksToStackSet_operationPreferences,
+    importStacksToStackSet_operationId,
     importStacksToStackSet_stackSetName,
     importStacksToStackSet_stackIds,
 
@@ -57,9 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportStacksToStackSet' smart constructor.
 data ImportStacksToStackSet = ImportStacksToStackSet'
-  { -- | A unique, user defined, identifier for the stack set operation.
-    operationId :: Prelude.Maybe Prelude.Text,
-    -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
+  { -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
     -- self-managed permissions.
     --
     -- -   If you are signed in to the management account, specify @SELF@.
@@ -67,6 +65,8 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
     -- -   For service managed stack sets, specify @DELEGATED_ADMIN@.
     callAs :: Prelude.Maybe CallAs,
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | A unique, user defined, identifier for the stack set operation.
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The name of the stack set. The name must be unique in the Region where
     -- you create your stack set.
     stackSetName :: Prelude.Text,
@@ -84,8 +84,6 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operationId', 'importStacksToStackSet_operationId' - A unique, user defined, identifier for the stack set operation.
---
 -- 'callAs', 'importStacksToStackSet_callAs' - By default, @SELF@ is specified. Use @SELF@ for stack sets with
 -- self-managed permissions.
 --
@@ -94,6 +92,8 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
 -- -   For service managed stack sets, specify @DELEGATED_ADMIN@.
 --
 -- 'operationPreferences', 'importStacksToStackSet_operationPreferences' - Undocumented member.
+--
+-- 'operationId', 'importStacksToStackSet_operationId' - A unique, user defined, identifier for the stack set operation.
 --
 -- 'stackSetName', 'importStacksToStackSet_stackSetName' - The name of the stack set. The name must be unique in the Region where
 -- you create your stack set.
@@ -106,17 +106,12 @@ newImportStacksToStackSet ::
   ImportStacksToStackSet
 newImportStacksToStackSet pStackSetName_ =
   ImportStacksToStackSet'
-    { operationId =
-        Prelude.Nothing,
-      callAs = Prelude.Nothing,
+    { callAs = Prelude.Nothing,
       operationPreferences = Prelude.Nothing,
+      operationId = Prelude.Nothing,
       stackSetName = pStackSetName_,
       stackIds = Prelude.mempty
     }
-
--- | A unique, user defined, identifier for the stack set operation.
-importStacksToStackSet_operationId :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
-importStacksToStackSet_operationId = Lens.lens (\ImportStacksToStackSet' {operationId} -> operationId) (\s@ImportStacksToStackSet' {} a -> s {operationId = a} :: ImportStacksToStackSet)
 
 -- | By default, @SELF@ is specified. Use @SELF@ for stack sets with
 -- self-managed permissions.
@@ -131,6 +126,10 @@ importStacksToStackSet_callAs = Lens.lens (\ImportStacksToStackSet' {callAs} -> 
 importStacksToStackSet_operationPreferences :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe StackSetOperationPreferences)
 importStacksToStackSet_operationPreferences = Lens.lens (\ImportStacksToStackSet' {operationPreferences} -> operationPreferences) (\s@ImportStacksToStackSet' {} a -> s {operationPreferences = a} :: ImportStacksToStackSet)
 
+-- | A unique, user defined, identifier for the stack set operation.
+importStacksToStackSet_operationId :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
+importStacksToStackSet_operationId = Lens.lens (\ImportStacksToStackSet' {operationId} -> operationId) (\s@ImportStacksToStackSet' {} a -> s {operationId = a} :: ImportStacksToStackSet)
+
 -- | The name of the stack set. The name must be unique in the Region where
 -- you create your stack set.
 importStacksToStackSet_stackSetName :: Lens.Lens' ImportStacksToStackSet Prelude.Text
@@ -139,7 +138,7 @@ importStacksToStackSet_stackSetName = Lens.lens (\ImportStacksToStackSet' {stack
 -- | The IDs of the stacks you are importing into a stack set. You import up
 -- to 10 stacks per stack set at a time.
 importStacksToStackSet_stackIds :: Lens.Lens' ImportStacksToStackSet [Prelude.Text]
-importStacksToStackSet_stackIds = Lens.lens (\ImportStacksToStackSet' {stackIds} -> stackIds) (\s@ImportStacksToStackSet' {} a -> s {stackIds = a} :: ImportStacksToStackSet) Prelude.. Lens._Coerce
+importStacksToStackSet_stackIds = Lens.lens (\ImportStacksToStackSet' {stackIds} -> stackIds) (\s@ImportStacksToStackSet' {} a -> s {stackIds = a} :: ImportStacksToStackSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ImportStacksToStackSet where
   type
@@ -172,9 +171,9 @@ instance Core.ToQuery ImportStacksToStackSet where
           Core.=: ("ImportStacksToStackSet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "OperationId" Core.=: operationId,
         "CallAs" Core.=: callAs,
         "OperationPreferences" Core.=: operationPreferences,
+        "OperationId" Core.=: operationId,
         "StackSetName" Core.=: stackSetName,
         "StackIds"
           Core.=: Core.toQueryList "member" stackIds

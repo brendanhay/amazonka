@@ -108,7 +108,7 @@ newDetectStackDrift pStackName_ =
 
 -- | The logical names of any resources you want to use as filters.
 detectStackDrift_logicalResourceIds :: Lens.Lens' DetectStackDrift (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-detectStackDrift_logicalResourceIds = Lens.lens (\DetectStackDrift' {logicalResourceIds} -> logicalResourceIds) (\s@DetectStackDrift' {} a -> s {logicalResourceIds = a} :: DetectStackDrift) Prelude.. Lens.mapping Lens._Coerce
+detectStackDrift_logicalResourceIds = Lens.lens (\DetectStackDrift' {logicalResourceIds} -> logicalResourceIds) (\s@DetectStackDrift' {} a -> s {logicalResourceIds = a} :: DetectStackDrift) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the stack for which you want to detect drift.
 detectStackDrift_stackName :: Lens.Lens' DetectStackDrift Prelude.Text

@@ -33,7 +33,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackSetOperationPreferences' smart constructor.
 data StackSetOperationPreferences = StackSetOperationPreferences'
-  { -- | The maximum percentage of accounts in which to perform this operation at
+  { -- | The order of the Regions in where you want to perform the stack
+    -- operation.
+    regionOrder :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of accounts in which to perform this operation at one
+    -- time. This is dependent on the value of @FailureToleranceCount@.
+    -- @MaxConcurrentCount@ is at most one more than the
+    -- @FailureToleranceCount@.
+    --
+    -- Note that this setting lets you specify the /maximum/ for operations.
+    -- For large deployments, under certain circumstances the actual number of
+    -- accounts acted upon concurrently may be lower due to service throttling.
+    --
+    -- Conditional: You must specify either @MaxConcurrentCount@ or
+    -- @MaxConcurrentPercentage@, but not both.
+    --
+    -- By default, @1@ is specified.
+    maxConcurrentCount :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum percentage of accounts in which to perform this operation at
     -- one time.
     --
     -- When calculating the number of accounts based on the specified
@@ -50,9 +67,6 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
     --
     -- By default, @1@ is specified.
     maxConcurrentPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The order of the Regions in where you want to perform the stack
-    -- operation.
-    regionOrder :: Prelude.Maybe [Prelude.Text],
     -- | The number of accounts, per Region, for which this operation can fail
     -- before CloudFormation stops the operation in that Region. If the
     -- operation is stopped in a Region, CloudFormation doesn\'t attempt the
@@ -63,20 +77,9 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
     --
     -- By default, @0@ is specified.
     failureToleranceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of accounts in which to perform this operation at one
-    -- time. This is dependent on the value of @FailureToleranceCount@.
-    -- @MaxConcurrentCount@ is at most one more than the
-    -- @FailureToleranceCount@.
-    --
-    -- Note that this setting lets you specify the /maximum/ for operations.
-    -- For large deployments, under certain circumstances the actual number of
-    -- accounts acted upon concurrently may be lower due to service throttling.
-    --
-    -- Conditional: You must specify either @MaxConcurrentCount@ or
-    -- @MaxConcurrentPercentage@, but not both.
-    --
-    -- By default, @1@ is specified.
-    maxConcurrentCount :: Prelude.Maybe Prelude.Natural,
+    -- | The concurrency type of deploying StackSets operations in Regions, could
+    -- be in parallel or one Region at a time.
+    regionConcurrencyType :: Prelude.Maybe RegionConcurrencyType,
     -- | The percentage of accounts, per Region, for which this stack operation
     -- can fail before CloudFormation stops the operation in that Region. If
     -- the operation is stopped in a Region, CloudFormation doesn\'t attempt
@@ -89,10 +92,7 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
     -- @FailureTolerancePercentage@, but not both.
     --
     -- By default, @0@ is specified.
-    failureTolerancePercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The concurrency type of deploying StackSets operations in Regions, could
-    -- be in parallel or one Region at a time.
-    regionConcurrencyType :: Prelude.Maybe RegionConcurrencyType
+    failureTolerancePercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,6 +103,23 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'regionOrder', 'stackSetOperationPreferences_regionOrder' - The order of the Regions in where you want to perform the stack
+-- operation.
+--
+-- 'maxConcurrentCount', 'stackSetOperationPreferences_maxConcurrentCount' - The maximum number of accounts in which to perform this operation at one
+-- time. This is dependent on the value of @FailureToleranceCount@.
+-- @MaxConcurrentCount@ is at most one more than the
+-- @FailureToleranceCount@.
+--
+-- Note that this setting lets you specify the /maximum/ for operations.
+-- For large deployments, under certain circumstances the actual number of
+-- accounts acted upon concurrently may be lower due to service throttling.
+--
+-- Conditional: You must specify either @MaxConcurrentCount@ or
+-- @MaxConcurrentPercentage@, but not both.
+--
+-- By default, @1@ is specified.
 --
 -- 'maxConcurrentPercentage', 'stackSetOperationPreferences_maxConcurrentPercentage' - The maximum percentage of accounts in which to perform this operation at
 -- one time.
@@ -121,9 +138,6 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 --
 -- By default, @1@ is specified.
 --
--- 'regionOrder', 'stackSetOperationPreferences_regionOrder' - The order of the Regions in where you want to perform the stack
--- operation.
---
 -- 'failureToleranceCount', 'stackSetOperationPreferences_failureToleranceCount' - The number of accounts, per Region, for which this operation can fail
 -- before CloudFormation stops the operation in that Region. If the
 -- operation is stopped in a Region, CloudFormation doesn\'t attempt the
@@ -134,19 +148,8 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 --
 -- By default, @0@ is specified.
 --
--- 'maxConcurrentCount', 'stackSetOperationPreferences_maxConcurrentCount' - The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @FailureToleranceCount@.
--- @MaxConcurrentCount@ is at most one more than the
--- @FailureToleranceCount@.
---
--- Note that this setting lets you specify the /maximum/ for operations.
--- For large deployments, under certain circumstances the actual number of
--- accounts acted upon concurrently may be lower due to service throttling.
---
--- Conditional: You must specify either @MaxConcurrentCount@ or
--- @MaxConcurrentPercentage@, but not both.
---
--- By default, @1@ is specified.
+-- 'regionConcurrencyType', 'stackSetOperationPreferences_regionConcurrencyType' - The concurrency type of deploying StackSets operations in Regions, could
+-- be in parallel or one Region at a time.
 --
 -- 'failureTolerancePercentage', 'stackSetOperationPreferences_failureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation
 -- can fail before CloudFormation stops the operation in that Region. If
@@ -160,21 +163,39 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 -- @FailureTolerancePercentage@, but not both.
 --
 -- By default, @0@ is specified.
---
--- 'regionConcurrencyType', 'stackSetOperationPreferences_regionConcurrencyType' - The concurrency type of deploying StackSets operations in Regions, could
--- be in parallel or one Region at a time.
 newStackSetOperationPreferences ::
   StackSetOperationPreferences
 newStackSetOperationPreferences =
   StackSetOperationPreferences'
-    { maxConcurrentPercentage =
+    { regionOrder =
         Prelude.Nothing,
-      regionOrder = Prelude.Nothing,
-      failureToleranceCount = Prelude.Nothing,
       maxConcurrentCount = Prelude.Nothing,
-      failureTolerancePercentage = Prelude.Nothing,
-      regionConcurrencyType = Prelude.Nothing
+      maxConcurrentPercentage = Prelude.Nothing,
+      failureToleranceCount = Prelude.Nothing,
+      regionConcurrencyType = Prelude.Nothing,
+      failureTolerancePercentage = Prelude.Nothing
     }
+
+-- | The order of the Regions in where you want to perform the stack
+-- operation.
+stackSetOperationPreferences_regionOrder :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe [Prelude.Text])
+stackSetOperationPreferences_regionOrder = Lens.lens (\StackSetOperationPreferences' {regionOrder} -> regionOrder) (\s@StackSetOperationPreferences' {} a -> s {regionOrder = a} :: StackSetOperationPreferences) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of accounts in which to perform this operation at one
+-- time. This is dependent on the value of @FailureToleranceCount@.
+-- @MaxConcurrentCount@ is at most one more than the
+-- @FailureToleranceCount@.
+--
+-- Note that this setting lets you specify the /maximum/ for operations.
+-- For large deployments, under certain circumstances the actual number of
+-- accounts acted upon concurrently may be lower due to service throttling.
+--
+-- Conditional: You must specify either @MaxConcurrentCount@ or
+-- @MaxConcurrentPercentage@, but not both.
+--
+-- By default, @1@ is specified.
+stackSetOperationPreferences_maxConcurrentCount :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
+stackSetOperationPreferences_maxConcurrentCount = Lens.lens (\StackSetOperationPreferences' {maxConcurrentCount} -> maxConcurrentCount) (\s@StackSetOperationPreferences' {} a -> s {maxConcurrentCount = a} :: StackSetOperationPreferences)
 
 -- | The maximum percentage of accounts in which to perform this operation at
 -- one time.
@@ -195,11 +216,6 @@ newStackSetOperationPreferences =
 stackSetOperationPreferences_maxConcurrentPercentage :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
 stackSetOperationPreferences_maxConcurrentPercentage = Lens.lens (\StackSetOperationPreferences' {maxConcurrentPercentage} -> maxConcurrentPercentage) (\s@StackSetOperationPreferences' {} a -> s {maxConcurrentPercentage = a} :: StackSetOperationPreferences)
 
--- | The order of the Regions in where you want to perform the stack
--- operation.
-stackSetOperationPreferences_regionOrder :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe [Prelude.Text])
-stackSetOperationPreferences_regionOrder = Lens.lens (\StackSetOperationPreferences' {regionOrder} -> regionOrder) (\s@StackSetOperationPreferences' {} a -> s {regionOrder = a} :: StackSetOperationPreferences) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The number of accounts, per Region, for which this operation can fail
 -- before CloudFormation stops the operation in that Region. If the
 -- operation is stopped in a Region, CloudFormation doesn\'t attempt the
@@ -212,21 +228,10 @@ stackSetOperationPreferences_regionOrder = Lens.lens (\StackSetOperationPreferen
 stackSetOperationPreferences_failureToleranceCount :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
 stackSetOperationPreferences_failureToleranceCount = Lens.lens (\StackSetOperationPreferences' {failureToleranceCount} -> failureToleranceCount) (\s@StackSetOperationPreferences' {} a -> s {failureToleranceCount = a} :: StackSetOperationPreferences)
 
--- | The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @FailureToleranceCount@.
--- @MaxConcurrentCount@ is at most one more than the
--- @FailureToleranceCount@.
---
--- Note that this setting lets you specify the /maximum/ for operations.
--- For large deployments, under certain circumstances the actual number of
--- accounts acted upon concurrently may be lower due to service throttling.
---
--- Conditional: You must specify either @MaxConcurrentCount@ or
--- @MaxConcurrentPercentage@, but not both.
---
--- By default, @1@ is specified.
-stackSetOperationPreferences_maxConcurrentCount :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
-stackSetOperationPreferences_maxConcurrentCount = Lens.lens (\StackSetOperationPreferences' {maxConcurrentCount} -> maxConcurrentCount) (\s@StackSetOperationPreferences' {} a -> s {maxConcurrentCount = a} :: StackSetOperationPreferences)
+-- | The concurrency type of deploying StackSets operations in Regions, could
+-- be in parallel or one Region at a time.
+stackSetOperationPreferences_regionConcurrencyType :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe RegionConcurrencyType)
+stackSetOperationPreferences_regionConcurrencyType = Lens.lens (\StackSetOperationPreferences' {regionConcurrencyType} -> regionConcurrencyType) (\s@StackSetOperationPreferences' {} a -> s {regionConcurrencyType = a} :: StackSetOperationPreferences)
 
 -- | The percentage of accounts, per Region, for which this stack operation
 -- can fail before CloudFormation stops the operation in that Region. If
@@ -243,22 +248,17 @@ stackSetOperationPreferences_maxConcurrentCount = Lens.lens (\StackSetOperationP
 stackSetOperationPreferences_failureTolerancePercentage :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe Prelude.Natural)
 stackSetOperationPreferences_failureTolerancePercentage = Lens.lens (\StackSetOperationPreferences' {failureTolerancePercentage} -> failureTolerancePercentage) (\s@StackSetOperationPreferences' {} a -> s {failureTolerancePercentage = a} :: StackSetOperationPreferences)
 
--- | The concurrency type of deploying StackSets operations in Regions, could
--- be in parallel or one Region at a time.
-stackSetOperationPreferences_regionConcurrencyType :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe RegionConcurrencyType)
-stackSetOperationPreferences_regionConcurrencyType = Lens.lens (\StackSetOperationPreferences' {regionConcurrencyType} -> regionConcurrencyType) (\s@StackSetOperationPreferences' {} a -> s {regionConcurrencyType = a} :: StackSetOperationPreferences)
-
 instance Core.FromXML StackSetOperationPreferences where
   parseXML x =
     StackSetOperationPreferences'
-      Prelude.<$> (x Core..@? "MaxConcurrentPercentage")
-      Prelude.<*> ( x Core..@? "RegionOrder" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "RegionOrder" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "FailureToleranceCount")
       Prelude.<*> (x Core..@? "MaxConcurrentCount")
-      Prelude.<*> (x Core..@? "FailureTolerancePercentage")
+      Prelude.<*> (x Core..@? "MaxConcurrentPercentage")
+      Prelude.<*> (x Core..@? "FailureToleranceCount")
       Prelude.<*> (x Core..@? "RegionConcurrencyType")
+      Prelude.<*> (x Core..@? "FailureTolerancePercentage")
 
 instance
   Prelude.Hashable
@@ -269,16 +269,16 @@ instance Prelude.NFData StackSetOperationPreferences
 instance Core.ToQuery StackSetOperationPreferences where
   toQuery StackSetOperationPreferences' {..} =
     Prelude.mconcat
-      [ "MaxConcurrentPercentage"
-          Core.=: maxConcurrentPercentage,
-        "RegionOrder"
+      [ "RegionOrder"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> regionOrder),
+        "MaxConcurrentCount" Core.=: maxConcurrentCount,
+        "MaxConcurrentPercentage"
+          Core.=: maxConcurrentPercentage,
         "FailureToleranceCount"
           Core.=: failureToleranceCount,
-        "MaxConcurrentCount" Core.=: maxConcurrentCount,
-        "FailureTolerancePercentage"
-          Core.=: failureTolerancePercentage,
         "RegionConcurrencyType"
-          Core.=: regionConcurrencyType
+          Core.=: regionConcurrencyType,
+        "FailureTolerancePercentage"
+          Core.=: failureTolerancePercentage
       ]

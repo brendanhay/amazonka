@@ -44,8 +44,8 @@ module Network.AWS.CloudFormation.ListImports
     newListImportsResponse,
 
     -- * Response Lenses
-    listImportsResponse_nextToken,
     listImportsResponse_imports,
+    listImportsResponse_nextToken,
     listImportsResponse_httpStatus,
   )
 where
@@ -131,10 +131,10 @@ instance Core.AWSRequest ListImports where
       "ListImportsResult"
       ( \s h x ->
           ListImportsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "Imports" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Imports" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Core.ToQuery ListImports where
 
 -- | /See:/ 'newListImportsResponse' smart constructor.
 data ListImportsResponse = ListImportsResponse'
-  { -- | A string that identifies the next page of exports. If there is no
-    -- additional page, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of stack names that are importing the specified exported output
+  { -- | A list of stack names that are importing the specified exported output
     -- value.
     imports :: Prelude.Maybe [Prelude.Text],
+    -- | A string that identifies the next page of exports. If there is no
+    -- additional page, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data ListImportsResponse = ListImportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImportsResponse_nextToken' - A string that identifies the next page of exports. If there is no
--- additional page, this value is null.
---
 -- 'imports', 'listImportsResponse_imports' - A list of stack names that are importing the specified exported output
 -- value.
+--
+-- 'nextToken', 'listImportsResponse_nextToken' - A string that identifies the next page of exports. If there is no
+-- additional page, this value is null.
 --
 -- 'httpStatus', 'listImportsResponse_httpStatus' - The response's http status code.
 newListImportsResponse ::
@@ -193,20 +193,20 @@ newListImportsResponse ::
   ListImportsResponse
 newListImportsResponse pHttpStatus_ =
   ListImportsResponse'
-    { nextToken = Prelude.Nothing,
-      imports = Prelude.Nothing,
+    { imports = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of stack names that are importing the specified exported output
+-- value.
+listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Prelude.Maybe [Prelude.Text])
+listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that identifies the next page of exports. If there is no
 -- additional page, this value is null.
 listImportsResponse_nextToken :: Lens.Lens' ListImportsResponse (Prelude.Maybe Prelude.Text)
 listImportsResponse_nextToken = Lens.lens (\ListImportsResponse' {nextToken} -> nextToken) (\s@ListImportsResponse' {} a -> s {nextToken = a} :: ListImportsResponse)
-
--- | A list of stack names that are importing the specified exported output
--- value.
-listImportsResponse_imports :: Lens.Lens' ListImportsResponse (Prelude.Maybe [Prelude.Text])
-listImportsResponse_imports = Lens.lens (\ListImportsResponse' {imports} -> imports) (\s@ListImportsResponse' {} a -> s {imports = a} :: ListImportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listImportsResponse_httpStatus :: Lens.Lens' ListImportsResponse Prelude.Int

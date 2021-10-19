@@ -30,21 +30,21 @@ module Network.AWS.CloudFormation.ListTypes
     newListTypes,
 
     -- * Request Lenses
-    listTypes_nextToken,
-    listTypes_maxResults,
-    listTypes_deprecatedStatus,
-    listTypes_provisioningType,
-    listTypes_visibility,
     listTypes_filters,
+    listTypes_visibility,
+    listTypes_nextToken,
+    listTypes_deprecatedStatus,
     listTypes_type,
+    listTypes_maxResults,
+    listTypes_provisioningType,
 
     -- * Destructuring the Response
     ListTypesResponse (..),
     newListTypesResponse,
 
     -- * Response Lenses
-    listTypesResponse_nextToken,
     listTypesResponse_typeSummaries,
+    listTypesResponse_nextToken,
     listTypesResponse_httpStatus,
   )
 where
@@ -58,48 +58,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { -- | If the previous paginated request didn\'t return all of the remaining
-    -- results, the response object\'s @NextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call this action again and
-    -- assign that token to the request object\'s @NextToken@ parameter. If
-    -- there are no remaining results, the previous response object\'s
-    -- @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
-    -- number of available results exceeds this maximum, the response includes
-    -- a @NextToken@ value that you can assign to the @NextToken@ request
-    -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The deprecation status of the extension that you want to get summary
-    -- information about.
+  { -- | Filter criteria to use in determining which extensions to return.
     --
-    -- Valid values include:
-    --
-    -- -   @LIVE@: The extension is registered for use in CloudFormation
-    --     operations.
-    --
-    -- -   @DEPRECATED@: The extension has been deregistered and can no longer
-    --     be used in CloudFormation operations.
-    deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
-    -- | For resource types, the provisioning behavior of the resource type.
-    -- CloudFormation determines the provisioning type during registration,
-    -- based on the types of handlers in the schema handler package submitted.
-    --
-    -- Valid values include:
-    --
-    -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
-    --     process updates to the type during stack update operations.
-    --
-    -- -   @IMMUTABLE@: The resource type does not include an update handler,
-    --     so the type cannot be updated and must instead be replaced during
-    --     stack update operations.
-    --
-    -- -   @NON_PROVISIONABLE@: The resource type does not include create,
-    --     read, and delete handlers, and therefore cannot actually be
-    --     provisioned.
-    --
-    -- The default is @FULLY_MUTABLE@.
-    provisioningType :: Prelude.Maybe ProvisioningType,
+    -- If you specify a filter, CloudFormation ignores any specified
+    -- @Visibility@ value when returning the list of types.
+    filters :: Prelude.Maybe TypeFilters,
     -- | The scope at which the extensions are visible and usable in
     -- CloudFormation operations.
     --
@@ -120,13 +83,50 @@ data ListTypes = ListTypes'
     --
     -- The default is @PRIVATE@.
     visibility :: Prelude.Maybe Visibility,
-    -- | Filter criteria to use in determining which extensions to return.
+    -- | If the previous paginated request didn\'t return all of the remaining
+    -- results, the response object\'s @NextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call this action again and
+    -- assign that token to the request object\'s @NextToken@ parameter. If
+    -- there are no remaining results, the previous response object\'s
+    -- @NextToken@ parameter is set to @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The deprecation status of the extension that you want to get summary
+    -- information about.
     --
-    -- If you specify a filter, CloudFormation ignores any specified
-    -- @Visibility@ value when returning the list of types.
-    filters :: Prelude.Maybe TypeFilters,
+    -- Valid values include:
+    --
+    -- -   @LIVE@: The extension is registered for use in CloudFormation
+    --     operations.
+    --
+    -- -   @DEPRECATED@: The extension has been deregistered and can no longer
+    --     be used in CloudFormation operations.
+    deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
     -- | The type of extension.
-    type' :: Prelude.Maybe RegistryType
+    type' :: Prelude.Maybe RegistryType,
+    -- | The maximum number of results to be returned with a single call. If the
+    -- number of available results exceeds this maximum, the response includes
+    -- a @NextToken@ value that you can assign to the @NextToken@ request
+    -- parameter to get the next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | For resource types, the provisioning behavior of the resource type.
+    -- CloudFormation determines the provisioning type during registration,
+    -- based on the types of handlers in the schema handler package submitted.
+    --
+    -- Valid values include:
+    --
+    -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
+    --     process updates to the type during stack update operations.
+    --
+    -- -   @IMMUTABLE@: The resource type does not include an update handler,
+    --     so the type cannot be updated and must instead be replaced during
+    --     stack update operations.
+    --
+    -- -   @NON_PROVISIONABLE@: The resource type does not include create,
+    --     read, and delete handlers, and therefore cannot actually be
+    --     provisioned.
+    --
+    -- The default is @FULLY_MUTABLE@.
+    provisioningType :: Prelude.Maybe ProvisioningType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,47 +138,10 @@ data ListTypes = ListTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypes_nextToken' - If the previous paginated request didn\'t return all of the remaining
--- results, the response object\'s @NextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call this action again and
--- assign that token to the request object\'s @NextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- @NextToken@ parameter is set to @null@.
+-- 'filters', 'listTypes_filters' - Filter criteria to use in determining which extensions to return.
 --
--- 'maxResults', 'listTypes_maxResults' - The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
---
--- 'deprecatedStatus', 'listTypes_deprecatedStatus' - The deprecation status of the extension that you want to get summary
--- information about.
---
--- Valid values include:
---
--- -   @LIVE@: The extension is registered for use in CloudFormation
---     operations.
---
--- -   @DEPRECATED@: The extension has been deregistered and can no longer
---     be used in CloudFormation operations.
---
--- 'provisioningType', 'listTypes_provisioningType' - For resource types, the provisioning behavior of the resource type.
--- CloudFormation determines the provisioning type during registration,
--- based on the types of handlers in the schema handler package submitted.
---
--- Valid values include:
---
--- -   @FULLY_MUTABLE@: The resource type includes an update handler to
---     process updates to the type during stack update operations.
---
--- -   @IMMUTABLE@: The resource type does not include an update handler,
---     so the type cannot be updated and must instead be replaced during
---     stack update operations.
---
--- -   @NON_PROVISIONABLE@: The resource type does not include create,
---     read, and delete handlers, and therefore cannot actually be
---     provisioned.
---
--- The default is @FULLY_MUTABLE@.
+-- If you specify a filter, CloudFormation ignores any specified
+-- @Visibility@ value when returning the list of types.
 --
 -- 'visibility', 'listTypes_visibility' - The scope at which the extensions are visible and usable in
 -- CloudFormation operations.
@@ -200,42 +163,14 @@ data ListTypes = ListTypes'
 --
 -- The default is @PRIVATE@.
 --
--- 'filters', 'listTypes_filters' - Filter criteria to use in determining which extensions to return.
---
--- If you specify a filter, CloudFormation ignores any specified
--- @Visibility@ value when returning the list of types.
---
--- 'type'', 'listTypes_type' - The type of extension.
-newListTypes ::
-  ListTypes
-newListTypes =
-  ListTypes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      deprecatedStatus = Prelude.Nothing,
-      provisioningType = Prelude.Nothing,
-      visibility = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      type' = Prelude.Nothing
-    }
-
--- | If the previous paginated request didn\'t return all of the remaining
+-- 'nextToken', 'listTypes_nextToken' - If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listTypes_nextToken :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Text)
-listTypes_nextToken = Lens.lens (\ListTypes' {nextToken} -> nextToken) (\s@ListTypes' {} a -> s {nextToken = a} :: ListTypes)
-
--- | The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
-listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
-listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
-
--- | The deprecation status of the extension that you want to get summary
+--
+-- 'deprecatedStatus', 'listTypes_deprecatedStatus' - The deprecation status of the extension that you want to get summary
 -- information about.
 --
 -- Valid values include:
@@ -245,10 +180,15 @@ listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@Li
 --
 -- -   @DEPRECATED@: The extension has been deregistered and can no longer
 --     be used in CloudFormation operations.
-listTypes_deprecatedStatus :: Lens.Lens' ListTypes (Prelude.Maybe DeprecatedStatus)
-listTypes_deprecatedStatus = Lens.lens (\ListTypes' {deprecatedStatus} -> deprecatedStatus) (\s@ListTypes' {} a -> s {deprecatedStatus = a} :: ListTypes)
-
--- | For resource types, the provisioning behavior of the resource type.
+--
+-- 'type'', 'listTypes_type' - The type of extension.
+--
+-- 'maxResults', 'listTypes_maxResults' - The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+--
+-- 'provisioningType', 'listTypes_provisioningType' - For resource types, the provisioning behavior of the resource type.
 -- CloudFormation determines the provisioning type during registration,
 -- based on the types of handlers in the schema handler package submitted.
 --
@@ -266,8 +206,25 @@ listTypes_deprecatedStatus = Lens.lens (\ListTypes' {deprecatedStatus} -> deprec
 --     provisioned.
 --
 -- The default is @FULLY_MUTABLE@.
-listTypes_provisioningType :: Lens.Lens' ListTypes (Prelude.Maybe ProvisioningType)
-listTypes_provisioningType = Lens.lens (\ListTypes' {provisioningType} -> provisioningType) (\s@ListTypes' {} a -> s {provisioningType = a} :: ListTypes)
+newListTypes ::
+  ListTypes
+newListTypes =
+  ListTypes'
+    { filters = Prelude.Nothing,
+      visibility = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      deprecatedStatus = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      provisioningType = Prelude.Nothing
+    }
+
+-- | Filter criteria to use in determining which extensions to return.
+--
+-- If you specify a filter, CloudFormation ignores any specified
+-- @Visibility@ value when returning the list of types.
+listTypes_filters :: Lens.Lens' ListTypes (Prelude.Maybe TypeFilters)
+listTypes_filters = Lens.lens (\ListTypes' {filters} -> filters) (\s@ListTypes' {} a -> s {filters = a} :: ListTypes)
 
 -- | The scope at which the extensions are visible and usable in
 -- CloudFormation operations.
@@ -291,16 +248,59 @@ listTypes_provisioningType = Lens.lens (\ListTypes' {provisioningType} -> provis
 listTypes_visibility :: Lens.Lens' ListTypes (Prelude.Maybe Visibility)
 listTypes_visibility = Lens.lens (\ListTypes' {visibility} -> visibility) (\s@ListTypes' {} a -> s {visibility = a} :: ListTypes)
 
--- | Filter criteria to use in determining which extensions to return.
+-- | If the previous paginated request didn\'t return all of the remaining
+-- results, the response object\'s @NextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call this action again and
+-- assign that token to the request object\'s @NextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- @NextToken@ parameter is set to @null@.
+listTypes_nextToken :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Text)
+listTypes_nextToken = Lens.lens (\ListTypes' {nextToken} -> nextToken) (\s@ListTypes' {} a -> s {nextToken = a} :: ListTypes)
+
+-- | The deprecation status of the extension that you want to get summary
+-- information about.
 --
--- If you specify a filter, CloudFormation ignores any specified
--- @Visibility@ value when returning the list of types.
-listTypes_filters :: Lens.Lens' ListTypes (Prelude.Maybe TypeFilters)
-listTypes_filters = Lens.lens (\ListTypes' {filters} -> filters) (\s@ListTypes' {} a -> s {filters = a} :: ListTypes)
+-- Valid values include:
+--
+-- -   @LIVE@: The extension is registered for use in CloudFormation
+--     operations.
+--
+-- -   @DEPRECATED@: The extension has been deregistered and can no longer
+--     be used in CloudFormation operations.
+listTypes_deprecatedStatus :: Lens.Lens' ListTypes (Prelude.Maybe DeprecatedStatus)
+listTypes_deprecatedStatus = Lens.lens (\ListTypes' {deprecatedStatus} -> deprecatedStatus) (\s@ListTypes' {} a -> s {deprecatedStatus = a} :: ListTypes)
 
 -- | The type of extension.
 listTypes_type :: Lens.Lens' ListTypes (Prelude.Maybe RegistryType)
 listTypes_type = Lens.lens (\ListTypes' {type'} -> type') (\s@ListTypes' {} a -> s {type' = a} :: ListTypes)
+
+-- | The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
+listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
+
+-- | For resource types, the provisioning behavior of the resource type.
+-- CloudFormation determines the provisioning type during registration,
+-- based on the types of handlers in the schema handler package submitted.
+--
+-- Valid values include:
+--
+-- -   @FULLY_MUTABLE@: The resource type includes an update handler to
+--     process updates to the type during stack update operations.
+--
+-- -   @IMMUTABLE@: The resource type does not include an update handler,
+--     so the type cannot be updated and must instead be replaced during
+--     stack update operations.
+--
+-- -   @NON_PROVISIONABLE@: The resource type does not include create,
+--     read, and delete handlers, and therefore cannot actually be
+--     provisioned.
+--
+-- The default is @FULLY_MUTABLE@.
+listTypes_provisioningType :: Lens.Lens' ListTypes (Prelude.Maybe ProvisioningType)
+listTypes_provisioningType = Lens.lens (\ListTypes' {provisioningType} -> provisioningType) (\s@ListTypes' {} a -> s {provisioningType = a} :: ListTypes)
 
 instance Core.AWSPager ListTypes where
   page rq rs
@@ -329,10 +329,10 @@ instance Core.AWSRequest ListTypes where
       "ListTypesResult"
       ( \s h x ->
           ListTypesResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "TypeSummaries" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "TypeSummaries" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -353,26 +353,26 @@ instance Core.ToQuery ListTypes where
           Core.=: ("ListTypes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DeprecatedStatus" Core.=: deprecatedStatus,
-        "ProvisioningType" Core.=: provisioningType,
-        "Visibility" Core.=: visibility,
         "Filters" Core.=: filters,
-        "Type" Core.=: type'
+        "Visibility" Core.=: visibility,
+        "NextToken" Core.=: nextToken,
+        "DeprecatedStatus" Core.=: deprecatedStatus,
+        "Type" Core.=: type',
+        "MaxResults" Core.=: maxResults,
+        "ProvisioningType" Core.=: provisioningType
       ]
 
 -- | /See:/ 'newListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { -- | If the request doesn\'t return all of the remaining results, @NextToken@
+  { -- | A list of @TypeSummary@ structures that contain information about the
+    -- specified extensions.
+    typeSummaries :: Prelude.Maybe [TypeSummary],
+    -- | If the request doesn\'t return all of the remaining results, @NextToken@
     -- is set to a token. To retrieve the next set of results, call this action
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If the request returns all results, @NextToken@ is set to
     -- @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @TypeSummary@ structures that contain information about the
-    -- specified extensions.
-    typeSummaries :: Prelude.Maybe [TypeSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -386,14 +386,14 @@ data ListTypesResponse = ListTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'typeSummaries', 'listTypesResponse_typeSummaries' - A list of @TypeSummary@ structures that contain information about the
+-- specified extensions.
+--
 -- 'nextToken', 'listTypesResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@
 -- is set to a token. To retrieve the next set of results, call this action
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.
---
--- 'typeSummaries', 'listTypesResponse_typeSummaries' - A list of @TypeSummary@ structures that contain information about the
--- specified extensions.
 --
 -- 'httpStatus', 'listTypesResponse_httpStatus' - The response's http status code.
 newListTypesResponse ::
@@ -402,10 +402,15 @@ newListTypesResponse ::
   ListTypesResponse
 newListTypesResponse pHttpStatus_ =
   ListTypesResponse'
-    { nextToken = Prelude.Nothing,
-      typeSummaries = Prelude.Nothing,
+    { typeSummaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @TypeSummary@ structures that contain information about the
+-- specified extensions.
+listTypesResponse_typeSummaries :: Lens.Lens' ListTypesResponse (Prelude.Maybe [TypeSummary])
+listTypesResponse_typeSummaries = Lens.lens (\ListTypesResponse' {typeSummaries} -> typeSummaries) (\s@ListTypesResponse' {} a -> s {typeSummaries = a} :: ListTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the request doesn\'t return all of the remaining results, @NextToken@
 -- is set to a token. To retrieve the next set of results, call this action
@@ -414,11 +419,6 @@ newListTypesResponse pHttpStatus_ =
 -- @null@.
 listTypesResponse_nextToken :: Lens.Lens' ListTypesResponse (Prelude.Maybe Prelude.Text)
 listTypesResponse_nextToken = Lens.lens (\ListTypesResponse' {nextToken} -> nextToken) (\s@ListTypesResponse' {} a -> s {nextToken = a} :: ListTypesResponse)
-
--- | A list of @TypeSummary@ structures that contain information about the
--- specified extensions.
-listTypesResponse_typeSummaries :: Lens.Lens' ListTypesResponse (Prelude.Maybe [TypeSummary])
-listTypesResponse_typeSummaries = Lens.lens (\ListTypesResponse' {typeSummaries} -> typeSummaries) (\s@ListTypesResponse' {} a -> s {typeSummaries = a} :: ListTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTypesResponse_httpStatus :: Lens.Lens' ListTypesResponse Prelude.Int

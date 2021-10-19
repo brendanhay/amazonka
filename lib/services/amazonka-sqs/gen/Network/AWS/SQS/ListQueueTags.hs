@@ -147,7 +147,7 @@ newListQueueTagsResponse pHttpStatus_ =
 
 -- | The list of all tags added to the specified queue.
 listQueueTagsResponse_tags :: Lens.Lens' ListQueueTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listQueueTagsResponse_tags = Lens.lens (\ListQueueTagsResponse' {tags} -> tags) (\s@ListQueueTagsResponse' {} a -> s {tags = a} :: ListQueueTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+listQueueTagsResponse_tags = Lens.lens (\ListQueueTagsResponse' {tags} -> tags) (\s@ListQueueTagsResponse' {} a -> s {tags = a} :: ListQueueTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listQueueTagsResponse_httpStatus :: Lens.Lens' ListQueueTagsResponse Prelude.Int

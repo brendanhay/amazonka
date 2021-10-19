@@ -112,7 +112,7 @@ changeMessageVisibilityBatch_queueUrl = Lens.lens (\ChangeMessageVisibilityBatch
 -- | A list of receipt handles of the messages for which the visibility
 -- timeout must be changed.
 changeMessageVisibilityBatch_entries :: Lens.Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-changeMessageVisibilityBatch_entries = Lens.lens (\ChangeMessageVisibilityBatch' {entries} -> entries) (\s@ChangeMessageVisibilityBatch' {} a -> s {entries = a} :: ChangeMessageVisibilityBatch) Prelude.. Lens._Coerce
+changeMessageVisibilityBatch_entries = Lens.lens (\ChangeMessageVisibilityBatch' {entries} -> entries) (\s@ChangeMessageVisibilityBatch' {} a -> s {entries = a} :: ChangeMessageVisibilityBatch) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ChangeMessageVisibilityBatch where
   type
@@ -205,11 +205,11 @@ changeMessageVisibilityBatchResponse_httpStatus = Lens.lens (\ChangeMessageVisib
 
 -- | A list of @ ChangeMessageVisibilityBatchResultEntry @ items.
 changeMessageVisibilityBatchResponse_successful :: Lens.Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-changeMessageVisibilityBatchResponse_successful = Lens.lens (\ChangeMessageVisibilityBatchResponse' {successful} -> successful) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {successful = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens._Coerce
+changeMessageVisibilityBatchResponse_successful = Lens.lens (\ChangeMessageVisibilityBatchResponse' {successful} -> successful) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {successful = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens.coerced
 
 -- | A list of @ BatchResultErrorEntry @ items.
 changeMessageVisibilityBatchResponse_failed :: Lens.Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-changeMessageVisibilityBatchResponse_failed = Lens.lens (\ChangeMessageVisibilityBatchResponse' {failed} -> failed) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {failed = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens._Coerce
+changeMessageVisibilityBatchResponse_failed = Lens.lens (\ChangeMessageVisibilityBatchResponse' {failed} -> failed) (\s@ChangeMessageVisibilityBatchResponse' {} a -> s {failed = a} :: ChangeMessageVisibilityBatchResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -740,7 +740,7 @@ newCreateQueue pQueueName_ =
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
 -- in the /Amazon SQS Developer Guide/.
 createQueue_attributes :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text))
-createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\s@CreateQueue' {} a -> s {attributes = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
+createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\s@CreateQueue' {} a -> s {attributes = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | Add cost allocation tags to the specified Amazon SQS queue. For an
 -- overview, see
@@ -771,7 +771,7 @@ createQueue_attributes = Lens.lens (\CreateQueue' {attributes} -> attributes) (\
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
 -- in the /Amazon SQS Developer Guide/.
 createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new queue. The following limits apply to this name:
 --

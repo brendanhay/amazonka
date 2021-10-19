@@ -87,7 +87,7 @@ untagQueue_queueUrl = Lens.lens (\UntagQueue' {queueUrl} -> queueUrl) (\s@UntagQ
 
 -- | The list of tags to be removed from the specified queue.
 untagQueue_tagKeys :: Lens.Lens' UntagQueue [Prelude.Text]
-untagQueue_tagKeys = Lens.lens (\UntagQueue' {tagKeys} -> tagKeys) (\s@UntagQueue' {} a -> s {tagKeys = a} :: UntagQueue) Prelude.. Lens._Coerce
+untagQueue_tagKeys = Lens.lens (\UntagQueue' {tagKeys} -> tagKeys) (\s@UntagQueue' {} a -> s {tagKeys = a} :: UntagQueue) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagQueue where
   type AWSResponse UntagQueue = UntagQueueResponse

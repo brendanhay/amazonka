@@ -17,22 +17,22 @@ module Network.AWS.SQS.Types
     defaultService,
 
     -- * Errors
+    _InvalidBatchEntryId,
     _TooManyEntriesInBatchRequest,
-    _InvalidIdFormat,
-    _QueueNameExists,
-    _EmptyBatchRequest,
+    _QueueDeletedRecently,
+    _QueueDoesNotExist,
+    _InvalidAttributeName,
     _UnsupportedOperation,
     _InvalidMessageContents,
-    _ReceiptHandleIsInvalid,
-    _QueueDeletedRecently,
-    _InvalidAttributeName,
-    _InvalidBatchEntryId,
-    _BatchEntryIdsNotDistinct,
-    _MessageNotInflight,
-    _PurgeQueueInProgress,
     _BatchRequestTooLong,
     _OverLimit,
-    _QueueDoesNotExist,
+    _QueueNameExists,
+    _PurgeQueueInProgress,
+    _InvalidIdFormat,
+    _ReceiptHandleIsInvalid,
+    _EmptyBatchRequest,
+    _BatchEntryIdsNotDistinct,
+    _MessageNotInflight,
 
     -- * MessageAttribute
     MessageAttribute (..),
@@ -77,40 +77,40 @@ module Network.AWS.SQS.Types
     -- * Message
     Message (..),
     newMessage,
-    message_body,
-    message_mD5OfBody,
-    message_attributes,
     message_messageAttributes,
-    message_mD5OfMessageAttributes,
+    message_mD5OfBody,
+    message_body,
+    message_attributes,
     message_receiptHandle,
     message_messageId,
+    message_mD5OfMessageAttributes,
 
     -- * MessageAttributeValue
     MessageAttributeValue (..),
     newMessageAttributeValue,
+    messageAttributeValue_binaryValue,
     messageAttributeValue_stringListValues,
     messageAttributeValue_stringValue,
     messageAttributeValue_binaryListValues,
-    messageAttributeValue_binaryValue,
     messageAttributeValue_dataType,
 
     -- * MessageSystemAttributeValue
     MessageSystemAttributeValue (..),
     newMessageSystemAttributeValue,
+    messageSystemAttributeValue_binaryValue,
     messageSystemAttributeValue_stringListValues,
     messageSystemAttributeValue_stringValue,
     messageSystemAttributeValue_binaryListValues,
-    messageSystemAttributeValue_binaryValue,
     messageSystemAttributeValue_dataType,
 
     -- * SendMessageBatchRequestEntry
     SendMessageBatchRequestEntry (..),
     newSendMessageBatchRequestEntry,
-    sendMessageBatchRequestEntry_messageDeduplicationId,
     sendMessageBatchRequestEntry_messageAttributes,
-    sendMessageBatchRequestEntry_messageGroupId,
-    sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_delaySeconds,
+    sendMessageBatchRequestEntry_messageSystemAttributes,
+    sendMessageBatchRequestEntry_messageDeduplicationId,
+    sendMessageBatchRequestEntry_messageGroupId,
     sendMessageBatchRequestEntry_id,
     sendMessageBatchRequestEntry_messageBody,
 
@@ -170,42 +170,19 @@ defaultService =
         }
     check e
       | Lens.has
-          ( Core.hasCode "RequestThrottled"
-              Prelude.. Core.hasStatus 403
-          )
-          e =
-        Prelude.Just "request_limit_exceeded"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
-      | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Core.hasCode "RequestThrottled"
+              Prelude.. Core.hasStatus 403
+          )
+          e =
+        Prelude.Just "request_limit_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -218,7 +195,39 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
+-- specification.
+_InvalidBatchEntryId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBatchEntryId =
+  Core._MatchServiceError
+    defaultService
+    "AWS.SimpleQueueService.InvalidBatchEntryId"
+    Prelude.. Core.hasStatus 400
 
 -- | The batch request contains more entries than permissible.
 _TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -228,30 +237,29 @@ _TooManyEntriesInBatchRequest =
     "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
     Prelude.. Core.hasStatus 400
 
--- | The specified receipt handle isn\'t valid for the current version.
-_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidIdFormat =
+-- | You must wait 60 seconds after deleting a queue before you can create
+-- another queue with the same name.
+_QueueDeletedRecently :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueDeletedRecently =
   Core._MatchServiceError
     defaultService
-    "InvalidIdFormat"
-
--- | A queue with this name already exists. Amazon SQS returns this error
--- only if the request includes attributes whose values differ from those
--- of the existing queue.
-_QueueNameExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_QueueNameExists =
-  Core._MatchServiceError
-    defaultService
-    "QueueAlreadyExists"
+    "AWS.SimpleQueueService.QueueDeletedRecently"
     Prelude.. Core.hasStatus 400
 
--- | The batch request doesn\'t contain any entries.
-_EmptyBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EmptyBatchRequest =
+-- | The specified queue doesn\'t exist.
+_QueueDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueDoesNotExist =
   Core._MatchServiceError
     defaultService
-    "AWS.SimpleQueueService.EmptyBatchRequest"
+    "AWS.SimpleQueueService.NonExistentQueue"
     Prelude.. Core.hasStatus 400
+
+-- | The specified attribute doesn\'t exist.
+_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAttributeName =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAttributeName"
 
 -- | Error code 400. Unsupported operation.
 _UnsupportedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -267,64 +275,6 @@ _InvalidMessageContents =
   Core._MatchServiceError
     defaultService
     "InvalidMessageContents"
-
--- | The specified receipt handle isn\'t valid.
-_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReceiptHandleIsInvalid =
-  Core._MatchServiceError
-    defaultService
-    "ReceiptHandleIsInvalid"
-
--- | You must wait 60 seconds after deleting a queue before you can create
--- another queue with the same name.
-_QueueDeletedRecently :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_QueueDeletedRecently =
-  Core._MatchServiceError
-    defaultService
-    "AWS.SimpleQueueService.QueueDeletedRecently"
-    Prelude.. Core.hasStatus 400
-
--- | The specified attribute doesn\'t exist.
-_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAttributeName =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAttributeName"
-
--- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
--- specification.
-_InvalidBatchEntryId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidBatchEntryId =
-  Core._MatchServiceError
-    defaultService
-    "AWS.SimpleQueueService.InvalidBatchEntryId"
-    Prelude.. Core.hasStatus 400
-
--- | Two or more batch entries in the request have the same @Id@.
-_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BatchEntryIdsNotDistinct =
-  Core._MatchServiceError
-    defaultService
-    "AWS.SimpleQueueService.BatchEntryIdsNotDistinct"
-    Prelude.. Core.hasStatus 400
-
--- | The specified message isn\'t in flight.
-_MessageNotInflight :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MessageNotInflight =
-  Core._MatchServiceError
-    defaultService
-    "AWS.SimpleQueueService.MessageNotInflight"
-    Prelude.. Core.hasStatus 400
-
--- | Indicates that the specified queue previously received a @PurgeQueue@
--- request within the last 60 seconds (the time it can take to delete the
--- messages in the queue).
-_PurgeQueueInProgress :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PurgeQueueInProgress =
-  Core._MatchServiceError
-    defaultService
-    "AWS.SimpleQueueService.PurgeQueueInProgress"
-    Prelude.. Core.hasStatus 403
 
 -- | The length of all the messages put together is more than the limit.
 _BatchRequestTooLong :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -343,10 +293,60 @@ _OverLimit =
   Core._MatchServiceError defaultService "OverLimit"
     Prelude.. Core.hasStatus 403
 
--- | The specified queue doesn\'t exist.
-_QueueDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_QueueDoesNotExist =
+-- | A queue with this name already exists. Amazon SQS returns this error
+-- only if the request includes attributes whose values differ from those
+-- of the existing queue.
+_QueueNameExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueueNameExists =
   Core._MatchServiceError
     defaultService
-    "AWS.SimpleQueueService.NonExistentQueue"
+    "QueueAlreadyExists"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the specified queue previously received a @PurgeQueue@
+-- request within the last 60 seconds (the time it can take to delete the
+-- messages in the queue).
+_PurgeQueueInProgress :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PurgeQueueInProgress =
+  Core._MatchServiceError
+    defaultService
+    "AWS.SimpleQueueService.PurgeQueueInProgress"
+    Prelude.. Core.hasStatus 403
+
+-- | The specified receipt handle isn\'t valid for the current version.
+_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdFormat =
+  Core._MatchServiceError
+    defaultService
+    "InvalidIdFormat"
+
+-- | The specified receipt handle isn\'t valid.
+_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReceiptHandleIsInvalid =
+  Core._MatchServiceError
+    defaultService
+    "ReceiptHandleIsInvalid"
+
+-- | The batch request doesn\'t contain any entries.
+_EmptyBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EmptyBatchRequest =
+  Core._MatchServiceError
+    defaultService
+    "AWS.SimpleQueueService.EmptyBatchRequest"
+    Prelude.. Core.hasStatus 400
+
+-- | Two or more batch entries in the request have the same @Id@.
+_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchEntryIdsNotDistinct =
+  Core._MatchServiceError
+    defaultService
+    "AWS.SimpleQueueService.BatchEntryIdsNotDistinct"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified message isn\'t in flight.
+_MessageNotInflight :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageNotInflight =
+  Core._MatchServiceError
+    defaultService
+    "AWS.SimpleQueueService.MessageNotInflight"
     Prelude.. Core.hasStatus 400

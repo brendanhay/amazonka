@@ -56,17 +56,20 @@ module Network.AWS.SQS
     -- * Errors
     -- $errors
 
+    -- ** InvalidBatchEntryId
+    _InvalidBatchEntryId,
+
     -- ** TooManyEntriesInBatchRequest
     _TooManyEntriesInBatchRequest,
 
-    -- ** InvalidIdFormat
-    _InvalidIdFormat,
+    -- ** QueueDeletedRecently
+    _QueueDeletedRecently,
 
-    -- ** QueueNameExists
-    _QueueNameExists,
+    -- ** QueueDoesNotExist
+    _QueueDoesNotExist,
 
-    -- ** EmptyBatchRequest
-    _EmptyBatchRequest,
+    -- ** InvalidAttributeName
+    _InvalidAttributeName,
 
     -- ** UnsupportedOperation
     _UnsupportedOperation,
@@ -74,17 +77,26 @@ module Network.AWS.SQS
     -- ** InvalidMessageContents
     _InvalidMessageContents,
 
+    -- ** BatchRequestTooLong
+    _BatchRequestTooLong,
+
+    -- ** OverLimit
+    _OverLimit,
+
+    -- ** QueueNameExists
+    _QueueNameExists,
+
+    -- ** PurgeQueueInProgress
+    _PurgeQueueInProgress,
+
+    -- ** InvalidIdFormat
+    _InvalidIdFormat,
+
     -- ** ReceiptHandleIsInvalid
     _ReceiptHandleIsInvalid,
 
-    -- ** QueueDeletedRecently
-    _QueueDeletedRecently,
-
-    -- ** InvalidAttributeName
-    _InvalidAttributeName,
-
-    -- ** InvalidBatchEntryId
-    _InvalidBatchEntryId,
+    -- ** EmptyBatchRequest
+    _EmptyBatchRequest,
 
     -- ** BatchEntryIdsNotDistinct
     _BatchEntryIdsNotDistinct,
@@ -92,29 +104,17 @@ module Network.AWS.SQS
     -- ** MessageNotInflight
     _MessageNotInflight,
 
-    -- ** PurgeQueueInProgress
-    _PurgeQueueInProgress,
-
-    -- ** BatchRequestTooLong
-    _BatchRequestTooLong,
-
-    -- ** OverLimit
-    _OverLimit,
-
-    -- ** QueueDoesNotExist
-    _QueueDoesNotExist,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ChangeMessageVisibilityBatch
-    ChangeMessageVisibilityBatch (ChangeMessageVisibilityBatch'),
-    newChangeMessageVisibilityBatch,
-    ChangeMessageVisibilityBatchResponse (ChangeMessageVisibilityBatchResponse'),
-    newChangeMessageVisibilityBatchResponse,
+    -- ** GetQueueUrl
+    GetQueueUrl (GetQueueUrl'),
+    newGetQueueUrl,
+    GetQueueUrlResponse (GetQueueUrlResponse'),
+    newGetQueueUrlResponse,
 
     -- ** PurgeQueue
     PurgeQueue (PurgeQueue'),
@@ -122,17 +122,23 @@ module Network.AWS.SQS
     PurgeQueueResponse (PurgeQueueResponse'),
     newPurgeQueueResponse,
 
-    -- ** TagQueue
-    TagQueue (TagQueue'),
-    newTagQueue,
-    TagQueueResponse (TagQueueResponse'),
-    newTagQueueResponse,
+    -- ** ChangeMessageVisibilityBatch
+    ChangeMessageVisibilityBatch (ChangeMessageVisibilityBatch'),
+    newChangeMessageVisibilityBatch,
+    ChangeMessageVisibilityBatchResponse (ChangeMessageVisibilityBatchResponse'),
+    newChangeMessageVisibilityBatchResponse,
 
-    -- ** ChangeMessageVisibility
-    ChangeMessageVisibility (ChangeMessageVisibility'),
-    newChangeMessageVisibility,
-    ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
-    newChangeMessageVisibilityResponse,
+    -- ** SendMessage
+    SendMessage (SendMessage'),
+    newSendMessage,
+    SendMessageResponse (SendMessageResponse'),
+    newSendMessageResponse,
+
+    -- ** RemovePermission
+    RemovePermission (RemovePermission'),
+    newRemovePermission,
+    RemovePermissionResponse (RemovePermissionResponse'),
+    newRemovePermissionResponse,
 
     -- ** GetQueueAttributes
     GetQueueAttributes (GetQueueAttributes'),
@@ -152,6 +158,36 @@ module Network.AWS.SQS
     ReceiveMessageResponse (ReceiveMessageResponse'),
     newReceiveMessageResponse,
 
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** TagQueue
+    TagQueue (TagQueue'),
+    newTagQueue,
+    TagQueueResponse (TagQueueResponse'),
+    newTagQueueResponse,
+
+    -- ** DeleteMessageBatch
+    DeleteMessageBatch (DeleteMessageBatch'),
+    newDeleteMessageBatch,
+    DeleteMessageBatchResponse (DeleteMessageBatchResponse'),
+    newDeleteMessageBatchResponse,
+
+    -- ** SetQueueAttributes
+    SetQueueAttributes (SetQueueAttributes'),
+    newSetQueueAttributes,
+    SetQueueAttributesResponse (SetQueueAttributesResponse'),
+    newSetQueueAttributesResponse,
+
+    -- ** ListDeadLetterSourceQueues (Paginated)
+    ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
+    newListDeadLetterSourceQueues,
+    ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
+    newListDeadLetterSourceQueuesResponse,
+
     -- ** AddPermission
     AddPermission (AddPermission'),
     newAddPermission,
@@ -170,41 +206,11 @@ module Network.AWS.SQS
     ListQueueTagsResponse (ListQueueTagsResponse'),
     newListQueueTagsResponse,
 
-    -- ** ListDeadLetterSourceQueues (Paginated)
-    ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
-    newListDeadLetterSourceQueues,
-    ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
-    newListDeadLetterSourceQueuesResponse,
-
-    -- ** SendMessage
-    SendMessage (SendMessage'),
-    newSendMessage,
-    SendMessageResponse (SendMessageResponse'),
-    newSendMessageResponse,
-
-    -- ** GetQueueUrl
-    GetQueueUrl (GetQueueUrl'),
-    newGetQueueUrl,
-    GetQueueUrlResponse (GetQueueUrlResponse'),
-    newGetQueueUrlResponse,
-
-    -- ** SetQueueAttributes
-    SetQueueAttributes (SetQueueAttributes'),
-    newSetQueueAttributes,
-    SetQueueAttributesResponse (SetQueueAttributesResponse'),
-    newSetQueueAttributesResponse,
-
-    -- ** DeleteMessageBatch
-    DeleteMessageBatch (DeleteMessageBatch'),
-    newDeleteMessageBatch,
-    DeleteMessageBatchResponse (DeleteMessageBatchResponse'),
-    newDeleteMessageBatchResponse,
-
-    -- ** SendMessageBatch
-    SendMessageBatch (SendMessageBatch'),
-    newSendMessageBatch,
-    SendMessageBatchResponse (SendMessageBatchResponse'),
-    newSendMessageBatchResponse,
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
 
     -- ** UntagQueue
     UntagQueue (UntagQueue'),
@@ -212,23 +218,17 @@ module Network.AWS.SQS
     UntagQueueResponse (UntagQueueResponse'),
     newUntagQueueResponse,
 
-    -- ** DeleteQueue
-    DeleteQueue (DeleteQueue'),
-    newDeleteQueue,
-    DeleteQueueResponse (DeleteQueueResponse'),
-    newDeleteQueueResponse,
+    -- ** SendMessageBatch
+    SendMessageBatch (SendMessageBatch'),
+    newSendMessageBatch,
+    SendMessageBatchResponse (SendMessageBatchResponse'),
+    newSendMessageBatchResponse,
 
-    -- ** CreateQueue
-    CreateQueue (CreateQueue'),
-    newCreateQueue,
-    CreateQueueResponse (CreateQueueResponse'),
-    newCreateQueueResponse,
-
-    -- ** RemovePermission
-    RemovePermission (RemovePermission'),
-    newRemovePermission,
-    RemovePermissionResponse (RemovePermissionResponse'),
-    newRemovePermissionResponse,
+    -- ** ChangeMessageVisibility
+    ChangeMessageVisibility (ChangeMessageVisibility'),
+    newChangeMessageVisibility,
+    ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
+    newChangeMessageVisibilityResponse,
 
     -- * Types
 

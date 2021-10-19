@@ -30,7 +30,31 @@ import Network.AWS.SQS.Types.MessageSystemAttributeValue
 --
 -- /See:/ 'newSendMessageBatchRequestEntry' smart constructor.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-  { -- | This parameter applies only to FIFO (first-in-first-out) queues.
+  { -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+    -- in the /Amazon SQS Developer Guide/.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | The length of time, in seconds, for which a specific message is delayed.
+    -- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+    -- @DelaySeconds@ value become available for processing after the delay
+    -- period is finished. If you don\'t specify a value, the default value for
+    -- the queue is applied.
+    --
+    -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+    -- can set this parameter only on a queue level.
+    delaySeconds :: Prelude.Maybe Prelude.Int,
+    -- | The message system attribute to send Each message system attribute
+    -- consists of a @Name@, @Type@, and @Value@.
+    --
+    -- -   Currently, the only supported message system attribute is
+    --     @AWSTraceHeader@. Its type must be @String@ and its value must be a
+    --     correctly formatted X-Ray trace header string.
+    --
+    -- -   The size of a message system attribute doesn\'t count towards the
+    --     total size of a message.
+    messageSystemAttributes :: Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue),
+    -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The token used for deduplication of messages within a 5-minute minimum
     -- deduplication interval. If a message with a particular
@@ -86,11 +110,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html Using the MessageDeduplicationId Property>
     -- in the /Amazon SQS Developer Guide/.
     messageDeduplicationId :: Prelude.Maybe Prelude.Text,
-    -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
-    -- in the /Amazon SQS Developer Guide/.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | This parameter applies only to FIFO (first-in-first-out) queues.
     --
     -- The tag that specifies that a message belongs to a specific message
@@ -119,25 +138,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
     -- Standard queues.
     messageGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The message system attribute to send Each message system attribute
-    -- consists of a @Name@, @Type@, and @Value@.
-    --
-    -- -   Currently, the only supported message system attribute is
-    --     @AWSTraceHeader@. Its type must be @String@ and its value must be a
-    --     correctly formatted X-Ray trace header string.
-    --
-    -- -   The size of a message system attribute doesn\'t count towards the
-    --     total size of a message.
-    messageSystemAttributes :: Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue),
-    -- | The length of time, in seconds, for which a specific message is delayed.
-    -- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
-    -- @DelaySeconds@ value become available for processing after the delay
-    -- period is finished. If you don\'t specify a value, the default value for
-    -- the queue is applied.
-    --
-    -- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
-    -- can set this parameter only on a queue level.
-    delaySeconds :: Prelude.Maybe Prelude.Int,
     -- | An identifier for a message in this batch used to communicate the
     -- result.
     --
@@ -158,6 +158,30 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'messageAttributes', 'sendMessageBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+-- in the /Amazon SQS Developer Guide/.
+--
+-- 'delaySeconds', 'sendMessageBatchRequestEntry_delaySeconds' - The length of time, in seconds, for which a specific message is delayed.
+-- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+-- @DelaySeconds@ value become available for processing after the delay
+-- period is finished. If you don\'t specify a value, the default value for
+-- the queue is applied.
+--
+-- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+-- can set this parameter only on a queue level.
+--
+-- 'messageSystemAttributes', 'sendMessageBatchRequestEntry_messageSystemAttributes' - The message system attribute to send Each message system attribute
+-- consists of a @Name@, @Type@, and @Value@.
+--
+-- -   Currently, the only supported message system attribute is
+--     @AWSTraceHeader@. Its type must be @String@ and its value must be a
+--     correctly formatted X-Ray trace header string.
+--
+-- -   The size of a message system attribute doesn\'t count towards the
+--     total size of a message.
 --
 -- 'messageDeduplicationId', 'sendMessageBatchRequestEntry_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -215,11 +239,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html Using the MessageDeduplicationId Property>
 -- in the /Amazon SQS Developer Guide/.
 --
--- 'messageAttributes', 'sendMessageBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
--- in the /Amazon SQS Developer Guide/.
---
 -- 'messageGroupId', 'sendMessageBatchRequestEntry_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) queues.
 --
 -- The tag that specifies that a message belongs to a specific message
@@ -248,25 +267,6 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 -- @MessageGroupId@ is required for FIFO queues. You can\'t use it for
 -- Standard queues.
 --
--- 'messageSystemAttributes', 'sendMessageBatchRequestEntry_messageSystemAttributes' - The message system attribute to send Each message system attribute
--- consists of a @Name@, @Type@, and @Value@.
---
--- -   Currently, the only supported message system attribute is
---     @AWSTraceHeader@. Its type must be @String@ and its value must be a
---     correctly formatted X-Ray trace header string.
---
--- -   The size of a message system attribute doesn\'t count towards the
---     total size of a message.
---
--- 'delaySeconds', 'sendMessageBatchRequestEntry_delaySeconds' - The length of time, in seconds, for which a specific message is delayed.
--- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
--- @DelaySeconds@ value become available for processing after the delay
--- period is finished. If you don\'t specify a value, the default value for
--- the queue is applied.
---
--- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
--- can set this parameter only on a queue level.
---
 -- 'id', 'sendMessageBatchRequestEntry_id' - An identifier for a message in this batch used to communicate the
 -- result.
 --
@@ -284,15 +284,45 @@ newSendMessageBatchRequestEntry ::
   SendMessageBatchRequestEntry
 newSendMessageBatchRequestEntry pId_ pMessageBody_ =
   SendMessageBatchRequestEntry'
-    { messageDeduplicationId =
+    { messageAttributes =
         Prelude.Nothing,
-      messageAttributes = Prelude.Nothing,
-      messageGroupId = Prelude.Nothing,
-      messageSystemAttributes = Prelude.Nothing,
       delaySeconds = Prelude.Nothing,
+      messageSystemAttributes = Prelude.Nothing,
+      messageDeduplicationId = Prelude.Nothing,
+      messageGroupId = Prelude.Nothing,
       id = pId_,
       messageBody = pMessageBody_
     }
+
+-- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
+-- in the /Amazon SQS Developer Guide/.
+sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
+
+-- | The length of time, in seconds, for which a specific message is delayed.
+-- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
+-- @DelaySeconds@ value become available for processing after the delay
+-- period is finished. If you don\'t specify a value, the default value for
+-- the queue is applied.
+--
+-- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
+-- can set this parameter only on a queue level.
+sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Int)
+sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestEntry' {delaySeconds} -> delaySeconds) (\s@SendMessageBatchRequestEntry' {} a -> s {delaySeconds = a} :: SendMessageBatchRequestEntry)
+
+-- | The message system attribute to send Each message system attribute
+-- consists of a @Name@, @Type@, and @Value@.
+--
+-- -   Currently, the only supported message system attribute is
+--     @AWSTraceHeader@. Its type must be @String@ and its value must be a
+--     correctly formatted X-Ray trace header string.
+--
+-- -   The size of a message system attribute doesn\'t count towards the
+--     total size of a message.
+sendMessageBatchRequestEntry_messageSystemAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue))
+sendMessageBatchRequestEntry_messageSystemAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageSystemAttributes} -> messageSystemAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageSystemAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
 --
@@ -352,13 +382,6 @@ newSendMessageBatchRequestEntry pId_ pMessageBody_ =
 sendMessageBatchRequestEntry_messageDeduplicationId :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchRequestEntry_messageDeduplicationId = Lens.lens (\SendMessageBatchRequestEntry' {messageDeduplicationId} -> messageDeduplicationId) (\s@SendMessageBatchRequestEntry' {} a -> s {messageDeduplicationId = a} :: SendMessageBatchRequestEntry)
 
--- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS message attributes>
--- in the /Amazon SQS Developer Guide/.
-sendMessageBatchRequestEntry_messageAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
-
 -- | This parameter applies only to FIFO (first-in-first-out) queues.
 --
 -- The tag that specifies that a message belongs to a specific message
@@ -389,29 +412,6 @@ sendMessageBatchRequestEntry_messageAttributes = Lens.lens (\SendMessageBatchReq
 sendMessageBatchRequestEntry_messageGroupId :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Text)
 sendMessageBatchRequestEntry_messageGroupId = Lens.lens (\SendMessageBatchRequestEntry' {messageGroupId} -> messageGroupId) (\s@SendMessageBatchRequestEntry' {} a -> s {messageGroupId = a} :: SendMessageBatchRequestEntry)
 
--- | The message system attribute to send Each message system attribute
--- consists of a @Name@, @Type@, and @Value@.
---
--- -   Currently, the only supported message system attribute is
---     @AWSTraceHeader@. Its type must be @String@ and its value must be a
---     correctly formatted X-Ray trace header string.
---
--- -   The size of a message system attribute doesn\'t count towards the
---     total size of a message.
-sendMessageBatchRequestEntry_messageSystemAttributes :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe (Prelude.HashMap MessageSystemAttributeNameForSends MessageSystemAttributeValue))
-sendMessageBatchRequestEntry_messageSystemAttributes = Lens.lens (\SendMessageBatchRequestEntry' {messageSystemAttributes} -> messageSystemAttributes) (\s@SendMessageBatchRequestEntry' {} a -> s {messageSystemAttributes = a} :: SendMessageBatchRequestEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | The length of time, in seconds, for which a specific message is delayed.
--- Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive
--- @DelaySeconds@ value become available for processing after the delay
--- period is finished. If you don\'t specify a value, the default value for
--- the queue is applied.
---
--- When you set @FifoQueue@, you can\'t set @DelaySeconds@ per message. You
--- can set this parameter only on a queue level.
-sendMessageBatchRequestEntry_delaySeconds :: Lens.Lens' SendMessageBatchRequestEntry (Prelude.Maybe Prelude.Int)
-sendMessageBatchRequestEntry_delaySeconds = Lens.lens (\SendMessageBatchRequestEntry' {delaySeconds} -> delaySeconds) (\s@SendMessageBatchRequestEntry' {} a -> s {delaySeconds = a} :: SendMessageBatchRequestEntry)
-
 -- | An identifier for a message in this batch used to communicate the
 -- result.
 --
@@ -435,13 +435,11 @@ instance Prelude.NFData SendMessageBatchRequestEntry
 instance Core.ToQuery SendMessageBatchRequestEntry where
   toQuery SendMessageBatchRequestEntry' {..} =
     Prelude.mconcat
-      [ "MessageDeduplicationId"
-          Core.=: messageDeduplicationId,
-        Core.toQuery
+      [ Core.toQuery
           ( Core.toQueryMap "MessageAttribute" "Name" "Value"
               Prelude.<$> messageAttributes
           ),
-        "MessageGroupId" Core.=: messageGroupId,
+        "DelaySeconds" Core.=: delaySeconds,
         Core.toQuery
           ( Core.toQueryMap
               "MessageSystemAttribute"
@@ -449,7 +447,9 @@ instance Core.ToQuery SendMessageBatchRequestEntry where
               "Value"
               Prelude.<$> messageSystemAttributes
           ),
-        "DelaySeconds" Core.=: delaySeconds,
+        "MessageDeduplicationId"
+          Core.=: messageDeduplicationId,
+        "MessageGroupId" Core.=: messageGroupId,
         "Id" Core.=: id,
         "MessageBody" Core.=: messageBody
       ]

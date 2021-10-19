@@ -179,7 +179,7 @@ addPermission_label = Lens.lens (\AddPermission' {label} -> label) (\s@AddPermis
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication Your Amazon Web Services Identifiers>
 -- in the /Amazon SQS Developer Guide/.
 addPermission_aWSAccountIds :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSAccountIds) (\s@AddPermission' {} a -> s {aWSAccountIds = a} :: AddPermission) Prelude.. Lens._Coerce
+addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSAccountIds) (\s@AddPermission' {} a -> s {aWSAccountIds = a} :: AddPermission) Prelude.. Lens.coerced
 
 -- | The action the client wants to allow for the specified principal. Valid
 -- values: the name of any action or @*@.
@@ -193,7 +193,7 @@ addPermission_aWSAccountIds = Lens.lens (\AddPermission' {aWSAccountIds} -> aWSA
 -- versions of those actions: @SendMessageBatch@, @DeleteMessageBatch@, and
 -- @ChangeMessageVisibilityBatch@.
 addPermission_actions :: Lens.Lens' AddPermission [Prelude.Text]
-addPermission_actions = Lens.lens (\AddPermission' {actions} -> actions) (\s@AddPermission' {} a -> s {actions = a} :: AddPermission) Prelude.. Lens._Coerce
+addPermission_actions = Lens.lens (\AddPermission' {actions} -> actions) (\s@AddPermission' {} a -> s {actions = a} :: AddPermission) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddPermission where
   type

@@ -584,7 +584,7 @@ newGetQueueAttributes pQueueUrl_ =
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
 -- in the /Amazon SQS Developer Guide/.
 getQueueAttributes_attributeNames :: Lens.Lens' GetQueueAttributes (Prelude.Maybe [QueueAttributeName])
-getQueueAttributes_attributeNames = Lens.lens (\GetQueueAttributes' {attributeNames} -> attributeNames) (\s@GetQueueAttributes' {} a -> s {attributeNames = a} :: GetQueueAttributes) Prelude.. Lens.mapping Lens._Coerce
+getQueueAttributes_attributeNames = Lens.lens (\GetQueueAttributes' {attributeNames} -> attributeNames) (\s@GetQueueAttributes' {} a -> s {attributeNames = a} :: GetQueueAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URL of the Amazon SQS queue whose attribute information is
 -- retrieved.
@@ -669,7 +669,7 @@ newGetQueueAttributesResponse pHttpStatus_ =
 
 -- | A map of attributes to their respective values.
 getQueueAttributesResponse_attributes :: Lens.Lens' GetQueueAttributesResponse (Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text))
-getQueueAttributesResponse_attributes = Lens.lens (\GetQueueAttributesResponse' {attributes} -> attributes) (\s@GetQueueAttributesResponse' {} a -> s {attributes = a} :: GetQueueAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getQueueAttributesResponse_attributes = Lens.lens (\GetQueueAttributesResponse' {attributes} -> attributes) (\s@GetQueueAttributesResponse' {} a -> s {attributes = a} :: GetQueueAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getQueueAttributesResponse_httpStatus :: Lens.Lens' GetQueueAttributesResponse Prelude.Int

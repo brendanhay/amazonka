@@ -189,7 +189,7 @@ listApplicationsResponse_nextToken = Lens.lens (\ListApplicationsResponse' {next
 
 -- | An array of application summaries.
 listApplicationsResponse_applications :: Lens.Lens' ListApplicationsResponse (Prelude.Maybe [ApplicationSummary])
-listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listApplicationsResponse_applications = Lens.lens (\ListApplicationsResponse' {applications} -> applications) (\s@ListApplicationsResponse' {} a -> s {applications = a} :: ListApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Prelude.Int

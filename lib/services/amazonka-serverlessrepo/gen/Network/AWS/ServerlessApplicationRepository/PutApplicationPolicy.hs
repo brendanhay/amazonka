@@ -87,7 +87,7 @@ putApplicationPolicy_applicationId = Lens.lens (\PutApplicationPolicy' {applicat
 
 -- | An array of policy statements applied to the application.
 putApplicationPolicy_statements :: Lens.Lens' PutApplicationPolicy [ApplicationPolicyStatement]
-putApplicationPolicy_statements = Lens.lens (\PutApplicationPolicy' {statements} -> statements) (\s@PutApplicationPolicy' {} a -> s {statements = a} :: PutApplicationPolicy) Prelude.. Lens._Coerce
+putApplicationPolicy_statements = Lens.lens (\PutApplicationPolicy' {statements} -> statements) (\s@PutApplicationPolicy' {} a -> s {statements = a} :: PutApplicationPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutApplicationPolicy where
   type
@@ -168,7 +168,7 @@ newPutApplicationPolicyResponse pHttpStatus_ =
 
 -- | An array of policy statements applied to the application.
 putApplicationPolicyResponse_statements :: Lens.Lens' PutApplicationPolicyResponse (Prelude.Maybe [ApplicationPolicyStatement])
-putApplicationPolicyResponse_statements = Lens.lens (\PutApplicationPolicyResponse' {statements} -> statements) (\s@PutApplicationPolicyResponse' {} a -> s {statements = a} :: PutApplicationPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
+putApplicationPolicyResponse_statements = Lens.lens (\PutApplicationPolicyResponse' {statements} -> statements) (\s@PutApplicationPolicyResponse' {} a -> s {statements = a} :: PutApplicationPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putApplicationPolicyResponse_httpStatus :: Lens.Lens' PutApplicationPolicyResponse Prelude.Int

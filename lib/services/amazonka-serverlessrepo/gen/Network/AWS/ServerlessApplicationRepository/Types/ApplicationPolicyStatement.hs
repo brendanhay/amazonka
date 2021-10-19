@@ -78,16 +78,16 @@ applicationPolicyStatement_statementId = Lens.lens (\ApplicationPolicyStatement'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#principal-org-id aws:PrincipalOrgID>
 -- global condition key.
 applicationPolicyStatement_principalOrgIDs :: Lens.Lens' ApplicationPolicyStatement (Prelude.Maybe [Prelude.Text])
-applicationPolicyStatement_principalOrgIDs = Lens.lens (\ApplicationPolicyStatement' {principalOrgIDs} -> principalOrgIDs) (\s@ApplicationPolicyStatement' {} a -> s {principalOrgIDs = a} :: ApplicationPolicyStatement) Prelude.. Lens.mapping Lens._Coerce
+applicationPolicyStatement_principalOrgIDs = Lens.lens (\ApplicationPolicyStatement' {principalOrgIDs} -> principalOrgIDs) (\s@ApplicationPolicyStatement' {} a -> s {principalOrgIDs = a} :: ApplicationPolicyStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of AWS account IDs, or * to make the application public.
 applicationPolicyStatement_principals :: Lens.Lens' ApplicationPolicyStatement [Prelude.Text]
-applicationPolicyStatement_principals = Lens.lens (\ApplicationPolicyStatement' {principals} -> principals) (\s@ApplicationPolicyStatement' {} a -> s {principals = a} :: ApplicationPolicyStatement) Prelude.. Lens._Coerce
+applicationPolicyStatement_principals = Lens.lens (\ApplicationPolicyStatement' {principals} -> principals) (\s@ApplicationPolicyStatement' {} a -> s {principals = a} :: ApplicationPolicyStatement) Prelude.. Lens.coerced
 
 -- | For the list of actions supported for this operation, see
 -- <https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions Application Permissions>.
 applicationPolicyStatement_actions :: Lens.Lens' ApplicationPolicyStatement [Prelude.Text]
-applicationPolicyStatement_actions = Lens.lens (\ApplicationPolicyStatement' {actions} -> actions) (\s@ApplicationPolicyStatement' {} a -> s {actions = a} :: ApplicationPolicyStatement) Prelude.. Lens._Coerce
+applicationPolicyStatement_actions = Lens.lens (\ApplicationPolicyStatement' {actions} -> actions) (\s@ApplicationPolicyStatement' {} a -> s {actions = a} :: ApplicationPolicyStatement) Prelude.. Lens.coerced
 
 instance Core.FromJSON ApplicationPolicyStatement where
   parseJSON =

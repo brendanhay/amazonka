@@ -29,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ApplicationSummary = ApplicationSummary'
   { -- | The date and time this resource was created.
     creationTime :: Prelude.Maybe Prelude.Text,
-    -- | A valid identifier from <https://spdx.org/licenses/>.
-    spdxLicenseId :: Prelude.Maybe Prelude.Text,
+    -- | A URL with more information about the application, for example the
+    -- location of your GitHub repository for the application.
+    homePageUrl :: Prelude.Maybe Prelude.Text,
     -- | Labels to improve discovery of apps in search results.
     --
     -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
     --
     -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
     labels :: Prelude.Maybe [Prelude.Text],
-    -- | A URL with more information about the application, for example the
-    -- location of your GitHub repository for the application.
-    homePageUrl :: Prelude.Maybe Prelude.Text,
+    -- | A valid identifier from <https://spdx.org/licenses/>.
+    spdxLicenseId :: Prelude.Maybe Prelude.Text,
     -- | The description of the application.
     --
     -- Minimum length=1. Maximum length=256
@@ -71,7 +71,8 @@ data ApplicationSummary = ApplicationSummary'
 --
 -- 'creationTime', 'applicationSummary_creationTime' - The date and time this resource was created.
 --
--- 'spdxLicenseId', 'applicationSummary_spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/>.
+-- 'homePageUrl', 'applicationSummary_homePageUrl' - A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
 --
 -- 'labels', 'applicationSummary_labels' - Labels to improve discovery of apps in search results.
 --
@@ -79,8 +80,7 @@ data ApplicationSummary = ApplicationSummary'
 --
 -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 --
--- 'homePageUrl', 'applicationSummary_homePageUrl' - A URL with more information about the application, for example the
--- location of your GitHub repository for the application.
+-- 'spdxLicenseId', 'applicationSummary_spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/>.
 --
 -- 'description', 'applicationSummary_description' - The description of the application.
 --
@@ -116,9 +116,9 @@ newApplicationSummary
   pName_ =
     ApplicationSummary'
       { creationTime = Prelude.Nothing,
-        spdxLicenseId = Prelude.Nothing,
-        labels = Prelude.Nothing,
         homePageUrl = Prelude.Nothing,
+        labels = Prelude.Nothing,
+        spdxLicenseId = Prelude.Nothing,
         description = pDescription_,
         author = pAuthor_,
         applicationId = pApplicationId_,
@@ -129,9 +129,10 @@ newApplicationSummary
 applicationSummary_creationTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_creationTime = Lens.lens (\ApplicationSummary' {creationTime} -> creationTime) (\s@ApplicationSummary' {} a -> s {creationTime = a} :: ApplicationSummary)
 
--- | A valid identifier from <https://spdx.org/licenses/>.
-applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
-applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseId} -> spdxLicenseId) (\s@ApplicationSummary' {} a -> s {spdxLicenseId = a} :: ApplicationSummary)
+-- | A URL with more information about the application, for example the
+-- location of your GitHub repository for the application.
+applicationSummary_homePageUrl :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_homePageUrl = Lens.lens (\ApplicationSummary' {homePageUrl} -> homePageUrl) (\s@ApplicationSummary' {} a -> s {homePageUrl = a} :: ApplicationSummary)
 
 -- | Labels to improve discovery of apps in search results.
 --
@@ -139,12 +140,11 @@ applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseI
 --
 -- Pattern: \"^[a-zA-Z0-9+\\\\-_:\\\\\/\@]+$\";
 applicationSummary_labels :: Lens.Lens' ApplicationSummary (Prelude.Maybe [Prelude.Text])
-applicationSummary_labels = Lens.lens (\ApplicationSummary' {labels} -> labels) (\s@ApplicationSummary' {} a -> s {labels = a} :: ApplicationSummary) Prelude.. Lens.mapping Lens._Coerce
+applicationSummary_labels = Lens.lens (\ApplicationSummary' {labels} -> labels) (\s@ApplicationSummary' {} a -> s {labels = a} :: ApplicationSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | A URL with more information about the application, for example the
--- location of your GitHub repository for the application.
-applicationSummary_homePageUrl :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
-applicationSummary_homePageUrl = Lens.lens (\ApplicationSummary' {homePageUrl} -> homePageUrl) (\s@ApplicationSummary' {} a -> s {homePageUrl = a} :: ApplicationSummary)
+-- | A valid identifier from <https://spdx.org/licenses/>.
+applicationSummary_spdxLicenseId :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_spdxLicenseId = Lens.lens (\ApplicationSummary' {spdxLicenseId} -> spdxLicenseId) (\s@ApplicationSummary' {} a -> s {spdxLicenseId = a} :: ApplicationSummary)
 
 -- | The description of the application.
 --
@@ -179,9 +179,9 @@ instance Core.FromJSON ApplicationSummary where
       ( \x ->
           ApplicationSummary'
             Prelude.<$> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "spdxLicenseId")
-            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "homePageUrl")
+            Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "spdxLicenseId")
             Prelude.<*> (x Core..: "description")
             Prelude.<*> (x Core..: "author")
             Prelude.<*> (x Core..: "applicationId")

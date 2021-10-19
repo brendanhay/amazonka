@@ -29,14 +29,14 @@ import Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
 --
 -- /See:/ 'newVersion' smart constructor.
 data Version = Version'
-  { -- | A link to the S3 object that contains the ZIP archive of the source code
+  { -- | A link to a public repository for the source code of your application,
+    -- for example the URL of a specific GitHub commit.
+    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code
     -- for this version of your application.
     --
     -- Maximum size 50 MB
     sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
-    -- | A link to a public repository for the source code of your application,
-    -- for example the URL of a specific GitHub commit.
-    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
     -- | A link to the packaged AWS SAM template of your application.
     templateUrl :: Prelude.Text,
     -- | An array of parameter types supported by the application.
@@ -102,13 +102,13 @@ data Version = Version'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceCodeUrl', 'version_sourceCodeUrl' - A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+--
 -- 'sourceCodeArchiveUrl', 'version_sourceCodeArchiveUrl' - A link to the S3 object that contains the ZIP archive of the source code
 -- for this version of your application.
 --
 -- Maximum size 50 MB
---
--- 'sourceCodeUrl', 'version_sourceCodeUrl' - A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
 --
 -- 'templateUrl', 'version_templateUrl' - A link to the packaged AWS SAM template of your application.
 --
@@ -182,8 +182,8 @@ newVersion
   pApplicationId_
   pSemanticVersion_ =
     Version'
-      { sourceCodeArchiveUrl = Prelude.Nothing,
-        sourceCodeUrl = Prelude.Nothing,
+      { sourceCodeUrl = Prelude.Nothing,
+        sourceCodeArchiveUrl = Prelude.Nothing,
         templateUrl = pTemplateUrl_,
         parameterDefinitions = Prelude.mempty,
         resourcesSupported = pResourcesSupported_,
@@ -193,6 +193,11 @@ newVersion
         semanticVersion = pSemanticVersion_
       }
 
+-- | A link to a public repository for the source code of your application,
+-- for example the URL of a specific GitHub commit.
+version_sourceCodeUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
+version_sourceCodeUrl = Lens.lens (\Version' {sourceCodeUrl} -> sourceCodeUrl) (\s@Version' {} a -> s {sourceCodeUrl = a} :: Version)
+
 -- | A link to the S3 object that contains the ZIP archive of the source code
 -- for this version of your application.
 --
@@ -200,18 +205,13 @@ newVersion
 version_sourceCodeArchiveUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
 version_sourceCodeArchiveUrl = Lens.lens (\Version' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@Version' {} a -> s {sourceCodeArchiveUrl = a} :: Version)
 
--- | A link to a public repository for the source code of your application,
--- for example the URL of a specific GitHub commit.
-version_sourceCodeUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
-version_sourceCodeUrl = Lens.lens (\Version' {sourceCodeUrl} -> sourceCodeUrl) (\s@Version' {} a -> s {sourceCodeUrl = a} :: Version)
-
 -- | A link to the packaged AWS SAM template of your application.
 version_templateUrl :: Lens.Lens' Version Prelude.Text
 version_templateUrl = Lens.lens (\Version' {templateUrl} -> templateUrl) (\s@Version' {} a -> s {templateUrl = a} :: Version)
 
 -- | An array of parameter types supported by the application.
 version_parameterDefinitions :: Lens.Lens' Version [ParameterDefinition]
-version_parameterDefinitions = Lens.lens (\Version' {parameterDefinitions} -> parameterDefinitions) (\s@Version' {} a -> s {parameterDefinitions = a} :: Version) Prelude.. Lens._Coerce
+version_parameterDefinitions = Lens.lens (\Version' {parameterDefinitions} -> parameterDefinitions) (\s@Version' {} a -> s {parameterDefinitions = a} :: Version) Prelude.. Lens.coerced
 
 -- | Whether all of the AWS resources contained in this application are
 -- supported in the region in which it is being retrieved.
@@ -261,7 +261,7 @@ version_creationTime = Lens.lens (\Version' {creationTime} -> creationTime) (\s@
 -- application before deploying. If you don\'t specify this parameter for
 -- an application that requires capabilities, the call will fail.
 version_requiredCapabilities :: Lens.Lens' Version [Capability]
-version_requiredCapabilities = Lens.lens (\Version' {requiredCapabilities} -> requiredCapabilities) (\s@Version' {} a -> s {requiredCapabilities = a} :: Version) Prelude.. Lens._Coerce
+version_requiredCapabilities = Lens.lens (\Version' {requiredCapabilities} -> requiredCapabilities) (\s@Version' {} a -> s {requiredCapabilities = a} :: Version) Prelude.. Lens.coerced
 
 -- | The application Amazon Resource Name (ARN).
 version_applicationId :: Lens.Lens' Version Prelude.Text
@@ -279,8 +279,8 @@ instance Core.FromJSON Version where
       "Version"
       ( \x ->
           Version'
-            Prelude.<$> (x Core..:? "sourceCodeArchiveUrl")
-            Prelude.<*> (x Core..:? "sourceCodeUrl")
+            Prelude.<$> (x Core..:? "sourceCodeUrl")
+            Prelude.<*> (x Core..:? "sourceCodeArchiveUrl")
             Prelude.<*> (x Core..: "templateUrl")
             Prelude.<*> ( x Core..:? "parameterDefinitions"
                             Core..!= Prelude.mempty

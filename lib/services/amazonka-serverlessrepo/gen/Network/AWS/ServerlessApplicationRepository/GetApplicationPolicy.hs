@@ -148,7 +148,7 @@ newGetApplicationPolicyResponse pHttpStatus_ =
 
 -- | An array of policy statements applied to the application.
 getApplicationPolicyResponse_statements :: Lens.Lens' GetApplicationPolicyResponse (Prelude.Maybe [ApplicationPolicyStatement])
-getApplicationPolicyResponse_statements = Lens.lens (\GetApplicationPolicyResponse' {statements} -> statements) (\s@GetApplicationPolicyResponse' {} a -> s {statements = a} :: GetApplicationPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
+getApplicationPolicyResponse_statements = Lens.lens (\GetApplicationPolicyResponse' {statements} -> statements) (\s@GetApplicationPolicyResponse' {} a -> s {statements = a} :: GetApplicationPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getApplicationPolicyResponse_httpStatus :: Lens.Lens' GetApplicationPolicyResponse Prelude.Int

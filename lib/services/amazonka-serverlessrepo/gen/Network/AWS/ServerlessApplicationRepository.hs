@@ -51,23 +51,23 @@ module Network.AWS.ServerlessApplicationRepository
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -87,59 +87,11 @@ module Network.AWS.ServerlessApplicationRepository
     CreateApplicationVersionResponse (CreateApplicationVersionResponse'),
     newCreateApplicationVersionResponse,
 
-    -- ** GetCloudFormationTemplate
-    GetCloudFormationTemplate (GetCloudFormationTemplate'),
-    newGetCloudFormationTemplate,
-    GetCloudFormationTemplateResponse (GetCloudFormationTemplateResponse'),
-    newGetCloudFormationTemplateResponse,
-
     -- ** UnshareApplication
     UnshareApplication (UnshareApplication'),
     newUnshareApplication,
     UnshareApplicationResponse (UnshareApplicationResponse'),
     newUnshareApplicationResponse,
-
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** CreateCloudFormationChangeSet
-    CreateCloudFormationChangeSet (CreateCloudFormationChangeSet'),
-    newCreateCloudFormationChangeSet,
-    CreateCloudFormationChangeSetResponse (CreateCloudFormationChangeSetResponse'),
-    newCreateCloudFormationChangeSetResponse,
-
-    -- ** GetApplication
-    GetApplication (GetApplication'),
-    newGetApplication,
-    GetApplicationResponse (GetApplicationResponse'),
-    newGetApplicationResponse,
-
-    -- ** ListApplicationDependencies (Paginated)
-    ListApplicationDependencies (ListApplicationDependencies'),
-    newListApplicationDependencies,
-    ListApplicationDependenciesResponse (ListApplicationDependenciesResponse'),
-    newListApplicationDependenciesResponse,
-
-    -- ** ListApplicationVersions (Paginated)
-    ListApplicationVersions (ListApplicationVersions'),
-    newListApplicationVersions,
-    ListApplicationVersionsResponse (ListApplicationVersionsResponse'),
-    newListApplicationVersionsResponse,
-
-    -- ** CreateCloudFormationTemplate
-    CreateCloudFormationTemplate (CreateCloudFormationTemplate'),
-    newCreateCloudFormationTemplate,
-    CreateCloudFormationTemplateResponse (CreateCloudFormationTemplateResponse'),
-    newCreateCloudFormationTemplateResponse,
-
-    -- ** ListApplications (Paginated)
-    ListApplications (ListApplications'),
-    newListApplications,
-    ListApplicationsResponse (ListApplicationsResponse'),
-    newListApplicationsResponse,
 
     -- ** DeleteApplication
     DeleteApplication (DeleteApplication'),
@@ -153,11 +105,59 @@ module Network.AWS.ServerlessApplicationRepository
     UpdateApplicationResponse (UpdateApplicationResponse'),
     newUpdateApplicationResponse,
 
+    -- ** CreateCloudFormationTemplate
+    CreateCloudFormationTemplate (CreateCloudFormationTemplate'),
+    newCreateCloudFormationTemplate,
+    CreateCloudFormationTemplateResponse (CreateCloudFormationTemplateResponse'),
+    newCreateCloudFormationTemplateResponse,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
+
+    -- ** ListApplicationDependencies (Paginated)
+    ListApplicationDependencies (ListApplicationDependencies'),
+    newListApplicationDependencies,
+    ListApplicationDependenciesResponse (ListApplicationDependenciesResponse'),
+    newListApplicationDependenciesResponse,
+
+    -- ** ListApplicationVersions (Paginated)
+    ListApplicationVersions (ListApplicationVersions'),
+    newListApplicationVersions,
+    ListApplicationVersionsResponse (ListApplicationVersionsResponse'),
+    newListApplicationVersionsResponse,
+
+    -- ** GetApplication
+    GetApplication (GetApplication'),
+    newGetApplication,
+    GetApplicationResponse (GetApplicationResponse'),
+    newGetApplicationResponse,
+
+    -- ** GetCloudFormationTemplate
+    GetCloudFormationTemplate (GetCloudFormationTemplate'),
+    newGetCloudFormationTemplate,
+    GetCloudFormationTemplateResponse (GetCloudFormationTemplateResponse'),
+    newGetCloudFormationTemplateResponse,
+
+    -- ** CreateCloudFormationChangeSet
+    CreateCloudFormationChangeSet (CreateCloudFormationChangeSet'),
+    newCreateCloudFormationChangeSet,
+    CreateCloudFormationChangeSetResponse (CreateCloudFormationChangeSetResponse'),
+    newCreateCloudFormationChangeSetResponse,
+
     -- ** PutApplicationPolicy
     PutApplicationPolicy (PutApplicationPolicy'),
     newPutApplicationPolicy,
     PutApplicationPolicyResponse (PutApplicationPolicyResponse'),
     newPutApplicationPolicyResponse,
+
+    -- ** ListApplications (Paginated)
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
 
     -- * Types
 
